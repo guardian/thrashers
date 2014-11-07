@@ -1,2 +1,2 @@
 DIR=${PWD##*/}
-grunt -v --folderName=$DIR
+grunt --folderName=$DIR

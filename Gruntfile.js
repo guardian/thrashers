@@ -1,7 +1,6 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-json-generator');
 
   grunt.initConfig({
     vars: {
@@ -9,12 +8,8 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
-        files: '<%= vars.dir %>/style.scss',
+        files: ['<%= vars.dir %>/*.scss', '<%= vars.dir %>/*.html'],
         tasks: ['sass']
-      },
-      json: {
-        files: '<%= vars.dir %>/<%= vars.dir %>.html',
-        tasks: ['json_generatorC']
       }
     },
     sass: {
@@ -26,17 +21,21 @@ module.exports = function(grunt) {
             '<%= vars.dir %>/style.css' : '<%= vars.dir %>/style.scss'
         }
       }
-    },
-    json_generator: {
-      target: {
-        dest: '<%= vars.dir %>/template.json',
-        options: {
-          html: "test",
-          previous: "",
-          refreshStatus: true
-        }
-      }
     }
+  });
+  
+  grunt.event.on('watch', function(action, filepath, target) {
+    var dir = grunt.option('folderName');
+    var html = grunt.file.read(dir + "/" + dir + ".html");
+    var css = grunt.file.read(dir + "/style.css");
+    var jsonFile = dir + "/" + dir + ".json";
+
+    var project = grunt.file.readJSON(jsonFile);
+    project["html"] = '<div class="'+ dir +'__wrapper">' +
+                        '<style>' + css + '</style>' +
+                        html +
+                      '</div>';
+    grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
   });
 
   grunt.registerTask('default', ['sass', 'watch']);
