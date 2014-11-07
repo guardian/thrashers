@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-json-generator');
 
   grunt.initConfig({
     vars: {
@@ -8,8 +9,12 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
-        files: './style.scss',
+        files: '<%= vars.dir %>/style.scss',
         tasks: ['sass']
+      },
+      json: {
+        files: '<%= vars.dir %>/<%= vars.dir %>.html',
+        tasks: ['json_generatorC']
       }
     },
     sass: {
@@ -19,6 +24,16 @@ module.exports = function(grunt) {
         },
         files: {
             '<%= vars.dir %>/style.css' : '<%= vars.dir %>/style.scss'
+        }
+      }
+    },
+    json_generator: {
+      target: {
+        dest: '<%= vars.dir %>/template.json',
+        options: {
+          html: "test",
+          previous: "",
+          refreshStatus: true
         }
       }
     }
