@@ -1,2 +1,0 @@
-DIR=${PWD##*/}
-grunt --folderName=$DIR

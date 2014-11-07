@@ -1,10 +1,12 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.initConfig({
     vars: {
-      dir: grunt.option('folderName')
+      dir: "embeds/" + grunt.option('folderName'),
+      newDir: grunt.option('name')
     },
     watch: {
       css: {
@@ -21,14 +23,25 @@ module.exports = function(grunt) {
             '<%= vars.dir %>/style.css' : '<%= vars.dir %>/style.scss'
         }
       }
+    },
+    copy: {
+      main: {
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['template/*.*'],
+          dest: 'embeds/<%= vars.newDir %>'
+        }]
+      }
     }
   });
-  
-  grunt.event.on('watch', function(action, filepath, target) {
+
+  grunt.event.on('watch', function() {
     var dir = grunt.option('folderName');
-    var html = grunt.file.read(dir + "/" + dir + ".html");
-    var css = grunt.file.read(dir + "/style.css");
-    var jsonFile = dir + "/" + dir + ".json";
+    var fullDir = "embeds/" + dir;
+    var html = grunt.file.read(fullDir + "/index.html");
+    var css = grunt.file.read(fullDir + "/style.css");
+    var jsonFile = fullDir + "/source.json";
 
     var project = grunt.file.readJSON(jsonFile);
     project["html"] = '<div class="'+ dir +'__wrapper">' +
