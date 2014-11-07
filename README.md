@@ -1,4 +1,4 @@
-thrashers
+Thrashers
 =========
 
 Collection of special thrasher containers/snaps for the frontend project. View them all the [Thrasher front](http://m.code.dev-theguardian.com/thrashers).
