@@ -1,15 +1,44 @@
 thrashers
 =========
 
-Collection of special thrasher containers/snaps for the frontend project
+Collection of special thrasher containers/snaps for the frontend project. View them all the [Thrasher front](http://m.code.dev-theguardian.com/thrashers).
 
 
-Install
-========
+## Installation
 
-Give it some `npm install` yeah? `bundle install` and `bower install` ain't half bad either.
+You will need
 
-[Have a goosey](http://m.code.dev-theguardian.com/thrashers)
+ * [Node.js](http://nodejs.org/)
+ * [Bower](http://bower.io/)
+ * [Bundler](http://bundler.io/)
 
+Then install the project dependencies with
 
-Creating a new snap: `grunt copy --name=embed-name`
+```
+npm install
+```
+
+Ruby dependencies 
+```
+bundle
+```
+
+Sass components (not required but advised)
+```
+bower install
+```
+
+## Usage
+
+To create a new project use
+```
+grunt copy --name=the-name-of-your-embed
+```
+
+This will create a copy of the template inside `\embeds`.
+
+Then `cd` into that folder and run the follow command to watch for changes and compile the json file.
+
+```
+sh compile.sh
+```
