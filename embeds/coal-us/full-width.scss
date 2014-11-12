@@ -12,7 +12,7 @@
     }
 }
 
-#coal-us .facia-container__inner {
+#coal-us .fc-container__inner {
     border-top: none;
     padding-top: 0px;
 
@@ -27,12 +27,8 @@
     display: none;
 }
 
-#coal-us .facia-slice {
+#coal-us .fc-slice {
     margin: 0;
-    width: 100%;
-}
-
-#coal-us .facia-slice-item {
     width: 100%;
 }
 
@@ -40,7 +36,7 @@
     width: 96%;
 }
 
-#coal-us .facia-slice-wrapper {
+#coal-us .fc-slice-wrapper {
     margin-left: 0;
     margin-right: 0;
 
@@ -50,7 +46,7 @@
     }
 }
 
-#coal-us .facia-slice__item {
+#coal-us .fc-slice__item {
     margin-bottom: 0px !important;
     width: 100%;
 }

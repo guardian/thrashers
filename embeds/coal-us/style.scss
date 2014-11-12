@@ -38,6 +38,10 @@ $c-commentAccent: #e6711b;
     background: transparent;
     position: absolute !important;
     z-index: 3 !important;
+
+    &:hover ~ .coal-us__type .coal-us__button {
+        background-color: #7d0068 !important;
+    }
 }
 
 // Typography
@@ -61,41 +65,46 @@ $c-commentAccent: #e6711b;
     }
 }
 
-.coal-us__title,
-.coal-us__subtitle {
-    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+.coal-us__report {
+    color: #f7acbb;
     font-weight: 900;
     font-size: 20px;
     line-height: 20px;
+    margin-bottom: 5px;
+
+    @include mq($until: tablet) {
+        display: none;
+    }
+}
+
+.coal-us__title,
+.coal-us__subtitle {
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    font-size: 20px;
+    line-height: 20px;
+    color: white;
 
     @include mq(mobileLandscape) {
         font-size: 28px;
         line-height: 30px;
     }
+
+    @include mq(tablet) {
+        font-size: 38px;
+        line-height: 36px;
+    }
 }
 
 .coal-us__title {
-    color: white;
-
-    @include mq(tablet) {
-        font-size: 48px;
-        line-height: 52px;
-    }
+    font-weight: 900;
 }
 
 .coal-us__subtitle {
-    color: #951c55;
+    font-weight: 400;
 
-    @include mq(tablet) {
-        font-size: 23px;
-        line-height: 22px;
-        bottom: 10px;
-        position: absolute;
-    }
-    
-    @include mq(desktop) {
-        font-size: 28px;
-        line-height: 26px;
+    @include mq($until: tablet) {
+        font-weight: 900;
+        color: #b72166;
     }
 
     br {
@@ -108,6 +117,21 @@ $c-commentAccent: #e6711b;
         @include mq(tablet, desktop) {
             display: none;
         }
+    }
+}
+
+.coal-us__button {
+    position: absolute !important;
+    bottom: 10px;
+    background-color: #b72166 !important;
+    border: none !important;
+    margin-left: -6px;
+    height: 26px !important;
+
+    .coal-us__button__icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 2px;
     }
 }
 
@@ -126,19 +150,19 @@ $c-commentAccent: #e6711b;
     }
     
     @include mq(tablet) {
-        top: -75%;
+        top: -138px;
     }
 
     @include mq(desktop) {
-        top: -83%;
+        top: -210px;
     }
 
     @include mq(leftCol) {
-        top: -91%;
+        top: -250px;
     }
 
     @include mq(wide) {
-        top: -120%;
+        top: -323px;
     }
 
     video {
