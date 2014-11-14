@@ -40,5 +40,5 @@ This will create a copy of the template inside `\embeds`.
 Then `cd` into that folder and run the follow command to watch for changes and compile the json file.
 
 ```
-sh compile.sh
+grunt compile --folderName=the-name-of-your-embed
 ```
