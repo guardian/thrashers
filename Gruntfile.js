@@ -2,11 +2,15 @@
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-aws-s3');
 
   var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
   var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
   var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/**/*.html'); 
   var newDir = grunt.option('name');
+  var aws = grunt.file.readJSON('aws-keys.json');
+
+  console.log(aws.AWSAccessKeyID);
 
   grunt.initConfig({
     watch: {
@@ -29,6 +33,27 @@
         }]
       }
     },
+    aws_s3: {
+      options: {
+        accessKeyId: aws.AWSAccessKeyID,
+        secretAccessKey: aws.AWSSecretKey,
+        region: 'us-west-2'
+      },
+      production: {
+        options: {
+          bucket: 'gdn-cdn',
+          params: {
+            CacheControl: 'max-age=60'
+          }
+        },
+        files: [{
+           expand: true,
+           cwd: dir,
+           src: '**/*',
+           dest: 'gdn-cdn/thrashers/'
+        }]
+      }
+    },
     copy: {
       main: {
         files: [{
@@ -47,6 +72,7 @@
         var css = grunt.file.read(path + "/style.css");
         var jsonFile = path + "/source.json";
         var localDir = path.split('/')[1];
+        console.log(jsonFile);
         var project = grunt.file.readJSON(jsonFile);
         
         project["html"] = '<div class="'+ localDir +'__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
