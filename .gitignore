@@ -4,3 +4,4 @@ components/
 node_modules/
 style.css.map
 style.css
+aws-keys.json
