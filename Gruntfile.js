@@ -3,12 +3,14 @@
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-aws-s3');
+  grunt.loadNpmTasks('grunt-prompt');
 
   var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
   var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
   var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/**/*.html'); 
   var newDir = grunt.option('name');
   var aws = grunt.file.readJSON('aws-keys.json');
+  var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
   grunt.initConfig({
     watch: {
@@ -52,7 +54,7 @@
            expand: true,
            cwd: dir,
            src: ['**/*.json', '**/*.png'],
-           dest: 'thrashers/'
+           dest: remoteDir
         }]
       }
     },
@@ -64,6 +66,32 @@
           src: ['template/*.*'],
           dest: 'embeds/' + newDir
         }]
+      }
+    },
+    prompt: {
+      input: {
+        options: {
+          questions: [
+            {
+              config: 'snap.url',
+              type: 'input',
+              message: 'Fallback URL',
+              default: 'www.theguardian.com'
+            },
+            {
+              config: 'snap.headline',
+              type: 'input',
+              message: 'Headline',
+              default: 'The Guardian'
+            },
+            {
+              config: 'snap.trailText',
+              type: 'input',
+              message: 'Trail Text',
+              default: 'Latest news, sport and comment from the Guardian'
+            }
+          ]
+        }
       }
     }
   });
@@ -82,8 +110,19 @@
       });
   });
 
+  grunt.registerTask('return-paths', function() {
+      console.log(remoteDir);
+      var snap = grunt.config('snap');
+      var s3Path = "http://interactive.guim.co.uk/" + remoteDir + "/source.json";
+      var snapPath = snap.url + "?gu-snapType=json.html&gu-snapUri=" + encodeURIComponent(s3Path) + "&gu-headline=" + encodeURIComponent(snap.headline) + "&gu-trailText=" + encodeURIComponent(snap.trailText);
+
+      grunt.log.writeln("S3 Path: "['yellow'].bold + s3Path);
+      grunt.log.writeln("Snap Path: "['green'].bold + snapPath);
+  });
+
   grunt.registerTask('new', ['copy']);
   grunt.registerTask('default', ['sass', 'compile']);
   grunt.registerTask('local', ['watch:local']);
   grunt.registerTask('remote', ['watch:remote']);
+  grunt.registerTask('paths', ['prompt:input', 'return-paths']);
 };
