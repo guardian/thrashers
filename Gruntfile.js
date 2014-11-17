@@ -64,7 +64,7 @@
           expand: true,
           flatten: true,
           src: ['template/*.*'],
-          dest: 'embeds/<%= vars.newDir %>'
+          dest: 'embeds/' + newDir
         }]
       }
     }
