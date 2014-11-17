@@ -5,11 +5,11 @@
   grunt.loadNpmTasks('grunt-aws-s3');
   grunt.loadNpmTasks('grunt-prompt');
 
+  var aws = grunt.file.readJSON('aws-keys.json');
+  var newDir = grunt.option('name');
   var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
   var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
   var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/**/*.html'); 
-  var newDir = grunt.option('name');
-  var aws = grunt.file.readJSON('aws-keys.json');
   var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
   grunt.initConfig({
