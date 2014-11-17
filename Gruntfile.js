@@ -102,9 +102,8 @@
         var css = grunt.file.read(path + "/style.css");
         var jsonFile = path + "/source.json";
         var localDir = path.split('/')[1];
-        console.log(jsonFile);
         var project = grunt.file.readJSON(jsonFile);
-        
+
         project["html"] = '<div class="'+ localDir +'__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
         grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
       });
