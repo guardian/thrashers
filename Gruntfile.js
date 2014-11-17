@@ -110,7 +110,6 @@
   });
 
   grunt.registerTask('return-paths', function() {
-      console.log(remoteDir);
       var snap = grunt.config('snap');
       var s3Path = "http://interactive.guim.co.uk/" + remoteDir + "/source.json";
       var snapPath = snap.url + "?gu-snapType=json.html&gu-snapUri=" + encodeURIComponent(s3Path) + "&gu-headline=" + encodeURIComponent(snap.headline) + "&gu-trailText=" + encodeURIComponent(snap.trailText);
