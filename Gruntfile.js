@@ -10,8 +10,6 @@
   var newDir = grunt.option('name');
   var aws = grunt.file.readJSON('aws-keys.json');
 
-  console.log(aws.AWSAccessKeyID);
-
   grunt.initConfig({
     watch: {
       local: {
