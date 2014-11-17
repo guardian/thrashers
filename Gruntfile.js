@@ -18,7 +18,7 @@
         files: [scss, html],
         tasks: ['sass', 'compile']
       },
-      deploy: {
+      remote: {
         files: [scss, html],
         tasks: ['sass', 'compile', 'aws_s3']
       }
@@ -53,7 +53,7 @@
         files: [{
            expand: true,
            cwd: dir,
-           src: '**/*',
+           src: ['**/*.json', '**/*.png'],
            dest: 'thrashers/'
         }]
       }
@@ -87,5 +87,5 @@
   grunt.registerTask('new', ['copy']);
   grunt.registerTask('default', ['sass', 'compile']);
   grunt.registerTask('local', ['watch:local']);
-  grunt.registerTask('deploy', ['watch:deploy']);
+  grunt.registerTask('remote', ['watch:remote']);
 };
