@@ -14,9 +14,13 @@
 
   grunt.initConfig({
     watch: {
-      css: {
+      local: {
         files: [scss, html],
         tasks: ['sass', 'compile']
+      },
+      deploy: {
+        files: [scss, html],
+        tasks: ['sass', 'compile', 'aws_s3']
       }
     },
     sass: {
@@ -37,7 +41,7 @@
       options: {
         accessKeyId: aws.AWSAccessKeyID,
         secretAccessKey: aws.AWSSecretKey,
-        region: 'us-west-2'
+        region: 'us-east-1'
       },
       production: {
         options: {
@@ -50,7 +54,7 @@
            expand: true,
            cwd: dir,
            src: '**/*',
-           dest: 'gdn-cdn/thrashers/'
+           dest: 'thrashers/'
         }]
       }
     },
@@ -82,4 +86,6 @@
 
   grunt.registerTask('new', ['copy']);
   grunt.registerTask('default', ['sass', 'compile']);
+  grunt.registerTask('local', ['watch:local']);
+  grunt.registerTask('deploy', ['watch:deploy']);
 };
