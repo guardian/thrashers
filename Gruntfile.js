@@ -9,7 +9,7 @@
   var newDir = grunt.option('name');
   var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
   var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
-  var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/**/*.html'); 
+  var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/**/*.html');
   var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
   grunt.initConfig({
