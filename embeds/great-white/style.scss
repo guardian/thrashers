@@ -1,0 +1,57 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'components/guss-colours/_colours';
+@import 'components/pasteup-palette/src/_palette';
+@import 'components/sass-mq/_mq';
+@import 'shared/_mixins';
+
+@include full-width(great-white);
+
+.great-white__container {
+    
+}
+
+.great-white__content {
+    position: relative;
+    z-index: 2;
+    padding: 10px 20px;
+
+    @include mq(tablet) {
+        height: 240px;
+    }
+}
+
+.great-white__headline {
+    color: white;
+
+    @include mq(tablet) {
+        font-size: 52px;
+        line-height: 48px;
+    }
+
+    &.great-white__headline--2 {
+        display: none;
+    }
+}
+
+.great-white__video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+
+    video {
+        width: 100%;
+    }
+}
