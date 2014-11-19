@@ -17,7 +17,7 @@ $c-feature: #b72166;
 @import 'shared/_css3';
 @import 'shared/_mixins';
 
-@include full-width(great-white);
+@include full-width(great-white, #a0abc1);
 
 .great-white__anchor {
     top: 0;
@@ -50,7 +50,30 @@ $c-feature: #b72166;
     }
 }
 
+@include keyframes(textToggle) {
+    0% {
+        opacity: 0;
+        margin-top: -5px;
+    }
+    2% {
+        opacity: 1;
+        margin-top: 0px;
+    }
+    50% {
+        opacity: 1;
+    }
+    52% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .great-white__headline {
+    position: absolute;
+    top: 10px;
+    width: 340px;
     color: white;
 
     @include mq(tablet) {
@@ -58,8 +81,14 @@ $c-feature: #b72166;
         line-height: 48px;
     }
 
+    &.great-white__headline--1 {
+        @include animation(textToggle 12s linear infinite);
+    }
+
     &.great-white__headline--2 {
-        display: none;
+        @include animation(textToggle 12s linear infinite);
+        @include animation-delay(6s);
+        opacity: 0;
     }
 
     .great-white__headline__alt {
@@ -76,9 +105,9 @@ $c-feature: #b72166;
         top: -8px;
         left: 30px;
     }
-    45% {
+    35% {
         top: -8px;
-        left: 130px;
+        left: 125px;
     }
     50% {
         top: 5px;
@@ -131,5 +160,6 @@ $c-feature: #b72166;
 
     video {
         width: 100%;
+        margin-top: -100px;
     }
 }
