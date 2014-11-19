@@ -9,15 +9,35 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
+$c-feature: #b72166;
+
 @import 'components/guss-colours/_colours';
 @import 'components/pasteup-palette/src/_palette';
 @import 'components/sass-mq/_mq';
+@import 'shared/_css3';
 @import 'shared/_mixins';
 
 @include full-width(great-white);
 
-.great-white__container {
-    
+.great-white__anchor {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    background: transparent;
+    position: absolute !important;
+    z-index: 3 !important;
+
+    &:hover ~ .great-white__content .great-white__button {
+        background-color: darken($c-feature, 10%) !important;
+
+        .great-white__button__fin path {
+            fill: darken($c-feature, 10%) !important;
+        }
+    }
 }
 
 .great-white__content {
@@ -40,6 +60,64 @@ $mq-breakpoints: (
 
     &.great-white__headline--2 {
         display: none;
+    }
+
+    .great-white__headline__alt {
+        color: #333;
+    }
+}
+
+@include keyframes(jaws) {
+    0% {
+        top: 5px;
+        left: 10px;
+    }
+    10% {
+        top: -8px;
+        left: 30px;
+    }
+    45% {
+        top: -8px;
+        left: 130px;
+    }
+    50% {
+        top: 5px;
+        left: 145px;
+    }
+}
+
+.button.great-white__button {
+    position: absolute;
+    bottom: 10px;
+    background-color: $c-feature;
+    border: none;
+    margin-left: -6px;
+    height: 30px;
+
+    @include mq(tablet) {
+        line-height: 32px;
+    }
+
+    .great-white__button__fin {
+        content: '';
+        height: 9px;
+        width: 15px;
+        position: absolute;
+        top: 5px;
+        z-index: 3;
+        background: url('https://s3.amazonaws.com/gdn-cdn/thrashers/great-white/source/fin.svg') no-repeat;
+        @include animation(jaws 4s linear infinite);
+    }
+
+    .great-white__button__label {
+        position: relative;
+        z-index: 5;
+    }
+
+    .great-white__button__icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 2px;
     }
 }
 
