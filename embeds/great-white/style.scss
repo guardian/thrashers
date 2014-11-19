@@ -34,6 +34,10 @@ $c-feature: #b72166;
     &:hover ~ .great-white__content .great-white__button {
         background-color: darken($c-feature, 10%) !important;
 
+        .great-white__button__fin {
+            @include animation(jaws 4s linear);
+        }
+
         .great-white__button__fin path {
             fill: darken($c-feature, 10%) !important;
         }
@@ -43,9 +47,15 @@ $c-feature: #b72166;
 .great-white__content {
     position: relative;
     z-index: 2;
-    padding: 10px 20px;
+    padding: 0px 20px;
+    height: 170px;
 
     @include mq(tablet) {
+        height: 200px;
+        padding: 10px 20px;
+    }
+
+    @include mq(desktop) {
         height: 240px;
     }
 }
@@ -72,11 +82,23 @@ $c-feature: #b72166;
 
 .great-white__headline {
     position: absolute;
-    top: 10px;
-    width: 340px;
     color: white;
+    font-size: 26px;
+    line-height: 26px;
+    top: 8px;
+    
+    @include mq(mobileLandscape) {
+        width: 40%;
+    }
 
     @include mq(tablet) {
+        width: 340px;
+        font-size: 38px;
+        line-height: 36px;
+        top: 10px;
+    }
+
+    @include mq(desktop) {
         font-size: 52px;
         line-height: 48px;
     }
@@ -135,7 +157,6 @@ $c-feature: #b72166;
         top: 5px;
         z-index: 3;
         background: url('https://s3.amazonaws.com/gdn-cdn/thrashers/great-white/source/fin.svg') no-repeat;
-        @include animation(jaws 4s linear infinite);
     }
 
     .great-white__button__label {
@@ -150,6 +171,22 @@ $c-feature: #b72166;
     }
 }
 
+.great-white__guardian-logo {
+    bottom: 10px;
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+
+
+    @include mq($until: phablet) {
+        display: none;
+    }
+
+    @include mq(leftCol) {
+        bottom: 10px;
+    }
+}
+
 .great-white__video-wrapper {
     position: absolute;
     top: 0;
@@ -159,7 +196,15 @@ $c-feature: #b72166;
     width: 100%;
 
     video {
-        width: 100%;
-        margin-top: -100px;
+        width: 120%;
+
+        @include mq(mobileLandscape) {
+            margin-top: -20px;
+            width: 100%;
+        }
+
+        @include mq(tablet) {
+            margin-top: -100px;
+        }
     }
 }
