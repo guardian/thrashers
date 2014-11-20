@@ -1,0 +1,215 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-background: #654c5b;
+$c-liveRed: #b51800;
+$c-lightGrey: #dadada;
+$c-darkGray: #333333;
+
+@import 'components/guss-colours/_colours';
+@import 'components/pasteup-palette/src/_palette';
+@import 'components/sass-mq/_mq';
+@import 'shared/_css3';
+@import 'shared/_mixins';
+
+@include full-width(mumbai-live, #d6b991);
+
+.mumbai-live__anchor {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    position: absolute !important;
+    z-index: 2 !important;
+    cursor: pointer;
+
+    &:hover ~ .mumbai-live__content .mumbai-live__buttons .button.mumbai-live__button {
+        background-color: darken($c-liveRed, 10%);
+    }
+}
+
+.mumbai-live__wrapper {
+    width: 100%;
+    background-color: $c-background;
+    position: relative;
+    overflow: hidden;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    background-image: url('http://interactive.guim.co.uk/thrashers/mumbai-live/source/background.jpg');
+    background-position: top center;
+    background-size: cover;
+
+    @include mq($until: desktop) {
+        background-position-x: 32%;
+    }
+
+    @include mq(phablet, desktop) {
+        background-size: 145%;
+    }
+}
+
+.mumbai-live__content {
+    color: white;
+    padding: 10px 20px;
+    height: 180px;
+    position: relative;
+
+    @include mq(phablet) {
+        height: 200px;
+        width: 100%;
+    }
+
+    @include mq(desktop) {
+        height: 220px;
+        width: 540px;
+    }
+
+    @include mq(leftCol) {
+        height: 260px;
+    }
+}
+
+// Headlines & Copy
+
+.mumbai-live__series,
+.mumbai-live__headline,
+.mumbai-live__trail {
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    margin: 0;
+    padding: 0;
+}
+
+.mumbai-live__series {
+    font-weight: 500;
+    color: $c-darkGray;
+}
+
+.mumbai-live__series,
+.mumbai-live__trail {
+    font-size: 14px;
+    line-height: 18px;
+
+    @include mq(desktop) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+.mumbai-live__headline {
+    font-size: 24px;
+    line-height: 22px;
+    color: $c-liveRed;
+
+    @include mq($until: phablet) {
+        width: 60%;
+    }
+
+    @include mq(phablet) {
+        font-size: 48px;
+        line-height: 50px;
+    }
+
+    @include mq(desktop) {
+        font-size: 54px;
+        line-height: 58px;
+    }
+}
+
+.mumbai-live__trail {
+    font-weight: 500;
+    margin-bottom: 8px;
+    max-width: 360px;
+
+    @include mq($until: mobileLandscape) {
+        width: 80%;
+    }
+
+    @include mq(mobileLandscape, phablet) {
+        width: 50%;
+    }
+}
+
+// Buttons
+
+.mumbai-live__buttons {
+    position: absolute;
+    bottom: 10px;
+}
+
+.button.mumbai-live__button {
+    margin-left: -4px;
+    cursor: pointer;
+
+    @include mq(tablet) {
+        height: 26px !important;
+        width: 200px;
+        display: block;
+    }
+
+    .mumbai-live__button__icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 2px;
+
+        @include mq(tablet) {
+            margin-top: 5px;
+            float: right;
+        }
+    }
+}
+
+.button.mumbai-live__button--watch {
+    background-color: $c-liveRed;
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+
+    &:hover {
+        background-color: darken($c-liveRed, 10%);
+    }
+}
+
+.button.mumbai-live__button--more {
+    background-color: transparent;
+    color: $c-liveRed;
+    border: 1px solid $c-liveRed;
+
+    @include mq($until: mobileLandscape) {
+        display: none;
+    }
+
+    &:hover {
+        background-color: darken($c-liveRed, 10%);
+        color: $c-darkGray;
+        border-color: darken($c-liveRed, 10%);
+        
+        .mumbai-live__button__icon path {
+            fill: $c-darkGray;
+        }
+    }
+}
+
+// Guardian Logo
+
+.mumbai-live__guardian-logo {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 0;
+
+    @include mq($until: phablet) {
+        display: none;
+    }
+
+    @include mq(leftCol) {
+        bottom: 10px;
+    }
+}
