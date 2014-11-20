@@ -107,7 +107,7 @@ $c-feature: #b72166;
 
     &.great-white__headline--2 {
         @include animation(textToggle 14s linear infinite);
-        @include animation-delay(6s);
+        @include animation-delay(7s);
         opacity: 0;
     }
 
