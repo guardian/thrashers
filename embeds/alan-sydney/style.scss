@@ -227,14 +227,10 @@ $c-liveRed: #e31f26;
 
 // Logos
 
-.alan-sydney__live-logo,
-.alan-sydney__guardian-logo {
+.alan-sydney__live-logo {
     position: absolute;
     z-index: 2;
     right: 20px;
-}
-
-.alan-sydney__live-logo {
     top: 0;
 
     @include mq($until: mobileLandscape) {
@@ -260,8 +256,11 @@ $c-liveRed: #e31f26;
     }
 }
 
-.alan-sydney__guardian-logo {
-    bottom: 0;
+.alan-sydney__carriage {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 10px;
 
     @include mq($until: phablet) {
         display: none;
@@ -269,6 +268,25 @@ $c-liveRed: #e31f26;
 
     @include mq(leftCol) {
         bottom: 10px;
+    }
+
+    .alan-sydney__carriage__label {
+        font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+        font-size: 12px;
+        line-height: 14px;
+        color: #dedede;
+        display: block;
+        text-align: right;
+    }
+
+    .alan-sydney__carriage__logo {
+        width: 140px;
+        height: 24px;
+
+        @include mq(desktop) {
+            width: 160px;
+            height: 26px;
+        }
     }
 }
 
