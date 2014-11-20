@@ -1,0 +1,65 @@
+/* Facia Stuff */
+
+#off-the-page-part-one {
+    background-color: $c-background;
+    border-top: 0;
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding-bottom: 0;
+
+    @include mq($until: tablet) {
+        border-top: 1px solid #333;
+    }
+}
+
+#off-the-page-part-one .fc-container__inner {
+    border-top: none;
+    padding-top: 0px;
+
+    @include mq($until: tablet) {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+#off-the-page-part-one .fc-container__header {
+    display: none;
+}
+
+#off-the-page-part-one .fc-slice {
+    margin: 0;
+    width: 100%;
+}
+
+.has-no-flex-wrap #off-the-page-part-one .coal-us__wrapper {
+    width: 96%;
+}
+
+#off-the-page-part-one .fc-slice-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+
+    @include mq(tablet){
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
+
+#off-the-page-part-one .fc-slice__item {
+    margin-bottom: 0px !important;
+    width: 100%;
+}
+
+#off-the-page-part-one .fc-container__body {
+    margin-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    overflow: initial;
+}
+
+#off-the-page-part-one .fc-item {
+    margin: 0;
+    overflow: auto;
+}
