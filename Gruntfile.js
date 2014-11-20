@@ -53,7 +53,7 @@
         files: [{
            expand: true,
            cwd: dir,
-           src: ['**/*.json', '**/**/source/*'],
+           src: ['**/*.json', '**/source/*'],
            dest: remoteDir
         }]
       }
