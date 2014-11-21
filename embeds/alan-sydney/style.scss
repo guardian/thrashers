@@ -12,10 +12,7 @@ $mq-breakpoints: (
 $c-background: #a8a8a8;
 $c-liveRed: #e31f26;
 
-@import 'components/guss-colours/_colours';
-@import 'components/pasteup-palette/src/_palette';
-@import 'components/sass-mq/_mq';
-@import 'shared/_css3';
+@import 'shared/_imports';
 @import 'embeds/alan-sydney/partials/_full-width';
 
 .alan-sydney__anchor {

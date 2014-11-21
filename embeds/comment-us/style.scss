@@ -299,57 +299,27 @@ $contributors: jess-zimmerman, jeb-lund, trevor-timm, roxane-gay, steven-thrashe
             bottom: -10%;
             width: auto;
             height: 120%;
-
-            @at-root .comment-us__contributor--steven-thrasher#{&} {
-               height: 130%;
-            }
         }
 
 
         @include mq($until: mobileLandscape) {
             height: 100%;
             right: -20%;
-
-            @at-root .comment-us__contributor--steven-thrasher#{&} {
-                height: 105%;
-                right: -24%;
-            }
         }
 
         @include mq($until: mobile) {
             height: 80%;
             right: -18%;
-
-            @at-root .comment-us__contributor--steven-thrasher#{&} {
-                height: 90%;
-            }
         }
 
         @include mq(tablet) {
             height: auto;
             width: 235%;
             margin-left: -70%;
-
-            @at-root .comment-us__contributor--roxane-gay#{&} {
-                margin-left: -60%;
-            }
-
-            @at-root .comment-us__contributor--steven-thrasher#{&} {
-                width: 252%;
-                margin-top: -15%;
-                margin-left: -75%;
-            }
         }
 
         @include mq(wide) {
             width: 205%;
-
-            @at-root .comment-us__contributor--steven-thrasher#{&} {
-                width: 230%;
-                margin-bottom: -20%;
-                margin-top: -15%;
-                margin-left: -75%;
-            }
         }
     }
 }

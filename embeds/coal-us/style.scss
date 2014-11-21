@@ -12,10 +12,7 @@ $mq-breakpoints: (
 $c-commentBackground: #e4e0e0;
 $c-commentAccent: #e6711b;
 
-@import 'components/guss-colours/_colours';
-@import 'components/pasteup-palette/src/_palette';
-@import 'components/sass-mq/_mq';
-
+@import 'shared/_imports';
 @import 'embeds/coal-us/partials/_full-width';
 
 .coal-us__wrapper {
