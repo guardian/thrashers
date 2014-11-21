@@ -1,0 +1,93 @@
+/**
+ * Full Width Presentation
+ * Description: Removes properties from the container to make the snap appear full-width
+ */
+
+@mixin full-width($containerName, $c-background: #dedede) {
+    ##{$containerName} {
+        background-color: $c-background;
+        border-top: 0;
+        margin-top: 0;
+        margin-bottom: 24px;
+        padding-bottom: 0;
+    }
+
+    ##{$containerName} .fc-container__inner {
+        border-top: none;
+        padding-top: 0px;
+    
+        @include mq($until: tablet) {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+
+    ##{$containerName} .fc-container__header {
+        display: none;
+    }
+
+    ##{$containerName} .fc-slice {
+        margin: 0;
+        width: 100%;
+    }
+
+    .has-no-flex-wrap ##{$containerName} .coal-us__wrapper {
+        width: 96%;
+    }
+
+    ##{$containerName} .fc-slice-wrapper {
+        margin-left: 0;
+        margin-right: 0;
+    
+        @include mq(tablet){
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+    }
+
+    ##{$containerName} .fc-slice__item {
+        margin-bottom: 0px !important;
+        width: 100%;
+    }
+    
+    ##{$containerName} .fc-container__body {
+        margin-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 100%;
+        overflow: initial;
+    }
+    
+    ##{$containerName} .fc-item {
+        margin: 0;
+        overflow: auto;
+    }
+    
+    .#{$containerName}__wrapper {
+        width: 100%;
+        background-color: $c-background;
+        position: relative;
+        overflow: hidden;
+        font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    }
+}
+
+/**
+ * Rule
+ * Description: Place a rule on top of the thrasher on all breakpoints
+ */
+ 
+ @mixin rule($containerName, $c-rule: #005689) {
+    ##{$containerName} {
+        @include mq($until: tablet) {
+            border-top: 1px solid $c-rule;
+        }
+    }
+
+    ##{$containerName} .fc-container__inner {
+        @include mq(tablet) {
+            border-top: 1px solid $c-rule;
+        }
+    }
+ }
