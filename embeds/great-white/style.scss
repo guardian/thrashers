@@ -35,7 +35,9 @@ $c-feature: #b72166;
         background-color: darken($c-feature, 10%) !important;
 
         .great-white__button__fin {
-            @include animation(jaws 4s linear);
+            @include mq(tablet) {
+                @include animation(jaws 4s linear);
+            }
         }
 
         .great-white__button__fin path {
@@ -156,6 +158,10 @@ $c-feature: #b72166;
         left: 10px;
         z-index: 3;
         background: url('https://s3.amazonaws.com/gdn-cdn/thrashers/great-white/source/fin.svg') no-repeat;
+
+        @include mq($until: tablet) {
+            @include animation(jaws 4s linear infinite);
+        }
     }
 
     .great-white__button__label {
@@ -193,17 +199,20 @@ $c-feature: #b72166;
     right: 0;
     bottom: 0;
     width: 100%;
+    background-color: #c3cadc;
+    
+    @include mq($until: desktop) {
+        background: url('https://s3.amazonaws.com/gdn-cdn/thrashers/great-white/source/video-poster.jpg') no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
 
     video {
-        width: 120%;
+        width: 100%;
+        margin-top: -100px;
 
-        @include mq(mobileLandscape) {
-            margin-top: -20px;
-            width: 100%;
-        }
-
-        @include mq(tablet) {
-            margin-top: -100px;
+        @include mq($until: desktop) {
+            display: none;
         }
     }
 }
