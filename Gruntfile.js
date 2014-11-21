@@ -116,7 +116,6 @@ module.exports = function(grunt) {
 
         grunt.log.writeln("S3 Path: "['yellow'].bold + s3Path);
         grunt.log.writeln("Snap Path: "['green'].bold + snapPath);
-        grunt.log.writeln("Snap Path: "['green'].bold + snapPathLocal);
     });
 
     grunt.registerTask('new', ['copy']);
