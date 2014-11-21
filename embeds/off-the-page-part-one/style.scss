@@ -14,9 +14,7 @@ $c-mediaYellow: #ffbb00;
 $c-lightGrey: #dadada;
 $c-darkGray: #333333;
 
-@import 'components/guss-colours/_colours';
-@import 'components/pasteup-palette/src/_palette';
-@import 'components/sass-mq/_mq';
+@import 'shared/_imports';
 @import 'embeds/off-the-page-part-one/partials/_full-width';
 
 .off-the-page-part-one__anchor {

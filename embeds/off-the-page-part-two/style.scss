@@ -14,11 +14,7 @@ $c-mediaYellow: #ffbb00;
 $c-lightGrey: #dadada;
 $c-darkGray: #333333;
 
-@import 'components/guss-colours/_colours';
-@import 'components/pasteup-palette/src/_palette';
-@import 'components/sass-mq/_mq';
-@import 'shared/_css3';
-@import 'shared/_mixins';
+@import 'shared/_imports';
 
 @include full-width(off-the-page-part-two, #654c5b);
 
