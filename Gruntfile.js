@@ -1,9 +1,9 @@
 module.exports = function(grunt) {
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-aws-s3');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-prompt');
+    grunt.loadNpmTasks('grunt-sass');
 
     var aws = grunt.file.readJSON('aws-keys.json');
     var newDir = grunt.option('name');
@@ -116,6 +116,7 @@ module.exports = function(grunt) {
 
         grunt.log.writeln("S3 Path: "['yellow'].bold + s3Path);
         grunt.log.writeln("Snap Path: "['green'].bold + snapPath);
+        grunt.log.writeln("Snap Path: "['green'].bold + snapPathLocal);
     });
 
     grunt.registerTask('new', ['copy']);
