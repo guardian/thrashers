@@ -1,8 +1,6 @@
 {
   "name": "thrashers",
   "dependencies": {
-    "guss-colours": "~3.0.0",
-    "pasteup-palette": "~3.3.1",
     "sass-mq": "~2.2.0"
   }
 }
