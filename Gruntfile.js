@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-aws-s3');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-prompt');
@@ -37,6 +38,13 @@ module.exports = function(grunt) {
             }]
           }
         },
+        connect: {
+            server: {
+                options: {
+                    hostname: '*'
+                }
+            }
+        }
         aws_s3: {
             options: {
                 accessKeyId: aws.AWSAccessKeyID,
@@ -98,24 +106,24 @@ module.exports = function(grunt) {
 
     grunt.registerTask('compile', function() {
         grunt.file.expand({}, dir + '*').forEach(function(path) {
-            var html = grunt.file.read(path + "/index.html");
-            var css = grunt.file.read(path + "/style.css");
-            var jsonFile = path + "/source.json";
+            var html = grunt.file.read(path + '/index.html');
+            var css = grunt.file.read(path + '/style.css');
+            var jsonFile = path + '/source.json';
             var localDir = path.split('/')[1];
             var project = grunt.file.readJSON(jsonFile);
 
-            project["html"] = '<div class="'+ localDir +'__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
+            project['html'] = '<div class=''+ localDir +'__wrapper'>' + '<style>' + css + '</style>' + html + '</div>';
             grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
         });
     });
 
     grunt.registerTask('return-paths', function() {
         var snap = grunt.config('snap');
-        var s3Path = "http://interactive.guim.co.uk/" + remoteDir + "/source.json";
-        var snapPath = snap.url + "?gu-snapType=json.html&gu-snapUri=" + encodeURIComponent(s3Path) + "&gu-headline=" + encodeURIComponent(snap.headline) + "&gu-trailText=" + encodeURIComponent(snap.trailText);
+        var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
+        var snapPath = snap.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(s3Path) + '&gu-headline=' + encodeURIComponent(snap.headline) + '&gu-trailText=' + encodeURIComponent(snap.trailText);
 
-        grunt.log.writeln("S3 Path: "['yellow'].bold + s3Path);
-        grunt.log.writeln("Snap Path: "['green'].bold + snapPath);
+        grunt.log.writeln('S3 Path: '['yellow'].bold + s3Path);
+        grunt.log.writeln('Snap Path: '['green'].bold + snapPath);
     });
 
     grunt.registerTask('new', ['copy']);
