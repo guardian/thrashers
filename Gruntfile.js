@@ -40,11 +40,8 @@ module.exports = function(grunt) {
         },
         connect: {
             server: {
-                options: {
-                    hostname: '*'
-                }
             }
-        }
+        },
         aws_s3: {
             options: {
                 accessKeyId: aws.AWSAccessKeyID,
@@ -112,7 +109,7 @@ module.exports = function(grunt) {
             var localDir = path.split('/')[1];
             var project = grunt.file.readJSON(jsonFile);
 
-            project['html'] = '<div class=''+ localDir +'__wrapper'>' + '<style>' + css + '</style>' + html + '</div>';
+            project['html'] = '<div class="' + localDir + '__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
             grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
         });
     });
@@ -120,7 +117,10 @@ module.exports = function(grunt) {
     grunt.registerTask('return-paths', function() {
         var snap = grunt.config('snap');
         var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
+        var localPath = 'http://localhost:8000/' + dir + '/source.json';
         var snapPath = snap.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(s3Path) + '&gu-headline=' + encodeURIComponent(snap.headline) + '&gu-trailText=' + encodeURIComponent(snap.trailText);
+        
+        // Add snapPathLocal variable and output it
 
         grunt.log.writeln('S3 Path: '['yellow'].bold + s3Path);
         grunt.log.writeln('Snap Path: '['green'].bold + snapPath);
@@ -128,7 +128,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('new', ['copy']);
     grunt.registerTask('default', ['sass', 'compile']);
-    grunt.registerTask('local', ['watch:local']);
+    grunt.registerTask('local', ['connect', 'watch:local']);
     grunt.registerTask('remote', ['watch:remote']);
     grunt.registerTask('paths', ['prompt:input', 'return-paths']);
 };
