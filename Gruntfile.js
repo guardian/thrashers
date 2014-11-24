@@ -136,7 +136,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('new', ['copy']);
     grunt.registerTask('default', ['sass', 'compile']);
-    grunt.registerTask('local', ['connect:server', 'watch:local']);
+    grunt.registerTask('local', ['connect', 'watch:local']);
     grunt.registerTask('remote', ['watch:remote']);
     grunt.registerTask('paths', ['prompt:input', 'return-paths']);
 };
