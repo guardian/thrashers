@@ -118,12 +118,14 @@ module.exports = function(grunt) {
         var snap = grunt.config('snap');
         var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
         var localPath = 'http://localhost:8000/' + dir + '/source.json';
-        var snapPath = snap.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(s3Path) + '&gu-headline=' + encodeURIComponent(snap.headline) + '&gu-trailText=' + encodeURIComponent(snap.trailText);
-        
-        // Add snapPathLocal variable and output it
 
+        function returnSnapPath(location) {
+            return snap.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(snap.headline) + '&gu-trailText=' + encodeURIComponent(snap.trailText);
+        }
+
+        grunt.log.writeln('Local Path: '['red'].bold + returnSnapPath(localPath));
         grunt.log.writeln('S3 Path: '['yellow'].bold + s3Path);
-        grunt.log.writeln('Snap Path: '['green'].bold + snapPath);
+        grunt.log.writeln('Snap Path: '['green'].bold + returnSnapPath(s3Path));
     });
 
     grunt.registerTask('new', ['copy']);
