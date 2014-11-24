@@ -1,10 +1,5 @@
 module.exports = function(grunt) {
-    grunt.loadNpmTasks('grunt-aws-s3');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-prompt');
-    grunt.loadNpmTasks('grunt-sass');
+    require('jit-grunt')(grunt);
 
     var aws = grunt.file.readJSON('aws-keys.json');
     var newDir = grunt.option('name');
