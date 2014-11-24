@@ -12,7 +12,7 @@ $mq-breakpoints: (
 
 $c-commentBackground: #eae8e3;
 $c-commentAccent: #e6711b;
-$contributors: katharine-murphy, lenore-taylor, first-dog, david-marr, richard-ackland;
+$contributors: jason-wilson, larissa-behrendt, jeff-sparrow, ranjana-srivastava, eleanor-robertson;
 
 .comment-au__wrapper {
     width: 100%;
@@ -190,19 +190,6 @@ $contributors: katharine-murphy, lenore-taylor, first-dog, david-marr, richard-a
         @include mq(desktop) {
             font-size: 28px;
             line-height: 32px;
-        }
-
-        &:before {
-            content: "";
-            display: inline-block;
-            width: 1.25em;
-            height: 0.7em;
-            margin-right: 0.1em;
-            vertical-align: baseline;
-            background-size: contain;
-            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMyIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTkuMDAyIDIwYzMuODUuMDY4IDYuOTMyLTMuMTA0IDctNi45OTQuMDY4LTMuODkyLTMuMTUtNi45MzctNy03LjAwNi0yLjAxNi0uMDM2LTMuNTkuNjk0LTQuODg4IDIuMDUzLS4wNy0uNDgtLjEyMi0xLjA0LS4xMTMtMS41NTNDNC4wNjUgMi45NyA3LjQxNS45MzcgMTEuMDA0IDFsLTEtMUMzLjk4IDAgLjA5OCA0LjQ0Ny4wMDMgMTAuMDA2Yy0uMDk4IDUuNTU3IDMuMzUgOS44OTIgOSA5Ljk5NHptMTcgMGMzLjg1LjA2OCA2LjkzMi0zLjEwNCA3LTYuOTk0LjA2OC0zLjg5Mi0zLjE1LTYuOTM3LTctNy4wMDYtMi4wMTYtLjAzNi0zLjU5LjY5NC00Ljg4OCAyLjA1My0uMDctLjQ4LS4xMjItMS4wNC0uMTEzLTEuNTUzLjA2NC0zLjUzIDMuNDE0LTUuNTYzIDcuMDAzLTUuNWwtMS0xYy02LjAyMiAwLTkuOTA0IDQuNDQ3LTEwIDEwLjAwNi0uMDk3IDUuNTU3IDMuMzUgOS44OTIgOSA5Ljk5NHoiIGZpbGw9IiM3Njc2NzYiLz48L3N2Zz4=);
-            background-repeat: no-repeat;
-            background-position: 0 0;
         }
 
         .comment-au__byline {
