@@ -36,6 +36,16 @@ module.exports = function(grunt) {
         },
         connect: {
             server: {
+                options: {
+                    middleware: function (connect, options, middlewares) {
+                        middlewares.unshift(function (req, res, next) {
+                            res.setHeader('Access-Control-Allow-Origin', '*');
+                            res.setHeader('Access-Control-Allow-Methods', '*');
+                            return next();
+                        });
+                    return middlewares;
+                    }
+                }
             }
         },
         aws_s3: {
