@@ -1,8 +1,5 @@
-/**
- * Full Width Presentation
- * Description: Removes properties from the container to make the snap appear full-width
- */
-
+// Full Width Presentation
+// Description: Removes properties from the container to make the snap appear full-width
 @mixin full-width($containerName, $c-background: #dedede) {
     ##{$containerName} {
         background-color: $c-background;
@@ -73,11 +70,8 @@
     }
 }
 
-/**
- * Rule
- * Description: Place a rule on top of the thrasher on all breakpoints
- */
- 
+// Rule
+// Description: Place a rule on top of the thrasher on all breakpoints
  @mixin rule($containerName, $c-rule: #005689) {
     ##{$containerName} {
         @include mq($until: tablet) {
