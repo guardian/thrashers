@@ -36,6 +36,16 @@ module.exports = function(grunt) {
         },
         connect: {
             server: {
+                options: {
+                    middleware: function (connect, options, middlewares) {
+                        middlewares.unshift(function (req, res, next) {
+                            res.setHeader('Access-Control-Allow-Origin', '*');
+                            res.setHeader('Access-Control-Allow-Methods', '*');
+                            return next();
+                        });
+                    return middlewares;
+                    }
+                }
             }
         },
         aws_s3: {
@@ -126,7 +136,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('new', ['copy']);
     grunt.registerTask('default', ['sass', 'compile']);
-    grunt.registerTask('local', ['connect', 'watch:local']);
+    grunt.registerTask('local', ['connect:server', 'watch:local']);
     grunt.registerTask('remote', ['watch:remote']);
     grunt.registerTask('paths', ['prompt:input', 'return-paths']);
 };
