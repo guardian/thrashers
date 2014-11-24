@@ -11,16 +11,17 @@ module.exports = function(grunt) {
     var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
     var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
     var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/*.html');
+    var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/source/*' : '**/source/*');
     var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
     grunt.initConfig({
         watch: {
             local: {
-                files: [scss, html],
+                files: [scss, html, source],
                 tasks: ['sass', 'compile']
             },
             remote: {
-                files: [scss, html],
+                files: [scss, html, source],
                 tasks: ['sass', 'compile', 'aws_s3']
             }
         },
