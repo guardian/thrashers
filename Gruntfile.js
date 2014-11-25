@@ -132,12 +132,12 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('return-paths', function() {
-        var snap = grunt.config('snap');
+        var project = grunt.file.readJSON(dir + '/source.json');
         var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
         var localPath = 'http://localhost:8000/' + dir + '/source.json';
 
         function returnSnapPath(location) {
-            return snap.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(snap.headline) + '&gu-trailText=' + encodeURIComponent(snap.trailText);
+            return project.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(project.headline) + '&gu-trailText=' + encodeURIComponent(project.trailText);
         }
 
         grunt.log.writeln('Local Path: '['red'].bold + returnSnapPath(localPath));
@@ -147,7 +147,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
-    grunt.registerTask('local', ['connect', 'watch:local']);
-    grunt.registerTask('remote', ['watch:remote']);
-    grunt.registerTask('paths', ['prompt:input', 'return-paths']);
+    grunt.registerTask('local', ['connect', 'return-paths', 'watch:local']);
+    grunt.registerTask('remote', ['return-paths', 'watch:remote']);
+    grunt.registerTask('paths', ['return-paths']);
 };
