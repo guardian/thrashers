@@ -62,11 +62,6 @@ To preview your Thrasher on the site it will need to be added to a front with it
 
 The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool. Make sure to pick `fixed/small/slow/I` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container.
 
-Then you'll need to run the following command to get the SnapURL. Follow the instructions and enter in sensible values as users will see these while the embed is loading and if the thrasher fails to load.
-```
-grunt paths --folderName=the-name-of-your-embed
-```
-
-That URL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link into the clipboard and then dragged to the appropriate container.
+You'll then need the snapURL that is output immediately by either the `grunt local` or `grunt remote` tasks. The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link into the clipboard and then dragged to the appropriate container.
 
 You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
