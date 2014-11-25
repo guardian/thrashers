@@ -18,11 +18,6 @@ Then install the project dependencies with
 npm install
 ```
 
-Ruby dependencies 
-```
-bundle
-```
-
 Sass components (not required but advised)
 ```
 bower install
