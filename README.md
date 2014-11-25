@@ -10,7 +10,6 @@ You will need
 
  * [Node.js](http://nodejs.org/)
  * [Bower](http://bower.io/)
- * [Bundler](http://bundler.io/)
 
 Then install the project dependencies with
 
