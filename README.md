@@ -30,7 +30,7 @@ Get started by creating a new Thrasher with
 grunt new --folderName=the-name-of-your-embed
 ```
 
-This will create a folder with the required files at `\embeds\the-name-of-your-embed`. You will be prompted to enter some information about the snap, this is fallback information for while the snap is loading / if it fails. You can always [update](#snapurls) this later.
+This will create a folder with the required files at `/embeds/the-name-of-your-embed`. You will be prompted to enter some information about the snap, this is fallback information for while the snap is loading or if it fails. You can always [update](#snapurls) this later.
 
 You are now ready to build your Thrasher using the `style.scss` and `index.html` inside your newly created folder. In order to see your changes though you'll need to compile a `source.json` file and embed the Thrasher on a front.
 
@@ -58,7 +58,7 @@ The first thing that you'll need to do is create a new container with the name o
 
 ### Getting the snapURL
 
-To embed the Thrasher you'll need to get the snapURL. This is a URL that contains the path to your `source.json` file and fallback information for while the snap is loading / if it fails. By running either `grunt local --folderName=the-name-of-your-embed` or `grunt remote --folderName=the-name-of-your-embed` commands, the terminal will return both local and remote snapURLs. If you wish to get these URLs without having to watch, compile and deploy, use
+To embed the Thrasher you'll need to get the snapURL. This is a URL that contains the path to your `source.json` file and fallback information for while the snap is loading or if it fails. By running either `grunt local --folderName=the-name-of-your-embed` or `grunt remote --folderName=the-name-of-your-embed` commands, the terminal will return both local and remote snapURLs. If you wish to get these URLs without having to watch, compile and deploy, use
 ```
 grunt paths --folderName=the-name-of-your-embed
 ```
@@ -73,4 +73,3 @@ grunt update --folderName=the-name-of-your-embed
 The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container.
 
 You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
-
