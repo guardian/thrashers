@@ -124,7 +124,7 @@ module.exports = function(grunt) {
         var snap = grunt.config('snap');
         var jsonFile = dir + '/source.json';
         var project = grunt.file.readJSON(jsonFile);
-        project["test"] = "lol";
+
         for(var key in snap) {
             project[key] = snap[key];
         }
