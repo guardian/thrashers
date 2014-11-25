@@ -1,0 +1,89 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-neutral-1: #333;
+$c-comment-support-1: #7d7569;
+$c-comment-support-3: #ffce4b;
+
+@import 'shared/_imports';
+
+@include full-width(culture-2014-review, darken($c-comment-support-1, 10));
+
+// Content
+.culture-2014-review__content {
+    color: white;
+    padding: 10px 20px;
+    height: 280px;
+    position: relative;
+    z-index: 3;
+
+    .button--primary {
+        color: $c-neutral-1;
+        background-color: $c-comment-support-3;
+        border-color: $c-comment-support-3;
+
+        &:hover {
+            background-color: darken($c-comment-support-3, 10);
+            border-color: darken($c-comment-support-3, 10);
+        }
+    }
+}
+
+// Background
+@include keyframes(circleLoop) {
+    0% {
+        @include transform(scale(1));
+    }
+
+    50% {
+        @include transform(scale(1.2));
+    }
+
+    100% {
+        @include transform(scale(1));
+    }
+}
+
+.culture-2014-review__circle {
+    position: absolute;
+    margin: auto;
+    opacity: .13;
+    border-radius: 380px;
+    height: 380px;
+    width: 380px;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    @include animation(circleLoop 20s ease-in-out infinite);
+}
+
+$circle-colours: #000, #fff, #000, $c-comment-support-3, $c-comment-support-3, #000, #000, $c-comment-support-3, #fff, #000, #fff, $c-comment-support-3, #000;
+$circle-size: 380px, 320px, 220px, 380px, 195px, 140px, 240px, 210px, 300px, 226px, 400px, 140px, 180px;
+$circle-position: -100px, 30px, 230px, 300px, 430px, 580px, 600px, 695px, 760px, 980px, 1080px, 1160px, 1260px;
+$circle-outlines: false, true, false, false, true, false, true, false, false, false, true, false, false;
+
+@for $i from 1 through 13 {
+    .culture-2014-review__circle--#{$i} {
+        height: nth($circle-size, $i);
+        width: nth($circle-size, $i);
+        border-radius: nth($circle-size, $i);
+        left: nth($circle-position, $i);
+        @include animation-duration(random(15) + 8s);
+        @include animation-delay(random(10) + -20s);
+
+        @if nth($circle-outlines, $i) {
+            border: 1px nth($circle-colours, $i) dotted;
+        } @else {
+            background-color: nth($circle-colours, $i);
+            background-blend-mode: multiply;
+        }
+    }
+}
