@@ -43,7 +43,7 @@ module.exports = function(grunt) {
                             res.setHeader('Access-Control-Allow-Methods', '*');
                             return next();
                         });
-                    return middlewares;
+                        return middlewares;
                     }
                 }
             }
