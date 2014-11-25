@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     require('jit-grunt')(grunt);
 
     var aws = grunt.file.readJSON('aws-keys.json');
-    var newDir = grunt.option('name');
+    var newDir = grunt.option('folderName');
     var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
     var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
     var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/*.html');
@@ -120,6 +120,17 @@ module.exports = function(grunt) {
         });
     });
 
+    grunt.registerTask('write-paths', function() {
+        var snap = grunt.config('snap');
+        var jsonFile = dir + '/source.json';
+        var project = grunt.file.readJSON(jsonFile);
+        project["test"] = "lol";
+        for(var key in snap) {
+            project[key] = snap[key];
+        }
+        grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
+    });
+
     grunt.registerTask('return-paths', function() {
         var snap = grunt.config('snap');
         var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
@@ -134,7 +145,7 @@ module.exports = function(grunt) {
         grunt.log.writeln('Snap Path: '['green'].bold + returnSnapPath(s3Path));
     });
 
-    grunt.registerTask('new', ['copy']);
+    grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
     grunt.registerTask('local', ['connect', 'watch:local']);
     grunt.registerTask('remote', ['watch:remote']);
