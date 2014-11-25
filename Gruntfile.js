@@ -74,7 +74,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     flatten: true,
-                    src: ['template/*.*'],
+                    src: ['template/*'],
                     dest: 'embeds/' + newDir
                 }]
             }
