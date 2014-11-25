@@ -12,6 +12,10 @@ $mq-breakpoints: (
 $c-neutral-1: #333;
 $c-comment-support-1: #7d7569;
 $c-comment-support-3: #ffce4b;
+$c-features-main-1: #7d0068;
+$c-features-main-2: #b82266;
+$c-features-support-1: #951c55;
+$c-features-support-4: #dc2a7d;
 
 @import 'shared/_imports';
 
@@ -22,10 +26,13 @@ $c-comment-support-3: #ffce4b;
     color: white;
     padding: 10px 20px;
     height: 280px;
+    width: 300px;
     position: relative;
     z-index: 3;
 
     .button--primary {
+        position: absolute;
+        bottom: 12px;
         color: $c-neutral-1;
         background-color: $c-comment-support-3;
         border-color: $c-comment-support-3;
@@ -35,6 +42,36 @@ $c-comment-support-3: #ffce4b;
             border-color: darken($c-comment-support-3, 10);
         }
     }
+}
+
+.culture-2014-review__headline span {
+    display: block;
+    text-transform: lowercase;
+}
+
+.culture-2014-review__headline_s1 {
+    font-weight: 200;
+    font-size: 2.25rem; // 36px
+    line-height: 1.2;
+}
+
+.culture-2014-review__headline_s2 {
+    font-weight: 600;
+    font-size: 4.5rem; // 72px
+    line-height: 0.8;
+}
+
+.culture-2014-review__headline_s3 {
+    font-weight: 200;
+    font-size: 2rem; // 32px
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.culture-2014-review__standfirst {
+    position: absolute;
+    bottom: 40px;
+    line-height: 1.2;
 }
 
 // Background
@@ -55,7 +92,7 @@ $c-comment-support-3: #ffce4b;
 .culture-2014-review__circle {
     position: absolute;
     margin: auto;
-    opacity: .13;
+    opacity: .5;
     border-radius: 380px;
     height: 380px;
     width: 380px;
@@ -65,25 +102,92 @@ $c-comment-support-3: #ffce4b;
     @include animation(circleLoop 20s ease-in-out infinite);
 }
 
-$circle-colours: #000, #fff, #000, $c-comment-support-3, $c-comment-support-3, #000, #000, $c-comment-support-3, #fff, #000, #fff, $c-comment-support-3, #000;
-$circle-size: 380px, 320px, 220px, 380px, 195px, 140px, 240px, 210px, 300px, 226px, 400px, 140px, 180px;
-$circle-position: -100px, 30px, 230px, 300px, 430px, 580px, 600px, 695px, 760px, 980px, 1080px, 1160px, 1260px;
-$circle-outlines: false, true, false, false, true, false, true, false, false, false, true, false, false;
+$circle-colour:     $c-features-main-1, false,          false,          false, $c-features-support-1, false,       false,        $c-features-support-4, false,          darken($c-comment-support-1, 10),  $c-features-main-1, false,          false,           false, ;
+$circle-size:       80px,               288px,          180px,          640px, 300px,                 400px,       240px,        360px,                 240px,          400px,                             180px,              180px,          140px,           640px, ;
+$circle-position:   280px,              420px,          320px,          360px, 500px,                 710px,       640px,        840px,                 960px,          1080px,                            1200px,             820px,          1160px,          640px, ;
+$circle-outline:    false,              false,          false,          true,  false,                 false,       false,        false,                 false,          false,                             false,              false,          false,           true,  ;
+$circle-background: false,              'monty-python', 'taylor-swift', false, false,                 'fka-twigs', 'lego-movie', false,                 'kate-bush',    false,                             false,              'nightcrawler', 'lindsay-lohan', false, ;
 
-@for $i from 1 through 13 {
+@for $i from 1 through 14 {
     .culture-2014-review__circle--#{$i} {
         height: nth($circle-size, $i);
         width: nth($circle-size, $i);
         border-radius: nth($circle-size, $i);
         left: nth($circle-position, $i);
-        @include animation-duration(random(15) + 8s);
-        @include animation-delay(random(10) + -20s);
+        @include animation-delay(-15s);
 
-        @if nth($circle-outlines, $i) {
-            border: 1px nth($circle-colours, $i) dotted;
-        } @else {
-            background-color: nth($circle-colours, $i);
+        @if nth($circle-outline, $i) {
+            border: 1px $c-comment-support-3 dotted;
+        }
+
+        @if nth($circle-colour, $i) {
+            background-color: nth($circle-colour, $i);
             background-blend-mode: multiply;
         }
+
+        @if nth($circle-background, $i) {
+            $background-image: 'http://interactive.guim.co.uk/thrashers/culture-2014-review/source/'+nth($circle-background, $i)+'.jpg';
+            background-image: url($background-image);
+            background-size: cover;
+            opacity: 1;
+        }
     }
+}
+
+.culture-2014-review__circle--1 {
+    @include animation-duration(9s);
+}
+
+.culture-2014-review__circle--2 {
+    @include animation-duration(18s);
+}
+
+.culture-2014-review__circle--3 {
+    @include animation-duration(12s);
+}
+
+.culture-2014-review__circle--4 {
+    @include animation-duration(8s);
+}
+
+.culture-2014-review__circle--5 {
+    @include animation-duration(23s);
+}
+
+.culture-2014-review__circle--6 {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    opacity: 0.3;
+}
+
+.culture-2014-review__circle--7 {
+    @include animation-duration(13s);
+}
+
+.culture-2014-review__circle--8 {
+    @include animation-duration(13s);
+}
+
+.culture-2014-review__circle--9 {
+    @include animation-duration(15s);
+}
+
+.culture-2014-review__circle--10 {
+    @include animation-duration(19s);
+}
+
+.culture-2014-review__circle--11 {
+    @include animation-duration(22s);
+}
+
+.culture-2014-review__circle--12 {
+    @include animation-duration(9s);
+}
+
+.culture-2014-review__circle--13 {
+    @include animation-duration(14s);
+}
+
+.culture-2014-review__circle--14 {
+    @include animation-duration(17s);
 }
