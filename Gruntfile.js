@@ -87,7 +87,7 @@ module.exports = function(grunt) {
                             config: 'snap.url',
                             type: 'input',
                             message: 'Fallback URL',
-                            default: 'www.theguardian.com'
+                            default: 'http://www.theguardian.com'
                         }, 
                         {  
                             config: 'snap.headline',
@@ -146,6 +146,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths']);
+    grunt.registerTask('update', ['prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
     grunt.registerTask('local', ['connect', 'return-paths', 'watch:local']);
     grunt.registerTask('remote', ['return-paths', 'watch:remote']);
