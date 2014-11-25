@@ -32,7 +32,7 @@ bower install
 
 To create a new project use
 ```
-grunt new --name=the-name-of-your-embed
+grunt new --folderName=the-name-of-your-embed
 ```
 
 This will create a copy of the template inside `\embeds`.
