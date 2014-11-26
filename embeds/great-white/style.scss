@@ -198,11 +198,15 @@ $c-feature: #b72166;
     bottom: 0;
     width: 100%;
     background-color: #c3cadc;
-    
-        @include mq($until: 1024px) {
+
+    @include mq($until: 1024px) {
         background: url('https://s3.amazonaws.com/gdn-cdn/thrashers/great-white/source/video-poster.jpg') no-repeat;
         background-size: cover;
         background-position: center center;
+    }
+
+    @include mq($until: mobileLandscape) {
+        background-position-x: 70%;
     }
 
     video {
