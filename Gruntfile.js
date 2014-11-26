@@ -126,9 +126,7 @@ module.exports = function(grunt) {
         var project = grunt.file.readJSON(jsonFile);
 
         for(var key in snap) {
-            if (snap.hasOwnProperty[key]) {
-                project[key] = snap[key];
-            }
+            project[key] = snap[key];
         }
         grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
     });
