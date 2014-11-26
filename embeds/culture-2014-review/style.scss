@@ -19,16 +19,24 @@ $c-features-support-4: #dc2a7d;
 
 @import 'shared/_imports';
 
-@include full-width(culture-2014-review, darken($c-comment-support-1, 10));
+@include full-width(culture-2014-review, $c-features-main-1);
 
 // Content
 .culture-2014-review__content {
-    color: white;
-    padding: 10px 20px;
-    height: 280px;
-    width: 300px;
+    color: #fff;
+    padding: 6px 20px;
+    width: 180px;
+    height: 220px;
     position: relative;
     z-index: 3;
+
+    @include mq(phablet) {
+        height: 240px;
+    }
+
+    @include mq(leftCol) {
+        height: 280px;
+    }
 
     .button--primary {
         position: absolute;
@@ -51,41 +59,74 @@ $c-features-support-4: #dc2a7d;
 
 .culture-2014-review__headline_s1 {
     font-weight: 200;
-    font-size: 2.25rem; // 36px
-    line-height: 1.2;
+    font-size: 28px;
+    line-height: 32px;
+
+    @include mq(phablet) {
+        font-size: 32px;
+        line-height: 36px;
+    }
+
+    @include mq(desktop) {
+        font-size: 36px;
+        line-height: 40px;
+    }
 }
 
 .culture-2014-review__headline_s2 {
     font-weight: 600;
-    font-size: 4.5rem; // 72px
-    line-height: 0.8;
+    font-size: 48px;
+    line-height: 40px;
+
+    @include mq(phablet) {
+        font-size: 64px;
+        line-height: 48px;
+    }
+
+    @include mq(desktop) {
+        font-size: 72px;
+        line-height: 56px;
+    }
 }
 
 .culture-2014-review__headline_s3 {
     font-weight: 200;
-    font-size: 2rem; // 32px
-    line-height: 1;
+    font-size: 24px;
+    line-height: 28px;
     opacity: 0.6;
+
+    @include mq(phablet) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    @include mq(desktop) {
+        font-size: 32px;
+        line-height: 36px;
+    }
 }
 
 .culture-2014-review__standfirst {
     position: absolute;
-    bottom: 40px;
-    line-height: 1.2;
+    bottom: 44px;
+    font-size: 16px;
+    line-height: 20px;
 }
 
 // Background
-@include keyframes(circleLoop) {
-    0% {
-        @include transform(scale(1));
+.culture-2014-review__background {
+    position: absolute;
+    left: -120px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    @include mq(desktop) {
+        left: -60px;
     }
 
-    50% {
-        @include transform(scale(1.2));
-    }
-
-    100% {
-        @include transform(scale(1));
+    @include mq(leftCol) {
+        left: 0;
     }
 }
 
@@ -99,22 +140,37 @@ $c-features-support-4: #dc2a7d;
     top: 0;
     bottom: 0;
     left: 20px;
-    @include animation(circleLoop 20s ease-in-out infinite);
 }
 
-$circle-colour:     $c-features-main-1, false,          false,          false, $c-features-support-1, false,       false,        $c-features-support-4, false,          darken($c-comment-support-1, 10),  $c-features-main-1, false,          false,           false, ;
-$circle-size:       80px,               288px,          180px,          640px, 300px,                 400px,       240px,        360px,                 240px,          400px,                             180px,              180px,          140px,           640px, ;
-$circle-position:   280px,              420px,          320px,          360px, 500px,                 710px,       640px,        840px,                 960px,          1080px,                            1200px,             820px,          1160px,          640px, ;
-$circle-outline:    false,              false,          false,          true,  false,                 false,       false,        false,                 false,          false,                             false,              false,          false,           true,  ;
-$circle-background: false,              'monty-python', 'taylor-swift', false, false,                 'fka-twigs', 'lego-movie', false,                 'kate-bush',    false,                             false,              'nightcrawler', 'lindsay-lohan', false, ;
+$circle-colour:     $c-features-support-4, $c-features-main-2, false,          false,          false, false,       false,        $c-features-support-4, false,          false,       darken($c-comment-support-1, 10), $c-features-support-4, false,           false, ;
+$circle-size:       80px,                  300px,              288px,          180px,          640px, 400px,       160px,        360px,                 240px,          240px,       400px,                            180px,                 180px,           640px, ;
+$circle-position:   280px,                 500px,              420px,          320px,          360px, 710px,       640px,        840px,                 780px,          960px,       1080px,                           1200px,                1160px,          640px, ;
+$circle-outline:    false,                 false,              false,          false,          true,  false,       false,        false,                 false,          false,       false,                            false,                 false,           true,  ;
+$circle-background: false,                 false,              'monty-python', 'taylor-swift', false, false,       'lego-movie', false,                 'nightcrawler', 'fka-twigs', false,                            false,                 'lindsay-lohan', false, ;
+$circle-delay:      -2s,                   -4s,                -6s,             -21s,          -13s,  -1s,         -15s,         -12s,                  -1s,            -16s,        -17s,                             -9s,                   -5s,             -9s,   ;
+$circle-duration:   9s,                    23s,                18s,             12s,           8s,    20s,         13s,          15s,                   10s,            19s,         22s,                              16s,                   16s,             12s,   ;
 
-@for $i from 1 through 14 {
+@include keyframes(circleLoop) {
+    0% {
+        @include transform(translateX(0));
+    }
+
+    50% {
+        @include transform(translateX(10%));
+    }
+
+    100% {
+        @include transform(translateX(0));
+    }
+}
+
+@mixin circles($i) {
     .culture-2014-review__circle--#{$i} {
         height: nth($circle-size, $i);
         width: nth($circle-size, $i);
         border-radius: nth($circle-size, $i);
         left: nth($circle-position, $i);
-        @include animation-delay(-15s);
+        @include animation(circleLoop 20s ease-in-out infinite);
 
         @if nth($circle-outline, $i) {
             border: 1px $c-comment-support-3 dotted;
@@ -122,7 +178,6 @@ $circle-background: false,              'monty-python', 'taylor-swift', false, f
 
         @if nth($circle-colour, $i) {
             background-color: nth($circle-colour, $i);
-            background-blend-mode: multiply;
         }
 
         @if nth($circle-background, $i) {
@@ -134,60 +189,30 @@ $circle-background: false,              'monty-python', 'taylor-swift', false, f
     }
 }
 
-.culture-2014-review__circle--1 {
-    @include animation-duration(9s);
+@for $i from 1 through 5 {
+    @include circles($i);
 }
 
-.culture-2014-review__circle--2 {
-    @include animation-duration(18s);
+@include mq(mobileLandscape) {
+    @for $i from 6 through 7 {
+        @include circles($i);
+    }
 }
 
-.culture-2014-review__circle--3 {
-    @include animation-duration(12s);
+@include mq(tablet) {
+    @for $i from 8 through 10 {
+        @include circles($i);
+    }
 }
 
-.culture-2014-review__circle--4 {
-    @include animation-duration(8s);
+@include mq(leftCol) {
+    @for $i from 11 through 12 {
+        @include circles($i);
+    }
 }
 
-.culture-2014-review__circle--5 {
-    @include animation-duration(23s);
-}
-
-.culture-2014-review__circle--6 {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    opacity: 0.3;
-}
-
-.culture-2014-review__circle--7 {
-    @include animation-duration(13s);
-}
-
-.culture-2014-review__circle--8 {
-    @include animation-duration(13s);
-}
-
-.culture-2014-review__circle--9 {
-    @include animation-duration(15s);
-}
-
-.culture-2014-review__circle--10 {
-    @include animation-duration(19s);
-}
-
-.culture-2014-review__circle--11 {
-    @include animation-duration(22s);
-}
-
-.culture-2014-review__circle--12 {
-    @include animation-duration(9s);
-}
-
-.culture-2014-review__circle--13 {
-    @include animation-duration(14s);
-}
-
-.culture-2014-review__circle--14 {
-    @include animation-duration(17s);
+@include mq(leftCol) {
+    @for $i from 13 through 14 {
+        @include circles($i);
+    }
 }
