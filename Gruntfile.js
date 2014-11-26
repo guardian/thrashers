@@ -134,17 +134,19 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('return-paths', function() {
-        var project = grunt.file.readJSON(dir + '/source.json');
-        var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
-        var localPath = 'http://localhost:8000/' + dir + '/source.json';
-
-        function returnSnapPath(location) {
-            return project.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(project.headline) + '&gu-trailText=' + encodeURIComponent(project.trailText);
+        if (grunt.option('folderName')) {
+            var project = grunt.file.readJSON(dir + '/source.json');
+            var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
+            var localPath = 'http://localhost:8000/' + dir + '/source.json';
+    
+            function returnSnapPath(location) {
+                return project.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(project.headline) + '&gu-trailText=' + encodeURIComponent(project.trailText);
+            }
+    
+            grunt.log.writeln('Local Path: '['red'].bold + returnSnapPath(localPath));
+            grunt.log.writeln('S3 Path: '['yellow'].bold + s3Path);
+            grunt.log.writeln('Snap Path: '['green'].bold + returnSnapPath(s3Path));
         }
-
-        grunt.log.writeln('Local Path: '['red'].bold + returnSnapPath(localPath));
-        grunt.log.writeln('S3 Path: '['yellow'].bold + s3Path);
-        grunt.log.writeln('Snap Path: '['green'].bold + returnSnapPath(s3Path));
     });
 
     grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths']);

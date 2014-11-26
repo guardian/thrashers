@@ -59,6 +59,7 @@
     ##{$containerName} .fc-item {
         margin: 0;
         overflow: auto;
+        width: 100%;
     }
     
     .#{$containerName}__wrapper {
