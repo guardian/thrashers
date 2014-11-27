@@ -55,10 +55,6 @@ $c-features-support-4: #dc2a7d;
 .culture-2014-review__headline span {
     display: block;
     text-transform: lowercase;
-}
-
-.culture-2014-review__headline_s1 {
-    font-weight: 200;
     font-size: 28px;
     line-height: 32px;
 
@@ -73,37 +69,17 @@ $c-features-support-4: #dc2a7d;
     }
 }
 
+.culture-2014-review__headline_s1 {
+    font-weight: 200;
+}
+
 .culture-2014-review__headline_s2 {
     font-weight: 600;
-    font-size: 48px;
-    line-height: 40px;
-
-    @include mq(phablet) {
-        font-size: 64px;
-        line-height: 48px;
-    }
-
-    @include mq(desktop) {
-        font-size: 72px;
-        line-height: 56px;
-    }
 }
 
 .culture-2014-review__headline_s3 {
     font-weight: 200;
-    font-size: 24px;
-    line-height: 28px;
     opacity: 0.6;
-
-    @include mq(phablet) {
-        font-size: 28px;
-        line-height: 32px;
-    }
-
-    @include mq(desktop) {
-        font-size: 32px;
-        line-height: 36px;
-    }
 }
 
 .culture-2014-review__standfirst {
