@@ -9,4 +9,76 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
+$c-neutral-2: #767676;
+
 @import 'shared/_imports';
+
+@include full-width(media100, $c-neutral-2);
+
+.media100__background {
+    height: 300px;
+    perspective: 1000;
+}
+
+.media100__face {
+    display: block;
+    position: relative;
+    height: 80px;
+    width: 80px;
+    float: left;
+
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    &:hover {
+        transform: rotateY(180deg);
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        backface-visibility: hidden;
+        content: '';
+    }
+
+    &:before { // front
+        z-index: 2;
+        transform: rotateY(0deg);
+    }
+
+    &:after { // back
+        transform: rotateY(180deg);
+    }
+}
+
+.media100__cat--1 {
+    background-color: #a9af2b;
+}
+.media100__cat--2 {
+    background-color: #298422;
+}
+.media100__cat--3 {
+    background-color: #ffbb00;
+}
+.media100__cat--4 {
+    background-color: #5ebfba;
+}
+.media100__cat--5 {
+    background-color: #fdadba;
+}
+.media100__cat--6 {
+    background-color: #e6711b;
+}
+.media100__cat--7 {
+    background-color: #4e0375;
+}
+.media100__cat--8 {
+    background-color: #b82266;
+}
+.media100__cat--9 {
+    background-color: #197caa;
+}
