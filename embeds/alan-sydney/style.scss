@@ -16,16 +16,16 @@ $c-liveRed: #e31f26;
 @import 'embeds/alan-sydney/partials/_full-width';
 
 .alan-sydney__anchor {
+    position: absolute !important;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 99 !important;
     overflow: hidden;
     text-indent: 200%;
     white-space: nowrap;
     background: transparent;
-    position: absolute !important;
-    z-index: 6 !important;
     cursor: pointer;
 
     &:hover ~ .alan-sydney__content .alan-sydney__button {
@@ -46,18 +46,14 @@ $c-liveRed: #e31f26;
     padding: 10px 20px;
     height: 280px;
     position: relative;
-    z-index: 3;
+    z-index: 14;
 
     @include mq($until: mobileLandscape) {
-        padding-top: 25px;
+        padding-top: 28px;
     }
 
     @include mq(mobileLandscape) {
         height: 240px;
-        width: 400px;
-    }
-
-    @include mq(mobileLandscape, phablet) {
         width: 50%;
     }
 
@@ -65,25 +61,15 @@ $c-liveRed: #e31f26;
         height: 220px;
         width: 540px;
     }
-
-    @include mq(leftCol) {
-        height: 260px;
-    }
 }
 
 .alan-sydney__title,
 .alan-sydney__subtitle {
     font-size: 28px;
-    line-height: 28px;
-
-    @include mq(phablet) {
-        font-size: 38px;
-        line-height: 36px;
-    }
+    line-height: 0.9;
 
     @include mq(desktop) {
-        font-size: 48px;
-        line-height: 46px;
+        font-size: 44px;
     }
 }
 
@@ -93,11 +79,19 @@ $c-liveRed: #e31f26;
 
 .alan-sydney__subtitle {
     font-weight: 200;
+    
+    @include mq($until: mobileLandscape) {
+        font-size: 20px;
+    }
 }
 
 .alan-sydney__lower {
     position: absolute;
     bottom: 10px;
+
+    @include mq($until: mobileLandscape) {
+        bottom: 48px;
+    }
 }
 
 .alan-sydney__trail,
@@ -157,7 +151,6 @@ $c-liveRed: #e31f26;
 }
 
 // Button
-
 .alan-sydney__button {
     background-color: $c-liveRed !important;
     border: none !important;
@@ -180,37 +173,25 @@ $c-liveRed: #e31f26;
     }
 }
 
-// Cutout
-
+// Cutouts
 .alan-sydney__cutout {
     position: absolute;
-    z-index: 2;
-    left: 0;
     right: 0;
     bottom: 0;
-    
-    @include mq($until: mobileLandscape) {
-        max-height: 200px;
-        left: 52%;
-    }
-    
-    @include mq(mobileLandscape, phablet) {
-        max-height: 220px;
-        left: 58%;
-    }
+    left: 66%;
+    height: 100%;
 
-    @include mq(phablet) {
-        left: 380px;
-        top: 0;
-        height: 100%;
+    @include mq($until: mobileLandscape) {
+        max-height: 160px;
     }
 
     @include mq(tablet) {
-        left: 420px;
+        top: 0;
+        max-height: 100%;
     }
 
     @include mq(desktop) {
-        left: 600px;
+        left: 640px;
     }
 
     @include mq(leftCol) {
@@ -222,11 +203,27 @@ $c-liveRed: #e31f26;
     }
 }
 
-// Logos
+.alan-sydney__cutout--alan {
+    z-index: 11;
+}
 
+.alan-sydney__cutout--david {
+    z-index: 10;
+    margin-left: -18%;
+
+    @include mq(tablet) {
+        margin-left: -15%;
+    }
+
+    @include mq(desktop) {
+        margin-left: -9%;
+    }
+}
+
+// Logos
 .alan-sydney__live-logo {
     position: absolute;
-    z-index: 2;
+    z-index: 12;
     right: 20px;
     top: 0;
 
@@ -255,7 +252,7 @@ $c-liveRed: #e31f26;
 
 .alan-sydney__carriage {
     position: absolute;
-    z-index: 2;
+    z-index: 13;
     right: 20px;
     bottom: 10px;
 
@@ -290,7 +287,7 @@ $c-liveRed: #e31f26;
 // Background
 .alan-sydney__background {
     position: absolute;
-    top: -50px;
+    top: -70px;
     left: 0;
     right: 0;
     bottom: 0;

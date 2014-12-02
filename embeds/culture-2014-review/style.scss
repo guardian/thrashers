@@ -26,18 +26,17 @@ $c-features-support-4: #dc2a7d;
 .culture-2014-review__content {
     color: #fff;
     padding: 6px 20px;
-    width: 180px;
+    width: 200px;
     height: 188px;
     position: relative;
     z-index: 3;
 
     @include mq(phablet) {
-        width: 220px;
-        //height: 188px;
+        width: 240px;
     }
 
     @include mq(desktop) {
-        width: 260px;
+        width: 320px;
     }
 }
 
@@ -62,32 +61,27 @@ $c-features-support-4: #dc2a7d;
     }
 }
 
-.culture-2014-review__headline_s1,
-.culture-2014-review__headline_s2 {
-    font-size: 32px;
-    line-height: 28px;
+.culture-2014-review__headline_s1 {
+    font-size: 28px;
+    line-height: 24px;
 
     @include mq(phablet) {
-        font-size: 36px;
-        line-height: 32px;
+        font-size: 32px;
+        line-height: 28px;
     }
 
     @include mq(desktop) {
-        font-size: 48px;
-        line-height: 44px;
+        font-size: 40px;
+        line-height: 36px;
+    }
+
+    @include mq(leftCol) {
+        font-size: 44px;
+        line-height: 40px;
     }
 }
 
-.culture-2014-review__headline_s1 {
-    font-weight: 200;
-}
-
 .culture-2014-review__headline_s2 {
-    font-weight: 500;
-    margin-left: -2px;
-}
-
-.culture-2014-review__headline_s3 {
     display: block;
     color: $c-features-support-3;
     font-weight: 200;
@@ -111,6 +105,10 @@ $c-features-support-4: #dc2a7d;
 .culture-2014-review__standfirst {
     font-size: 16px;
     line-height: 20px;
+
+    @include mq(tablet) {
+        width: 85%;
+    }
 }
 
 // Background
