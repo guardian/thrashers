@@ -204,19 +204,18 @@ $c-liveRed: #e31f26;
 
 .alan-sydney__cutout--alan {
     z-index: 11;
-    margin-right: -17.5%;
-
-    @include mq(tablet) {
-        margin-right: -12.5%;
-    }
 }
 
 .alan-sydney__cutout--david {
     z-index: 10;
-    margin-left: -17.5%;
+    margin-left: -18%;
 
     @include mq(tablet) {
-        margin-left: -12.5%;
+        margin-left: -15%;
+    }
+
+    @include mq(desktop) {
+        margin-left: -9%;
     }
 }
 
@@ -287,7 +286,7 @@ $c-liveRed: #e31f26;
 // Background
 .alan-sydney__background {
     position: absolute;
-    top: -50px;
+    top: -70px;
     left: 0;
     right: 0;
     bottom: 0;
