@@ -1,0 +1,218 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-neutral-1: #333;
+$c-comment-support-1: #7d7569;
+$c-comment-support-3: #ffce4b;
+$c-features-main-1: #7d0068;
+$c-features-main-2: #b82266;
+$c-features-support-1: #951c55;
+$c-features-support-3: #fdadba;
+$c-features-support-4: #dc2a7d;
+
+@import 'shared/_imports';
+
+@include full-width(culture-2014-review, $c-features-main-1);
+
+// Content
+.culture-2014-review__content {
+    color: #fff;
+    padding: 6px 20px;
+    width: 180px;
+    height: 188px;
+    position: relative;
+    z-index: 3;
+
+    @include mq(phablet) {
+        width: 220px;
+        //height: 188px;
+    }
+
+    @include mq(desktop) {
+        width: 260px;
+    }
+}
+
+.culture-2014-review__button.button {
+    color: $c-neutral-1;
+    background-color: $c-comment-support-3;
+    border: 0;
+}
+
+.culture-2014-review__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4 !important;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover ~ .culture-2014-review__content .culture-2014-review__button.button {
+        background-color: darken($c-comment-support-3, 10%);
+    }
+}
+
+.culture-2014-review__headline_s1,
+.culture-2014-review__headline_s2 {
+    font-size: 32px;
+    line-height: 28px;
+
+    @include mq(phablet) {
+        font-size: 36px;
+        line-height: 32px;
+    }
+
+    @include mq(desktop) {
+        font-size: 48px;
+        line-height: 44px;
+    }
+}
+
+.culture-2014-review__headline_s1 {
+    font-weight: 200;
+}
+
+.culture-2014-review__headline_s2 {
+    font-weight: 500;
+    margin-left: -2px;
+}
+
+.culture-2014-review__headline_s3 {
+    display: block;
+    color: $c-features-support-3;
+    font-weight: 200;
+    font-size: 22px;
+    line-height: 14px;
+    margin-bottom: 38px;
+
+    @include mq(phablet) {
+        font-size: 25px;
+        line-height: 16px;
+        margin-bottom: 56px;
+    }
+
+    @include mq(desktop) {
+        font-size: 33px;
+        line-height: 24px;
+        margin-bottom: 38px;
+    }
+}
+
+.culture-2014-review__standfirst {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+// Background
+.culture-2014-review__background {
+    position: absolute;
+    left: -100px;
+    top: -220px;
+    right: 0;
+    height: 640px;
+
+    @include mq(desktop) {
+        left: -40px;
+    }
+
+    @include mq(leftCol) {
+        left: 0;
+    }
+}
+
+.culture-2014-review__circle {
+    position: absolute;
+    margin: auto;
+    opacity: .5;
+    border-radius: 380px;
+    height: 380px;
+    width: 380px;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+$circle-colour:     $c-features-support-4, $c-features-main-2, false,          false,          false, false,       false,        $c-features-support-4, false,          false,       darken($c-comment-support-1, 10), $c-features-support-4, false,           false, ;
+$circle-size:       80px,                  300px,              288px,          180px,          640px, 400px,       160px,        360px,                 240px,          240px,       400px,                            180px,                 180px,           640px, ;
+$circle-position:   280px,                 500px,              420px,          320px,          360px, 710px,       640px,        840px,                 780px,          960px,       1080px,                           1200px,                1160px,          640px, ;
+$circle-outline:    false,                 false,              false,          false,          true,  false,       false,        false,                 false,          false,       false,                            false,                 false,           true,  ;
+$circle-background: false,                 false,              'monty-python', 'taylor-swift', false, false,       'lego-movie', false,                 'nightcrawler', 'fka-twigs', false,                            false,                 'lindsay-lohan', false, ;
+$circle-delay:      -2s,                   -4s,                -6s,             -21s,          -13s,  -1s,         -15s,         -12s,                  -1s,            -16s,        -17s,                             -9s,                   -5s,             -9s,   ;
+$circle-duration:   9s,                    23s,                18s,             12s,           8s,    20s,         13s,          15s,                   10s,            19s,         22s,                              16s,                   16s,             12s,   ;
+
+@include keyframes(circleLoop) {
+    0% {
+        @include transform(translateX(0));
+    }
+
+    50% {
+        @include transform(translateX(10%));
+    }
+
+    100% {
+        @include transform(translateX(0));
+    }
+}
+
+@mixin circles($i) {
+    .culture-2014-review__circle--#{$i} {
+        height: nth($circle-size, $i);
+        width: nth($circle-size, $i);
+        border-radius: nth($circle-size, $i);
+        left: nth($circle-position, $i);
+        @include animation(circleLoop 20s ease-in-out infinite);
+
+        @if nth($circle-outline, $i) {
+            border: 1px $c-comment-support-3 dotted;
+        }
+
+        @if nth($circle-colour, $i) {
+            background-color: nth($circle-colour, $i);
+        }
+
+        @if nth($circle-background, $i) {
+            $background-image: 'http://interactive.guim.co.uk/thrashers/culture-2014-review/source/'+nth($circle-background, $i)+'.jpg';
+            background-image: url($background-image);
+            background-size: cover;
+            opacity: 1;
+        }
+    }
+}
+
+@for $i from 1 through 5 {
+    @include circles($i);
+}
+
+@include mq(mobileLandscape) {
+    @for $i from 6 through 7 {
+        @include circles($i);
+    }
+}
+
+@include mq(tablet) {
+    @for $i from 8 through 10 {
+        @include circles($i);
+    }
+}
+
+@include mq(leftCol) {
+    @for $i from 11 through 12 {
+        @include circles($i);
+    }
+}
+
+@include mq(leftCol) {
+    @for $i from 13 through 14 {
+        @include circles($i);
+    }
+}
