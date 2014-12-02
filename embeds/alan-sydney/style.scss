@@ -16,15 +16,16 @@ $c-liveRed: #e31f26;
 @import 'embeds/alan-sydney/partials/_full-width';
 
 .alan-sydney__anchor {
+    position: absolute !important;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 99 !important;
     overflow: hidden;
     text-indent: 200%;
     white-space: nowrap;
     background: transparent;
-    position: 99 !important;
     cursor: pointer;
 
     &:hover ~ .alan-sydney__content .alan-sydney__button {
