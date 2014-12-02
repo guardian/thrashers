@@ -15,6 +15,7 @@ $c-comment-support-3: #ffce4b;
 $c-features-main-1: #7d0068;
 $c-features-main-2: #b82266;
 $c-features-support-1: #951c55;
+$c-features-support-3: #fdadba;
 $c-features-support-4: #dc2a7d;
 
 @import 'shared/_imports';
@@ -26,46 +27,58 @@ $c-features-support-4: #dc2a7d;
     color: #fff;
     padding: 6px 20px;
     width: 180px;
-    height: 220px;
+    height: 188px;
     position: relative;
     z-index: 3;
 
     @include mq(phablet) {
-        height: 240px;
+        width: 220px;
+        //height: 188px;
     }
 
-    @include mq(leftCol) {
-        height: 280px;
+    @include mq(desktop) {
+        width: 260px;
     }
+}
 
-    .button--primary {
-        position: absolute;
-        bottom: 12px;
-        color: $c-neutral-1;
-        background-color: $c-comment-support-3;
-        border-color: $c-comment-support-3;
+.culture-2014-review__button.button {
+    color: $c-neutral-1;
+    background-color: $c-comment-support-3;
+    border: 0;
+}
 
-        &:hover {
-            background-color: darken($c-comment-support-3, 10);
-            border-color: darken($c-comment-support-3, 10);
-        }
+.culture-2014-review__anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover ~ .culture-2014-review__content .culture-2014-review__button.button {
+        background-color: darken($c-comment-support-3, 10%);
     }
 }
 
 .culture-2014-review__headline span {
-    display: block;
     text-transform: lowercase;
-    font-size: 28px;
-    line-height: 32px;
+}
+
+.culture-2014-review__headline_s1,
+.culture-2014-review__headline_s2 {
+    font-size: 32px;
+    line-height: 28px;
 
     @include mq(phablet) {
-        font-size: 32px;
-        line-height: 36px;
+        font-size: 36px;
+        line-height: 32px;
     }
 
     @include mq(desktop) {
-        font-size: 36px;
-        line-height: 40px;
+        font-size: 48px;
+        line-height: 44px;
     }
 }
 
@@ -74,17 +87,32 @@ $c-features-support-4: #dc2a7d;
 }
 
 .culture-2014-review__headline_s2 {
-    font-weight: 600;
+    font-weight: 500;
+    margin-left: -2px;
 }
 
 .culture-2014-review__headline_s3 {
+    display: block;
+    color: $c-features-support-3;
     font-weight: 200;
-    opacity: 0.6;
+    font-size: 22px;
+    line-height: 14px;
+    margin-bottom: 38px;
+
+    @include mq(phablet) {
+        font-size: 25px;
+        line-height: 16px;
+        margin-bottom: 56px;
+    }
+
+    @include mq(desktop) {
+        font-size: 33px;
+        line-height: 24px;
+        margin-bottom: 38px;
+    }
 }
 
 .culture-2014-review__standfirst {
-    position: absolute;
-    bottom: 44px;
     font-size: 16px;
     line-height: 20px;
 }
@@ -92,13 +120,13 @@ $c-features-support-4: #dc2a7d;
 // Background
 .culture-2014-review__background {
     position: absolute;
-    left: -120px;
-    top: 0;
-    bottom: 0;
+    left: -100px;
+    top: -220px;
     right: 0;
+    height: 640px;
 
     @include mq(desktop) {
-        left: -60px;
+        left: -40px;
     }
 
     @include mq(leftCol) {
