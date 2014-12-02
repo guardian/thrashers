@@ -15,24 +15,51 @@ $c-neutral-2: #767676;
 
 @include full-width(media100, $c-neutral-2);
 
+@include keyframes(flip) {
+    0% {
+        @include transform(rotateY(0));
+    }
+
+    20% {
+        @include transform(rotateY(180deg));
+    }
+
+    50% {
+        @include transform(rotateY(180deg));
+    }
+
+    70% {
+        @include transform(rotateY(0));
+    }
+}
+
+.media100__wrapper {
+    height: 200px;
+}
+
+.media100__content {
+    position: relative;
+    z-index: 2;
+}
+
 .media100__background {
-    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     perspective: 1000;
 }
 
 .media100__face {
     display: block;
     position: relative;
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
     float: left;
 
-    transition: 0.6s;
     transform-style: preserve-3d;
 
-    &:hover {
-        transform: rotateY(180deg);
-    }
+    @include animation(flip 10s ease-in-out infinite);
 
     &:before,
     &:after {
@@ -57,28 +84,37 @@ $c-neutral-2: #767676;
 
 .media100__cat--1 {
     background-color: #a9af2b;
+    @include animation-delay(-10s);
 }
 .media100__cat--2 {
     background-color: #298422;
+    @include animation-delay(-2s);
 }
 .media100__cat--3 {
     background-color: #ffbb00;
+    @include animation-delay(-16s);
 }
 .media100__cat--4 {
     background-color: #5ebfba;
+    @include animation-delay(-5s);
 }
 .media100__cat--5 {
     background-color: #fdadba;
+    @include animation-delay(-15s);
 }
 .media100__cat--6 {
     background-color: #e6711b;
+    @include animation-delay(-14s);
 }
 .media100__cat--7 {
     background-color: #4e0375;
+    @include animation-delay(-4s);
 }
 .media100__cat--8 {
     background-color: #b82266;
+    @include animation-delay(-11s);
 }
 .media100__cat--9 {
     background-color: #197caa;
+    @include animation-delay(-1s);
 }
