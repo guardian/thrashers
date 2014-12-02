@@ -69,52 +69,85 @@ $c-neutral-2: #767676;
         bottom: 0;
         left: 0;
         backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
         content: '';
+        background-repeat: no-repeat;
+        background-size: 200px 100px;
     }
 
     &:before { // front
         z-index: 2;
         transform: rotateY(0deg);
+        background-position: 0 0;
     }
 
     &:after { // back
         transform: rotateY(180deg);
+        background-position: -100px 0;
     }
 }
 
 .media100__cat--1 {
-    background-color: #a9af2b;
     @include animation-delay(-10s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--1.png');
+    }
 }
 .media100__cat--2 {
-    background-color: #298422;
     @include animation-delay(-2s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--2.png');
+    }
 }
 .media100__cat--3 {
-    background-color: #ffbb00;
     @include animation-delay(-16s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--3.png');
+    }
 }
 .media100__cat--4 {
-    background-color: #5ebfba;
     @include animation-delay(-5s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--4.png');
+    }
 }
 .media100__cat--5 {
-    background-color: #fdadba;
-    @include animation-delay(-15s);
+    @include animation-delay(-14s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--5.png');
+    }
 }
 .media100__cat--6 {
-    background-color: #e6711b;
-    @include animation-delay(-14s);
+    @include animation-delay(-4s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--6.png');
+    }
 }
 .media100__cat--7 {
-    background-color: #4e0375;
-    @include animation-delay(-4s);
+    @include animation-delay(-11s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--7.png');
+    }
 }
 .media100__cat--8 {
-    background-color: #b82266;
-    @include animation-delay(-11s);
-}
-.media100__cat--9 {
-    background-color: #197caa;
     @include animation-delay(-1s);
+
+    &:before,
+    &:after {
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--8.png');
+    }
 }
