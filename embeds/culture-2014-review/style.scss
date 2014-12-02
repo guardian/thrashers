@@ -48,22 +48,18 @@ $c-features-support-4: #dc2a7d;
 }
 
 .culture-2014-review__anchor {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 4;
+    z-index: 4 !important;
     background: transparent;
     cursor: pointer;
 
     &:hover ~ .culture-2014-review__content .culture-2014-review__button.button {
         background-color: darken($c-comment-support-3, 10%);
     }
-}
-
-.culture-2014-review__headline span {
-    text-transform: lowercase;
 }
 
 .culture-2014-review__headline_s1,
