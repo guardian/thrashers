@@ -10,11 +10,147 @@ $mq-breakpoints: (
 );
 
 $c-neutral-2: #767676;
+$c-comment-main-2: #ff9b0b;
+$c-comment-support-1: #7d7569;
+$c-comment-support-3: #ffce4b;
+$c-comment-support-4: #e6711b;
+$c-multimedia-main-2: #fb0;
 
 @import 'shared/_imports';
 
-@include full-width(media100, $c-neutral-2);
+@include full-width(media100, $c-multimedia-main-2);
 
+.media100__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4 !important;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover ~ .media100__wrapper .media100__subtitle .media100__subtitle-p1,
+    &:hover ~ .media100__wrapper .media100__subtitle .media100__subtitle-p2 {
+        text-decoration: underline;
+    }
+}
+
+.media100__wrapper {
+    height: 148px;
+
+    @include mq(desktop) {
+        height: 140px;
+    }
+
+    @include mq(leftCol) {
+        height: 152px;
+    }
+
+    @include mq(wide) {
+        height: 200px;
+    }
+}
+
+
+// Content
+.media100__title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: 125%;
+    width: 20%;
+    overflow: hidden;
+    margin: auto;
+    text-indent: -100%;
+    background: url('http://interactive.guim.co.uk/thrashers/media100/source/logo.png') no-repeat center;
+    background-size: contain;
+
+    @include mq(desktop) {
+        height: 115%;
+    }
+
+    @include mq(leftCol) {
+        height: 105%;
+    }
+
+    @include mq(wide) {
+        height: 95%;
+    }
+}
+
+.media100__subtitle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    color: #fff;
+    font-weight: 600;
+    text-transform: lowercase;
+    text-shadow: 0 0 4px #000;
+    height: 100%;
+    width: 100%;
+
+    @include mq(desktop) {
+        font-size: 1.25em;
+    }
+
+    @include mq(leftCol) {
+        font-size: 1.5em;
+    }
+
+    @include mq(wide) {
+        font-size: 1.75em;
+    }
+}
+
+.media100__subtitle-p1,
+.media100__subtitle-p2 {
+    display:inline-block;
+    vertical-align: middle;
+    width: 40%;
+    line-height: 148px;
+
+    @include mq(desktop) {
+        line-height: 140px;
+    }
+
+    @include mq(leftCol) {
+        line-height: 152px;
+    }
+
+    @include mq(wide) {
+        line-height: 200px;
+    }
+}
+
+.media100__subtitle-p1 {
+    float: left;
+    text-align: right;
+}
+
+.media100__subtitle-p2 {
+    float: right;
+}
+
+.media100__marque {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 10px;
+
+    @include mq($until: phablet) {
+        display: none;
+    }
+}
+
+
+// Background
 @include keyframes(flip) {
     0% {
         @include transform(rotateY(0));
@@ -33,33 +169,39 @@ $c-neutral-2: #767676;
     }
 }
 
-.media100__wrapper {
-    height: 200px;
-}
-
-.media100__content {
-    position: relative;
-    z-index: 2;
-}
-
-.media100__background {
+.media100__faces {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
     perspective: 1000;
+    background-color: $c-comment-support-1;
 }
 
 .media100__face {
     display: block;
     position: relative;
-    height: 100px;
-    width: 100px;
+    height: 74px;
+    width: 74px;
     float: left;
-
+    opacity: 0.6;
     transform-style: preserve-3d;
+    @include animation(flip 15s ease-in-out infinite);
 
-    @include animation(flip 10s ease-in-out infinite);
+    @include mq(desktop) {
+        height: 70px;
+        width: 70px;
+    }
+
+    @include mq(leftCol) {
+        height: 76px;
+        width: 76px;
+    }
+
+    @include mq(wide) {
+        height: 100px;
+        width: 100px;
+    }
 
     &:before,
     &:after {
@@ -71,83 +213,58 @@ $c-neutral-2: #767676;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         content: '';
+        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/faces.png');
         background-repeat: no-repeat;
-        background-size: 200px 100px;
+        background-size: 800% 200%;
     }
 
-    &:before { // front
+    &:before {
         z-index: 2;
-        transform: rotateY(0deg);
+        transform: rotateY(0);
         background-position: 0 0;
     }
 
-    &:after { // back
+    &:after {
         transform: rotateY(180deg);
-        background-position: -100px 0;
     }
 }
 
-.media100__cat--1 {
-    @include animation-delay(-10s);
+$face-delay: -2s, -4s, -6s, -9s, -13s, -1s, -15s, -12s;
 
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--1.png');
+@for $i from 1 through 8 {
+    $position: $i - 1;
+
+    .media100__face--#{$i} {
+        @include animation-delay(nth($face-delay, $i));
+
+        &:before {
+            background-color: darken($c-comment-main-2, $i * 1%);
+            background-position: percentage($position/7) 0;
+        }
+
+        &:after {
+            background-color: darken($c-comment-main-2, $i * 2%);
+            background-position: percentage($position/7) 100%;
+        }
     }
 }
-.media100__cat--2 {
-    @include animation-delay(-2s);
 
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--2.png');
-    }
-}
-.media100__cat--3 {
-    @include animation-delay(-16s);
+@for $i from 9 through 16 {
+    $index: $i - 8;
+    $position: $i - 9;
+    $face-delay: -2s, -4s, -6s, -9s, -13s, -1s, -15s, -12s;
 
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--3.png');
-    }
-}
-.media100__cat--4 {
-    @include animation-delay(-5s);
+    .media100__face--#{$i} {
+        @include animation-delay(nth($face-delay, $index));
 
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--4.png');
-    }
-}
-.media100__cat--5 {
-    @include animation-delay(-14s);
+        &:before {
+            background-color: darken($c-comment-main-2, $i * 1%);
+            background-position: percentage($position/7) 100%;
+        }
 
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--5.png');
-    }
-}
-.media100__cat--6 {
-    @include animation-delay(-4s);
-
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--6.png');
-    }
-}
-.media100__cat--7 {
-    @include animation-delay(-11s);
-
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--7.png');
-    }
-}
-.media100__cat--8 {
-    @include animation-delay(-1s);
-
-    &:before,
-    &:after {
-        background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/cat--8.png');
+        &:after {
+            background-color: darken($c-comment-main-2, $i * 2%);
+            background-position: percentage($position/7) 0;
+        }
     }
 }
