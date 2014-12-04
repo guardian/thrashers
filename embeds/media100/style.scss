@@ -19,7 +19,7 @@ $c-multimedia-main-2: #fb0;
 
 @import 'shared/_imports';
 
-@include full-width(media100, $c-multimedia-main-2);
+@include full-width(media100, $c-comment-support-1);
 
 .media100__anchor {
     position: absolute !important;
@@ -70,8 +70,9 @@ $c-multimedia-main-2: #fb0;
     background: url('http://interactive.guim.co.uk/thrashers/media100/source/logo.png') no-repeat center;
     background-size: contain;
     text-indent: -100%;
+    width: 20%;
 
-    @include mq(leftCol) {
+    @include mq(wide) {
         width: 12%;
     }
 
@@ -85,17 +86,23 @@ $c-multimedia-main-2: #fb0;
     float: left;
     width: 80%;
     color: #fff;
-    padding: 0 23% 0 2%;
+    padding-left: 2%;
+    font-size: 1.5em;
     font-weight: 400;
     text-transform: lowercase;
     text-shadow: 0 0 4px #000;
     line-height: 1;
 
-    @include mq(desktop) {
-        font-size: 1.5em;
+    @include mq(mobileLandscape) {
+        font-size: 1.75em;
     }
 
-    @include mq(leftCol) {
+    @include mq(tablet) {
+        padding-right: 23%;
+        font-size: 2em;
+    }
+
+    @include mq(desktop) {
         font-size: 2em;
     }
 
@@ -110,8 +117,9 @@ $c-multimedia-main-2: #fb0;
     color: $c-neutral-1;
     background-color: $c-comment-support-3;
     border: 0;
+    left: 22%;
 
-    @include mq(leftCol) {
+    @include mq(desktop) {
         left: 14%;
     }
 
@@ -157,7 +165,6 @@ $c-multimedia-main-2: #fb0;
     left: 0;
     z-index: 1;
     perspective: 1000;
-    background-color: $c-comment-support-1;
 }
 
 .media100__face {
@@ -220,12 +227,10 @@ $face-delay: -2s, -4s, -6s, -9s, -13s, -1s, -15s, -12s;
         @include animation-delay(nth($face-delay, $i));
 
         &:before {
-            background-color: darken($c-comment-main-2, $i * 1%);
             background-position: percentage($position/7) 0;
         }
 
         &:after {
-            background-color: darken($c-comment-main-2, $i * 2%);
             background-position: percentage($position/7) 100%;
         }
     }
@@ -240,12 +245,10 @@ $face-delay: -2s, -4s, -6s, -9s, -13s, -1s, -15s, -12s;
         @include animation-delay(nth($face-delay, $index));
 
         &:before {
-            background-color: darken($c-comment-main-2, $i * 1%);
             background-position: percentage($position/7) 100%;
         }
 
         &:after {
-            background-color: darken($c-comment-main-2, $i * 2%);
             background-position: percentage($position/7) 0;
         }
     }
