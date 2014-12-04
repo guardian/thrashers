@@ -70,7 +70,7 @@ $c-multimedia-main-2: #fb0;
     background: url('http://interactive.guim.co.uk/thrashers/media100/source/logo.png') no-repeat center;
     background-position-y: 0;
     background-size: contain;
-    text-indent: -100%;
+    text-indent: -200%;
     width: 20%;
 
     @include mq(desktop) {
@@ -167,7 +167,8 @@ $c-multimedia-main-2: #fb0;
     right: 0;
     z-index: 1;
     perspective: 1000;
-    
+    opacity: 0.66;
+
     @include mq($until: tablet) {
         left: -48px;
         right: -48px;
@@ -180,7 +181,6 @@ $c-multimedia-main-2: #fb0;
     height: 74px;
     width: 74px;
     float: left;
-    opacity: 0.5;
     transform-style: preserve-3d;
     @include animation(flip 15s ease-in-out infinite);
 
