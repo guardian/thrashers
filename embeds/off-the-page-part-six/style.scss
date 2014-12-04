@@ -129,6 +129,7 @@ a.off-the-page-part-six__anchor {
     color: $c-darkGray;
     border: none;
     margin-bottom: 10px;
+
     @include mq(phablet) {
         height: 26px !important;
         width: 200px;
