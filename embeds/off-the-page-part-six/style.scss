@@ -1,0 +1,161 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-background: #171e20;
+$c-mediaYellow: #ffbb00;
+$c-lightGrey: #dadada;
+$c-darkGray: #333333;
+
+@import 'shared/_imports';
+
+@include full-width(off-the-page-part-six, $c-background);
+
+a.off-the-page-part-six__anchor {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    position: absolute;
+    z-index: 4 !important;
+    cursor: pointer;
+
+    &:hover ~ .off-the-page-part-six__content .button.off-the-page-part-six__button {
+        background-color: darken($c-mediaYellow, 10%);
+    }
+}
+
+.off-the-page-part-six__wrapper {
+    width: 100%;
+    background-color: $c-background;
+    position: relative;
+    overflow: hidden;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    background-image: url('http://interactive.guim.co.uk/thrashers/off-the-page-part-six/source/off-the-grid-screen.jpg');
+    background-position: center center;
+
+    @include mq($until: tablet) {
+        background-position-y: 20%;
+    }
+
+    @include mq(tablet) {
+        background-position-y: -100px;
+    }
+
+    @include mq(tablet, desktop) {
+        background-position-x: -90px;
+    }
+}
+
+// Content
+
+.off-the-page-part-six__content {
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+    height: 200px;
+
+    @include mq(tablet) {
+        height: 220px;
+    }
+
+    @include mq(desktop) {
+        height: 240px;
+    }
+}
+
+// Headlines & Copy
+
+.off-the-page-part-six__series,
+.off-the-page-part-six__headline,
+.off-the-page-part-six__trail {
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    margin: 0;
+    padding: 0;
+}
+
+.off-the-page-part-six__series,
+.off-the-page-part-six__trail {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    
+    @include mq(tablet) {
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+
+.off-the-page-part-six__series {
+    color: $c-mediaYellow;
+}
+
+.off-the-page-part-six__headline {
+    font-size: 24px;
+    line-height: 26px;
+
+    @include mq(tablet) {
+        font-size: 50px;
+        line-height: 45px;
+    }
+}
+
+.off-the-page-part-six__trail {
+    @include mq($until: tablet) {
+        width: 50%;
+    }
+
+    br {
+        @include mq($until: tablet) {
+            display: none;
+        }
+    }
+}
+
+// Buttons
+
+.button.off-the-page-part-six__button {
+    position: absolute;
+    bottom: 10px;
+    background-color: $c-mediaYellow;
+    color: $c-darkGray;
+    border: none;
+    margin-bottom: 10px;
+    @include mq(phablet) {
+        height: 26px !important;
+        width: 200px;
+        display: block;
+    }
+
+    .off-the-page-part-six__button__icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 2px;
+
+        @include mq(phablet) {
+            margin-top: 5px;
+            float: right;
+        }
+    }
+}
+
+// Guardian Logo
+
+.off-the-page-part-six__guardian-logo {
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    bottom: 10px;
+
+    @include mq($until: phablet) {
+        display: none;
+    }
+}
