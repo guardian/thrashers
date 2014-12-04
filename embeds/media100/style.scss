@@ -68,11 +68,12 @@ $c-multimedia-main-2: #fb0;
     overflow: hidden;
     height: 100%;
     background: url('http://interactive.guim.co.uk/thrashers/media100/source/logo.png') no-repeat center;
+    background-position-y: 0;
     background-size: contain;
     text-indent: -100%;
     width: 20%;
 
-    @include mq(wide) {
+    @include mq(desktop) {
         width: 12%;
     }
 
@@ -163,8 +164,14 @@ $c-multimedia-main-2: #fb0;
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 1;
     perspective: 1000;
+    
+    @include mq($until: tablet) {
+        left: -48px;
+        right: -48px;
+    }
 }
 
 .media100__face {
@@ -199,12 +206,13 @@ $c-multimedia-main-2: #fb0;
         right: 0;
         bottom: 0;
         left: 0;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
         content: '';
+        background-color: $c-comment-support-1;
         background-image: url('http://interactive.guim.co.uk/thrashers/media100/source/faces.png');
         background-repeat: no-repeat;
         background-size: 800% 200%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 
     &:before {
@@ -218,7 +226,7 @@ $c-multimedia-main-2: #fb0;
     }
 }
 
-$face-delay: -2s, -4s, -6s, -9s, -13s, -1s, -15s, -12s;
+$face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;
 
 @for $i from 1 through 8 {
     $position: $i - 1;
