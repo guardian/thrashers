@@ -42,10 +42,6 @@ a.off-the-page-part-six__anchor {
     background-image: url('http://interactive.guim.co.uk/thrashers/off-the-page-part-six/source/off-the-grid-screen.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-
-    @include mq(leftCol) {
-        background-position-y: -40px;
-    }
 }
 
 // Content
