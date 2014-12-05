@@ -11,15 +11,15 @@ $mq-breakpoints: (
 
 $c-commentBackground: #eae8e3;
 $c-commentAccent: #e6711b;
-$contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
+$contributors: daniel-taylor, david-conn, amy-lawrence, barry-glendenning, barney-ronay;
 
 @import 'shared/_imports';
 
-@include full-width(comment-uk-sport, $c-commentBackground);
+@include full-width(comment-uk-football, $c-commentBackground);
 
 
 // Wrapper
-.comment-uk-sport__wrapper {
+.comment-uk-football__wrapper {
     width: 100%;
     background-color: $c-commentBackground;
     position: relative;
@@ -35,8 +35,8 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
 
 
 // Content and type
-.comment-uk-sport__content,
-.comment-uk-sport__article {
+.comment-uk-football__content,
+.comment-uk-football__article {
     position: relative;
     width: 36%;
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
@@ -47,7 +47,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
     }
 }
 
-.comment-uk-sport__title {
+.comment-uk-football__title {
     color: #ffffff;
     font-size: 20px;
     line-height: 24px;
@@ -82,7 +82,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
     }
 }
 
-.comment-uk-sport__standfirst {
+.comment-uk-football__standfirst {
     font-size: 16px;
     line-height: 20px;
 
@@ -101,9 +101,9 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
     }
 }
 
-.comment-uk-sport__content,
-.comment-uk-sport__article,
-.comment-uk-sport__contributors__wrapper {
+.comment-uk-football__content,
+.comment-uk-football__article,
+.comment-uk-football__contributors__wrapper {
     @include mq($until: tablet) {
         width: 100%;
         box-sizing: border-box;
@@ -117,16 +117,16 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
 }
 
 @include mq(phablet, tablet) {
-    .comment-uk-sport__content .comment-uk-sport__title,
-    .comment-uk-sport__standfirst,
-    .comment-uk-sport__contributors__wrapper {
+    .comment-uk-football__content .comment-uk-football__title,
+    .comment-uk-football__standfirst,
+    .comment-uk-football__contributors__wrapper {
         max-width: 620px;
         margin: 0 auto;
         padding-left: 0;
     }
 }
 
-.comment-uk-sport__content {
+.comment-uk-football__content {
     @include mq($until: tablet) {
         padding-bottom: 16px;
         background-color: $c-commentAccent;
@@ -134,7 +134,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
     }
 }
 
-.button.comment-uk-sport__button {
+.button.comment-uk-football__button {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -151,12 +151,12 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
         background-color: darken($c-commentAccent, 10%);
     }
 
-    .comment-uk-sport__button__icon path {
+    .comment-uk-football__button__icon path {
         fill: #ffffff;
     }
 }
 
-.comment-uk-sport__button__icon {
+.comment-uk-football__button__icon {
     display: inline-block;
     vertical-align: middle;
     margin-left: 2px;
@@ -168,11 +168,11 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
 
 
 // Articles
-.comment-uk-sport__article,
-.comment-uk-sport__link--mobile {
+.comment-uk-football__article,
+.comment-uk-football__link--mobile {
     display: none;
 
-    .comment-uk-sport__title {
+    .comment-uk-football__title {
         color: #333;
         font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
         font-size: 16px;
@@ -201,13 +201,13 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
             background-position: 0 0;
         }
 
-        .comment-uk-sport__byline {
+        .comment-uk-football__byline {
             display: block;
             color: $c-commentAccent;
         }
     }
 
-    .comment-uk-sport__tagline {
+    .comment-uk-football__tagline {
         position: absolute;
         bottom: 0;
         padding-right: 40px;
@@ -225,7 +225,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
 }
 
 // Cutouts
-.comment-uk-sport__contributors__wrapper {
+.comment-uk-football__contributors__wrapper {
     @include mq($until: tablet) {
         -ms-overflow-style: none;
         overflow-x: scroll;
@@ -245,7 +245,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
     }
 }
 
-.comment-uk-sport__contributors {
+.comment-uk-football__contributors {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -267,7 +267,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
     }
 }
 
-.comment-uk-sport__contributor {
+.comment-uk-football__contributor {
     line-height: 0;
     float: left;
     position: relative;
@@ -309,23 +309,23 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
 }
 
 @each $contributor in $contributors {
-    .comment-uk-sport__link--#{$contributor}:hover {
-        ~ .comment-uk-sport__article--#{$contributor} {
+    .comment-uk-football__link--#{$contributor}:hover {
+        ~ .comment-uk-football__article--#{$contributor} {
             display: block;
         }
 
-        ~ .comment-uk-sport__content {
+        ~ .comment-uk-football__content {
             display: none;
         }
 
         @each $contributor in $contributors {
-            ~ .comment-uk-sport__contributors__wrapper .comment-uk-sport__contributor--#{$contributor} {
+            ~ .comment-uk-football__contributors__wrapper .comment-uk-football__contributor--#{$contributor} {
                 -webkit-filter: grayscale(100%);
                 filter: grayscale(100%);
             }
         }
         
-        ~ .comment-uk-sport__contributors__wrapper .comment-uk-sport__contributor--#{$contributor} {
+        ~ .comment-uk-football__contributors__wrapper .comment-uk-football__contributor--#{$contributor} {
             -webkit-filter: none;
             filter: none;
         }
@@ -333,7 +333,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
 }
 
 // Links
-a.comment-uk-sport__link {
+a.comment-uk-football__link {
     @include mq($until: tablet) {
         display: none;
     }
@@ -350,13 +350,13 @@ a.comment-uk-sport__link {
 }
 
 @for $i from 2 through 5 {
-    a.comment-uk-sport__link:nth-of-type(#{$i}) {
+    a.comment-uk-football__link:nth-of-type(#{$i}) {
         margin-left: 12.8% * ($i - 1) + 33%;
     }
 
-    .comment-uk-sport__contributor:nth-of-type(#{$i}) {
+    .comment-uk-football__contributor:nth-of-type(#{$i}) {
         @include mq($until: tablet) {
-            .comment-uk-sport__title {
+            .comment-uk-football__title {
                 padding-left: 10px;
             }
 
@@ -374,14 +374,14 @@ a.comment-uk-sport__link {
     }
 }
 
-a.comment-uk-sport__link--mobile {
+a.comment-uk-football__link--mobile {
     display: block;
 
     @include mq(tablet) {
         display: none;
     }
 
-    .comment-uk-sport__title {
+    .comment-uk-football__title {
         width: 60%;
         margin-bottom: 48px;
         font-weight: 400;
