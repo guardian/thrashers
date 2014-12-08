@@ -19,7 +19,7 @@ $c-multimedia-main-2: #fb0;
 
 @import 'shared/_imports';
 
-@include full-width(media100, $c-comment-support-1);
+@include base(media100, $c-comment-support-1);
 
 .media100__anchor {
     position: absolute !important;
