@@ -1,5 +1,8 @@
 // Full Width Presentation
 // Description: Removes properties from the container to make the snap appear full-width
+//
+// TO BE DEPRECATED. Most of this exists inside the frontend project. Use @include base(); instead
+//
 @mixin full-width($containerName, $c-background: #dedede) {
     ##{$containerName} {
         background-color: $c-background;
@@ -12,7 +15,7 @@
     ##{$containerName} .fc-container__inner {
         border-top: none;
         padding-top: 0px;
-    
+
         @include mq($until: tablet) {
             margin-left: 0;
             margin-right: 0;
@@ -36,7 +39,7 @@
     ##{$containerName} .fc-slice-wrapper {
         margin-left: 0;
         margin-right: 0;
-    
+
         @include mq(tablet){
             margin-left: -20px;
             margin-right: -20px;
@@ -47,7 +50,7 @@
         margin-bottom: 0px !important;
         width: 100%;
     }
-    
+
     ##{$containerName} .fc-container__body {
         margin-left: 0;
         padding-top: 0;
@@ -55,13 +58,29 @@
         width: 100%;
         overflow: initial;
     }
-    
+
     ##{$containerName} .fc-item {
         margin: 0;
         overflow: auto;
         width: 100%;
     }
-    
+
+    .#{$containerName}__wrapper {
+        width: 100%;
+        background-color: $c-background;
+        position: relative;
+        overflow: hidden;
+        font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    }
+}
+
+// Base
+// Description: A few base rules to get us started
+@mixin base($containerName, $c-background: #dedede) {
+    ##{$containerName} {
+        background-color: $c-background;
+    }
+
     .#{$containerName}__wrapper {
         width: 100%;
         background-color: $c-background;
@@ -73,7 +92,7 @@
 
 // Rule
 // Description: Place a rule on top of the thrasher on all breakpoints
- @mixin rule($containerName, $c-rule: #005689) {
+@mixin rule($containerName, $c-rule: #005689) {
     ##{$containerName} {
         @include mq($until: tablet) {
             border-top: 1px solid $c-rule;
