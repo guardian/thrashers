@@ -13,7 +13,7 @@ $c-background: #a8a8a8;
 $c-liveRed: #e31f26;
 
 @import 'shared/_imports';
-@import 'embeds/alan-sydney/partials/_full-width';
+@include base(alan-sydney, $c-background);
 
 .alan-sydney__anchor {
     position: absolute !important;

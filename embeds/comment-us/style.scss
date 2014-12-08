@@ -9,6 +9,7 @@ $mq-breakpoints: (
 );
 
 @import "components/sass-mq/_mq.scss";
+@import "shared/_imports";
 
 $c-commentBackground: #eae8e3;
 $c-commentAccent: #e6711b;
@@ -405,76 +406,6 @@ a.comment-us__link--mobile {
     }
 }
 
-/* Facia Stuff */
 
-#comment-us-container {
-    background-color: $c-commentBackground;
-    border-top: 0;
-    margin-top: 0;
-    margin-bottom: 24px;
-    padding-bottom: 0;
-
-    @include mq($until: tablet) {
-        border-top: 1px solid #333;
-    }
-}
-
-#comment-us-container .fc-container__inner {
-    border-top: none;
-    padding-top: 0px;
-
-    @include mq($until: tablet) {
-        margin-left: 0;
-        margin-right: 0;
-        width: 100%;
-    }
-
-    @include mq(tablet) {
-        border-top: 1px solid $c-commentAccent;
-    }
-}
-
-#comment-us-container .fc-container__header {
-    display: none;
-}
-
-#comment-us-container .fc-slice {
-    margin: 0;
-    width: 100%;
-}
-
-#comment-us-container .fc-slice-item {
-    width: 100%;
-}
-
-.has-no-flex-wrap #comment-us-container .comment-us__wrapper {
-    width: 96%;
-}
-
-#comment-us-container .fc-slice-wrapper {
-    margin-left: 0;
-    margin-right: 0;
-
-    @include mq(tablet){
-        margin-left: -20px;
-        margin-right: -20px;
-    }
-}
-
-#comment-us-container .fc-slice__item {
-    margin-bottom: 0px !important;
-    width: 100%;
-}
-
-#comment-us-container .fc-container__body {
-    margin-left: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    width: 100%;
-    overflow: initial;
-}
-
-#comment-us-container .fc-item {
-    margin: 0;
-    overflow: auto;
-}
+@include base(comment-us-container, $c-commentBackground);
+@include rule(comment-us-container, $c-commentAccent);

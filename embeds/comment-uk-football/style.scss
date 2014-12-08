@@ -15,8 +15,7 @@ $contributors: daniel-taylor, david-conn, amy-lawrence, barry-glendenning, barne
 
 @import 'shared/_imports';
 
-@include full-width(comment-uk-football, $c-commentBackground);
-
+@include base(comment-uk-football, $c-commentBackground);
 
 // Wrapper
 .comment-uk-football__wrapper {

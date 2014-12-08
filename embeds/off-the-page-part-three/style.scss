@@ -16,7 +16,7 @@ $c-darkGray: #333333;
 
 @import 'shared/_imports';
 
-@include full-width(off-the-page-part-three, $c-background);
+@include base(off-the-page-part-three, $c-background);
 
 .off-the-page-part-three__anchor {
     top: 0;
