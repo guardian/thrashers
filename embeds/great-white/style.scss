@@ -9,13 +9,12 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
+$c-background: #a0abc1;
 $c-feature: #b72166;
 
-@import 'components/sass-mq/_mq';
-@import 'shared/_css3';
-@import 'shared/_mixins';
+@import "shared/_imports";
 
-@include full-width(great-white, #a0abc1);
+@include base(great-white, $c-background);
 
 .great-white__anchor {
     top: 0;

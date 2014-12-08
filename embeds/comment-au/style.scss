@@ -14,6 +14,9 @@ $c-commentBackground: #eae8e3;
 $c-commentAccent: #e6711b;
 $contributors: jason-wilson, larissa-behrendt, jeff-sparrow, ranjana-srivastava, eleanor-robertson;
 
+@include base(australian-opinion, $c-commentBackground);
+@include rule(australian-opinion, $c-commentAccent);
+
 .comment-au__wrapper {
     width: 100%;
     background-color: $c-commentBackground;
@@ -390,78 +393,4 @@ a.comment-au__link--mobile {
         margin-bottom: 48px;
         font-weight: 400;
     }
-}
-
-/* Facia Stuff */
-
-#australian-opinion {
-    background-color: $c-commentBackground;
-    border-top: 0;
-    margin-top: 0;
-    margin-bottom: 24px;
-    padding-bottom: 0;
-
-    @include mq($until: tablet) {
-        border-top: 1px solid #333;
-    }
-}
-
-#australian-opinion .fc-container__inner {
-    border-top: none;
-    padding-top: 0px;
-
-    @include mq($until: tablet) {
-        margin-left: 0;
-        margin-right: 0;
-        width: 100%;
-    }
-
-    @include mq(tablet) {
-        border-top: 1px solid $c-commentAccent;
-    }
-}
-
-#australian-opinion .fc-container__header {
-    display: none;
-}
-
-#australian-opinion .fc-slice {
-    margin: 0;
-    width: 100%;
-}
-
-#australian-opinion .fc-slice-item {
-    width: 100%;
-}
-
-.has-no-flex-wrap #australian-opinion .comment-au__wrapper {
-    width: 96%;
-}
-
-#australian-opinion .fc-slice-wrapper {
-    margin-left: 0;
-    margin-right: 0;
-
-    @include mq(tablet){
-        margin-left: -20px;
-        margin-right: -20px;
-    }
-}
-
-#australian-opinion .fc-slice__item {
-    margin-bottom: 0px !important;
-    width: 100%;
-}
-
-#australian-opinion .fc-container__body {
-    margin-left: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    width: 100%;
-    overflow: initial;
-}
-
-#australian-opinion .fc-item {
-    margin: 0;
-    overflow: auto;
 }

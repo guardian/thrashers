@@ -13,14 +13,7 @@ $c-commentBackground: #e4e0e0;
 $c-commentAccent: #e6711b;
 
 @import 'shared/_imports';
-@import 'embeds/coal-us/partials/_full-width';
-
-.coal-us__wrapper {
-    width: 100%;
-    background-color: $c-commentBackground;
-    position: relative;
-    overflow: hidden;
-}
+@include base(coal-us, $c-commentBackground);
 
 // Link
 

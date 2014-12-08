@@ -15,7 +15,7 @@ $c-lightGrey: #dadada;
 $c-darkGray: #333333;
 
 @import 'shared/_imports';
-@import 'embeds/off-the-page-part-one/partials/_full-width';
+@include base(off-the-page-part-one, $c-background);
 
 .off-the-page-part-one__anchor {
     top: 0;

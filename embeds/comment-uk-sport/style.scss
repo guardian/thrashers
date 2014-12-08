@@ -15,7 +15,7 @@ $contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
 
 @import 'shared/_imports';
 
-@include full-width(comment-uk-sport, $c-commentBackground);
+@include base(comment-uk-sport, $c-commentBackground);
 
 
 // Wrapper

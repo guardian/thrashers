@@ -20,7 +20,7 @@ $c-features-support-4: #dc2a7d;
 
 @import 'shared/_imports';
 
-@include full-width(culture-2014-review, $c-features-main-1);
+@include base(culture-2014-review, $c-features-main-1);
 
 // Content
 .culture-2014-review__content {
