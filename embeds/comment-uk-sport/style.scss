@@ -1,0 +1,389 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-commentBackground: #eae8e3;
+$c-commentAccent: #e6711b;
+$contributors: kevin-mitchell, andy-bull, marina-hyde, mike-selvey, sean-ingle;
+
+@import 'shared/_imports';
+
+@include full-width(comment-uk-sport, $c-commentBackground);
+
+
+// Wrapper
+.comment-uk-sport__wrapper {
+    width: 100%;
+    background-color: $c-commentBackground;
+    position: relative;
+    overflow: hidden;
+
+    @include mq(tablet) {
+        border-top: 1px solid $c-commentAccent;
+        padding-top: 4px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+// Content and type
+.comment-uk-sport__content,
+.comment-uk-sport__article {
+    position: relative;
+    width: 36%;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    float: left;
+
+    @include mq(tablet) {
+        height: 148px;
+    }
+}
+
+.comment-uk-sport__title {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+
+    @include mq(tablet) {
+        font-size: 26px;
+        line-height: 30px;
+        font-weight: 200;
+        color: $c-commentAccent;
+    }
+
+    @include mq(desktop) {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    @include mq(leftCol) {
+        font-size: 36px;
+        line-height: 36px;
+    }
+
+    @include mq(wide) {
+        font-size: 40px;
+        line-height: 40px;
+    }
+
+    br {
+        @include mq($until: tablet) {
+            display: none;
+        }
+    }
+}
+
+.comment-uk-sport__standfirst {
+    font-size: 16px;
+    line-height: 20px;
+
+    @include mq(tablet) {
+        font-weight: 200;
+    }
+
+    @include mq(desktop) {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    @include mq(leftCol) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+}
+
+.comment-uk-sport__content,
+.comment-uk-sport__article,
+.comment-uk-sport__contributors__wrapper {
+    @include mq($until: tablet) {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        float: none;
+    }
+
+    @include mq($until: mobileLandscape) {
+        padding: 0 10px;
+    }
+}
+
+@include mq(phablet, tablet) {
+    .comment-uk-sport__content .comment-uk-sport__title,
+    .comment-uk-sport__standfirst,
+    .comment-uk-sport__contributors__wrapper {
+        max-width: 620px;
+        margin: 0 auto;
+        padding-left: 0;
+    }
+}
+
+.comment-uk-sport__content {
+    @include mq($until: tablet) {
+        padding-bottom: 16px;
+        background-color: $c-commentAccent;
+        color: #333;
+    }
+}
+
+.button.comment-uk-sport__button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #ffffff;
+    border: 1px solid $c-commentAccent;
+    background-color: $c-commentAccent;
+
+    @include mq($until: tablet) {
+        display: none;
+    }
+
+    &:hover {
+        border-color: darken($c-commentAccent, 10%);
+        background-color: darken($c-commentAccent, 10%);
+    }
+
+    .comment-uk-sport__button__icon path {
+        fill: #ffffff;
+    }
+}
+
+.comment-uk-sport__button__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2px;
+
+    path {
+        fill: $c-commentAccent;
+    }
+}
+
+
+// Articles
+.comment-uk-sport__article,
+.comment-uk-sport__link--mobile {
+    display: none;
+
+    .comment-uk-sport__title {
+        color: #333;
+        font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+        font-size: 16px;
+        line-height: 20px;
+
+        @include mq(mobileLandscape) {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        @include mq(desktop) {
+            font-size: 28px;
+            line-height: 32px;
+        }
+
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 1.25em;
+            height: 0.7em;
+            margin-right: 0.1em;
+            vertical-align: baseline;
+            background-size: contain;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMyIgaGVpZ2h0PSIyMCI+PHBhdGggZD0iTTkuMDAyIDIwYzMuODUuMDY4IDYuOTMyLTMuMTA0IDctNi45OTQuMDY4LTMuODkyLTMuMTUtNi45MzctNy03LjAwNi0yLjAxNi0uMDM2LTMuNTkuNjk0LTQuODg4IDIuMDUzLS4wNy0uNDgtLjEyMi0xLjA0LS4xMTMtMS41NTNDNC4wNjUgMi45NyA3LjQxNS45MzcgMTEuMDA0IDFsLTEtMUMzLjk4IDAgLjA5OCA0LjQ0Ny4wMDMgMTAuMDA2Yy0uMDk4IDUuNTU3IDMuMzUgOS44OTIgOSA5Ljk5NHptMTcgMGMzLjg1LjA2OCA2LjkzMi0zLjEwNCA3LTYuOTk0LjA2OC0zLjg5Mi0zLjE1LTYuOTM3LTctNy4wMDYtMi4wMTYtLjAzNi0zLjU5LjY5NC00Ljg4OCAyLjA1My0uMDctLjQ4LS4xMjItMS4wNC0uMTEzLTEuNTUzLjA2NC0zLjUzIDMuNDE0LTUuNTYzIDcuMDAzLTUuNWwtMS0xYy02LjAyMiAwLTkuOTA0IDQuNDQ3LTEwIDEwLjAwNi0uMDk3IDUuNTU3IDMuMzUgOS44OTIgOSA5Ljk5NHoiIGZpbGw9IiM3Njc2NzYiLz48L3N2Zz4=);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+        }
+
+        .comment-uk-sport__byline {
+            display: block;
+            color: $c-commentAccent;
+        }
+    }
+
+    .comment-uk-sport__tagline {
+        position: absolute;
+        bottom: 0;
+        padding-right: 40px;
+        margin-bottom: 0;
+        color: #767676;
+        font-size: 14px;
+        line-height: 18px;
+
+        @include mq(desktop) {
+            font-size: 16px;
+            line-height: 20px;
+            padding-right: 80px;
+        }
+    }
+}
+
+// Cutouts
+.comment-uk-sport__contributors__wrapper {
+    @include mq($until: tablet) {
+        -ms-overflow-style: none;
+        overflow-x: scroll;
+        overflow-x: -moz-scrollbars-none;
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    @include mq(tablet) {
+        position: relative;
+        width: 64%;
+        float: left;
+        height: 156px;
+    }
+}
+
+.comment-uk-sport__contributors {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include mq($until: tablet) {
+        width: 440%;
+    }
+
+    @include mq($until: mobileLandscape) {
+        width: 400%;
+    }
+
+    @include mq(tablet) {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        float: right;
+    }
+}
+
+.comment-uk-sport__contributor {
+    line-height: 0;
+    float: left;
+    position: relative;
+    width: 20%;
+
+    @include mq($until: tablet) {
+        height: 160px;
+        overflow: hidden;
+    }
+
+    img {
+        @include mq($until: mobile) {
+            height: 80%;
+            right: -18%;
+        }
+
+        @include mq($until: mobileLandscape) {
+            height: 100%;
+            right: -20%;
+        }
+
+        @include mq($until: tablet) {
+            position: absolute;
+            right: -8%;
+            bottom: -10%;
+            width: auto;
+            height: 120%;
+        }
+
+        @include mq(tablet) {
+            height: 160px;
+            margin-bottom: -12px;
+        }
+
+        @include mq(desktop) {
+            height: 200px;
+        }
+    }
+}
+
+@each $contributor in $contributors {
+    .comment-uk-sport__link--#{$contributor}:hover {
+        ~ .comment-uk-sport__article--#{$contributor} {
+            display: block;
+        }
+
+        ~ .comment-uk-sport__content {
+            display: none;
+        }
+
+        @each $contributor in $contributors {
+            ~ .comment-uk-sport__contributors__wrapper .comment-uk-sport__contributor--#{$contributor} {
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+            }
+        }
+        
+        ~ .comment-uk-sport__contributors__wrapper .comment-uk-sport__contributor--#{$contributor} {
+            -webkit-filter: none;
+            filter: none;
+        }
+    }
+}
+
+// Links
+a.comment-uk-sport__link {
+    @include mq($until: tablet) {
+        display: none;
+    }
+
+    @include mq(tablet) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 12.8%;
+        margin-left: 33%;
+        z-index: 20 !important;
+        display: block;
+    }
+}
+
+@for $i from 2 through 5 {
+    a.comment-uk-sport__link:nth-of-type(#{$i}) {
+        margin-left: 12.8% * ($i - 1) + 33%;
+    }
+
+    .comment-uk-sport__contributor:nth-of-type(#{$i}) {
+        @include mq($until: tablet) {
+            .comment-uk-sport__title {
+                padding-left: 10px;
+            }
+
+            &:before {
+                content: "";
+                background-color: #ccc;
+                width: 1px;
+                float: left;
+                position: absolute;
+                top: 3px;
+                bottom: 3px;
+                left: 0;
+            }
+        }
+    }
+}
+
+a.comment-uk-sport__link--mobile {
+    display: block;
+
+    @include mq(tablet) {
+        display: none;
+    }
+
+    .comment-uk-sport__title {
+        width: 60%;
+        margin-bottom: 48px;
+        font-weight: 400;
+    }
+}
