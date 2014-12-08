@@ -147,7 +147,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths']);
+    grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths', 'return-paths']);
     grunt.registerTask('update', ['prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
     grunt.registerTask('local', ['connect', 'return-paths', 'watch:local']);
