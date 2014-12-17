@@ -1,0 +1,203 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+$c-background: #333;
+$c-text: #fff;
+$c-accent: #fb0;
+
+@import 'shared/_imports';
+
+
+// Link
+.football-stadia__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99 !important;
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover ~ .football-stadia__images {
+        opacity: 0.8;
+    }
+
+    &:hover ~ .football-stadia__description {
+        background-color: darken($c-background, 5%);
+    }
+}
+
+
+// Wrapper
+.football-stadia__wrapper {
+    width: 100%;
+    min-height: 320px;
+    background-color: $c-background;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid $c-accent;
+
+    &:hover {
+        background-color: darken($c-background, 5%);
+    }
+}
+
+
+// Description
+.football-stadia__description {
+    @include box-sizing(border-box);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: $c-background;
+    padding: 4px 5px 20px 5px;
+
+    @include mq(tablet) {
+        top: 0;
+        width: 26%;
+        padding-bottom: 36px;
+    }
+}
+
+.football-stadia__headline {
+    margin: 0;
+    color: $c-text;
+    font: 500 20px/24px 'Guardian Egyptian Web', Georgia, serif;
+    -webkit-font-smoothing:antialiased;
+
+    @include mq(desktop) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+}
+
+.football-stadia__icon {
+    display: inline-block;
+    height: 16px;
+    width: 12px;
+
+    @include mq(desktop) {
+        height: 24px;
+        width: 20px;
+    }
+}
+
+.football-stadia__icon-path {
+    fill: $c-accent;
+}
+
+.football-stadia__kicker {
+    color: $c-accent;
+
+    &:after {
+        content: '/';
+        display: inline-block;
+        margin-left: .2em;
+        color: rgba(118, 118, 118, 0.8);
+    }
+}
+
+
+// Images
+$a: 2;          // image duration (s)
+$b: 1;          // Transition duration (s)
+$d: $a+$b;      // Delay (s)
+$n: 6;          // Number of images
+$t: ($a+$b)*$n; // Total duration (s)
+
+$f1: 0%;
+$f2: ($a/$t)*100%;
+$f3: 1/$n*100%;
+$f4: 100%-($b/$t*100%);
+$f5: 100%;
+
+@include keyframes(fade) {
+    #{$f1} {opacity: 1;}
+    #{$f2} {opacity: 1;}
+    #{$f3} {opacity: 0;}
+    #{$f4} {opacity: 0;}
+    #{$f5} {opacity: 1;}
+}
+
+.football-stadia__images {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-bottom: 60%;
+
+    @include mq(tablet) {
+        width: 74%;
+        margin-left: 26%;
+        padding-bottom: 50%;
+    }
+}
+
+.football-stadia__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: center;
+    background-size: cover;
+     @include animation(fade #{$t}s ease-in-out infinite);
+}
+
+.football-stadia__image--1 {
+    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/anfield--new.jpg');
+     @include animation-delay($d*5s);
+}
+.football-stadia__image--2 {
+    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/anfield--old.jpg');
+     @include animation-delay($d*4s);
+}
+.football-stadia__image--3 {
+    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/ibrox--new.jpg');
+     @include animation-delay($d*3s);
+}
+.football-stadia__image--4 {
+    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/ibrox--old.jpg');
+     @include animation-delay($d*2s);
+}
+.football-stadia__image--5 {
+    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/white-heart-lane--new.jpg');
+     @include animation-delay($d*1s);
+}
+.football-stadia__image--6 {
+    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/white-heart-lane--old.jpg');
+     @include animation-delay($d*0s);
+}
+
+
+@include keyframes(swap) {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+//.football-stadia__imageset {
+//    @include animation(swap #{$t}s infinite);
+//}
+//
+//.football-stadia__imageset--1 {
+//    @include animation-delay($d*6s);
+//}
+//.football-stadia__imageset--2 {
+//    @include animation-delay($d*3s);
+//}
+//.football-stadia__imageset--3 {
+//    @include animation-delay($d*0s);
+//}
