@@ -8,119 +8,8 @@ $mq-breakpoints: (
     leftCol:         1140px,
     wide:            1300px
 );
-$c-background: #eaeaea;
-$c-text: #333;
-$c-accent-1: #4bc6df;
-$c-accent-2: #005689;
 
 @import 'shared/_imports';
-
-
-// Link
-.football-stadia__anchor {
-    position: absolute !important;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99 !important;
-    overflow: hidden;
-    text-indent: 200%;
-    white-space: nowrap;
-    background: transparent;
-    cursor: pointer;
-
-    &:hover ~ .football-stadia__images-wrapper .football-stadia__images {
-        opacity: 0.8;
-    }
-
-    &:hover ~ .football-stadia__description {
-        background-color: darken($c-background, 5%);
-    }
-}
-
-
-// Wrapper
-.football-stadia__wrapper {
-    width: 100%;
-    background-color: $c-background;
-    position: relative;
-    overflow: hidden;
-    border-top: 1px solid $c-accent-1;
-
-    &:hover {
-        background-color: darken($c-background, 5%);
-    }
-}
-
-
-// Description
-.football-stadia__description {
-    @include box-sizing(border-box);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background-color: $c-background;
-    padding: 4px 5px 12px 5px;
-
-    @include mq($until: tablet) {
-        right: 0;
-    }
-
-    @include mq(tablet) {
-        bottom: 0;
-        width: 26%;
-        padding-bottom: 36px;
-    }
-}
-
-.football-stadia__headline {
-    margin: 0;
-    color: $c-text;
-    font: 500 16px/20px 'Guardian Egyptian Web', Georgia, serif;
-    -webkit-font-smoothing:antialiased;
-
-    @include mq(mobileLandscape) {
-        font-size: 20px;
-        line-height: 24px;
-    }
-
-    @include mq(desktop) {
-        font-size: 24px;
-        line-height: 28px;
-    }
-}
-
-.football-stadia__icon {
-    display: none;
-
-    @include mq(tablet) {
-        display: inline-block;
-        height: 16px;
-        width: 12px;
-    }
-
-    @include mq(desktop) {
-        height: 24px;
-        width: 20px;
-    }
-}
-
-.football-stadia__icon-path {
-    fill: $c-accent-2;
-}
-
-.football-stadia__kicker {
-    color: $c-accent-2;
-
-    &:after {
-        content: '/';
-        display: inline-block;
-        margin-left: .2em;
-        color: rgba(118, 118, 118, 0.8);
-    }
-}
 
 @include keyframes(fade) {
     0% { opacity: 1; }
@@ -128,34 +17,19 @@ $c-accent-2: #005689;
     100% { opacity: 1; }
 }
 
-.football-stadia__images-wrapper {
-    background-color: #000;
-    position: relative;
-    z-index: 1;
+.football-stadia__wrapper {
     width: 100%;
-    padding-bottom: 60%;
+    @include flex-display();
+    @include flex();
 
-    @include mq(tablet) {
-        width: 74%;
-        margin-left: 26%;
-        padding-bottom: 50%;
+    .fc-item__image-container {
+        background-image: url('//interactive.guim.co.uk/thrashers/football-stadia/source/anfield--old.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .responsive-img {
+            opacity: 1 !important;
+            @include animation(fade 15s ease-in-out infinite);
+        }
     }
-}
-
-.football-stadia__image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-position: center;
-    background-size: cover;
-}
-
-.football-stadia__image--1 {
-    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/anfield--new.jpg');
-}
-.football-stadia__image--2 {
-    background-image: url('http://interactive.guim.co.uk/thrashers/football-stadia/source/anfield--old.jpg');
-    @include animation(fade 20s ease-in-out infinite);
 }
