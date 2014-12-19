@@ -148,19 +148,19 @@ $circle-background: false,                 false,              'monty-python', '
 $circle-delay:      -2s,                   -4s,                -6s,             -21s,          -13s,  -1s,         -15s,         -12s,                  -1s,            -16s,        -17s,                             -9s,                   -5s,             -9s,   ;
 $circle-duration:   9s,                    23s,                18s,             12s,           8s,    20s,         13s,          15s,                   10s,            19s,         22s,                              16s,                   16s,             12s,   ;
 
-@include keyframes(circleLoop) {
-    0% {
-        @include transform(translateX(0));
-    }
-
-    50% {
-        @include transform(translateX(10%));
-    }
-
-    100% {
-        @include transform(translateX(0));
-    }
-}
+//@include keyframes(circleLoop) {
+//    0% {
+//        @include transform(translateX(0));
+//    }
+//
+//    50% {
+//        @include transform(translateX(10%));
+//    }
+//
+//    100% {
+//        @include transform(translateX(0));
+//    }
+//}
 
 @mixin circles($i) {
     .culture-2014-review__circle--#{$i} {
@@ -168,7 +168,7 @@ $circle-duration:   9s,                    23s,                18s,             
         width: nth($circle-size, $i);
         border-radius: nth($circle-size, $i);
         left: nth($circle-position, $i);
-        @include animation(circleLoop 20s ease-in-out infinite);
+//      @include animation(circleLoop 20s ease-in-out infinite);
 
         @if nth($circle-outline, $i) {
             border: 1px $c-comment-support-3 dotted;
