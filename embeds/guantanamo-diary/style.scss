@@ -27,9 +27,8 @@ $c-accent: #D14805;
     background: transparent;
     cursor: pointer;
 
-    &:hover ~ .guantanamo-diary__wrapper .guantanamo-diary__content .guantanamo-diary__button {
-        background-color: lighten($c-accent, 10%);
-        border-color: lighten($c-accent, 10%);
+    &:hover ~ .guantanamo-diary__content a.guantanamo-diary__button {
+        background-color: #fff !important;
     }
 }
 
@@ -100,9 +99,53 @@ $c-accent: #D14805;
     }
 }
 
-.guantanamo-diary__button {
-    position: absolute;
+a.guantanamo-diary__link {
+    position: relative 10 !important;
+    z-index: 10 !important;
+    display: block;
+    line-height: 1;
+
+    @include mq(phablet) {
+        max-width: 20rem;
+    }
+}
+
+.guantanamo-diary__link__kicker {
+    color: #fb0;
+
+    &:after {
+        content: '/';
+        display: inline-block;
+        color: #767676;
+    }
+
+    .i {
+        margin-right: 4px;
+    }
+
+    .i path {
+        fill: #fb0;
+    }
+}
+
+.guantanamo-diary__link__headline {
+    color: #fff;
+}
+
+a.guantanamo-diary__button {
+    color: $c-shade;
+    position: absolute !important;
     bottom: 8px;
-    background-color: $c-accent;
-    border-color: $c-accent;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 0;
+    z-index: 10 !important;
+
+    &:hover {
+        background-color: #fff;
+    }
+
+    @include mq(phablet) {
+        left: 20px;
+    }
 }
