@@ -12,6 +12,7 @@ $mq-breakpoints: (
 @import 'shared/_imports';
 
 $c-background: #b51800;
+$c-neutral-1: #333;
 
 @import 'shared/_imports';
 
@@ -27,25 +28,22 @@ $c-background: #b51800;
     background: transparent;
     cursor: pointer;
 
-    &:hover ~ .state-of-the-union-2015__wrapper .state-of-the-union-2015__content .state-of-the-union-2015__button {
-        background-color: darken(#fff, 10%);
-        border-color: darken(#fff, 10%);
+    &:hover ~ .state-of-the-union-2015__content .state-of-the-union-2015__button {
+        background-color: #fff;
     }
 }
 
 .state-of-the-union-2015__wrapper {
     height: 160px;
-    background: $c-background url('http://interactive.guim.co.uk/thrashers/state-of-the-union-2015/source/obama.png') no-repeat center right;
-    background-size: 50%;
-    padding-top: 160px;
-
-    @include mq(phablet) {
-        padding-top: 0;
-//        background-position: right -10% bottom 0;
-    }
+    background: $c-background url('http://interactive.guim.co.uk/thrashers/state-of-the-union-2015/source/obama.png') no-repeat top 0 left 225px;
+    background-size: 690px;
 
     @include mq(desktop) {
-//        background-position: right 20% bottom 0;
+        background-position: top 0 left 450px;
+    }
+
+    @include mq(wide) {
+        background-position: top 0 left 610px;
     }
 }
 
@@ -74,10 +72,14 @@ $c-background: #b51800;
 .state-of-the-union-2015__title {
     color: #fff;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1;
 
     @include mq(mobileLandscape) {
+        font-size: 2rem;
+    }
+
+    @include mq(desktop) {
         font-size: 3rem;
     }
 }
@@ -87,8 +89,9 @@ $c-background: #b51800;
     font-weight: normal;
     font-size: 1.25rem;
     line-height: 1;
+    max-width: 15rem;
 
-    @include mq(phablet) {
+    @include mq(desktop) {
         max-width: 30rem;
     }
 }
@@ -96,17 +99,7 @@ $c-background: #b51800;
 .state-of-the-union-2015__button {
     position: absolute;
     bottom: 8px;
-    color: $c-background;
-    background-color: #fff;
-    border-color: #fff;
-
-    .i {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 2px;
-
-        path {
-            fill: $c-background;
-        }
-    }
+    color: $c-neutral-1;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 0;
 }
