@@ -32,6 +32,21 @@ $c-accent: #D14805;
         }
     }
 
+    .fc-item__title {
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    .fc-item__link {
+        color: $c-light;
+    }
+
+    .fc-item__link__author {
+        display: block;
+        font-size: 16px;
+        margin: 2px 0;
+    }
+
     .fc-item__header {
         color: $c-light;
     }
@@ -39,5 +54,16 @@ $c-accent: #D14805;
     .fc-item__standfirst {
         color: #fff;
         display: block !important;
+        font-size: 110%;
+    }
+
+    .fc-sublink__link {
+        color: #fff;
+    }
+
+    .fc-sublink__title {
+        &::before {
+            border-color: $c-light;
+        }
     }
 }
