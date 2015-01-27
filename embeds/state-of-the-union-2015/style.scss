@@ -1,0 +1,105 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-background: #b51800;
+$c-neutral-1: #333;
+
+@import 'shared/_imports';
+
+@include base(state-of-the-union-2015, $c-background);
+
+.state-of-the-union-2015__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4 !important;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover ~ .state-of-the-union-2015__content .state-of-the-union-2015__button {
+        background-color: #fff;
+    }
+}
+
+.state-of-the-union-2015__wrapper {
+    height: 160px;
+    background: $c-background url('http://interactive.guim.co.uk/thrashers/state-of-the-union-2015/source/obama.png') no-repeat top 0 left 225px;
+    background-size: 690px;
+
+    @include mq(desktop) {
+        background-position: top 0 left 450px;
+    }
+
+    @include mq(wide) {
+        background-position: top 0 left 610px;
+    }
+}
+
+.state-of-the-union-2015__content {
+    @include box-sizing(border-box);
+    position: relative;
+    height: 100%;
+    padding: 6px 10px;
+
+    @include mq(mobileLandscape) {
+        padding: 6px 20px;
+    }
+}
+
+.state-of-the-union-2015__marque {
+    position: absolute;
+    right: 20px;
+    bottom: 6px;
+    z-index: 2;
+
+    @include mq($until: phablet) {
+        display: none;
+    }
+}
+
+.state-of-the-union-2015__title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 1;
+
+    @include mq(mobileLandscape) {
+        font-size: 2rem;
+    }
+
+    @include mq(desktop) {
+        font-size: 3rem;
+    }
+}
+
+.state-of-the-union-2015__subtitle {
+    color: #fff;
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 1;
+    max-width: 15rem;
+
+    @include mq(desktop) {
+        max-width: 30rem;
+    }
+}
+
+.state-of-the-union-2015__button {
+    position: absolute;
+    bottom: 8px;
+    color: $c-neutral-1;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 0;
+}
