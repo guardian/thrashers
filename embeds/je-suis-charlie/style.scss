@@ -1,0 +1,161 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-live-main-1: #b51800;
+$c-neutral-1: #333;
+
+@import 'shared/_imports';
+
+@include base(je-suis-charlie, $c-neutral-1);
+
+.je-suis-charlie__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4 !important;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover ~ .je-suis-charlie__content a.je-suis-charlie__button {
+        background-color: lighten($c-live-main-1, 5%);
+    }
+}
+
+.je-suis-charlie__wrapper {
+    background: url('http://interactive.guim.co.uk/thrashers/je-suis-charlie/source/fabric.png') repeat;
+    background-size: 102px;
+    height: 168px;
+    padding: 6px 10px;
+
+    @include mq(mobileLandscape) {
+        height: 148px;
+        padding: 6px 20px;
+    }
+}
+
+.je-suis-charlie__content {
+    @include box-sizing(border-box);
+    position: relative;
+    height: 100%;
+    float: left;
+    width: 58%;
+
+    @include mq(leftCol) {
+        width: 55%;
+    }
+}
+
+.je-suis-charlie__marque {
+    position: absolute;
+    right: 20px;
+    bottom: 6px;
+    z-index: 2;
+
+    @include mq($until: phablet) {
+        display: none;
+    }
+}
+
+.je-suis-charlie__title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.je-suis-charlie__title-paint {
+    height: 2.5rem;
+
+    @include mq(desktop) {
+        height: 3.5rem;
+    }
+}
+
+.je-suis-charlie__subtitle {
+    color: #fff;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.2857;
+
+    @include mq(desktop) {
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+
+    @include mq(wide) {
+        font-size: 1.125rem;
+        line-height: 1.2222;
+    }
+}
+
+.je-suis-charlie__pins {
+    @include box-sizing(border-box);
+    float: right;
+    width: 42%;
+
+    @include mq(leftCol) {
+        width: 45%;
+    }
+}
+
+.je-suis-charlie__pin {
+    margin-top: 0.5rem;
+    height: 5rem;
+
+    @include mq(desktop) {
+        height: 8rem;
+    }
+
+    @include mq(leftCol) {
+        height: 9rem;
+    }
+}
+
+.je-suis-charlie__pin--colour {
+    @include mq(mobileLandscape) {
+        margin-left: -10%;
+    }
+
+    @include mq(leftCol) {
+        margin-left: -5%;
+    }
+}
+
+.je-suis-charlie__pin--mono {
+    display: none;
+
+    @include mq(mobileLandscape) {
+        display: block;
+    }
+}
+
+.je-suis-charlie__price {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    height: 5rem;
+
+    @include mq(tablet) {
+        height: 6rem;
+    }
+}
+
+a.je-suis-charlie__button {
+    position: absolute;
+    bottom: 8px;
+    color: #fff;
+    background-color: $c-live-main-1;
+    border: 0;
+}
