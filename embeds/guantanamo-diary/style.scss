@@ -1,0 +1,151 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-shade: #131313;
+$c-light: #F4EDDB;
+$c-accent: #D14805;
+
+@import 'shared/_imports';
+
+@include base(guantanamo-diary, $c-shade);
+
+.guantanamo-diary__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4 !important;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover ~ .guantanamo-diary__content a.guantanamo-diary__button {
+        background-color: #fff !important;
+    }
+}
+
+.guantanamo-diary__wrapper {
+    height: 160px;
+    background: $c-shade url('http://interactive.guim.co.uk/thrashers/guantanamo-diary/source/hands.gif') no-repeat top center;
+    padding-top: 160px;
+
+    @include mq(phablet) {
+        padding-top: 0;
+        background-position: right -10% bottom 0;
+    }
+
+    @include mq(desktop) {
+        background-position: right 20% bottom 0;
+    }
+}
+
+.guantanamo-diary__content {
+    @include box-sizing(border-box);
+    position: relative;
+    height: 100%;
+    padding: 6px 10px;
+
+    @include mq(mobileLandscape) {
+        padding: 6px 20px;
+    }
+}
+
+.guantanamo-diary__marque {
+    position: absolute;
+    right: 20px;
+    bottom: 6px;
+    z-index: 2;
+
+    @include mq($until: phablet) {
+        display: none;
+    }
+}
+
+.guantanamo-diary__title {
+    color: $c-light;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+
+    @include mq(mobileLandscape) {
+        font-size: 2.5rem;
+    }
+}
+
+.guantanamo-diary__author {
+    display: block;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.guantanamo-diary__subtitle {
+    color: #fff;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.25;
+
+    @include mq(phablet) {
+        max-width: 20rem;
+    }
+}
+
+a.guantanamo-diary__link {
+    position: relative 10 !important;
+    z-index: 10 !important;
+    display: block;
+    line-height: 1;
+
+    @include mq(phablet) {
+        max-width: 20rem;
+    }
+}
+
+.guantanamo-diary__link__kicker {
+    color: #fb0;
+
+    &:after {
+        content: '/';
+        display: inline-block;
+        color: #767676;
+    }
+
+    .i {
+        margin-right: 4px;
+    }
+
+    .i path {
+        fill: #fb0;
+    }
+}
+
+.guantanamo-diary__link__headline {
+    color: #fff;
+}
+
+a.guantanamo-diary__button {
+    color: $c-shade;
+    position: absolute !important;
+    bottom: 8px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 0;
+    z-index: 10 !important;
+
+    &:hover {
+        background-color: #fff;
+    }
+
+    @include mq(phablet) {
+        left: 20px;
+    }
+}

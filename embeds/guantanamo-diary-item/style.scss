@@ -1,0 +1,69 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-shade: #191919;
+$c-light: #F4EDDB;
+$c-accent: #D14805;
+
+@import 'shared/_imports';
+
+.guantanamo-diary-item__wrapper {
+    @include flex-display();
+    @include flex();
+    width: 100%;
+
+    .fc-item__container {
+        background-color: $c-shade;
+
+        &::before {
+            background-color: $c-accent;
+        }
+
+        &:hover {
+            background-color: darken($c-shade, 10%);
+        }
+    }
+
+    .fc-item__title {
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .fc-item__link {
+        color: $c-light;
+    }
+
+    .fc-item__link__author {
+        display: block;
+        font-size: 16px;
+        margin: 2px 0;
+    }
+
+    .fc-item__header {
+        color: $c-light;
+    }
+
+    .fc-item__standfirst {
+        color: #fff;
+        display: block !important;
+        font-size: 110%;
+    }
+
+    .fc-sublink__link {
+        color: #fff;
+    }
+
+    .fc-sublink__title {
+        &::before {
+            border-color: $c-light;
+        }
+    }
+}
