@@ -27,6 +27,12 @@ $c-neutral-1: #333;
     }
 }
 
+.je-suis-charlie__marque {
+    position: absolute;
+    top: 12px;
+    right: 6px;
+}
+
 .je-suis-charlie__anchor {
     position: absolute !important;
     top: 0;
@@ -101,9 +107,13 @@ $c-neutral-1: #333;
     color: #fff;
     font-weight: normal;
     font-size: 0.875rem;
-    line-height: 1.2857;
+    line-height: 1.4;
 
-    @include mq(desktop) {
+    @include mq(phablet, desktop) {
+        margin-right: 60px;
+    }
+
+    @include mq(leftCol) {
         font-size: 1rem;
         line-height: 1.45;
     }
@@ -156,6 +166,7 @@ $c-neutral-1: #333;
     }
 
     @include mq(tablet) {
+        width: auto;
         height: 6rem;
     }
 
