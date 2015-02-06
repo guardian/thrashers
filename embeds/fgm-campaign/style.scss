@@ -1,0 +1,171 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-red: #951c55;
+
+@include base(fgm-campaign, mix(#7d7569, #fff, 20%));
+
+.fgm-campaign__wrapper {
+    // height: 200px;
+    position: relative;
+}
+
+.fgm-campaign__content {
+    position: relative;
+    z-index: 3;
+    padding: 10px 20px;
+    @include box-sizing(border-box);
+
+    @include mq($until: mobileLandscape) {
+        margin-top: 40%;
+    }
+
+    @include mq(mobileLandscape, tablet) {
+        margin-top: 150px;
+    }
+
+    @include mq($until: 1024px) {
+        background-color: rgba(#7d7569, 0.5);
+    }
+    
+    @include mq(tablet) {
+        height: 200px;
+        float: right;
+        width: 50%;
+    }
+}
+
+.fgm-campaign__title,
+.fgm-campaign__description {
+    margin: 0;
+    padding: 0;
+    font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+    line-height: 1;
+    color: white;
+}
+
+.fgm-campaign__title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 36px;
+
+    @include mq(tablet) {
+        font-size: 48px;
+    }
+}
+
+.fgm-campaign__description {
+    font-size: 14px;
+    line-height: 1.2;
+
+    @include mq(desktop) {
+        font-size: 16px;
+    }
+
+    @include mq(leftCol) {
+        font-size: 18px;
+        line-height: 1.25;
+    }
+}
+
+a.fgm-campaign__button {
+    background-color: $c-red;
+    border: 0;
+    color: white;
+    margin-top: 20px;
+
+    @include mq(tablet) {
+        position: absolute;
+        bottom: 10px;
+    }
+
+    &:hover {
+        background-color: mix($c-red, #000, 90%);
+    }
+}
+
+.fgm-campaign__button__label {
+    float: left;
+    line-height: 2.4;
+    margin-right: 18px;
+}
+
+.fgm-campaign__button__icon {
+    float: right;
+}
+
+.fgm-campaign__video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #c3cadc;
+
+    @include mq($until: 1024px) {
+        background: url('https://s3.amazonaws.com/gdn-cdn/thrashers/fgm-campaign/source/bg.jpg') no-repeat;
+        background-size: cover;
+        background-position: center 24%;
+    }
+
+    video {
+        @include mq($until: 1024px) {
+            display: none;
+        }
+
+        @include mq(desktop) {
+            width: 121%;
+            margin-top: -23%;
+        }
+
+        @include mq(leftCol) {
+            width: 102%;
+            margin-top: -19%;
+        }
+
+        @include mq(wide) {
+            width: 100%;
+            margin-top: -21%;
+        }
+
+        .has-page-skin & {
+            @include mq(wide) {
+                width: 121%;
+                margin-top: -23%;
+            }
+        }
+    }
+}
+
+.fgm-campaign__marque {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    z-index: 4;
+}
+
+.fgm-campaign__anchor {
+    position: absolute !important;
+    z-index: 5 !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &:hover {
+        a.fgm-campaign__button {
+            background-color: mix($c-red, #000, 90%) !important;
+        }
+    }
+}
