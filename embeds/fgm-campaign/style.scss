@@ -13,10 +13,9 @@ $mq-breakpoints: (
 
 $c-red: #951c55;
 
-@include base(fgm-campaign, mix(#7d7569, #fff, 20%));
+@include base(fgm-campaign, mix(#7d7569, #ffffff, 20%));
 
 .fgm-campaign__wrapper {
-    // height: 200px;
     position: relative;
 }
 
@@ -35,7 +34,7 @@ $c-red: #951c55;
     }
 
     @include mq($until: 1024px) {
-        background-color: rgba(#7d7569, 0.5);
+        background-color: rgba(#7d7569, .5);
     }
     
     @include mq(tablet) {
@@ -51,7 +50,7 @@ $c-red: #951c55;
     padding: 0;
     font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
     line-height: 1;
-    color: white;
+    color: #ffffff;
 }
 
 .fgm-campaign__title {
@@ -165,7 +164,7 @@ a.fgm-campaign__button {
 
     &:hover {
         a.fgm-campaign__button {
-            background-color: mix($c-red, #000, 90%) !important;
+            background-color: mix($c-red, #000000, 90%) !important;
         }
     }
 }
