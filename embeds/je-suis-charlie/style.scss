@@ -50,8 +50,7 @@ $c-neutral-1: #333;
 }
 
 .je-suis-charlie__wrapper {
-    background: url('http://interactive.guim.co.uk/thrashers/je-suis-charlie/source/fabric.png') repeat;
-    background-size: 102px;
+    background-color: darken($c-neutral-1, 10%);
     padding: 10px 10px 0;
 
     @include mq(mobileLandscape) {
