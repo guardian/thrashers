@@ -157,3 +157,19 @@ $c-text: #ffffff;
     width: 40%;
     margin: -11px auto 0;
 }
+
+.watch-me-date__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2 !important;
+    cursor: pointer;
+
+    &:hover {
+        ~ .watch-me-date__content .watch-me-date__button {
+            background-color: lighten($c-purple, 10%);
+        }
+    }
+}
