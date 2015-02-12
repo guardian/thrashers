@@ -1,0 +1,174 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-background: #333333;
+$c-purple: #9a5f8f;
+$c-text: #ffffff;
+
+@include base(watch-me-date, $c-background);
+
+.watch-me-date__wrapper {
+    color: $c-text;
+    padding: 27% 10px 10px 10px;
+    background: url("http://interactive.guim.co.uk/thrashers/watch-me-date/source/logo.gif") $c-background no-repeat;
+    background-position: center top;
+    background-size: 120%;
+    margin-top: -22px;
+
+    @include mq(mobileLandscape) {
+        padding: 95px 10px 10px 10px;
+        margin-top: 0;
+        background-position: center -44px;
+        background-size: auto;
+    }
+
+    @include mq(tablet) {
+        padding: 30px 10px;
+        background-position: -85px center;
+        background-size: 82%;
+    }
+
+    @include mq(desktop) {
+        padding: 30px 20px;
+        background-position: -60px center;
+        background-size: auto;
+    }
+
+    @include mq(leftCol) {
+        background-position: 25px center;
+    }
+}
+
+.watch-me-date__content {
+    overflow: auto;
+
+    @include mq($until: mobileLandscape) {
+        padding: 0 9%;
+    }
+
+    @include mq($until: tablet) {
+        background-size: 120%;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+        @include box-sizing(border-box);
+    }
+}
+
+.watch-me-date__title {
+    display: none;
+}
+
+.watch-me-date__subtitle {
+    font-size: 16px;
+    line-height: 1.2;
+    float: left;
+    margin-right: 20px;
+
+    @include mq(tablet) {
+        margin-left: 60%;
+    }
+
+    @include mq(desktop) {
+        margin-left: 58%;
+        margin-right: 70px;
+        font-size: 18px;
+    }
+
+    @include mq(wide) {
+        margin-left: 53%;
+    }
+
+    span {
+        display: block;
+    }
+}
+
+.watch-me-date__subtitle-line--1,
+.watch-me-date__subtitle-line--2 {
+    font-weight: normal;
+}
+
+.watch-me-date__subtitle-line--1 {
+    @include mq(desktop) {
+        padding-left: 2.5em;
+    }
+}
+
+.watch-me-date__subtitle-line--2 {
+    @include mq(desktop) {
+        padding-left: 5em;
+    }
+}
+
+.watch-me-date__marque {
+    position: relative;
+    height: auto;
+    width: 60px;
+    opacity: 0.85;
+    z-index: 1;
+    display: none;
+
+    @include mq(mobileLandscape) {
+        display: inline-block;
+    }
+
+    @include mq(desktop) {
+        width: 66px;
+    }
+}
+
+.watch-me-date__button-lockup {
+    @include mq($until: tablet) {
+        float: right;
+    }
+}
+
+.watch-me-date__button {
+    position: relative;
+    display: inline-block;
+    height: 58px;
+    width: 58px;
+    margin-left: -10px;
+    border-radius: 50%;
+    background-color: $c-purple;
+    
+    @include mq(desktop) {
+        height: 62px;
+        width: 62px;
+    }
+}
+
+.watch-me-date__button-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 40%;
+    margin: -11px auto 0;
+}
+
+.watch-me-date__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2 !important;
+
+    &:hover {
+        ~ .watch-me-date__content .watch-me-date__button {
+            background-color: lighten($c-purple, 10%);
+        }
+    }
+}
