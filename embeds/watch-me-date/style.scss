@@ -1,0 +1,79 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-background: #333333;
+$c-purple: #9a5f8f;
+$c-text: #ffffff;
+
+@include base(watch-me-date, $c-background);
+
+.watch-me-date__wrapper {
+    color: $c-text;
+    padding: 30px 20px;
+    background: url("http://interactive.guim.co.uk/thrashers/watch-me-date/source/wmd-logo.jpg") $c-background no-repeat;
+    background-position: -20px center;
+}
+
+.watch-me-date__title {
+    display: none;
+}
+
+.watch-me-date__subtitle {
+    font-size: 18px;
+    line-height: 1.2;
+    float: left;
+    margin-left: 54%;
+    margin-right: 60px;
+
+    span {
+        display: block;
+    }
+}
+
+.watch-me-date__subtitle-line--1,
+.watch-me-date__subtitle-line--2 {
+    font-weight: normal;
+}
+
+.watch-me-date__subtitle-line--1 {
+    padding-left: 2.5em;
+}
+
+.watch-me-date__subtitle-line--2 {
+    padding-left: 5em;
+}
+
+.watch-me-date__button {
+    background-color: $c-purple;
+    border: 0;
+    float: left;
+    margin-top: 16px;
+}
+
+.watch-me-date__button__label {
+    float: left;
+    line-height: 2.4;
+    margin-right: 18px;
+}
+
+.watch-me-date__button__icon {
+    float: right;
+}
+
+.watch-me-date__marque {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    height: 36px;
+    width: auto;
+}
