@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
     var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
     var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/*.html');
-    var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/source/*' : '**/source/*');
+    var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/_source/*' : '**/source/*');
     var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
     grunt.initConfig({
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             },
             remote: {
                 files: [scss, html, source],
-                tasks: ['sass', 'compile', 'aws_s3']
+                tasks: ['sass', 'hash', 'compile', 'aws_s3']
             }
         },
         sass: {
@@ -77,6 +77,16 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        hash: {
+            options: {
+                mapping: dir + '/hashmap.json',
+                flatten: true
+            },
+            source: {
+                src: dir + '/_source/*',
+                dest: dir + '/hashed/'
+            }
+        },
         copy: {
             main: {
                 files: [{
@@ -121,9 +131,17 @@ module.exports = function(grunt) {
             var css = grunt.file.read(path + '/style.css');
             var jsonFile = path + '/source.json';
             var localDir = path.split('/')[1];
+            var hashedMap = grunt.file.readJSON(path + '/hashmap.json');
             var project = grunt.file.readJSON(jsonFile);
 
-            project['html'] = '<div class="' + localDir + '__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
+            project['html'] = '<div class="' + localDir + '__wrapper">' + 'remoteDir' + '<style>' + css + '</style>' + html + '</div>';
+
+            grunt.file.expand({}, dir + '/_source/*').forEach(function(file) {
+                file = file.split("/");
+                file = file[file.length-1];
+                project['html'] = project['html'].replace(RegExp(file, "g"), hashedMap[file]);
+            });
+
             grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
         });
     });
