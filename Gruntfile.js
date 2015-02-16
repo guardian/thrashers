@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         },
         hash: {
             options: {
-                mapping: dir + '/hashmap.json',
+                mapping: '*/hashmap.json',
                 flatten: true
             },
             source: {
@@ -131,8 +131,10 @@ module.exports = function(grunt) {
             var css = grunt.file.read(path + '/style.css');
             var jsonFile = path + '/source.json';
             var localDir = path.split('/')[1];
-            var hashedMap = grunt.file.readJSON(path + '/hashmap.json');
             var project = grunt.file.readJSON(jsonFile);
+            if (grunt.file.exists(path + '/hashmap.json')) {
+                var hashedMap = grunt.file.readJSON(path + '/hashmap.json');
+            }
 
             project['html'] = '<div class="' + localDir + '__wrapper">' + 'remoteDir' + '<style>' + css + '</style>' + html + '</div>';
 
