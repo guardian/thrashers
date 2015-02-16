@@ -136,7 +136,7 @@ module.exports = function(grunt) {
                 var hashedMap = grunt.file.readJSON(path + '/hashmap.json');
             }
 
-            project['html'] = '<div class="' + localDir + '__wrapper">' + 'remoteDir' + '<style>' + css + '</style>' + html + '</div>';
+            project['html'] = '<div class="' + localDir + '__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
 
             grunt.file.expand({}, dir + '/_source/*').forEach(function(file) {
                 file = file.split("/");
