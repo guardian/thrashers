@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         watch: {
             local: {
                 files: [scss, html, source],
-                tasks: ['sass', 'compile']
+                tasks: ['sass', 'hash', 'compile']
             },
             remote: {
                 files: [scss, html, source],
