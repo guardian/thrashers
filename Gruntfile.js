@@ -57,15 +57,23 @@ module.exports = function(grunt) {
             production: {
                 options: {
                     bucket: 'gdn-cdn',
-                    params: {
-                        CacheControl: 'max-age=604800'
-                    }
                 },
                 files: [{
                     expand: true,
                     cwd: dir,
-                    src: ['**/*.json', '**/source/*'],
-                    dest: remoteDir
+                    src: ['**/*.json'],
+                    dest: remoteDir,
+                    params: {
+                        CacheControl: 'max-age=60'
+                    }
+                },{
+                    expand: true,
+                    cwd: dir,
+                    src: ['**/source/*'],
+                    dest: remoteDir,
+                    params: {
+                        CacheControl: 'max-age=604800'
+                    }
                 }]
             }
         },
