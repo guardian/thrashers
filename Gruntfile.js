@@ -61,7 +61,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: dir,
-                    src: ['**/*.json'],
+                    src: ['**/source.json'],
                     dest: remoteDir,
                     params: {
                         CacheControl: 'max-age=60'
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
                 },{
                     expand: true,
                     cwd: dir,
-                    src: ['**/source/*'],
+                    src: ['**/hashed/*'],
                     dest: remoteDir,
                     params: {
                         CacheControl: 'max-age=604800'
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         },
         hash: {
             options: {
-                mapping: '*/hashmap.json',
+                mapping: dir + '/hashmap.json',
                 flatten: true
             },
             source: {
