@@ -72,7 +72,7 @@ module.exports = function(grunt) {
                     src: ['**/hashed/*'],
                     dest: remoteDir,
                     params: {
-                        CacheControl: 'max-age=604800'
+                        CacheControl: 'max-age=2678400'
                     }
                 }]
             }
