@@ -15,17 +15,24 @@ $c-background: #333333;
 $c-purple: #9a5f8f;
 $c-text: #ffffff;
 
-@include base(watch-me-date-3, $c-background);
+@include base(watch-me-date, darken($c-background, 3%));
 
 .watch-me-date-3__wrapper {
     color: $c-text;
+    padding: 0 20px;
+    @include box-sizing(border-box);
+    background: url('http://interactive.guim.co.uk/thrashers/watch-me-date-3/hashed/logo.gif') no-repeat $c-background;
+    background-position: center top;
+    background-size: 120%;
+    width: 100%;
+
+    @include mq($until: tablet) {
+        margin-top: -8%;
+    }
 
     @include mq(tablet) {
-        background: url('http://interactive.guim.co.uk/thrashers/watch-me-date-3/hashed/logo.gif') no-repeat $c-background;
         background-size: 70%;
         background-position: 94% -40px;
-        padding: 0 20px;
-        @include box-sizing(border-box);
     }
 
     @include mq(desktop) {
@@ -68,7 +75,8 @@ $c-text: #ffffff;
 }
 
 .watch-me-date-3__lockup {
-    padding: 20px 10px;
+    overflow: auto;
+    padding: 28% 7% 12px;
 
     @include mq(tablet) {
         padding: 69px 76px 0 55px;
@@ -101,28 +109,50 @@ $c-text: #ffffff;
 }
 
 .watch-me-date-3__subtitle {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.2;
     font-weight: normal;
-    margin-right: 20px;
+
+    @include mq(phablet) {
+        float: left;
+        margin-right: 20px;
+    }
 
     @include mq(leftCol) {
         font-size: 18px;
+    }
+
+    br {
+        @include mq($until: phablet) {
+            display: none;
+        }
     }
 }
 
 .watch-me-date-3__button {
     color: $c-text;
     background-color: $c-purple;
-    margin-top: 4px;
+    margin-top: 12px;
     border: 0;
     line-height: 2.5;
-    float: right;
+
+    @include mq($until: phablet) {
+        margin-left: -6px;
+    }
+
+    @include mq(phablet) {
+        float: right;
+        margin-top: 4px;
+    }
+
+    @include mq(leftCol) {
+        margin-top: 6px;
+    }
 }
 
 .watch-me-date-3__arrow-icon,
 .watch-me-date-3__label {
-    @include mq($until: desktop) {
+    @include mq(tablet, desktop) {
         display: none !important;
     }
 }
@@ -133,11 +163,25 @@ $c-text: #ffffff;
 }
 
 .watch-me-date-3__play-icon {
-    @include mq(desktop) {
+    display: none;
+
+    @include mq(tablet, desktop) {
+        display: block;
+    }
+}
+
+.watch-me-date-3__label--desktop {
+    @include mq($until: tablet) {
         display: none;
     }
 }
 
+.watch-me-date-3__label--mobile {
+    @include mq(tablet) {
+        display: none;
+    }
+}
+ 
 .watch-me-date-3__marque {
     position: absolute;
     z-index: 2;
@@ -150,6 +194,10 @@ $c-text: #ffffff;
         width: 42px;
         top: 6px;
     }
+
+    @include mq($until: mobileLandscape) {
+        display: none;
+    }
 }
 
 .watch-me-date-3__anchor {
@@ -159,7 +207,6 @@ $c-text: #ffffff;
     left: 0;
     bottom: 0;
     z-index: 2 !important;
-    display: none;
 
     &:hover {
         ~ .watch-me-date-3__content .watch-me-date-3__button {
