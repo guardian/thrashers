@@ -1,6 +1,10 @@
 // Shared import file
 // Description: Common components to be used across all thrashers
 
+@import 'components/guss-colours/_colours'
+@import 'components/guss-typography/_typography.scss'
+@import 'components/pasteup-palette/src/_palette'
 @import 'components/sass-mq/_mq';
+
 @import 'shared/_css3';
 @import 'shared/_mixins';
