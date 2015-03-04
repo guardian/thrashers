@@ -44,7 +44,7 @@ $c-text: #ffffff;
 .keep-it-in-the-ground__title {
     font-size: 16px;
     line-height: 1.2;
-    padding: 12px;
+    padding: 12px 10px;
     background-color: rgba($c-background, 0.5);
 
     @include mq(mobileLandscape) {
@@ -52,6 +52,7 @@ $c-text: #ffffff;
     }
 
     @include mq(tablet) {
+        padding: 12px 20px;
         font-size: 22px;
         background-color: transparent;
     }
@@ -82,19 +83,27 @@ $c-text: #ffffff;
 
 .keep-it-in-the-ground__marque {
     position: absolute;
-    right: 12px;
+    right: 10px;
     bottom: 6px;
+
+    @include mq(tablet) {
+        right: 20px;
+    }
 }
 
 a.keep-it-in-the-ground__button {
     position: absolute;
     bottom: 12px;
-    left: 12px;
+    left: 10px;
     border: none;
     line-height: 2.4;
     background-color: $c-accent;
     color: $c-background;
     min-width: 200px;
+
+    @include mq(tablet) {
+        left: 20px;
+    }
 }
 
 .keep-it-in-the-ground__label {
