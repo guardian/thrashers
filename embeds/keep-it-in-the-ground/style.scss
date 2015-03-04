@@ -1,0 +1,102 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-background: #11221c;
+$c-accent: #fb0;
+$c-text: #ffffff;
+
+@include base(keep-it-in-the-ground, $c-background);
+
+#keep-it-in-the-ground {
+    padding-top: 0;
+}
+
+.keep-it-in-the-ground__wrapper {
+    background: url('http://interactive.guim.co.uk/thrashers/keep-it-in-the-ground/hashed/gormley--yellow.jpg') no-repeat;
+    background-size: cover;
+    background-position: center top;
+    color: $c-text;
+    min-height: 300px;
+
+    @include mq(tablet) {
+        min-height: 400px;
+    }
+
+    @include mq(desktop) {
+        min-height: 500px;
+    }
+
+    @include mq(wide) {
+        min-height: 600px;
+    }
+}
+
+.keep-it-in-the-ground__title {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 12px;
+    background-color: rgba($c-background, 0.5);
+
+    @include mq(mobileLandscape) {
+        font-size: 20px;
+    }
+
+    @include mq(tablet) {
+        font-size: 22px;
+        background-color: transparent;
+    }
+
+    @include mq(desktop) {
+        font-size: 28px;
+    }
+
+    br {
+        @include mq($until: tablet) {
+            display: none;
+        }
+     }
+}
+
+.keep-it-in-the-ground__title--1 {
+    display: none;
+}
+
+.keep-it-in-the-ground__title--2 {
+    
+}
+
+.keep-it-in-the-ground__byline {
+    display: block;
+    color: $c-accent;
+}
+
+.keep-it-in-the-ground__marque {
+    position: absolute;
+    right: 12px;
+    bottom: 6px;
+}
+
+a.keep-it-in-the-ground__button {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    border: none;
+    line-height: 2.4;
+    background-color: $c-accent;
+    color: $c-background;
+    min-width: 200px;
+}
+
+.keep-it-in-the-ground__label {
+    color: $c-background;
+}
