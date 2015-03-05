@@ -11,9 +11,9 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-$c-background: #11221c;
-$c-accent: #fb0;
-$c-text: #ffffff;
+$c-background: #ece8e0;
+$c-accent: #f78d2f;
+$c-text: #4e3c31;
 
 @include base(keep-it-in-the-ground, $c-background);
 
@@ -21,17 +21,8 @@ $c-text: #ffffff;
     0% {
         opacity: 0;
     }
-    5% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    55% {
-        opacity: 0;
-    }
     100% {
-        opacity: 0;
+        opacity: 1;
     }
 }
 
@@ -40,76 +31,82 @@ $c-text: #ffffff;
 }
 
 .keep-it-in-the-ground__wrapper {
-    background: url('http://interactive.guim.co.uk/thrashers/keep-it-in-the-ground/hashed/gormley--yellow.jpg') no-repeat;
-    background-size: cover;
-    background-position: center top;
+    overflow: auto;
+    padding: 12px 10px;
+    background: $c-background;
     color: $c-text;
-    min-height: 300px;
+    @include box-sizing(border-box);
+}
+
+.keep-it-in-the-ground__image {
+    width: 100%;
 
     @include mq(tablet) {
-        min-height: 400px;
+        width: 50%;
+        float: left;
     }
+}
 
-    @include mq(desktop) {
-        min-height: 500px;
-    }
-
-    @include mq(wide) {
-        min-height: 600px;
+.keep-it-in-the-ground__content {
+    @include mq(tablet) {
+        width: 50%;
+        float: right;
+        padding-left: 20px;
+        @include box-sizing(border-box);
     }
 }
 
 .keep-it-in-the-ground__quote {
-    position: relative;
-    background-color: rgba($c-background, 0.5);
-    padding: 12px 10px;
-    min-height: 80px;
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 2.5em;
 
     @include mq(tablet) {
-        padding: 12px 20px;
-        background-color: transparent;
+        margin-bottom: 0;
+    }
+
+    @include mq(desktop) {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    @include mq(leftCol) {
+        font-size: 28px;
     }
 }
 
 .keep-it-in-the-ground__title {
-    position: absolute;
-    font-size: 16px;
-    line-height: 1.2;
-    @include animation(textToggle 14s linear infinite);
-
-    @include mq(mobileLandscape) {
-        font-size: 20px;
-    }
+    @include animation(textToggle 1s linear);
+    @include animation-fill-mode(forwards);
+    opacity: 0;
 
     @include mq(tablet) {
-        font-size: 22px;
+        display: block;
+        margin-bottom: .5em;
     }
-
-    @include mq(desktop) {
-        font-size: 28px;
-    }
-
-    br {
-        @include mq($until: phablet) {
-            display: none;
-        }
-     }
 }
 
 .keep-it-in-the-ground__title--2 {
-    @include animation-delay(7s);
-    opacity: 0;
+    @include animation-delay(4s);
 }
 
+.keep-it-in-the-ground__title--3 {
+    @include animation-delay(8s);
+}
 
-.keep-it-in-the-ground__byline {
+.keep-it-in-the-ground__title--byline {
     display: block;
     color: $c-accent;
+    @include animation-delay(10s);
+
+    @include mq(tablet) {
+        margin-top: -.5em;
+    }
 }
 
 .keep-it-in-the-ground__marque {
     position: absolute;
-    right: 10px;
+    right: 12px;
     bottom: 6px;
 
     @include mq(tablet) {
@@ -119,19 +116,19 @@ $c-text: #ffffff;
 
 a.keep-it-in-the-ground__button {
     position: absolute;
+    left: 8px;
     bottom: 12px;
-    left: 10px;
     border: none;
     line-height: 2.4;
     background-color: $c-accent;
-    color: $c-background;
-    min-width: 200px;
 
     @include mq(tablet) {
-        left: 20px;
+        left: 50%;
+        margin-left: 14px;
+        min-width: 200px;
     }
 }
 
 .keep-it-in-the-ground__label {
-    color: $c-background;
+    color: $c-text;
 }
