@@ -1,0 +1,226 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-background: #2c1b10;
+$c-accent: #f78d2f;
+$c-text: #ece8e0;
+
+@include base(keep-it-in-the-ground, $c-background);
+
+@include keyframes(fade) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#keep-it-in-the-ground {
+    padding-top: 0;
+}
+
+.keep-it-in-the-ground__wrapper {
+    overflow: auto;
+    padding: 12px 10px;
+    background: lighten($c-background, 3%);
+    color: $c-text;
+    @include box-sizing(border-box);
+}
+
+.keep-it-in-the-ground__image {
+    width: 100%;
+
+    @include mq(tablet) {
+        width: 50%;
+        float: left;
+    }
+}
+
+.keep-it-in-the-ground__content {
+    @include mq(tablet) {
+        width: 50%;
+        float: right;
+        padding-left: 20px;
+        @include box-sizing(border-box);
+    }
+}
+
+.keep-it-in-the-ground__quote {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.3;
+
+    @include mq(tablet) {
+        float: left;
+        width: 60%;
+        font-size: 23px;
+        line-height: 1.1;
+    }
+
+    @include mq(desktop) {
+        font-size: 30px;
+    }
+
+    @include mq(leftCol) {
+        font-size: 36px;
+    }
+
+    @include mq(wide) {
+        font-size: 40px;
+    }
+}
+
+.keep-it-in-the-ground__title {
+    @include animation-delay(1s);
+
+    @include mq(tablet) {
+        display: block;
+    }
+}
+
+.keep-it-in-the-ground__title--1 {
+    color: darken($c-accent, 10%);
+}
+
+.keep-it-in-the-ground__title--2 {
+    @include animation-delay(3s);
+    color: $c-accent;
+}
+
+.keep-it-in-the-ground__title--3 {
+    @include animation-delay(5s);
+    color: lighten($c-accent, 10%);
+}
+
+.keep-it-in-the-ground__title--byline {
+    display: block;
+    color: $c-text;
+    font-weight: normal;
+    @include animation-delay(6s);
+}
+
+.keep-it-in-the-ground__marque {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    display: none;
+
+    @include mq(desktop) {
+        display: block;
+    }
+}
+
+a.keep-it-in-the-ground__button {
+    display: block;
+    color: #fff;
+    background-color: $c-accent;
+    border: 0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 0px 9px 10px 0px;
+    line-height: 1.1;
+    text-align: center;
+    margin-top: 3px;
+
+    @include mq($until: tablet) {
+        position: absolute;
+        right: 0px;
+        top: 2px;
+    }
+
+    @include mq(desktop) {
+        width: 26px;
+        height: 26px;
+        padding: 5px 9px 10px 5px;
+    }
+}
+
+.keep-it-in-the-ground__cta {;
+    @include animation-delay(8s);
+    font-size: 12px;
+    padding-top: 2px;
+    border-top: 1px solid mix($c-background, $c-text, 80%);
+    margin-top: 12px;
+
+    @include mq($until: tablet) {
+        position: relative;
+    }
+
+    @include mq(tablet) {
+        width: 30%;
+        float: right;
+        border: 0;
+        margin: 0;
+    }
+
+    @include mq(desktop) {
+        width: 25%;
+        padding-right: 10%;
+        font-size: 14px;
+    }
+
+    @include mq(leftCol) {
+        padding: 17% 0 0 8%;
+    }
+}
+
+.keep-it-in-the-ground__label {
+    color: $c-text;
+    font-family: $f-sans-serif-text;
+    font-weight: bold;
+    line-height: 1.4;
+    display: block;
+    padding-right: 36px;
+    min-height: 3em;
+
+    @include mq(tablet) {
+        padding-right: 15%;
+    }
+
+    @include mq(desktop) {
+        padding-right: 26%;
+    }
+}
+
+.keep-it-in-the-ground__attribution {
+    display: block;
+    color: mix($c-text, $c-background, 80%);
+    font-family: $f-sans-serif-text;
+    line-height: 1.4;
+
+    @include mq($until: tablet) {
+        margin-top: 12px;
+        border-top: 1px dotted mix($c-background, $c-text, 80%);
+        padding-top: 2px;
+    }
+
+    @include mq(tablet) {
+        position: absolute;
+        bottom: 12px;
+    }
+}
+
+a.keep-it-in-the-ground__anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5 !important;
+
+    &:hover ~ .keep-it-in-the-ground__content .keep-it-in-the-ground__button {
+        background-color: mix($c-accent, $c-background, 85%);
+    }
+}
