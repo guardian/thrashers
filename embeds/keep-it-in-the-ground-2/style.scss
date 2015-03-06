@@ -11,11 +11,12 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-$c-background: #2c1b10;
-$c-accent: #f78d2f;
-$c-text: #ece8e0;
+$c-background: #ece8e0;
+$c-accent: #4bc6df;
+$c-text: #333;
 
 @include base(keep-it-in-the-ground, $c-background);
+@include base(keep-it-in-the-ground-2, $c-background);
 
 @include keyframes(fade) {
     0% {
@@ -26,11 +27,11 @@ $c-text: #ece8e0;
     }
 }
 
-#keep-it-in-the-ground {
+#keep-it-in-the-ground-2 {
     padding-top: 0;
 }
 
-.keep-it-in-the-ground__wrapper {
+.keep-it-in-the-ground-2__wrapper {
     overflow: auto;
     padding: 12px 10px;
     background: lighten($c-background, 3%);
@@ -38,7 +39,7 @@ $c-text: #ece8e0;
     @include box-sizing(border-box);
 }
 
-.keep-it-in-the-ground__image {
+.keep-it-in-the-ground-2__image {
     width: 100%;
 
     @include mq(tablet) {
@@ -47,7 +48,7 @@ $c-text: #ece8e0;
     }
 }
 
-.keep-it-in-the-ground__content {
+.keep-it-in-the-ground-2__content {
     @include mq(tablet) {
         width: 50%;
         float: right;
@@ -56,32 +57,33 @@ $c-text: #ece8e0;
     }
 }
 
-.keep-it-in-the-ground__quote {
+.keep-it-in-the-ground-2__quote {
     font-size: 18px;
-    font-weight: 200;
     line-height: 1.3;
 
     @include mq(tablet) {
         float: left;
         width: 60%;
-        font-size: 23px;
+        font-size: 19px;
+        font-weight: 200;
         line-height: 1.1;
+        margin-top: -2px;
     }
 
     @include mq(desktop) {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     @include mq(leftCol) {
-        font-size: 36px;
+        font-size: 29px;
     }
 
     @include mq(wide) {
-        font-size: 40px;
+        font-size: 34px;
     }
 }
 
-.keep-it-in-the-ground__title {
+.keep-it-in-the-ground-2__title {
     @include animation-delay(1s);
 
     @include mq(tablet) {
@@ -89,28 +91,28 @@ $c-text: #ece8e0;
     }
 }
 
-.keep-it-in-the-ground__title--1 {
+.keep-it-in-the-ground-2__title--1 {
     color: darken($c-accent, 10%);
 }
 
-.keep-it-in-the-ground__title--2 {
+.keep-it-in-the-ground-2__title--2 {
     @include animation-delay(3s);
     color: $c-accent;
 }
 
-.keep-it-in-the-ground__title--3 {
+.keep-it-in-the-ground-2__title--3 {
     @include animation-delay(5s);
     color: lighten($c-accent, 10%);
 }
 
-.keep-it-in-the-ground__title--byline {
+.keep-it-in-the-ground-2__title--byline {
     display: block;
     color: $c-text;
     font-weight: normal;
     @include animation-delay(6s);
 }
 
-.keep-it-in-the-ground__marque {
+.keep-it-in-the-ground-2__marque {
     position: absolute;
     right: 20px;
     top: 12px;
@@ -121,7 +123,7 @@ $c-text: #ece8e0;
     }
 }
 
-a.keep-it-in-the-ground__button {
+a.keep-it-in-the-ground-2__button {
     display: block;
     color: #fff;
     background-color: $c-accent;
@@ -147,7 +149,7 @@ a.keep-it-in-the-ground__button {
     }
 }
 
-.keep-it-in-the-ground__cta {;
+.keep-it-in-the-ground-2__cta {;
     @include animation-delay(8s);
     font-size: 12px;
     padding-top: 2px;
@@ -176,7 +178,7 @@ a.keep-it-in-the-ground__button {
     }
 }
 
-.keep-it-in-the-ground__label {
+.keep-it-in-the-ground-2__label {
     color: $c-text;
     font-family: $f-sans-serif-text;
     font-weight: bold;
@@ -194,7 +196,7 @@ a.keep-it-in-the-ground__button {
     }
 }
 
-.keep-it-in-the-ground__attribution {
+.keep-it-in-the-ground-2__attribution {
     display: block;
     color: mix($c-text, $c-background, 80%);
     font-family: $f-sans-serif-text;
@@ -209,10 +211,11 @@ a.keep-it-in-the-ground__button {
     @include mq(tablet) {
         position: absolute;
         bottom: 12px;
+        padding-right: 20px;
     }
 }
 
-a.keep-it-in-the-ground__anchor {
+a.keep-it-in-the-ground-2__anchor {
     position: absolute;
     top: 0;
     right: 0;
@@ -220,7 +223,7 @@ a.keep-it-in-the-ground__anchor {
     left: 0;
     z-index: 5 !important;
 
-    &:hover ~ .keep-it-in-the-ground__content .keep-it-in-the-ground__button {
+    &:hover ~ .keep-it-in-the-ground-2__content .keep-it-in-the-ground-2__button {
         background-color: mix($c-accent, $c-background, 85%);
     }
 }
