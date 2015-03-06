@@ -38,15 +38,6 @@ $c-text: #ece8e0;
     @include box-sizing(border-box);
 }
 
-.keep-it-in-the-ground__image,
-.keep-it-in-the-ground__title,
-.keep-it-in-the-ground__marque,
-.keep-it-in-the-ground__cta {
-    @include animation(fade 1s linear);
-    @include animation-fill-mode(forwards);
-    opacity: 0;
-}
-
 .keep-it-in-the-ground__image {
     width: 100%;
 
