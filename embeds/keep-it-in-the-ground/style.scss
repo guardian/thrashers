@@ -219,12 +219,6 @@ a.keep-it-in-the-ground__button {
         position: absolute;
         bottom: 12px;
     }
-
-    br {
-        @include mq($until: tablet) {
-            // display: none;
-        }
-    }
 }
 
 a.keep-it-in-the-ground__anchor {
