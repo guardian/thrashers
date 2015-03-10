@@ -43,7 +43,7 @@ $c-text: #333;
     width: 100%;
 
     @include mq(tablet) {
-        width: 50%;
+        width: 73%;
         float: left;
     }
 }
@@ -58,58 +58,42 @@ $c-text: #333;
 }
 
 .keep-it-in-the-ground-2__quote {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.3;
+    color: $c-text;
+    font-weight: 200;
 
     @include mq(tablet) {
-        float: left;
+        position: absolute;
+        top: 24px;
+        left: 24px;
         width: 60%;
-        font-size: 19px;
-        font-weight: 200;
+        font-size: 18px;
         line-height: 1.1;
         margin-top: -2px;
+        color: $c-background;
     }
 
     @include mq(desktop) {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     @include mq(leftCol) {
-        font-size: 29px;
-    }
-
-    @include mq(wide) {
-        font-size: 34px;
+        font-size: 28px;
+        max-width: 600px;
     }
 }
 
 .keep-it-in-the-ground-2__title {
-    @include animation-delay(1s);
-
     @include mq(tablet) {
         display: block;
     }
 }
 
-.keep-it-in-the-ground-2__title--1 {
-    color: darken($c-accent, 10%);
-}
-
-.keep-it-in-the-ground-2__title--2 {
-    @include animation-delay(3s);
-    color: $c-accent;
-}
-
-.keep-it-in-the-ground-2__title--3 {
-    @include animation-delay(5s);
-    color: lighten($c-accent, 10%);
-}
-
 .keep-it-in-the-ground-2__title--byline {
     display: block;
-    color: $c-text;
+    color: $c-accent;
     font-weight: normal;
-    @include animation-delay(6s);
 }
 
 .keep-it-in-the-ground-2__marque {
@@ -161,34 +145,39 @@ a.keep-it-in-the-ground-2__button {
     }
 
     @include mq(tablet) {
-        width: 30%;
+        width: 25%;
         float: right;
         border: 0;
         margin: 0;
     }
 
     @include mq(desktop) {
-        width: 25%;
-        padding-right: 10%;
         font-size: 14px;
     }
 
     @include mq(leftCol) {
-        padding: 17% 0 0 8%;
+        padding: 17% 0 0 2%;
     }
 }
 
 .keep-it-in-the-ground-2__label {
     color: $c-text;
-    font-family: $f-sans-serif-text;
-    font-weight: bold;
+    font-size: 12px;
     line-height: 1.4;
     display: block;
     padding-right: 36px;
     min-height: 3em;
 
+    @include mq($until: tablet) {
+        font-family: $f-sans-serif-text;
+    }
+
     @include mq(tablet) {
         padding-right: 15%;
+        color: #005689;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 1.3;
     }
 
     @include mq(desktop) {
@@ -201,17 +190,27 @@ a.keep-it-in-the-ground-2__button {
     color: mix($c-text, $c-background, 80%);
     font-family: $f-sans-serif-text;
     line-height: 1.4;
+    border-top: 1px dotted mix($c-background, $c-text, 80%);
+    padding-top: 2px;
 
     @include mq($until: tablet) {
         margin-top: 12px;
-        border-top: 1px dotted mix($c-background, $c-text, 80%);
         padding-top: 2px;
     }
 
     @include mq(tablet) {
         position: absolute;
         bottom: 12px;
-        padding-right: 20px;
+    }
+
+    @include mq(desktop) {
+        padding-left: 60px;
+        border-top: 0;
+        padding-top: 0;
+    }
+
+    @include mq(leftCol) {
+        padding-left: 120px;
     }
 }
 
@@ -224,6 +223,6 @@ a.keep-it-in-the-ground-2__anchor {
     z-index: 5 !important;
 
     &:hover ~ .keep-it-in-the-ground-2__content .keep-it-in-the-ground-2__button {
-        background-color: mix($c-accent, $c-background, 85%);
+        background-color: mix($c-accent, $c-background, 70%);
     }
 }
