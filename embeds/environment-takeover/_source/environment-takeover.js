@@ -157,13 +157,23 @@ console.log('heeeeere');
 
     // Check if user has cookies disabled or has seen the takeover quit early
     if (Cookies.enabled === false || thrasherCookie) {
-        return;
+       // return;
     }
     
+    // Set cookie so user only sees takeover once
     Cookies.set(COOKIE_NAME, true, { expires: new Date(2015, 2, 28) });
     
-    var isOverlayOn = true;
-    var isFirstTime = false;
+    var el = document.querySelector('.environment-takeover__wrapper');
+    el.setAttribute('class',
+        el.getAttribute('class') + ' environment-takeover__active');
+
+    var closeBtn = document.querySelector('.environment-takeover__close');
+    closeBtn.addEventListener('click', function() {
+        el.setAttribute('class',
+            el.getAttribute('class')
+                .replace('environment-takeover__active', '')
+        );
+    });
 
 }());
 

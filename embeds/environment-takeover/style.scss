@@ -25,9 +25,12 @@ $mq-breakpoints: (
         top center;
     background-size:
         170px,
-        100%;
+        100vmax 100vmax;
     padding: 60px 0;
     width: 100%;
+    top: 80%;
+    transition: top 2s;
+    transition-timing-function: ease-out;
 }
 
 .environment-takeover__heading {
@@ -38,4 +41,24 @@ $mq-breakpoints: (
     @media (min-width: 30em) {
         padding: 6px 20px;
     }
+}
+
+.environment-takeover__active {
+    position: fixed;
+    top: 4%;
+    bottom: 4%;
+    left: 4%;
+    width: 92%;
+    z-index: 200;
+}
+
+.environment-takeover__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 4px 10px;
+  cursor: pointer;
 }
