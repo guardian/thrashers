@@ -1,0 +1,41 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#environment-takeover {
+    background: #444;
+}
+
+.environment-takeover__wrapper {
+    background-image:
+        url(http://localhost:8000/embeds/environment-takeover/_source/logo.png),
+        url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
+    background-repeat: no-repeat;
+    background-position:
+        right 10px bottom 10px,
+        top center;
+    background-size:
+        170px,
+        100%;
+    padding: 60px 0;
+    width: 100%;
+}
+
+.environment-takeover__heading {
+    color: #CCC;
+}
+
+.environment-takeover__content {
+    @media (min-width: 30em) {
+        padding: 6px 20px;
+    }
+}
