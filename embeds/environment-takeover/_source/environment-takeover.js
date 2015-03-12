@@ -19,7 +19,6 @@
     if (Cookies.enabled === false || thrasherCookie) {
        // return;
     }
-    console.log(thrasherCookie); 
     
     // Set cookie so user only sees takeover once
     Cookies.set(COOKIE_NAME, true, { expires: new Date(2015, 2, 28) });
@@ -35,6 +34,5 @@
     }
     var closeBtn = document.querySelector('.environment-takeover__close');
     closeBtn.addEventListener('click', closeOverlay, false);
-
 }());
 

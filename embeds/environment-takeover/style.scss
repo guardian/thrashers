@@ -60,27 +60,21 @@ $mq-breakpoints: (
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 200;
+
+    // Higher z-index than app banner but lower than breaking news
+    z-index: 10000000;
 
     .environment-takeover__heading,
     .environment-takeover__message,
     .environment-takeover__logo {
-        // opacity: 0;
+        opacity: 0;
+        // IE 9 hack to always show elements
+        opacity: 1 \0;
     }
 }
 
-.environment-takeover__logo {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-timing-function: ease;
-    animation-timing-function: ease;
-    -webkit-animation-delay: 3s;
-    animation-delay: 3s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
+
+// Animation
 @-webkit-keyframes fadeIn {
     0%   { opacity: 0; }
     100% { opacity: 1; }
@@ -89,34 +83,40 @@ $mq-breakpoints: (
     0%   { opacity: 0; }
     100% { opacity: 1; }
 }
-
-.environment-takeover__message {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-timing-function: ease;
-    animation-timing-function: ease;
-    -webkit-animation-delay: 5s;
-    animation-delay: 5s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-
-
+.environment-takeover__logo,
+.environment-takeover__message,
 .environment-takeover__heading {
     -webkit-animation-name: fadeIn;
+    -ms-animation-name: fadeIn;
     animation-name: fadeIn;
     -webkit-animation-duration: 3s;
+    -ms-animation-duration: 3s;
     animation-duration: 3s;
     -webkit-animation-timing-function: ease;
+    -ms-animation-timing-function: ease;
     animation-timing-function: ease;
-    -webkit-animation-delay: 4s;
-    animation-delay: 4s;
     -webkit-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
+
+}
+.environment-takeover__logo {
+    -webkit-animation-delay: 2s;
+    -ms-animation-delay: 2s;
+    animation-delay: 2s;
+}
+.environment-takeover__message {
+    -webkit-animation-delay: 5s;
+    -ms-animation-delay: 5s;
+    animation-delay: 5s;
+}
+.environment-takeover__heading {
+    -webkit-animation-delay: 4s;
+    -ms-animation-delay: 4s;
+    animation-delay: 4s;
 }
 
+// Close btn
 .environment-takeover__close {
   position: absolute;
   top: 20px;
