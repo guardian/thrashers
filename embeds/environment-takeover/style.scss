@@ -34,6 +34,7 @@ $mq-breakpoints: (
 }
 
 .environment-takeover__content {
+    box-sizing: border-box;
     height: 100%;
     background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background-tile.jpg);
     background-repeat: repeat-x;
@@ -64,7 +65,7 @@ $mq-breakpoints: (
     .environment-takeover__heading,
     .environment-takeover__message,
     .environment-takeover__logo {
-        opacity: 0;
+        // opacity: 0;
     }
 }
 

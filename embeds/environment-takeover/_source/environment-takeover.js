@@ -7,149 +7,10 @@
      *
      * This is free and unencumbered software released into the public domain.
      */
-    var factory = function (window) {
-        if (typeof window.document !== 'object') {
-            throw new Error('Cookies.js requires a `window` with a `document` object');
-        }
-
-        var Cookies = function (key, value, options) {
-            return arguments.length === 1 ?
-                Cookies.get(key) : Cookies.set(key, value, options);
-        };
-
-        // Allows for setter injection in unit tests
-        Cookies._document = window.document;
-
-        // Used to ensure cookie keys do not collide with
-        // built-in `Object` properties
-        Cookies._cacheKeyPrefix = 'cookey.'; // Hurr hurr, :)
-        
-        Cookies._maxExpireDate = new Date('Fri, 31 Dec 9999 23:59:59 UTC');
-
-        Cookies.defaults = {
-            path: '/',
-            secure: false
-        };
-
-        Cookies.get = function (key) {
-            if (Cookies._cachedDocumentCookie !== Cookies._document.cookie) {
-                Cookies._renewCache();
-            }
-
-            return Cookies._cache[Cookies._cacheKeyPrefix + key];
-        };
-
-        Cookies.set = function (key, value, options) {
-            options = Cookies._getExtendedOptions(options);
-            options.expires = Cookies._getExpiresDate(value === undefined ? -1 : options.expires);
-
-            Cookies._document.cookie = Cookies._generateCookieString(key, value, options);
-
-            return Cookies;
-        };
-
-        Cookies.expire = function (key, options) {
-            return Cookies.set(key, undefined, options);
-        };
-
-        Cookies._getExtendedOptions = function (options) {
-            return {
-                path: options && options.path || Cookies.defaults.path,
-                domain: options && options.domain || Cookies.defaults.domain,
-                expires: options && options.expires || Cookies.defaults.expires,
-                secure: options && options.secure !== undefined ?  options.secure : Cookies.defaults.secure
-            };
-        };
-
-        Cookies._isValidDate = function (date) {
-            return Object.prototype.toString.call(date) === '[object Date]' && !isNaN(date.getTime());
-        };
-
-        Cookies._getExpiresDate = function (expires, now) {
-            now = now || new Date();
-
-            if (typeof expires === 'number') {
-                expires = expires === Infinity ?
-                    Cookies._maxExpireDate : new Date(now.getTime() + expires * 1000);
-            } else if (typeof expires === 'string') {
-                expires = new Date(expires);
-            }
-
-            if (expires && !Cookies._isValidDate(expires)) {
-                throw new Error('`expires` parameter cannot be converted to a valid Date instance');
-            }
-
-            return expires;
-        };
-
-        Cookies._generateCookieString = function (key, value, options) {
-            key = key.replace(/[^#$&+\^`|]/g, encodeURIComponent);
-            key = key.replace(/\(/g, '%28').replace(/\)/g, '%29');
-            value = (value + '').replace(/[^!#$&-+\--:<-\[\]-~]/g, encodeURIComponent);
-            options = options || {};
-
-            var cookieString = key + '=' + value;
-            cookieString += options.path ? ';path=' + options.path : '';
-            cookieString += options.domain ? ';domain=' + options.domain : '';
-            cookieString += options.expires ? ';expires=' + options.expires.toUTCString() : '';
-            cookieString += options.secure ? ';secure' : '';
-
-            return cookieString;
-        };
-
-        Cookies._getCacheFromString = function (documentCookie) {
-            var cookieCache = {};
-            var cookiesArray = documentCookie ? documentCookie.split('; ') : [];
-
-            for (var i = 0; i < cookiesArray.length; i++) {
-                var cookieKvp = Cookies._getKeyValuePairFromCookieString(cookiesArray[i]);
-
-                if (cookieCache[Cookies._cacheKeyPrefix + cookieKvp.key] === undefined) {
-                    cookieCache[Cookies._cacheKeyPrefix + cookieKvp.key] = cookieKvp.value;
-                }
-            }
-
-            return cookieCache;
-        };
-
-        Cookies._getKeyValuePairFromCookieString = function (cookieString) {
-            // "=" is a valid character in a cookie value according to RFC6265, so cannot `split('=')`
-            var separatorIndex = cookieString.indexOf('=');
-
-            // IE omits the "=" when the cookie value is an empty string
-            separatorIndex = separatorIndex < 0 ? cookieString.length : separatorIndex;
-
-            return {
-                key: decodeURIComponent(cookieString.substr(0, separatorIndex)),
-                value: decodeURIComponent(cookieString.substr(separatorIndex + 1))
-            };
-        };
-
-        Cookies._renewCache = function () {
-            Cookies._cache = Cookies._getCacheFromString(Cookies._document.cookie);
-            Cookies._cachedDocumentCookie = Cookies._document.cookie;
-        };
-
-        Cookies._areEnabled = function () {
-            var testKey = 'cookies.js';
-            var areEnabled = Cookies.set(testKey, 1).get(testKey) === '1';
-            Cookies.expire(testKey);
-            return areEnabled;
-        };
-
-        Cookies.enabled = Cookies._areEnabled();
-
-        return Cookies;
-    };
-
-    var Cookies = factory(window);
-    
-
-
+    var factory=function(e){if("object"!=typeof e.document)throw new Error("Cookies.js requires a `window` with a `document` object");var t=function(e,r,n){return 1===arguments.length?t.get(e):t.set(e,r,n)};return t._document=e.document,t._cacheKeyPrefix="cookey.",t._maxExpireDate=new Date("Fri, 31 Dec 9999 23:59:59 UTC"),t.defaults={path:"/",secure:!1},t.get=function(e){return t._cachedDocumentCookie!==t._document.cookie&&t._renewCache(),t._cache[t._cacheKeyPrefix+e]},t.set=function(e,r,n){return n=t._getExtendedOptions(n),n.expires=t._getExpiresDate(void 0===r?-1:n.expires),t._document.cookie=t._generateCookieString(e,r,n),t},t.expire=function(e,r){return t.set(e,void 0,r)},t._getExtendedOptions=function(e){return{path:e&&e.path||t.defaults.path,domain:e&&e.domain||t.defaults.domain,expires:e&&e.expires||t.defaults.expires,secure:e&&void 0!==e.secure?e.secure:t.defaults.secure}},t._isValidDate=function(e){return"[object Date]"===Object.prototype.toString.call(e)&&!isNaN(e.getTime())},t._getExpiresDate=function(e,r){if(r=r||new Date,"number"==typeof e?e=1/0===e?t._maxExpireDate:new Date(r.getTime()+1e3*e):"string"==typeof e&&(e=new Date(e)),e&&!t._isValidDate(e))throw new Error("`expires` parameter cannot be converted to a valid Date instance");return e},t._generateCookieString=function(e,t,r){e=e.replace(/[^#$&+\^`|]/g,encodeURIComponent),e=e.replace(/\(/g,"%28").replace(/\)/g,"%29"),t=(t+"").replace(/[^!#$&-+\--:<-\[\]-~]/g,encodeURIComponent),r=r||{};var n=e+"="+t;return n+=r.path?";path="+r.path:"",n+=r.domain?";domain="+r.domain:"",n+=r.expires?";expires="+r.expires.toUTCString():"",n+=r.secure?";secure":""},t._getCacheFromString=function(e){for(var r={},n=e?e.split("; "):[],o=0;o<n.length;o++){var i=t._getKeyValuePairFromCookieString(n[o]);void 0===r[t._cacheKeyPrefix+i.key]&&(r[t._cacheKeyPrefix+i.key]=i.value)}return r},t._getKeyValuePairFromCookieString=function(e){var t=e.indexOf("=");return t=0>t?e.length:t,{key:decodeURIComponent(e.substr(0,t)),value:decodeURIComponent(e.substr(t+1))}},t._renewCache=function(){t._cache=t._getCacheFromString(t._document.cookie),t._cachedDocumentCookie=t._document.cookie},t._areEnabled=function(){var e="cookies.js",r="1"===t.set(e,1).get(e);return t.expire(e),r},t.enabled=t._areEnabled(),t},Cookies=factory(window);
 
     /*
      * Thrasher: Environment takeover
-     *
      */
     var COOKIE_NAME = 'thrasher-takeover';
     var thrasherCookie = Cookies.get(COOKIE_NAME);
@@ -158,21 +19,22 @@
     if (Cookies.enabled === false || thrasherCookie) {
        // return;
     }
+    console.log(thrasherCookie); 
     
     // Set cookie so user only sees takeover once
     Cookies.set(COOKIE_NAME, true, { expires: new Date(2015, 2, 28) });
 
+    // Trigger overlay with CSS class
     var el = document.querySelector('.environment-takeover__wrapper');
-    el.setAttribute('class',
-        el.getAttribute('class') + ' environment-takeover__active');
+    el.setAttribute('class', el.getAttribute('class') + ' environment-takeover__active');
 
+    // Close overlay
+    function closeOverlay() {
+        el.setAttribute('class', 
+            el.getAttribute('class').replace('environment-takeover__active', ''));
+    }
     var closeBtn = document.querySelector('.environment-takeover__close');
-    closeBtn.addEventListener('click', function() {
-        el.setAttribute('class',
-            el.getAttribute('class')
-                .replace('environment-takeover__active', '')
-        );
-    });
+    closeBtn.addEventListener('click', closeOverlay, false);
 
 }());
 
