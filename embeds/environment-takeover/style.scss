@@ -17,20 +17,16 @@ $mq-breakpoints: (
 
 .environment-takeover__wrapper {
     background-image:
-        url(http://localhost:8000/embeds/environment-takeover/_source/logo.png),
-        url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
+        url(http://localhost:8000/embeds/environment-takeover/_source/background-left.png),
+        url(http://localhost:8000/embeds/environment-takeover/_source/background-right.png);
     background-repeat: no-repeat;
     background-position:
-        right 10px bottom 10px,
-        top center;
+        left top,
+        right top;
     background-size:
-        170px,
-        100vmax 100vmax;
-    padding: 60px 0;
+        auto,
+        auto;
     width: 100%;
-    top: 80%;
-    transition: top 2s;
-    transition-timing-function: ease-out;
 }
 
 .environment-takeover__heading {
@@ -38,18 +34,86 @@ $mq-breakpoints: (
 }
 
 .environment-takeover__content {
+    height: 100%;
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background-tile.jpg);
+    background-repeat: repeat-x;
+    background-position: top left;
+    background-size: auto;
+
     @media (min-width: 30em) {
         padding: 6px 20px;
     }
 }
 
 .environment-takeover__active {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+
     position: fixed;
-    top: 4%;
-    bottom: 4%;
-    left: 4%;
-    width: 92%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 200;
+
+    .environment-takeover__heading,
+    .environment-takeover__message,
+    .environment-takeover__logo {
+        opacity: 0;
+    }
+}
+
+.environment-takeover__logo {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.environment-takeover__message {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+
+.environment-takeover__heading {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
 }
 
 .environment-takeover__close {

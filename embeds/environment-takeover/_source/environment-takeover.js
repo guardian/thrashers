@@ -153,7 +153,6 @@
      */
     var COOKIE_NAME = 'thrasher-takeover';
     var thrasherCookie = Cookies.get(COOKIE_NAME);
-console.log('heeeeere');
 
     // Check if user has cookies disabled or has seen the takeover quit early
     if (Cookies.enabled === false || thrasherCookie) {
@@ -162,7 +161,7 @@ console.log('heeeeere');
     
     // Set cookie so user only sees takeover once
     Cookies.set(COOKIE_NAME, true, { expires: new Date(2015, 2, 28) });
-    
+
     var el = document.querySelector('.environment-takeover__wrapper');
     el.setAttribute('class',
         el.getAttribute('class') + ' environment-takeover__active');
