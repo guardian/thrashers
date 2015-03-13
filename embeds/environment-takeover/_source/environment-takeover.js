@@ -12,22 +12,17 @@
     /*
      * Thrasher: Environment takeover
      */
-    var COOKIE_NAME = 'thrasher-takeover';
+    var COOKIE_NAME = 'thunder';
     var thrasherCookie = Cookies.get(COOKIE_NAME);
-
-    // Check if user has cookies disabled or has seen the takeover quit early
     if (Cookies.enabled === false || thrasherCookie) {
        // return;
     }
-    
-    // Set cookie so user only sees takeover once
-    Cookies.set(COOKIE_NAME, true, { expires: new Date(2015, 2, 28) });
+    Cookies.set(COOKIE_NAME, 1, { expires: new Date(2015, 2, 28) });
 
     // Trigger overlay with CSS class
     var el = document.querySelector('.environment-takeover__wrapper');
     el.setAttribute('class', el.getAttribute('class') + ' environment-takeover__active');
 
-    // Close overlay
     function closeOverlay() {
         el.setAttribute('class', 
             el.getAttribute('class').replace('environment-takeover__active', ''));
