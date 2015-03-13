@@ -15,35 +15,23 @@ $mq-breakpoints: (
     background: #444;
 }
 
-.environment-takeover__wrapper {
-    background-image:
-        url(http://localhost:8000/embeds/environment-takeover/_source/background-left.png),
-        url(http://localhost:8000/embeds/environment-takeover/_source/background-right.png);
-    background-repeat: no-repeat;
-    background-position:
-        left top,
-        right top;
-    background-size:
-        auto,
-        auto;
-    width: 100%;
-}
-
 .environment-takeover__heading {
     color: #CCC;
 }
 
 .environment-takeover__content {
     box-sizing: border-box;
-    height: 100%;
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background-tile.jpg);
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background-tile.png);
     background-repeat: repeat-x;
     background-position: top left;
-    background-size: auto;
+    background-size: auto 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 
-    @media (min-width: 30em) {
-        padding: 6px 20px;
-    }
 }
 
 .environment-takeover__active {
@@ -63,19 +51,39 @@ $mq-breakpoints: (
 
     // Higher z-index than app banner but lower than breaking news
     z-index: 10000000;
-
-    .environment-takeover__heading,
-    .environment-takeover__message,
-    .environment-takeover__logo {
-        opacity: 0;
-        // IE 9 hack to always show elements
-        opacity: 1 \0;
-    }
 }
 
+.environment-takeover__background {
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logo.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+
+    -webkit-animation: fadeIn 12s linear 1 normal forwards;
+    animation: fadeIn 12s linear 1 normal forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
 
 // Animation
+$animLegnth: 10s;
+$animDelay: 2s;
+
 @-webkit-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes fadeIn {
     0%   { opacity: 0; }
     100% { opacity: 1; }
 }
@@ -83,38 +91,83 @@ $mq-breakpoints: (
     0%   { opacity: 0; }
     100% { opacity: 1; }
 }
-.environment-takeover__logo,
-.environment-takeover__message,
-.environment-takeover__heading {
-    -webkit-animation-name: fadeIn;
-    -ms-animation-name: fadeIn;
-    animation-name: fadeIn;
-    -webkit-animation-duration: 3s;
-    -ms-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-timing-function: ease;
-    -ms-animation-timing-function: ease;
-    animation-timing-function: ease;
-    -webkit-animation-fill-mode: forwards;
-    -ms-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+
+@-webkit-keyframes fadeOut {
+    0%   { opacity: 1; height: 50px; }
+    100% { opacity: 0; height: 50px;}
+}
+@-moz-keyframes fadeOut {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+@-o-keyframes fadeOut {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes fadeOut {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.environment-takeover__screen1,
+.environment-takeover__screen2,
+.environment-takeover__screen3,
+.environment-takeover__screen4,
+.environment-takeover__screen5 {
+    -webkit-animation: fadeIn 2s, fadeOut 2s;
+    animation: fadeIn 2s, fadeOut 2s;
+}
+
+.environment-takeover__screen {
+/*    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;*/
+    width: 50px;
+    height: 50px;
+    float: left;
+    z-index: 2;
+    opacity: 0;
+}
+
+.environment-takeover__screen1 {
+    background-color: red;
+    -webkit-animation-delay: 2s, 4s;
+    animation-delay: 2s, 4s;
+}
+.environment-takeover__screen2 {
+    background-color: blue;
+    -webkit-animation-delay: 4s, 6s;
+    animation-delay: 4s, 6s;
+}
+.environment-takeover__screen3 {
+    background-color: green;
+    -webkit-animation-delay: 6s, 8s;
+    animation-delay: 6s, 8s;
+}
+.environment-takeover__screen4 {
+    background-color: yellow;
+    -webkit-animation-delay: 8s, 10s;
+    animation-delay: 8s, 10s;
 
 }
+.environment-takeover__screen5 {
+    background-color: orange;
+    -webkit-animation: fadeIn 2s ease 1 normal forwards;
+    animation: fadeIn 2s ease 1 normal forwards;
+    -webkit-animation-delay: 10s;
+    animation-delay: 10s;
+}
+
+
+
 .environment-takeover__logo {
     -webkit-animation-delay: 2s;
     -ms-animation-delay: 2s;
     animation-delay: 2s;
 }
-.environment-takeover__message {
-    -webkit-animation-delay: 5s;
-    -ms-animation-delay: 5s;
-    animation-delay: 5s;
-}
-.environment-takeover__heading {
-    -webkit-animation-delay: 4s;
-    -ms-animation-delay: 4s;
-    animation-delay: 4s;
-}
+
 
 // Close btn
 .environment-takeover__close {
