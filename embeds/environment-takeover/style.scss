@@ -9,6 +9,8 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
+$brownColour: rgb(240, 200, 120);
+
 @import 'shared/_imports';
 
 #environment-takeover {
@@ -54,32 +56,20 @@ $mq-breakpoints: (
 
 .environment-takeover__col1,
 .environment-takeover__col2 {
-    float: left;
+    position: absolute;
     width: 50%;
+    left: 0;
     box-sizing: border-box;
+    transform: translateY(-50%);
+    top: 50%;
 }
 
 .environment-takeover__col2 {
-    float: right;
+    left: auto;
+    right: 0;
+    padding: 0 3rem;
 }
 
-.environment-takeover__logo {
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logo.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    opacity: 0;
-
-    -webkit-animation: fadeIn 12s linear 1 normal forwards;
-    animation: fadeIn 12s linear 1 normal forwards;
-    -webkit-animation-delay: 0s;
-    animation-delay: 0s;
-}
 
 // Animation
 $animLegnth: 10s;
@@ -151,7 +141,7 @@ $animDelay: 2s;
 
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 1;
 
     z-index: 2;
@@ -160,12 +150,7 @@ $animDelay: 2s;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
     position: absolute;
-    text-align: center;
-
-    background-position: right center;
-    background-size: 50% auto;
-    background-repeat: no-repeat;
-
+    text-align: left;
     border: 1px dashed yellow;
 
     width: 80%;
@@ -176,9 +161,16 @@ $animDelay: 2s;
 }
 
 .environment-takeover__screen-background {
-    -webkit-animation: fadeLogoIn 10s ease 2s, fadeOut 2s;
-    animation: fadeLogoIn 10s ease 2s, fadeOut 2s;
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logo.png);
+    -webkit-animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
+    animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
+
+    .environment-takeover__col2 {
+        background-image: url(http://localhost:8000/embeds/environment-takeover/_source/hexagon.svg);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
 }
 
 .environment-takeover__screen1 {
@@ -187,22 +179,64 @@ $animDelay: 2s;
     -webkit-animation-delay: 4s;
     animation-delay: 4s;
     opacity: 1;
+
+    .environment-takeover__header {
+        color: $brownColour;
+    }
+
+    .environment-takeover__col1 {
+        top: 40%;
+    }
+
+    .environment-takeover__header2 {
+        visibility: hidden;
+    }
 }
+
 .environment-takeover__screen2 {
     -webkit-animation-delay: 4s, 6s;
     animation-delay: 4s, 6s;
+
+    .environment-takeover__header {
+        color: $brownColour;
+    }
+
+    .environment-takeover__col1 {
+        top: 40%;
+    }
 }
+
 .environment-takeover__screen3 {
     -webkit-animation-delay: 6s, 8s;
     animation-delay: 6s, 8s;
+
+    .environment-takeover__logo-text {
+        color: $brownColour;
+    }
+    .environment-takeover__logo-text2 {
+        visibility: hidden;
+    }
 }
 .environment-takeover__screen4 {
     -webkit-animation-delay: 8s, 10s;
     animation-delay: 8s, 10s;
+
+    .environment-takeover__logo-text {
+        color: $brownColour;
+    }
 }
 .environment-takeover__screen5 {
     -webkit-animation-delay: 10s, 12s;
     animation-delay: 10s, 12s;
+
+    .environment-takeover__header1 {
+        color: $brownColour;
+    }
+
+    .environment-takeover__header2,
+    .environment-takeover__button{
+        visibility: hidden;
+    }
 }
 .environment-takeover__screen6 {
     -webkit-animation: fadeIn 2s ease 1 normal forwards;
@@ -210,12 +244,13 @@ $animDelay: 2s;
     -webkit-animation-delay: 12s;
     animation-delay: 12s;
 
+    .environment-takeover__header1 {
+        color: $brownColour;
+    }
 }
 
 .environment-takeover__logo {
-    -webkit-animation-delay: 2s;
-    -ms-animation-delay: 2s;
-    animation-delay: 2s;
+    width: 80%;
 }
 
 
