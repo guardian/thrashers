@@ -160,7 +160,10 @@ $animDelay: 2s;
     max-height: 900px;
 }
 
-.environment-takeover__screen-background {
+.environment-takeover__screen-background,
+.environment-takeover__screen-background2,
+.environment-takeover__screen-background3,
+.environment-takeover__screen-background4 {
     -webkit-animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
     animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
 
@@ -171,6 +174,31 @@ $animDelay: 2s;
         background-repeat: no-repeat;
         height: 100%;
     }
+}
+.environment-takeover__screen-background {
+    -webkit-animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
+    animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
+}
+.environment-takeover__screen-background2 {
+    -webkit-animation: fadeIn 5s ease 4s 1 normal forwards, fadeOut 3s ease 10s 1 normal forwards;
+    animation: fadeIn 4s ease 4s 1 normal forwards, fadeOut 3s ease 10s 1 normal forwards;
+}
+.environment-takeover__screen-background2 .environment-takeover__col2 {
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logocomp--colour.png);
+}
+.environment-takeover__screen-background3 {
+    -webkit-animation: fadeIn 2s ease 9s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
+    animation: fadeIn 2s ease 9s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
+}
+.environment-takeover__screen-background3 .environment-takeover__col2 {
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logocomp--mono.png);
+}
+.environment-takeover__screen-background4 {
+    -webkit-animation: fadeIn 2s ease 14s 1 normal forwards;
+    animation: fadeIn 2s ease 14s 1 normal forwards;
+}
+.environment-takeover__screen-background4 .environment-takeover__col2 {
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/kiitg-logo.png);
 }
 
 .environment-takeover__screen1 {
@@ -228,16 +256,15 @@ $animDelay: 2s;
 .environment-takeover__screen5 {
     -webkit-animation-delay: 10s, 12s;
     animation-delay: 10s, 12s;
-
-    .environment-takeover__header1 {
-        color: $brownColour;
-    }
-
-    .environment-takeover__header2,
-    .environment-takeover__button{
-        visibility: hidden;
-    }
 }
+.environment-takeover__screen5 .environment-takeover__header {
+    color: $brownColour;
+}
+.environment-takeover__screen5 .environment-takeover__header2,
+.environment-takeover__screen5 .environment-takeover__button {
+    visibility: hidden;
+}
+
 .environment-takeover__screen6 {
     -webkit-animation: fadeIn 2s ease 1 normal forwards;
     animation: fadeIn 2s ease 1 normal forwards;
@@ -248,12 +275,19 @@ $animDelay: 2s;
         color: $brownColour;
     }
 }
+.environment-takeover__screen6 .environment-takeover__header {
+    color: $brownColour;
+}
 
 .environment-takeover__logo {
     width: 80%;
 }
 
-
+.environment-takeover__button-inner {
+    background-color: $brownColour;
+    color: #333;
+    border: none;
+}
 // Close btn
 .environment-takeover__close {
   position: absolute;
