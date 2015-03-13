@@ -21,11 +21,16 @@ $mq-breakpoints: (
 
 .environment-takeover__content {
     box-sizing: border-box;
-    top: 0;
-    left: 0;
-    height: 100%;
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    position: absolute;
     width: 100%;
-    z-index: 1;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
 }
 
 .environment-takeover__active {
@@ -47,18 +52,15 @@ $mq-breakpoints: (
     z-index: 10000000;
 }
 
-.environment-takeover__background {
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: cover;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-    opacity: 0.98;
+.environment-takeover__col1,
+.environment-takeover__col2 {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.environment-takeover__col2 {
+    float: right;
 }
 
 .environment-takeover__logo {
@@ -101,7 +103,7 @@ $animDelay: 2s;
 }
 
 @-webkit-keyframes fadeOut {
-    0%   { opacity: 1; }
+    0%   { opacity: 1; text-indent: 0;}
     100% { opacity: 0; }
 }
 @-moz-keyframes fadeOut {
@@ -117,6 +119,24 @@ $animDelay: 2s;
     100% { opacity: 0; }
 }
 
+
+@-webkit-keyframes fadeLogoIn {
+    0%   { opacity: 0.1; text-indent: 0;}
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeLogoIn {
+    0%   { opacity: 0.1; text-indent: 0;}
+    100% { opacity: 1; }
+}
+@-o-keyframes fadeLogoIn {
+    0%   { opacity: 0.1; text-indent: 0;}
+    100% { opacity: 1; }
+}
+@keyframes fadeLogoIn {
+    0%   { opacity: 0.1; text-indent: 0;}
+    100% { opacity: 1; }
+}
+
 .environment-takeover__screen1,
 .environment-takeover__screen2,
 .environment-takeover__screen3,
@@ -127,53 +147,70 @@ $animDelay: 2s;
 }
 
 .environment-takeover__screen {
-/*    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;*/
-    width: 100px;
-    height: 100px;
+    color: #FFF;
+
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+
     z-index: 2;
     opacity: 0;
     top: 50%;
-    transform: translateY(-50%);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
     position: absolute;
     text-align: center;
+
+    background-position: right center;
+    background-size: 50% auto;
+    background-repeat: no-repeat;
+
+    border: 1px dashed yellow;
+
+    width: 80%;
+    max-width: 1200px;
+
+    height: 80%;
+    max-height: 900px;
+}
+
+.environment-takeover__screen-background {
+    -webkit-animation: fadeLogoIn 10s ease 2s, fadeOut 2s;
+    animation: fadeLogoIn 10s ease 2s, fadeOut 2s;
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logo.png);
 }
 
 .environment-takeover__screen1 {
-    background-color: red;
-    -webkit-animation-delay: 2s, 4s;
-    animation-delay: 2s, 4s;
+    -webkit-animation: fadeOut 2s ease 1 normal forwards;
+    animation: fadeOut 2s ease 1 normal forwards;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    opacity: 1;
 }
 .environment-takeover__screen2 {
-    background-color: blue;
     -webkit-animation-delay: 4s, 6s;
     animation-delay: 4s, 6s;
 }
 .environment-takeover__screen3 {
-    background-color: green;
     -webkit-animation-delay: 6s, 8s;
     animation-delay: 6s, 8s;
 }
 .environment-takeover__screen4 {
-    background-color: yellow;
     -webkit-animation-delay: 8s, 10s;
     animation-delay: 8s, 10s;
-
 }
 .environment-takeover__screen5 {
-    background-color: orange;
+    -webkit-animation-delay: 10s, 12s;
+    animation-delay: 10s, 12s;
+}
+.environment-takeover__screen6 {
     -webkit-animation: fadeIn 2s ease 1 normal forwards;
     animation: fadeIn 2s ease 1 normal forwards;
-    -webkit-animation-delay: 10s;
-    animation-delay: 10s;
+    -webkit-animation-delay: 12s;
+    animation-delay: 12s;
+
 }
-
-
 
 .environment-takeover__logo {
     -webkit-animation-delay: 2s;
