@@ -8,11 +8,60 @@ $mq-breakpoints: (
     leftCol:         1140px,
     wide:            1300px
 );
+
 $brownColour: rgb(240, 200, 120);
+$ligthBrownColour: #FFF0D2;
 $transLegnth: 2s;
 $pauseLength: 4s;
 
 @import 'shared/_imports';
+
+.environment-takeover__wrapper {
+    bcakground-color: #222;
+    box-sizing: border-box;
+    background-image:   url(http://localhost:8000/embeds/environment-takeover/_source/kiitg-logo.png),
+                        url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom 1.25rem right 1.25rem, top left;
+    background-size: 150px, cover;
+    width: 100%;
+    padding: 1.25rem;
+}
+
+.environment-takeover__t1,
+.environment-takeover__t2 {
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1;
+    color: $brownColour;
+}
+
+.environment-takeover__t1 span {
+    display: inline-block;
+    margin-left: 3rem;
+}
+
+.environment-takeover__mainlink {
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.environment-takeover__mainlink:hover,
+.environment-takeover__mainlink:focus {
+    text-decoration: none;
+    border: none;
+}
+
+.environment-takeover__t2 {
+    color: #FFF;
+}
+
+.environment-takeover__button-inner:hover,
+.environment-takeover__button-inner:focus {
+    background-color: $ligthBrownColour;
+}
 
 #environment-takeover {
     background: #444;
@@ -22,7 +71,7 @@ $pauseLength: 4s;
     color: #CCC;
 }
 
-.environment-takeover__content {
+.environment-takeover__overlay {
     box-sizing: border-box;
     background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
     background-repeat: no-repeat;
@@ -34,6 +83,7 @@ $pauseLength: 4s;
     left: 0;
     top: 0;
     z-index: -2;
+    display: none;
 }
 
 .environment-takeover__active {
@@ -41,8 +91,8 @@ $pauseLength: 4s;
     animation-name: fadeIn;
     -webkit-animation-duration: $transLegnth;
     animation-duration: $transLegnth;
-    -webkit-animation-timing-function: ease;
-    animation-timing-function: ease;
+
+    display: block;
 
     position: fixed;
     top: 0;
@@ -71,9 +121,8 @@ $pauseLength: 4s;
     padding: 0 3rem;
 }
 
-
 // Animation
-
+// Adding second property (text-indet) to fix Chrome bug not triggering anim
 @-webkit-keyframes fadeIn {
     0%   { opacity: 0; text-indent: 0;}
     100% { opacity: 1; }
@@ -280,8 +329,6 @@ $pauseLength: 4s;
     color: $brownColour;
 }
 
-
-
 .environment-takeover__logo {
     width: 80%;
 }
@@ -291,6 +338,8 @@ $pauseLength: 4s;
     color: #333;
     border: none;
 }
+
+
 // Close btn
 .environment-takeover__close {
   position: absolute;
