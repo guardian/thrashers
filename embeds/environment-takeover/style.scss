@@ -86,7 +86,8 @@ $pauseLength: 4s;
     display: none;
 }
 
-.environment-takeover__active {
+
+.environment-takeover__active   {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
     -webkit-animation-duration: $transLegnth;
