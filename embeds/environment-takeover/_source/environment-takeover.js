@@ -25,7 +25,7 @@
         var COOKIE_NAME = '_thunder';
         var thrasherCookie = cookies.get(COOKIE_NAME);
         if (navigator.cookieEnabled === false || thrasherCookie) {
-           //return;
+          //return;
         }
 
         cookies.add(COOKIE_NAME, 1, 1);

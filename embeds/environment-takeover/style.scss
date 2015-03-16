@@ -11,8 +11,6 @@ $mq-breakpoints: (
 
 
 
-
-
 $brownColour: #ff9b0b;
 $ligthBrownColour: #ff9b0b;
 $transLegnth: 1s;
@@ -133,12 +131,6 @@ $pauseLength: 3s;
     width: 70%;
     margin: 0 auto;
     max-width: 790px;
-/*    position: absolute;
-    width: 50%;
-    left: 0;
-    box-sizing: border-box;
-    transform: translateY(-50%);
-    top: 50%;*/
 }
 
 .environment-takeover__col2 {
@@ -183,24 +175,6 @@ $pauseLength: 3s;
     100% { opacity: 0; }
 }
 
-
-@-webkit-keyframes fadeLogoIn {
-    0%   { opacity: 0.1; text-indent: 0;}
-    100% { opacity: 1; }
-}
-@-moz-keyframes fadeLogoIn {
-    0%   { opacity: 0.1; text-indent: 0;}
-    100% { opacity: 1; }
-}
-@-o-keyframes fadeLogoIn {
-    0%   { opacity: 0.1; text-indent: 0;}
-    100% { opacity: 1; }
-}
-@keyframes fadeLogoIn {
-    0%   { opacity: 0.1; text-indent: 0;}
-    100% { opacity: 1; }
-}
-
 .environment-takeover__screen1,
 .environment-takeover__screen2,
 .environment-takeover__screen3,
@@ -225,58 +199,11 @@ $pauseLength: 3s;
     top: 0;
     padding: 2rem;
     left: 0;
-    /*-wekkit-transform: translateX(-50%);
-    transform: translateX(-50%);*/
-
-   /* top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    position: absolute;*/
     text-align: left;
     margin: 0 auto;
     width: 100%;
 }
 
-/*.environment-takeover__screen-background,
-.environment-takeover__screen-background2,
-.environment-takeover__screen-background3,
-.environment-takeover__screen-background4 {
-    -webkit-animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
-    animation: fadeLogoIn 10s ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
-
-    .environment-takeover__col2 {
-        background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logocomp--white.png);
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-        height: 100%;
-    }
-}
-.environment-takeover__screen-background {
-    -webkit-animation: fadeLogoIn $pauseLength*5 ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
-    animation: fadeLogoIn $pauseLength*5 ease 0s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
-}
-.environment-takeover__screen-background2 {
-    -webkit-animation: fadeIn $transLegnth ease ($pauseLength + $transLegnth) 1 normal forwards, fadeOut 3s ease 10s 1 normal forwards;
-    animation: fadeIn $transLegnth ease ($pauseLength + $transLegnth) 1 normal forwards, fadeOut 3s ease 10s 1 normal forwards;
-}
-.environment-takeover__screen-background2 .environment-takeover__col2 {
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logocomp--colour.png);
-}
-.environment-takeover__screen-background3 {
-    -webkit-animation: fadeIn 2s ease 9s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
-    animation: fadeIn 2s ease 9s 1 normal forwards, fadeOut 3s ease 12s 1 normal forwards;
-}
-.environment-takeover__screen-background3 .environment-takeover__col2 {
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/logocomp--mono.png);
-}
-.environment-takeover__screen-background4 {
-    -webkit-animation: fadeIn 2s ease 18s 1 normal forwards;
-    animation: fadeIn 2s ease 18s 1 normal forwards;
-}
-.environment-takeover__screen-background4 .environment-takeover__col2 {
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/kiitg-logo.png);
-}*/
 
 .environment-takeover__screen1 {
     -webkit-animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) + 1s 1 normal forwards;
