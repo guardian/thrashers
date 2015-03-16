@@ -9,15 +9,15 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
-$brownColour: rgb(240, 200, 120);
-$ligthBrownColour: #FFF0D2;
+$brownColour: #ff9b0b;
+$ligthBrownColour: #ff9b0b;
 $transLegnth: 2s;
 $pauseLength: 4s;
 
 @import 'shared/_imports';
 
 .environment-takeover__wrapper {
-    bcakground-color: #222;
+    bcakground-color: #000;
     box-sizing: border-box;
     background-image:   url(http://localhost:8000/embeds/environment-takeover/_source/kiitg-logo.png),
                         url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
@@ -72,11 +72,12 @@ $pauseLength: 4s;
 }
 
 .environment-takeover__overlay {
+    background-color: #000;
     box-sizing: border-box;
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: cover;
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/oil.jpg);
+    background-repeat: repeat-x;
+    background-position: center 20px;
+    background-size: auto 100%;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -84,6 +85,23 @@ $pauseLength: 4s;
     top: 0;
     z-index: -2;
     display: none;
+}
+
+.environment-takeover__overlay-inner {
+    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/oil-logos.jpg);
+    background-position: center 20px;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    opacity: 0;
+
+    -webkit-animation: fadeIn $transLegnth ease $pauseLength + $transLegnth*2 1 normal forwards, fadeOut $transLegnth ease $pauseLength*4 1 normal forwards;
+    animation:  fadeIn $transLegnth ease $pauseLength + $transLegnth*2 1 normal forwards, fadeOut $transLegnth ease $pauseLength*4 1 normal forwards;
 }
 
 
@@ -108,12 +126,15 @@ $pauseLength: 4s;
 
 .environment-takeover__col1,
 .environment-takeover__col2 {
-    position: absolute;
+    width: 70%;
+    margin: 0 auto;
+    max-width: 790px;
+/*    position: absolute;
     width: 50%;
     left: 0;
     box-sizing: border-box;
     transform: translateY(-50%);
-    top: 50%;
+    top: 50%;*/
 }
 
 .environment-takeover__col2 {
@@ -186,29 +207,33 @@ $pauseLength: 4s;
 }
 
 .environment-takeover__screen {
+    box-sizing: border-box;
     color: #FFF;
 
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1;
 
     z-index: 2;
     opacity: 0;
-    top: 50%;
+    position: absolute;
+    top: 0;
+    padding: 2rem;
+    left: 0;
+    /*-wekkit-transform: translateX(-50%);
+    transform: translateX(-50%);*/
+
+   /* top: 50%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
-    position: absolute;
+    position: absolute;*/
     text-align: left;
-
-    width: 80%;
-    max-width: 1200px;
-
-    height: 80%;
-    max-height: 900px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.environment-takeover__screen-background,
+/*.environment-takeover__screen-background,
 .environment-takeover__screen-background2,
 .environment-takeover__screen-background3,
 .environment-takeover__screen-background4 {
@@ -247,7 +272,7 @@ $pauseLength: 4s;
 }
 .environment-takeover__screen-background4 .environment-takeover__col2 {
     background-image: url(http://localhost:8000/embeds/environment-takeover/_source/kiitg-logo.png);
-}
+}*/
 
 .environment-takeover__screen1 {
     -webkit-animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
@@ -272,8 +297,8 @@ $pauseLength: 4s;
 }
 
 .environment-takeover__screen2 {
-    -webkit-animation-delay: $pauseLength, $pauseLength + $transLegnth;
-    animation-delay: $pauseLength, $pauseLength + $transLegnth;
+    -webkit-animation-delay: $pauseLength, $pauseLength + $transLegnth*2;
+    animation-delay: $pauseLength, $pauseLength + $transLegnth*2;
 
     .environment-takeover__header {
         color: $brownColour;
@@ -285,8 +310,8 @@ $pauseLength: 4s;
 }
 
  .environment-takeover__screen3 {
-    -webkit-animation-delay: $pauseLength + $transLegnth, ($pauseLength * 2) + $transLegnth;
-    animation-delay: $pauseLength + $transLegnth, ($pauseLength * 2) + $transLegnth;
+    -webkit-animation-delay: $pauseLength + $transLegnth*2, ($pauseLength * 2) + $transLegnth*2;
+    animation-delay: $pauseLength + $transLegnth*2, ($pauseLength * 2) + $transLegnth*2;
 
     .environment-takeover__logo-text {
         color: $brownColour;
@@ -298,8 +323,8 @@ $pauseLength: 4s;
 
 
 .environment-takeover__screen4 {
-    -webkit-animation-delay: ($pauseLength * 2) + $transLegnth, ($pauseLength * 3) + $transLegnth; 
-    animation-delay: ($pauseLength * 2) + $transLegnth, ($pauseLength * 3) + $transLegnth; 
+    -webkit-animation-delay: ($pauseLength * 2) + $transLegnth*2, ($pauseLength * 3) + $transLegnth*2; 
+    animation-delay: ($pauseLength * 2) + $transLegnth*2, ($pauseLength * 3) + $transLegnth*2; 
 
     .environment-takeover__logo-text {
         color: $brownColour;
@@ -309,8 +334,8 @@ $pauseLength: 4s;
 
 
 .environment-takeover__screen5 {
-    -webkit-animation-delay: ($pauseLength * 3) + $transLegnth, ($pauseLength * 4) + $transLegnth; 
-    animation-delay: ($pauseLength * 3) + $transLegnth, ($pauseLength * 4) + $transLegnth; 
+    -webkit-animation-delay: ($pauseLength * 3) + $transLegnth*2, ($pauseLength * 4) + $transLegnth*2; 
+    animation-delay: ($pauseLength * 3) + $transLegnth*2, ($pauseLength * 4) + $transLegnth*2; 
 }
 .environment-takeover__screen5 .environment-takeover__header {
     color: $brownColour;
@@ -323,8 +348,8 @@ $pauseLength: 4s;
 .environment-takeover__screen6 {
     -webkit-animation: fadeIn 2s ease 1 normal forwards;
     animation: fadeIn 2s ease 1 normal forwards;
-    -webkit-animation-delay: ($pauseLength * 4) + $transLegnth;
-    animation-delay: ($pauseLength * 4) + $transLegnth;
+    -webkit-animation-delay: ($pauseLength * 4) + $transLegnth*2;
+    animation-delay: ($pauseLength * 4) + $transLegnth*2;
 
     .environment-takeover__header1 {
         color: $brownColour;
@@ -335,7 +360,8 @@ $pauseLength: 4s;
 }
 
 .environment-takeover__logo {
-    width: 80%;
+    width: 60%;
+    float: left;
 }
 
 .environment-takeover__button-inner {
@@ -345,14 +371,30 @@ $pauseLength: 4s;
 }
 
 
+
+// G logo
+.environment-takeover__marque {
+    position: absolute;
+    top: 2rem;
+    left: 20px;
+}
+
+// Campaign logo
+.environment-takeover__main-logo {
+    margin: 2rem auto 0 auto;
+    width: 200px;
+    display: block;
+}
+
+
 // Close btn
 .environment-takeover__close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 2rem;
+  right: 17px;
   background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: 1px solid #fff;
-  padding: 4px 10px;
+  fill: #fff;
   cursor: pointer;
+  -webkit-transform: scale(0.8);
+  transform: scale(0.7);
 }
