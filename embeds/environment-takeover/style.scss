@@ -21,8 +21,8 @@ $pauseLength: 3s;
 .environment-takeover__wrapper {
     bcakground-color: #000;
     box-sizing: border-box;
-    background-image:   url(http://localhost:8000/embeds/environment-takeover/_source/kiitg-logo.png),
-                        url(http://localhost:8000/embeds/environment-takeover/_source/coal.jpg);
+    background-image:   url(http://interactive.guim.co.uk/thrashers/environment-takeover/hashed/kiitg-logo.png),
+                        url(http://interactive.guim.co.uk/thrashers/environment-takeover/hashed/coal.jpg);
     background-repeat: no-repeat;
     background-position: bottom 1.25rem right 1.25rem, top left;
     background-size: 150px, cover;
@@ -76,7 +76,7 @@ $pauseLength: 3s;
 .environment-takeover__overlay {
     background-color: #000;
     box-sizing: border-box;
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/oil.jpg);
+    background-image: url(http://interactive.guim.co.uk/thrashers/environment-takeover/hashed/oil.jpg);
     background-repeat: repeat-x;
     background-position: center 20px;
     background-size: auto 100%;
@@ -90,7 +90,7 @@ $pauseLength: 3s;
 }
 
 .environment-takeover__overlay-inner {
-    background-image: url(http://localhost:8000/embeds/environment-takeover/_source/oil-logos.jpg);
+    background-image: url(http://interactive.guim.co.uk/thrashers/environment-takeover/hashed/oil-logos.jpg);
     background-position: center 20px;
     background-repeat: no-repeat;
     background-size: auto 100%;
@@ -210,8 +210,6 @@ $pauseLength: 3s;
     animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) + 1s  1 normal forwards;
     // -webkit-animation: fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
     // animation: fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
-
-    // opacity: 1;
     
 
     .environment-takeover__header {
@@ -365,4 +363,9 @@ $pauseLength: 3s;
         width: 150px;
     }
 
+}
+
+
+.environment-takeover__no-animation .environment-takeover__screen6 {
+    opacity: 1 !important;
 }

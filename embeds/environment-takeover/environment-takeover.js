@@ -28,11 +28,16 @@
           //return;
         }
 
+
         cookies.add(COOKIE_NAME, 1, 1);
 
         var wrapperEl = $('.environment-takeover__overlay');
         if (!wrapperEl) { return; }
         wrapperEl.addClass('environment-takeover__active');
+
+        if (!isAnimationSupported(wrapperEl[0])) {
+          wrapperEl.addClass('environment-takeover__no-animation');
+        }
         
         var closeBtn = $('.environment-takeover__close-wrapper');
         bean.on(closeBtn[0], 'click', function() {
