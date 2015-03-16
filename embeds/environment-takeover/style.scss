@@ -15,8 +15,8 @@ $mq-breakpoints: (
 
 $brownColour: #ff9b0b;
 $ligthBrownColour: #ff9b0b;
-$transLegnth: 2s;
-$pauseLength: 4s;
+$transLegnth: 1s;
+$pauseLength: 3s;
 
 @import 'shared/_imports';
 
@@ -24,7 +24,7 @@ $pauseLength: 4s;
     bcakground-color: #000;
     box-sizing: border-box;
     background-image:   url(http://localhost:8000/embeds/environment-takeover/_source/kiitg-logo.png),
-                        url(http://localhost:8000/embeds/environment-takeover/_source/background.jpg);
+                        url(http://localhost:8000/embeds/environment-takeover/_source/coal.jpg);
     background-repeat: no-repeat;
     background-position: bottom 1.25rem right 1.25rem, top left;
     background-size: 150px, cover;
@@ -104,8 +104,8 @@ $pauseLength: 4s;
     z-index: -2;
     opacity: 0;
 
-    -webkit-animation: fadeIn $transLegnth ease $pauseLength + $transLegnth*2 1 normal forwards, fadeOut $transLegnth ease $pauseLength*4 1 normal forwards;
-    animation:  fadeIn $transLegnth ease $pauseLength + $transLegnth*2 1 normal forwards, fadeOut $transLegnth ease $pauseLength*4 1 normal forwards;
+    -webkit-animation: fadeIn $transLegnth ease $pauseLength + $transLegnth*2 1 normal forwards, fadeOut $transLegnth ease ($pauseLength * 3) + $transLegnth*2 1 normal forwards;
+    animation:  fadeIn $transLegnth ease $pauseLength + $transLegnth*2 1 normal forwards, fadeOut $transLegnth ease ($pauseLength * 3) + $transLegnth*2 1 normal forwards;
 }
 
 
@@ -279,8 +279,8 @@ $pauseLength: 4s;
 }*/
 
 .environment-takeover__screen1 {
-    -webkit-animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
-    animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
+    -webkit-animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) + 1s 1 normal forwards;
+    animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) + 1s  1 normal forwards;
     // -webkit-animation: fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
     // animation: fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
 
@@ -301,8 +301,8 @@ $pauseLength: 4s;
 }
 
 .environment-takeover__screen2 {
-    -webkit-animation-delay: $pauseLength, $pauseLength + $transLegnth*2;
-    animation-delay: $pauseLength, $pauseLength + $transLegnth*2;
+    -webkit-animation-delay: $pauseLength - 1s, $pauseLength + $transLegnth*2;
+    animation-delay: $pauseLength - 1s, $pauseLength + $transLegnth*2;
 
     .environment-takeover__header {
         color: $brownColour;
@@ -314,8 +314,8 @@ $pauseLength: 4s;
 }
 
  .environment-takeover__screen3 {
-    -webkit-animation-delay: $pauseLength + $transLegnth*2, ($pauseLength * 2) + $transLegnth*2;
-    animation-delay: $pauseLength + $transLegnth*2, ($pauseLength * 2) + $transLegnth*2;
+    -webkit-animation-delay: $pauseLength + $transLegnth*2, ($pauseLength * 2) + $transLegnth*2  + 1s;
+    animation-delay: $pauseLength + $transLegnth*2, ($pauseLength * 2) + $transLegnth*2  + 1s; 
 
     .environment-takeover__logo-text {
         color: $brownColour;
@@ -338,8 +338,8 @@ $pauseLength: 4s;
 
 
 .environment-takeover__screen5 {
-    -webkit-animation-delay: ($pauseLength * 3) + $transLegnth*2, ($pauseLength * 4) + $transLegnth*2; 
-    animation-delay: ($pauseLength * 3) + $transLegnth*2, ($pauseLength * 4) + $transLegnth*2; 
+    -webkit-animation-delay: ($pauseLength * 3) + $transLegnth*2, ($pauseLength * 4) + $transLegnth*2  + 1s; 
+    animation-delay: ($pauseLength * 3) + $transLegnth*2, ($pauseLength * 4) + $transLegnth*2  + 1s; 
 }
 .environment-takeover__screen5 .environment-takeover__header {
     color: $brownColour;
@@ -350,8 +350,8 @@ $pauseLength: 4s;
 }
 
 .environment-takeover__screen6 {
-    -webkit-animation: fadeIn 2s ease 1 normal forwards;
-    animation: fadeIn 2s ease 1 normal forwards;
+    -webkit-animation: fadeIn $transLegnth ease 1 normal forwards;
+    animation: fadeIn $transLegnth ease 1 normal forwards;
     -webkit-animation-delay: ($pauseLength * 4) + $transLegnth*2;
     animation-delay: ($pauseLength * 4) + $transLegnth*2;
 
@@ -386,7 +386,8 @@ $pauseLength: 4s;
 // Campaign logo
 .environment-takeover__main-logo {
     margin: 2rem auto 0 auto;
-    width: 200px;
+    /*width: 200px;*/
+    width: 28vh;
     display: block;
 }
 
