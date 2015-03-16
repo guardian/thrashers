@@ -9,6 +9,10 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
+
+
+
+
 $brownColour: #ff9b0b;
 $ligthBrownColour: #ff9b0b;
 $transLegnth: 2s;
@@ -388,13 +392,49 @@ $pauseLength: 4s;
 
 
 // Close btn
-.environment-takeover__close {
+.environment-takeover__close-wrapper {
   position: absolute;
   top: 2rem;
   right: 17px;
+  cursor: pointer;
+  z-index: 9999;
+}
+.environment-takeover__close {
   background: rgba(0,0,0,0.5);
   fill: #fff;
-  cursor: pointer;
-  -webkit-transform: scale(0.8);
+  -webkit-transform: scale(0.7);
   transform: scale(0.7);
+}
+
+
+@media (max-width: map-get($mq-breakpoints, phablet)) {
+    .environment-takeover__screen {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .environment-takeover__marque {
+        top: 0.5rem;
+        left: 0.5rem;
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+
+    }
+    .environment-takeover__close-wrapper {
+        top: 0.5rem;
+        right: 0.5rem;
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+
+
+    .environment-takeover__overlay,
+    .environment-takeover__overlay-inner{
+        background-position: center 60px;
+    }
+
+    .environment-takeover__main-logo {
+        width: 150px;
+    }
+
 }

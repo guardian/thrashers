@@ -34,7 +34,7 @@
         if (!wrapperEl) { return; }
         wrapperEl.addClass('environment-takeover__active');
         
-        var closeBtn = $('.environment-takeover__close');
+        var closeBtn = $('.environment-takeover__close-wrapper');
         bean.on(closeBtn[0], 'click', function() {
             wrapperEl.removeClass('environment-takeover__active');
         });
