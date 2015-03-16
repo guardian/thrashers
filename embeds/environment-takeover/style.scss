@@ -208,9 +208,6 @@ $pauseLength: 3s;
 .environment-takeover__screen1 {
     -webkit-animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) + 1s 1 normal forwards;
     animation: fadeIn 1s ease 1 normal forwards, fadeOut 0s ease ($pauseLength + $transLegnth) + 1s  1 normal forwards;
-    // -webkit-animation: fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
-    // animation: fadeOut 0s ease ($pauseLength + $transLegnth) 1 normal forwards;
-    
 
     .environment-takeover__header {
         color: $brownColour;
@@ -259,7 +256,6 @@ $pauseLength: 3s;
         color: $brownColour;
     }
 }
-
 
 
 .environment-takeover__screen5 {
@@ -368,4 +364,18 @@ $pauseLength: 3s;
 
 .environment-takeover__no-animation .environment-takeover__screen6 {
     opacity: 1 !important;
+}
+
+
+.environment-takeover__no-animation .environment-takeover__screen1,
+.environment-takeover__no-animation .environment-takeover__screen2,
+.environment-takeover__no-animation .environment-takeover__screen3,
+.environment-takeover__no-animation .environment-takeover__screen4,
+.environment-takeover__no-animation .environment-takeover__screen5,
+.environment-takeover__no-animation .environment-takeover__overlay-inner {
+    display: none !important;
+    opacity: 0 !important;
+    position: absolute;
+    left: -10000px !important;
+    height: 0 !important;
 }

@@ -21,6 +21,11 @@
         return animation;
     }
 
+    function isIE () {
+      var myNav = navigator.userAgent.toLowerCase();
+      return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    }
+
     function animate($, bean, cookies) {
         var COOKIE_NAME = '_thunder';
         var thrasherCookie = cookies.get(COOKIE_NAME);
@@ -35,7 +40,7 @@
         if (!wrapperEl) { return; }
         wrapperEl.addClass('environment-takeover__active');
 
-        if (!isAnimationSupported(wrapperEl[0])) {
+        if (!isAnimationSupported(wrapperEl[0]) || isIE() === 10) {
           wrapperEl.addClass('environment-takeover__no-animation');
         }
         
