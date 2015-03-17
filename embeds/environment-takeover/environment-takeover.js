@@ -21,26 +21,28 @@
         return animation;
     }
 
-    function isIE () {
-      var myNav = navigator.userAgent.toLowerCase();
-      return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    var isIE = false;
+    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+      isIE = true;
     }
 
     function animate($, bean, cookies) {
         var COOKIE_NAME = '_thunder';
+        var cookieDays = 30;
         var thrasherCookie = cookies.get(COOKIE_NAME);
         if (navigator.cookieEnabled === false || thrasherCookie) {
           return;
         }
 
 
-        cookies.add(COOKIE_NAME, 1, 1);
+        cookies.add(COOKIE_NAME, 1, cookieDays);
 
         var wrapperEl = $('.environment-takeover__overlay');
         if (!wrapperEl) { return; }
         wrapperEl.addClass('environment-takeover__active');
 
-        if (!isAnimationSupported(wrapperEl[0]) || isIE() === 10) {
+        // IE has keyframe animation bugs, so skip to last frame
+        if (!isAnimationSupported(wrapperEl[0]) || isIE) {
           wrapperEl.addClass('environment-takeover__no-animation');
         }
         
