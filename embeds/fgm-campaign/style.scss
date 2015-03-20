@@ -11,9 +11,10 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-$c-red: #951c55;
+$c-red: guss-colour(features-support-1, $pasteup-palette);
+$c-brown: guss-colour(comment-support-1, $pasteup-palette);
 
-@include base(fgm-campaign, mix(#7d7569, #ffffff, 20%));
+@include base(fgm-campaign, mix($c-brown, #ffffff, 20%));
 
 .fgm-campaign__wrapper {
     position: relative;
@@ -34,7 +35,7 @@ $c-red: #951c55;
     }
 
     @include mq($until: 1024px) {
-        background-color: rgba(#7d7569, .5);
+        background-color: rgba($c-brown, .5);
     }
     
     @include mq(tablet) {
@@ -48,7 +49,7 @@ $c-red: #951c55;
 .fgm-campaign__description {
     margin: 0;
     padding: 0;
-    font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+    font-family: $f-serif-headline;
     line-height: 1;
     color: #ffffff;
 }
