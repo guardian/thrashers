@@ -19,6 +19,19 @@
     animation-duration: $args;
 }
 
+// `animation-direction` prefixer {
+@mixin animation-direction($args) {
+    -webkit-animation-direction: $args;
+    -moz-animation-direction: $args;
+    animation-direction: $args;
+}
+
+@mixin animation-fill-mode($args) {
+    -webkit-animation-fill-mode: $args;
+    -moz-animation-fill-mode: $args;
+    animation-fill-mode: $args;
+}
+
 // `background-size` prefixer
 @mixin background-size($args...) {
     -webkit-background-size: $args;

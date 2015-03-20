@@ -6,18 +6,18 @@ module.exports = function(grunt) {
     var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
     var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
     var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/*.html');
-    var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/source/*' : '**/source/*');
+    var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/_source/*' : '**/source/*');
     var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
     grunt.initConfig({
         watch: {
             local: {
                 files: [scss, html, source],
-                tasks: ['sass', 'compile']
+                tasks: ['sass', 'hash', 'compile']
             },
             remote: {
                 files: [scss, html, source],
-                tasks: ['sass', 'compile', 'aws_s3']
+                tasks: ['sass', 'hash', 'compile', 'aws_s3']
             }
         },
         sass: {
@@ -57,16 +57,34 @@ module.exports = function(grunt) {
             production: {
                 options: {
                     bucket: 'gdn-cdn',
-                    params: {
-                        CacheControl: 'max-age=60'
-                    }
                 },
                 files: [{
                     expand: true,
                     cwd: dir,
-                    src: ['**/*.json', '**/source/*'],
-                    dest: remoteDir
+                    src: ['**/source.json'],
+                    dest: remoteDir,
+                    params: {
+                        CacheControl: 'max-age=60'
+                    }
+                },{
+                    expand: true,
+                    cwd: dir,
+                    src: ['**/hashed/*'],
+                    dest: remoteDir,
+                    params: {
+                        CacheControl: 'max-age=2678400'
+                    }
                 }]
+            }
+        },
+        hash: {
+            options: {
+                mapping: dir + '/hashmap.json',
+                flatten: true
+            },
+            source: {
+                src: dir + '/_source/*',
+                dest: dir + '/hashed/'
             }
         },
         copy: {
@@ -114,8 +132,18 @@ module.exports = function(grunt) {
             var jsonFile = path + '/source.json';
             var localDir = path.split('/')[1];
             var project = grunt.file.readJSON(jsonFile);
+            if (grunt.file.exists(path + '/hashmap.json')) {
+                var hashedMap = grunt.file.readJSON(path + '/hashmap.json');
+            }
 
             project['html'] = '<div class="' + localDir + '__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
+
+            grunt.file.expand({}, dir + '/_source/*').forEach(function(file) {
+                file = file.split("/");
+                file = file[file.length-1];
+                project['html'] = project['html'].replace(RegExp(file, "g"), hashedMap[file]);
+            });
+
             grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
         });
     });

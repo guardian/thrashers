@@ -20,6 +20,7 @@ $c-neutral-1: #333;
 
 #je-suis-charlie {
     .fc-container__inner,
+    .has-page-skin &,
     .fc-item,
     .fc-slice,
     .je-suis-charlie__wrapper {
@@ -49,8 +50,7 @@ $c-neutral-1: #333;
 }
 
 .je-suis-charlie__wrapper {
-    background: url('http://interactive.guim.co.uk/thrashers/je-suis-charlie/source/fabric.png') repeat;
-    background-size: 102px;
+    background-color: darken($c-neutral-1, 10%);
     padding: 10px 10px 0;
 
     @include mq(mobileLandscape) {
@@ -176,6 +176,12 @@ $c-neutral-1: #333;
 
     @include mq(leftCol) {
         height: 9rem;
+    }
+
+    .has-page-skin & {
+        @include mq(wide) {
+            height: 8rem;
+        }
     }
 }
 

@@ -3,6 +3,10 @@
 @mixin base($containerName, $c-background: #dedede) {
     ##{$containerName} {
         background-color: $c-background;
+
+        .fc-item {
+            background-color: $c-background;
+        }
     }
 
     .#{$containerName}__wrapper {
@@ -10,7 +14,7 @@
         background-color: $c-background;
         position: relative;
         overflow: hidden;
-        font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+        font-family: $f-serif-headline;
     }
 }
 
