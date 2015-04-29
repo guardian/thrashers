@@ -224,9 +224,15 @@ $pauseLength: 3s;
         height: 100%;
     }
 
-    @media (max-width: 320px) { 
-      top: 94px;
+    @media (max-width: 360px) { 
+      top: 54px;
     }
+
+    @media (max-width: 320px) { 
+      top: 44px;
+    }
+
+
 }
 
 $width: 55%;
@@ -268,10 +274,12 @@ $delay: 1.5;
 
     @media (max-width: 960px) {
         top: 15%;
+        left: 5px;
     }
 
     @media (max-width: map-get($mq-breakpoints, mobile)) {
         top: 118px;
+
     }
 }
 
@@ -338,6 +346,10 @@ $delay: 1.5;
 
     @media (max-width: map-get($mq-breakpoints, mobile)) {
         top: 320px;
+    }
+
+    @media (max-width: 360px) {
+        top: 360px;
     }
 }
 .environment-takeover__active .thunder-btn {
