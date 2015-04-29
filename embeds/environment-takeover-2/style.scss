@@ -9,7 +9,7 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
-$orange: #ff6642;
+$orange: #ff9b0b;
 
 $brownColour: #ff9b0b;
 $ligthBrownColour: #ff9b0b;
@@ -21,15 +21,19 @@ $pauseLength: 3s;
 .environment-takeover__t1,
 .environment-takeover__t2 {
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
-    font-weight: 700;
+    font-weight: 300;
     font-size: 3rem;
     line-height: 1;
     color: $brownColour;
 }
 
+.environment-takeover__mainlink {
+  width: 70%;
+  margin: 10px 0 0 17px !important;
+    z-index: 20 !important;
+}
 .environment-takeover__t1 span {
-    display: inline-block;
-    margin-left: 3rem;
+    display: inline-block;  
 }
 
 .environment-takeover__mainlink {
@@ -45,7 +49,8 @@ $pauseLength: 3s;
 }
 
 .environment-takeover__t2 {
-    color: #FFF;
+    color: #000;
+    font-size: 1.4rem;
 }
 
 .environment-takeover__button-inner:hover,
@@ -140,17 +145,28 @@ $pauseLength: 3s;
 // Close btn
 .environment-takeover__close-wrapper {
   position: absolute;
-  top: 2rem;
-  right: 17px;
+  top: 20px;
+  right: 18px;
   cursor: pointer;
   z-index: 9999;
+
+
+    @media (max-width: 960px) {
+        top: 0;
+        right: 0;
+    }
+
 }
 .environment-takeover__close {
-  background: rgba(0,0,0,0.5);
+  background: #fff;
   fill: #fff;
-  -webkit-transform: scale(0.7);
-  transform: scale(0.7);
+  -webkit-transform: scale(0.6);
+  transform: scale(0.6);
+  padding: 7px;
+  border: 2px solid $orange;
+  border-radius: 50%;
 }
+
 
 
 @media (max-width: map-get($mq-breakpoints, phablet)) {
@@ -166,8 +182,6 @@ $pauseLength: 3s;
 
     }
     .environment-takeover__close-wrapper {
-        top: 0.5rem;
-        right: 0.5rem;
         -webkit-transform: scale(0.7);
         transform: scale(0.7);
     }
@@ -207,6 +221,10 @@ $pauseLength: 3s;
         left: 0;
         height: 100%;
     }
+
+    @media (max-width: 320px) { 
+      top: 94px;
+    }
 }
 
 $width: 55%;
@@ -237,6 +255,7 @@ $delay: 1.5;
 
 .environment-takeover__active .thunder-img {
     opacity: 1;
+    
 }
 
 .thunder-images {
@@ -254,6 +273,20 @@ $delay: 1.5;
     }
 }
 
+.thunder-show.thunder-images {
+      position: absolute;
+      right: -340%;
+      top: -100%;
+      transform: scale(0.9) !important;
+      transform-origin: 100% 100%;
+      z-index: 0;
+}
+
+.thunder-show.thunder-images .thunder-img {
+    opacity: 1;
+    transition: none;
+}
+
 .thunder-text {
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     color: #000;
@@ -266,6 +299,7 @@ $delay: 1.5;
 
     @media (max-width: 960px) {
         left: 10px;
+        width: 96%;
     }
 
 
@@ -287,7 +321,13 @@ $delay: 1.5;
     }
 }
 
+
 .thunder-btn {
+    margin: 0 0 0 10px;
+}
+
+.thunder-pos .thunder-btn {
+    margin: 0;
     position: absolute;
     top: 540px;
     right: 0; 
@@ -300,4 +340,22 @@ $delay: 1.5;
 }
 .environment-takeover__active .thunder-btn {
     opacity: 1;
+}
+
+.environment-takeover__button-inner.button.button--primary {
+  border: none;
+  background: $orange;
+  color: #000;
+}
+
+.thunder-pos .environment-takeover__button-inner.button.button--primary {
+  border: 1px solid $orange;
+  background: #fff;
+  color: $orange;
+}
+
+#thunder-arrow {
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 20px;
 }
