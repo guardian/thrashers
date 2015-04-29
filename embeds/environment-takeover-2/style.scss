@@ -265,12 +265,6 @@ $delay: 1.5;
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(http://localhost:8000/embeds/environment-takeover-2/_source/kiitg-logo2.png);
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 90px;
-  height: 590px;
-  width: 960px;
 
     @media (max-width: 960px) {
         top: 15%;
@@ -367,4 +361,17 @@ $delay: 1.5;
     width: 20px;
     vertical-align: middle;
     margin-left: 20px;
+}
+
+.thunder-logo {
+    position: absolute;
+    left: 0;
+    top: 460px;
+    width: 90px;
+    transition: opacity 2s ease-in $initDelay * 7;
+    opacity: 0;
+}
+
+.environment-takeover__active .thunder-logo{
+    opacity: 1;
 }
