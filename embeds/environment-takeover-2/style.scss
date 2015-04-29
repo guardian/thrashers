@@ -191,8 +191,8 @@ $pauseLength: 3s;
     height: 600%;
     margin: 0 auto;
     display: block;
-    border: 1px dashed red;
-    background: rgba(255, 0,0,0.1);
+    // border: 1px dashed red;
+    background: #FFF;
     transform-origin: 0 0;
     transform: scale(1) translate(-50%, -50%);
     top: 50%;
@@ -242,8 +242,12 @@ $delay: 1.5;
 .thunder-images {
     transform-origin: 0 0;
     position: absolute;
-    top: 39px;
+    top: 0;
     left: 0;
+
+    @media (max-width: 960px) {
+        top: 15%;
+    }
 
     @media (max-width: map-get($mq-breakpoints, mobile)) {
         top: 118px;
@@ -256,7 +260,7 @@ $delay: 1.5;
     line-height: 1.2em;
     font-weight: 300 !important;
     font-size: 1rem;
-    width: 17em;
+    width: 24rem;
     position:absolute;
     top: 32px;
 
@@ -270,14 +274,14 @@ $delay: 1.5;
         font-size: 2.65rem;
         line-height: 1em;
         font-weight: 300 !important;
-        @media (max-width: map-get($mq-breakpoints, mobile)) {
+        @media (max-width: 500px) {
             font-size: 27px;
         }
 
     }
 
     p {
-        @media (max-width: map-get($mq-breakpoints, mobile)) {
+        @media (max-width: 500px) {
             font-size: 16px;
         }
     }
