@@ -207,6 +207,8 @@ $pauseLength: 3s;
     display: block;
     // border: 1px dashed red;
     background: #FFF;
+
+
     transform-origin: 0 0;
     transform: scale(1) translate(-50%, -50%);
     top: 50%;
@@ -255,14 +257,20 @@ $delay: 1.5;
 
 .environment-takeover__active .thunder-img {
     opacity: 1;
-    
+
 }
 
 .thunder-images {
-    transform-origin: 0 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+  transform-origin: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(http://localhost:8000/embeds/environment-takeover-2/_source/kiitg-logo2.png);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 90px;
+  height: 590px;
+  width: 960px;
 
     @media (max-width: 960px) {
         top: 15%;
@@ -346,6 +354,7 @@ $delay: 1.5;
   border: none;
   background: $orange;
   color: #000;
+  z-index: 2;
 }
 
 .thunder-pos .environment-takeover__button-inner.button.button--primary {
