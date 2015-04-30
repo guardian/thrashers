@@ -31,6 +31,11 @@ $pauseLength: 3s;
   width: 70%;
   margin: 10px 0 0 17px !important;
     z-index: 20 !important;
+
+    @media (max-width: 980px) { 
+        width: 47%;
+    }
+
 }
 .environment-takeover__t1 span {
     display: inline-block;  
@@ -459,4 +464,9 @@ left: 800px;
     top: 0;
     width: 100%;
     height: 100%;
+}
+
+
+.facia-snap-embed .fc-trail__count.fc-trail__count--commentcount {
+  display: none;
 }
