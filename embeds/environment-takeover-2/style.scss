@@ -10,6 +10,7 @@ $mq-breakpoints: (
 );
 
 $c-orange: #ff9b0b;
+$c-black: #333;
 $c-background: #f7f7f7;
 
 @import 'shared/_imports';
@@ -35,18 +36,71 @@ $c-background: #f7f7f7;
     }
 }
 
+.environment-takeover__main-content {
+    position: relative;
+    margin: 12px 10px;
+    min-height: 250px;
+
+    @include mq(mobileLandscape) {
+        margin: 12px 20px;
+    }
+
+    @include mq(tablet) {
+        width: 340px;
+        min-height: 180px;
+    }
+
+    @include mq(leftCol) {
+        width: 35%;
+        min-height: 220px;
+    }
+
+    .environment-takeover__button {
+        margin-top: 6px;
+
+        @include mq(tablet) {
+            position: absolute;
+            bottom: 0;
+            margin-top: 0;
+        }
+    }
+}
+
 .environment-takeover__t1,
 .environment-takeover__t2 {
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 1.6rem;
     line-height: 1;
     color: $c-orange;
+    margin-bottom: 0;
+    display: inline;
+
+    @include mq(tablet) {
+        font-size: 2.8rem;
+        display: block;
+    }
+
+    @include mq(leftCol) {
+        font-size: 3.5rem;
+    }
+}
+
+.environment-takeover__t2 {
+    color: #333;
+
+    @include mq(tablet) {
+        font-size: 1.6rem;
+    }
+
+    @include mq(leftCol) {
+        font-size: 2rem;
+    }
 }
 
 .environment-takeover__mainlink {
-  width: 70%;
-  margin: 10px 0 0 17px !important;
+    width: 70%;
+    margin: 10px 0 0 17px !important;
     z-index: 20 !important;
 
     @media (max-width: 980px) { 
@@ -68,11 +122,6 @@ $c-background: #f7f7f7;
 .environment-takeover__mainlink:focus {
     text-decoration: none;
     border: none;
-}
-
-.environment-takeover__t2 {
-    color: #000;
-    font-size: 1.4rem;
 }
 
 .environment-takeover__button-inner:hover,
@@ -197,10 +246,6 @@ $c-background: #f7f7f7;
     .environment-takeover__main-logo {
         width: 150px;
     }
-    .environment-takeover__t1,
-    .environment-takeover__t2 {
-        font-size: 1rem;
-    }
     .environment-takeover__wrapper {
       background-size: 60px, cover;
     }
@@ -295,8 +340,7 @@ $initDelay: 2s;
     top: 466px;
     left: 290px;
     width: 260px;
-    }
-
+}
 
 .environment-takeover__active .thunder-img {
     opacity: 1;
@@ -321,16 +365,46 @@ $initDelay: 2s;
 
 .thunder-show.thunder-images {
     position: absolute;
-    right: -80px;
-    top: -150px;
+    top: -154px;
     transform: scale(0.6) !important;
     transform-origin: 100% 100%;
     z-index: 0;
 
-    @media (max-width: 390px) {
-        transform: scale(0.3) !important;
-        right: -6px;
-        top: -54px;
+    @include mq($until: tablet) {
+        bottom: 0;
+        left: -26px;
+
+        .thunder-img-1 {
+            display: none;
+        }
+    }
+
+    @include mq(mobileLandscape, tablet) {
+        left: -35px;
+        top: -140px;
+        transform: scale(0.7) !important;
+    }
+
+    @include mq(tablet) {
+        right: -65px;
+        top: -115px;
+        transform: scale(0.55) !important
+    }
+
+    @include mq(desktop) {
+        right: 150px;
+        top: -125px;
+        transform: scale(0.6) !important;
+    }
+
+    @include mq(leftCol) {
+        right: -318px;
+        top: -168px;
+        transform: scale(0.7) !important;
+    }
+
+    @include mq(wide) {
+        right: -450px;
     }
 }
 
@@ -370,10 +444,6 @@ $initDelay: 2s;
             font-size: 16px;
         }
     }
-}
-
-.thunder-btn {
-    margin: 0 0 0 10px;
 }
 
 .thunder-pos .thunder-btn {
@@ -437,16 +507,16 @@ $initDelay: 2s;
 
 .thunder-logo-thr {
     position: absolute;
-    right: 10px;
-    top: 10px !important;
+    top: auto;
+    right: 20px;
+    bottom: 12px !important;
     left: inherit;
-    transition: none !important;
-    transform: scale(0.6);
-    transform-origin: 100% 0;
     opacity: 1 !important;
+    display: none;
+    width: 70px;
 
-    @media (max-width: 390px) {
-        display: none;
+    @include mq(tablet) {
+        display: block;
     }
 }
 
@@ -456,6 +526,7 @@ $initDelay: 2s;
 
 #thunder-overlink {
     position: absolute;
+    z-index: 20;
     left: 0;
     top: 0;
     width: 100%;
