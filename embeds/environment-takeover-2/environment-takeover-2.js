@@ -35,7 +35,7 @@
         var cookieDays = 30;
         var thrasherCookie = cookies.get(COOKIE_NAME);
         if (navigator.cookieEnabled === false || thrasherCookie) {
-          //return;
+          return;
         }
 
         cookies.add(COOKIE_NAME, 1, cookieDays);
