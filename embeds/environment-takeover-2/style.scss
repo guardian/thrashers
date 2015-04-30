@@ -21,7 +21,7 @@ $pauseLength: 3s;
 .environment-takeover__t1,
 .environment-takeover__t2 {
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
-    font-weight: 300;
+    font-weight: 700;
     font-size: 3rem;
     line-height: 1;
     color: $brownColour;
@@ -202,7 +202,6 @@ $pauseLength: 3s;
 .thunder-pos {
     position: absolute;
     width: 960px;
-    height: 600%;
     margin: 0 auto;
     display: block;
     // border: 1px dashed red;
@@ -214,18 +213,18 @@ $pauseLength: 3s;
     top: 50%;
     left: 50%;
     transform-origin: 0 0;
-    height: 600px;
+    height: 700px;
 
     @media (max-width: 960px) { 
         width: 100%;
         transform: none;
-        top: 0;
+        top: 21px;
         left: 0;
         height: 100%;
     }
 
     @media (max-width: 360px) { 
-      top: 54px;
+      top: 44px;
     }
 
     @media (max-width: 320px) { 
@@ -235,16 +234,17 @@ $pauseLength: 3s;
 
 }
 
+$delay: 0.75s;
 $width: 55%;
 $initDelay: 2s;
 .thunder-img {
     width: $width;
     position: absolute;
     opacity: 0;
-    transition: opacity 2s ease-in $initDelay;
+    transition: opacity $delay ease-in $initDelay;
 }
 
-$delay: 0.75;
+
 @for $i from 1 through 7 {
     .#{thunder-img}-#{$i} {
         transition-delay: ($initDelay + ($delay * $i));
@@ -252,13 +252,48 @@ $delay: 0.75;
     }
 }
 
-.thunder-img-1 { top: 80px; left: 410px; width: 470px; }
-.thunder-img-2 { top: 181px; left: 50px; width: 410px; }
-.thunder-img-3 { top: 200px; left: 390px; width: 270px; }
-.thunder-img-4 { top: 250px; left: 530px; width: 400px; }
-.thunder-img-5 { top: 300px; left: 0px; width: 260px; }
-.thunder-img-6 { top: 351px; left: 238px; width: 300px; }
-.thunder-img-7 { top: 436px; left: 120px; width: 210px; }
+.thunder-img-1 {
+top: 29px;
+  left: 529px;
+  width: 350px;
+
+}
+
+.thunder-img-2 {
+top: 201px;
+  left: 50px;
+  width: 299px;
+}
+
+.thunder-img-3 {
+  top: 190px;
+  left: 250px;
+  width: 500px;
+}
+
+.thunder-img-4 {
+    top: 220px;
+    left: 500px;
+  width: 400px;
+}
+
+.thunder-img-5 {
+top: 360px;
+  left: 0px;
+  width: 370px;
+ }
+
+.thunder-img-6 { 
+  top: 415px;
+  left: 488px;
+  width: 330px;
+ }
+
+.thunder-img-7 { 
+top: 466px;
+  left: 290px;
+  width: 260px;
+ }
 
 
 .environment-takeover__active .thunder-img {
@@ -284,12 +319,18 @@ $delay: 0.75;
 }
 
 .thunder-show.thunder-images {
-      position: absolute;
-      right: -340%;
-      top: -100%;
-      transform: scale(0.9) !important;
+  position: absolute;
+  right: -80px;
+  top: -150px;
+  transform: scale(0.6) !important;
       transform-origin: 100% 100%;
       z-index: 0;
+
+      @media (max-width: 390px) {
+          transform: scale(0.3) !important;
+  right: -6px;
+  top: -54px;
+      }
 }
 
 .thunder-show.thunder-images .thunder-img {
@@ -299,13 +340,13 @@ $delay: 0.75;
 
 .thunder-text {
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
-    color: #000;
-    line-height: 1.2em;
-    font-weight: 300 !important;
-    font-size: 1rem;
-    width: 24rem;
-    position:absolute;
-    top: 32px;
+  color: #000;
+  line-height: 0.9;
+  font-weight: 700 !important;
+  font-size: 1.8rem;
+  width: 35rem;
+  position: absolute;
+  top: 4px;
 
     @media (max-width: 960px) {
         left: 10px;
@@ -315,9 +356,8 @@ $delay: 0.75;
 
     h2 {
         color: $orange;
-        font-size: 2.65rem;
+        font-size: 3.3rem;
         line-height: 1em;
-        font-weight: 300 !important;
         @media (max-width: 500px) {
             font-size: 27px;
         }
@@ -339,17 +379,27 @@ $delay: 0.75;
 .thunder-pos .thunder-btn {
     margin: 0;
     position: absolute;
-    top: 540px;
-    right: 0; 
-    transition: opacity 2s ease-in ($initDelay + ($delay * 7));
+    top: 129px;
+  left: 0;
+    transition: opacity $delay ease-in ($initDelay + ($delay * 7));
     opacity: 0;
 
     @media (max-width: map-get($mq-breakpoints, mobile)) {
-        top: 320px;
+        left: 10px;
+        top: 77px;
     }
 
     @media (max-width: 360px) {
-        top: 360px;
+        left: 10px;
+        top: 60px;
+    }
+
+    @media (max-width: 390px) {
+        left: 10px;
+          top: 69px;
+    }
+    @media (max-width: 960px) {
+   left: 10px;
     }
 }
 .environment-takeover__active .thunder-btn {
@@ -359,14 +409,13 @@ $delay: 0.75;
 .environment-takeover__button-inner.button.button--primary {
   border: none;
   background: $orange;
-  color: #000;
+  color: #FFF;
   z-index: 2;
 }
 
 .thunder-pos .environment-takeover__button-inner.button.button--primary {
-  border: 1px solid $orange;
-  background: #fff;
-  color: $orange;
+  background: $orange;
+  color: #FFF;
 }
 
 #thunder-arrow {
@@ -377,13 +426,37 @@ $delay: 0.75;
 
 .thunder-logo {
     position: absolute;
-    left: 0;
-    top: 460px;
+left: 800px;
+  top: 610px;
+
     width: 90px;
-    transition: opacity 2s ease-in ($initDelay + ($delay * 7));
+    transition: opacity $delay ease-in ($initDelay + ($delay * 7));
     opacity: 0;
+}
+
+.thunder-logo-thr {
+    position: absolute;
+    right: 10px;
+    top: 10px !important;
+    left: inherit;
+    transition: none !important;
+    transform: scale(0.6);
+    transform-origin: 100% 0;
+    opacity: 1 !important;
+
+    @media (max-width: 390px) {
+        display: none;
+    }
 }
 
 .environment-takeover__active .thunder-logo{
     opacity: 1;
+}
+
+#thunder-overlink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }

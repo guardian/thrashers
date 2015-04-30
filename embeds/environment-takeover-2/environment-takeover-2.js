@@ -34,8 +34,6 @@
         var COOKIE_NAME = '_thunder2';
         var cookieDays = 30;
         var thrasherCookie = cookies.get(COOKIE_NAME);
-
-        console.info('DEBUG: Disabled cookie check!');
         if (navigator.cookieEnabled === false || thrasherCookie) {
           //return;
         }
