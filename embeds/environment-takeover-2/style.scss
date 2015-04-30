@@ -220,8 +220,7 @@ $c-background: #f7f7f7;
 .environment-takeover__close {
     background: #fff;
     fill: #fff;
-    -webkit-transform: scale(0.6);
-    transform: scale(0.6);
+    @include transform(scale(0.6));
     padding: 7px;
     border: 2px solid $c-orange;
     border-radius: 50%;
@@ -235,13 +234,10 @@ $c-background: #f7f7f7;
     .environment-takeover__marque {
         top: 0.5rem;
         left: 0.5rem;
-        -webkit-transform: scale(0.7);
-        transform: scale(0.7);
-
+        @include transform(scale(0.7));
     }
     .environment-takeover__close-wrapper {
-        -webkit-transform: scale(0.7);
-        transform: scale(0.7);
+        @include transform(scale(0.7));
     }
     .environment-takeover__main-logo {
         width: 150px;
@@ -258,16 +254,15 @@ $c-background: #f7f7f7;
     margin: 0 auto;
     display: block;
     background: #FFF;
-    transform-origin: 0 0;
-    transform: scale(1) translate(-50%, -50%);
+    @include transform(scale(1) translate(-50%, -50%));
     top: 50%;
     left: 50%;
-    transform-origin: 0 0;
+    @include transform-origin(0 0);
     height: 700px;
 
     @media (max-width: 960px) { 
         width: 100%;
-        transform: none;
+        @include transform(none);
         top: 21px;
         left: 0;
         height: 100%;
@@ -347,7 +342,7 @@ $initDelay: 2s;
 }
 
 .thunder-images {
-    transform-origin: 0 0;
+    @include transform-origin(0 0);
     position: absolute;
     top: 0;
     left: 0;
@@ -366,8 +361,8 @@ $initDelay: 2s;
 .thunder-show.thunder-images {
     position: absolute;
     top: -154px;
-    transform: scale(0.6) !important;
-    transform-origin: 100% 100%;
+    @include transform(scale(0.6));
+    @include transform-origin(100% 100%);
     z-index: 0;
 
     @include mq($until: tablet) {
@@ -382,25 +377,25 @@ $initDelay: 2s;
     @include mq(mobileLandscape, tablet) {
         left: -35px;
         top: -140px;
-        transform: scale(0.7) !important;
+        @include transform(scale(0.7));
     }
 
     @include mq(tablet) {
         right: -65px;
         top: -115px;
-        transform: scale(0.55) !important
+        @include transform(scale(0.55));
     }
 
     @include mq(desktop) {
         right: 150px;
         top: -125px;
-        transform: scale(0.6) !important;
+        @include transform(scale(0.6));
     }
 
     @include mq(leftCol) {
         right: -318px;
         top: -168px;
-        transform: scale(0.7) !important;
+        @include transform(scale(0.7));
     }
 
     @include mq(wide) {
