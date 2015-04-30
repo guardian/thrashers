@@ -244,7 +244,7 @@ $initDelay: 2s;
     transition: opacity 2s ease-in $initDelay;
 }
 
-$delay: 1.5;
+$delay: 0.75;
 @for $i from 1 through 7 {
     .#{thunder-img}-#{$i} {
         transition-delay: ($initDelay + ($delay * $i));
@@ -341,7 +341,7 @@ $delay: 1.5;
     position: absolute;
     top: 540px;
     right: 0; 
-    transition: opacity 2s ease-in $initDelay * 7;
+    transition: opacity 2s ease-in ($initDelay + ($delay * 7));
     opacity: 0;
 
     @media (max-width: map-get($mq-breakpoints, mobile)) {
@@ -380,7 +380,7 @@ $delay: 1.5;
     left: 0;
     top: 460px;
     width: 90px;
-    transition: opacity 2s ease-in $initDelay * 7;
+    transition: opacity 2s ease-in ($initDelay + ($delay * 7));
     opacity: 0;
 }
 

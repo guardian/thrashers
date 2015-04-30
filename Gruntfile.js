@@ -141,7 +141,7 @@ module.exports = function(grunt) {
             grunt.file.expand({}, dir + '/_source/*').forEach(function(file) {
                 file = file.split("/");
                 file = file[file.length-1];
-                project['html'] = project['html'];
+                project['html'] = project['html'].replace(RegExp(file, "g"), hashedMap[file]);
             });
 
             grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
