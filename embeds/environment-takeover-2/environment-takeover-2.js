@@ -1,4 +1,8 @@
 (function() {
+    // Switch off
+    return;
+    
+    
     // Underscore's throttle.
     var throttle = function(func, wait, options) {
         var context, args, result;
