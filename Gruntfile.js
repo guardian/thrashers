@@ -50,8 +50,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: dir,
                     src: '*.css',
-                    dest: dir,
-                    ext: '.min.css'
+                    dest: dir
                 }]
             }
         },
@@ -180,7 +179,7 @@ module.exports = function(grunt) {
         grunt.file.expand({}, dir + '*').forEach(function(path) {
             console.log(source);
             var html = grunt.file.read(path + '/index.html');
-            var css = grunt.file.read(path + '/style.min.css');
+            var css = grunt.file.read(path + '/style.css');
             var jsonFile = path + '/source.json';
             var localDir = path.split('/')[1];
             var project = grunt.file.readJSON(jsonFile);
