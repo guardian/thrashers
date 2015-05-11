@@ -13,37 +13,67 @@ module.exports = function(grunt) {
         watch: {
             local: {
                 files: [scss, html, source],
-                tasks: ['sass', 'cssmin', 'hash', 'compile']
+                tasks: ['sass', 'cssmin', 'hash', 'compile', 'replace:local']
             },
             remote: {
                 files: [scss, html, source],
-                tasks: ['sass', 'cssmin', 'hash', 'compile', 'aws_s3']
+                tasks: ['sass', 'cssmin', 'hash', 'compile', 'replace:remote', 'aws_s3']
             }
         },
         sass: {
-          dist: {
-            options: {
-                style: 'compressed'
-            },
-            files: [{
-                expand: true,
-                cwd: dir,
-                src: '**/*.scss',
-                dest: dir,
-                ext: '.css'
-            }]
-          }
+            dist: {
+                options: {
+                    style: 'compressed'
+                },
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '**/*.scss',
+                    dest: dir,
+                    ext: '.css'
+                }]
+            }
         },
         cssmin: {
-          target: {
-            files: [{
-              expand: true,
-              cwd: dir,
-              src: '*.css',
-              dest: dir,
-              ext: '.min.css'
-            }]
-          }
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '*.css',
+                    dest: dir,
+                    ext: '.min.css'
+                }]
+            }
+        },
+        replace: {
+            local: {
+                options: {
+                    patterns: [{
+                        match: /@@assetPath@@/g,
+                        replacement: 'http://localhost:8000/' + dir + '/hashed'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '**/source.json',
+                    dest: dir,
+                }]
+            },
+            remote: {
+                options: {
+                    patterns: [{
+                        match: /@@assetPath@@/g,
+                        replacement: 'http://interactive.guim.co.uk/' + remoteDir + '/hashed'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '**/source.json',
+                    dest: dir
+                }]
+            }
         },
         connect: {
             server: {
@@ -138,6 +168,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('compile', function() {
         grunt.file.expand({}, dir + '*').forEach(function(path) {
+            console.log(source);
             var html = grunt.file.read(path + '/index.html');
             var css = grunt.file.read(path + '/style.min.css');
             var jsonFile = path + '/source.json';
