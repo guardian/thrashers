@@ -13,11 +13,11 @@ module.exports = function(grunt) {
         watch: {
             local: {
                 files: [scss, html, source],
-                tasks: ['sass', 'cssmin', 'hash', 'compile', 'replace:local']
+                tasks: ['sass', 'autoprefixer', 'cssmin', 'hash', 'compile', 'replace:local']
             },
             remote: {
                 files: [scss, html, source],
-                tasks: ['sass', 'cssmin', 'hash', 'compile', 'replace:remote', 'aws_s3']
+                tasks: ['sass', 'autoprefixer', 'cssmin', 'hash', 'compile', 'replace:remote', 'aws_s3']
             }
         },
         sass: {
@@ -31,6 +31,16 @@ module.exports = function(grunt) {
                     src: '**/*.scss',
                     dest: dir,
                     ext: '.css'
+                }]
+            }
+        },
+        autoprefixer: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: 'style.css',
+                    dest: dir
                 }]
             }
         },
