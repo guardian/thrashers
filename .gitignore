@@ -4,5 +4,6 @@ components/
 node_modules/
 style.css.map
 style.css
+style.min.css
 aws-keys.json
 hashed/

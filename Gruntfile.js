@@ -13,11 +13,11 @@ module.exports = function(grunt) {
         watch: {
             local: {
                 files: [scss, html, source],
-                tasks: ['sass', 'hash', 'compile']
+                tasks: ['sass', 'cssmin', 'hash', 'compile']
             },
             remote: {
                 files: [scss, html, source],
-                tasks: ['sass', 'hash', 'compile', 'aws_s3']
+                tasks: ['sass', 'cssmin', 'hash', 'compile', 'aws_s3']
             }
         },
         sass: {
@@ -31,6 +31,17 @@ module.exports = function(grunt) {
                 src: '**/*.scss',
                 dest: dir,
                 ext: '.css'
+            }]
+          }
+        },
+        cssmin: {
+          target: {
+            files: [{
+              expand: true,
+              cwd: dir,
+              src: '*.css',
+              dest: dir,
+              ext: '.min.css'
             }]
           }
         },
@@ -128,7 +139,7 @@ module.exports = function(grunt) {
     grunt.registerTask('compile', function() {
         grunt.file.expand({}, dir + '*').forEach(function(path) {
             var html = grunt.file.read(path + '/index.html');
-            var css = grunt.file.read(path + '/style.css');
+            var css = grunt.file.read(path + '/style.min.css');
             var jsonFile = path + '/source.json';
             var localDir = path.split('/')[1];
             var project = grunt.file.readJSON(jsonFile);
