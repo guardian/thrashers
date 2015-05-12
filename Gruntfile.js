@@ -13,26 +13,76 @@ module.exports = function(grunt) {
         watch: {
             local: {
                 files: [scss, html, source],
-                tasks: ['sass', 'hash', 'compile']
+                tasks: ['sass', 'autoprefixer', 'cssmin', 'hash', 'compile', 'replace:local']
             },
             remote: {
                 files: [scss, html, source],
-                tasks: ['sass', 'hash', 'compile', 'aws_s3']
+                tasks: ['sass', 'autoprefixer', 'cssmin', 'hash', 'compile', 'replace:remote', 'aws_s3']
             }
         },
         sass: {
-          dist: {
-            options: {
-                style: 'compressed'
+            dist: {
+                options: {
+                    style: 'compressed'
+                },
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '**/*.scss',
+                    dest: dir,
+                    ext: '.css'
+                }]
+            }
+        },
+        autoprefixer: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: 'style.css',
+                    dest: dir
+                }]
+            }
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '*.css',
+                    dest: dir
+                }]
+            }
+        },
+        replace: {
+            local: {
+                options: {
+                    patterns: [{
+                        match: /@@assetPath@@/g,
+                        replacement: 'http://localhost:8000/' + dir + '/hashed'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '**/source.json',
+                    dest: dir,
+                }]
             },
-            files: [{
-                expand: true,
-                cwd: dir,
-                src: '**/*.scss',
-                dest: dir,
-                ext: '.css'
-            }]
-          }
+            remote: {
+                options: {
+                    patterns: [{
+                        match: /@@assetPath@@/g,
+                        replacement: 'http://interactive.guim.co.uk/' + remoteDir + '/hashed'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    cwd: dir,
+                    src: '**/source.json',
+                    dest: dir
+                }]
+            }
         },
         connect: {
             server: {
