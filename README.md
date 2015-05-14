@@ -104,7 +104,7 @@ Due to multiple reports of the site crashing on older devices (iPad 2s, older An
 
 ### Javascript
 
-Due to the way we inject the thrashers into `frontend` we can't add `<script>` tags in the html. These are stripped out. The work around we've come up with so far, so it have a 1x1px image with an onload event.
+Due to the way we inject the thrashers into `frontend` we can't add `<script>` tags in the html. These are stripped out. The work around we've come up with so far, is to have a 1x1px image with an onload event that adds a `<script>` tag.
 
 ```html
     <img 
@@ -116,4 +116,4 @@ Due to the way we inject the thrashers into `frontend` we can't add `<script>` t
     />
 ```
 
-Although the same practice goes for javascript as it does for animations and transitions. There has to be a good reason for it to exist and they have to be incredibly light. It's also best not to require heavy libraries like `jQuery` to achieve results the same results that could be done with vanilla javascript or micro-libraries.
+Although the same practice applies to javascript as it does for animations and transitions. There has to be a good reason for it to exist and they have to be incredibly light. It's also best not to require heavy libraries like `jQuery` to achieve the same results that could be done with vanilla javascript and/or micro-libraries.
