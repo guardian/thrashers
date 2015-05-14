@@ -73,3 +73,47 @@ grunt update --folderName=the-name-of-your-embed
 The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container.
 
 You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
+
+## Developing
+
+### Breakpoints
+
+The way thrashers are injected into the page means you'll be inheriting all of [`frontend's`](http://github.com/guardian/frontend) styles. As a result it's best to stick to the same breakpoints. The templates come, by default, with [`sass-mq`](http://github.com/sass-mq/sass-mq) and a copy of `frontend's` breakpoints. Which should be used like this.
+
+```scss
+.coal-us__title {
+    font-size: 24px;
+
+    @include mq(tablet) {
+        font-size: 32px;
+    }
+);
+```
+
+### Assets
+
+All additional assets should be placed into the `_source` folder. The script will then asset hash them and handle uploading. This, combined with the ability to develop locally and remotely means you'll have to reference the files differently to the way you normally would. If you use `@@assetPath@@` in your `html` or `scss`, the grunt script will replace this part of the path with whatever is appropriate.
+
+```html
+<img class="coal-us__logo" src="@@assetPath@@/logo.png" />
+```
+
+### Animations & transitions
+
+Due to multiple reports of the site crashing on older devices (iPad 2s, older Android smartphones, etc...), it's best to keep animations and transitions to a minimum unless they add a lot of value.
+
+### Javascript
+
+Due to the way we inject the thrashers into `frontend` we can't add `<script>` tags in the html. These are stripped out. The work around we've come up with so far, so it have a 1x1px image with an onload event.
+
+```html
+    <img 
+        style="height:0;width:0;visibility:hidden;position:absolute;z-index: 1;"
+        height="0"
+        width="0"
+        src="@@assetPath@@/empty.gif"
+        onload="var script=document.createElement('script');script.src='@@assetPath@@/main.js'; document.body.appendChild(script);"
+    />
+```
+
+Although the same practice goes for javascript as it does for animations and transitions. There has to be a good reason for it to exist and they have to be incredibly light. It's also best not to require heavy libraries like `jQuery` to achieve results the same results that could be done with vanilla javascript or micro-libraries.
