@@ -12,143 +12,19 @@ $mq-breakpoints: (
 @import 'shared/_imports';
 
 $c-accent: #b82266;
+$c-background: #5bbfff;
 $c-text: #fff;
 
 @include base(testThrasher, $c-accent);
-@include base(manchester-international-festival, $c-accent);
+@include base(manchester-international-festival, $c-background);
 
-// Images
-.cutout {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 411px;
-  height: 365px;
-}
-  .cutout > * {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-
-
-      }
-
-.cutout--1 {
-  left: 150px;
-  top:-50px;
-  z-index: 10;
-  display:none;
-
-  @include mq(phablet) {
-    display:block;
-    left: 300px;
-    top:-20px;
-  }
-  @include mq(tablet) {
-    display:block;
-    left: 400px;
-    top:-40px;
-  }
-
-  @include mq(desktop) {
-    left: 300px;
-    top:-40px;
-  }
-
-
-  }
-
-.cutout--2 {
-  left: 120px;
-  top:170px;
-  z-index: 20;
-
-  @include mq(mobileLandscape) {
-    left: 220px;
-    top:140px;
-  }
-
-  @include mq(phablet) {
-    display:block;
-    left: 400px;
-    top:140px;
-  }
-
-  @include mq(tablet) {
-    left: 500px;
-    top:140px;
-  }
-
-
-
-  @include mq(desktop) {
-    left: 480px;
-    top:100px;
-  }
-  }
-
-.cutout--3 {
-  left: 600px;
-  z-index: 5;
-  display:none;
-
-  @include mq(desktop) {
-      display:block;
-  }
-
-  }
-
-.cutout__top {
-  z-index: 5; }
-
-.cutout__bottom {
-  z-index: 2; }
-
-  //circle
-
-.circle{border-radius: 50%;
-	width: 350px;
-	height: 350px;
-  left: 450px;
-  top:140px;
-  background-image: -moz-radial-gradient(#fff, #fbfbdf);
-	background-image: -webkit-gradient(radial, center center, 0, center center, 220, from(#fff), to(#fbfbdf)); /* old */
-	background-image: -webkit-radial-gradient(#fff, #fbfbdf); /* new syntax */
-	background-image: radial-gradient(#fff, #fbfbdf);
-  box-shadow: 0 0 10px 20px #fbfbdf;
-  z-index: 1;
-
-  @include mq(mobileLandscape) {
-    left: 290px;
-    top:140px;
-  }
-
-  @include mq(phablet) {
-    left: 350px;
-    top:140px;
-  }
-
-  @include mq(tablet) {
-    left: 450px;
-    top:200px;
-  }
-
-  }
-
-
-  // BG
-
+// BG
 .manchester-international-festival__wrapper  {
     background-image: url("@@assetPath@@/noise.png");
     background-repeat: repeat-x;
-    background-color:#5bbfff;
+    background-color: $c-background;
     height:100%;
 }
-
 
 // Type
 .manchester-international-festival__type {
@@ -177,7 +53,6 @@ $c-text: #fff;
     line-height: 14px;
     margin: 0 0 5px 0;
 
-
     @include mq(tablet) {
       font-size: 17px;
       line-height: 19px;
@@ -187,49 +62,162 @@ $c-text: #fff;
 }
 
 .manchester-international-festival__title{
-    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     font-size: 21px;
     line-height: 21px;
     font-weight: 900;
     color: $c-text;
 
     @include mq(mobileLandscape) {
-      font-size: 25px;
-      line-height: 25px;
+        font-size: 25px;
+        line-height: 25px;
     }
 
     @include mq(tablet) {
-      font-size: 28px;
-      line-height: 28px;}
+        font-size: 28px;
+        line-height: 28px;
+    }
 
     @include mq(desktop) {
-      font-size: 40px;
-      line-height: 40px;}
+        font-size: 40px;
+        line-height: 40px;
+    }
+}
 
+// Images
+.cutout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 411px;
+    height: 365px;
+
+    & > * {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.cutout__top {
+    z-index: 5;
+}
+
+.cutout__bottom {
+    z-index: 2;
+}
+
+.cutout--1 {
+    left: 150px;
+    top:-50px;
+    z-index: 10;
+    display:none;
+
+    @include mq(phablet) {
+        display:block;
+        left: 300px;
+        top:-20px;
+    }
+
+    @include mq(tablet) {
+        left: 400px;
+        top:-40px;
+    }
+
+    @include mq(desktop) {
+        left: 300px;
+        top:-40px;
+    }
+}
+
+.cutout--2 {
+    left: 120px;
+    top:170px;
+    z-index: 20;
+
+    @include mq(mobileLandscape) {
+      left: 220px;
+      top: 140px;
+    }
+
+    @include mq(phablet) {
+      display:block;
+      left: 400px;
+      top: 140px;
+    }
+
+    @include mq(tablet) {
+      left: 500px;
+      top: 140px;
+    }
+
+    @include mq(desktop) {
+        left: 480px;
+        top: 100px;
+    }
+}
+
+.cutout--3 {
+    left: 600px;
+    z-index: 5;
+    display:none;
+
+    @include mq(desktop) {
+        display:block;
+    }
+}
+
+//circle
+.circle {
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    left: 450px;
+    top:140px;
+    background-image: -moz-radial-gradient(#fff, #fbfbdf);
+    background-image: -webkit-gradient(radial, center center, 0, center center, 220, from(#fff), to(#fbfbdf)); /* old */
+    background-image: -webkit-radial-gradient(#fff, #fbfbdf); /* new syntax */
+    background-image: radial-gradient(#fff, #fbfbdf);
+    box-shadow: 0 0 10px 20px #fbfbdf;
+    z-index: 1;
+
+    @include mq(mobileLandscape) {
+        left: 290px;
+        top: 140px;
+    }
+
+    @include mq(phablet) {
+        left: 350px;
+        top: 140px;
+    }
+
+    @include mq(tablet) {
+        left: 450px;
+        top: 200px;
+    }
 }
 
 //Button
-
 .button.manchester-international-festival__button {
     position: absolute;
     bottom: 10px;
-    background-color: #b82266;
-    color: #fff;
+    background-color: $c-accent;
+    color: $c-text;
     border: none;
     margin-bottom: 10px;
     margin-left: 20px;
+}
 
+.manchester-international-festival__button__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 2px;
 
-  }
-
-  .manchester-international-festival__button__icon {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 2px;
-        @include mq(phablet) {
+    @include mq(phablet) {
         margin-top: 5px;
         float: right;
-
-
-        }
     }
+}
