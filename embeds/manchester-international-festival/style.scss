@@ -11,12 +11,22 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-$c-accent: #b82266;
+$c-accent: guss-colour(neutral-1, $pasteup-palette);
 $c-background: #5bbfff;
+$c-button-text: #fff;
 $c-text: #fff;
 
-@include base(testThrasher, $c-accent);
+@include base(localthrasherhole, $c-background);
 @include base(manchester-international-festival, $c-background);
+
+a.manchester-international-festival__anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 300 !important;
+}
 
 // BG
 .manchester-international-festival__wrapper  {
@@ -33,6 +43,11 @@ $c-text: #fff;
     z-index: 2;
     padding: 10px 20px;
 
+    @include mq($until: mobileLandscape) {
+        min-height: 180px;
+        margin-right: 89px;
+    }
+
     @include mq(mobileLandscape) {
         height: 170px;
     }
@@ -47,21 +62,21 @@ $c-text: #fff;
 }
 
 .manchester-international-festival__guide {
+    font-family: $f-serif-headline;
     color: $c-accent;
     font-weight: 900;
     font-size: 14px;
     line-height: 14px;
-    margin: 0 0 5px 0;
+    margin: 0;
 
     @include mq(tablet) {
-      font-size: 17px;
-      line-height: 19px;
-      margin-bottom: 10px;
-      margin-top: 10px;
+        font-size: 24px;
+        line-height: 28px;
     }
 }
 
-.manchester-international-festival__title{
+.manchester-international-festival__title {
+    font-family: $f-serif-headline;
     font-size: 21px;
     line-height: 21px;
     font-weight: 900;
@@ -78,8 +93,13 @@ $c-text: #fff;
     }
 
     @include mq(desktop) {
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 42px;
+        line-height: 42px;
+    }
+
+    @include mq(leftCol) {
+        font-size: 50px;
+        line-height: 46px;
     }
 }
 
@@ -123,8 +143,8 @@ $c-text: #fff;
     }
 
     @include mq(tablet) {
-        left: 400px;
-        top:-40px;
+        left: 310px;
+        top: -70px;
     }
 
     @include mq(desktop) {
@@ -135,23 +155,32 @@ $c-text: #fff;
 
 .cutout--2 {
     left: 120px;
-    top:170px;
+    top: 170px;
     z-index: 20;
 
+    @include mq($until: mobileLandscape) {
+        left: auto;
+        right: -60px;
+        bottom: 0;
+        top: auto;
+        width: 200px;
+        height: 178px;
+    }
+
     @include mq(mobileLandscape) {
-      left: 220px;
-      top: 140px;
+        left: 220px;
+        top: 140px;
     }
 
     @include mq(phablet) {
-      display:block;
-      left: 400px;
-      top: 140px;
+        display:block;
+        left: 400px;
+        top: 140px;
     }
 
     @include mq(tablet) {
-      left: 500px;
-      top: 140px;
+        left: 440px;
+        top: 140px;
     }
 
     @include mq(desktop) {
@@ -161,7 +190,7 @@ $c-text: #fff;
 }
 
 .cutout--3 {
-    left: 600px;
+    left: 590px;
     z-index: 5;
     display:none;
 
@@ -176,28 +205,45 @@ $c-text: #fff;
     width: 350px;
     height: 350px;
     left: 450px;
-    top:140px;
+    top: 140px;
     background-image: -moz-radial-gradient(#fff, #fbfbdf);
     background-image: -webkit-gradient(radial, center center, 0, center center, 220, from(#fff), to(#fbfbdf)); /* old */
     background-image: -webkit-radial-gradient(#fff, #fbfbdf); /* new syntax */
     background-image: radial-gradient(#fff, #fbfbdf);
     box-shadow: 0 0 10px 20px #fbfbdf;
     z-index: 1;
-
-    @include mq(mobileLandscape) {
-        left: 290px;
-        top: 140px;
-    }
-
-    @include mq(phablet) {
-        left: 350px;
-        top: 140px;
-    }
+    display: none;
 
     @include mq(tablet) {
+        left: 360px;
+        top: 200px;
+        display: block;
+    }
+
+    @include mq(desktop) {
         left: 450px;
         top: 200px;
     }
+}
+
+.manchester-international-festival__wave {
+    position: absolute;
+    right: -60px;
+    left: -60px;
+    height: 77%;
+    bottom: 0;
+    background: url("@@assetPath@@/wave.png") repeat-x;
+    background-size: 845px;
+    opacity: 0.7;
+}
+
+.manchester-international-festival__dots {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: url("@@assetPath@@/dots.png");
 }
 
 //Button
@@ -205,19 +251,28 @@ $c-text: #fff;
     position: absolute;
     bottom: 10px;
     background-color: $c-accent;
-    color: $c-text;
+    color: $c-button-text;
     border: none;
     margin-bottom: 10px;
     margin-left: 20px;
+    line-height: 1.95rem;
+    z-index: 198;
 }
 
-.manchester-international-festival__button__icon {
+svg.manchester-international-festival__button__icon {
     display: inline-block;
     vertical-align: middle;
-    margin-left: 2px;
+    width: 1.175rem;
+    height: 1.675rem;
+    margin-top: 6px;
+    margin-right: -4px;
+    margin-left: 10px;
+    float: right;
+}
 
-    @include mq(phablet) {
-        margin-top: 5px;
-        float: right;
-    }
+.manchester-international-festival__marque {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    z-index: 20;
 }
