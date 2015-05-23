@@ -16,8 +16,9 @@ $c-light-blue: guss-colour(news-main-2, $pasteup-palette);
 $c-blue: guss-colour(news-main-1, $pasteup-palette);
 $c-white: #fff;
 
-@include base(localthrasherhole, $c-blue);
-@include base(uni-guide, $c-blue);
+@include base(localthrasherhole, darken($c-blue, 2%));
+@include base(uni-guide, darken($c-blue, 2%));
+@include base(university-guide, darken($c-blue, 2%));
 
 @mixin animation($args) {
   -ms-animation: #{$args};
@@ -54,23 +55,45 @@ $c-white: #fff;
 @include transformAnim(movepanels, -2240px);
 @include transformAnim(moveskyline, -2240px);
 
-.ug16__content {
+a.ug16__anchor {
     position: absolute;
-    left: 0;
+    z-index: 200 !important;
     top: 0;
+    right: 0;
+    left: 0;
     bottom: 0;
-    z-index: 10;
+}
+
+.ug16__content {
     background-color: $c-blue;
     color: $c-white;
-    width: 300px;
+
+    @include mq(mobileLandscape) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 10;
+        box-sizing: border-box;
+        width: 200px;
+    }
+
+    @include mq(tablet) {
+        width: 300px;
+    }
 }
 
 .ug16__title {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     line-height: 1;
     padding: 12px 20px;
     font-weight: 300;
+    font-family: $f-serif-headline;
     color: $c-light-blue;
+
+    @include mq(tablet) {
+        font-size: 2.4rem;
+    }
 
     span {
         color: $c-white;
@@ -82,9 +105,14 @@ $c-white: #fff;
     bottom: 12px;
     left: 20px;
     border: 0;
-    background-color: $c-light-blue;
+    background-color: $c-white;
     line-height: 2.5;
     color: $c-blue;
+    z-index: 20;
+
+    @include mq(mobileLandscape) {
+        background-color: $c-light-blue;
+    }
 }
 
 .ug16__arrow-icon {
@@ -96,8 +124,13 @@ $c-white: #fff;
 
 .ug16__marque {
     position: absolute;
-    top: 12px;
     right: 20px;
+    bottom: 12px;
+
+    @include mq(mobileLandscape) {
+        top: 12px;
+        bottom: auto;
+    }
 }
 
 .ug16__animation-container {
@@ -129,7 +162,16 @@ $c-white: #fff;
     .ug16__anim--people {
         height: 288px;
         width: 100%;
+        top: 25px;
         background: url("@@assetPath@@/doods-sprite.png") center 0px repeat-y;
+
+        @include mq(mobileLandscape) {
+            left: 13%;
+        }
+
+        @include mq(tablet) {
+            left: 150px;
+        }
     }
 
     .ug16__anim--skyline {
