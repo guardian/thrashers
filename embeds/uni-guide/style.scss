@@ -18,7 +18,7 @@ $c-white: #fff;
 
 @include base(localthrasherhole, darken($c-blue, 2%));
 @include base(uni-guide, darken($c-blue, 2%));
-@include base(university-guide, darken($c-blue, 2%));
+@include base(university-guide-2016, darken($c-blue, 2%));
 
 @mixin animation($args) {
   -ms-animation: #{$args};
