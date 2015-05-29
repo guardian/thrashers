@@ -18,35 +18,72 @@ $c-background: #000;
 @include base(the-counted, $c-background);
 
 .the-counted__wrapper{
-  height:230px;
+  height:180px;
   width:100%;
   background-color: #333;
   z-index: 0;
+
+
+  @include mq(desktop) {
+    height:230px;
+  }
 }
 
 /* Headline container */
 .the-counted__heading-type{
     min-height: 230px;
     position: absolute;
-    background-colour:#333;
-    padding: 10px 20px;
+    z-index:1;
 
     .the-counted__title{
-      font-size: 45px;
+      font-size: 30px;
       line-height:64px;
       font-weight:900;
       color: $c-title;
-      padding: 10px 0px 0px 20px;
+      padding: 0px 0px 0px 10px;
+      background-color:#333;
+      width:100%;
+
+      @include mq(phablet) {
+        font-size: 35px;
+      }
+
+      @include mq(tablet) {
+        background-color: transparent;
+      }
+
+      @include mq(desktop) {
+        font-size: 45px;
+        padding: 10px 0px 0px 20px;
+      }
+
     }
 
     .the-counted__subtitle{
       float: left;
       color: $c-subtitle;
-      font-size: 25px;
+      font-size: 12px;
       font-weight: 300;
-      margin-top: -10px;
-      padding-left: 20px;
-      padding-right:40px;
+      margin-top: -15px;
+      padding: 0px 0px 10px 10px;
+      background-color:#333;
+
+      @include mq(phablet) {
+        font-size: 17px;
+      }
+
+      @include mq(tablet) {
+        background-color: transparent;
+      }
+
+      @include mq(desktop) {
+        font-size: 25px;
+        margin-top: -10px;
+        padding-left: 20px;
+        padding-right:40px;
+      }
+
+
     }
 }/* End Headline container */
 
@@ -57,14 +94,44 @@ $c-background: #000;
   position:fixed;
   z-index: -1;
   text-align: right;
-  right:320px;
+  right:180px;
   overflow: hidden !important;
 
+  @include mq(mobileLandscape) {
+    right: 130px;
+    }
+
+  @include mq(phablet) {
+      right:165px;
+      }
+
+  @include mq(tablet) {
+      right:200px;
+      }
+
+
+  @include mq(desktop) {
+      right:290px;
+      }
+
+
   .the-counted__list-names{
-    font-size: 35px;
-    line-height:40px;
+    font-size: 15px;
+    line-height:18px;
     font-weight:300;
     color: $c-names;
+
+    @include mq(phablet) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+
+    @include mq(desktop) {
+      font-size: 30px;
+      line-height:35px;
+      }
+
   }
 }
 
@@ -72,9 +139,23 @@ $c-background: #000;
   text-align: left;
   position: absolute;
   bottom:10px;
-  right:20px;
-  font-size: 35px;
+  right:70px;
+  font-size: 15px;
   font-weight:300;
   color: $c-subtitle;
-  margin-left:200px;
+
+  @include mq(mobileLandscape) {
+    right: 20px;
+    }
+
+    @include mq(phablet) {
+      font-size: 20px;
+    }
+
+
+
+  @include mq(desktop) {
+    font-size: 30px;
+    line-height:40px;
+    }
 }
