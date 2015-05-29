@@ -9,10 +9,10 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
-$c-title: #eaaf05;
+$c-title: #fb0;
 $c-subtitle: #fff;
 $c-names:#999;
-$c-background: #000;
+$c-background: #222;
 
 @import 'shared/_imports';
 @include base(the-counted, $c-background);
@@ -21,8 +21,6 @@ $c-background: #000;
   height:180px;
   width:100%;
   background-color: #333;
-  z-index: 0;
-
 
   @include mq(desktop) {
     height:230px;
@@ -54,7 +52,7 @@ $c-background: #000;
 
       @include mq(desktop) {
         font-size: 45px;
-        padding: 10px 0px 0px 20px;
+        padding: 0px 0px 0px 20px;
       }
 
     }
@@ -67,6 +65,7 @@ $c-background: #000;
       margin-top: -15px;
       padding: 0px 0px 10px 10px;
       background-color:#333;
+      line-height: 1.1;
 
       @include mq(phablet) {
         font-size: 17px;
@@ -82,20 +81,31 @@ $c-background: #000;
         padding-left: 20px;
         padding-right:40px;
       }
-
-
     }
 }/* End Headline container */
 
+    .the-counted__button {
+      position: absolute;
+      bottom: 12px;
+      left: 20px;
+      background-color: $c-title;
+      border: 0;
+      color: $c-background;
+    }
+    
+    .the-counted__button__label {
+        float: left;
+        line-height: 2.4;
+        margin-right: 18px;
+    }
+
 /* Left hand type */
 .the-counted__list-holding{
-  position: absolute;
-  top: 0px;
-  position:fixed;
-  z-index: -1;
   text-align: right;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   right:180px;
-  overflow: hidden !important;
 
   @include mq(mobileLandscape) {
     right: 130px;
@@ -111,7 +121,7 @@ $c-background: #000;
 
 
   @include mq(desktop) {
-      right:290px;
+      right:217px;
       }
 
 
