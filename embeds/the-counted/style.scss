@@ -1,0 +1,80 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-title: #eaaf05;
+$c-subtitle: #fff;
+$c-names:#999;
+$c-background: #000;
+
+@import 'shared/_imports';
+@include base(the-counted, $c-background);
+
+.the-counted__wrapper{
+  height:230px;
+  width:100%;
+  background-color: #333;
+  z-index: 0;
+}
+
+/* Headline container */
+.the-counted__heading-type{
+    min-height: 230px;
+    position: absolute;
+    background-colour:#333;
+    padding: 10px 20px;
+
+    .the-counted__title{
+      font-size: 45px;
+      line-height:64px;
+      font-weight:900;
+      color: $c-title;
+      padding: 10px 0px 0px 20px;
+    }
+
+    .the-counted__subtitle{
+      float: left;
+      color: $c-subtitle;
+      font-size: 25px;
+      font-weight: 300;
+      margin-top: -10px;
+      padding-left: 20px;
+      padding-right:40px;
+    }
+}/* End Headline container */
+
+/* Left hand type */
+.the-counted__list-holding{
+  position: absolute;
+  top: 0px;
+  position:fixed;
+  z-index: -1;
+  text-align: right;
+  right:320px;
+  overflow: hidden !important;
+
+  .the-counted__list-names{
+    font-size: 35px;
+    line-height:40px;
+    font-weight:300;
+    color: $c-names;
+  }
+}
+
+.the-counted__killed-by-police{
+  text-align: left;
+  position: absolute;
+  bottom:10px;
+  right:20px;
+  font-size: 35px;
+  font-weight:300;
+  color: $c-subtitle;
+  margin-left:200px;
+}
