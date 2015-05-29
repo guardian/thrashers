@@ -108,28 +108,31 @@ $c-background: #222;
   right:180px;
 
   @include mq(mobileLandscape) {
-    right: 130px;
+    right: 120px;
     }
 
   @include mq(phablet) {
-      right:165px;
+      right:150px;
       }
-
-  @include mq(tablet) {
-      right:200px;
-      }
-
 
   @include mq(desktop) {
       right:217px;
       }
 
+  .the-counted__gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(rgba(#333, 0.9) 15%, rgba(#333, 0) 100%);
+  }
 
   .the-counted__list-names{
     font-size: 15px;
     line-height:18px;
     font-weight:300;
-    color: $c-names;
+    color: $c-subtitle;
 
     @include mq(phablet) {
       font-size: 20px;
@@ -168,4 +171,13 @@ $c-background: #222;
     font-size: 30px;
     line-height:40px;
     }
+}
+
+a.the-counted__anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
 }
