@@ -1,0 +1,12 @@
+# Environment takeover thrasher
+
+## What is it?
+A standard thrasher that additionally downloads a JS file that triggers a
+full-screen takever promo with animated fades.
+
+## How?
+The thrashers are injected into the page using bonzo.html() and a HTML text
+string, as a result any <script> tags are NOT exercuted. To work around this
+a single pixel image is added to the HTML and an onload event attached inline.
+The onload event adds a new <script> tag pointing at the JS file which then
+a
