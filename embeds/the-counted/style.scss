@@ -99,7 +99,11 @@ $c-background: #333;
     position: absolute;
     top: 0;
     bottom: 0;
-    right:152px;
+    right: 132px;
+
+    @include mq(mobileLandscape) {
+        right: 152px;
+    }
 
     @include mq(phablet) {
         right:150px;
@@ -144,7 +148,7 @@ $c-background: #333;
     text-align: left;
     position: absolute;
     bottom:10px;
-    right:20px;
+    right:3px;
     font-size: 20px;
     font-weight:300;
     color: $c-subtitle;
