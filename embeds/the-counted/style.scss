@@ -32,14 +32,23 @@ $c-background: #333;
     background-color: $c-background;
     position: relative;
     z-index: 10;
+    padding: 12px 10px;
 
-    @include mq(mobileLandscape) {
-        min-height: 230px;
+    @include mq(phablet) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
     }
 
-    .the-counted__title{
+    @include mq(desktop) {
+        width: 350px;
+    }
+
+    .the-counted__title {
         font-size: 30px;
-        line-height:64px;
+        line-height: 1.1;
         font-weight:900;
         color: $c-title;
         width:100%;
@@ -56,14 +65,11 @@ $c-background: #333;
     .the-counted__subtitle{
         color: $c-subtitle;
         font-size: 16px;
-        font-weight: 300;
         line-height: 1.1;
-
-        @include mq(tablet) {
-            background-color: transparent;
-        }
+        font-weight: 400;
 
         @include mq(desktop) {
+            font-weight: 300;
             font-size: 25px;
         }
     }
@@ -72,10 +78,13 @@ $c-background: #333;
 .the-counted__button {
     position: absolute;
     bottom: 12px;
-    left: 20px;
     background-color: $c-title;
     border: 0;
     color: $c-background;
+
+    @include mq($until: phablet) {
+        display: none;
+    }
 }
 
 .the-counted__button__label {
@@ -90,11 +99,7 @@ $c-background: #333;
     position: absolute;
     top: 0;
     bottom: 0;
-    right:180px;
-
-    @include mq(mobileLandscape) {
-        right: 120px;
-    }
+    right:152px;
 
     @include mq(phablet) {
         right:150px;
@@ -110,12 +115,16 @@ $c-background: #333;
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: linear-gradient(rgba($c-background, 0.9) 15%, rgba($c-background, 0) 100%);
+        background-image: linear-gradient(rgba($c-background, 1) 50%, rgba($c-background, 0) 100%);
+
+        @include mq(phablet) {
+            background-image: linear-gradient(rgba($c-background, 0.9) 15%, rgba($c-background, 0) 100%);
+        }
     }
 
-    .the-counted__list-names{
-        font-size: 15px;
-        line-height:18px;
+    .the-counted__list-names {
+        font-size: 18px;
+        line-height:20px;
         font-weight:300;
         color: $c-subtitle;
 
@@ -135,8 +144,8 @@ $c-background: #333;
     text-align: left;
     position: absolute;
     bottom:10px;
-    right:70px;
-    font-size: 15px;
+    right:20px;
+    font-size: 20px;
     font-weight:300;
     color: $c-subtitle;
 
