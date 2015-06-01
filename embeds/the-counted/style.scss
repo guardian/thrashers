@@ -12,15 +12,15 @@ $mq-breakpoints: (
 $c-title: #fb0;
 $c-subtitle: #fff;
 $c-names:#999;
-$c-background: #222;
+$c-background: #333;
 
 @import 'shared/_imports';
-@include base(the-counted, $c-background);
+@include base(the-counted, #222);
 
 .the-counted__wrapper{
   height:180px;
   width:100%;
-  background-color: #333;
+  background-color: $c-background;
 
   @include mq(desktop) {
     height:230px;
@@ -29,147 +29,128 @@ $c-background: #222;
 
 /* Headline container */
 .the-counted__heading-type{
-    min-height: 230px;
-    position: absolute;
-    z-index:1;
+    background-color: $c-background;
+    position: relative;
+    z-index: 10;
+
+    @include mq(mobileLandscape) {
+        min-height: 230px;
+    }
 
     .the-counted__title{
-      font-size: 30px;
-      line-height:64px;
-      font-weight:900;
-      color: $c-title;
-      padding: 0px 0px 0px 10px;
-      background-color:#333;
-      width:100%;
+        font-size: 30px;
+        line-height:64px;
+        font-weight:900;
+        color: $c-title;
+        width:100%;
 
-      @include mq(phablet) {
-        font-size: 35px;
-      }
+        @include mq(tablet) {
+            background-color: transparent;
+        }
 
-      @include mq(tablet) {
-        background-color: transparent;
-      }
-
-      @include mq(desktop) {
-        font-size: 45px;
-        padding: 0px 0px 0px 20px;
-      }
-
+        @include mq(desktop) {
+            font-size: 45px;
+        }
     }
 
     .the-counted__subtitle{
-      float: left;
-      color: $c-subtitle;
-      font-size: 12px;
-      font-weight: 300;
-      margin-top: -15px;
-      padding: 0px 0px 10px 10px;
-      background-color:#333;
-      line-height: 1.1;
+        color: $c-subtitle;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.1;
 
-      @include mq(phablet) {
-        font-size: 17px;
-      }
+        @include mq(tablet) {
+            background-color: transparent;
+        }
 
-      @include mq(tablet) {
-        background-color: transparent;
-      }
-
-      @include mq(desktop) {
-        font-size: 25px;
-        margin-top: -10px;
-        padding-left: 20px;
-        padding-right:40px;
-      }
+        @include mq(desktop) {
+            font-size: 25px;
+        }
     }
-}/* End Headline container */
+}
 
-    .the-counted__button {
-      position: absolute;
-      bottom: 12px;
-      left: 20px;
-      background-color: $c-title;
-      border: 0;
-      color: $c-background;
-    }
-    
-    .the-counted__button__label {
-        float: left;
-        line-height: 2.4;
-        margin-right: 18px;
-    }
+.the-counted__button {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    background-color: $c-title;
+    border: 0;
+    color: $c-background;
+}
+
+.the-counted__button__label {
+    float: left;
+    line-height: 2.4;
+    margin-right: 18px;
+}
 
 /* Left hand type */
 .the-counted__list-holding{
-  text-align: right;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right:180px;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:180px;
 
-  @include mq(mobileLandscape) {
-    right: 120px;
+    @include mq(mobileLandscape) {
+        right: 120px;
     }
-
-  @include mq(phablet) {
-      right:150px;
-      }
-
-  @include mq(desktop) {
-      right:217px;
-      }
-
-  .the-counted__gradient {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: linear-gradient(rgba(#333, 0.9) 15%, rgba(#333, 0) 100%);
-  }
-
-  .the-counted__list-names{
-    font-size: 15px;
-    line-height:18px;
-    font-weight:300;
-    color: $c-subtitle;
 
     @include mq(phablet) {
-      font-size: 20px;
-      line-height: 24px;
+        right:150px;
     }
 
-
     @include mq(desktop) {
-      font-size: 30px;
-      line-height:35px;
-      }
+        right:217px;
+    }
 
-  }
+    .the-counted__gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(rgba($c-background, 0.9) 15%, rgba($c-background, 0) 100%);
+    }
+
+    .the-counted__list-names{
+        font-size: 15px;
+        line-height:18px;
+        font-weight:300;
+        color: $c-subtitle;
+
+        @include mq(phablet) {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        @include mq(desktop) {
+            font-size: 30px;
+            line-height:35px;
+        }
+    }
 }
 
 .the-counted__killed-by-police{
-  text-align: left;
-  position: absolute;
-  bottom:10px;
-  right:70px;
-  font-size: 15px;
-  font-weight:300;
-  color: $c-subtitle;
+    text-align: left;
+    position: absolute;
+    bottom:10px;
+    right:70px;
+    font-size: 15px;
+    font-weight:300;
+    color: $c-subtitle;
 
-  @include mq(mobileLandscape) {
-    right: 20px;
+    @include mq(mobileLandscape) {
+        right: 20px;
     }
 
     @include mq(phablet) {
-      font-size: 20px;
+        font-size: 20px;
     }
 
-
-
-  @include mq(desktop) {
-    font-size: 30px;
-    line-height:40px;
+    @include mq(desktop) {
+        font-size: 30px;
+        line-height:40px;
     }
 }
 
