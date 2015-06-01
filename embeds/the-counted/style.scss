@@ -11,13 +11,13 @@ $mq-breakpoints: (
 
 $c-title: #fb0;
 $c-subtitle: #fff;
-$c-names:#999;
+$c-names: #999;
 $c-background: #333;
 
 @import 'shared/_imports';
 @include base(the-counted, #222);
 
-.the-counted__wrapper{
+.the-counted__wrapper {
   height:180px;
   width:100%;
   background-color: $c-background;
@@ -28,7 +28,7 @@ $c-background: #333;
 }
 
 /* Headline container */
-.the-counted__heading-type{
+.the-counted__heading-type {
     background-color: $c-background;
     position: relative;
     z-index: 10;
@@ -62,7 +62,7 @@ $c-background: #333;
         }
     }
 
-    .the-counted__subtitle{
+    .the-counted__subtitle {
         color: $c-subtitle;
         font-size: 16px;
         line-height: 1.1;
@@ -94,7 +94,7 @@ $c-background: #333;
 }
 
 /* Left hand type */
-.the-counted__list-holding{
+.the-counted__list-holding {
     text-align: right;
     position: absolute;
     top: 0;
@@ -144,7 +144,7 @@ $c-background: #333;
     }
 }
 
-.the-counted__killed-by-police{
+.the-counted__killed-by-police {
     text-align: left;
     position: absolute;
     bottom:10px;
@@ -173,5 +173,5 @@ a.the-counted__anchor {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 20;
+    z-index: 20 !important;
 }
