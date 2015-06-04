@@ -1,7 +1,7 @@
 // Base
 // Description: A few base rules to get us started
 @mixin base($containerName, $c-background: #dedede) {
-    ##{$containerName} {
+    ##{$containerName}.fc-container--thrasher {
         background-color: $c-background;
 
         .fc-item {
@@ -21,7 +21,7 @@
 // Rule
 // Description: Place a rule on top of the thrasher on all breakpoints
 @mixin rule($containerName, $c-rule: #005689) {
-    ##{$containerName} {
+    ##{$containerName}.fc-container--thrasher {
         @include mq($until: tablet) {
             border-top: 1px solid $c-rule;
         }
