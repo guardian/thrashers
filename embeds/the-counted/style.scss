@@ -15,12 +15,13 @@ $c-names: #999;
 $c-background: #333;
 
 @import 'shared/_imports';
-@include base(the-counted, #222);
+@include base(special-report-the-counted, #222);
 
 .the-counted__wrapper {
   height:180px;
   width:100%;
   background-color: $c-background;
+  font-family: $f-serif-headline;
 
   @include mq(desktop) {
     height:230px;
