@@ -1,0 +1,240 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-background: #dac7b5;
+$c-accent: #ff9b0b;
+$c-text: #ffffff;
+$c-panel: #393d3d;
+
+@include base(keep-it-in-the-ground-podcast, $c-background);
+@include base(carbon-bomb-alaska, $c-background); 
+
+.carbon-bomb-alaska__wrapper {
+    position: relative;
+    overflow: hidden;
+    background: url('http://interactive.guim.co.uk/2015/05/carbon-bomb-alaska/bg.jpg') no-repeat; 
+    background-size: cover;
+    background-position: 65% center;
+    width: 100%;
+    @include box-sizing(border-box);
+
+    @include mq(tablet) {
+        min-height: 230px;
+        padding: 10px 20px;
+        background-position: center center;
+        background: url('http://cdn.theguardian.tv/interactive/2015/06/15/THRASHER_AL_FINAL_h264_mezzanine_2M_H264_poster.jpg') no-repeat;
+    }
+
+    video {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0; 
+
+        @include mq($until: desktop) {
+            display: none;
+        }
+
+        @include mq(wide) {
+            height: auto;
+            width: 100%; 
+        }
+    }
+}
+
+.carbon-bomb-alaska__content {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-family: $f-serif-headline;
+    max-width: 500px;
+    width: 100%;
+
+    @include mq($until: tablet) {
+        overflow: hidden;
+        padding: 12px 10px;
+        min-height: 200px;
+        width: 100%;
+    }
+}
+
+.carbon-bomb-alaska__descriptor {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: $c-accent;
+
+    @include mq(tablet) {
+        font-size: 20px;
+    }
+}
+
+.carbon-bomb-alaska__location {
+    font-weight: 700;
+    font-size: 18px;
+    color: $c-accent;
+    margin-bottom: -2px;
+    opacity: 1;
+
+    @include mq($until: tablet) {
+        font-size: 14px;
+    }
+}
+
+.carbon-bomb-alaska__tone-type {
+    @include mq($until: tablet) {
+        display: none;
+    }
+}
+
+.carbon-bomb-alaska__title {
+    font-weight: 600;
+    color: $c-text;
+    font-size: 24px;
+    line-height: 0.95;
+
+    @include mq(tablet) {
+        font-size: 36px;
+    }
+
+    @include mq(desktop) {
+        font-size: 54px;
+        padding-top: 2px;
+        color: #fff;
+        opacity: .95;
+    }
+
+    br {
+        @include mq($until: desktop) {
+            display: none;
+        }
+    }
+}
+
+.carbon-bomb-alaska__attribution {
+    font-size: 16px;
+    line-height: 1.1;
+    color: $c-text;
+    font-family: $f-serif-headline;
+    opacity: 1;
+    padding-top: 4px;
+
+    @include mq($until: mobileLandscape) {
+        margin-bottom: 2em;
+    }
+
+    @include mq(tablet) {
+        font-size: 20px;
+        line-height: 22px;
+        padding-top: 5px;
+        font-weight: 400;
+        padding-top: 4px;
+    }
+
+    @include mq(desktop) {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+}
+
+.carbon-bomb-alaska__job-title {
+    @include mq($until: mobileLandscape) {
+        display: none;
+    }
+}
+
+.carbon-bomb-alaska__button {
+    border-color: $c-accent;
+    background-color: $c-accent;
+    line-height: 2.5;
+
+    @include mq(tablet) {
+        float: left;
+        margin-top: 20px;
+        clear: both;
+        padding-right: 3px;
+        position: absolute !important;
+        bottom: 12px;
+        left: 20px;
+    } 
+
+    @include mq($until: tablet) {
+        position: absolute !important;
+        bottom: 12px;
+        left: 10px;
+    }
+}
+
+.carbon-bomb-alaska__label {
+    color: $c-panel;
+
+    @include mq($until: tablet) {
+        display: none;
+    }
+}
+
+.carbon-bomb-alaska__alt-label {
+    @include mq(tablet) {
+        display: none;
+    }
+}
+
+.carbon-bomb-alaska__arrow-icon {
+    height: auto !important;
+    width: auto !important;
+    float: right;
+}
+
+.carbon-bomb-alaska__marque {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    @include mq($until: tablet) {
+        display: none;
+    }
+}
+
+.carbon-bomb-alaska__logo {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 60px;
+    height: auto;
+
+    @include mq($until: tablet) {
+        right: 10px;
+        width: 36px;
+    }
+}
+
+.carbon-bomb-alaska__anchor {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20 !important;
+
+    &:hover {
+        .carbon-bomb-alaska__button {
+            background-color: darken($c-accent, 10%);
+        }
+    } 
+}
+
+#keep-it-in-the-ground.fc-container--thrasher {
+    background-color: #8499ab;
+}
