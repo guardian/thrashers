@@ -98,6 +98,10 @@ All additional assets should be placed into the `_source` folder. The script wil
 <img class="coal-us__logo" src="@@assetPath@@/logo.png" />
 ```
 
+### Height
+
+Due to the strong use of imagery and other components on the front. For this reason it's best practice to keep the height of a thrasher under `200px` on desktop and `400px` on mobile. These should be taken as max-heights and the smaller the better.
+
 ### Animations & transitions
 
 Due to multiple reports of the site crashing on older devices (iPad 2s, older Android smartphones, etc...), it's best to keep animations and transitions to a minimum unless they add a lot of value.
