@@ -1,0 +1,142 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-background: #FFEEB5;
+$c-text: #333;
+
+@import 'shared/_imports';
+
+@include base(keep-it-in-the-ground, $c-background);
+
+.fc-container--first.fc-container--thrasher {
+    padding-top: 0;
+}
+
+.keep-it-in-the-ground-header__wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 120%;
+    background-image: url("@@assetPath@@/bg.jpg");
+    background-size: cover;
+
+    @include mq(mobileLandscape) {
+        padding-top: 80%;
+    }
+
+    @include mq(tablet) {
+        padding-top: 40%;
+    }
+}
+
+.keep-it-in-the-ground-header__brand {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    width: 80px;
+
+    @include mq(leftCol) {
+        top: 12px;
+        left: 20px;
+        width: 100px;
+    }
+}
+
+.keep-it-in-the-ground-header__logo {
+    width: 100%;
+    height: auto;
+}
+
+.keep-it-in-the-ground-header__logo__text {
+    fill: white;
+
+    @include mq(leftCol) {
+        fill: $c-text;
+    }
+}
+
+.keep-it-in-the-ground-header__copy {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    padding-right: 10px;
+    margin-right: 20px;
+
+    @include mq(mobileLandscape) {
+        left: 20px;
+    }
+
+    @include mq(tablet) {
+        margin-right: 100px;
+    }
+
+    @include mq(leftCol) {
+        left: 170px;
+        border-left: 1px solid $c-text;
+        padding-left: 10px;
+    }
+
+    @include mq(wide) {
+        left: 250px;
+    }
+}
+
+.keep-it-in-the-ground-header__headline {
+    font-family: $f-serif-headline;
+    font-weight: 200;
+    font-size: 1.5rem;
+    line-height: 1;
+    max-width: 700px;
+    color: $c-text;
+    margin-top: 12px;
+
+    @include mq(tablet) {
+        font-size: 2.25rem;
+    }
+}
+
+.keep-it-in-the-ground-header__button {
+    border: 1px solid $c-text;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+
+    @include mq(tablet) {
+        width: 30px;
+        height: 30px;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.keep-it-in-the-ground-header__anchor {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10 !important;
+
+    &:hover ~ .keep-it-in-the-ground-header__copy {
+        .keep-it-in-the-ground-header__button {
+            background-color: $c-text;
+
+            svg {
+             fill: $c-background;
+            }
+        }
+    }
+}
