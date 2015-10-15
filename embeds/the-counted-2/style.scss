@@ -100,13 +100,16 @@ $number-height: 33.333%;
 }
 
 .reel-number {
-    width: 100%;
+    width: 120%;
+    margin-left: -10%;
+    margin-top: 10%;
+    fill: $c-black;
     position: relative;
 }
 
 @for $count from 0 to 9 {
     .the-counted__reel--#{$count} {
-        margin-top: -100% * $count;
+        margin-top: -120% * $count;
     }
 }
 
@@ -161,6 +164,11 @@ $number-height: 33.333%;
     font-size: 34px;
     line-height: 1.2;
     margin-bottom: 0;
+
+    @include mq(desktop) {
+        font-size: 48px;
+        line-height: 1;
+    }
 }
 
 .the-counted__subtitle {
@@ -171,6 +179,10 @@ $number-height: 33.333%;
     margin-top: 0;
     margin-bottom: 1em;
     padding-right: 16%;
+
+    @include mq(desktop) {
+        margin-bottom: 0.4em;
+    }
 }
 
 /*****************
@@ -191,6 +203,16 @@ $number-height: 33.333%;
     list-style: 0;
 }
 
+@keyframes face-fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .the-counted__face {
     width: $face-size--mobile;
     height: 0;
@@ -198,6 +220,9 @@ $number-height: 33.333%;
     float: left;
     background-size: cover;
     background-position: center center;
+    opacity: 0;
+    animation: 0.3s face-fade ease-out;
+    animation-fill-mode: both;
 
     @include mq(phablet) {
         width: $face-size--phablet;
@@ -212,6 +237,12 @@ $number-height: 33.333%;
     @include mq(wide) {
         width: $face-size--wide;
         padding-top: $face-size--wide;
+    }
+}
+
+@for $face from 1 to 45 {
+    .the-counted__face:nth-of-type(#{$face}) {
+        animation-delay: random(200) / 100 + s;
     }
 }
 
