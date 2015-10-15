@@ -86,6 +86,11 @@ $number-height: 33.333%;
     background-color: $c-yellow;
     width: calc(#{$number-height} - 3px);
     margin-right: 3px;
+
+    &.the-counted__number--last {
+        width: $number-height;
+        margin-right: 0;
+    }
 }
 
 .the-counted__reel {
@@ -122,15 +127,18 @@ $number-height: 33.333%;
     @include mq(desktop) {
         position: absolute;
         top: 0;
-        bottom: 0;
         right: 0;
-        width: $face-size--desktop * 4;
+        width: $face-size--desktop * 5;
+        padding-top: $face-size--desktop * 2;
+        padding-bottom: 0;
+        height: 0;
         box-sizing: border-box;
         margin-top: 0;
     }
 
     @include mq(wide) {
-        width: $face-size--wide * 4;
+        width: $face-size--wide * 5;
+        padding-top: $face-size--wide * 2;
     }
 }
 
