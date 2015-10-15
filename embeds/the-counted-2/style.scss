@@ -78,8 +78,6 @@ $number-height: 33.333%;
 
 .the-counted__number {
     position: relative;
-//     height: 0;
-//     padding-top: $number-height;
     height: 100%;
     overflow: hidden;
     display: inline-block;
@@ -88,6 +86,7 @@ $number-height: 33.333%;
     width: $number-height;
     background: url('@@assetPath@@/numbers.svg') repeat-y $c-yellow;
     background-size: 100%;
+    transition: background-position 2.2s cubic-bezier(0, 0, 0.04, 1.05);
 
     &:before {
         content: "";
@@ -106,7 +105,18 @@ $number-height: 33.333%;
     }
 }
 
-.the-counted__number--last {
+.the-counted__number--hundred {
+    transition-duration: 1.6s;
+}
+
+.the-counted__number--ten {
+    background-position-y: -200%;
+    transition-duration: 1.9s;
+}
+
+.the-counted__number--one {
+    background-position-y: -500%;
+
     &:after {
         display: none;
     }
@@ -247,7 +257,7 @@ $number-height: 33.333%;
 
 @for $face from 1 to 45 {
     .the-counted__face:nth-of-type(#{$face}) {
-        animation-delay: random(200) / 100 + s;
+        animation-delay: random(220) / 100 + s;
     }
 }
 
