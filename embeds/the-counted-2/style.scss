@@ -53,7 +53,8 @@ $number-height: 33.333%;
 .the-counted__count {
     background-color: $c-black;
     width: $face-size--mobile * 3;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     margin-left: auto;
 
     @include mq(phablet) {
@@ -77,39 +78,43 @@ $number-height: 33.333%;
 
 .the-counted__number {
     position: relative;
-    height: 0;
-    padding-top: $number-height;
+//     height: 0;
+//     padding-top: $number-height;
+    height: 100%;
     overflow: hidden;
     display: inline-block;
     vertical-align:top;
     text-align: center;
-    background-color: $c-yellow;
-    width: calc(#{$number-height} - 3px);
-    margin-right: 3px;
+    width: $number-height;
+    background: url('@@assetPath@@/numbers.svg') repeat-y $c-yellow;
+    background-size: 100%;
 
-    &.the-counted__number--last {
-        width: $number-height;
-        margin-right: 0;
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: $c-black;
     }
 }
 
-.the-counted__reel {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.reel-number {
-    width: 120%;
-    margin-left: -10%;
-    margin-top: 10%;
-    fill: $c-black;
-    position: relative;
+.the-counted__number--last {
+    &:after {
+        display: none;
+    }
 }
 
 @for $count from 0 to 9 {
-    .the-counted__reel--#{$count} {
-        margin-top: -120% * $count;
+    .number--#{$count} {
+        background-position-y: 11.1111% * $count;
     }
 }
 
@@ -221,7 +226,7 @@ $number-height: 33.333%;
     background-size: cover;
     background-position: center center;
     opacity: 0;
-    animation: 0.3s face-fade ease-out;
+    animation: 0.5s face-fade ease-out;
     animation-fill-mode: both;
 
     @include mq(phablet) {
