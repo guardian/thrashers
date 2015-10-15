@@ -65,7 +65,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: dir,
-                    src: '**/source.json',
+                    src: ['**/source.json', '**/hashed/*.js'],
                     dest: dir,
                 }]
             },

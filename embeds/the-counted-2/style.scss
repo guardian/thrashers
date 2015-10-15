@@ -123,13 +123,13 @@ $number-height: 33.333%;
 }
 
 .animate {
-    @for $count from 0 to 9 {
+    @for $count from 0 to 10 {
         .number--#{$count} {
             background-position-y: 11.1111% * $count;
         }
     }
 
-    @for $count from 0 to 9 {
+    @for $count from 0 to 10 {
         .the-counted__number--one.number--#{$count} {
             background-position-y: (11.1111% * $count) + 3.5%;
         }
