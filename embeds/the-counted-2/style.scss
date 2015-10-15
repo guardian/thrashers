@@ -9,27 +9,203 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
-$c-title: #fb0;
-$c-subtitle: #fff;
-$c-names: #999;
-$c-background: #333;
+$c-yellow: #fb0;
+$c-grey: #999;
+$c-black: #333;
+
+$face-size--mobile: 16.66667%;      // 6 per row
+$face-size--phablet: 10%;           // 10 per row
+$face-size--desktop: 7.1428571429%; // 14 per row
+$face-size--wide: 6.25%;            // 16 per row
 
 @import 'shared/_imports';
-@include base(special-report-the-counted, #222);
 @include base(the-counted, #222);
+@include base(the-counted-2, #222);
 
-.the-counted__wrapper {
-  height:180px;
-  width:100%;
-  background-color: $c-background;
-  font-family: $f-serif-headline;
+.the-counted__wrapper,
+.the-counted-2__wrapper {
+    width: 100%;
+    background-color: $c-black;
+    font-family: $f-serif-headline;
 
-  @include mq(desktop) {
-    height:230px;
-  }
+    @include mq(desktop) {
+        height: 0;
+        padding-top: $face-size--desktop * 4;
+    }
+
+    @include mq(wide) {
+        padding-top: $face-size--wide * 4;
+    }
 }
 
+.the-counted__count,
+.the-counted__content {
+    z-index: 5;
+    position: relative;
+}
 
+/*****************
+    NUMBERS
+*****************/
+
+$number-height: 33.333%;
+
+.the-counted__count {
+    background-color: $c-black;
+    width: $face-size--mobile * 3;
+    display: block;
+    margin-left: auto;
+
+    @include mq(phablet) {
+        width: $face-size--phablet * 6;
+    }
+
+    @include mq(desktop) {
+        position: absolute;
+        top: 0;
+        margin-top: $face-size--desktop;
+        left: $face-size--desktop;
+        width: $face-size--desktop * 6;
+    }
+
+    @include mq(wide) {
+        margin-top: $face-size--wide;
+        left: $face-size--wide;
+        width: $face-size--wide * 6;
+    }
+}
+
+.the-counted__number {
+    position: relative;
+    height: 0;
+    padding-top: $number-height;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align:top;
+    text-align: center;
+    background-color: $c-yellow;
+    width: calc(#{$number-height} - 3px);
+    margin-right: 3px;
+}
+
+.the-counted__reel {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.reel-number {
+    width: 100%;
+    position: relative;
+}
+
+@for $count from 0 to 9 {
+    .the-counted__reel--#{$count} {
+        margin-top: -100% * $count;
+    }
+}
+
+/*****************
+      CONTENT
+*****************/
+
+.the-counted__content {
+    position: relative;
+    background-color: $c-black;
+    padding: 6px 10px;
+    margin-top: $face-size--mobile * 2;
+
+    @include mq(phablet) {
+        margin-top: $face-size--phablet * 2;
+    }
+
+    @include mq(desktop) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: $face-size--desktop * 4;
+        box-sizing: border-box;
+        margin-top: 0;
+    }
+
+    @include mq(wide) {
+        width: $face-size--wide * 4;
+    }
+}
+
+.the-counted__marque {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+
+.the-counted__content-inner {
+    @include mq(desktop) {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+.the-counted__title {
+    color: $c-yellow;
+    font-family: $f-serif-headline;
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.the-counted__subtitle {
+    color: $c-grey;
+    font-family: $f-serif-text;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 0;
+    margin-bottom: 1em;
+    padding-right: 16%;
+}
+
+/*****************
+    BACKGROUND
+*****************/
+
+.the-counted__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.the-counted__faces {
+    margin: 0;
+    padding: 0;
+    list-style: 0;
+}
+
+.the-counted__face {
+    width: $face-size--mobile;
+    height: 0;
+    padding-top: $face-size--mobile;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+
+    @include mq(phablet) {
+        width: $face-size--phablet;
+        padding-top: $face-size--phablet;
+    }
+
+    @include mq(desktop) {
+        width: $face-size--desktop;
+        padding-top: $face-size--desktop;
+    }
+
+    @include mq(wide) {
+        width: $face-size--wide;
+        padding-top: $face-size--wide;
+    }
+}
 
 /*
 a.the-counted__anchor {
