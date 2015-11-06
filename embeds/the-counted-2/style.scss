@@ -1,0 +1,306 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-yellow: #fb0;
+$c-grey: #999;
+$c-black: #333;
+
+$face-size--mobile: 16.66667%;      // 6 per row
+$face-size--phablet: 10%;           // 10 per row
+$face-size--desktop: 7.1428571429%; // 14 per row
+$face-size--wide: 6.25%;            // 16 per row
+
+@import 'shared/_imports';
+@include base(the-counted, #222);
+@include base(the-counted-2, #222);
+
+.the-counted__wrapper,
+.the-counted-2__wrapper {
+    width: 100%;
+    background-color: $c-black;
+    font-family: $f-serif-headline;
+
+    @include mq(desktop) {
+        height: 0;
+        padding-top: $face-size--desktop * 4;
+    }
+
+    @include mq(wide) {
+        padding-top: $face-size--wide * 4;
+    }
+}
+
+.the-counted__count,
+.the-counted__content {
+    z-index: 5;
+    position: relative;
+}
+
+/*****************
+    NUMBERS
+*****************/
+
+$number-height: 33.333%;
+
+.the-counted__count {
+    background-color: $c-black;
+    width: $face-size--mobile * 3;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+
+    @include mq(phablet) {
+        width: $face-size--phablet * 6;
+    }
+
+    @include mq(desktop) {
+        position: absolute;
+        top: 0;
+        margin-top: $face-size--desktop;
+        left: $face-size--desktop;
+        width: $face-size--desktop * 6;
+    }
+
+    @include mq(wide) {
+        margin-top: $face-size--wide;
+        left: $face-size--wide;
+        width: $face-size--wide * 6;
+    }
+}
+
+.the-counted__count--threefig,
+.the-counted__count--fourfig {
+    opacity: 1;
+}
+
+.the-counted__count--threefig {
+    .the-counted__number--thousand {
+        display: none;
+    }
+}
+
+.the-counted__count--fourfig {
+    width: $face-size--mobile * 4;
+
+    @include mq(phablet) {
+        width: $face-size--phablet * 8;
+    }
+
+    @include mq(desktop) {
+        left: 0;
+        width: $face-size--desktop * 8;
+    }
+
+    @include mq(wide) {
+        left: 0;
+        width: $face-size--wide * 8;
+    }
+}
+
+.the-counted__number {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align:top;
+    text-align: center;
+    width: $number-height;
+    background: url('@@assetPath@@/numbers.svg') repeat-y $c-yellow;
+    background-size: 100%;
+    transition: background-position 2.2s cubic-bezier(0, 0, 0.04, 1.05);
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: $c-black;
+    }
+}
+
+.the-counted__number--thousand {
+    transition-duration: 0.4s;
+}
+
+.the-counted__number--hundred {
+    transition-duration: 1.6s;
+}
+
+.the-counted__number--ten {
+    transition-duration: 1.9s;
+}
+
+.the-counted__number--one {
+    &:after {
+        display: none;
+    }
+}
+
+.animate {
+    @for $count from 0 to 10 {
+        .number--#{$count} {
+            background-position-y: 11.1111% * $count;
+        }
+    }
+
+    @for $count from 0 to 10 {
+        .the-counted__number--one.number--#{$count} {
+            background-position-y: (11.1111% * $count) + 3.5%;
+        }
+    }
+}
+
+/*****************
+      CONTENT
+*****************/
+
+.the-counted__content {
+    position: relative;
+    background-color: $c-black;
+    padding: 6px 10px;
+    margin-top: $face-size--mobile * 2;
+
+    @include mq(phablet) {
+        margin-top: $face-size--phablet * 2;
+    }
+
+    @include mq(desktop) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $face-size--desktop * 5;
+        padding-top: $face-size--desktop * 2;
+        padding-bottom: 0;
+        height: 0;
+        box-sizing: border-box;
+        margin-top: 0;
+    }
+
+    @include mq(wide) {
+        width: $face-size--wide * 5;
+        padding-top: $face-size--wide * 2;
+    }
+}
+
+.the-counted__marque {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+
+.the-counted__content-inner {
+    @include mq(desktop) {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+.the-counted__title {
+    color: $c-yellow;
+    font-family: $f-serif-headline;
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 0;
+
+    @include mq(leftCol) {
+        font-size: 48px;
+        line-height: 1;
+    }
+}
+
+.the-counted__subtitle {
+    color: $c-grey;
+    font-family: $f-serif-text;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 0;
+    margin-bottom: 1em;
+    padding-right: 16%;
+
+    @include mq(leftCol) {
+        margin-bottom: 0.4em;
+    }
+}
+
+/*****************
+    BACKGROUND
+*****************/
+
+.the-counted__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.the-counted__faces {
+    margin: 0;
+    padding: 0;
+    list-style: 0;
+}
+
+.the-counted__face {
+    width: $face-size--mobile;
+    height: 0;
+    padding-top: $face-size--mobile;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0;
+    animation-fill-mode: both;
+    transition: opacity 0.5s ease-in;
+
+    @include mq(phablet) {
+        width: $face-size--phablet;
+        padding-top: $face-size--phablet;
+    }
+
+    @include mq(desktop) {
+        width: $face-size--desktop;
+        padding-top: $face-size--desktop;
+    }
+
+    @include mq(wide) {
+        width: $face-size--wide;
+        padding-top: $face-size--wide;
+    }
+}
+
+.animate {
+    @for $face from 1 to 80 {
+        .the-counted__face:nth-of-type(#{$face}) {
+            transition-delay: random(220) / 100 + s;
+            opacity: 1;
+        }
+    }
+}
+
+/*
+a.the-counted__anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20 !important;
+}
+*/
