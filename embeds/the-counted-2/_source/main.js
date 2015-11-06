@@ -1,3 +1,4 @@
+
 function loadJSON(path, success, error)
 {
     var xhr = new XMLHttpRequest();
@@ -17,21 +18,43 @@ function loadJSON(path, success, error)
     xhr.send();
 }
 
-var data = {
-    count: 906
+function isScrolledIntoView(element) {
+    var elementTop    = element.getBoundingClientRect().top,
+        elementBottom = element.getBoundingClientRect().bottom;
+
+    return elementTop < window.innerHeight && elementBottom >= 0;
 }
 
-/*
-loadJSON("@@assetPath@@/fake.json", function(data) {
-    console.log(data);
-*/
-    console.log(data['count']);
+var animatable = true;
 
-    document.getElementsByClassName("the-counted__number--one")[0].className += " number--" + String(data.count).charAt(2);
-    document.getElementsByClassName("the-counted__number--ten")[0].className += " number--" + String(data.count).charAt(1);
-    document.getElementsByClassName("the-counted__number--hundred")[0].className += " number--" + String(data.count).charAt(0);
+var animate = function() {
+    if (animatable) {
+        if (isScrolledIntoView(document.getElementById("the-counted"))) {
+            loadJSON("http://interactive.guim.co.uk/2015/the-counted/thrasher.json", function(data) {
+                data.count = 1223;
+                countLength = data.count.toString().length;
 
-    document.getElementsByClassName("the-counted-2__wrapper")[0].className += " animate";
-// }, function(xhr) {
-    console.log("error");
-// });
+                if (countLength == 4) {
+                    document.getElementsByClassName("the-counted__count")[0].className += " the-counted__count--fourfig";
+                } else {
+                    document.getElementsByClassName("the-counted__count")[0].className += " the-counted__count--threefig";
+                }
+
+                document.getElementsByClassName("the-counted__number--one")[0].className += " number--" + String(data.count).charAt(countLength - 1);
+                document.getElementsByClassName("the-counted__number--ten")[0].className += " number--" + String(data.count).charAt(countLength - 2);
+                document.getElementsByClassName("the-counted__number--hundred")[0].className += " number--" + String(data.count).charAt(countLength - 3);
+                document.getElementsByClassName("the-counted__number--thousand")[0].className += " number--" + String(data.count).charAt(countLength - 4);
+                document.getElementsByClassName("the-counted-2__wrapper")[0].className += " animate";
+                animatable = false;
+            }, function(xhr) {
+                console.log("error");
+            });
+        }
+    }
+}
+
+animate();
+
+window.onscroll = function() {
+    animate();
+};
