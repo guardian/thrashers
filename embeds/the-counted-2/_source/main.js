@@ -31,7 +31,6 @@ var animate = function() {
     if (animatable) {
         if (isScrolledIntoView(document.getElementById("the-counted"))) {
             loadJSON("http://interactive.guim.co.uk/2015/the-counted/thrasher.json", function(data) {
-                data.count = 1223;
                 countLength = data.count.toString().length;
 
                 if (countLength == 4) {
