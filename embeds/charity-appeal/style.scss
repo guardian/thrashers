@@ -1,0 +1,165 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-accent: #ff9b0b;
+$c-background: #333;
+$c-text: #fff;
+
+@import 'shared/_imports';
+
+@include base(charity-appeal-2015, $c-background);
+@include base(charity-appeal, $c-background);
+
+.charity-appeal__wrapper {
+    background-image: url('@@assetPath@@/background--mobile.jpg');
+    background-size: cover;
+    background-position: left center;
+
+    @include mq(tablet) {
+        background-image: url('@@assetPath@@/background--desktop.jpg');
+        background-size: auto;
+        background-position: -136px bottom;
+        height: 250px;
+    }
+
+    @include mq(leftCol) {
+        background-position: left bottom;
+    }
+}
+
+.charity-appeal__headline {
+    padding: 0 10px;
+    margin-top: 6px;
+
+    @include mq(mobileLandscape) {
+        padding: 0 20px;
+    }
+
+    @include mq(tablet) {
+        position: absolute;
+        bottom: 12px;
+        left: 160px;
+        padding-left: 0;
+    }
+
+    @include mq(leftCol) {
+        left: 300px;
+    }
+}
+
+.charity-appeal__type,
+.charity-appeal__count,
+.charity-appeal__donate {
+    font-family: $f-serif-headline;
+    font-weight: 800;
+    margin: 0;
+}
+
+.charity-appeal__type {
+    color: $c-accent;
+    font-size: 16px;
+
+    @include mq(tablet) {
+        font-size: 24px;
+    }
+
+    &--second {
+        margin-top: -6px;
+
+        @include mq(tablet) {
+            display: inline-block;
+        }
+    }
+}
+
+.charity-appeal__count {
+    color: $c-text;
+    font-weight: 500;
+    font-size: 58px;
+    line-height: .93;
+    opacity: 0;
+    transition: opacity .2s ease-in;
+
+    @include mq(tablet) {
+        font-size: 90px;
+        line-height: .95;
+        margin-bottom: -10px;
+    }
+
+    .animate & {
+        opacity: 1;
+    }
+}
+
+.charity-appeal__call-to-action {
+    margin-top: 100px;
+    margin-bottom: 12px;
+
+    @include mq(tablet) {
+        display: inline-block;
+        margin: 0;
+    }
+}
+
+.charity-appeal__donate {
+    display: inline-block;
+    color: $c-text;
+    font-size: 24px;
+    margin-right: 4px;
+}
+
+.charity-appeal__button {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $c-accent;
+    background-image: url('@@assetPath@@/arrow-right.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.charity-appeal__logo {
+    display: none;
+    width: 170px;
+    height: auto;
+
+    @include mq(desktop) {
+        display: block;
+        position: absolute;
+        top: 8px;
+        right: 12px;
+    }
+}
+
+.charity-appeal__marque {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+}
+
+a.charity-appeal__anchor {
+    position: absolute;
+    z-index: 10 !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &:hover {
+        ~ .charity-appeal__headline {
+            .charity-appeal__donate {
+                color: $c-accent;
+            }
+        }
+    }
+}
