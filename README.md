@@ -70,9 +70,11 @@ grunt update --folderName=the-name-of-your-embed
 
 ### Embedding the Thrasher
 
-The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container.
+The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. Remember to choose benthrasher from the pull down if you want it to appear on that page.
 
-You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
+You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`. 
+
+OR IF YOU USED benthrasher you should now see your thrasher at the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
 
 ## Developing
 
