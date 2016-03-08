@@ -26,7 +26,7 @@ $opacity:1;
 
 @mixin flagLine($opacity){
 		height: 40px;
-		background-color: red;
+		background-color: #e9212d;
 		position: absolute;
 		opacity: $opacity;	
 		
@@ -39,9 +39,9 @@ $opacity:1;
 
 
 @import 'shared/_imports';
-@include base(us-election, #005689);
+@include base(us-election-minute, #005689);
 
-#us-election.fc-container--thrasher{
+#us-election-minute.fc-container--thrasher{
 		.fc-container__inner{
 			overflow: visible;
 						  
@@ -203,7 +203,7 @@ $opacity:1;
 			position: absolute;
 			@include backgroundimage(no-repeat, url('@@assetPath@@/election_2016.svg'), 100%);
 			height: 50px;
-			width: 100px;
+			width: 113px;
 			top: 6px;
 			}
 		
@@ -234,16 +234,14 @@ $opacity:1;
 				margin-top: 52px;
 				
 				@include mq($until: phablet){
-					font-size: 22px;
+					font-size: 20px;
 					line-height: 26px;
 					width: 120%;
 				
 				}
 				
 			}
-			
-				
-			
+
 			h2{	
 				color: white;
 				font-weight: 200;
@@ -256,7 +254,9 @@ $opacity:1;
 				@include mq($until: phablet){
 					font-size: 18px;
 					line-height: 20px;
-					width: 280px;
+					width: 292px;
+					margin-top: 0px;
+					margin-bottom: 12px;
 				}
 				
 				@include mq($until: mobile){
@@ -266,13 +266,12 @@ $opacity:1;
 			
 			a{
 				color: white;
+				font-weight: 800;
+				font-size: 18px;
 				
-				svg{
-				    width: 28px;
-					height: 28px;
-					fill: white;
-					margin-bottom: -9px;
+				img{
 					margin-left: 10px;
+					margin-bottom: -5px;
 				}
 			}
 			
@@ -340,6 +339,13 @@ $opacity:1;
 				
 				a{
 					color: white;
+					font-weight: 800;
+					font-size: 18px;
+					
+					img{
+						margin-left: 10px;
+						margin-bottom: -5px;
+					}
 				}
 				
 				svg{
@@ -476,12 +482,12 @@ $opacity:1;
 							width: 110px;
 							bottom: -162px;
 							left: auto;
-							right: 16px;
+							right: -33px;
 					}
 					
 					@include mq($until: mobileLandscape){
 							width: 100px;
-							bottom: -179px;
+							bottom: -189px;
 							left: auto;
 							right: 1px;
 					}
@@ -524,12 +530,12 @@ $opacity:1;
 							width: 116px;
 							bottom: -164px;
 							left: auto;
-							right: 190px;
+							right: 84px;
 					}
 					
 					@include mq($until: mobileLandscape){
 							width: 106px;
-							bottom: -170px;
+							bottom: -184px;
 							left: auto;
 							right: 124px;
 					}
@@ -572,12 +578,12 @@ $opacity:1;
 							width: 121px;
 							bottom: -168px;
 							left: auto;
-							right: 280px;
+							right: 144px;
 					}
 					
 					@include mq($until: mobileLandscape){
 							width: 111px;
-							bottom: -180px;
+							bottom: -190px;
 							left: auto;
 							right: 204px;
 					}
@@ -621,12 +627,12 @@ $opacity:1;
 							width: 121px;
 							bottom: -165px;
 							left: auto;
-							right: 100px;
+							right: 25px;
 					}
 					
 					@include mq($until: mobileLandscape){
 							width: 111px;
-							bottom: -180px;
+							bottom: -190px;
 							left: auto;
 							right: 56px;
 					}
