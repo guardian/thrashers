@@ -1,0 +1,86 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$height: 325px;
+$primary-color:#9bd5e0;
+
+@import 'shared/_imports';
+
+@include base(web-we-want-header, #fff);
+
+.www-thrasher{
+	
+		&__wrapper{
+			height: $height;
+			width: 1300px;
+			position: relative;
+			background: repeat url('@@assetPath@@/background.png')
+		}	
+		
+		
+		&__logo{
+			position: absolute;
+			left: 10px;
+			bottom: 0px;
+		}
+		
+		&__face{
+				float: left;
+				overflow: hidden;
+		}
+		
+		&__headline{
+			float: left;
+			overflow: hidden;
+			margin-left: 16px;
+		}
+		
+		&__stand{
+			position: absolute;
+			left: 15px;
+			top: 10px;
+			width: 250px;
+			
+			h2{
+				font-family: $f-serif-headline;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 20px;
+				color: #333;
+				
+				&::before{
+					display: block;
+					content: "";
+					height: 12px;
+					background-color: $primary-color;
+					width: 150px;
+					margin-bottom: 6px;
+				}
+			}
+		}
+		
+		&__image-one{
+			position: absolute;
+			right: 51%;
+			top: 0px;
+		}
+		
+		&__image-two{
+			position: absolute;
+		    right: 23.56%;
+			top: 7%;
+		}
+		
+		&__image-three{
+			position: absolute;
+			right: 0%;
+		}
+}		
