@@ -22,7 +22,16 @@ $primary-color:#9bd5e0;
 			height: $height;
 			width: 1300px;
 			position: relative;
-			background: repeat url('@@assetPath@@/background.png')
+			background: repeat url('@@assetPath@@/background.png');
+			overflow: hidden;
+			
+			@include mq($until: wide){
+					width: 1140px;
+				}
+				
+				@include mq($until: leftCol){
+					width: 980px;
+				}
 		}	
 		
 		
@@ -70,17 +79,34 @@ $primary-color:#9bd5e0;
 		&__image-one{
 			position: absolute;
 			right: 51%;
-			top: 0px;
+			top: 0px;		
 		}
 		
 		&__image-two{
 			position: absolute;
 		    right: 23.56%;
 			top: 7%;
+			
+			@include mq($until: leftCol){
+					right: 0%;
+				}
+			
+			@include mq($until: desktop){
+					display: none;
+				}
 		}
 		
 		&__image-three{
 			position: absolute;
 			right: 0%;
+			
+			@include mq($until: leftCol){
+					right: 36%;
+				}
+			
+			
+			@include mq($until: wide){
+					display: none;
+				}	
 		}
 }		
