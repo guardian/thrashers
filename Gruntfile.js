@@ -155,7 +155,7 @@ module.exports = function(grunt) {
                             config: 'snap.url',
                             type: 'input',
                             message: 'Fallback URL',
-                            default: 'http://www.theguardian.com'
+                            default: 'https://www.theguardian.com'
                         }, 
                         {  
                             config: 'snap.headline',
