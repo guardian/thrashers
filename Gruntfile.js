@@ -73,7 +73,7 @@ module.exports = function(grunt) {
                 options: {
                     patterns: [{
                         match: /@@assetPath@@/g,
-                        replacement: 'http://interactive.guim.co.uk/' + remoteDir + '/hashed'
+                        replacement: 'https://interactive.guim.co.uk/' + remoteDir + '/hashed'
                     }]
                 },
                 files: [{
@@ -215,7 +215,7 @@ module.exports = function(grunt) {
     grunt.registerTask('return-paths', function() {
         if (grunt.option('folderName')) {
             var project = grunt.file.readJSON(dir + '/source.json');
-            var s3Path = 'http://interactive.guim.co.uk/' + remoteDir + '/source.json';
+            var s3Path = 'https://interactive.guim.co.uk/' + remoteDir + '/source.json';
             var localPath = 'http://localhost:8000/' + dir + '/source.json';
 
             function returnSnapPath(location) {
