@@ -73,7 +73,7 @@ module.exports = function(grunt) {
                 options: {
                     patterns: [{
                         match: /@@assetPath@@/g,
-                        replacement: 'http://interactive.guim.co.uk/' + remoteDir + '/hashed'
+                        replacement: 'https://interactive.guim.co.uk/' + remoteDir + '/hashed'
                     }]
                 },
                 files: [{
