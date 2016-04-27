@@ -11,7 +11,7 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-#dynamo{
+#six-by-nine{
     &.fc-container--story-package{
         background-color: white !important;
         margin-bottom: 0px;
@@ -41,6 +41,13 @@ $mq-breakpoints: (
         }
 
     }
+/*    .fc-slice-wrapper{
+        height: 400px;
+    }
+
+    .l-row{
+        height: 400px;
+    }*/
     .facia-snap{
         position: absolute !important;
         width: 142% !important;
@@ -60,7 +67,12 @@ $mq-breakpoints: (
             height: 600px !important;
         }
     } 
-    
+/*    .l-row__item--span-1{
+        @include mq($until: tablet){
+            min-height:350px;
+        }
+    }*/
+
     .fc-slice__item{
          .fc-item__media-wrapper{
 
@@ -81,6 +93,14 @@ $mq-breakpoints: (
                 padding-right: 0px !important;
             }
         }
+        .fc-slice__item{
+            .fc-slice__item{
+                @include mq($until: mobileLandscape){
+                    min-height:auto
+                }
+            }
+        }
+
     }
     
     .fc-slice__item:first-child{
@@ -170,7 +190,7 @@ $mq-breakpoints: (
         
         
         svg{
-            width: 80px;
+            width: 190px;
             height: 80px;
         }
     }
@@ -178,7 +198,7 @@ $mq-breakpoints: (
         position: absolute;
         left: 20px;
         width: 430px;
-        top: 112px;
+        top: 90px;
         
         @include mq($until:desktop){
             left: 20px;
@@ -205,7 +225,7 @@ $mq-breakpoints: (
             font-size: 18px;
 
             @include mq($until: mobileLandscape){
-                width:215px;
+                width:235px;
                 line-height: 20px;
             }
         }
@@ -216,6 +236,7 @@ $mq-breakpoints: (
 
         @include mq($until: mobileLandscape){
             left:30px;
+            top: 100px;
         }
     }
     .sixbynine-link{
@@ -251,25 +272,31 @@ $mq-breakpoints: (
         }
 
         @include mq($until: tablet){
-            bottom:350px;
+            bottom:377px;
             left: 300px;
         }
 
         @include mq($until: mobileLandscape){
             left: 30px;
-            bottom: 310px;
+            bottom: 321px;
         }
     }
     
     .cylinder {
       -webkit-perspective: 300px;
+      -moz-perspective: 300px;
+      perspective: 300px;
       width: 100%;
       height: 100%;
       overflow: hidden;
     }
     .ring {
       -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
       -webkit-animation: infinite rotate 60s linear;
+      -moz-animation: infinite rotate 60s linear;
+      animation: infinite rotate 60s linear;
       width: 100%;
       height: 100%;
       margin: auto;
@@ -280,6 +307,8 @@ $mq-breakpoints: (
       bottom: 0;
       
       -webkit-transform-origin: 50%;
+      -moz-transform-origin: 50%;
+      transform-origin: 50%;
     }
     $height: 200%;
     $width: 240px;
@@ -290,6 +319,7 @@ $mq-breakpoints: (
       background-repeat: no-repeat;
       background-color: rgba(#f00,0.5);
       -webkit-background-size: $width * 16 $height / 2;
+      -moz-background-size: $width * 16 $height / 2;
       background-size: $width * 16 $height / 2;
       position: absolute;
       top: 0;
@@ -306,6 +336,8 @@ $mq-breakpoints: (
           background-color: rgba(255,0,$i * 5, 0.5);
           background-position: -$i * $width center;
           -webkit-transform: rotateY(#{$z}deg) unquote($transform);
+          -moz-transform: rotateY(#{$z}deg) unquote($transform);
+          transform: rotateY(#{$z}deg) unquote($transform);
         }
       }
     }
@@ -316,6 +348,22 @@ $mq-breakpoints: (
       }
       100% {
         -webkit-transform: scale(3) translateZ(0) rotateY(360deg);// rotateX(360deg);
+      }
+    }
+    @-moz-keyframes rotate {
+      0% {
+        -moz-transform: scale(3) translateZ(0) rotateY(0deg);// rotateX(0deg);
+      }
+      100% {
+        -moz-transform: scale(3) translateZ(0) rotateY(360deg);// rotateX(360deg);
+      }
+    }
+    @keyframes rotate {
+      0% {
+        transform: scale(3) translateZ(0) rotateY(0deg);// rotateX(0deg);
+      }
+      100% {
+        transform: scale(3) translateZ(0) rotateY(360deg);// rotateX(360deg);
       }
     }
 }
