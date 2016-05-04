@@ -55,7 +55,7 @@ $mq-breakpoints: (
         z-index: 0;
         height: 102%;
         background-color: grey !important;
-        background-image: url('@@assetPath@@/background__fallback.png');
+        background-image: url('@@assetPath@@/cell3.png');
         background-position-y: -150px;
         background-size: cover;
         font-family: $f-sans-serif-headline;
@@ -204,6 +204,12 @@ $mq-breakpoints: (
             left: 20px;
         }
 
+        a{
+            text-decoration: none;
+            &:hover{
+                text-decoration: none;
+            };
+        }
         
         h1{
             color: white;
@@ -254,6 +260,7 @@ $mq-breakpoints: (
         
         p{
             float: left;
+            transform: rotateX(0deg);
         }
         
         svg{
@@ -261,6 +268,7 @@ $mq-breakpoints: (
             width: 25px;
             height: 25px;
             margin-left: 10px;
+            transform: rotateX(0deg);
         }
         
         &:hover{
@@ -310,17 +318,17 @@ $mq-breakpoints: (
       -moz-transform-origin: 50%;
       transform-origin: 50%;
     }
-    $height: 200%;
+    $height: 100%;
     $width: 240px;
     .poly {
       width: $width;
       height: $height;
       background-image: url('@@assetPath@@/cell3.jpg');
       background-repeat: no-repeat;
-      background-color: rgba(#f00,0.5);
+      background-color: #333;
       -webkit-background-size: $width * 16 $height / 2;
       -moz-background-size: $width * 16 $height / 2;
-      background-size: $width * 16 $height / 2;
+      background-size: $width * 16 $height * 2;
       position: absolute;
       top: 0;
       right: 0;
@@ -333,7 +341,7 @@ $mq-breakpoints: (
       $c: $i * 15;
       $z: $i * (360 / $panels);
       .ring-#{$ring} .poly:nth-child(#{$i + 1}) {
-          background-color: rgba(255,0,$i * 5, 0.5);
+          background-color: #333;
           background-position: -$i * $width center;
           -webkit-transform: rotateY(#{$z}deg) unquote($transform);
           -moz-transform: rotateY(#{$z}deg) unquote($transform);
