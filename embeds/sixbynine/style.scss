@@ -11,6 +11,15 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+.has-page-skin{
+    #six-by-nine{
+        .l-list{
+            width: 78% !important;
+            margin-left: -196px !important;
+        }
+    }
+}
+
 #six-by-nine{
     &.fc-container--story-package{
         background-color: white !important;
@@ -19,7 +28,8 @@ $mq-breakpoints: (
     .fc-container__inner{
         border: none;
         background-color: white;
-
+/*        min-height: 350px;
+*/
         @include mq($until: tablet){
             overflow:visible !important;
             margin-left: 0;
@@ -53,7 +63,8 @@ $mq-breakpoints: (
         width: 142% !important;
         margin-left: -0.6em !important;
         z-index: 0;
-        height: 102%;
+/*        min-height: 350px;
+*/      height: 102%;  
         background-color: grey !important;
         background-image: url('@@assetPath@@/cell3.png');
         background-position-y: -150px;
@@ -185,7 +196,7 @@ $mq-breakpoints: (
         width: 100px;
         
         @include mq($until: desktop){
-            left: 30px;
+            left: 20px;
         }
         
         

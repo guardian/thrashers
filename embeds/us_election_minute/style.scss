@@ -84,6 +84,7 @@ $opacity:1;
 				right: -1%;
 				z-index: 60;
 				width: 59.5%;
+				position: relative;
 				@include flagLine($opacity);
 				
 				@include mq($until: wide){
@@ -94,7 +95,14 @@ $opacity:1;
 					display: none;
 				}
 					
-					
+				p{
+					position: absolute;
+					right: 25px;
+					top: 8px;
+					font-weight: 900;
+					color: white;
+				}
+
 				}
 				
 				
@@ -301,7 +309,8 @@ $opacity:1;
 				position: absolute;
 				left: 20px;
 				top: 70px;
-				
+				display: none;
+
 				h1{
 					font-weight: 100;
 					font-size: 70px;
@@ -326,7 +335,7 @@ $opacity:1;
 				h2{
 			  	    font-size: 18px;
 					line-height: 20px;
-					width: 275px;
+					width: 246px;
 					color: white;
 					margin-bottom: 10px;
 					
@@ -455,6 +464,7 @@ $opacity:1;
 					@include backgroundimage(no-repeat, url('@@assetPath@@/cruz.png'), 100%); 
 					right: 22px;
 					bottom: -38px;
+					display: none;
 					@include mq($until: wide){
 							right: 51px;
 					}
