@@ -1,0 +1,148 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.podcast__wrapper{
+	width: 1300px;
+}
+
+#got-the-citadel-player-thrasher {
+  background-color: #333330;
+  width: auto;
+  position: relative;
+  padding: 12px;
+  .branding {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+  }
+
+  .player {
+    height: 252px;
+    width: 652px;
+    white-space: nowrap;
+    position: relative;
+    margin: 80px -4px 28px auto;
+    .player__circle {
+      display: inline-block;
+      height: 252px;
+      width: 252px;
+      position: absolute;
+      top: 0;
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .player__name {
+      left: 0;
+      z-index: 20;
+    }
+
+    .player__illustration {
+      left: 29%;
+      z-index: 10;
+    }
+
+    .player__playing {
+      left: 59.5%;
+      z-index: 19;
+      transform: scale(0.97,0.97);
+      opacity: 0;
+      transition: opacity 160ms, transform 160ms;
+      #progress {
+        stroke-dasharray: 0, 1000;
+      }
+    }
+
+    .player__play {
+      left: 59.5%;
+      z-index: 20;
+      opacity: 1;
+      transform: scale(1,1);
+      transition: opacity 240ms, transform 240ms;
+    }
+    &[data-playing] {
+      .player__play {
+        transform: scale(0.92,0.92);
+        opacity: 0;
+      }
+      .player__playing {
+        transform: scale(1,1);
+        opacity: 1;
+      }
+    }
+  }
+  @media (max-width: #{map-get($mq-breakpoints, tablet)}) {
+  // @include mq($until: tablet) {
+    height: 300px;
+    .player {
+      height: 180px;
+      width: 465px;
+      .player__circle {
+        height: 180px;
+        width: 180px;
+      }
+    }
+  }
+  @media (max-width: #{map-get($mq-breakpoints, mobileLandscape)}) {
+  // @include mq($until: mobileLandscape) {
+    height: 200px;
+    .player {
+      height: 115px;
+      width: 300px;
+      margin: 80px auto 28px auto;
+      .player__circle {
+        height: 115px;
+        width: 115px;
+        #load {
+          stroke-width: 3px;
+        }
+        #progress {
+          stroke-width: 4px;
+        }
+      }
+    }
+  }
+
+  .episode-info {
+    position: absolute;
+    width: 350px;
+    .episode-info__title {
+      font-size: 26px;
+      line-height: 28px;
+      font-family: 'DE4 Display Egyptian Medium';
+      .episode-info__kicker {
+        color: #FB0;
+        &:after {
+          content: ' / ';
+          color: rgba(255,255,255, 0.5);
+        }
+      }
+      .episode-info__title {
+        color: #FFF;
+      }
+    }
+    .episode-info__duration {
+      color: #DDDDDD;
+      font-family: 'DS3 Display Sans';
+      margin-top: 8px;
+      .episode-info__icon {
+
+      }
+      .episode-info__time {
+
+      }
+    }
+  }
+
+}
