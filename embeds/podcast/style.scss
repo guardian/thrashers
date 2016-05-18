@@ -32,6 +32,7 @@ $mq-breakpoints: (
     white-space: nowrap;
     position: relative;
     margin: 80px -4px 28px auto;
+    background-color: transparent;
     .player__circle {
       display: inline-block;
       height: 252px;
@@ -59,9 +60,6 @@ $mq-breakpoints: (
       transform: scale(0.97,0.97);
       opacity: 0;
       transition: opacity 160ms, transform 160ms;
-      #progress {
-        stroke-dasharray: 0, 1000;
-      }
     }
 
     .player__play {
@@ -82,8 +80,8 @@ $mq-breakpoints: (
       }
     }
   }
-  @media (max-width: #{map-get($mq-breakpoints, tablet)}) {
-  // @include mq($until: tablet) {
+  @media (max-width: #{map-get($mq-breakpoints, desktop)}) {
+  // @include mq($until: desktop) {
     height: 300px;
     .player {
       height: 180px;
@@ -94,8 +92,8 @@ $mq-breakpoints: (
       }
     }
   }
-  @media (max-width: #{map-get($mq-breakpoints, mobileLandscape)}) {
-  // @include mq($until: mobileLandscape) {
+  @media (max-width: #{map-get($mq-breakpoints, phablet)}) {
+  // @include mq($until: phablet) {
     height: 200px;
     .player {
       height: 115px;
@@ -116,7 +114,9 @@ $mq-breakpoints: (
 
   .episode-info {
     position: absolute;
-    width: 350px;
+    width: 450px;
+    top: 60px;
+    left: 24px;
     .episode-info__title {
       font-size: 26px;
       line-height: 28px;
@@ -134,13 +134,16 @@ $mq-breakpoints: (
     }
     .episode-info__duration {
       color: #DDDDDD;
+      font-size: 16px;
+      line-height: 19px;
       font-family: 'DS3 Display Sans';
       margin-top: 8px;
       .episode-info__icon {
-
+        display: inline-block;
+        padding-right: 1px;
       }
       .episode-info__time {
-
+        display: inline-block;
       }
     }
   }
