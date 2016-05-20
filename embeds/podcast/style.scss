@@ -9,34 +9,51 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
+$c-background: #333;
+
 @import 'shared/_imports';
 
+@include base(got-the-citadel-player-thrasher, $c-background);
 .podcast__wrapper{
-	width: 1300px;
+	width: 100%;
+}
+
+// super specific thing that could be a mixin instead?
+section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle {
+  background-color: #333;
+  overflow: visible !important;
+  div.fc-container__inner,
+  div.facia-snap.facia-snap--default.fc-item.fc-item--audio.fc-item--has-image.fc-item--has-metadata.fc-item--is-commentable.fc-item--is-media-link.js-fc-item.js-snap.tone-media--item.fc-item--fluid-mobile.fc-item--fluid-tablet.js-snappable.facia-snap-embed.facia-snap-point--huge,
+  div.facia-snap.facia-snap--default.fc-item.fc-item--audio.fc-item--has-image.fc-item--has-metadata.fc-item--is-commentable.fc-item--is-media-link.js-fc-item.js-snap.tone-media--item.fc-item--fluid-mobile.fc-item--fluid-tablet.js-snappable.facia-snap-embed.facia-snap-point--huge .fc-slice-wrapper {
+    overflow: visible !important;
+  }
 }
 
 #got-the-citadel-player-thrasher {
-  background-color: #333330;
+  background-color: #333;
   width: auto;
   position: relative;
   padding: 12px;
   .branding {
     position: absolute;
-    top: 12px;
+    top: 14px;
     right: 20px;
   }
 
   .player {
-    height: 252px;
-    width: 652px;
+    // height: 252px;
+    // width: 652px;
+    height: 200px;
+    width: 517px;
     white-space: nowrap;
     position: relative;
-    margin: 80px -4px 28px auto;
+    margin: 70px 80px 28px auto;
     background-color: transparent;
     .player__circle {
+      padding: 1px;
       display: inline-block;
-      height: 252px;
-      width: 252px;
+      height: 200px;
+      width: 200px;
       position: absolute;
       top: 0;
       svg {
@@ -63,64 +80,45 @@ $mq-breakpoints: (
     }
 
     .player__play {
+      cursor: pointer;
       left: 59.5%;
       z-index: 20;
       opacity: 1;
       transform: scale(1,1);
       transition: opacity 240ms, transform 240ms;
-    }
-    &[data-playing] {
-      .player__play {
-        transform: scale(0.92,0.92);
-        opacity: 0;
-      }
-      .player__playing {
-        transform: scale(1,1);
-        opacity: 1;
+      &:hover {
+        opacity: 0.95;
       }
     }
   }
-  @media (max-width: #{map-get($mq-breakpoints, desktop)}) {
-  // @include mq($until: desktop) {
-    height: 300px;
-    .player {
-      height: 180px;
-      width: 465px;
-      .player__circle {
-        height: 180px;
-        width: 180px;
-      }
+  &[data-playing] .player {
+    .player__play {
+      transform: scale(0.92,0.92);
+      opacity: 0;
     }
-  }
-  @media (max-width: #{map-get($mq-breakpoints, phablet)}) {
-  // @include mq($until: phablet) {
-    height: 200px;
-    .player {
-      height: 115px;
-      width: 300px;
-      margin: 80px auto 28px auto;
-      .player__circle {
-        height: 115px;
-        width: 115px;
-        #load {
-          stroke-width: 3px;
-        }
-        #progress {
-          stroke-width: 4px;
-        }
-      }
+    .player__playing {
+      transform: scale(1,1);
+      opacity: 1;
     }
   }
 
   .episode-info {
     position: absolute;
-    width: 450px;
-    top: 60px;
-    left: 24px;
-    .episode-info__title {
+    width: 400px;
+    top: 114px;
+    left: 260px;
+    .episode-info__heading {
+      display: block;
       font-size: 26px;
       line-height: 28px;
-      font-family: 'DE4 Display Egyptian Medium';
+      font-family: 'Guardian Egyptian Web', serif;
+      font-weight: 200;
+      position: relative;
+      z-index: 30;
+      &:hover {
+        text-decoration: none;
+        opacity: 0.9;
+      }
       .episode-info__kicker {
         color: #FB0;
         &:after {
@@ -132,20 +130,343 @@ $mq-breakpoints: (
         color: #FFF;
       }
     }
-    .episode-info__duration {
+    .episode-info__duration{
       color: #DDDDDD;
-      font-size: 16px;
-      line-height: 19px;
-      font-family: 'DS3 Display Sans';
+      font-size: 15px;
+      line-height: 17px;
+      font-family: 'Guardian Text Sans Web', sans-serif;
+      font-weight: 500;
       margin-top: 8px;
+      h2 {
+        display: inline;
+        font-weight: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
       .episode-info__icon {
-        display: inline-block;
-        padding-right: 1px;
+        display: none;
+        // display: inline-block;
+        // padding-right: 1px;
       }
       .episode-info__time {
         display: inline-block;
+        color: #fb0;
+        font-weight: 500;
       }
     }
   }
 
+  .subscription {
+    position: absolute;
+    bottom: 0;
+    left: 260px;
+    font-family: 'Guardian Text Sans Web';
+    font-size: 13px;
+    padding-bottom: 2px;
+    color: #ddd;
+    z-index: 30;
+    &__icon,
+    &__itunes,
+    &__feed {
+      display: inline-block;
+    }
+    &__icon {
+      position: relative;
+      top: 2px;
+      margin-right: 1px;
+    }
+    &__itunes {
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 20px;
+        background-color: #ccc;
+        opacity: 0.8;
+        vertical-align: top;
+        position: relative;
+        top: 2px;
+        margin: 0 6px;
+      }
+    }
+  }
+
+  .circles {
+    position: absolute;
+    z-index: 100;
+    left: -300px;
+    top: 57.5%;
+    right: -300px;
+    height: 1px;
+    z-index: 2;
+    // background-color: red;
+    &__circle {
+      position: absolute;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0,0);
+      width: 0;
+      height: 0;
+      animation-name: podcast-circles-grow;
+      animation-duration: 12000ms;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      @for $i from 0 through 100 {
+        &:nth-child(#{$i}) {
+          left: random(100) + %;
+          animation-delay: random(12000) + ms;
+          padding-bottom: 35%;
+          padding-right: 35%;
+        }
+      }
+      &-yellow {
+        color: #fb0;
+        opacity: 0.09;
+      }
+      &-blue {
+        color: #026AAB;
+        opacity: 0.12;
+      }
+      &-white {
+        color: #fff;
+        opacity: 0.07;
+      }
+      &-thin {
+        border: 3px solid currentColor;
+      }
+      &-thick {
+        border: 36px solid currentColor;
+      }
+      &-disc {
+        background-color: currentColor;
+      }
+    }
+  }
+
+  @include mq($until: wide) {
+    .episode-info {
+      left: 180px;
+      width: 400px;
+    }
+    .player {
+      margin: 70px -6px 28px auto;
+    }
+    .subscription {
+      left: 180px;
+    }
+  }
+
+  @include mq($until: leftCol) {
+    .episode-info {
+      top: 140px;
+      left: 20px;
+      .episode-info__heading {
+        font-size: 23px;
+        line-height: 25px;
+        // font-weight: 200;
+      }
+      .episode-info__duration{
+        // font-size: 15px;
+        // line-height: 17px;
+        // font-weight: 500;
+        // margin-top: 8px;
+      }
+    }
+    .subscription {
+      left: 24px;
+    }
+  }
+  @include mq($until: desktop) {
+    height: 260px;
+    .branding {
+      width: 59px;
+      height: 36px;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .player {
+      height: 170px;
+      width: 439px;
+      margin: 60px -7px 28px auto;
+      .player__circle {
+        height: 170px;
+        width: 170px;
+      }
+    }
+    .episode-info {
+      width: 265px;
+      top: 116px;
+      left: 20px;
+      .episode-info__heading {
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 400;
+      }
+      .episode-info__duration{
+        // font-size: 15px;
+        // line-height: 17px;
+        // font-weight: 500;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  @include mq($until: tablet) {
+    height: 230px;
+    .player {
+      height: 140px;
+      width: 362px;
+      .player__circle {
+        height: 140px;
+        width: 140px;
+        #load {
+          stroke-width: 2px;
+        }
+        #progress {
+          stroke-width: 4px;
+        }
+      }
+    }
+    .episode-info {
+      width: 260px;
+      top: 114px;
+      // left: 4px;
+      // right: 0;
+      .episode-info__heading {
+        font-size: 18px;
+        line-height: 21px;
+        font-weight: 400;
+      }
+      .episode-info__duration {
+        color: #DDDDDD;
+        font-size: 13px;
+        line-height: 15px;
+      }
+      .episode-info__icon {
+        width: 11px;
+        height: 13px;
+        top: 2px;
+      }
+    }
+  }
+
+  @include mq($until: phablet) {
+    height: 275px;
+    padding-left: 0;
+    padding-right: 0;
+    .branding {
+      top: 12px;
+      right: 0;
+      width: 39px;
+      height: 24px;
+    }
+    .player {
+      height: 140px;
+      width: 362px;
+      margin: 32px auto 28px auto;
+      .player__circle {
+        height: 140px;
+        width: 140px;
+        #load {
+          stroke-width: 3px;
+        }
+        #progress {
+          stroke-width: 4px;
+        }
+      }
+    }
+    .episode-info {
+      width: auto;
+      top: 205px;
+      left: 4px;
+      right: 0;
+      max-width: 400px;
+      .episode-info__heading {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 400;
+      }
+      .episode-info__duration {
+        color: #DDDDDD;
+        font-size: 13px;
+        line-height: 15px;
+      }
+      .episode-info__icon {
+        width: 11px;
+        height: 13px;
+        top: 2px;
+      }
+    }
+    .circles {
+      top: 38%;
+    }
+    .subscription {
+      left: 4px;
+    }
+  }
+
+  @include mq($until: mobileLandscape) {
+    height: 285px;
+    .player {
+      height: 115px;
+      width: 300px;
+      margin: 32px auto 28px auto;
+      .player__circle {
+        height: 115px;
+        width: 115px;
+      }
+    }
+    .episode-info {
+      top: 190px;
+      &__duration {
+        position: relative;
+        top: -6px;
+      }
+    }
+    .circles {
+      top: 36%;
+    }
+  }
+
+  @include mq($until: mobile) {
+    // height: 400px;
+    // .player {
+    //   height: 115px;
+    //   width: 300px;
+    //   margin: 32px auto 28px auto;
+    // }
+    // .episode-info {
+    //   top: 190px;
+    // }
+    // .circles {
+    //   top: 36%;
+    // }
+  }
+
+
+
+  h1, h2 {
+    display: inline;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+}
+
+@keyframes podcast-circles-grow {
+  0% {
+    transform: translate(-50%, -50%) scale(0,0);
+  }
+
+  90% {
+    transform: translate(-50%, -50%) scale(1,1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.5,1.5);
+    opacity: 0;
+  }
 }
