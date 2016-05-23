@@ -21,13 +21,25 @@ $c-background: #333;
 // super specific thing that could be a mixin instead?
 section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle {
   background-color: #333;
-  overflow: visible !important;
-  div.fc-container__inner,
-  div.facia-snap.facia-snap--default.fc-item.fc-item--audio.fc-item--has-image.fc-item--has-metadata.fc-item--is-commentable.fc-item--is-media-link.js-fc-item.js-snap.tone-media--item.fc-item--fluid-mobile.fc-item--fluid-tablet.js-snappable.facia-snap-embed.facia-snap-point--huge,
-  div.facia-snap.facia-snap--default.fc-item.fc-item--audio.fc-item--has-image.fc-item--has-metadata.fc-item--is-commentable.fc-item--is-media-link.js-fc-item.js-snap.tone-media--item.fc-item--fluid-mobile.fc-item--fluid-tablet.js-snappable.facia-snap-embed.facia-snap-point--huge .fc-slice-wrapper {
-    overflow: visible !important;
+}
+
+#the-citadel.fc-container--thrasher{
+  .fc-container__inner{
+    overflow: visible;
+
+    .fc-container__body{
+      .fc-slice-wrapper{
+        ul{
+          overflow: visible;
+        }
+        .facia-snap{
+          overflow: visible;
+        }
+      }
+    }
   }
 }
+
 
 #got-the-citadel-player-thrasher {
   background-color: #333;
@@ -63,12 +75,12 @@ section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle
     }
     .player__name {
       left: 0;
-      z-index: 20;
+      z-index: 310;
     }
 
     .player__illustration {
       left: 29%;
-      z-index: 10;
+      z-index: 300;
     }
 
     .player__playing {
@@ -82,7 +94,7 @@ section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle
     .player__play {
       cursor: pointer;
       left: 59.5%;
-      z-index: 20;
+      z-index: 310;
       opacity: 1;
       transform: scale(1,1);
       transition: opacity 240ms, transform 240ms;
@@ -114,7 +126,7 @@ section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle
       font-family: 'Guardian Egyptian Web', serif;
       font-weight: 200;
       position: relative;
-      z-index: 30;
+      z-index: 300;
       &:hover {
         text-decoration: none;
         opacity: 0.9;
@@ -164,7 +176,7 @@ section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle
     font-size: 13px;
     padding-bottom: 2px;
     color: #ddd;
-    z-index: 30;
+    z-index: 300;
     &__icon,
     &__itunes,
     &__feed {
@@ -191,6 +203,16 @@ section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle
     }
   }
 
+
+  .circles-wrapper {
+    position: absolute;
+    z-index: 100;
+    left: -300px;
+    top: 0;
+    bottom: 0;
+    right: -300px;
+    overflow: hidden;
+  }
   .circles {
     position: absolute;
     z-index: 100;
