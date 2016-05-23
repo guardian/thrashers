@@ -1,0 +1,66 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.guardian__video{
+  &--wrapper{
+    width: 1300px;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  &--left{
+    width: 300px;
+    height: 400px;
+    float: left;
+    background-color: #333;
+    position: relative;
+    svg{
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 45%;
+    }
+  }
+
+  &--right{
+    float: left;
+    width: 1000px;
+    position: relative;
+
+    video{
+      width: 1000px;
+      margin-top: -90px;
+    }
+
+  .video__headline{
+    font-family: $f-serif-headline;
+    font-size: 30px;
+    position: absolute;
+    top: 35.4%;
+    font-size: 39px;
+    font-weight: 900;
+
+    &--one{
+      top: 25%;
+    }
+  }
+
+  .guardian__logo{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  }
+
+}
