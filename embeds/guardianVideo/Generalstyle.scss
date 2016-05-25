@@ -1,0 +1,114 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+$yellow: #FBBA0F;
+@import 'shared/_imports';
+@include base(guardian-video, darken(#000,10%));
+
+.guardian__video{
+  &--wrapper{
+    width: 1300px;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  &--left{
+    width: 239px;
+    height: 400px;
+    float: left;
+    background-color: #161616;
+    position: relative;
+    svg{
+      position: absolute;
+      width: 145%;
+      height: auto;
+      top: 45%;
+      z-index: 3000;
+    }
+
+    .video__cta{
+      position: absolute;
+      bottom: 16px;
+      height: 32px;
+      background-color:$yellow;
+      border-radius: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 8px;
+      font-family: $f-sans-serif-headline;
+      color: #333;
+      width: 124px;
+      left: 12px;
+
+      .cta__text{
+        display: block;
+        float: left;
+      }
+
+      svg{
+        float: right;
+        width: 20px;
+        margin-top: -7px;
+        margin-left: 10px;
+      }
+
+    }
+  }
+
+  &--right{
+    float: left;
+    width: 1000px;
+    position: relative;
+
+    video{
+      width: 1090px;
+      margin-top: -90px;
+    }
+
+  .video__headline{
+    font-family: $f-serif-headline;
+    font-size: 30px;
+    position: absolute;
+    top: 31.9%;
+    font-size: 43px;
+    font-weight: 900;
+    left: 11.9%;
+
+    &--one{
+      top: 25%;
+    }
+
+    &--two{
+      margin-top: -65px;
+      opacity: 0;
+    }
+
+    &--one, &--two{
+      transition: opacity 1s ease-in-out;
+
+      &[data-status="on"]{
+        opacity: 1 !important;
+      }
+      &[data-status="off"]{
+        opacity: 0;
+      }
+    }
+
+  }
+
+  .guardian__logo{
+    position: absolute;
+    right: -50px;
+    top: 10px;
+  }
+
+  }
+
+}
