@@ -17,6 +17,30 @@ $yellow: #FBBA0F;
     width: 1300px;
     height: 400px;
     overflow: hidden;
+
+    @include mq($until: wide){
+      width: 1140px;
+    }
+
+    @include mq($until: leftCol){
+      width: 980px;
+    }
+
+    @include mq($until: desktop){
+      width:740px;
+    }
+
+    @include mq($until: tablet){
+      width:100%;
+      background-image: url(@@assetPath@@/gv_mobile.jpg);
+      background-size: cover;
+      background-position:centre centre;
+      background-repeat:no-repeat;
+    }
+
+    @include mq($until: mobileLandscape){
+      height:300px;
+    }
   }
 
   &--left{
@@ -25,6 +49,19 @@ $yellow: #FBBA0F;
     float: left;
     background-color: #161616;
     position: relative;
+
+    @include mq($until: desktop){
+      width: 180px;
+    }
+
+    @include mq($until: tablet){
+      background-color:transparent;
+    }
+    @include mq($until: mobileLandscape){
+      width:150px;
+      height:300px;
+    }
+
     svg{
       position: absolute;
       width: 145%;
@@ -47,6 +84,10 @@ $yellow: #FBBA0F;
       width: 124px;
       left: 12px;
 
+      @include mq($until: mobileLandscape){
+        left: 2px;
+      }
+
       .cta__text{
         display: block;
         float: left;
@@ -67,10 +108,38 @@ $yellow: #FBBA0F;
     width: 1000px;
     position: relative;
 
+    @include mq($until: wide){
+      width: 840px;
+    }
+
+    @include mq($until: leftCol){
+      width:677px;
+    }
+
+    @include mq($until: desktop){
+      width:440px;
+    }
+
+    @include mq($until: tablet){
+      height:400px;
+      width:50%;
+    }
+
+    @include mq($until: mobileLandscape){
+      position:absolute;
+      width:82%;
+      height:306px;
+    }
+
     video{
       width: 1090px;
       margin-top: -90px;
     }
+  .video__test{
+    @include mq($until: tablet){
+      display: none;
+    }
+  }
 
   .video__headline{
     font-family: $f-serif-headline;
@@ -81,6 +150,35 @@ $yellow: #FBBA0F;
     font-weight: 900;
     left: 11.9%;
 
+    @include mq($until: wide){
+      left: 13.9%;
+      top: 32.1%;
+    }
+
+    @include mq($until: leftCol){
+      left: 16.9%;
+      top: 32.1%;
+    }
+
+    @include mq($until: desktop){
+      font-size:30px;
+      top:33%;
+      left:20%;
+    }
+
+    @include mq($until: tablet){
+      top: 51%;
+      left: -31px;
+      width:160%;
+    }
+
+    @include mq($until: mobileLandscape){
+      left:0px;
+      width:180%;
+      font-size:26px;
+      top:52%;
+    }
+
     &--one{
       top: 25%;
     }
@@ -88,6 +186,10 @@ $yellow: #FBBA0F;
     &--two{
       margin-top: -65px;
       opacity: 0;
+
+      @include mq($until: desktop){
+        margin-top: -45px;
+      }
     }
 
     &--one, &--two{

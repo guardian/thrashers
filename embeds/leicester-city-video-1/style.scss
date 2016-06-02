@@ -21,6 +21,7 @@ $c-white: #ffffff;
 .leicester-city-video-1__wrapper{
     @include mq(mobile){
       margin: 0 -10px 0;
+      width: 100%;
     }
     @include mq(desktop){
       margin: 0;
@@ -45,10 +46,11 @@ $c-white: #ffffff;
       background-color: $c-darkGray;
       height:280px;
       overflow: visible;
-      display: none;
+      position: relative;
 
         	@include mq($until: desktop) {
                 background-position-x: 32%;
+                margin-right: -20px;
           }
 
           @include mq(desktop) {
@@ -88,8 +90,8 @@ $c-white: #ffffff;
     display:none;
 
         @include mq(desktop) {
-            width: 1100px;
-            margin: -115px -200px 0;
+            width: 900px;
+            margin: -35px 0 0;
             display:block;
         }
     }
