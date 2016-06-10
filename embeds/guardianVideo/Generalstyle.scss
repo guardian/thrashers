@@ -17,6 +17,16 @@ $yellow: #FBBA0F;
     width: 1300px;
     height: 400px;
     overflow: hidden;
+    position: relative;
+
+    a{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100000;
+    }
 
     @include mq($until: wide){
       width: 1140px;
@@ -92,14 +102,12 @@ $yellow: #FBBA0F;
         display: block;
         float: left;
       }
-
-      svg{
-        float: right;
-        width: 20px;
-        margin-top: -7px;
-        margin-left: 10px;
-      }
-
+        svg{
+          float: right;
+          width: 20px;
+          margin-top: -7px;
+          margin-left: 10px;
+        }
     }
   }
 
@@ -149,6 +157,7 @@ $yellow: #FBBA0F;
     font-size: 43px;
     font-weight: 900;
     left: 11.9%;
+    color: white;
 
     @include mq($until: wide){
       left: 13.9%;

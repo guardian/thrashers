@@ -17,7 +17,6 @@ video.addEventListener("timeupdate",function(){
   }
 });
 
-console.log(window.innerHeight, video.getBoundingClientRect().top, video.getBoundingClientRect().bottom);
 
 function isScrolledIntoView(element) {
     var elementTop    = element.getBoundingClientRect().top,
@@ -55,8 +54,7 @@ function loadJSON(path, success, error)
 
 var lcfcVideoSrc = document.getElementById("leicester__video--loader");
 
-loadJSON("http://interactive.guim.co.uk/docsdata-test/1g-nqRQPtxr70cnfyttZSrPJiSkiSgVNam9J53drsZ2g.json", function(data) {
-  console.log('this ihsihsihoihsaoha,djfhakh');
+loadJSON("https://interactive.guim.co.uk/docsdata-test/1g-nqRQPtxr70cnfyttZSrPJiSkiSgVNam9J53drsZ2g.json", function(data) {
   document.getElementsByClassName('leicester__video--headline')[0].innerHTML = data.sheets.Sheet1[1].Title;
   document.getElementsByClassName('leicester__video--subheadline')[0].innerHTML = data.sheets.Sheet1[1].Body;
   lcfcVideoSrc.innerHTML = data.sheets.Sheet1[1].Video;
