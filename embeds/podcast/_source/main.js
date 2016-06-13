@@ -16,7 +16,7 @@ function loadJSON(path, success, error) {
     xhr.send();
 }
 
-loadJSON("http://interactive.guim.co.uk/docsdata-test/1rJsiJMlEqkSVbklFSKJBmwCYfuoS-JuhbDR1T7tNat0.json", function(data) {
+loadJSON("https://interactive.guim.co.uk/docsdata-test/1rJsiJMlEqkSVbklFSKJBmwCYfuoS-JuhbDR1T7tNat0.json", function(data) {
     var  source =  data.sheets.Sheet1[0].Trailer;
     var  mp3 = data.sheets.Sheet1[0].Mp3;
     document.getElementsByClassName("audio")[0].setAttribute("src", source);
@@ -56,13 +56,13 @@ loadJSON("http://interactive.guim.co.uk/docsdata-test/1rJsiJMlEqkSVbklFSKJBmwCYf
               playButton.setAttribute('data-link-name', 'the citadel podcast thrasher: play');
             }, 1000);
         }
-        console.log('clicked');
+        // console.log('clicked');
     };
     audio.ontimeupdate = function(){
-        console.log('length',audioLength);
-        console.log('currentTime', Math.floor(audio.currentTime));
+        // console.log('length',audioLength);
+        // console.log('currentTime', Math.floor(audio.currentTime));
         var timer = audio.currentTime / audioLength * 750;
-        console.log('%', Math.floor(timer));
+        // console.log('%', Math.floor(timer));
         document.getElementById("progress").setAttribute("stroke-dasharray", Math.floor(timer) + "," + "1000");
     }
 });

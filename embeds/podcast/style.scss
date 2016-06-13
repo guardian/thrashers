@@ -23,6 +23,10 @@ section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle
   background-color: #333;
 }
 
+.podcast__wrapper + a.fc-trail__count.fc-trail__count--commentcount {
+  display: none;
+}
+
 #the-citadel.fc-container--thrasher{
   .fc-container__inner{
     overflow: visible;
