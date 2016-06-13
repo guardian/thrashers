@@ -23,8 +23,8 @@ section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle
   background-color: #333;
 }
 
-.podcast__wrapper + a.fc-trail__count.fc-trail__count--commentcount {
-  display: none;
+section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
+  display: none !important;
 }
 
 #the-citadel.fc-container--thrasher{
