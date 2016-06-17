@@ -16,22 +16,23 @@ function loadJSON(path, success, error) {
     xhr.send();
 }
 
-
 // loadJSON("http://interactive.guim.co.uk/docsdata-test/13NtVNYHJzN-OrkUGt5MWm18GcbzngzhSswEEhbdfhK8.json", function(data) {
 loadJSON("https://interactive.guim.co.uk/docsdata-test/15Jb1fvpWZuXiI_KBaBBg7EUPLoU65TJoVI9TnLqe8w8.json", function(data) {
 
-    console.log (data);
+    // console.log (data);
     var  source =  data.sheets.Sheet1[0].Trailer;
     var  mp3 = data.sheets.Sheet1[0].Mp3;
     var  itunes = data.sheets.Sheet1[0].Itunes;
     var  title = data.sheets.Sheet1[0].Title;
     var  subhead = data.sheets.Sheet1[0].Subhead;
+    var  full_episode_link = data.sheets.Sheet1[0].Link;
     document.getElementsByClassName("audio")[0].setAttribute("src", source);
-    document.getElementsByClassName("subscription__download")[0].setAttribute("href", mp3);
-    document.getElementsByClassName("subscription__itunes")[0].setAttribute("href", itunes);
+    document.getElementsByClassName("subscription__download--link")[0].setAttribute("href", mp3);
+    document.getElementsByClassName("subscription__itunes--link")[0].setAttribute("href", itunes);
+    document.getElementsByClassName("episode-info_full")[0].setAttribute("href", full_episode_link);
     var audio = document.getElementsByClassName("audio")[0];
     var playButton = document.getElementsByClassName("player__play")[0];
-    var thrasher = document.getElementById("got-the-citadel-player-thrasher");
+    var thrasher = document.getElementById("football-daily-euro-2016-podcast-thrasher");
     document.getElementsByClassName("episode-info__kicker")[0].innerHTML = '<h1>' + title + '</h1>';
     document.getElementsByClassName("episode-info__title")[0].innerHTML = '<h1>' + subhead + '</h1>';
     var audioLength = 0;
@@ -55,22 +56,22 @@ loadJSON("https://interactive.guim.co.uk/docsdata-test/15Jb1fvpWZuXiI_KBaBBg7EUP
             audio.play();
             thrasher.setAttribute("data-playing", "playing");
             setTimeout(function() {
-              playButton.setAttribute('data-link-name', 'the citadel podcast thrasher: pause');
+              playButton.setAttribute('data-link-name', 'euro 2016 football daily podcast thrasher: pause');
             }, 1000);
         }else{
             audio.pause();
             thrasher.removeAttribute("data-playing");
             setTimeout(function() {
-              playButton.setAttribute('data-link-name', 'the citadel podcast thrasher: play');
+              playButton.setAttribute('data-link-name', 'euro 2016 football daily podcast thrasher: play');
             }, 1000);
         }
-        console.log('clicked');
+        // console.log('clicked');
     };
     audio.ontimeupdate = function(){
-        console.log('length',audioLength);
-        console.log('currentTime', Math.floor(audio.currentTime));
+        // console.log('length',audioLength);
+        // console.log('currentTime', Math.floor(audio.currentTime));
         var timer = audio.currentTime / audioLength * 750;
-        console.log('%', Math.floor(timer));
+        // console.log('%', Math.floor(timer));
         document.getElementById("progress").setAttribute("stroke-dasharray", Math.floor(timer) + "," + "1000");
     }
 });
