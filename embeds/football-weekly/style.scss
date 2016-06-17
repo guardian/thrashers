@@ -37,7 +37,12 @@ section#football-weekly.fc-container--thrasher {
 }
 
 
-#got-the-citadel-player-thrasher {
+section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
+  display: none !important;
+}
+
+
+#football-daily-euro-2016-podcast-thrasher {
   background-color: #333;
   width: auto;
   position: relative;
