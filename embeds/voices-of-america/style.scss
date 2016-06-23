@@ -1,0 +1,62 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@mixin transition($seconds){
+	-webkit-transition: all $seconds ease-in-out;		  	
+	-moz-transition: all $seconds ease-in-out;
+	-o-transition: all $seconds ease-in-out;
+	transition: all $seconds ease-in-out;
+}
+
+@mixin backgroundimage($background, $url, $size){
+	background: $background;
+	background-image: $url;
+	background-size: $size;
+}
+
+$opacity:1;
+
+
+@import 'shared/_imports';
+	
+	
+
+.voices-of-america--wrapper{
+	font-family: $f-serif-headline;
+	width: 1200px;
+	height: 350px;
+	
+	@include mq($until: desktop){
+				height: 280px;
+			}
+	@include mq($until: tablet){
+				width: 100%;
+			}
+	@include mq($until: mobileLandscape){
+				height: 320px;
+			}
+
+	.voices-of-america__logo {
+		position: absolute;
+		bottom: 10px;
+		left: 50px;
+		width: 200px;
+	}
+
+	.voices-of-america__map {
+		float: right;
+		margin-right: 50px;
+	}
+
+}		
+				
+		
+		
