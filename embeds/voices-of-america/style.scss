@@ -9,6 +9,8 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
+$c-background: #e3e3e3;
+
 @mixin backgroundimage($background, $url, $size){
 	background: $background;
 	background-image: $url;
@@ -17,8 +19,43 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+@include base(voices-of-america, $c-background);
+.voices-of-america__wrapper{
+	width: 100%;
+}
+
+section#voices-of-america a.fc-trail__count.fc-trail__count--commentcount {
+  display: none !important;
+}
+
+section#voices-of-america .fc-container__inner .fc-container__body {
+  margin-top: 0;
+}
+
+section#voices-of-america.fc-container--thrasher {
+  .fc-container__inner{
+    overflow: visible;
+
+    .fc-container__body{
+      .fc-slice-wrapper{
+        ul{
+          overflow: visible;
+        }
+        .facia-snap{
+          overflow: visible;
+
+          @include mq($until: tablet) {
+          	padding:0;
+          }
+          
+        }
+      }
+    }
+  }
+}
+
 .voices-of-america--wrapper{
-	@include backgroundimage(no-repeat, url('@@assetPath@@/texture.png'), 100%); 
+	@include backgroundimage(no-repeat, url('@@assetPath@@/texture.png'), cover); 
 	background-position: center;
 	font-family: $f-serif-headline;
 	width: 1300px;
@@ -30,10 +67,10 @@ $mq-breakpoints: (
 
 	@include mq($until: tablet){
 				width: 100%;
-				background-size: cover;
 			}
-	@include mq($until: mobileLandscape){
+	@include mq($until: phablet){
 				height: 320px;
+				text-align: center;
 			}
 
 	.voices-of-america__header {
@@ -53,19 +90,13 @@ $mq-breakpoints: (
 		
 		@include mq($until: tablet){
 			width: 220px;
-			margin-top: 60px;
+			margin:60px 0 0 30px;
 		}
 
 		@include mq($until: phablet){
-			width: 240px;
-		}
-		
-		@include mq($until: mobileLandscape){
-			width: 150px;
-		}
-
-		@include mq($until: mobile){
-			width: 150px;
+			width: 300px;
+		    margin: 0 auto;
+		    margin-top: 35px;
 		}
 
 		.voices-of-america__logo {
@@ -102,30 +133,26 @@ $mq-breakpoints: (
 				font-size: 16px;
 				line-height: 18px;
 				margin-left: 50px;
-				width: 80%;
+				width: 90%;
 			}
 			
 			@include mq($until: tablet){
-				font-size: 15px;
-			    line-height: 17px;
+				font-size: 16px;
+			    line-height: 18px;
 			    margin-left: 35px;
-				width: 95%;
+				width: 105%;
 			}
 			@include mq($until: phablet){
-				font-size: 15px;
-			    line-height: 17px;
-			    margin-left: 35px;
-				width: 95%;
+				font-size: 19px;
+			    line-height: 21px;
+			    margin: 0 auto;
 			}
 			
 			@include mq($until: mobileLandscape){
-				font-size: 15px;
-			    line-height: 17px;
-			}
-
-			@include mq($until: mobile){
-				font-size: 15px;
-			    line-height: 17px;
+				font-size: 17px;
+			    line-height: 19px;
+			    margin: 0 auto;
+			    width: 80%;
 			}
 		}
 	}
@@ -146,23 +173,13 @@ $mq-breakpoints: (
 		}
 		
 		@include mq($until: tablet){
-			width: 400px;
-			margin-left: 45px;
+			width: 350px;
+			margin: 32px 0 0 30px;
 		}
 		@include mq($until: phablet){
-			width: 320px;
-			margin:45px 0 0 20px;
+			display: none;
 		}
 		
-		@include mq($until: mobileLandscape){
-			width: 150px;
-			margin-left: 10px;
-		}
-		@include mq($until: mobile){
-			width: 150px;
-			margin-left: 10px;
-		}
-
 	}
 
 }	
