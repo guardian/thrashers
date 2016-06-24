@@ -22,6 +22,10 @@ $c-background: #e3e3e3;
 @include base(voices-of-america, $c-background);
 .voices-of-america__wrapper{
 	width: 100%;
+
+	@include mq($until: phablet){
+			overflow: visible;
+		}
 }
 
 section#voices-of-america a.fc-trail__count.fc-trail__count--commentcount {
@@ -46,8 +50,7 @@ section#voices-of-america.fc-container--thrasher {
 
           @include mq($until: tablet) {
           	padding:0;
-          }
-          
+          } 
         }
       }
     }
@@ -69,9 +72,12 @@ section#voices-of-america.fc-container--thrasher {
 				width: 100%;
 			}
 	@include mq($until: phablet){
-				height: 320px;
-				text-align: center;
+				height: 93px;
 			}
+
+	@include mq($until: mobileLandscape){
+		height: 88px;
+	}
 
 	.voices-of-america__header {
 		display: inline-block;
@@ -94,13 +100,22 @@ section#voices-of-america.fc-container--thrasher {
 		}
 
 		@include mq($until: phablet){
-			width: 300px;
-		    margin: 0 auto;
-		    margin-top: 35px;
+			width: 100%;
+		    margin: 10px 0 0 10px;
 		}
 
 		.voices-of-america__logo {
 		  width: 80%;
+
+		  @include mq($until: phablet){ 
+		  	display:inline-block;
+		  	width:160px;
+		  }
+
+		  @include mq($until: mobileLandscape){ 
+		  	display:inline-block;
+		  	width:130px;
+		  }
 		}
 
 		.star-1, .star-2, .star-3 {
@@ -137,22 +152,25 @@ section#voices-of-america.fc-container--thrasher {
 			}
 			
 			@include mq($until: tablet){
-				font-size: 16px;
-			    line-height: 18px;
 			    margin-left: 35px;
 				width: 105%;
 			}
-			@include mq($until: phablet){
-				font-size: 19px;
-			    line-height: 21px;
-			    margin: 0 auto;
-			}
+		
 			
+			@include mq($until: phablet){
+			    margin: 0 0 0 10px;
+			    width: 50%;
+			    display: inline-block;
+			    vertical-align: top;
+			}
+
 			@include mq($until: mobileLandscape){
-				font-size: 17px;
-			    line-height: 19px;
-			    margin: 0 auto;
-			    width: 80%;
+				font-size: 14px;
+			    line-height: 16px;
+			    margin: 0 0 0 10px;
+			    width: 48%;
+			    display: inline-block;
+			    vertical-align: top;
 			}
 		}
 	}
