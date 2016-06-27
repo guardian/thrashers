@@ -212,7 +212,7 @@ section#voices-of-america.fc-container--thrasher {
   50% { opacity: 1; }
 }
 
-/******** Title overrides 	********/
+/******** Title and page overrides 	********/
 
 .fc-container__header__title  {
 	color: #fff;
@@ -222,6 +222,15 @@ section#voices-of-america.fc-container--thrasher {
 	display: inline-block;
 	@include backgroundimage(no-repeat center, url('@@assetPath@@/slant.png'), 100% 100%);
 	padding: 5px 10px;
+}
+
+.fc-container__header__title a:hover span{
+	color: #fff;
+	text-decoration: underline;
+}
+
+.fc-container .fc-container__inner, .fc-container .facia-container__inner {
+	border-top: 0.0625rem solid #214583;
 }
 
 
