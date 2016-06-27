@@ -210,7 +210,23 @@ section#voices-of-america.fc-container--thrasher {
 @keyframes fadeinout {
   0%,100% { opacity: 0.3; }
   50% { opacity: 1; }
-}	
-				
+}
+
+/******** Title overrides 	********/
+
+.fc-container__header__title  {
+	color: #fff;
+}
+
+.fc-container__header__title span {
+	display: inline-block;
+	@include backgroundimage(no-repeat center, url('@@assetPath@@/slant.png'), 100% 100%);
+	padding: 5px 10px;
+}
+
+
+
+
+		
 		
 		
