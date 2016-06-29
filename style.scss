@@ -1,0 +1,267 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-green: #74ae80;
+$c-dark-green: #345923;
+$c-light-blue: guss-colour(news-main-2, $pasteup-palette);
+$c-blue: guss-colour(news-main-1, $pasteup-palette);
+$c-white: #fff;
+
+@include base(localthrasherhole, darken($c-blue, 2%));
+@include base(uni-guide, darken($c-blue, 2%));
+@include base(uniguide2017, darken($c-blue, 2%));
+
+@mixin animation($args) {
+  -ms-animation: #{$args};
+  -moz-animation: #{$args};
+  -webkit-animation: #{$args};
+  animation: #{$args};
+}
+
+@mixin transformAnim($name, $px) {
+  @-webkit-keyframes #{$name} {
+     from {
+       -moz-transform: translateX(0);
+       transform: translateX(0);
+     }
+     to {
+       -moz-transform: translateX($px);
+       transform: translateX($px);
+     }
+  }
+
+  @keyframes #{$name} {
+     from {
+       -moz-transform: translateX(0);
+       transform: translateX(0);
+     }
+     to {
+       -moz-transform: translateX($px);
+       transform: translateX($px);
+     }
+  }
+}
+
+@include transformAnim(movetrain, -4604px);
+@include transformAnim(movepanels, 3900px);
+@include transformAnim(moveskyline, 3900px);
+
+
+a.ug1617__anchor {
+    position: absolute;
+    z-index: 200 !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.ug1617__content {
+    background-color: $c-dark-green;
+    color: #333;
+
+    @include mq(mobileLandscape) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 10;
+        box-sizing: border-box;
+        width: 200px;
+    }
+
+    @include mq(tablet) {
+        width: 280px;
+        background-color: none;
+        background: url('@@assetPath@@/content-bg.png');
+        background-repeat: no-repeat;
+        background-position: center top;
+
+    }
+}
+
+.ug1617__title {
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 12px 24px 24px;
+    font-weight: 600;
+    font-family: $f-serif-headline;
+    color: $c-white;
+
+    @include mq(tablet) {
+        font-size: 2.2rem;
+        padding: 12px 20px 0;
+    }
+
+    span {
+        color: $c-white;
+    }
+}
+
+.show-non-mobile-inline{
+    display:none;
+        @include mq(tablet) {
+            display:inline;
+    }
+}
+
+.show-mobile-inline{
+    display:inline;
+        @include mq(tablet) {
+            display:none;
+    }
+}
+
+.show-mobile{
+        display: block;
+        @include mq(mobileLandscape) {
+            display: none;
+        }
+}
+
+
+.show-non-mobile{
+  display: none;
+      @include mq(mobileLandscape) {
+           display:block;
+      }
+
+}
+
+
+.ug1617__sub_title{
+    font-weight: 300;
+   
+}
+
+.ug1617__button {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    border: 0;
+    background-color: $c-dark-green;
+    line-height: 2.5;
+
+    z-index: 20;
+
+    @include mq(mobileLandscape) {
+        background-color: $c-green;
+        bottom:48px;
+    }
+}
+
+.ug1617__arrow-icon {
+    height: auto !important;
+    width: auto !important;
+    float: right;
+    fill: $c-white;
+}
+
+.ug1617__marque {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+
+    @include mq(mobileLandscape) {
+        top: 12px;
+        bottom: auto;
+    }
+}
+
+.ug1617__animation-container {
+
+    .static-image-holder {
+        position:relative;
+        height: 210px;
+        width:100%;
+        background: url('@@assetPath@@/mobile-view.jpg');
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+
+    .ug1617__animation-holder {
+        position:relative;
+        height: 280px;
+        width:100%;
+        max-width:1300px;
+        margin-top:-1px;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    .ug1617__anim {
+        position:absolute;
+        top:0px;
+        width:100%;
+        height:280px;
+    }
+
+    .ug1617__skycolor{
+        background-color:#7ed1c9;
+    }
+    .ug1617__anim--skyline {
+        background: url('@@assetPath@@/0-sky.gif');
+        background-repeat: repeat-x;
+        background-position: left;
+        width: 3900px * 1;
+        @include animation(moveskyline 600s linear infinite);
+    }
+
+    .ug1617__anim--building-panels {
+        background: url('@@assetPath@@/1-buildings.gif');
+        background-repeat: repeat-x;
+        background-position: left;
+        width: 100%;
+    }
+
+   .ug1617__anim--tree-panels {
+        background: url('@@assetPath@@/2-trees.gif');
+        background-repeat: repeat-x;
+        background-position: left;
+        width: 3900px * 1;
+        @include animation(movepanels 240s linear infinite);
+    }
+
+    .ug1617__anim--rails {
+        background: url('@@assetPath@@/2-trees.gif');
+        background-repeat: repeat-x;
+        background-position: left;
+        width: 100%;
+    }
+
+    .ug1617__anim--wheels {
+        background: url('@@assetPath@@/2-wheels.gif');
+        background-repeat: repeat-x;
+        background-position: left;
+        width:  6436px * 1;
+        @include animation(movetrain 24s linear infinite);
+    }
+
+    .ug1617__anim--train {
+        background: url('@@assetPath@@/3-train.gif');
+        background-repeat: repeat-x;
+        background-position: left;
+        width: 6436px * 1;
+        z-index: 30;
+        @include animation(movetrain 24s linear infinite);
+    }
+
+    .ug1617__anim--fg-hedge {
+        background: url('@@assetPath@@/4-hedge.gif');
+        background-repeat: repeat-x;
+        background-position: left;
+        width: 3900px * 2;
+        z-index: 30;
+        @include animation(movetrain 18s linear infinite);
+    }
+}
