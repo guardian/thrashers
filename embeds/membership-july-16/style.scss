@@ -1,0 +1,334 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-background: #AAD8F1;
+
+@mixin backgroundimage($background, $url, $size){
+    background: $background;
+    background-image: $url;
+    background-size: $size;
+}
+
+@include base(membership-july-16, $c-background);
+
+section#membership-july-16 a.fc-trail__count{
+  display: none !important;
+}
+
+#membership-july-16.fc-container--thrasher{
+		.fc-container__inner{
+			overflow: visible;
+
+			.fc-container__body{
+				.fc-slice-wrapper{
+					ul{
+						overflow: visible
+					}
+
+					.facia-snap{
+						overflow: visible;
+					}
+				}
+			}
+		}
+	}
+
+.membership-july-16__wrapper{
+  overflow: visible !important;
+}
+
+.membership-july-16__wrapper {
+    @include backgroundimage(no-repeat, url('@@assetPath@@/texture.png'), cover);
+    background-position: center;
+    font-family: $f-serif-headline;
+    width: 1300px;
+    height: 250px;
+
+    @include mq($until: desktop){
+        height: 260px;
+    }
+
+    @include mq($until: tablet){
+        width: 100%;
+    }
+
+    @include mq($until: mobileLandscape){
+        height: 250px;
+    }
+
+    .membership-july-16__quote-mark {
+    	width: 80px;
+    	position: absolute;
+    	top:15px;
+    	left:30px;
+
+	    	@include mq($until: desktop){
+                width: 80px;
+            }
+
+            @include mq($until: phablet){
+                width: 80px;
+                left: 10px;
+            }
+
+             @include mq($until: mobileLandscape){
+		        display: none;
+		    }
+
+            @include mq($until: mobile){
+               display: none;
+            }
+    }
+
+
+    h1 {
+    	display: block;
+    	font-family: $f-serif-headline;
+    	color: #005689;
+    	font-size: 2.1rem;
+	    line-height: 2.5rem;
+
+            @include mq($until: wide){
+                font-size: 2rem;
+                line-height: 2.4rem;
+            }
+
+		    @include mq($until: leftCol){
+		    	font-size: 1.7rem;
+			    line-height: 2.1rem;
+            }
+
+            @include mq($until: desktop){
+                font-size: 1.5rem;
+			    line-height: 1.8rem;
+            }
+
+            @include mq($until: phablet){
+                font-size: 1.5rem;
+			    line-height: 1.8rem;
+            }
+
+            @include mq($until: mobileLandscape){
+                font-size: 1.3rem;
+                line-height: 1.5rem;
+            }
+
+    }
+
+    .quote {
+    	margin: 66px 0 0 30px;
+    	width: 650px;
+
+	    	@include mq($until: leftCol){
+		    	width: 550px;
+            }
+
+            @include mq($until: desktop){
+                width: 345px;
+                margin-top:68px;
+            }
+
+            @include mq($until: phablet){
+                width: 300px;
+                margin-left: 10px
+            }
+
+            @include mq($until: mobileLandscape){
+                width: 200px;
+                margin-top: 12px;
+            }
+    }
+
+    .name {
+    	font-weight: 100;
+    	margin: 2px 0 0 30px;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+
+            @include mq($until: leftCol){
+                font-size: 1.5rem;
+            }
+
+        	 @include mq($until: desktop){
+                margin-top: 5px;
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+            }
+
+            @include mq($until: phablet){
+                margin-left: 10px;
+                font-size: 1rem;
+                line-height: 1.4rem;
+            }
+
+            @include mq($until: mobileLandscape){
+                font-size: 1rem;
+                line-height: 1.3rem;
+                width: 148px;
+            }
+    }
+
+    .link-button {
+        position: absolute;
+        bottom: 15px;
+
+            @include mq($until: mobileLandscape){
+                bottom:58px;
+            }
+    }
+
+    .membership-july-16__cta{
+    	display: inline-block;
+	    padding: 5px 16px;
+	    border: .6px solid #005689;
+	    border-radius: 100px;
+	    margin: 10px 0 0 30px;
+
+		    @include mq($until: desktop){
+                padding: 4px 14px;
+                margin-top: 12px;
+            }
+
+            @include mq($until: phablet){
+                margin-left: 10px;
+                margin-top: 9px;
+            }
+
+            @include mq($until: mobileLandscape){
+            	margin-top: 9px;
+                padding: 2px 14px;
+            }
+
+    	p {
+    		font-family: Guardian Text Sans Web;
+    		font-weight: 600;
+    		color: #005689;
+    		font-size: 15px;
+    		display: inline-block;
+    		vertical-align: middle;
+		    margin: 0;
+
+		    @include mq($until: desktop){
+                font-size:13px;
+            }
+    	}
+
+    	.cta-arrow {
+    		display: inline-block;
+    		width: 24px;
+    		margin-left: 5px;
+    		vertical-align: middle;
+
+            @include mq($until: mobileLandscape){
+                width: 20px;
+            }
+
+    	}
+    }
+
+    .membership-july-16__cta:hover {
+    	background-color: #BB3A7F;
+    	border: .6px solid #BB3A7F;
+    }
+
+    .membership-july-16__cta:hover p {
+    	color: #fff;
+    }
+
+    .membership-july-16__cta:hover #arrow-color {
+    	fill: #fff;
+    }
+
+    .membership-july-16__logo {
+    	position: absolute;
+    	bottom:15px;
+    	right:300px;
+    	width:160px;
+    	z-index: 29;
+
+	    	@include mq($until: desktop){
+                right:220px;
+                width:120px;
+            }
+
+            @include mq($until: phablet){
+                right: 135px;
+            }
+
+            @include mq($until: mobileLandscape){
+                left:10px;
+                width: 110px;
+            }
+    }
+
+    .membership-july-16__figure {
+    	position: absolute;
+    	bottom: 0;
+    	right:0px;
+    	width:254px;
+    	z-index: 9;
+
+	    	@include mq($until: desktop){
+                width:275px;
+            }
+
+            @include mq($until: phablet){
+                width:200px;
+                right:-30px ;
+            }
+
+            @include mq($until: mobileLandscape){
+                width: 180px;
+            }
+
+    }
+
+    .membership-july-16__g-logo {
+    	position: absolute;
+    	top: 10px;
+    	right:10px;
+        width:50px;
+
+	    	@include mq($until: phablet){
+				top: 10px;
+				right: 0px;
+            }
+
+            @include mq($until: mobileLandscape){
+				top: 5px;
+				width: 35px;
+            }
+
+    }
+
+    .membership-july-16__blocks {
+    	position: absolute;
+    	bottom: 0;
+    	right:0;
+    	z-index: 1;
+
+	    	@include mq($until: desktop){
+                width:400px;
+                height: auto;
+            }
+
+            @include mq($until: tablet){
+                width:380px;
+            }
+
+            @include mq($until: phablet){
+                display: none;
+            }
+    }
+
+}
