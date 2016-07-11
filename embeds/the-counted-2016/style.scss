@@ -289,57 +289,35 @@ $number-height: 33.333%;
 }
 
 // Alternate Code
-
-@include mq($until: desktop) {
-    .the-counted__face--blank {
-        display: none;
-    }
-}
-
-@include mq(phablet, desktop) {
-    .the-counted__face--4,
-    .the-counted__face--8 {
-        margin-right: 60%;
-    }
-}
-
 @include mq(desktop, wide) {
-    .the-counted__face--5,
-    .the-counted__face--6 {
+    .the-counted__face--9,
+    .the-counted__face--12 {
         margin-right: $face-size--desktop * 5;
     }
 
-    .the-counted__face--blank-5,
-    .the-counted__face--7 {
+    .the-counted__face--10,
+    .the-counted__face--13 {
         margin-right: $face-size--desktop * 6;
-    }
-
-    .the-counted__face--11 {
-        margin-left: $face-size--desktop;
     }
 }
 
 @include mq(wide) {
-    .the-counted__face--6
-    .the-counted__face--blank-8 {
+    .the-counted__face--11,
+    .the-counted__face--16 {
         margin-right: $face-size--wide * 5;
     }
 
-    .the-counted__face--blank-6,
-    .the-counted__face--9 {
+    .the-counted__face--12,
+    .the-counted__face--17 {
         margin-right: $face-size--wide * 6;
-    }
-
-    .the-counted__face--14 {
-        margin-left: $face-size--wide;
     }
 }
 
 .animate {
-    @for $face from 1 to 80 {
+    @for $face from 1 to 50 {
         .the-counted__face:nth-of-type(#{$face}) {
             transition-delay: random(220) / 100 + s;
-            opacity: 1;
+            opacity: 0.5;
         }
     }
 }

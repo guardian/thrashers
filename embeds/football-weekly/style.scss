@@ -13,21 +13,13 @@ $c-background: #333;
 
 @import 'shared/_imports';
 
-@include base(got-the-citadel-player-thrasher, $c-background);
-.podcast__wrapper{
+@include base(football-weekly, $c-background);
+.football-weekly__wrapper{
 	width: 100%;
 }
 
-// super specific thing that could be a mixin instead?
-section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle {
+section#football-weekly.fc-container--thrasher {
   background-color: #333;
-}
-
-section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
-  display: none !important;
-}
-
-#the-citadel.fc-container--thrasher{
   .fc-container__inner{
     overflow: visible;
 
@@ -45,7 +37,12 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 }
 
 
-#got-the-citadel-player-thrasher {
+section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
+  display: none !important;
+}
+
+
+#football-daily-euro-2016-podcast-thrasher {
   background-color: #333;
   width: auto;
   position: relative;
@@ -160,7 +157,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     margin: 14px 0 30px;
     border-radius: 15px;
     border: 1px solid currentColor;
-    color: #fb0;
+    color: #FB0;
     font-family: 'Guardian Text Sans Web';
     .episode-info__arrow {
       position: absolute;
@@ -258,7 +255,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
         }
       }
       &-yellow {
-        color: #fb0;
+        color: #FB0;
         opacity: 0.08;
       }
       &-blue {
@@ -322,7 +319,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
       right: 51px;
       height: 130px;
       width: 336px;
-      .player__circle {
+      .player__circle, .player__illustration img {
         height: 130px;
         width: 130px;
       }
@@ -351,7 +348,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
       right: 50px;
       height: 110px;
       width: 284px;
-      .player__circle {
+      .player__circle, .player__illustration img {
         height: 110px;
         width: 110px;
       }
