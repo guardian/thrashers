@@ -1,0 +1,62 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.brexit-report__wrapper {
+    width: 100%;
+    a {
+        width: 100%;
+        background-image: url(@@assetPath@@/EU-flag_320.jpg);
+        background-size: cover;
+        background-position: center;
+        display: inline-block;
+        border-top: 1px solid #ffff05;
+        position: relative;
+
+
+        @include mq(phablet) {
+            background-image: url(@@assetPath@@/EU-flag_640.jpg);
+        }
+        @include mq(desktop) {
+            background-image: url(@@assetPath@@/EU-flag_940.jpg);
+        }
+        @include mq(phablet) {
+            position: relative;
+        }
+    }
+}
+
+.brexit-text {
+    color: white;
+    font-family: $f-serif-headline;
+    font-weight: 300;
+    font-size: 38px;
+    background-color: #484f53;
+    line-height: 0.7;
+    padding: 0.2em 0.1em 0.2em;
+    margin: 0;
+    clear: left;
+    float: left;
+
+    @include mq(tablet) {
+        font-size: 68px;
+    }
+
+    & + & {
+        padding-top: 0.1em;
+        margin-bottom: 8rem;
+
+        @include mq(tablet) {
+            margin-bottom: 1rem;
+        }
+    }
+}

@@ -30,7 +30,7 @@ var animatable = true;
 var animate = function() {
     if (animatable) {
         if (isScrolledIntoView(document.getElementById("the-counted"))) {
-            loadJSON("http://interactive.guim.co.uk/2015/the-counted/thrasher-2016.json", function(data) {
+            loadJSON("https://interactive.guim.co.uk/2015/the-counted/thrasher-2016.json", function(data) {
                 countLength = data.count.toString().length;
 
                 if (countLength == 4) {
