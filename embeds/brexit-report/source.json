@@ -1,0 +1,8 @@
+{
+  "html": "<div class=\"brexit-report__wrapper\"><style>.brexit-report__wrapper{width:100%}.brexit-report__wrapper a{width:100%;background-image:url(https://interactive.guim.co.uk/thrashers/brexit-report/hashed/EU-flag_320.edd34163.jpg);background-size:cover;background-position:center;display:inline-block;border-top:1px solid #ffff05;position:relative}@media all and (min-width:41.25em){.brexit-report__wrapper a{background-image:url(https://interactive.guim.co.uk/thrashers/brexit-report/hashed/EU-flag_640.3c61e423.jpg);position:relative}}@media all and (min-width:61.25em){.brexit-report__wrapper a{background-image:url(https://interactive.guim.co.uk/thrashers/brexit-report/hashed/EU-flag_940.85a14744.jpg)}}.brexit-text{color:#fff;font-family:\"Guardian Egyptian Web\",Georgia,serif;font-weight:300;font-size:38px;background-color:#484f53;line-height:.7;padding:.2em .1em;margin:0;clear:left;float:left}.brexit-text+.brexit-text{padding-top:.1em;margin-bottom:8rem}@media all and (min-width:46.25em){.brexit-text{font-size:68px}.brexit-text+.brexit-text{margin-bottom:1rem}}</style><a href=\"//www.theguardian.com/politics/eu-referendum\">\n<p class=\"brexit-text\">Britain votes</p>\n<p class=\"brexit-text\">for Brexit</p>\n</a></div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "http://theguardian.com/politics/eu-referendum",
+  "headline": "Britain votes for Brexit",
+  "trailText": ""
+}

@@ -52,9 +52,9 @@ To compile and deploy *everything* run the above commands without the `--folderN
 
 ### Creating the container
 
-To preview your Thrasher on the site it will need to be added to a front with it's own container. For development and archival reasons, add it to the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
+To preview your Thrasher on the site it will need to be added to a front with it's own container. For development and archival reasons, add it to the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`. Or add it to the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
 
-The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool. Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
+The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool [Fascia fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config). Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
 
 ### Getting the snapURL
 
@@ -70,9 +70,11 @@ grunt update --folderName=the-name-of-your-embed
 
 ### Embedding the Thrasher
 
-The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container.
+The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. Remember to choose benthrasher from the pull down if you want it to appear on that page.
 
-You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
+You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`. 
+
+OR IF YOU USED benthrasher you should now see your thrasher at the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
 
 ## Developing
 
