@@ -49,7 +49,6 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   background-color: #333;
   width: auto;
   position: relative;
-  padding: 12px;
   min-height: 250px;
   .branding {
     position: absolute;
@@ -64,21 +63,20 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   .episode-info {
-    // position: absolute;
     width: 400px;
-    margin-top: -5px;
-    margin-left: 250px;
+    padding-top: 30px;
+    margin-left: 30px;
     position: relative;
     z-index: 300;
     .episode-info__heading {
       display: block;
-      font-size: 28px;
-      line-height: 28px;
+      font-size: 35px;
+      line-height: 35px;
       font-family: 'Guardian Egyptian Web', serif;
-      font-weight: 500;
+      font-weight: 800;
       .episode-info__kicker {
         display: block;
-        color: #FB0;
+        color: #BEE202;
       }
       .episode-info__title {
         color: #FFF;
@@ -98,7 +96,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     margin: 14px 0 30px;
     border-radius: 15px;
     border: 1px solid currentColor;
-    color: #fb0;
+    color: #BEE202;
     font-family: 'Guardian Text Sans Web';
     .episode-info__arrow {
       position: absolute;
@@ -112,7 +110,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
       }
     }
     &:hover {
-      background-color: #fb0;
+      background-color: #BEE202;
       color: #444;
       text-decoration: none;
       #right-arrow {
@@ -124,7 +122,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   .subscription {
     position: absolute;
     bottom: 0;
-    left: 262px;
+    left: 30px;
     font-family: 'Guardian Text Sans Web';
     font-size: 13px;
     padding-bottom: 2px;
@@ -158,16 +156,116 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     }
   }
 
-.balls-container {  
+.balls-container {
+  width: 100%;
+
+  .all-balls {
+    position:absolute;
+    top:-200px;
+  }
+
+  #figure {
+    width: 450px;
+    position: absolute;
+    right: 100px;
+    bottom: -660px;
+
+    -webkit-animation:move-two 3s 9s forwards ;
+    -moz-animation:move-two 3s 9s forwards ;
+    animation:move-two 3s 9s forwards ;
+  }
+
+
    #tennis {
-    float: right;
+    right:150px;
     width: 100px;
+
+    -webkit-animation:spin 6s linear 2, move-one 5s linear 2 ;
+    -moz-animation:spin 6s linear 2, move-one 5s linear 2;
+    animation:spin 6s linear 2, move-one 5s linear 2;
+
    }
+
+   #pool {
+    right:450px;
+    width: 80px;
+
+    -webkit-animation:spin 6s .5s linear 2, move-one 5s .5s linear 2;
+    -moz-animation:spin 6s  .5s linear 2, move-one 5s  .5slinear 2;
+    animation:spin 6s .5s linear 2, move-one 5s .5s linear 2;
+
+   }
+
+   #golf {
+    right:550px;
+    width: 50px;
+
+    -webkit-animation:spin 6s 1s linear 2, move-one 5s 1s linear 2;
+    -moz-animation:spin 6s 1s linear  2, move-one 5s 1s linear 2;
+    animation:spin 6s 1s linear 2, move-one 5s 1s linear 2;
+  
+   }
+
+   #basketball {
+    right:300px;
+    width: 120px;
+
+    -webkit-animation:spin 7s 2s linear 2, move-one 5s 2s linear 2;
+    -moz-animation:spin 7s 2s linear  2, move-one 5s 2s linear 2;
+    animation:spin 7s 2s linear 2, move-one 5s 2s linear 2;
+
+   }
+
+   #football {
+    right:120px;
+    width: 70px;
+
+    -webkit-animation:spin 6s 3s linear 2, move-one 5s 3s linear 2;
+    -moz-animation:spin 6s 3s linear  2, move-one 5s 3s linear 2;
+    animation:spin 6s 3s linear 2, move-one 5s 3s linear 2;
+
+   }
+
 }
 
+/****** Animatin Keyframes *******/
+
+@-moz-keyframes spin { 
+  100% { -moz-transform: rotate(360deg);} 
+  }
+@-webkit-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg);} 
+  }
+@keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg);} 
+  }
 
 
+@keyframes move-one {
+  from {top: -200px;} 
+  to{top:350px;}
+}
+@-moz-keyframes move-one {
+  from {top: -200px;} 
+  to{top:350px;}
+}
+@-webkit-keyframes move-one {
+  from {top: -200px;} 
+  to{top:350px;}
+}
 
+@keyframes move-two {
+  from {bottom: -660px;} 
+  to{bottom:-260px;}
+}
+@-moz-keyframes move-two {
+  from {bottom: -660px;} 
+  to{bottom:-260px;}
+}
+@-webkit-keyframes move-two {
+  from {bottom: -660px;} 
+  to{bottom:-260px;}
+}
 
 
 
