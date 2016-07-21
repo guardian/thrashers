@@ -46,7 +46,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 
 #sos-thrasher {
-  background-color: #333;
+  background-color: #0D7CAD;
   width: auto;
   position: relative;
   min-height: 250px;
@@ -161,7 +161,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
   .all-balls {
     position:absolute;
-    top:-200px;
+    bottom:-200px;
   }
 
   #figure {
@@ -170,9 +170,9 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     right: 100px;
     bottom: -660px;
 
-    -webkit-animation:move-two 3s 9s forwards ;
-    -moz-animation:move-two 3s 9s forwards ;
-    animation:move-two 3s 9s forwards ;
+    /*-webkit-animation:move-figure 3s 9s forwards ;
+    -moz-animation:move-figure 3s 9s forwards ;
+    animation:move-figure 3s 9s forwards ;*/
   }
 
 
@@ -180,9 +180,13 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     right:150px;
     width: 100px;
 
-    -webkit-animation:spin 6s linear 2, move-one 5s linear 2 ;
-    -moz-animation:spin 6s linear 2, move-one 5s linear 2;
-    animation:spin 6s linear 2, move-one 5s linear 2;
+    /*-webkit-animation:spin 4.5s linear 2, move-one 4s linear 2 ;
+    -moz-animation:spin 4.5s linear 2, move-one 4s linear 2;
+    animation:spin 4.5s linear 2, move-one 4s linear 2;*/
+
+     -webkit-animation:spin 2s linear forwards, bounce-out 2s forwards  ;
+    -moz-animation:spin 2s  linear forwards, bounce-out 2s forwards ;
+    animation:spin 2s linear forwards, bounce-out 2s forwards ;
 
    }
 
@@ -190,39 +194,50 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     right:450px;
     width: 80px;
 
-    -webkit-animation:spin 6s .5s linear 2, move-one 5s .5s linear 2;
-    -moz-animation:spin 6s  .5s linear 2, move-one 5s  .5slinear 2;
-    animation:spin 6s .5s linear 2, move-one 5s .5s linear 2;
+    -webkit-animation:spin 4s .5s linear 2, move-one 4s .3s linear 2;
+    -moz-animation:spin 4s  .5s linear 2, move-one 4s  .3s linear 2;
+    animation:spin 4s .5s linear 2, move-one 4s .3s linear 2;
 
    }
 
    #golf {
-    right:550px;
+    right:450px;
     width: 50px;
 
-    -webkit-animation:spin 6s 1s linear 2, move-one 5s 1s linear 2;
-    -moz-animation:spin 6s 1s linear  2, move-one 5s 1s linear 2;
-    animation:spin 6s 1s linear 2, move-one 5s 1s linear 2;
+    -webkit-animation:spin 4s 1s linear 2, move-one 4.5s 1s linear 2;
+    -moz-animation:spin 4s 1s linear  2, move-one 4.5s 1s linear 2;
+    animation:spin 4s 1s linear 2, move-one 4.5s 1s linear 2;
   
    }
 
    #basketball {
+    top:-200px;
     right:300px;
     width: 120px;
 
-    -webkit-animation:spin 7s 2s linear 2, move-one 5s 2s linear 2;
-    -moz-animation:spin 7s 2s linear  2, move-one 5s 2s linear 2;
-    animation:spin 7s 2s linear 2, move-one 5s 2s linear 2;
+    -webkit-animation:spin 2s 1.5s linear forwards, bounce 2s 1.5s forwards  ;
+    -moz-animation:spin 2s 1.5s linear forwards, bounce 2s 1.5s forwards ;
+    animation:spin 2s 1.5s linear forwards, bounce 2s 1.5s forwards ;
 
    }
 
    #football {
-    right:120px;
+    right:150px;
     width: 70px;
 
-    -webkit-animation:spin 6s 3s linear 2, move-one 5s 3s linear 2;
-    -moz-animation:spin 6s 3s linear  2, move-one 5s 3s linear 2;
-    animation:spin 6s 3s linear 2, move-one 5s 3s linear 2;
+    -webkit-animation:spin 4s 2.5s linear 2, move-one 4s 2s linear 2;
+    -moz-animation:spin 4s 2.5s linear  2, move-one 4s 2s linear 2;
+    animation:spin 4s 2.5s linear 2, move-one 4s 2s linear 2;
+
+   }
+
+   #baseball {
+    right:320px;
+    width: 70px;
+
+    -webkit-animation:spin 4s 2.5s linear 2, move-one 4s 2.5s linear 2;
+    -moz-animation:spin 4s 2.5s linear  2, move-one 4s 2.5s linear 2;
+    animation:spin 4s 2.5s linear 2, move-one 4s 2.5s linear 2;
 
    }
 
@@ -241,28 +256,53 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   }
 
 
-@keyframes move-one {
-  from {top: -200px;} 
-  to{top:350px;}
-}
-@-moz-keyframes move-one {
-  from {top: -200px;} 
-  to{top:350px;}
-}
-@-webkit-keyframes move-one {
-  from {top: -200px;} 
-  to{top:350px;}
+
+@-webkit-keyframes bounce {
+ /*   0%   { top:-200px; animation-timing-function:ease-in;  }
+    37%  { top:110px; animation-timing-function:ease-out; }
+    55%  { top:-35px; animation-timing-function:ease-in;  }
+    73%  { top:110px; animation-timing-function:ease-out; }
+    82%  { top:55px; animation-timing-function:ease-in;  }
+    91%  { top:110px; animation-timing-function:ease-out; }
+    96%  { top:90px; animation-timing-function:ease-in;  }
+    100% { top:110px; }*/
+
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:110px; animation-timing-function:ease-out; }
+    66.666%  { top:-35px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
 }
 
-@keyframes move-two {
+@-webkit-keyframes bounce-out {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:120px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    
+}
+
+/*@keyframes move-one {
+  from {bottom: -200px;} 
+  to{bottom:100px;}
+}
+@-moz-keyframes move-one {
+  from {bottom: -200px;} 
+  to{bottom:100px;}
+}
+@-webkit-keyframes move-one {
+  from {bottom: -200px;} 
+  to{bottom:100px;}
+}*/
+
+
+@keyframes move-figure {
   from {bottom: -660px;} 
   to{bottom:-260px;}
 }
-@-moz-keyframes move-two {
+@-moz-keyframes move-figure {
   from {bottom: -660px;} 
   to{bottom:-260px;}
 }
-@-webkit-keyframes move-two {
+@-webkit-keyframes move-figure {
   from {bottom: -660px;} 
   to{bottom:-260px;}
 }
