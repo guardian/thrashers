@@ -610,7 +610,8 @@ $opacity:1;
 					right: 134px;
 					bottom: -49px;
 					z-index: -20;
-					
+					display: none;
+
 					@include mq($until: wide){
 							right: 157px;
 					}
