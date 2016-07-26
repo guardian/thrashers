@@ -1,0 +1,341 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+@include base(us-election-header, #fff);
+
+$primary-colour:#e9212d;
+$grey:#f5f5f5;
+$blue:#005689;
+
+
+#us-election-header{
+	margin-bottom: 0px;
+}
+#us-election-header.fc-container--thrasher{
+		.fc-container__inner{
+			overflow: visible;
+						  
+			.fc-container__body{
+				.fc-slice-wrapper{
+					ul{
+						overflow: visible
+					}
+					
+					.facia-snap{
+						overflow: visible;
+					}
+				}
+			}			
+		}
+	}
+
+@mixin flag($background-colour, $width, $pixels, $pixelsright, $pixelstwo){
+	background-color: $background-colour;
+	height: 20px;
+	width: $width;
+	left: $pixels;
+	right :$pixelsright;
+	top: $pixelstwo;
+	position: absolute;
+}
+
+@mixin after($width, $margin-top, $margin-left){
+	content: "";
+	background-color: $grey;
+	height: 20px;
+	width: $width;
+	display: block;
+    margin-top: $margin-top;
+    margin-left: $margin-left;
+}
+
+.election-header__wrapper{
+	font-family: $f-serif-headline;
+	height: 160px;
+	width: 1300px;
+	position: relative;
+	background: no-repeat url('@@assetPath@@/white_house.png');
+	background-position-x: 90%;
+	background-position-y: 90%;
+	
+	@include mq($until: wide){
+		background-position-x: 82%;
+	}
+	
+	@include mq($until: leftCol){
+		background-position-x: 67%;
+	}
+	
+	@include mq($until: desktop){
+	height: 140px;
+	background-position-x: 39%;
+	}
+	
+	@include mq($until: mobileLandscape){
+		width: 100%;
+		height: 92px;
+		background-position-y: 100%;
+		background-position-x: 100%;
+		background-size: 51%;
+	}
+	
+	.election-header__flags{
+		width: 100%;
+		height: 160px;
+		.flag{
+			&--one{
+				@include flag($primary-colour, 274px, -5%, auto, 66px);
+				&:before{
+					content: url('@@assetPath@@/elephant.svg');
+					height: 40px;
+					width: 80px;
+					display: block;
+					margin-top: -34px;
+					margin-left: 240px;
+					animation: moveElephant 10s linear;
+					
+					@include mq($until: mobileLandscape){
+						content: url('@@assetPath@@/elephant_mobile.svg');
+						margin-top: -16px;
+						margin-left: 256px;
+						animation: moveElephantMobile 10s ease-in;
+					}
+					
+				}
+				&:after{
+					@include after(124px, 14px, -30px);
+				}
+				
+				@include mq($until: leftCol){
+					left: -12%;
+				}
+				
+				@include mq($until: desktop){
+					left: -17%;
+				}
+				
+				@include mq($until: mobileLandscape){
+					@include flag($primary-colour, 274px, -214px, auto, 66px);
+					height: 15px !important;
+				}
+				
+			}
+			&--two{
+				@include flag($primary-colour, 274px, 46%, auto, 16px);
+				&:after{
+					@include after(124px, 20px, 210px);
+				}
+				@include mq($until: mobileLandscape){
+					display: none;
+				}
+			}
+			&--three{
+				@include flag($primary-colour, 274px, auto, 22%, 120px);
+				&:before{
+					content: url('@@assetPath@@/donkey.svg');
+					height: 40px;
+					width: 80px;
+					display: block;
+					margin-top: -37px;
+					margin-left: 0px;
+					animation: moveDonkey 10s linear;
+					animation-delay: 0.2s;
+					
+					@include mq($until: mobileLandscape){
+						content: url('@@assetPath@@/donkey_mobile.svg');
+						margin-top: -19px;
+					}
+					
+				}
+				&:after{
+					@include after(124px, -40px, -180px);
+					
+					@include mq($until: mobileLandscape){
+						display: none;
+					}
+				}
+				
+				@include mq($until:leftCol){
+					    right: 39%;
+					    width: 194px;
+				}
+				
+				@include mq($until: desktop){
+					right: 55%;
+					top: 68px;
+				}
+				
+				@include mq($until:mobileLandscape){
+					    right: auto;
+					    left: 54%;
+						top: 24px;
+						height: 15px !important;
+				}
+			}
+			&--four{
+				@include flag($primary-colour, 274px, auto, -10%, 66px);
+				&:after{
+					@include after(124px, -20px, 80px);
+					
+					@include mq($until: mobileLandscape){
+						@include after(124px, -20px, 63px);
+					}
+				}
+				@include mq($until: mobileLandscape){
+					@include flag($primary-colour, 274px, auto, -197px, 66px);
+				}
+				
+				@include mq($until: wide){
+					right: -2%;
+				}
+				
+				@include mq($until: leftCol){
+					right: 9%;
+				}
+				
+				@include mq($until: mobileLandscape){
+					display: none;
+				}				
+			}	
+		}
+	}
+	
+	.election-header__logo{
+		width: 310px;
+		height: 60px;
+		position: absolute;
+		top:20px;
+		left: 260px;
+		
+		@include mq($until: leftCol){
+				left: 198px;
+			}
+			
+		@include mq($until: desktop){
+			left: 97px;
+		}
+		
+		@include mq($until: mobileLandscape){
+				left: -5px;
+				top:6px;
+			}
+		
+		.logo{
+			float: left;
+			background: no-repeat url('@@assetPath@@/election_logo.png');
+			height: 85px;
+			width: 85px;
+			background-size: 100%;
+			
+			@include mq($until: desktop){
+				width: 70px;
+			}
+			
+			@include mq($until: mobileLandscape){
+				width: 39px;
+			}
+		}
+		
+		.type{
+			float: left;
+			margin-left: 10px;
+			
+			h1{
+			    font-size: 56px;
+				font-weight: 600;
+				margin-top: 5px;
+				line-height: 38px;
+				color: $blue;
+				
+				@include mq($until: desktop){
+				font-size: 41px;
+				line-height: 32px;
+				margin-top: 4px;
+				}
+				
+				@include mq($until: mobileLandscape){
+				font-size: 24px;
+				line-height: 14px;
+				}
+			}
+			
+		}
+		
+	}
+	
+	.election-header__strap{
+		position: absolute;
+		bottom: 20px;
+		left: 200px;
+		
+		.star{
+			color: $blue;
+			font-size: 16px;
+		}
+		
+		@include mq($until: leftCol){
+			left: 156px;
+		}
+		
+		@include mq($until: desktop){
+			left: 50px;
+			bottom: 10px;
+		}
+		
+		@include mq($until:mobileLandscape){
+			left: 73px;
+			bottom: 8px;
+			width: 230px;
+		}		
+		
+		h2{
+			font-size: 20px;
+			color: $primary-colour;	
+			
+			@include mq($until: mobileLandscape){
+				font-size: 16px;
+				line-height: 16px;
+			}
+		}
+	}
+	
+	@keyframes moveElephant{
+		0% {
+			margin-left: 0px;
+		}
+		
+		100%{
+			margin-left: 240px;
+		}
+	}
+	
+	@keyframes moveElephantMobile{
+		0% {
+			margin-left: 0px;
+		}
+				
+		100%{
+			margin-left: 256px;
+		}
+	}
+	
+	@keyframes moveDonkey{
+		0% {
+			margin-left: 238px;
+		}
+		
+		100%{
+			margin-left: 0px;
+		}
+	}
+	
+}	
