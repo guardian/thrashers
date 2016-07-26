@@ -16,6 +16,7 @@ $c-background: #333;
 @include base(sos-thrasher, $c-background);
 .summer-of-sport__wrapper{
 	width: 100%;
+  overflow: hidden;
 }
 
 // super specific thing that could be a mixin instead?
@@ -62,6 +63,63 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     }
   }
 
+  .player {
+    height: 140px;
+    width: 362px;
+    white-space: nowrap;
+    position: absolute;
+    top: 70px;
+    left: 300px;
+    // margin: 0 80px 28px auto;
+    background-color: transparent;
+    .player__circle {
+      padding: 1px;
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      top: 0;
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .player__name {
+      left: 30%;
+      z-index: 310;
+    }
+
+    .player__playing {
+      left: 59.5%;
+      z-index: 19;
+      transform: scale(0.97,0.97);
+      opacity: 0;
+      transition: opacity 160ms, transform 160ms;
+    }
+
+    .player__play {
+      cursor: pointer;
+      left: 59.5%;
+      z-index: 310;
+      opacity: 1;
+      transform: scale(1,1);
+      transition: opacity 240ms, transform 240ms;
+      &:hover {
+        opacity: 0.95;
+      }
+    }
+  }
+  &[data-playing] .player {
+    .player__play {
+      transform: scale(0.92,0.92);
+      opacity: 0;
+    }
+    .player__playing {
+      transform: scale(1,1);
+      opacity: 1;
+    }
+  }
+
   .episode-info {
     width: 400px;
     padding-top: 30px;
@@ -83,6 +141,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
       }
     }
   }
+
   .episode-info_full {
     position: relative;
     right: 1px;
@@ -170,9 +229,9 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     right: 100px;
     bottom: -660px;
 
-    /*-webkit-animation:move-figure 3s 9s forwards ;
-    -moz-animation:move-figure 3s 9s forwards ;
-    animation:move-figure 3s 9s forwards ;*/
+    -webkit-animation:move-figure 3s 3.8s forwards ;
+    -moz-animation:move-figure 3s 3.8s forwards ;
+    animation:move-figure 3s 3.8s forwards ;
   }
 
 
@@ -180,70 +239,88 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     right:150px;
     width: 100px;
 
-    /*-webkit-animation:spin 4.5s linear 2, move-one 4s linear 2 ;
-    -moz-animation:spin 4.5s linear 2, move-one 4s linear 2;
-    animation:spin 4.5s linear 2, move-one 4s linear 2;*/
+     -webkit-animation:spin-reverse 2s linear forwards, bounce-tennis 2s forwards  ;
+    -moz-animation:spin-reverse 2s  linear forwards, bounce-tennis 2s forwards ;
+    animation:spin-reverse 2s linear forwards, bounce-tennis 2s forwards ;
 
-     -webkit-animation:spin 2s linear forwards, bounce-out 2s forwards  ;
-    -moz-animation:spin 2s  linear forwards, bounce-out 2s forwards ;
-    animation:spin 2s linear forwards, bounce-out 2s forwards ;
+   }
+
+   #tennis-two {
+    right:700px;
+    width: 100px;
+
+     -webkit-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards  ;
+    -moz-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards ;
+    animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards ;
+
+   }
+
+   #basketball {
+    right:300px;
+    width: 120px;
+
+    -webkit-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards  ;
+    -moz-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards ;
+    animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards ;
 
    }
 
    #pool {
-    right:450px;
+    right:300px;
     width: 80px;
 
-    -webkit-animation:spin 4s .5s linear 2, move-one 4s .3s linear 2;
-    -moz-animation:spin 4s  .5s linear 2, move-one 4s  .3s linear 2;
-    animation:spin 4s .5s linear 2, move-one 4s .3s linear 2;
-
-   }
-
-   #golf {
-    right:450px;
-    width: 50px;
-
-    -webkit-animation:spin 4s 1s linear 2, move-one 4.5s 1s linear 2;
-    -moz-animation:spin 4s 1s linear  2, move-one 4.5s 1s linear 2;
-    animation:spin 4s 1s linear 2, move-one 4.5s 1s linear 2;
-  
-   }
-
-   #basketball {
-    top:-200px;
-    right:300px;
-    width: 120px;
-
-    -webkit-animation:spin 2s 1.5s linear forwards, bounce 2s 1.5s forwards  ;
-    -moz-animation:spin 2s 1.5s linear forwards, bounce 2s 1.5s forwards ;
-    animation:spin 2s 1.5s linear forwards, bounce 2s 1.5s forwards ;
-
-   }
-
-   #football {
-    right:150px;
-    width: 70px;
-
-    -webkit-animation:spin 4s 2.5s linear 2, move-one 4s 2s linear 2;
-    -moz-animation:spin 4s 2.5s linear  2, move-one 4s 2s linear 2;
-    animation:spin 4s 2.5s linear 2, move-one 4s 2s linear 2;
+    -webkit-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
+    -moz-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
+    animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
 
    }
 
    #baseball {
-    right:320px;
-    width: 70px;
+    right:10px;
+    width: 80px;
 
-    -webkit-animation:spin 4s 2.5s linear 2, move-one 4s 2.5s linear 2;
-    -moz-animation:spin 4s 2.5s linear  2, move-one 4s 2.5s linear 2;
-    animation:spin 4s 2.5s linear 2, move-one 4s 2.5s linear 2;
+    -webkit-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
+    -moz-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
+    animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
 
+   }
+
+   #football {
+    right:500px;
+    width: 80px;
+
+    -webkit-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
+    -moz-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
+    animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
+
+   }
+
+   #golf {
+    right:600px;
+    width: 50px;
+
+    -webkit-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards  ;
+    -moz-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards ;
+    animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards ;
+  
+   } 
+
+   #ping {
+    right:150px;
+    width: 30px;
+
+    -webkit-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards  ;
+    -moz-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
+    animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
+  
    }
 
 }
 
-/****** Animatin Keyframes *******/
+/****** Animation Keyframes *******/
+
+
+/****** Rotation *******/
 
 @-moz-keyframes spin { 
   100% { -moz-transform: rotate(360deg);} 
@@ -256,52 +333,222 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   }
 
 
+@-moz-keyframes spin-reverse { 
+  100% { -moz-transform: rotate(-360deg);} 
+  }
+@-webkit-keyframes spin-reverse { 
+  100% { -webkit-transform: rotate(-360deg);} 
+  }
+@keyframes spin-reverse { 
+  100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg);} 
+  }
 
-@-webkit-keyframes bounce {
- /*   0%   { top:-200px; animation-timing-function:ease-in;  }
-    37%  { top:110px; animation-timing-function:ease-out; }
-    55%  { top:-35px; animation-timing-function:ease-in;  }
-    73%  { top:110px; animation-timing-function:ease-out; }
-    82%  { top:55px; animation-timing-function:ease-in;  }
-    91%  { top:110px; animation-timing-function:ease-out; }
-    96%  { top:90px; animation-timing-function:ease-in;  }
-    100% { top:110px; }*/
 
+/****** Tennis *******/
+
+@-webkit-keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:110px; animation-timing-function:ease-out; }
-    66.666%  { top:-35px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
-}
-
-@-webkit-keyframes bounce-out {
-    0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:120px; animation-timing-function:ease-out; }
+    50%  { top:145px; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
-/*@keyframes move-one {
-  from {bottom: -200px;} 
-  to{bottom:100px;}
+@-moz-keyframes bounce-tennis {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:145px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    
 }
-@-moz-keyframes move-one {
-  from {bottom: -200px;} 
-  to{bottom:100px;}
+
+@keyframes bounce-tennis {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:145px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    
 }
-@-webkit-keyframes move-one {
-  from {bottom: -200px;} 
-  to{bottom:100px;}
-}*/
+
+
+
+@-webkit-keyframes bounce-tennis-two {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:145px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
+    
+}
+
+@-moz-keyframes bounce-tennis-two {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:145px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
+    
+}
+
+@keyframes bounce-tennis-two {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:145px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
+    
+}
+
+
+/****** Basketball *******/
+
+@-webkit-keyframes bounce-basket {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:135px; animation-timing-function:ease-out; }
+    66.666%  { top:-35px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
+}
+
+@-moz-keyframes bounce-basket {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:135px; animation-timing-function:ease-out; }
+    66.666%  { top:-35px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
+}
+
+@keyframes bounce-basket {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:135px; animation-timing-function:ease-out; }
+    66.666%  { top:-35px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
+}
+
+
+/****** Pool *******/
+
+@-webkit-keyframes bounce-pool {
+    0%   { top:-2000px; animation-timing-function:ease-in;  }
+    90%  { top:175px; animation-timing-function:ease-out; }
+    95%  { top:80px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:350px; animation-timing-function:ease-out; }
+    
+}
+
+@-moz-keyframes bounce-pool {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:175px; animation-timing-function:ease-out; }
+    66.666%  { top:80px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:350px; animation-timing-function:ease-out; }
+    
+}
+
+@keyframes bounce-pool {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:175px; animation-timing-function:ease-out; }
+    66.666%  { top:80px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:350px; animation-timing-function:ease-out; }
+    
+}
+
+
+/****** Baseball *******/
+
+@-webkit-keyframes bounce-base {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:175px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    
+}
+
+@-moz-keyframes bounce-base {
+     0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:175px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    
+}
+
+@keyframes bounce-base {
+     0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:175px; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    
+}
+
+/****** Football *******/
+
+@-webkit-keyframes bounce-foot {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:165px; animation-timing-function:ease-out; }
+    66.666%  { top:-35px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
+}
+
+@-moz-keyframes bounce-foot {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:165px; animation-timing-function:ease-out; }
+    66.666%  { top:-35px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
+}
+
+@keyframes bounce-foot {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    33.333%  { top:165px; animation-timing-function:ease-out; }
+    66.666%  { top:-35px; animation-timing-function:ease-in;  }
+    100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
+}
+
+
+/****** Golf *******/
+
+@-webkit-keyframes bounce-golf {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:225px; animation-timing-function:ease-out; }
+    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    
+}
+
+@-moz-keyframes bounce-golf {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:225px; animation-timing-function:ease-out; }
+    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    
+}
+
+@keyframes bounce-golf {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:225px; animation-timing-function:ease-out; }
+    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    
+}
+
+
+/****** Ping *******/
+
+@-webkit-keyframes bounce-ping {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:245px; animation-timing-function:ease-out; }
+    100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
+    
+}
+
+@-moz-keyframes bounce-ping {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:245px; animation-timing-function:ease-out; }
+    100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
+    
+}
+
+@keyframes bounce-ping {
+    0%   { top:-200px; animation-timing-function:ease-in;  }
+    50%  { top:245px; animation-timing-function:ease-out; }
+    100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
+    
+}
+
+/****** Figure Move In *******/
 
 
 @keyframes move-figure {
   from {bottom: -660px;} 
   to{bottom:-260px;}
 }
+
 @-moz-keyframes move-figure {
   from {bottom: -660px;} 
   to{bottom:-260px;}
 }
+
 @-webkit-keyframes move-figure {
   from {bottom: -660px;} 
   to{bottom:-260px;}

@@ -16,17 +16,16 @@ function loadJSON(path, success, error) {
     xhr.send();
 }
 
-loadJSON("http://interactive.guim.co.uk/docsdata-test/1Yg_UzmvLXWGj7LcrainK4tdwyac1P_mQ5GC3yhp9dTw.json", function(data) {
+loadJSON("https://interactive.guim.co.uk/docsdata-test/1rJsiJMlEqkSVbklFSKJBmwCYfuoS-JuhbDR1T7tNat0.json", function(data) {
     var  source =  data.sheets.Sheet1[0].Trailer;
-    var  title =  data.sheets.Sheet1[0].Title;
     var  mp3 = data.sheets.Sheet1[0].Mp3;
-    // document.getElementsByClassName("audio")[0].setAttribute("src", source);
-    // document.getElementsByClassName("subscription__download")[0].setAttribute("href", mp3);
+    document.getElementsByClassName("audio")[0].setAttribute("src", source);
+    document.getElementsByClassName("subscription__download")[0].setAttribute("href", mp3);
     var audio = document.getElementsByClassName("audio")[0];
     var playButton = document.getElementsByClassName("player__play")[0];
     var thrasher = document.getElementById("got-the-citadel-player-thrasher");
-    // document.getElementsByClassName("episode-info__title")[0].innerHTML = '<h1>' + title + '</h1>';
-    document.getElementsByClassName("episode-info__title")[0].setAttribute('href', title);
+    // document.getElementsByClassName("episode-info__title")[0].innerHTML = '<h1>' + name + '</h1>';
+    // document.getElementsByClassName("episode-info__heading")[0].setAttribute('href', episode);
     var audioLength = 0;
     audio.oncanplaythrough = function(){
         audioLength = audio.duration;
