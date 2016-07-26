@@ -1,0 +1,225 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+$yellow: #FBBA0F;
+@import 'shared/_imports';
+@include base(guardian-video, darken(#000,10%));
+
+.guardian__video{
+  &--wrapper{
+    width: 1300px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+
+    a{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100000;
+    }
+
+    @include mq($until: wide){
+      width: 1140px;
+    }
+
+    @include mq($until: leftCol){
+      width: 980px;
+    }
+
+    @include mq($until: desktop){
+      width:740px;
+    }
+
+    @include mq($until: tablet){
+      width:100%;
+      background-image: url(@@assetPath@@/gv_mobile.jpg);
+      background-size: cover;
+      background-position:centre centre;
+      background-repeat:no-repeat;
+    }
+
+    @include mq($until: mobileLandscape){
+      height:300px;
+    }
+  }
+
+  &--left{
+    width: 239px;
+    height: 400px;
+    float: left;
+    background-color: #161616;
+    position: relative;
+
+    @include mq($until: desktop){
+      width: 180px;
+    }
+
+    @include mq($until: tablet){
+      background-color:transparent;
+    }
+    @include mq($until: mobileLandscape){
+      width:150px;
+      height:300px;
+    }
+
+    svg{
+      position: absolute;
+      width: 145%;
+      height: auto;
+      top: 45%;
+      z-index: 3000;
+    }
+
+    .video__cta{
+      position: absolute;
+      bottom: 16px;
+      height: 32px;
+      background-color:$yellow;
+      border-radius: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 8px;
+      font-family: $f-sans-serif-headline;
+      color: #333;
+      width: 124px;
+      left: 12px;
+
+      @include mq($until: mobileLandscape){
+        left: 2px;
+      }
+
+      .cta__text{
+        display: block;
+        float: left;
+      }
+        svg{
+          float: right;
+          width: 20px;
+          margin-top: -7px;
+          margin-left: 10px;
+        }
+    }
+  }
+
+  &--right{
+    float: left;
+    width: 1000px;
+    position: relative;
+
+    @include mq($until: wide){
+      width: 840px;
+    }
+
+    @include mq($until: leftCol){
+      width:677px;
+    }
+
+    @include mq($until: desktop){
+      width:440px;
+    }
+
+    @include mq($until: tablet){
+      height:400px;
+      width:50%;
+    }
+
+    @include mq($until: mobileLandscape){
+      position:absolute;
+      width:82%;
+      height:306px;
+    }
+
+    video{
+      width: 1090px;
+      margin-top: -90px;
+    }
+  .video__test{
+    @include mq($until: tablet){
+      display: none;
+    }
+  }
+
+  .video__headline{
+    font-family: $f-serif-headline;
+    font-size: 30px;
+    position: absolute;
+    top: 31.9%;
+    font-size: 43px;
+    font-weight: 900;
+    left: 11.9%;
+    color: white;
+
+    @include mq($until: wide){
+      left: 13.9%;
+      top: 32.1%;
+    }
+
+    @include mq($until: leftCol){
+      left: 16.9%;
+      top: 32.1%;
+    }
+
+    @include mq($until: desktop){
+      font-size:30px;
+      top:33%;
+      left:20%;
+    }
+
+    @include mq($until: tablet){
+      top: 51%;
+      left: -31px;
+      width:160%;
+    }
+
+    @include mq($until: mobileLandscape){
+      left:0px;
+      width:180%;
+      font-size:26px;
+      top:52%;
+    }
+
+    &--one{
+      top: 25%;
+    }
+
+    &--two{
+      margin-top: -65px;
+      opacity: 0;
+
+      @include mq($until: desktop){
+        margin-top: -45px;
+      }
+    }
+
+    &--one, &--two{
+      transition: opacity 1s ease-in-out;
+
+      &[data-status="on"]{
+        opacity: 1 !important;
+      }
+      &[data-status="off"]{
+        opacity: 0;
+      }
+    }
+
+  }
+
+  .guardian__logo{
+    position: absolute;
+    right: -50px;
+    top: 10px;
+  }
+
+  }
+
+}

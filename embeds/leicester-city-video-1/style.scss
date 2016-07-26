@@ -1,0 +1,205 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-watchNow: #fb0;
+$c-lightGrey: #dadada;
+$c-darkGray: #161616;
+$c-white: #ffffff;
+
+@import 'shared/_imports';
+@include base(leicester-city, darken($c-darkGray,10%));
+
+// Layout
+.leicester-city-video-1__wrapper{
+    @include mq(mobile){
+      margin: 0 -10px 0;
+      width: 100%;
+    }
+    @include mq(desktop){
+      margin: 0;
+    }
+}
+.leicester__video{
+    &--anchor{
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: transparent;
+        position: absolute !important;
+        z-index: 2 !important;
+        cursor: pointer;
+    }
+    &--wrapper{
+      top: 0;
+    	background-image:url(@@assetPath@@/background.jpg);
+    	background-position: center center no-repeat;
+    	background-size:cover;
+      background-color: $c-darkGray;
+      height:280px;
+      overflow: visible;
+      position: relative;
+
+        	@include mq($until: desktop) {
+                background-position-x: 32%;
+                margin-right: -20px;
+          }
+
+          @include mq(desktop) {
+            overflow: hidden;
+                height:300px;
+          }
+      }
+    &--right{
+    color: white;
+    height: 100%;
+    z-index: 4;
+    padding: 10px;
+
+        @include mq(phablet) {
+            padding: 10px 20px;
+            right:0;
+        }
+
+        @include mq(desktop) {
+            padding: 0 20px;
+            width:30%;
+            position:absolute;
+            background-color: $c-darkGray;
+            opacity:1;
+        }
+
+        @include mq(leftCol) {
+          width:26%;
+        }
+
+        @include mq(wide) {
+          width:29%;
+        }
+    }
+    &--left{
+    position:absolute;
+    display:none;
+
+        @include mq(desktop) {
+            width: 900px;
+            margin: -35px 0 0;
+            display:block;
+        }
+    }
+}
+
+// Logos
+.leicester__video--logo{
+    position:relative;
+    z-index:2;
+    top:5px;
+    svg{
+        width: 140px;
+        height: 20px;
+    }
+
+    @include mq(desktop) {
+        svg {
+            height:40px;
+        }
+    }
+}
+
+// Copy
+
+.leicester__video--headline{
+	width: 90%;
+  font-size: 28px;
+  line-height: 30px;
+  font-family: 'Guardian Egyptian Web';
+  color: $c-white;
+  margin:0 0 8px;
+  position: relative;
+
+    @include mq(phablet) {
+        width: 75%;
+        font-size: 34px;
+        line-height: 32px;
+    }
+
+    @include mq(desktop) {
+        width:90%;
+        font-size: 38px;
+        line-height: 40px;
+        font-weight: 200;
+        margin:-8px 0 8px;
+    }
+}
+
+.leicester__video--subheadline{
+    font-size: 18px;
+    font-family: 'Guardian Text Sans Web';
+    line-height: 20px;
+    color: $c-white;
+    width: 90%;
+    position: relative;
+
+    @include mq(phablet) {
+        width: 70%;
+    }
+    @include mq(desktop) {
+        width: 85%;
+    }
+}
+
+// Buttons
+.leicester__video--button {
+    svg {
+        width:15px;
+        height:10px;
+        padding-right:3px;
+    }
+    background-color: $c-watchNow;
+    color: $c-darkGray;
+    border:none;
+}
+
+.button.leicester__video--button {
+    position: absolute;
+    margin-left: -3px;
+    cursor: pointer;
+    padding-top:4px;
+    bottom:30px;
+
+    @include mq(tablet) {
+        height: 35px !important;
+        font-size: 1.1rem;
+        display: block;
+    }
+
+    &:hover{
+        background-color: darken($c-watchNow, 10%);
+    }
+
+
+}
+
+// Video
+.leicester__video--overlay{
+    display: none;
+    @include mq(desktop){
+        display: block;
+        position:absolute;
+        margin-left:-100px;
+        overflow: visible;
+        z-index:1;
+        width:100%;
+        height:100%;
+        background-color:$c-darkGray;
+        opacity: 0.3;
+    }
+}
