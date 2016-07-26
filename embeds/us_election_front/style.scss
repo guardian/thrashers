@@ -14,7 +14,7 @@ $mq-breakpoints: (
 
 $primary-colour:#e9212d;
 $grey:#f5f5f5;
-$blue:#005689;
+$blue:#214581;
 
 
 #us-election-header{
@@ -298,7 +298,7 @@ $blue:#005689;
 		}		
 		
 		h2{
-			font-size: 20px;
+			font-size: 17px;
 			color: $primary-colour;	
 			
 			@include mq($until: mobileLandscape){
