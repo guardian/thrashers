@@ -23,10 +23,13 @@ $mq-breakpoints: (
 }
 
 $opacity:1;
+$red: #ed1c24;
+$grey: #f5f5f5;
+$blue: #214583;
 
 @mixin flagLine($opacity){
 		height: 40px;
-		background-color: #e9212d;
+		background-color: $red;
 		position: absolute;
 		opacity: $opacity;	
 		
@@ -36,10 +39,8 @@ $opacity:1;
 		
 }
 
-
-
 @import 'shared/_imports';
-@include base(us-election-minute, #005689);
+@include base(us-election-minute, $blue);
 
 #us-election-minute.fc-container--thrasher{
 		.fc-container__inner{
@@ -71,41 +72,39 @@ $opacity:1;
 				}
 		@include mq($until: tablet){
 					width: 100%;
-				}
-		@include mq($until: mobileLandscape){
-					height: 320px;
+					height: 330px;
 				}		
 				
 		
 		.flag__line{
-			  	
 				&--one{
-				bottom: 0px;
-				right: -1%;
-				z-index: 60;
-				width: 59.5%;
-				position: relative;
-				@include flagLine($opacity);
-				
-				@include mq($until: wide){
-						width: 47.5%;
-					}
-				
-				@include mq($until: mobileLandscape){
-					display: none;
-				}
-					
-				p{
-					position: absolute;
-					right: 25px;
-					top: 8px;
-					font-weight: 900;
-					color: white;
-				}
+    				bottom: 0px;
+    				right: -1%;
+    				z-index: 60;
+    				width: 59.5%;
+    				position: relative;
+    				@include flagLine($opacity);
 
+    				@include mq($until: wide){
+    						width: 460px;
+    					}
+    				
+    				@include mq($until: mobileLandscape){
+    					display: none;
+    				}
+
+    				p{
+    					position: absolute;
+    					right: 25px;
+    					top: 4px;
+    					font-weight: 900;
+    					color: white;
+    					
+    					@include mq(desktop) {
+        					top: 8px;
+    					}
+    				}
 				}
-				
-				
 				
 				&--two{
 			    top: 161px;
@@ -134,6 +133,7 @@ $opacity:1;
 				width: 20%;
 				left: 17%;
 				@include flagLine(0.1);
+				background-color: black;
 				}
 				
 				&--four{
@@ -142,6 +142,7 @@ $opacity:1;
 				z-index: 3 0;
 				width: 22%;
 				@include flagLine(0.1);
+				background-color: black;
 				}
 				
 				&--five{
@@ -162,6 +163,7 @@ $opacity:1;
 				width: 28%;
 				left: -11%;
 				@include flagLine(0.1);
+				background-color: black;
 				@include mq($until: mobileLandscape){
 							display: none;
 					}
@@ -435,228 +437,69 @@ $opacity:1;
 		
 		.the__minute--right{
 			float: left;
-			overflow: hidden;
 			height:330px;
 			width: 48%;
 			position: relative;
-			
-			@include mq($until: desktop){
-					height: 280px;
-				}
-				
-			@include mq($until: tablet){
-					width: 100%;
-				}	
-			
-			@include mq($until: mobileLandscape){
-					height: 320px;
-				}		
-				
-				
-			
-			.the__minute__col{
-				position: absolute;
-				overflow: auto;
-				
-				&.cruz{
-					height: 330px;
-					width: 158px;
-					@include backgroundimage(no-repeat, url('@@assetPath@@/cruz.png'), 100%); 
-					right: 22px;
-					bottom: -38px;
-					display: none;
-					@include mq($until: wide){
-							right: 51px;
-					}
-					
-					@include mq($until: leftCol){
-							width: 152px;
-							bottom: -56px;
-							right: 121px;
-					}
-					
-					@include mq($until: desktop){
-							width: 109px;
-							bottom: -117px;
-							right: 237px;
-					}
-					
-					@include mq($until: tablet){
-							width: 139px;
-							bottom: -88px;
-							left: auto;
-							right: 10px;
-					}
-					
-					@include mq($until: phablet){
-							width: 110px;
-							bottom: -162px;
-							left: auto;
-							right: -33px;
-					}
-					
-					@include mq($until: mobileLandscape){
-							width: 100px;
-							bottom: -189px;
-							left: auto;
-							right: 1px;
-					}
-					@include mq($until: mobile){
-						z-index: -40;
-					}
-				}
-				
-				&.clinton{
-					height: 330px;
-					width: 176px;
-					@include backgroundimage(no-repeat, url('@@assetPath@@/clinton.png'), 100%); 
-					left: 150px;
-					bottom: -41px;
-					z-index: -10;
-					@include mq($until: wide){
-							left: 137px;
-					}
-					
-					@include mq($until: leftCol){
-							width: 168px;
-							bottom: -44px;
-							left: 110px;
-					}
-					
-					@include mq($until: desktop){
-							width: 118px;
-							bottom: -115px;
-							left: 81px;
-					}
-					
-					@include mq($until: tablet){
-							width: 146px;
-							left: auto;
-							bottom: -82px;
-							right:180px;
-					}
-					
-					@include mq($until: phablet){
-							width: 116px;
-							bottom: -164px;
-							left: auto;
-							right: 84px;
-					}
-					
-					@include mq($until: mobileLandscape){
-							width: 106px;
-							bottom: -184px;
-							left: auto;
-							right: 124px;
-					}
-					@include mq($until: mobile){
-						z-index: -40;
-					}
-				}
-				
-				&.trump{
-					height: 330px;
-					width: 176px;
-					@include backgroundimage(no-repeat, url('@@assetPath@@/trump.png'), 100%); 
-					left: 17px;
-					bottom: -49px;
-					z-index: -30;
-					
-					@include mq($until: wide){
-							left: 4px;
-					}
-					
-					@include mq($until: leftCol){
-							width: 160px;
-							bottom: -53px;
-							left: 0px;
-					}
-					
-					@include mq($until: desktop){
-							width: 110px;
-							bottom: -123px;
-							left: 6px;
-					}
-					
-					@include mq($until: tablet){
-							width: 151px;
-							bottom: -88px;
-							left: auto;
-							right: 269px;
-					}
-					@include mq($until: phablet){
-							width: 121px;
-							bottom: -168px;
-							left: auto;
-							right: 144px;
-					}
-					
-					@include mq($until: mobileLandscape){
-							width: 111px;
-							bottom: -190px;
-							left: auto;
-							right: 204px;
-					}
-					
-					@include mq($until: mobile){
-						z-index: -40;
-					}
-				}
-				
-				&.sanders{
-					height: 330px;
-					width: 163px;
-					@include backgroundimage(no-repeat, url('@@assetPath@@/sanders.png'), 100%); 
-					right: 134px;
-					bottom: -49px;
-					z-index: -20;
-					display: none;
 
-					@include mq($until: wide){
-							right: 157px;
-					}
-					
-					@include mq($until: leftCol){
-							width: 150px;
-							bottom: -58px;
-							left: 209px;
-					}
-					
-					@include mq($until: desktop){
-							width: 115px;
-							bottom: -119px;
-							left: 152px;
-					}
-					
-					@include mq($until: tablet){
-							width: 140px;
-							bottom: -85px;
-							left: auto;
-							right: 94px;
-					}
-					@include mq($until: phablet){
-							width: 121px;
-							bottom: -165px;
-							left: auto;
-							right: 25px;
-					}
-					
-					@include mq($until: mobileLandscape){
-							width: 111px;
-							bottom: -190px;
-							left: auto;
-							right: 56px;
-					}
-					@include mq($until: mobile){
-						z-index: -50;
-					}
-				}
-				
-				
-			}
-			
-		}	
-		
+            @include mq($until: leftCol) {
+                width: 45%;
+            }
+
+            @include mq($until: wide) {
+                width: 38%;
+            }
+
+			@include mq($until: desktop){
+				height: 280px;
+				width: 30%;
+            }
+
+			@include mq($until: tablet){
+				width: 100%;
+				height: 330px;
+            }
+		}
+
+        .the-minute__people {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 400px;
+
+            @include mq(mobileLandscape) {
+                bottom: 28px;
+            }
+
+            @include mq(phablet) {
+                max-width: 480px;
+                right: -60px;
+            }
+
+            @include mq(tablet) {
+                right: auto;
+                left: 10px;
+                max-width: 340px;
+            }
+
+            @include mq(desktop) {
+                bottom: 20px;
+                max-width: none;
+                left: 0;
+                width: 460px;
+                bottom: 20px;
+            }
+
+            @include mq(leftCol) {
+                left: 90px;
+            }
+
+            @include mq(wide) {
+                left: 50px;
+                width: 640px;
+            }
+        }
+
 		$a-duration: 10s;
 		$a-total-lines: 62;
 
@@ -712,7 +555,7 @@ $opacity:1;
 		.play__store {
 			    position: absolute;
 				right: 13px;
-				bottom: 40px;
+				bottom: 20px;
 				z-index: 100;
 				
 				svg{
@@ -734,7 +577,7 @@ $opacity:1;
 		.app__store{
 			    position: absolute;
 				right: 120px;
-				bottom: 40px;
+				bottom: 20px;
 				z-index: 100;
 				
 				svg{

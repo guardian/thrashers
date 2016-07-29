@@ -12,14 +12,14 @@ $mq-breakpoints: (
 @import 'shared/_imports';
 @include base(us-election-header, #fff);
 
-$primary-colour:#e9212d;
-$grey:#f5f5f5;
-$blue:#214581;
-
+$red: #ed1c24;
+$grey: #f5f5f5;
+$blue: #214583;
 
 #us-election-header{
 	margin-bottom: 0px;
 }
+
 #us-election-header.fc-container--thrasher{
 		.fc-container__inner{
 			overflow: visible;
@@ -93,7 +93,7 @@ $blue:#214581;
 		height: 160px;
 		.flag{
 			&--one{
-				@include flag($primary-colour, 274px, -5%, auto, 66px);
+				@include flag($red, 274px, -5%, auto, 66px);
 				&:before{
 					content: url('@@assetPath@@/elephant.svg');
 					height: 40px;
@@ -124,13 +124,13 @@ $blue:#214581;
 				}
 				
 				@include mq($until: mobileLandscape){
-					@include flag($primary-colour, 274px, -214px, auto, 66px);
+					@include flag($red, 274px, -214px, auto, 66px);
 					height: 15px !important;
 				}
 				
 			}
 			&--two{
-				@include flag($primary-colour, 274px, 46%, auto, 16px);
+				@include flag($red, 274px, 46%, auto, 16px);
 				&:after{
 					@include after(124px, 20px, 210px);
 				}
@@ -139,7 +139,7 @@ $blue:#214581;
 				}
 			}
 			&--three{
-				@include flag($primary-colour, 274px, auto, 22%, 120px);
+				@include flag($red, 274px, auto, 22%, 120px);
 				&:before{
 					content: url('@@assetPath@@/donkey.svg');
 					height: 40px;
@@ -182,7 +182,7 @@ $blue:#214581;
 				}
 			}
 			&--four{
-				@include flag($primary-colour, 274px, auto, -10%, 66px);
+				@include flag($red, 274px, auto, -10%, 66px);
 				&:after{
 					@include after(124px, -20px, 80px);
 					
@@ -191,7 +191,7 @@ $blue:#214581;
 					}
 				}
 				@include mq($until: mobileLandscape){
-					@include flag($primary-colour, 274px, auto, -197px, 66px);
+					@include flag($red, 274px, auto, -197px, 66px);
 				}
 				
 				@include mq($until: wide){
@@ -299,7 +299,7 @@ $blue:#214581;
 		
 		h2{
 			font-size: 17px;
-			color: $primary-colour;	
+			color: $red;	
 			
 			@include mq($until: mobileLandscape){
 				font-size: 16px;
@@ -338,4 +338,18 @@ $blue:#214581;
 		}
 	}
 	
-}	
+}
+
+// Page Changers
+.fc-container__header__title {
+    color: $blue;
+}
+
+.fc-container .fc-container__inner {
+    border-top-color: $red;
+}
+
+.treats__treat {
+    border-color: $red;
+    color: $blue;
+}
