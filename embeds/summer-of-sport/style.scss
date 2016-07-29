@@ -53,8 +53,8 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   min-height: 250px;
   .branding {
     position: absolute;
-    top: 8px;
-    right: 22px;
+    top: 5px;
+    right: 20px;
     width: 52px;
     height: 33px;
     svg {
@@ -64,19 +64,20 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   .player {
+    display: none;
     height: 140px;
     width: 362px;
     white-space: nowrap;
     position: absolute;
     top: 70px;
-    left: 300px;
+    right: 40px;
     // margin: 0 80px 28px auto;
     background-color: transparent;
     .player__circle {
       padding: 1px;
       display: inline-block;
-      height: 100px;
-      width: 100px;
+      height: 110px;
+      width: 110px;
       position: absolute;
       top: 0;
       svg {
@@ -85,7 +86,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
       }
     }
     .player__name {
-      left: 30%;
+      left: 40%;
       z-index: 310;
     }
 
@@ -122,8 +123,8 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
   .episode-info {
     width: 400px;
-    padding-top: 30px;
-    margin-left: 30px;
+    padding-top: 5px;
+    margin-left: 20px;
     position: relative;
     z-index: 300;
     .episode-info__heading {
@@ -134,48 +135,45 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
       font-weight: 800;
       .episode-info__kicker {
         display: block;
-        color: #BEE202;
+        color: #fff;
       }
       .episode-info__title {
-        color: #FFF;
+        color: #BEE202;
       }
     }
   }
 
-  .episode-info_full {
-    position: relative;
-    right: 1px;
-    display: inline-block;
-    height: 26px;
-    line-height: 28px;
-    overflow: hidden;
-    font-size: 13px;
-    padding-left: 12px;
-    padding-right: 30px;
-    margin: 14px 0 30px;
-    border-radius: 15px;
-    border: 1px solid currentColor;
-    color: #BEE202;
-    font-family: 'Guardian Text Sans Web';
+  .episode-info__links {
+    margin-top: 30px;
+    color: #fff;
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 800;
+    
+    .episode-info_title {
+      font-size: 22px;
+    }
+    .episode-info_full {
+    font-size: 18px;
+
+    &:hover {
+        text-decoration: underline;
+        } 
+    }
+    .episode-info__label {
+      margin-left:28px;
+    }
     .episode-info__arrow {
       position: absolute;
-      right: 10px;
+      left: 1px;
       top: 2px;
-      width: 1em;
-      height: 1em;
+      width: 20px;
+      height: auto;
       svg {
         width: 100%;
         height: 100%;
       }
     }
-    &:hover {
-      background-color: #BEE202;
-      color: #444;
-      text-decoration: none;
-      #right-arrow {
-        fill: #444;
-      }
-    }
+   
   }
 
   .subscription {
@@ -215,6 +213,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     }
   }
 
+
 .balls-container {
   width: 100%;
 
@@ -223,20 +222,28 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     bottom:-200px;
   }
 
+  #frame {
+    display: none;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
   #figure {
     width: 450px;
     position: absolute;
-    right: 100px;
+    right: 25%;
     bottom: -660px;
 
-    -webkit-animation:move-figure 3s 3.8s forwards ;
-    -moz-animation:move-figure 3s 3.8s forwards ;
-    animation:move-figure 3s 3.8s forwards ;
+    -webkit-animation:move-figure 3s 4.2s forwards ;
+    -moz-animation:move-figure 3s 4.2s forwards ;
+    animation:move-figure 3s 4.2s forwards ;
   }
 
 
    #tennis {
-    right:150px;
+    right:55%;
     width: 100px;
 
      -webkit-animation:spin-reverse 2s linear forwards, bounce-tennis 2s forwards  ;
@@ -246,7 +253,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #tennis-two {
-    right:700px;
+    right:70%;
     width: 100px;
 
      -webkit-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards  ;
@@ -256,7 +263,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #basketball {
-    right:300px;
+    right:45%;
     width: 120px;
 
     -webkit-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards  ;
@@ -266,7 +273,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #pool {
-    right:300px;
+    right:40%;
     width: 80px;
 
     -webkit-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
@@ -276,7 +283,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #baseball {
-    right:10px;
+    right:5%;
     width: 80px;
 
     -webkit-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
@@ -286,7 +293,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #football {
-    right:500px;
+    right:60%;
     width: 80px;
 
     -webkit-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
@@ -296,7 +303,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #golf {
-    right:600px;
+    right:80%;
     width: 50px;
 
     -webkit-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards  ;
@@ -306,12 +313,12 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
    } 
 
    #ping {
-    right:150px;
+    right:25%;
     width: 30px;
 
-    -webkit-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards  ;
-    -moz-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
-    animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
+    -webkit-animation:spin 2s 3.8s linear forwards, bounce-ping 2s 3.8s forwards  ;
+    -moz-animation:spin 2s 3.8s linear forwards, bounce-ping 2s 3.8s forwards ;
+    animation:spin 2s 3.8s linear forwards, bounce-ping 2s 3.8s forwards ;
   
    }
 
@@ -349,21 +356,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 @-webkit-keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:145px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: 0%; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:145px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: 0%; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:145px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: 0%; animation-timing-function:ease-in;  }
     
 }
 
@@ -372,21 +379,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 @-webkit-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:145px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: -30%; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:145px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: -30%; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:145px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: -30%; animation-timing-function:ease-in;  }
     
 }
 
@@ -397,21 +404,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:135px; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:10%; animation-timing-function:ease-out; }
 }
 
 @-moz-keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:135px; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:10%; animation-timing-function:ease-out; }
 }
 
 @keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:135px; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:10%; animation-timing-function:ease-out; }
 }
 
 
@@ -421,7 +428,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     0%   { top:-2000px; animation-timing-function:ease-in;  }
     90%  { top:175px; animation-timing-function:ease-out; }
     95%  { top:80px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:350px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:35%; animation-timing-function:ease-out; }
     
 }
 
@@ -429,7 +436,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:175px; animation-timing-function:ease-out; }
     66.666%  { top:80px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:350px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:35%; animation-timing-function:ease-out; }
     
 }
 
@@ -437,7 +444,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:175px; animation-timing-function:ease-out; }
     66.666%  { top:80px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:350px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:35%; animation-timing-function:ease-out; }
     
 }
 
@@ -447,21 +454,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 @-webkit-keyframes bounce-base {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:175px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: 100%; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:175px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: 100%; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:175px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    100%  { top:-200px; right: 100%; animation-timing-function:ease-in;  }
     
 }
 
@@ -471,21 +478,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:165px; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:-50%; animation-timing-function:ease-out; }
 }
 
 @-moz-keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:165px; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:-50%; animation-timing-function:ease-out; }
 }
 
 @keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     33.333%  { top:165px; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
-    100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
+    100%  { top:250px; right:-50%; animation-timing-function:ease-out; }
 }
 
 
@@ -494,21 +501,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 @-webkit-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:225px; animation-timing-function:ease-out; }
-    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    100%  { top:-250px; right: -40%; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:225px; animation-timing-function:ease-out; }
-    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    100%  { top:-250px; right: -40%; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
     50%  { top:225px; animation-timing-function:ease-out; }
-    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    100%  { top:-250px; right: -40%; animation-timing-function:ease-in;  }
     
 }
 
@@ -517,22 +524,22 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:245px; animation-timing-function:ease-out; }
-    100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
+    50%  { top:220px; animation-timing-function:ease-out; }
+    100%  { top:-100px; right: 80%; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:245px; animation-timing-function:ease-out; }
-    100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
+    50%  { top:220px; animation-timing-function:ease-out; }
+    100%  { top:-100px; right: 80%; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:245px; animation-timing-function:ease-out; }
-    100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
+    50%  { top:220px; animation-timing-function:ease-out; }
+    100%  { top:-100px; right: 80%; animation-timing-function:ease-in;  }
     
 }
 

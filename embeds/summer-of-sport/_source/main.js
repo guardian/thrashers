@@ -23,7 +23,7 @@ loadJSON("https://interactive.guim.co.uk/docsdata-test/1rJsiJMlEqkSVbklFSKJBmwCY
     document.getElementsByClassName("subscription__download")[0].setAttribute("href", mp3);
     var audio = document.getElementsByClassName("audio")[0];
     var playButton = document.getElementsByClassName("player__play")[0];
-    var thrasher = document.getElementById("got-the-citadel-player-thrasher");
+    var thrasher = document.getElementById("sos-thrasher");
     // document.getElementsByClassName("episode-info__title")[0].innerHTML = '<h1>' + name + '</h1>';
     // document.getElementsByClassName("episode-info__heading")[0].setAttribute('href', episode);
     var audioLength = 0;
