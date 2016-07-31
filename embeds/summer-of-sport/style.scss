@@ -11,6 +11,18 @@ $mq-breakpoints: (
 
 $c-background: #333;
 
+$xlarge: 120px;
+$large: 100px;
+$medium: 80px;
+$small: 50px;
+$xsmall: 30px;
+
+$bounce-xlarge: 85px;
+$bounce-large: 95px;
+$bounce-medium: 115px;
+$bounce-small: 125px;
+$bounce-xsmall: 175px;
+
 @import 'shared/_imports';
 
 @include base(sos-thrasher, $c-background);
@@ -20,31 +32,13 @@ $c-background: #333;
 }
 
 // super specific thing that could be a mixin instead?
-/*section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle {
-  background-color: #333;
+section#summer-of-sport.fc-container.fc-container--thrasher.fc-container--has-toggle {
+  background-color: #9BD5E0;
 }
 
-section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
+section#tsummer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
   display: none !important;
 }
-
-#the-citadel.fc-container--thrasher{
-  .fc-container__inner{
-    overflow: visible;
-
-    .fc-container__body{
-      .fc-slice-wrapper{
-        ul{
-          overflow: visible;
-        }
-        .facia-snap{
-          overflow: visible;
-        }
-      }
-    }
-  }
-}*/
-
 
 #sos-thrasher {
   background-color: #0D7CAD;
@@ -147,7 +141,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   .episode-info__links {
-    margin-top: 5px;
+    margin-top: 10px;
     color: #fff;
     font-family: 'Guardian Egyptian Web';
     font-weight: 800;
@@ -164,6 +158,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
     }
     .episode-info__label {
       margin-left:25px;
+      margin-top: -2px;
     }
     .episode-info__arrow {
       position: absolute;
@@ -238,7 +233,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #tennis {
     right:150px;
-    width: 100px;
+    width: $large;
 
      -webkit-animation:spin-reverse 2s linear forwards, bounce-tennis 2s forwards  ;
     -moz-animation:spin-reverse 2s  linear forwards, bounce-tennis 2s forwards ;
@@ -248,7 +243,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #tennis-two {
     right:700px;
-    width: 100px;
+    width: $large;
 
      -webkit-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards  ;
     -moz-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards ;
@@ -258,7 +253,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #basketball {
     right:300px;
-    width: 120px;
+    width: $xlarge;
 
     -webkit-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards  ;
     -moz-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards ;
@@ -268,7 +263,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #pool {
     right:300px;
-    width: 80px;
+    width: $medium;
 
     -webkit-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
     -moz-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
@@ -278,7 +273,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #baseball {
     right:10px;
-    width: 80px;
+    width: $medium;
 
     -webkit-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
     -moz-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
@@ -288,7 +283,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #football {
     right:500px;
-    width: 80px;
+    width: $medium;
 
     -webkit-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
     -moz-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
@@ -298,7 +293,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #golf {
     right:600px;
-    width: 50px;
+    width: $small;
 
     -webkit-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards  ;
     -moz-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards ;
@@ -308,7 +303,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
    #ping {
     right:150px;
-    width: 30px;
+    width: $xsmall;
 
     -webkit-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards  ;
     -moz-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
@@ -349,21 +344,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:95px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:95px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:95px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
@@ -372,21 +367,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:95px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:95px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:95px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
 }
@@ -396,21 +391,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:85px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
 }
 
 @-moz-keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:85px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
 }
 
 @keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:85px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
 }
@@ -420,7 +415,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-pool {
     0%   { top:-2000px; animation-timing-function:ease-in;  }
-    90%  { top:125px; animation-timing-function:ease-out; }
+    90%  { top:$bounce-small; animation-timing-function:ease-out; }
     95%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
     
@@ -428,7 +423,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-pool {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:125px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-small; animation-timing-function:ease-out; }
     66.666%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
     
@@ -436,7 +431,7 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-pool {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:125px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-small; animation-timing-function:ease-out; }
     66.666%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
     
@@ -447,21 +442,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-base {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:125px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-small; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:125px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-small; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:125px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-small; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
@@ -470,21 +465,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:115px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
 }
 
 @-moz-keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:115px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
 }
 
 @keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:115px; animation-timing-function:ease-out; }
+    33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
 }
@@ -494,21 +489,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
 }
@@ -518,21 +513,21 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
 }
@@ -558,209 +553,164 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 
   @include mq($until: wide) {
-    .branding {
-      right: 20px;
-    }
-    .player {
-      right: 80px;
-    }
-    .episode-info {
-      margin-left: 170px;
-    }
-    .subscription {
-      left: 182px;
-    }
+    
   }
 
   @include mq($until: leftCol) {
-    .branding {
-      right: 18px;
-    }
-    .player {
-      right: 64px;
-    }
-    .episode-info {
-      margin-left: 10px;
-    }
-    .subscription {
-      left: 23px;
-    }
+   
   }
 
   @include mq($until: desktop) {
-    min-height: 120px;
+
     .branding {
-      right: 16px;
-      width: 41px;
-      height: 26px;
+      width: 55px;
     }
-    .player {
-      right: 51px;
-      height: 130px;
-      width: 336px;
-      .player__circle {
-        height: 130px;
-        width: 130px;
-      }
-    }
+
     .episode-info {
       .episode-info__heading {
-        font-size: 26px;
-        line-height: 26px;
+        font-size: 28px;
+        line-height: 28px;
       }
     }
-    .subscription {
-      font-size: 12px;
-      padding-bottom: 1px;
+    .episode-info__links {
+      .episode-info_title {
+        font-size: 18px;
+      }
+      .episode-info_full {
+        font-size: 16px;
+      }
+      .episode-info__label {
+        margin-left:23px;
+      }
+      .episode-info__arrow {
+        width: 17px; 
+      }
     }
+
+    .balls-container {
+      #figure {
+        width: 350px;
+      }
+    }
+
+    @keyframes move-figure {
+      to{bottom:-190px;}
+    }
+
+    @-moz-keyframes move-figure {
+      to{bottom:-190px;}
+    }
+
+    @-webkit-keyframes move-figure {
+      to{bottom:-190px;}
+    }
+
+
+    
   }
 
   @include mq($until: tablet) {
-    min-height: 105px;
-    .branding {
-      right: 19px;
-      width: 35px;
-      height: 22px;
-    }
-    .player {
-      top: 8px;
-      right: 50px;
-      height: 110px;
-      width: 284px;
-      .player__circle {
-        height: 110px;
-        width: 110px;
+
+    .balls-container {
+      #figure {
+        right:40px;
+
+        -webkit-animation:move-figure 3s 0s forwards ;
+        -moz-animation:move-figure 3s 0s forwards ;
+        animation:move-figure 3s 0s forwards ;
       }
-    }
-    .episode-info {
-      .episode-info__heading {
-        font-size: 22px;
-        line-height: 22px;
-      }
-    }
-    .episode-info_full {
-      font-size: 12px;
-      height: 24px;
-      line-height: 24px;
-      padding-left: 12px;
-      padding-right: 28px;
-      margin: 12px 0 26px;
-      border-radius: 15px;
-      .episode-info__arrow {
-        top: 1px;
-        right: 8px;
-      }
-    }
-    .subscription {
-      font-size: 11px;
-      padding-bottom: 0;
-      &__icon {
-        width: 12px;
-        height: 16px;
-        top: 4px;
-        svg {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      &__itunes,
-      &__download {
-        &:after {
-          height: 18px;
-          top: 1px;
-          margin: 0 5px;
-        }
+      #tennis, #tennis-two, #basketball, #baseball, #golf, #pool, #ping, #football {
+        display: none;
       }
     }
   }
 
   @include mq($until: phablet) {
-    height: auto;
-    min-height: auto;
-    width: auto;
-    padding: 12px;
-    .branding {
-      top: 8px;
-      right: 9px;
-    }
 
-    .player {
-      top: 45px;
-      left: -1px;
-      right: 0;
-      bottom: auto;
-      height: 140px;
-      width: 362px;
-      margin: 24px 0 16px;
-      .player__circle {
-        height: 140px;
-        width: 140px;
-      }
+    #sos-thrasher .branding {
+      width: 40px;
     }
 
     .episode-info {
-      position: static;
-      top: 140px;
-      left: 0;
-      padding-top: 0px;
-      width: auto;
-      margin-top: -3px;
-      margin-left: 0;
+      .episode-info__heading {
+        font-size: 25px;
+        line-height: 25px;
+      }
     }
-    .episode-info_full {
-      margin-top: 170px;
-      z-index: 400;
+    .episode-info__links {
+      .episode-info_title {
+        font-size: 15px;
+      }
+      .episode-info_full {
+        font-size: 14px;
+      }
+      .episode-info__label {
+        margin-left:21px;
+      }
+      .episode-info__arrow {
+        width: 15px; 
+      }
     }
 
-    .subscription {
-      position: absolute;
-      bottom: 0;
-      left: 12px;
+    .balls-container {
+      #figure {
+        right:0px;
+        width: 280px;
+        bottom: -360px;
+
+      }
+     
+    }
+    @keyframes move-figure {
+      to{bottom:-160px;}
     }
 
-    .circles {
-      top: 140px;
-      left: -120px;
-      right: -120px;
+    @-moz-keyframes move-figure {
+      to{bottom:-160px;}
     }
+
+    @-webkit-keyframes move-figure {
+      to{bottom:-160px;}
+    }
+  
   }
 
   @include mq($until: mobileLandscape) {
-    .player {
-      top: 40px;
-      height: 115px;
-      width: 300px;
-      margin: 24px 0 16px;
-      .player__circle {
-        height: 115px;
-        width: 115px;
-      }
+
+    #sos-thrasher {
+      min-height: 300px!important;
+    }
+
+    .branding {
+      display:none;
     }
 
     .episode-info {
-      margin-left: -12px;
-    }
-    .episode-info_full {
-      margin-top: 145px;
+      margin-left: 10px;
     }
 
-    .subscription {
-      left: 2px;
+    .balls-container {
+    #figure {
+      right:-35px;
+      width: 190px;
+      bottom: -660px;
+    }
+     
+    }
+    @keyframes move-figure {
+      to{bottom:-55px;}
     }
 
-    .circles {
-      top: 125px;
+    @-moz-keyframes move-figure {
+      to{bottom:-55px;}
     }
 
+    @-webkit-keyframes move-figure {
+      to{bottom:-55px;}
+    }
+        
   }
 
-  h1, h2 {
-    display: inline;
-    font-weight: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-  }
 
 }
 
