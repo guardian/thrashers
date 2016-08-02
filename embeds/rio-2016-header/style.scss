@@ -1,0 +1,161 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@mixin overflow-visible($container-name) {
+  ##{$container-name} {
+    &.fc-container--thrasher,
+    .fc-container__inner,
+    .fc-slice,
+    .facia-snap {
+      overflow: visible;
+      // overflow-y: visible !important;
+      // overflow-x: hidden !important;
+    }
+  }
+}
+@include overflow-visible(rio-2016);
+#rio-2016 {
+  padding-top: 0;
+  .tone-media--item {
+    background-color: #E8E8E8;
+  }
+}
+
+#rio-2016-header-inner {
+  // position: relative;
+  height: 200px;
+  @include mq($until: desktop) {
+    height: 160px;
+  }
+  @include mq($until: phablet) {
+    height: 120px;
+  }
+  @include mq($until: mobileLandscape) {
+    height: 100px;
+  }
+  // width: 100%;
+  .rio-2016-logo {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 154px;
+    height: 87px;
+    padding: 16px 8px;
+    background-color: #E8E8E8;
+    @include mq($until: desktop) {
+      transform: scale(0.8);
+      transform-origin: top left;
+    }
+    @include mq($until: phablet) {
+      transform: scale(0.7);
+    }
+    @include mq($until: mobileLandscape) {
+      transform: scale(0.55);
+      padding: 12px 6px;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .diamond-pattern {
+    position: absolute;
+    z-index: -1;
+    top: 25px;
+    left: 8px;
+    transform: translateX(-1000px);
+    @include mq($until: desktop) {
+    // @include mq($until: phablet) {
+      display: none;
+    }
+  }
+  .swimming {
+    &__pool {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      left: 440px;
+      width: 1800px;
+      @include mq($until: wide) {
+        left: 363px;
+      }
+      @include mq($until: leftCol) {
+        left: 286px;
+      }
+      @include mq($until: desktop) {
+        left: 207px;
+      }
+      @include mq($until: phablet) {
+        left: 166px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 32%;
+      }
+      svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &__phelps {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      img {
+        width: 346px;
+        height: 211px;
+        position: absolute;
+        right: -1px;
+        top: -6px;
+        @include mq($until: desktop) {
+          right: -40px;
+          transform: scale(0.8);
+          transform-origin: top right;
+        }
+        @include mq($until: phablet) {
+          transform: scale(0.6);
+          top: 0;
+        }
+      }
+    }
+    &__stand {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      top: 0;
+      svg {
+        position: absolute;
+        top: -310px;
+        right: -620px;
+        @include mq($until: desktop) {
+          right: -700px;
+        }
+        @include mq($until: phablet) {
+          right: -760px;
+        }
+      }
+    }
+  }
+
+  .dont-overflow {
+    overflow: hidden;
+    height: 100%;
+  }
+}
