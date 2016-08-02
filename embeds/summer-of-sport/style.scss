@@ -124,23 +124,10 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     }
   }
 
-  .scaleUpIn
-{
-  transition: transform 1.0s ease, opacity 1.0s ease;
-  
-  transform: scale(1.0,1.0);
-  opacity: 1.0;
+.display img {
+  display: none;
 }
-
-.scaleUpOut
-{
-  transition: transform 1.0s ease, opacity 1.0s ease;
-  
-  transform: scale(1.3,1.3);
-  opacity: 0.0;
-}
-
-.balls-container {
+.visible{
   width: 100%;
 
   .all-balls {
@@ -149,18 +136,21 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   #figure {
+    display: block;
     width: 400px;
     position: absolute;
     right: 120px;
     bottom: -660px;
     z-index: 9;
 
+    @include mq($until: mobileLandscape) { -webkit-animation:move-figure 3s 0s forwards ; -moz-animation:move-figure 3s 0s forwards ; animation:move-figure 3s 0s forwards ; }
     -webkit-animation:move-figure 3s 3.8s forwards ;
     -moz-animation:move-figure 3s 3.8s forwards ;
     animation:move-figure 3s 3.8s forwards ;
   }
 
-  #all-balls {
+  #all-balls{
+    display: block;
       height: 100%;
       position: absolute;
       top: 0;
@@ -168,31 +158,18 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
       opacity: 0;
       z-index: 8;
 
-      // animation-name: balls-fadein;
-      // animation-duration: 2s;
-      // animation-delay: 6.5s;
-      // animation-timing-function: ease-out;
-      // animation-fill-mode: forwards;  
+      animation-name: balls-fadein;
+      animation-duration: 2s;
+      animation-delay: 6.5s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;  
   }
 
-  .scaleUpIn
-{
-  transition: transform 1.0s ease, opacity 1.0s ease;
-  
-  transform: scale(1.0,1.0);
-  opacity: 1.0;
-}
-
-.scaleUpOut
-{
-  transition: transform 1.0s ease, opacity 1.0s ease;
-  
-  transform: scale(1.3,1.3);
-  opacity: 0.0;
-}
 
     
    #tennis {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:150px;
     width: $large;
 
@@ -203,6 +180,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #tennis-two {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:700px;
     width: $large;
 
@@ -213,6 +192,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #basketball {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:300px;
     width: $xlarge;
 
@@ -223,6 +204,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #pool {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:300px;
     width: $medium;
 
@@ -233,6 +216,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #baseball {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:10px;
     width: $medium;
 
@@ -243,6 +228,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #football {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:500px;
     width: $medium;
 
@@ -253,6 +240,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
    }
 
    #golf {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:600px;
     width: $small;
 
@@ -263,6 +252,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
    } 
 
    #ping {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:150px;
     width: $xsmall;
 
@@ -271,8 +262,8 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     animation: bounce-ping 2s 3.5s forwards ;
   
    }
+ }
 
-}
 
 
 /****** Animation Keyframes *******/
@@ -537,9 +528,11 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
   @include mq($until: desktop) {
 
-    #all-balls {
+    .visible {
+      #all-balls {
         display: none;
       }
+    }
 
     .branding {
       width: 55px;
@@ -570,7 +563,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     }
 
 
-    .balls-container {
+    .visible {
       #figure {
         width: 350px;
       }
@@ -595,16 +588,13 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
   @include mq($until: tablet) {
 
-    .balls-container {
+    .visble {
       #figure {
         right:40px;
 
         -webkit-animation:move-figure 3s 0s forwards ;
         -moz-animation:move-figure 3s 0s forwards ;
         animation:move-figure 3s 0s forwards ;
-      }
-      #tennis, #tennis-two, #basketball, #baseball, #golf, #pool, #ping, #football {
-        display: none;
       }
     }
   }
@@ -631,7 +621,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
       height: 15px;
     }
 
-    .balls-container {
+    .visbile {
       #figure {
         right:0px;
         width: 280px;
@@ -669,11 +659,12 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
       margin-left: 10px;
     }
 
-    .balls-container {
+    .visible {
     #figure {
       right:-35px;
       width: 190px;
       bottom: -660px;
+
     }
      
     }
