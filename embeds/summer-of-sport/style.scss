@@ -31,6 +31,10 @@ $bounce-xsmall: 175px;
   overflow: hidden;
 }
 
+#summer-of-sport .facia-snap{
+      padding: 0;
+    }
+
 section#summer-of-sport.fc-container.fc-container--thrasher.fc-container--has-toggle {
   background-color: #9BD5E0;
 }
@@ -44,79 +48,16 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
   width: auto;
   position: relative;
   min-height: 200px;
-  .branding {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    width: 60px;
-    height: auto;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .player {
-    display: none;
-    height: 140px;
-    width: 362px;
-    white-space: nowrap;
-    position: absolute;
-    top: 40px;
-    left: 300px;
-    background-color: transparent;
-    opacity: 0;
-
-     -webkit-animation:fadin 2s 6.5s  forwards;
-      -moz-animation:fadein 2s 6.5s  forwards ;
-      animation:fadein 2s 6.5s  forwards ;
-
-    .player__circle {
-      padding: 1px;
-      display: inline-block;
-      height: 110px;
-      width: 110px;
+    .branding {
       position: absolute;
-      top: 0;
+      top: 10px;
+      right: 20px;
+      width: 60px;
+      height: auto;
       svg {
-        height: 100%;
         width: 100%;
+        height: 100%;
       }
-    }
-    .player__name {
-      left: 40%;
-      z-index: 310;
-    }
-
-    .player__playing {
-      left: 59.5%;
-      z-index: 19;
-      transform: scale(0.97,0.97);
-      opacity: 0;
-      transition: opacity 160ms, transform 160ms;
-    }
-
-    .player__play {
-      cursor: pointer;
-      left: 59.5%;
-      z-index: 310;
-      opacity: 1;
-      transform: scale(1,1);
-      transition: opacity 240ms, transform 240ms;
-      &:hover {
-        opacity: 0.95;
-      }
-    }
-  }
-  &[data-playing] .player {
-    .player__play {
-      transform: scale(0.92,0.92);
-      opacity: 0;
-    }
-    .player__playing {
-      transform: scale(1,1);
-      opacity: 1;
-    }
   }
 
   .episode-info {
@@ -144,33 +85,38 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     }
   }
 
+ 
   .episode-info__links {
     display: inline-block;
     margin-top: 10px;
     color: #fff;
     font-family: 'Guardian Egyptian Web';
     font-weight: 800;
+    width: 500px;
     
     .episode-info_title {
       font-size: 20px;
     }
     .episode-info_full {
-    font-size: 16px;
+      font-size: 16px;
+      display: block;
+      height: 23px;
 
-    &:hover {
+    .episode-info__label {
+      display: inline-block;
+      position: absolute;
+      top: -3px;
+      margin-left:5px;
+
+      &:hover {
         text-decoration: underline;
         } 
     }
-    .episode-info__label {
-      margin-left:25px;
-      margin-top: -2px;
     }
     .episode-info__arrow {
-      position: absolute;
-      left: 1px;
-      top: 2px;
+      display: inline-block;
       width: 18px;
-      height: auto;
+      height: 18px;
       svg {
         width: 100%;
         height: 100%;
@@ -178,43 +124,21 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     }
   }
 
-  .subscription {
-    position: absolute;
-    bottom: 0;
-    left: 30px;
-    font-family: 'Guardian Text Sans Web';
-    font-size: 13px;
-    padding-bottom: 2px;
-    color: #ddd;
-    z-index: 300;
-    &__icon,
-    &__itunes,
-    &__download,
-    &__feed {
-      display: inline-block;
-    }
-    &__icon {
-      position: relative;
-      top: 2px;
-      margin-right: 1px;
-    }
-    &__itunes,
-    &__download {
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 1px;
-        height: 20px;
-        background-color: #ccc;
-        opacity: 0.8;
-        vertical-align: top;
-        position: relative;
-        top: 2px;
-        margin: 0 6px;
-      }
-    }
-  }
+  .scaleUpIn
+{
+  transition: transform 1.0s ease, opacity 1.0s ease;
+  
+  transform: scale(1.0,1.0);
+  opacity: 1.0;
+}
 
+.scaleUpOut
+{
+  transition: transform 1.0s ease, opacity 1.0s ease;
+  
+  transform: scale(1.3,1.3);
+  opacity: 0.0;
+}
 
 .balls-container {
   width: 100%;
@@ -237,7 +161,6 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   #all-balls {
-    // display: none;
       height: 100%;
       position: absolute;
       top: 0;
@@ -245,44 +168,37 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
       opacity: 0;
       z-index: 8;
 
-      // -webkit-animation:balls-fadin 2s 6.5s  forwards;
-      // -moz-animation:balls-fadein 2s 6.5s  forwards ;
-      // animation:balls-fadein 2s 6.5s  forwards ;
-
-      animation-name: balls-fadein;
-      animation-duration: 2s;
-      animation-delay: 6.5s;
-      animation-timing-function: ease-out;
-      animation-fill-mode: forwards;
-
-     
+      // animation-name: balls-fadein;
+      // animation-duration: 2s;
+      // animation-delay: 6.5s;
+      // animation-timing-function: ease-out;
+      // animation-fill-mode: forwards;  
   }
 
-  .spin-reverse {
-      -webkit-animation:spin-reverse 2s linear forwards ;
+  .scaleUpIn
+{
+  transition: transform 1.0s ease, opacity 1.0s ease;
+  
+  transform: scale(1.0,1.0);
+  opacity: 1.0;
+}
 
-    width: auto;
-    position:absolute;
-    bottom:-200px;
-    right:150px;
+.scaleUpOut
+{
+  transition: transform 1.0s ease, opacity 1.0s ease;
+  
+  transform: scale(1.3,1.3);
+  opacity: 0.0;
+}
 
-  }
-
+    
    #tennis {
     right:150px;
     width: $large;
 
-    // animation-name: bounce-tennis;
-    // animation-duration: 2s;
-    // animation-delay: 0s;
-    // animation-timing-function: ease-out;
-    // animation-fill-mode: forwards;
-
-    
-
-     -webkit-animation:spin-reverse 2s linear forwards, bounce-tennis 2s .5s forwards  ;
-    -moz-animation:spin-reverse 2s  linear forwards, bounce-tennis 2s .5s forwards ;
-    animation:spin-reverse 2s linear forwards, bounce-tennis 2s .5s forwards ;
+    -webkit-animation: bounce-tennis 2s .5s forwards  ;
+    -moz-animation: bounce-tennis 2s .5s forwards ;
+    animation: bounce-tennis 2s .5s forwards ;
 
    }
 
@@ -290,9 +206,9 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     right:700px;
     width: $large;
 
-     -webkit-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards  ;
-    -moz-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards ;
-    animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards ;
+     -webkit-animation:bounce-tennis-two 2s 3.3s forwards  ;
+    -moz-animation:bounce-tennis-two 2s 3.3s forwards ;
+    animation:bounce-tennis-two 2s 3.3s forwards ;
 
    }
 
@@ -300,9 +216,9 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     right:300px;
     width: $xlarge;
 
-    -webkit-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards  ;
-    -moz-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards ;
-    animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards ;
+    -webkit-animation: bounce-basket 2s 1.5s forwards  ;
+    -moz-animation: bounce-basket 2s 1.5s forwards ;
+    animation: bounce-basket 2s 1.5s forwards ;
 
    }
 
@@ -310,9 +226,9 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     right:300px;
     width: $medium;
 
-    -webkit-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
-    -moz-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
-    animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
+    -webkit-animation:bounce-pool 2s 2.2s forwards;
+    -moz-animation:bounce-pool 2s 2.2s forwards;
+    animation:bounce-pool 2s 2.2s forwards;
 
    }
 
@@ -320,9 +236,9 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     right:10px;
     width: $medium;
 
-    -webkit-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
-    -moz-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
-    animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
+    -webkit-animation:bounce-base 2s 2.5s forwards;
+    -moz-animation: bounce-base 2s 2.5s forwards;
+    animation: bounce-base 2s 2.5s forwards;
 
    }
 
@@ -330,9 +246,9 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     right:500px;
     width: $medium;
 
-    -webkit-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
-    -moz-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
-    animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
+    -webkit-animation: bounce-foot 2s 3s forwards;
+    -moz-animation: bounce-foot 2s 3s forwards;
+    animation: bounce-foot 2s 3s forwards;
 
    }
 
@@ -340,9 +256,9 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     right:600px;
     width: $small;
 
-    -webkit-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards  ;
-    -moz-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards ;
-    animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards ;
+    -webkit-animation: bounce-golf 2s 3.1s forwards  ;
+    -moz-animation: bounce-golf 2s 3.1s forwards ;
+    animation: bounce-golf 2s 3.1s forwards ;
   
    } 
 
@@ -350,45 +266,22 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
     right:150px;
     width: $xsmall;
 
-    -webkit-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards  ;
-    -moz-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
-    animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
+    -webkit-animation: bounce-ping 2s 3.5s forwards  ;
+    -moz-animation: bounce-ping 2s 3.5s forwards ;
+    animation: bounce-ping 2s 3.5s forwards ;
   
    }
 
 }
 
+
 /****** Animation Keyframes *******/
-
-
-/****** Rotation *******/
-
-@-moz-keyframes spin { 
-  100% { -moz-transform: rotate(360deg);} 
-  }
-@-webkit-keyframes spin { 
-  100% { -webkit-transform: rotate(360deg);} 
-  }
-@keyframes spin { 
-  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg);} 
-  }
-
-
-@-moz-keyframes spin-reverse { 
-  100% { -moz-transform: rotate(-360deg);} 
-  }
-@-webkit-keyframes spin-reverse { 
-  100% { -webkit-transform: rotate(-360deg);} 
-  }
-@keyframes spin-reverse { 
-  100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg);} 
-  }
-
 
 /****** Tennis *******/
 
 @-webkit-keyframes bounce-tennis {
-    0%   { top:-200px; animation-timing-function:ease-in;  }
+    0%   { top:-200px;  animation-timing-function:ease-in;   }
+    1%   { -webkit-transform: rotate(-360deg);   }
     50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
@@ -396,6 +289,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(-360deg);   }
     50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
@@ -403,6 +297,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
@@ -412,6 +307,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
@@ -419,6 +315,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(-360deg);   }
     50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
@@ -426,6 +323,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
@@ -436,6 +334,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
     33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
@@ -443,6 +342,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(360deg);   }
     33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
@@ -450,6 +350,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
     33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
@@ -460,6 +361,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-pool {
     0%   { top:-2000px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     90%  { top:$bounce-small; animation-timing-function:ease-out; }
     95%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
@@ -468,6 +370,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-pool {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(-360deg);   }
     33.333%  { top:$bounce-small; animation-timing-function:ease-out; }
     66.666%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
@@ -476,6 +379,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-pool {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     33.333%  { top:$bounce-small; animation-timing-function:ease-out; }
     66.666%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
@@ -487,6 +391,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-base {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     50%  { top:$bounce-small; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 750px; animation-timing-function:ease-in;  }
     
@@ -494,6 +399,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
+     1%   { -moz-transform: rotate(-360deg);   }
     50%  { top:$bounce-small; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 750px; animation-timing-function:ease-in;  }
     
@@ -501,6 +407,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
+     1%   { -webkit-transform: rotate(-360deg);   }
     50%  { top:$bounce-small; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 750px; animation-timing-function:ease-in;  }
     
@@ -510,6 +417,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
@@ -517,6 +425,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(-360deg);   }
     33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
@@ -524,6 +433,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
     33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
@@ -534,6 +444,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
     50%  { top:160px; animation-timing-function:ease-out; }
     100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
@@ -541,6 +452,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(360deg);   }
     50%  { top:160px; animation-timing-function:ease-out; }
     100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
@@ -548,6 +460,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
     50%  { top:160px; animation-timing-function:ease-out; }
     100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
@@ -558,6 +471,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
     50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
@@ -565,6 +479,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @-moz-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(360deg);   }
     50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
@@ -572,6 +487,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
     50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
@@ -615,12 +531,6 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 }
 
 
-
-
-  @include mq($until: wide) {
-    
-  }
-
   @include mq($until: leftCol) {
     
   }
@@ -635,26 +545,30 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
       width: 55px;
     }
 
+    
     .episode-info {
       .episode-info__heading {
         font-size: 28px;
         line-height: 28px;
       }
     }
-    .episode-info__links {
-      .episode-info_title {
-        font-size: 18px;
-      }
-      .episode-info_full {
-        font-size: 16px;
-      }
-      .episode-info__label {
-        margin-left:23px;
-      }
-      .episode-info__arrow {
-        width: 17px; 
+
+    .episode-info_title {
+      font-size: 18px;
+    }
+    .episode-info_full {
+      font-size: 16px;
+      display: block;
+      height: 23px;
+    .episode-info__label {
+      top:-2px;
       }
     }
+    .episode-info__arrow {
+      width: 17px;
+      height: 17px;
+    }
+
 
     .balls-container {
       #figure {
@@ -701,25 +615,20 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
       width: 40px;
     }
 
-    .episode-info {
-      .episode-info__heading {
-        font-size: 25px;
-        line-height: 25px;
+    .episode-info_title {
+      font-size: 15px;
+    }
+    .episode-info_full {
+      font-size: 15px;
+      display: block;
+      height: 23px;
+    .episode-info__label {
+      top:-2px;
       }
     }
-    .episode-info__links {
-      .episode-info_title {
-        font-size: 15px;
-      }
-      .episode-info_full {
-        font-size: 14px;
-      }
-      .episode-info__label {
-        margin-left:21px;
-      }
-      .episode-info__arrow {
-        width: 15px; 
-      }
+    .episode-info__arrow {
+      width: 15px;
+      height: 15px;
     }
 
     .balls-container {
@@ -746,6 +655,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   @include mq($until: mobileLandscape) {
+
 
     #sos-thrasher {
       min-height: 300px!important;
@@ -777,10 +687,7 @@ section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
 
     @-webkit-keyframes move-figure {
       to{bottom:-55px;}
-    }
-        
+    }     
   }
-
-
 }
 

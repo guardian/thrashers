@@ -1,7 +1,7 @@
 {
   "empty.gif": "empty.5ef2ef64.gif",
-  "main.js": "main.dcf394d6.js",
-  "figure.png": "figure.4b9a4c41.png",
+  "main.js": "main.87656dc7.js",
+  "figure.png": "figure.e1b270e5.png",
   "baseball.png": "baseball.05d47380.png",
   "tennis.png": "tennis.1c662401.png",
   "basketball.png": "basketball.82b95fcc.png",
@@ -10,5 +10,7 @@
   "pool.png": "pool.e3d1d0d9.png",
   "ping.png": "ping.a5991458.png",
   "frame.png": "frame.5a739210.png",
-  "all-balls.png": "all-balls.faee409a.png"
+  "all-balls.png": "all-balls.faee409a.png",
+  "ScrollTrigger.min.js": "ScrollTrigger.min.0850688c.js",
+  "ScrollTrigger.js": "ScrollTrigger.28cd89b5.js"
 }
