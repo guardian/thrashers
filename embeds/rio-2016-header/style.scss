@@ -29,6 +29,9 @@ $mq-breakpoints: (
   .tone-media--item {
     background-color: #E8E8E8;
   }
+  .fc-trail__count.fc-trail__count--commentcount {
+    display: none;
+  }
 }
 
 #rio-2016-header-inner {
