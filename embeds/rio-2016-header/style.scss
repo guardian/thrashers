@@ -49,7 +49,7 @@ $mq-breakpoints: (
   // width: 100%;
   .rio-2016-logo {
     position: absolute;
-    z-index: 0;
+    z-index: 50;
     top: 0;
     left: 0;
     width: 154px;
@@ -68,33 +68,69 @@ $mq-breakpoints: (
       padding: 12px 6px;
     }
     svg {
-      width: 100%;
-      height: 100%;
+      margin-top: 1px;
+      margin-left: 2px;
+      width: 137px;
+      height: 60px;
+    }
+    h1 {
+      position: absolute;
+      top: 70px;
+      left: 61px;
+      color: #000;
+      font-size: 32px;
+      letter-spacing: -1px;
+      font-family: $f-sans-serif-headline;
+      // font-family: "Guardian Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      // font-family: "Guardian Sans Headline","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      font-weight: 300;
+      white-space: nowrap;
     }
   }
   .diamond-pattern {
     position: absolute;
     z-index: -1;
     top: 25px;
-    left: 8px;
-    transform: translateX(-1000px);
+    left: 208px;
+    transform: translateX(-940px);
     @include mq($until: desktop) {
     // @include mq($until: phablet) {
       display: none;
     }
+    .tagline {
+      position: absolute;
+      top: 7px;
+      right: -5px;
+      line-height: 47px;
+      transform: translateX(100%);
+      font-family: $f-sans-serif-headline;
+      font-weight: 400;
+      font-size: 18px;
+      &__live-coverage {
+        color: #EE3C57;
+      }
+      &__daily-briefing {
+        color: #1E9644;
+      }
+      &__commentary {
+        color: #0690C9;
+      }
+    }
   }
+
+
   .swimming {
     &__pool {
       z-index: 10;
       position: absolute;
       top: 0;
-      left: 440px;
+      left: 400px;
       width: 1800px;
       @include mq($until: wide) {
         left: 363px;
       }
       @include mq($until: leftCol) {
-        left: 286px;
+        left: 337px;
       }
       @include mq($until: desktop) {
         left: 207px;
@@ -161,4 +197,26 @@ $mq-breakpoints: (
     overflow: hidden;
     height: 100%;
   }
+  .back {
+    z-index: -2;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    background-color: #E8E8E8;
+  }
 }
+
+
+
+// @font-face{
+// 	font-family:"Guardian Sans Headline";
+// 	src:url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian Sans Web-Light.eot');
+// 	src:url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.eot?#iefix') format('embedded-opentype'),
+// 		url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.woff') format('woff'),
+// 		url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.ttf') format('truetype'),
+// 		url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.svg#Guardian+Sans+Web-Light') format('svg');
+// 	font-weight:200;font-style:normal;font-stretch:normal;
+// }
