@@ -354,6 +354,8 @@ $mq-breakpoints: (
    width: 40px;
    left: 364px;
    top: 16px;
+   display: block; 
+   opacity: 1;
  }
  25%{
   width: 300px;
@@ -363,6 +365,8 @@ $mq-breakpoints: (
    width: 40px;
    left: 1100px;
    top: 16px;
+   display: block;
+   opacity: 1;
  }
  65%{
    width: 200px;
@@ -373,11 +377,15 @@ $mq-breakpoints: (
    width: 40px;
    left: 1600px;
    top: 12px;
+   display: none;
+   opacity: 0;
  }
  100%{
    width: 120px;
    left: 2400px;
    top: 20px;
+   display: none;
+   opacity: 0;
  }
 }
 
