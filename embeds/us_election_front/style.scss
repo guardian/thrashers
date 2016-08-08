@@ -13,7 +13,7 @@ $mq-breakpoints: (
 @include base(us-election-header, #fff);
 
 $red: #ed1c24;
-$grey: #f5f5f5;
+$grey: rgba(0,0,0, .05);
 $blue: #214583;
 
 #us-election-header{
@@ -349,7 +349,129 @@ $blue: #214583;
     border-top-color: $red;
 }
 
+.treats__container {
+    bottom: 1.5rem;
+}
+
 .treats__treat {
     border-color: $red;
     color: $blue;
+}
+
+.facia-page {
+    background-image: url('@@assetPath@@/bg.png');
+    background-position: center top;
+}
+
+.fc-container__inner {
+    padding-bottom: .75rem;
+    background-color: white;
+}
+
+.fc-container {
+    padding-bottom: 0;
+}
+
+.fc-container--thrasher {
+    margin-bottom: -1px;
+}
+
+.fc-container--thrasher .fc-container__inner {
+    padding-bottom: 0;
+}
+
+// Supertreat
+.fc-container__inner--no-treats .treats__container {
+    display: none;
+}
+
+.countdown {
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    color: $blue;
+    margin-top: -18px;
+
+    @include mq(tablet) {
+        margin-top: -11px;
+        width: 340px;
+        float: right;
+    }
+
+    @include mq(desktop) {
+        width: 460px;
+    }
+
+    @include mq(leftCol) {
+        position: absolute;
+        width: 140px;
+        bottom: 1.5rem;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
+}
+
+.countdown__link {
+    color: $blue;
+
+    &:hover {
+        opacity: .8;
+        text-decoration: none;
+    }
+
+    #top-stories & {
+        display: none;
+    }
+}
+
+.countdown__logo {
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 15px;
+    margin-bottom: 12px;
+
+    @include mq(tablet, leftCol) {
+        margin-bottom: 6px;
+    }
+
+    span {
+        display: block;
+    }
+}
+
+.countdown__image {
+    height: 26px;
+    margin-top: 2px;
+    float: left;
+    margin-right: 4px;
+}
+
+.countdown__number {
+    font-weight: 900;
+    font-size: 100px;
+    line-height: 0.87;
+    color: $red;
+    width: 8rem;
+    float: left;
+    padding-right: 9px;
+
+    @include mq(tablet) {
+        width: auto;
+    }
+
+    @include mq(leftCol) {
+        float: none;
+        line-height: .7;
+    }
+}
+
+.countdown__text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.countdown__lead-in {
+    color: $red;
+    display: block;
 }
