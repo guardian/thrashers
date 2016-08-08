@@ -408,7 +408,75 @@ $mq-breakpoints: (
     transform: translatex(-50%);
     background-color: #E8E8E8;
   }
-  
+
+  &[data-day] {
+    .default {
+      display: none;
+    }
+
+    &[data-day='1'] .running,
+    &[data-day='2'] .running {
+      display: block;
+    }
+
+    &[data-day='3'] .swimming,
+    &[data-day='4'] .swimming,
+    &[data-day='5'] .swimming,
+    &[data-day='6'] .swimming,
+    &[data-day='7'] .swimming,
+    &[data-day='8'] .swimming,
+    &[data-day='9'] .swimming {
+      display: block;
+    }
+    &[data-day='10'] .pingpong,
+    &[data-day='11'] .pingpong,
+    &[data-day='12'] .pingpong {
+      display: block;
+    }
+    &[data-day='13'] .cycling,
+    &[data-day='14'] .cycling,
+    &[data-day='15'] .cycling {
+      display: block;
+    }
+    &[data-day='16'] .boxing,
+    &[data-day='17'] .boxing,
+    &[data-day='18'] .boxing {
+      display: block;
+    }
+    &[data-day='19'] .running,
+    &[data-day='20'] .running,
+    &[data-day='21'] .running {
+      display: block;
+    }
+
+    // olympics ends 21st
+
+    &[data-day='22'] .running,
+    &[data-day='23'] .running {
+      display: block;
+    }
+
+    &[data-day='24'] .swimming,
+    &[data-day='23'] .swimming {
+      display: block;
+    }
+    &[data-day='25'] .pingpong,
+    &[data-day='26'] .pingpong {
+      display: block;
+    }
+    &[data-day='27'] .cycling,
+    &[data-day='28'] .cycling {
+      display: block;
+    }
+    &[data-day='29'] .boxing,
+    &[data-day='30'] .boxing,
+    &[data-day='31'] .boxing {
+      display: block;
+    }
+
+  }
+
+
 }
 
 
