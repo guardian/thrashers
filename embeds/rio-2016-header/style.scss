@@ -303,97 +303,95 @@ $mq-breakpoints: (
           transform: scale(0.5);
         }
       }
-  }
-  &__ball {
-    // &.bouncing {
-      @include mq($from: desktop) {
-        animation-name: bounce;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
+    }
+    &__ball {
+      // &.bouncing {
+        @include mq($from: desktop) {
+          animation-name: bounce;
+          animation-duration: 4s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-in-out;
+          }
+        // }
+        z-index: 60;
+        position: absolute;
+        left: 600px;
+        top: 80px;
+        height: 100%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        transform: scale(0.4);
+        width: 48px;
+        img {
+          width: 100%;
+          height: auto;
         }
-      // }
-      z-index: 60;
-      position: absolute;
-      left: 600px;
-      top: 80px;
-      height: 100%;
-      transform: translateX(-50%);
-      pointer-events: none;
-      transform: scale(0.4);
-      width: 48px;
-      img {
-        width: 100%;
-        height: auto;
-      }
 
-      @include mq($until: desktop) {
-      top: 60px;
-      left: 400px;
-      img {
-        width: 100%;
+        @include mq($until: desktop) {
+        top: 60px;
+        left: 400px;
+        img {
+          width: 100%;
+          display: block;
+          height: auto;
+          transform: scale(0.8);
+        }
+        @include mq($until: phablet) {
+          left: 340px;
+          top: 48px;
+          img {
+            transform: scale(0.6);
+          }
+        }
+       @include mq($until: mobileLandscape) {
+        left: 65%;
+        top: 40px;
+          img {
+            transform: scale(0.5);
+          }
+        }
+      }
+    }
+
+    @keyframes bounce{
+      0%{
+        width: 40px;
+        left: 364px;
+        top: 16px;
         display: block;
-        height: auto;
-        transform: scale(0.8);
+        opacity: 1;
       }
-      @include mq($until: phablet) {
-        left: 340px;
-        top: 48px;
-        img {
-          transform: scale(0.6);
-        }
+      25%{
+        width: 300px;
+        top: 30px;
       }
-     @include mq($until: mobileLandscape) {
-      left: 65%;
-      top: 40px;
-        img {
-          transform: scale(0.5);
-        }
+      50%{
+        width: 40px;
+        left: 1100px;
+        top: 16px;
+        display: block;
+        opacity: 1;
       }
-  }
-}
-
-@keyframes bounce{
-
- 0%{
-   width: 40px;
-   left: 364px;
-   top: 16px;
-   display: block; 
-   opacity: 1;
- }
- 25%{
-  width: 300px;
-  top: 30px;
- }
- 50%{
-   width: 40px;
-   left: 1100px;
-   top: 16px;
-   display: block;
-   opacity: 1;
- }
- 65%{
-   width: 200px;
-   left: 1300px;
-   top: 40px;
- }
- 80%{
-   width: 40px;
-   left: 1600px;
-   top: 12px;
-   display: none;
-   opacity: 0;
- }
- 100%{
-   width: 120px;
-   left: 2400px;
-   top: 20px;
-   display: none;
-   opacity: 0;
- }
-}
-
+      65%{
+        width: 200px;
+        left: 1300px;
+        top: 40px;
+      }
+      80%{
+        width: 40px;
+        left: 1600px;
+        top: 12px;
+        display: none;
+        opacity: 0;
+      }
+      100%{
+        width: 120px;
+        left: 2400px;
+        top: 20px;
+        display: none;
+        opacity: 0;
+      }
+    }
   }
 
   .dont-overflow {
@@ -410,6 +408,7 @@ $mq-breakpoints: (
     transform: translatex(-50%);
     background-color: #E8E8E8;
   }
+  
 }
 
 
