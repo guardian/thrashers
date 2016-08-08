@@ -44,7 +44,14 @@
     <div class='pingpong__ball'>
       <img src="@@assetPath@@/ball.png" srcset="@@assetPath@@/ball.png 1x, @@assetPath@@/ball@2x.png 2x" alt="ping pong ball">
     </div>
-
   </div>
 
 </div>
+
+<img
+    style="height:0;width:0;visibility:hidden;position:absolute;z-index: 1;"
+    height="0"
+    width="0"
+    src="@@assetPath@@/empty.gif"
+    onload="var script=document.createElement('script');script.src='@@assetPath@@/main.js'; document.body.appendChild(script);"
+/>
