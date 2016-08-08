@@ -305,14 +305,6 @@ $mq-breakpoints: (
       }
     }
     &__ball {
-      // &.bouncing {
-        @include mq($from: desktop) {
-          animation-name: bounce;
-          animation-duration: 4s;
-          animation-iteration-count: infinite;
-          animation-timing-function: ease-in-out;
-          }
-        // }
         z-index: 60;
         position: absolute;
         left: 600px;
@@ -409,6 +401,18 @@ $mq-breakpoints: (
     background-color: #E8E8E8;
   }
 
+  &.easter {
+    .pingpong__ball {
+      @include mq($from: desktop) {
+        animation-name: bounce;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+    }
+  }
+
+
   &[data-day] {
     .default {
       display: none;
@@ -473,7 +477,6 @@ $mq-breakpoints: (
     &[data-day='31'] .boxing {
       display: block;
     }
-
   }
 
 
