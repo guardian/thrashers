@@ -1,0 +1,595 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@mixin transition($seconds){
+	-webkit-transition: all $seconds ease-in-out;		  	
+	-moz-transition: all $seconds ease-in-out;
+	-o-transition: all $seconds ease-in-out;
+	transition: all $seconds ease-in-out;
+}
+
+@mixin backgroundimage($background, $url, $size){
+	background: $background;
+	background-image: $url;
+	background-size: $size;
+}
+
+$opacity:1;
+$red: #ed1c24;
+$grey: #f5f5f5;
+$blue: #214583;
+
+@mixin flagLine($opacity){
+		height: 40px;
+		background-color: $red;
+		position: absolute;
+		opacity: $opacity;	
+		
+		@include mq($until: desktop){
+					height: 30px;
+				}
+		
+}
+
+@import 'shared/_imports';
+@include base(us-election-minute, $blue);
+
+#us-election-minute.fc-container--thrasher{
+		.fc-container__inner{
+			overflow: visible;
+						  
+			.fc-container__body{
+				.fc-slice-wrapper{
+					ul{
+						overflow: visible
+					}
+					
+					.facia-snap{
+						overflow: visible;
+					}
+				}
+			}			
+		}
+	}
+	
+	
+
+	.the__minute--wrapper{
+		font-family: $f-serif-headline;
+		width: 1200px;
+		height: 350px;
+		
+		@include mq($until: desktop){
+					height: 280px;
+				}
+		@include mq($until: tablet){
+					width: 100%;
+					height: 330px;
+				}		
+				
+		
+		.flag__line{
+				&--one{
+    				bottom: 0px;
+    				right: -1%;
+    				z-index: 60;
+    				width: 59.5%;
+    				position: relative;
+    				@include flagLine($opacity);
+
+    				@include mq($until: wide){
+    						width: 460px;
+    					}
+    				
+    				@include mq($until: mobileLandscape){
+    					display: none;
+    				}
+
+    				p{
+    					position: absolute;
+    					right: 25px;
+    					top: 4px;
+    					font-weight: 900;
+    					color: white;
+    					
+    					@include mq(desktop) {
+        					top: 8px;
+    					}
+    				}
+				}
+				
+				&--two{
+			    top: 161px;
+				z-index: 30;
+				width: 33%;
+				left: -14%;
+				z-index: -10;
+				@include flagLine($opacity);
+				
+				@include mq($until: desktop){
+							top: 127px;
+					}
+				@include mq($until: tablet){
+					display: none;
+				}	
+				@include mq($until: mobileLandscape){
+							z-index: -50;
+							top: 223px;
+							display: block;
+					}	
+				}
+				
+				&--three{
+				top: 43px;
+				z-index: -30;
+				width: 20%;
+				left: 17%;
+				@include flagLine(0.1);
+				background-color: black;
+				}
+				
+				&--four{
+				top: 213px;
+				right: 36%;
+				z-index: 3 0;
+				width: 22%;
+				@include flagLine(0.1);
+				background-color: black;
+				}
+				
+				&--five{
+				top: 0px;
+				z-index: -30;
+				width: 24%;
+				right: 25%;
+				@include flagLine($opacity);
+				
+				@include mq($until: mobileLandscape){
+							display: none;
+					}
+				}
+				
+				&--six{
+				bottom: 50px;
+				z-index: -30;
+				width: 28%;
+				left: -11%;
+				@include flagLine(0.1);
+				background-color: black;
+				@include mq($until: mobileLandscape){
+							display: none;
+					}
+				
+				}
+				
+				&--seven{
+				top: 110px;
+				z-index: -30;
+				width: 34%;
+				right: -4%;
+				@include flagLine($opacity);
+				@include mq($until: mobileLandscape){
+							top:180px;
+					}
+				}
+		}
+		
+		.guardian__roundel{
+			right: 10px;
+			top: 6px;
+			position: absolute;
+			
+			svg{
+				@include mq($until: tablet){
+					display: none;
+				}
+			}
+			
+			.roundel{
+				display: none;
+				height: 50px;
+				width: 80px;
+				
+				@include mq($until: tablet){
+					display: block;
+					background: no-repeat url('@@assetPath@@/the_minute_roundel@1x.png');
+					background-size: 100%;
+				}
+				
+			}
+			
+		}
+		
+		.guardian__election__logo{
+			left: 10px;
+			position: absolute;
+			@include backgroundimage(no-repeat, url('@@assetPath@@/election_2016.svg'), 100%);
+			height: 50px;
+			width: 113px;
+			top: 6px;
+			}
+		
+		
+		.the__minute__tablet__mobile{
+			
+			display: none;
+			
+			@include mq($until: tablet){
+					display: block;
+					width: 68%;
+					height: 280px;
+				}
+				
+			@include mq($until: mobileLandscape){
+					display: block;
+					width: 85%;
+					height: 280px;
+				}
+				
+					
+			h1{
+				color: white;
+				font-size: 33px;
+				line-height: 33px;
+				font-weight: 600;
+				width: 65%;
+				margin-top: 52px;
+				
+				@include mq($until: phablet){
+					font-size: 20px;
+					line-height: 26px;
+					width: 120%;
+				
+				}
+				
+			}
+
+			h2{	
+				color: white;
+				font-weight: 200;
+				font-size: 22px;
+				line-height: 24px;
+				width: 55%;
+				margin-bottom: 8px;
+				margin-top: 2px;
+				
+				@include mq($until: phablet){
+					font-size: 18px;
+					line-height: 20px;
+					width: 292px;
+					margin-top: 0px;
+					margin-bottom: 12px;
+				}
+				
+				@include mq($until: mobile){
+				}
+				
+			}
+			
+			a{
+				color: white;
+				font-weight: 800;
+				font-size: 18px;
+				
+				img{
+					margin-left: 10px;
+					margin-bottom: -5px;
+				}
+			}
+			
+			
+		}
+		
+		.the__minute--left{
+			position: relative;
+			float: left;
+			width: 50%;
+			height: 350px;
+			
+			@include mq($until: leftCol){
+						width: 44%;
+					}
+					
+			@include mq($until: desktop){
+				width: 33%;
+				height: 280px;
+			}
+				
+			@include mq($until: tablet){
+					display: none;
+				}	
+			
+			.the__minute--title{
+				position: absolute;
+				left: 20px;
+				top: 70px;
+				display: none;
+
+				h1{
+					font-weight: 100;
+					font-size: 70px;
+					color: white;
+					
+					@include mq($until: leftCol){
+						font-size: 60px;
+					}
+					
+					@include mq($until: desktop){
+						font-size: 45px;	
+					}
+				}
+				
+			}
+			
+			.the__minute--standfirst{
+				position: absolute;
+				bottom: 25px;
+				left: 20px;
+				
+				h2{
+			  	    font-size: 18px;
+					line-height: 20px;
+					width: 246px;
+					color: white;
+					margin-bottom: 10px;
+					
+					@include mq($until: desktop){
+							width: 230px;
+							font-size: 15px;
+							line-height: 17px;
+					}
+				}
+				
+				a{
+					color: white;
+					font-weight: 800;
+					font-size: 18px;
+					
+					img{
+						margin-left: 10px;
+						margin-bottom: -5px;
+					}
+				}
+				
+				svg{
+					height: 30px;
+					width: 30px;
+					stroke: white;
+					fill: white;
+					margin-bottom: -9px;
+					margin-left: 5px;
+				}
+				
+			}
+			
+			.the__minute__logo{
+				position: absolute;
+				top: 58px;
+				left: 375px;
+				
+					@include mq($until: leftCol){
+						left: 321px;
+					}
+					
+					@include mq($until: desktop){
+						left: 252px;	
+					}
+				
+				.type{
+					position: absolute;
+					top: 72px;
+					width: 530px;
+					left: -104px;
+					
+					@include mq($until: leftCol){
+						left: -91px;
+					}
+					
+					@include mq($until: desktop){
+						left: -73px;
+						top:56px;
+					}
+					
+					p{
+						float: left;
+						font-size: 70px;
+						font-weight: 100;
+						float: left;
+						margin-right: 25px;
+						color: white;
+						
+						@include mq($until: leftCol){
+						font-size: 60px;
+					}
+					
+						@include mq($until: desktop){
+						font-size: 45px;
+					}
+					}
+				}
+				
+				svg{
+					width: 247px;
+					height: 247px;
+					
+					@include mq($until: leftCol){
+						width: 212px;
+						height: 231px;
+					}
+					
+					@include mq($until: desktop){
+						width: 166px;
+						height: 185px;
+					}
+				}
+				
+			}
+			
+		}
+		
+		.the__minute--right{
+			float: left;
+			height:330px;
+			width: 48%;
+			position: relative;
+
+            @include mq($until: leftCol) {
+                width: 45%;
+            }
+
+            @include mq($until: wide) {
+                width: 38%;
+            }
+
+			@include mq($until: desktop){
+				height: 280px;
+				width: 30%;
+            }
+
+			@include mq($until: tablet){
+				width: 100%;
+				height: 330px;
+            }
+		}
+
+        .the-minute__people {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 400px;
+
+            @include mq(mobileLandscape) {
+                bottom: 28px;
+            }
+
+            @include mq(phablet) {
+                max-width: 480px;
+                right: -60px;
+            }
+
+            @include mq(tablet) {
+                right: auto;
+                left: 10px;
+                max-width: 340px;
+            }
+
+            @include mq(desktop) {
+                bottom: 20px;
+                max-width: none;
+                left: 0;
+                width: 460px;
+                bottom: 20px;
+            }
+
+            @include mq(leftCol) {
+                left: 90px;
+            }
+
+            @include mq(wide) {
+                left: 50px;
+                width: 640px;
+            }
+        }
+
+		$a-duration: 10s;
+		$a-total-lines: 62;
+
+		.the__minute__line {
+			stroke: white;
+			opacity: 0;
+			animation: line 10s linear;
+			animation-iteration-count: infinite;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes line {
+			0% {
+				opacity: 0;
+			}
+			2% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 1;
+			}
+			52% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+		@for $i from 1 to $a-total-lines {
+			.the__minute__line--#{$i} {
+				animation-delay: (($a-duration / 2) / $a-total-lines) * $i;
+			}
+		}
+		
+		.play__store__cta{
+			position: absolute;
+			right: 202px;
+			color: #fff;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 15px;
+			bottom: -4px;
+			width: 209px;
+			z-index: 100;
+			
+			@include mq($until: desktop){
+						display: none;
+					}
+			
+		}
+
+		.play__store {
+			    position: absolute;
+				right: 13px;
+				bottom: 20px;
+				z-index: 100;
+				
+				svg{
+					width: 95px;
+					height: 33px;
+					fill:white;
+				}
+				
+			@include mq($until: desktop){
+						bottom: 30px;
+					}	
+			
+			@include mq($until: mobileLandscape){
+						bottom: 0px;
+					}		
+				
+		}
+		
+		.app__store{
+			    position: absolute;
+				right: 120px;
+				bottom: 20px;
+				z-index: 100;
+				
+				svg{
+					width: 95px;
+					height: 33px;
+				}
+				
+				@include mq($until: desktop){
+						bottom: 30px;
+					}
+				@include mq($until: mobileLandscape){
+						bottom: 0px;
+					}	
+		}
+	}	

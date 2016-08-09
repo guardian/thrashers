@@ -330,3 +330,286 @@ a.the-counted__anchor {
     left: 0;
     z-index: 20 !important;
 }
+
+// National convention code
+
+#republican-national-convention,
+#democratic-national-convention {
+    background-image: url('@@assetPath@@/blocks.png');
+    background-repeat: no-repeat;
+    background-color: #f1f1f1;
+    background-position: top center;
+
+    .fc-container__title__text {
+        color: #2e4481;
+
+        @include mq($until: tablet) {
+            width: 250px;
+            display: block;
+        }
+    }
+
+    .fc-today,
+    .fc-container__toggle {
+        display: none;
+    }
+
+    .fc-container__header__description {
+        float: none !important;
+        text-align: left;
+        clear: both;
+
+        @include mq($until: tablet) {
+            padding-right: 90px;
+        }
+    }
+
+    .fc-container__header--us-election:before {
+        content: '';
+        max-width: 300px;
+        display: block;
+        margin-bottom: 4px;
+        border-top: 18px solid #e91f2c;
+    }
+
+    .js-container__header:after {
+        content: '';
+        display: block;
+        height: 80px;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        margin-top: -40px;
+        margin-right: -10px;
+
+        @include mq(tablet) {
+            height: 132px;
+            margin-top: -74px;
+        }
+
+        @include mq(leftCol) {
+            margin-top: 0;
+            margin-right: -50px;
+        }
+
+        @include mq(wide) {
+            margin-right: -20px;
+        }
+    }
+
+    .fc-slice__item + .fc-slice__item:before {
+        border-left-color: transparent;
+    }
+
+    .badge-slot {
+        width: 2.5625rem;
+
+        @include mq(tablet) {
+            width: 2.55rem;
+        }
+
+        @include mq(desktop) {
+            float: left;
+            margin-right: 4px;
+            width: 2.55rem;
+        }
+
+        @include mq(wide) {
+            margin-right: 6px;
+            width: 4.1rem;
+        }
+    }
+}
+
+#republican-national-convention {
+    .js-container__header:after {
+        background-image: url('@@assetPath@@/republicans--mobile.png');
+
+        @include mq(tablet) {
+            background-image: url('@@assetPath@@/republicans.png');
+        }
+    }
+}
+
+#democratic-national-convention {
+    .js-container__header:after {
+        background-image: url('@@assetPath@@/democrats--mobile.png');
+
+        @include mq(tablet) {
+            background-image: url('@@assetPath@@/democrats.png');
+        }
+    }
+
+    .treats__container {
+        width: 140px;
+
+        @include mq(wide) {
+            width: 220px;
+        }
+    }
+
+    .treats__treat {
+        position: relative;
+        z-index: 10;
+        background-color: #2e4481;
+        border-color: #2e4481;
+        color: white;
+        height: 2rem;
+        font-size: 14px;
+        line-height: 2rem;
+        padding: 0 .2rem 0 .6rem;
+        margin-top: 6px;
+
+        &:hover {
+            background-color: #e91f2c;
+            border-color: #e91f2c;
+        }
+
+        &:after {
+            content: url('@@assetPath@@/arrow-right.svg');
+            float: right;
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .treats__container {
+        &:before {
+            content: "Got a Minute?";
+            font-family: "Guardian Egyptian Web";
+            font-weight: 900;
+            display: block;
+            line-height: 1.2;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -40px;
+            bottom: -20px;
+            right: 0;
+            height: 135px;
+            width: 135px;
+            background-image: url('@@assetPath@@/minute-bg.png');
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            animation: spin 2.5s steps(60) infinite;
+        }
+    }
+
+    .treats__list-item:before {
+        content: "Catch up fast with today's election news, live from the Democratic convention";
+        font-family: "Guardian Egyptian Web";
+        display: block;
+        line-height: 1.2;
+    }
+}
+
+
+// Supertreat
+$red: #ed1c24;
+$blue: #214583;
+
+.fc-container__inner--no-treats .treats__container {
+    display: none;
+}
+
+.countdown {
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    color: $blue;
+    margin-top: -18px;
+
+    @include mq(tablet) {
+        margin-top: -11px;
+        width: 340px;
+        float: right;
+    }
+
+    @include mq(desktop) {
+        width: 460px;
+    }
+
+    @include mq(leftCol) {
+        position: absolute;
+        width: 140px;
+        bottom: 1.5rem;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
+}
+
+.countdown__link {
+    color: $blue !important;
+
+    &:hover {
+        opacity: .8;
+        text-decoration: none;
+    }
+
+    #top-stories & {
+        display: none;
+    }
+}
+
+.countdown__logo {
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 15px;
+    margin-bottom: 12px;
+
+    @include mq(tablet, leftCol) {
+        margin-bottom: 6px;
+    }
+
+    span {
+        display: block;
+    }
+}
+
+.countdown__image {
+    height: 26px;
+    margin-top: 2px;
+    float: left;
+    margin-right: 4px;
+}
+
+.countdown__number {
+    font-weight: 900;
+    font-size: 100px;
+    line-height: 0.87;
+    color: $red;
+    width: 8rem;
+    float: left;
+    padding-right: 9px;
+
+    @include mq(tablet) {
+        width: auto;
+    }
+
+    @include mq(leftCol) {
+        float: none;
+        line-height: .7;
+    }
+}
+
+.countdown__text {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.countdown__lead-in {
+    color: $red;
+    display: block;
+}

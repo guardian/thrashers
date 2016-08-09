@@ -274,11 +274,13 @@ body {
       top: 160px;
     }
     top: 16px;
+    // color: #CC8F79;
     &__headline {
       font-size: 22px;
       font-weight: 600;
       line-height: 20px;
       padding-bottom: 4px;
+      // color: #F7E4D5;
     }
     &__option {
       font-size: 16.5px;
@@ -288,6 +290,7 @@ body {
       display: block;
       line-height: 24px;
       height: 24px;
+      color: #F6B60B;
       &:before {
         content: '';
         display: block;
