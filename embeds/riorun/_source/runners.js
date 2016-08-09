@@ -946,7 +946,7 @@
 
 	target.className += " fc-container__inner--no-treats";
 
-	target.innerHTML += "<div class='badge-wrapper' style='max-width:200px;'><div class='rio-go-logo' style='background-image:url(@@assetPath@@/RioRunFrontLogo.svg); height: 36px;background-repeat: no-repeat;'></div><div class='kicker-text' style='position: relative; font-family: \"Guardian Text Sans Web\", Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #333;'>Run through Rio with our virtual audio experience <span style='background-image:url(@@assetPath@@/right-arrow.svg); width: 20px; height: 20px; background-size: 60%; background-repeat: no-repeat; background-color: #1991c6;display: inline-block; background-position: 4px 4px; border-radius: 50%; position: absolute; margin: -3px 0 0 4px;''></span></div></div>"
+	target.innerHTML += "<div class='badge-wrapper' style='max-width:200px;'><div class='rio-go-logo' style='background-image:url(@@assetPath@@/RioRunFrontLogo.62d4dadc.svg); height: 36px;background-repeat: no-repeat;'></div><div class='kicker-text' style='position: relative; font-family: \"Guardian Text Sans Web\", Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #333;'>Run through Rio with our virtual audio experience <span style='background-image:url(@@assetPath@@/right-arrow.06f34a98.svg); width: 20px; height: 20px; background-size: 60%; background-repeat: no-repeat; background-color: #1991c6;display: inline-block; background-position: 4px 4px; border-radius: 50%; position: absolute; margin: -3px 0 0 4px;''></span></div></div>"
 
 
 
