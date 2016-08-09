@@ -216,7 +216,7 @@ $mq-breakpoints: (
         left: 28%;
       }
       svg {
-        height: auto;
+        height: 627px;
         width: 900px;
         position: absolute;
         top: 100%;
@@ -239,7 +239,7 @@ $mq-breakpoints: (
         left: 52%;
       }
       svg {
-        height: auto;
+        height: 697px;
         width: 1000px;
         position: absolute;
         top: 100%;
@@ -253,7 +253,7 @@ $mq-breakpoints: (
       left: 580px;
       width: 1800px;
       svg {
-        height: auto;
+        height: 697px;
         width: 1000px;
         position: absolute;
         top: 100%;
@@ -267,7 +267,7 @@ $mq-breakpoints: (
       left: 720px;
       width: 1800px;
       svg {
-        height: auto;
+        height: 697px;
         width: 1000px;
         position: absolute;
         top: 100%;
@@ -428,10 +428,10 @@ $mq-breakpoints: (
     &[data-day='5'] .swimming,
     &[data-day='6'] .swimming,
     &[data-day='7'] .swimming,
-    &[data-day='8'] .swimming,
-    &[data-day='9'] .swimming {
+    &[data-day='8'] .swimming {
       display: block;
     }
+    &[data-day='9'] .pingpong,
     &[data-day='10'] .pingpong,
     &[data-day='11'] .pingpong,
     &[data-day='12'] .pingpong {
@@ -453,7 +453,7 @@ $mq-breakpoints: (
       display: block;
     }
 
-    // olympics ends 21st
+    // olympics end 21/08
 
     &[data-day='22'] .running,
     &[data-day='23'] .running {

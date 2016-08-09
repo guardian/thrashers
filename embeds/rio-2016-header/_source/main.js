@@ -6,7 +6,6 @@
   $thrasher.setAttribute('data-day', today);
 
 
-  var $ma_long = document.getElementById('malong');
   $thrasher.addEventListener('click', function() {
     $thrasher.setAttribute('class', $thrasher.className+' easter')
   });
