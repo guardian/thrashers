@@ -1,0 +1,179 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-live-main-1: #b51800;
+$c-neutral-1: #333;
+
+@include base(rio-run, #dedede);
+@include base(riorun, #dedede);
+
+.rio-run {
+	max-width: 100%;
+	width:100%;
+	position: relative;
+	display: block;
+	background-color: #1991c6;
+	height: 197px;
+	overflow: hidden;
+	margin:0;
+	padding:0;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.rio-background {
+	position:absolute;
+	top: 0;
+	left: 0;
+	height: 207px;
+	width:100%;
+	background-image: url('@@assetPath@@/parallax-08.svg');
+	background-repeat: no-repeat;
+	background-size: calc(100% + 10px) auto;
+	background-position: -5px 75%;
+	min-width: 1300px;
+}
+
+.rio-run .logo {
+	background-repeat: no-repeat;
+	background-image: url('@@assetPath@@/RioRunLogo.svg');
+	background-size: 100%;
+	width: 175px;
+	height: 95px;
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	z-index: 100;
+}
+
+.go-grouping {
+	position: absolute;
+	display: block;
+	top: 12px;
+	right: 8px;
+	z-index: 101;
+	font-size: 16px;
+}
+
+.kicker {
+	font-family: 'Guardian Text Sans Web', Arial, sans-serif;
+	color: #fff;
+	display: none;
+	line-height: 1.2;
+}
+
+.go-button {
+	position: absolute;
+	right: 0;
+	font-weight: bold;
+	color: white;
+	background: #333;
+	padding: 0.5em 2.5em 0.5em 1em;
+	border-radius: 1em;
+	line-height: 1;
+	font-family: 'Guardian Text Sans Web', Arial, sans-serif;
+	font-size: 16px;
+	background-image: url('@@assetPath@@/right-arrow.svg');
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: calc(100% - 1em) 45%;
+	white-space: pre;
+}
+
+.guardian-logo {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	display: none;
+	z-index: 901;
+}
+
+canvas {
+	width: 100%;
+	height: 85px;
+	position: absolute;
+	left: 0;
+	bottom: -20px;
+	z-index: 900;
+}
+
+@media screen and (min-width: 500px) {
+	.go-grouping {
+		width: 250px;
+		font-size: 18px;
+	}
+
+	.kicker {
+		display: block;
+	}
+
+	.go-button {
+		top: 55px;
+		background-size: 20px;
+		font-size: 18px;
+		right: auto;
+	}
+
+	.guardian-logo {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.go-grouping {
+		width: 400px;
+		font-size: 18px;
+	}
+
+	.kicker {
+		position: absolute;
+		width: 250px;
+		left: 0;
+	}
+
+	.go-button {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+.fc-container__inner--no-treats .treats__container {
+    display: none;
+}
+
+.badge-wrapper {
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    color: #005689;
+    margin-top: -18px;
+
+    @include mq(tablet) {
+        margin-top: -11px;
+        width: 340px;
+        float: right;
+    }
+
+    @include mq(desktop) {
+        width: 460px;
+    }
+
+    @include mq(leftCol) {
+        position: absolute;
+        width: 140px;
+        bottom: 1.5rem;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
+}
