@@ -147,3 +147,33 @@ canvas {
 		top: 0;
 	}
 }
+
+.fc-container__inner--no-treats .treats__container {
+    display: none;
+}
+
+.badge-wrapper {
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    color: #005689;
+    margin-top: -18px;
+
+    @include mq(tablet) {
+        margin-top: -11px;
+        width: 340px;
+        float: right;
+    }
+
+    @include mq(desktop) {
+        width: 460px;
+    }
+
+    @include mq(leftCol) {
+        position: absolute;
+        width: 140px;
+        bottom: 1.5rem;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
+}
