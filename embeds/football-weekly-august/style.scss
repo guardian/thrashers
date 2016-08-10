@@ -235,54 +235,44 @@ section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
     right: -300px;
     overflow: hidden;
   }
-  .circles {
+
+  .outer {
     position: absolute;
-    z-index: 100;
-    left: -300px;
+    width: 1;
+    height: 1;
+    opacity: 0;
     top: 50%;
-    right: -300px;
-    height: 1px;
-    z-index: 2;
-    // background-color: red;
-    &__circle {
-      position: absolute;
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0,0);
-      width: 0;
-      height: 0;
-      animation-name: podcast-circles-grow;
-      animation-duration: 12000ms;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      @for $i from 0 through 100 {
-        &:nth-child(#{$i}) {
-          left: random(100) + %;
-          animation-delay: random(12000) + ms;
-          padding-bottom: 35%;
-          padding-right: 35%;
-        }
+    transform-origin: center;
+    animation-name: scale-one;
+    animation-duration: 12000ms;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    @for $i from 0 through 100 {
+      &:nth-child(#{$i}) {
+        left: random(100) + %;
+        animation-delay: random(16000) + ms;
       }
-      &-yellow {
-        color: #FB0;
-        opacity: 0.08;
+    }
+    &__yellow circle{
+       stroke: #FB0;
       }
-      &-blue {
-        color: #026AAB;
-        opacity: 0.09;
-      }
-      &-white {
-        color: #fff;
-        opacity: 0.06;
-      }
-      &-thin {
-        border: 3px solid currentColor;
-      }
-      &-thick {
-        border: 36px solid currentColor;
-      }
-      &-disc {
-        background-color: currentColor;
-      }
+    &__blue circle{
+       stroke: #026AAB;
+    }
+    &__white circle{
+      stroke: #fff;
+    }
+    &__disc circle{
+      stroke: #026AAB;
+      fill: #026AAB;
+    }
+    &__disc-yellow circle{
+      stroke: #FB0;
+      fill: #FB0;
+    }
+    &__disc-white circle{
+      stroke: #fff;
+      fill: #fff;
     }
   }
 
@@ -497,8 +487,6 @@ section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
 
   }
 
-
-
   h1, h2 {
     display: inline;
     font-weight: inherit;
@@ -509,17 +497,10 @@ section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
 
 }
 
-@keyframes podcast-circles-grow {
-  0% {
-    transform: translate(-50%, -50%) scale(0,0);
-  }
+/****** Animation *******/
 
-  90% {
-    transform: translate(-50%, -50%) scale(1,1);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) scale(1.5,1.5);
-    opacity: 0;
-  }
+@keyframes scale-one {
+    0%   { transform: scale(1.0); opacity:0; }
+    25%   { opacity: 0.05; }
+    100% { transform: scale(14.0); opacity:0; }   
 }
