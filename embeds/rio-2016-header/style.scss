@@ -386,12 +386,199 @@ $mq-breakpoints: (
     }
   }
 
+  .cycling {
+    &__greyband {
+      z-index: -10;
+      position: absolute;
+      top: 0;
+      left: -400px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: -616px;
+      }
+      @include mq($until: phablet) {
+        left: -700px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: -196%;
+      }
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__yellowband {
+      z-index: -15;
+      position: absolute;
+      top: 0;
+      left: 0px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: -360px;
+      }
+      @include mq($until: phablet) {
+        left: -520px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: -160%;
+      }
+
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__blueband {
+      z-index: -25;
+      position: absolute;
+      top: 0;
+      left: 600px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: 360px;
+      }
+      @include mq($until: phablet) {
+        left: 240px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 32%;
+      }
+      svg {
+        height: 1394px;
+        width: 2000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__greyband__2 {
+      z-index: -20;
+      position: absolute;
+      top: 0;
+      left: 200px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: -100px;
+      }
+      @include mq($until: phablet) {
+        left: -320px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: -144%;
+      }
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__redline {
+      z-index: -5;
+      position: absolute;
+      top: 0;
+      left: 224px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: 0px;
+      }
+      @include mq($until: phablet) {
+        left: 120px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 12%;
+      }
+      svg {
+        height: 697px;
+        width: 500px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+        @include mq($until: phablet) {
+          width: 250px;
+          height: 344px;
+        }
+      }
+    }
+    &__greenline {
+      z-index: -5;
+      position: absolute;
+      top: 0;
+      left: 424px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: 100px;
+      }
+      @include mq($until: phablet) {
+        left: 200px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 30%;
+      }
+
+      svg {
+        height: 697px;
+        width: 500px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+        @include mq($until: phablet) {
+          width: 250px;
+          height: 344px;
+        }
+      }
+    }
+    &__cyclist {
+      z-index: 20;
+      position: absolute;
+      left:800px;
+      height: 100%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      img {
+        margin-top: 20px;
+      }
+      @include mq($until: desktop) {
+        left: 526px;
+        img {
+          margin-top: -20px;
+          transform: scale(0.8);
+        }
+      }
+      @include mq($until: phablet) {
+        left: 424px;
+        img {
+          margin-top: -40px;
+          transform: scale(0.6);
+        }
+      }
+      @include mq($until: mobileLandscape) {
+        left: 80%;
+        img {
+          margin-top: -60px;
+          transform: scale(0.5);
+        }
+      }
+    }
+
+
+
+  }
+
+
   .dont-overflow {
     overflow: hidden;
     height: 100%;
   }
   .back {
-    z-index: -2;
+    z-index: -30;
     width: 100vw;
     height: 100%;
     position: absolute;
@@ -432,7 +619,7 @@ $mq-breakpoints: (
       display: block;
     }
     &[data-day='9'] .pingpong,
-    &[data-day='10'] .pingpong,
+    &[data-day='10'] .cycling,
     &[data-day='11'] .pingpong,
     &[data-day='12'] .pingpong {
       display: block;
