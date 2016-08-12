@@ -567,9 +567,6 @@ $mq-breakpoints: (
         }
       }
     }
-
-
-
   }
 
 
@@ -609,6 +606,60 @@ $mq-breakpoints: (
     }
     &__bands,
     &__boxer {
+      @include mq($until: desktop) {
+        transform: scale(0.8);
+        transform-origin: top left;
+      }
+      @include mq($until: phablet) {
+        transform: scale(0.6);
+      }
+      @include mq($until: mobileLandscape) {
+        transform: scale(0.5);
+      }
+    }
+  }
+
+
+  .running {
+    &__track {
+      height: 200px;
+      width: 500%; // Joshua’s hack
+      left: 30%;
+      overflow-y: hidden;
+      overflow-x: visible;
+      position: absolute;
+      z-index: -3;
+      svg {
+        position: absolute;
+        top: 50%;
+        width: 2159px;
+        height: 873px;
+        transform: translateY(-35%);
+        left: 0;
+      }
+      @include mq($until: desktop) {
+        left: 21%;
+      }
+    }
+    &__bolt {
+      position: absolute;
+      left: 31%;
+      width: 283px;
+      overflow: hidden;
+      height: 200px;
+      pointer-events: none;
+      img {
+        margin-top: 1.5%;
+        width: 100%;
+        height: auto;
+        transform: rotate(-5deg);
+      }
+      @include mq($until: desktop) {
+        left: 23%;
+      }
+    }
+    &__track,
+    &__bolt {
       @include mq($until: desktop) {
         transform: scale(0.8);
         transform-origin: top left;
@@ -670,7 +721,7 @@ $mq-breakpoints: (
     &[data-day='9'] .pingpong,
     &[data-day='10'] .pingpong,
     &[data-day='11'] .pingpong,
-    &[data-day='12'] .pingpong {
+    &[data-day='12'] .running {
       display: block;
     }
     &[data-day='13'] .cycling,
