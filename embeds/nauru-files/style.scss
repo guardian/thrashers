@@ -1,0 +1,173 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#nauru-files, .nauru-files__wrapper {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  font-family: "Guardian Egyptian Web",Georgia,serif;
+}
+
+.nauru-files__wrapper {
+  .nauru-image {
+    width: 100%;
+    height: 526px;
+    background: url('@@assetPath@@/fence-bg.jpg') repeat-x;
+    position: absolute;
+    transform: skew(0deg,-6deg);
+    transform-origin: 75% bottom;
+    -webkit-transform: skew(0deg,-6deg);
+    -webkit-transform-origin: 75% bottom;
+    z-index:50;
+    top: 0;
+  }
+
+  .nauru-figure-image {
+    background: url('@@assetPath@@/figure.png') no-repeat 50% 50%;
+    width: 100%;
+    height: 300px;
+    z-index:100;
+    position: absolute;
+    top: 60px;
+  }
+
+  .nauru-text-bg {
+    width: 120%;
+    height: 400px;
+    position: absolute;
+    z-index: 60;
+    top: 240px;
+    overflow: hidden;
+    transform: skew(0deg,10deg) rotate(-1deg);
+    transform-origin: 50% bottom;
+    -webkit-transform: skew(0deg,10deg) rotate(-1deg);
+    -webkit-transform-origin: 50% bottom;
+    background-color: #e6711b;
+  }
+
+  .headings {
+    position: absolute;
+    bottom: 75px;
+    z-index:100;
+    width: 100%;
+  }
+
+  .headline {
+    color: #fff;
+    z-index: 100;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    margin: 0 20px;  }
+
+  .subheading {
+    max-width: 20em;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    font-weight: 300;
+    color: #212121;
+    z-index: 100;
+    margin: 0 20px;
+  }
+    
+  .anchor {
+    position: absolute;
+    z-index: 100!important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  @include mq($until: leftCol) {
+    .nauru-text-bg {
+      top: 200px;
+      transform: skew(0deg,12deg) rotate(-1deg);
+      -webkit-transform: skew(0deg,12deg) rotate(-1deg);
+    }
+
+    .subheading {
+      max-width: 12em;
+    }
+  }
+
+  @include mq($until: desktop) {
+    .nauru-figure-image {
+      background-position-x: 75%;
+    }
+  }
+
+  @include mq($until: tablet) {
+
+    .nauru-text-bg {
+      top: 130px;
+    }
+
+    .headings {
+      bottom: 105px;
+    }
+
+    .headline, .subheading {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+    
+    .nauru-figure-image {
+      display: none;
+    }
+  }
+}
+
+
+.nauru-buttons {
+  position: absolute;
+  bottom: 20px;
+  z-index: 200!important;
+  left: 20px;
+
+  .nauru-button-stories{
+    background-color: #333;
+  }
+
+  .nauru-button-database{
+    background-color: #767676;
+  }
+
+  .button {
+    border: none;
+    height: 30px;
+    line-height: 32px;
+    display: inline-block;
+    color: #fff;
+    z-index: 100;
+
+    .arrow-icon {
+      height: auto!important;
+      width: auto!important;
+      float: right;
+      fill: #fff;
+    }
+  }
+}
+
+@include mq($until: tablet) {
+
+  .nauru-buttons {
+    .button {
+      display: block;
+      margin-top:10px;
+    }
+  }
+}
