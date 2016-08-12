@@ -573,6 +573,55 @@ $mq-breakpoints: (
   }
 
 
+  .boxing {
+    &__bands {
+      height: 200px;
+      width: 100%;
+      left: 50%;
+      overflow-y: hidden;
+      overflow-x: visible;
+      position: absolute;
+      z-index: -3;
+      svg {
+        position: absolute;
+        top: 50%;
+        width: 1601px;
+        height: 652px;
+        transform: translateY(-50%);
+        left: 0;
+        margin-left: -800px;
+      }
+    }
+    &__boxer {
+      position: absolute;
+      left: 35%;
+      width: 360px;
+      overflow: hidden;
+      height: 200px;
+      img {
+        width: 100%;
+        height: auto;
+        transform: rotate(-5deg);
+      }
+      @include mq($until: desktop) {
+        left: 30%;
+      }
+    }
+    &__bands,
+    &__boxer {
+      @include mq($until: desktop) {
+        transform: scale(0.8);
+        transform-origin: top left;
+      }
+      @include mq($until: phablet) {
+        transform: scale(0.6);
+      }
+      @include mq($until: mobileLandscape) {
+        transform: scale(0.5);
+      }
+    }
+  }
+
   .dont-overflow {
     overflow: hidden;
     height: 100%;
