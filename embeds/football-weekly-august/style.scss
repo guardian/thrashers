@@ -48,6 +48,7 @@ section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
   position: relative;
   padding: 12px;
   min-height: 130px;
+  overflow: hidden;
   .branding {
     position: absolute;
     top: 8px;
@@ -241,7 +242,7 @@ section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
     width: 1;
     height: 1;
     opacity: 0;
-    top: 50%;
+    top: 51%;
     transform-origin: center;
     animation-name: scale-one;
     animation-duration: 12000ms;
@@ -501,6 +502,6 @@ section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes scale-one {
     0%   { transform: scale(1.0); opacity:0; }
-    25%   { opacity: 0.05; }
+    25%   { opacity: 0.055; }
     100% { transform: scale(14.0); opacity:0; }   
 }
