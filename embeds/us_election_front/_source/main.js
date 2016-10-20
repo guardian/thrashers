@@ -47,7 +47,7 @@ loadJSON("https://interactive.guim.co.uk/docsdata/1fNisB3WhTASkm-htWJs36BPbDktwi
 
     for (var i = 0; i < data.length; i++) {
         if (data[i].Date == currentDate) {
-            var target = getTarget(['headlines', 'top-stories']);
+            var target = getTarget(['final-presidential-debate', 'headlines', 'top-stories']);
 
             target.className += " fc-container__inner--no-treats";
 
