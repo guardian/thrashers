@@ -34,7 +34,7 @@ $blue: #214583;
 						overflow: visible;
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -58,14 +58,11 @@ $blue: #214583;
     margin-left: $margin-left;
 }
 
-.election-header__wrapper{
+.election-header__wrapper {
 	font-family: $f-serif-headline;
 	height: 160px;
 	width: 1300px;
 	position: relative;
-	background: no-repeat url('@@assetPath@@/white_house.png');
-	background-position-x: 90%;
-	background-position-y: 90%;
 	
 	@include mq($until: wide){
 		background-position-x: 82%;
@@ -76,10 +73,14 @@ $blue: #214583;
 	}
 	
 	@include mq($until: desktop){
-	height: 140px;
-	background-position-x: 39%;
+		height: 130px;
+		background-position-x: 39%;
 	}
-	
+
+	@include mq($until: tablet) {
+		height: 120px;
+	}
+
 	@include mq($until: mobileLandscape){
 		width: 100%;
 		height: 92px;
@@ -94,23 +95,7 @@ $blue: #214583;
 		.flag{
 			&--one{
 				@include flag($red, 274px, -5%, auto, 66px);
-				&:before{
-					content: url('@@assetPath@@/elephant.svg');
-					height: 40px;
-					width: 80px;
-					display: block;
-					margin-top: -34px;
-					margin-left: 240px;
-					animation: moveElephant 10s linear;
-					
-					@include mq($until: mobileLandscape){
-						content: url('@@assetPath@@/elephant_mobile.svg');
-						margin-top: -16px;
-						margin-left: 256px;
-						animation: moveElephantMobile 10s ease-in;
-					}
-					
-				}
+
 				&:after{
 					@include after(124px, 14px, -30px);
 				}
@@ -140,22 +125,7 @@ $blue: #214583;
 			}
 			&--three{
 				@include flag($red, 274px, auto, 22%, 120px);
-				&:before{
-					content: url('@@assetPath@@/donkey.svg');
-					height: 40px;
-					width: 80px;
-					display: block;
-					margin-top: -37px;
-					margin-left: 0px;
-					animation: moveDonkey 10s linear;
-					animation-delay: 0.2s;
-					
-					@include mq($until: mobileLandscape){
-						content: url('@@assetPath@@/donkey_mobile.svg');
-						margin-top: -19px;
-					}
-					
-				}
+
 				&:after{
 					@include after(124px, -40px, -180px);
 					
@@ -204,16 +174,119 @@ $blue: #214583;
 				
 				@include mq($until: mobileLandscape){
 					display: none;
-				}				
-			}	
+				}
+			}
 		}
 	}
-	
+
+	@keyframes person {
+		0% {
+			background-position: 0px 0px;
+		}
+		10% {
+			background-position: -128px 0px;
+		}
+		20%, 100% {
+			background-position: 0px 0px;
+		}
+	}
+
+	@keyframes hover-person {
+		0% {
+			background-position: 128px 0px;
+		}
+		10% {
+			background-position: 512px 0px;
+		}
+		20%, 100% {
+			background-position: 128px 0px;
+		}
+	}
+
+	.election-header__person {
+		height: 154px;
+		width: 128px;
+		background-position: 0px 0px;
+		background-size: auto 200px;
+		animation: person 5s infinite steps(1);
+		position: absolute;
+		top: 0;
+		right: 20px;
+		transform-origin: top center;
+
+		@include mq(mobileLandscape) {
+			top: -10px;
+			height: 130px;
+		}
+
+		@include mq(tablet) {
+			height: 140px;
+		}
+
+		@include mq(desktop) {
+			top: 10px;
+			height: 150px;
+		}
+
+		&:hover {
+			animation: hover-person 3s steps(3) infinite;
+		}
+	}
+
+	.election-header__person--hillary {
+		background-image: url('@@assetPath@@/clinton.png');
+		right: -20px;
+		transform: scaleX(-1) scale(.6);
+		animation-delay: -2.5s;
+
+		@include mq(mobileLandscape) {
+			right: auto;
+			left: 380px;
+			transform: scaleX(-1);
+		}
+
+		@include mq(tablet) {
+			left: 600px;
+		}
+
+		@include mq(desktop) {
+			left: 820px;
+		}
+
+		@include mq(leftCol) {
+			left: 980px;
+		}
+	}
+
+	.election-header__person--trump {
+		background-image: url('@@assetPath@@/trump.png');
+		right: 40px;
+		transform: scale(.6);
+
+		@include mq(mobileLandscape) {
+			right: auto;
+			left: 290px;
+			transform: none;
+		}
+
+		@include mq(tablet) {
+			left: 500px;
+		}
+
+		@include mq(desktop) {
+			left: 720px;
+		}
+
+		@include mq(leftCol) {
+			left: 880px;
+		}
+	}
+
 	.election-header__logo{
 		width: 310px;
 		height: 60px;
 		position: absolute;
-		top:20px;
+		top:17px;
 		left: 260px;
 		
 		@include mq($until: leftCol){
@@ -221,7 +294,7 @@ $blue: #214583;
 			}
 			
 		@include mq($until: desktop){
-			left: 97px;
+			left: 65px;
 		}
 		
 		@include mq($until: mobileLandscape){
@@ -296,7 +369,11 @@ $blue: #214583;
 			bottom: 8px;
 			width: 230px;
 		}		
-		
+
+		@include mq($until: tablet) {
+			display: none;
+		}
+
 		h2{
 			font-size: 17px;
 			color: $red;	
