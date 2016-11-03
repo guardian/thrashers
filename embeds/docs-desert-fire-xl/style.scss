@@ -1,0 +1,193 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+#desert-fire-two.fc-container {
+  background-color: #fff;
+  .fc-container__header__description {
+    text-align: left;
+    clear: left;
+  }
+  .fc-item > div {
+    width: 100%;
+  }
+  .fc-item > div+a {
+    display: none;
+  }
+  .fc-container__header__title {
+    color: #005689;
+  }
+}
+
+#docs-xl-card {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%;
+  @include mq(mobileLandscape) {
+    padding-bottom: 50%;
+  }
+  height: 0;
+  overflow: hidden;
+  background-color: #333;
+  border-top: 1px solid #fb0;
+
+
+  font-size: 18px;
+  line-height: 20px;
+  @include mq(mobileLandscape) {
+    font-size: 24px;
+    line-height: 26px;
+  }
+  @include mq(tablet) {
+    font-size: 32px;
+    line-height: 34px;
+  }
+  @include mq(desktop) {
+    font-size: 36px;
+    line-height: 38px;
+  }
+
+  .link,
+  .photo,
+  .overlay,
+  .contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .photo {
+    z-index: 10;
+    .photo__set {
+      // img:first-child {
+      //   opacity: 1;
+      //   animation-name: firstPhoto;
+      //   animation-duration: 6s;
+      //   animation-delay: 3s;
+      //   animation-iteration-count: infinite;
+      //   animation-direction: alternate;
+      // }
+      // img:last-child {
+      //   opacity: 0;
+      //   animation-name: secondPhoto;
+      //   animation-duration: 6s;
+      //   animation-delay: 3s;
+      //   animation-iteration-count: infinite;
+      //   animation-direction: alternate;
+      // }
+    }
+    img {
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      width: auto;
+      visibility: hidden;
+      transform: translateX(-50%);
+      &[src] {
+        visibility: visible;
+      }
+      @include mq(mobileLandscape) {
+        left: auto;
+        top: 50%;
+        height: auto;
+        width: 100%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .overlay {
+    z-index: 10;
+    background: -moz-linear-gradient(top, rgba(51,51,51,0) 0%, rgba(51,51,51,0.5) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(51,51,51,0) 0%,rgba(51,51,51,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(51,51,51,0) 0%,rgba(51,51,51,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00333333', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
+
+    top: 20%;
+    @include mq(desktop) {
+      top: 66%;
+    }
+
+  }
+  .contents {
+    top: auto;
+    z-index: 30;
+    &__icon,
+    &__text {
+      margin: 0 5px;
+      @include mq(tablet) {
+        margin: 0 8px;
+      }
+      display: block;
+    }
+    &__icon {
+      width: 1.4em;
+      height: 1.4em;
+      min-width: 30px;
+      min-height: 30px;
+      transition: transform 200ms ease-out;
+      margin-bottom: 0.2em;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__text {
+      font-weight: 600;
+      font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+      margin-bottom: 0.2em;
+      max-width: 19em;
+      text-shadow: 0 0 0.75em rgba(51,51,51,0.5);
+      .kicker {
+        color: #fb0;
+      }
+      .headline {
+        color: #f6f6f6;
+        &:before {
+          content: '/';
+          display: inline-block;
+          margin: 0 0.07em;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  .link {
+    display: block;
+    border: 0;
+    outline: none;
+    text-decoration: none;
+    z-index: 40;
+  }
+
+  &:hover {
+    .contents__icon {
+      transform: scale(1.07);
+    }
+  }
+}
+
+
+@keyframes firstPhoto {
+    0%   {opacity: 1;}
+    40%  {opacity: 1;}
+    60%  {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes secondPhoto {
+    0%   {opacity: 0;}
+    40%  {opacity: 0;}
+    60%  {opacity: 1;}
+    100% {opacity: 1;}
+}
