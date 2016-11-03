@@ -11,7 +11,8 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-#desert-fire.fc-container {
+
+#documentaries.fc-container {
   background-color: #fff;
   .fc-container__header__description {
     text-align: left;
@@ -28,7 +29,7 @@ $mq-breakpoints: (
   }
 }
 
-#desert-fire {
+#documentaries {
   .fc-item {
     background-color: #333 !important;
     &.facia-snap {
@@ -53,7 +54,7 @@ $mq-breakpoints: (
 }
 
 
-#desert-fire {
+#documentaries {
   @include mq(tablet) {
     .fc-container__inner {
       overflow: visible;
@@ -105,13 +106,18 @@ $mq-breakpoints: (
           color: #333;
         }
         @include mq(tablet) {
-          width: 382px;
+          width: 280px;
+          margin-top: 120px;
           .headline {
             font-size: 48px;
           }
           .trail {
             font-size: 24px;
           }
+        }
+        @include mq(desktop) {
+          width: 350px;
+          margin-top: 140px;
         }
       }
       .image {
@@ -124,27 +130,26 @@ $mq-breakpoints: (
         img {
           display: inline-block;
           width: 340px;
-          max-width: 80%;
-          min-width: 310px;
+          max-width: 60%;
+          min-width: 240px;
           height: auto;
         }
         @include mq(tablet) {
-          // top: -100px;
-          // bottom: -5px;
+          overflow: hidden;
           img {
             width: 320px;
             max-width: none;
             min-width: none;
+            margin-right: -40px;
           }
         }
         @include mq(desktop) {
           img {
             width: 360px;
-            margin-right: 8px;
+            margin-right: 0;
           }
         }
         @include mq(wide) {
-          margin-right: 6px;
         }
       }
     }
