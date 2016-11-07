@@ -10,3 +10,108 @@ $mq-breakpoints: (
 );
 
 @import 'shared/_imports';
+
+@include base(membership-thrasher, #fff);
+
+
+#membership--thrasher {
+  .membership--thrasher {
+    &__wrapper {
+      position: relative;
+      color: #005689;
+    }
+
+    &__headline {
+      font-weight: 900;
+      font-size: 26px;
+      line-height: 28px;
+      text-indent: -16px;
+      padding: 32px 0 32px 32px;
+      padding-left: 32px;
+      font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+      display: block;
+      span {
+        display: inline-block;
+      }
+    }
+    &__intro {
+      p {
+        font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        &.if {
+          font-weight: 600;
+        }
+      }
+    }
+    &__CTA {
+      font-family: "Guardian Sans Web", "Guardian Text Sans Web", sans-serif;
+      display: block;
+      position: relative;
+      height: 76px;
+      margin-bottom: 15px;
+      .major,
+      .minor {
+        text-decoration: none;
+        display: inline-block;
+      }
+      .major {
+        background-color: #E91406;
+        color: #fff;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 36px;
+        padding-left: 16px;
+        padding-right: 38px;
+        position: relative;
+        font-weight: 500;
+        &:hover {
+          background-color: #d31b0d;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 23%;
+          right: 9px;
+          background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2220%22%20height%3D%2219%22%20viewBox%3D%22172%20360%2020%2019%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M191.64%20370.05l-8.53%208.55-.8-.8%206.16-7.35H172.8v-1.63h15.65l-6.14-7.34.8-.8%208.55%208.55%22%2F%3E%3C%2Fsvg%3E');
+          width: 20px;
+          height: 19px;
+        }
+      }
+      .minor {
+        border-bottom: 1px solid rgba(0, 86, 137, 0.5);
+        position: absolute;
+        bottom: 0;
+        right: 30px;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -30px;
+          background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2226%22%20height%3D%2226%22%20viewBox%3D%22284%20401%2026%2026%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20transform%3D%22translate(285%20402)%22%3E%3Cellipse%20stroke%3D%22%23005689%22%20cx%3D%2212%22%20cy%3D%2212%22%20rx%3D%2212%22%20ry%3D%2212%22%2F%3E%3Cpath%20fill%3D%22%23005689%22%20d%3D%22M18.1%2012.36l-5.7%205.7-.53-.53%204.1-4.9H5.52v-1.08h10.43l-4.1-4.9.54-.53%205.7%205.7%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+          background-size: 24px 24px;
+          background-repeat: no-repeat;
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
+    &__brand {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+}
+
+
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("https://interactive.guim.co.uk/fonts/guss-webfonts/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot");
+  src: url("https://interactive.guim.co.uk/fonts/guss-webfonts/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("https://interactive.guim.co.uk/fonts/guss-webfonts/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/guss-webfonts/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/guss-webfonts/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.ttf") format("truetype"), url("https://interactive.guim.co.uk/fonts/guss-webfonts/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.svg#GuardianEgyptianWeb-BoldItalic") format("svg");
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal; }
