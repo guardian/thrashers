@@ -51,7 +51,7 @@ loadJSON("https://interactive.guim.co.uk/docsdata/1fNisB3WhTASkm-htWJs36BPbDktwi
 
             target.className += " fc-container__inner--no-treats";
 
-            target.innerHTML += "<div class='countdown'><a class='countdown__link' href='https://www.theguardian.com/us-news/us-elections-2016'><div class='countdown__logo'><img class='countdown__image' src='https://interactive.guim.co.uk/thrashers/us_election_front/hashed/election_logo.f5e6b843.png'><span>election</span><span>2016</span></a></div><h2 class='countdown__number'>" + data[i].Day + "</h2><p class='countdown__text'><span class='countdown__lead-in'>day" + (data[i].Day !== 1 ? "s" : "") + " to go...</span>..." + data[i].Fact + "</p></div>";
+            target.innerHTML += "<div class='countdown'><a class='countdown__link' href='https://www.theguardian.com/us-news/us-elections-2016'><div class='countdown__logo'><img class='countdown__image' src='https://interactive.guim.co.uk/thrashers/us_election_front/hashed/election_logo.f5e6b843.png'><span>election</span><span>2016</span></a></div><h2 class='countdown__number'>" + data[i].Day + "</h2><p class='countdown__text'><span class='countdown__lead-in'>day to go...</span>..." + data[i].Fact + "</p></div>";
         }
     }
 }, function(xhr) {
