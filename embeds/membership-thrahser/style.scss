@@ -13,9 +13,80 @@ $mq-breakpoints: (
 
 @include base(membership-thrasher, #fff);
 
+@mixin stripePosition($top, $left) {
+  left: $left;
+  top: $top;
+}
 
 #membership--thrasher {
   .membership--thrasher {
+    &__sripes {
+      position: absolute;
+      height: 378px;
+      width: 96%;
+
+      @include mq($from: tablet) {
+        width: 100%;
+      }
+
+      @include mq($from: desktop){
+        width: 980px;
+        height: 288px;
+      }
+      @include mq($from: leftCol){
+        width: 1140px;
+      }
+      @include mq($from: wide){
+        width: 1300px;
+      }
+
+      .stripe{
+          height: 25px;
+          background-color: #E91406;
+          width: 212px;
+          position: absolute;
+
+          &.grey{
+            background-color: #ececec;
+          }
+
+          &.one {
+            @include stripePosition(10px, 0px);
+          }
+
+          &.two {
+            @include stripePosition(0px, 395px);
+          }
+
+          &.three {
+            @include stripePosition(50px, 730px);
+          }
+
+          &.four {
+            @include stripePosition(50px, 1088px);
+          }
+
+          &.five {
+            @include stripePosition(263px, 1000px);
+          }
+
+          &.six {
+            @include stripePosition(154px, 0px);
+          }
+
+          &.seven {
+            @include stripePosition(262px, -140px);
+          }
+
+          &.eight {
+            @include stripePosition(202px, 560px);
+          }
+
+          &.nine {
+            @include stripePosition(158px, 1160px);
+          }
+      }
+    }
     &__wrapper {
       position: relative;
       color: #005689;
@@ -26,23 +97,77 @@ $mq-breakpoints: (
       font-size: 26px;
       line-height: 28px;
       text-indent: -16px;
-      padding: 32px 0 32px 32px;
+      padding: 52px 0 32px 32px;
       padding-left: 32px;
       font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
       display: block;
+
+      @include mq($from: tablet) {
+        font-size: 45px;
+      }
+
       span {
-        display: inline-block;
+        display: block;
+
+        &.we {
+          margin-left: 40px;
+
+          @include mq($from: tablet) {
+              margin-left: 212px;
+              margin-top: 10px;
+          }
+        }
       }
     }
     &__intro {
+      width: 100%;
+
+      @include mq($from: desktop) {
+        width: 980px;
+      }
+
+      @include mq($from: leftCol) {
+        width: 1140px;
+      }
+
+      @include mq($from: wide) {
+        width: 1300px;
+      }
+
       p {
         font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
         font-size: 16px;
         line-height: 20px;
         font-weight: 400;
         margin-bottom: 20px;
+        width: 96%;
+        margin-left: 4%;
+
+        &:not(.if) {
+          @include mq($from: desktop) {
+            margin-left: 130px;
+          }
+
+          @include mq($from: leftCol) {
+            margin-left: 230px;
+          }
+        }
+
+        @include mq($from: desktop) {
+          width: 322px;
+          font-size: 19px;
+          line-height: 23px;
+          margin-left: auto;
+          float: left;
+        }
+
         &.if {
           font-weight: 600;
+
+          @include mq($from: desktop) {
+            float: right;
+            margin-right: 170px;
+          }
         }
       }
     }
@@ -52,11 +177,15 @@ $mq-breakpoints: (
       position: relative;
       height: 76px;
       margin-bottom: 15px;
-      .major,
-      .minor {
-        text-decoration: none;
-        display: inline-block;
+      clear: both;
+
+      @include mq($from: desktop) {
+        width: 414px;
+        float: right;
+        margin-right: 95px;
+        margin-top: -92px;
       }
+
       .major {
         background-color: #E91406;
         color: #fff;
@@ -67,6 +196,13 @@ $mq-breakpoints: (
         padding-right: 38px;
         position: relative;
         font-weight: 500;
+        margin-left: 4%;
+
+        @include mq($from: desktop) {
+            float: left;
+        }
+
+
         &:hover {
           background-color: #d31b0d;
         }
@@ -84,7 +220,12 @@ $mq-breakpoints: (
         border-bottom: 1px solid rgba(0, 86, 137, 0.5);
         position: absolute;
         bottom: 0;
-        right: 30px;
+        right: 50px;
+
+        @include mq($from: desktop) {
+            float: right;
+        }
+
         &:after {
           content: '';
           position: absolute;
@@ -95,6 +236,16 @@ $mq-breakpoints: (
           background-repeat: no-repeat;
           width: 26px;
           height: 26px;
+        }
+      }
+      .major,
+      .minor {
+        text-decoration: none;
+        display: inline-block;
+
+        @include mq($from: desktop) {
+          position: relative;
+          display: block;
         }
       }
     }
