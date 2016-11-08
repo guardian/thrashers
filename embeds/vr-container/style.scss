@@ -162,6 +162,11 @@ $mq-breakpoints: (
         font-weight: 500;
         font-size: 18px;
         line-height: 20px;
+        @include mq(desktop) {
+          font-size: 22px;
+          line-height: 24px;
+          max-width: 205px;
+        }
         .kicker {
           color: #68D2E7;
         }
@@ -226,6 +231,11 @@ $mq-breakpoints: (
         .description {
           font-size: 28px;
           line-height: 30px;
+          @include mq(desktop) {
+            font-size: 36px;
+            line-height: 38px;
+            max-width: 460px;
+          }
           padding-top: 2px;
           .kicker {
             font-weight: 200;
