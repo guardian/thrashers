@@ -115,6 +115,13 @@ $mq-breakpoints: (
       font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
       display: block;
 
+      // exceptional mq for small screens
+      @media screen and (max-width: 362px) {
+        font-size: 22px;
+        line-height: 24px;
+        padding-bottom: 24px;
+      }
+
       @include mq($from: tablet) {
         font-size: 45px;
       }
