@@ -29,24 +29,49 @@
   function updateContent() {
     loadJSON("https://interactive.guim.co.uk/docsdata-test/1uwfhUcgAMvul6lKTKumG5AEnuXwDAjcDEAS7VrpmzeM.json", function(data) {
 
-      console.log (data);
+      var cardsData = data.sheets.Cards;
+      var containerData = data.sheets.Container;
 
       var thrasher = document.querySelector('#vr-container');
 
       var containerTitle = thrasher.querySelector('.header__title');
-
-      containerTitle.innerContents = 'AbC'
+      containerTitle.innerHTML = containerData[0]['title'];
       var containerDescription = thrasher.querySelector('.header__description');
+      containerDescription.innerHTML = containerData[0]['description'];
 
+      var pageCards = [];
 
-      // data.sheets.Cards
-      // data.sheets.Container
+      pageCards.push(thrasher.querySelector('.card-1'));
+      pageCards.push(thrasher.querySelector('.card-2'));
+      pageCards.push(thrasher.querySelector('.card-3'));
+      pageCards.push(thrasher.querySelector('.card-4'));
+      pageCards.push(thrasher.querySelector('.card-5'));
+      pageCards.push(thrasher.querySelector('.card-6'));
 
+      for (var i = 0; i < pageCards.length; i++) {
 
+        // Update link
+        pageCards[i].setAttribute('href', cardsData[i]['Link'])
 
-      // var  source =  data.sheets.Sheet1[0].Trailer;
-      // var  mp3 = data.sheets.Sheet1[0].Mp3;
+        // Update kicker & headline
+        pageCards[i].querySelector('.headline').innerHTML = cardsData[i]['Headline'];
+        pageCards[i].querySelector('.kicker').innerHTML = cardsData[i]['Kicker'];
 
+        // Inject images
+        if (cardsData[i]['Image'] != '' && cardsData[i]['HiResImage'] != '') {
+          pageCards[i].classList.add('image')
+          var imageTag = document.createElement('div');
+          imageTag.classList.add('image');
+          imageTag.innerHTML = '<img data-object-fit="cover" src="'+cardsData[i]['Image']+'" srcset="'+cardsData[i]['Image']+' 1x, '+cardsData[i]['HiResImage']+' 2x">';
+          pageCards[i].appendChild(imageTag);
+
+        }
+
+        // Inject quote mark
+        if (cardsData[i]['Quote'] == 'Yes') {
+          pageCards[i].querySelector('.headline').classList.add('quote');
+        }
+      }
 
     });
   }
