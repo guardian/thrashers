@@ -117,7 +117,7 @@ $mq-breakpoints: (
 
       // exceptional mq for small screens
       @media screen and (max-width: 362px) {
-        font-size: 18px;
+        font-size: 17px;
         line-height: 20px;
         padding-bottom: 24px;
       }
@@ -134,7 +134,7 @@ $mq-breakpoints: (
         display: block;
 
         &.we {
-          margin-left: 40px;
+          margin-left: 59px;
 
           @include mq($from: tablet) {
               margin-left: 112px;
@@ -142,6 +142,7 @@ $mq-breakpoints: (
           }
           @include mq($from: desktop) {
               margin-left: 212px;
+              margin-top: 16px;
           }
         }
       }
