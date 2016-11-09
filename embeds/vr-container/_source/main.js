@@ -4,14 +4,18 @@
 
 (function(){
 
+  updateContent();
   Modernizr.on('videoautoplay', function(autoplay) {
     injectVideo();
-  })
+  });
+
+
+
 
   function injectVideo() {
     var videoTag = document.createElement('div');
     videoTag.setAttribute('class', 'video');
-    videoTag.innerHTML = '<video poster="https://uploads.guim.co.uk/2016/11/03/in-play@1x.jpg" loop="true"><source src="https://uploads.guim.co.uk/2016/11/08/Underworld_tunnel_loop_abr800.mp4" type="video/mp4"></video>';
+    videoTag.innerHTML = '<video poster="https://uploads.guim.co.uk/2016/11/03/in-play@1x.jpg" loop="true"><source src="https://uploads.guim.co.uk/2016/11/08/Underworld_tunnel_loop_-_lighter_abr1000.mp4" type="video/mp4"></video>';
 
     var underworldCard = document.querySelector('#vr-container .card.major');
     underworldCard.appendChild(videoTag);
@@ -21,5 +25,49 @@
     video.play();
   }
 
+
+  function updateContent() {
+    loadJSON("https://interactive.guim.co.uk/docsdata-test/1uwfhUcgAMvul6lKTKumG5AEnuXwDAjcDEAS7VrpmzeM.json", function(data) {
+
+      console.log (data);
+
+      var thrasher = document.querySelector('#vr-container');
+
+      var containerTitle = thrasher.querySelector('.header__title');
+
+      containerTitle.innerContents = 'AbC'
+      var containerDescription = thrasher.querySelector('.header__description');
+
+
+      // data.sheets.Cards
+      // data.sheets.Container
+
+
+
+      // var  source =  data.sheets.Sheet1[0].Trailer;
+      // var  mp3 = data.sheets.Sheet1[0].Mp3;
+
+
+    });
+  }
+
+
+  function loadJSON(path, success, error) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  if (success)
+                      success(JSON.parse(xhr.responseText));
+              } else {
+                  if (error) {
+                      error(xhr);
+                  }
+              }
+          }
+      };
+      xhr.open("GET", path, true);
+      xhr.send();
+  }
 
 })();

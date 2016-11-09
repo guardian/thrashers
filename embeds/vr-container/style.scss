@@ -102,7 +102,7 @@ $mq-breakpoints: (
 
   .cards {
     width: 100%;
-    padding-top: 6px;
+    padding-top: 5px;
     font-size: 0;
     @include mq(leftCol) {
       margin-left: 160px;
@@ -148,6 +148,8 @@ $mq-breakpoints: (
       margin-bottom: 12px;
       vertical-align: top;
       height: 144px;
+      text-decoration: none;
+
       @include mq(mobileLandscape) {
         height: 120px;
       }
@@ -158,7 +160,7 @@ $mq-breakpoints: (
       .description {
         position: relative;
         z-index: 130;
-        padding: 4px 5px;
+        padding: 4px 6px;
         font-weight: 500;
         font-size: 18px;
         line-height: 20px;
@@ -172,6 +174,22 @@ $mq-breakpoints: (
         }
         .headline {
           color: #f6f6f6;
+          &.quote:before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 13px;
+            background-size: 20px 13px;
+            background-repeat: no-repeat;
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2220%22%20height%3D%2213%22%20viewBox%3D%22386%204066%2020%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M395.68%204073.86c.02-2.27-1.84-4.1-4.1-4.13-1.2-.03-2.1.43-2.9%201.22%200-.27-.04-.6-.04-.9.04-2.1%202-3.28%204.1-3.25l-.58-.6c-3.52%200-5.82%202.64-5.86%205.9-.05%203.3%201.95%205.83%205.3%205.9%202.24.05%204.04-1.84%204.08-4.14zm10.02%200c.05-2.27-1.84-4.1-4.1-4.13-1.2-.03-2.12.43-2.9%201.22-.04-.27-.06-.6-.06-.9.02-2.1%202.02-3.28%204.13-3.25l-.6-.6c-3.53%200-5.8%202.64-5.87%205.9-.07%203.3%201.97%205.83%205.3%205.9%202.26.05%204.06-1.84%204.1-4.14z%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+            @include mq(desktop) {
+              transform: scale(1.15);
+              top: 0;
+            }
+          }
         }
       }
 
@@ -186,15 +204,8 @@ $mq-breakpoints: (
           width: 100%;
           height: 100%;
           object-fit: cover;
-          // position: absolute;
-          // top: 0;
-          // left: 0;
-          // right: 0;
-          // bottom: 0;
-          // width: auto;
-          // min-height: 50%;
-          // min-width: 50%;
         }
+
       }
 
       .video {
@@ -209,6 +220,12 @@ $mq-breakpoints: (
           width: 100%;
           height: 100%;
           object-fit: cover;
+        }
+      }
+      .image,
+      .video {
+        &:hover {
+          opacity: 0.85;
         }
       }
 
@@ -251,7 +268,7 @@ $mq-breakpoints: (
             line-height: 38px;
             max-width: 460px;
           }
-          padding-top: 2px;
+          padding-top: 4px;
           .kicker {
             font-weight: 200;
           }
