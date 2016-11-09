@@ -22,7 +22,7 @@ $mq-breakpoints: (
   }
 
   @include mq($from: desktop) {
-    width: 950px;
+    width: 940px;
   }
 
   &__image {
