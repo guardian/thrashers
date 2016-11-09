@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     require('jit-grunt')(grunt);
 
-    var aws = grunt.file.readJSON('aws-keys.json');
+    // var aws = grunt.file.readJSON('aws-keys.json');
     var newDir = grunt.option('folderName');
     var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
     var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
@@ -100,8 +100,7 @@ module.exports = function(grunt) {
         },
         aws_s3: {
             options: {
-                accessKeyId: aws.AWSAccessKeyID,
-                secretAccessKey: aws.AWSSecretKey,
+              awsProfile: 'interactivesProd',
                 region: 'us-east-1'
             },
             production: {
@@ -156,19 +155,19 @@ module.exports = function(grunt) {
                             type: 'input',
                             message: 'Fallback URL',
                             default: 'https://www.theguardian.com'
-                        }, 
-                        {  
+                        },
+                        {
                             config: 'snap.headline',
                             type: 'input',
                             message: 'Headline',
                             default: 'The Guardian'
-                        }, 
-                        {  
+                        },
+                        {
                             config: 'snap.trailText',
                             type: 'input',
                             message: 'Trail Text',
                             default: 'Latest news, sport and comment from the Guardian'
-                        }  
+                        }
                     ]
                 }
             }

@@ -60,7 +60,7 @@ $mq-breakpoints: (
           }
 
           &.three {
-            @include stripePosition(50px, 730px);
+            @include stripePosition(50px, 790px);
           }
 
           &.four {
@@ -107,8 +107,8 @@ $mq-breakpoints: (
 
     &__headline {
       font-weight: 900;
-      font-size: 26px;
-      line-height: 30px;
+      font-size: 20px;
+      line-height: 24px;
       text-indent: -16px;
       padding: 52px 0 32px 32px;
       padding-left: 32px;
@@ -117,12 +117,16 @@ $mq-breakpoints: (
 
       // exceptional mq for small screens
       @media screen and (max-width: 362px) {
-        font-size: 22px;
-        line-height: 24px;
+        font-size: 18px;
+        line-height: 20px;
         padding-bottom: 24px;
       }
 
       @include mq($from: tablet) {
+        font-size: 38px;
+
+      }
+      @include mq($from: desktop) {
         font-size: 45px;
       }
 
@@ -133,8 +137,11 @@ $mq-breakpoints: (
           margin-left: 40px;
 
           @include mq($from: tablet) {
-              margin-left: 212px;
+              margin-left: 112px;
               margin-top: 10px;
+          }
+          @include mq($from: desktop) {
+              margin-left: 212px;
           }
         }
       }
