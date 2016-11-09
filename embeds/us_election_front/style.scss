@@ -417,7 +417,15 @@ $blue: #214583;
 
 // Page Changers
 .fc-container__header__title {
-    color: $blue;
+    color: $blue !important;
+}
+
+.fc-container--story-package .fc-container__inner {
+	background-color: transparent !important;
+}
+
+.fc-today {
+	display: none;
 }
 
 .fc-container .fc-container__inner {
