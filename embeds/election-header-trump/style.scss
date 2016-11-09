@@ -1,0 +1,131 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.election-header {
+  position: relative;
+  height: 320px;
+  border-top: 1px solid #FDB6C2;
+  overflow: hidden;
+
+  @include mq($from: tablet) {
+    width: 698px;
+  }
+
+  @include mq($from: desktop) {
+    width: 950px;
+  }
+
+  &__image {
+    height: 320px;
+    width: 100%;
+    background-image: url('@@assetPath@@/trump.jpg');
+    background-size: 503px;
+    position: absolute;
+    z-index: -10;
+    background-position:right;
+    background-color: #000;
+    background-repeat: no-repeat;
+
+    @include mq($from: mobileLandscape) {
+      background-position: none;
+      background-size: 110%;
+    }
+
+    @include mq($from: desktop){
+      background-position-y: -330px !important;
+    }
+  }
+
+  &__headline {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 60%;
+
+    @include mq($from: tablet) {
+      width: 38%;
+    }
+
+    @include mq($from: desktop) {
+      width: 33%;
+    }
+
+    h1, h2, h3 {
+      font-family: $f-serif-headline;
+      font-weight: 500;
+    }
+
+    h1 {
+      color: white;
+      font-size: 32px;
+      line-height: 30px;
+      margin-bottom: 12px;
+
+      @include mq($from: tablet) {
+        font-size: 35px;
+        line-height: 35px;
+      }
+
+      @include mq($from: desktop) {
+        font-size: 45px;
+        line-height: 40px;
+      }
+    }
+
+    h2 {
+      color: white;
+      font-size: 16px;
+      line-height: 16px;
+
+      @include mq($from: desktop) {
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+
+    h3 {
+      color: #FF6642;
+      line-height: 6px;
+
+      @include mq($from: desktop) {
+        font-size: 18px;
+        line-height: 8px;
+      }
+    }
+  }
+}
+
+.election-data {
+  display: none;
+  margin-top: 2px;
+  color: white;
+  font-family: $f-sans-serif-headline;
+  font-size: 16px;
+  padding-bottom: 6px;
+
+  .bar {
+    float: left;
+    width: 49.5%;
+    padding-bottom: 6px;
+
+    &.dem{
+      background-color: #005689;
+      padding-left: 0.5%;
+    }
+
+    &.rep{
+      background-color: #EF2129;
+      padding-left: 0.5%;
+    }
+  }
+}
