@@ -13,7 +13,10 @@ $mq-breakpoints: (
 
 .election-header {
   position: relative;
-  height: 320px;
+  height: 250px;
+  @include mq(mobileLandscape) {
+    height: 320px;
+  }
   border-top: 1px solid #FDB6C2;
   overflow: hidden;
 
@@ -28,7 +31,9 @@ $mq-breakpoints: (
   &__image {
     height: 320px;
     width: 100%;
-    background-image: url('@@assetPath@@/trump.jpg');
+    // background-image: url('@@assetPath@@/trump.jpg');
+    // http://media.guim.co.uk/1dbe79ce1bb6e4b5d9adfe4029a907da1457bc33/0_0_3858_2315/2000.jpg
+    background-image: url('http://media.guim.co.uk/8d02c50c5d170a0ba00fe82d932899f59b32a98c/0_0_5179_3108/2000.jpg');
     background-size: 503px;
     position: absolute;
     z-index: -10;
@@ -36,13 +41,33 @@ $mq-breakpoints: (
     background-color: #000;
     background-repeat: no-repeat;
 
+    background-size: 170%;
+    background-position-x: 0px;
+    background-position-y: 0px;
+
     @include mq($from: mobileLandscape) {
-      background-position: none;
-      background-size: 110%;
+      background-size: 150%;
+      background-position-x: 0;
+      background-position-y: 0;
+    }
+
+    @include mq($from: phablet) {
+      background-size: 150%;
+      background-position-x: 0px;
+      background-position-y: -48px;
+      transform: rotate(-0.3deg);
+    }
+
+    @include mq($from: tablet) {
+      background-size: 100%;
+      background-position-x: 0px;
+      background-position-y: -12px;
     }
 
     @include mq($from: desktop){
-      background-position-y: -330px !important;
+      background-size: 123%;
+      background-position-x: 0px;
+      background-position-y: -94px;
     }
   }
 
@@ -51,6 +76,8 @@ $mq-breakpoints: (
     top: 12px;
     left: 6px;
     width: 60%;
+    min-width: 240px;
+    max-width: 260px;
 
     @include mq($from: tablet) {
       width: 38%;
