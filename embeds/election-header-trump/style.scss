@@ -48,7 +48,7 @@ $mq-breakpoints: (
 
   &__headline {
     position: absolute;
-    bottom: 6px;
+    top: 12px;
     left: 6px;
     width: 60%;
 
@@ -67,7 +67,8 @@ $mq-breakpoints: (
 
     h1 {
       color: white;
-      line-height: 26px;
+      font-size: 32px;
+      line-height: 30px;
       margin-bottom: 12px;
 
       @include mq($from: tablet) {
@@ -105,6 +106,7 @@ $mq-breakpoints: (
 }
 
 .election-data {
+  display: none;
   margin-top: 2px;
   color: white;
   font-family: $f-sans-serif-headline;
