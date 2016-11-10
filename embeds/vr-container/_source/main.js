@@ -41,10 +41,13 @@
 
       // Container layout mode
       if (containerData['Layout'] == 'Compact: 3 links + button') {
-        console.log('compac');
+        thrasher.querySelector('.expand-container').onclick = function() {
+          thrasher.classList.add('expanded');
+        }
       } else {
-        console.log('eczpand');
+        thrasher.classList.add('expanded');
       }
+
 
 
       var pageCards = thrasher.querySelectorAll('.card');
