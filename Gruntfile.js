@@ -1,13 +1,12 @@
 module.exports = function(grunt) {
     require('jit-grunt')(grunt);
 
-    var aws = grunt.file.readJSON('aws-keys.json');
     var newDir = grunt.option('folderName');
     var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
     var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
     var html = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.html' : '**/*.html');
     var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/_source/*' : '**/source/*');
-    var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
+    var remoteDir = 'embed/article-embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
     grunt.initConfig({
         watch: {
@@ -59,13 +58,13 @@ module.exports = function(grunt) {
                 options: {
                     patterns: [{
                         match: /@@assetPath@@/g,
-                        replacement: 'http://localhost:8000/' + dir + '/hashed'
+                        replacement: 'https://localhost:8000/' + dir + '/hashed'
                     }]
                 },
                 files: [{
                     expand: true,
                     cwd: dir,
-                    src: ['**/source.json', '**/hashed/*.js'],
+                    src: ['**/source.json', '**/embed.html', '**/boot.js', '**/hashed/*.js'],
                     dest: dir,
                 }]
             },
@@ -79,7 +78,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: dir,
-                    src: '**/source.json',
+                    src: ['**/source.json', '**/boot.js', '**/embed.html'],
                     dest: dir
                 }]
             }
@@ -87,6 +86,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
+                    protocol: 'https',
                     middleware: function (connect, options, middlewares) {
                         middlewares.unshift(function (req, res, next) {
                             res.setHeader('Access-Control-Allow-Origin', '*');
@@ -100,8 +100,7 @@ module.exports = function(grunt) {
         },
         aws_s3: {
             options: {
-                accessKeyId: aws.AWSAccessKeyID,
-                secretAccessKey: aws.AWSSecretKey,
+                awsProfile: 'interactivesProd',
                 region: 'us-east-1'
             },
             production: {
@@ -111,7 +110,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: dir,
-                    src: ['**/source.json'],
+                    src: ['**/embed.html',  '**/style.css'],
                     dest: remoteDir,
                     params: {
                         CacheControl: 'max-age=60'
@@ -156,19 +155,19 @@ module.exports = function(grunt) {
                             type: 'input',
                             message: 'Fallback URL',
                             default: 'https://www.theguardian.com'
-                        }, 
-                        {  
+                        },
+                        {
                             config: 'snap.headline',
                             type: 'input',
                             message: 'Headline',
                             default: 'The Guardian'
-                        }, 
-                        {  
+                        },
+                        {
                             config: 'snap.trailText',
                             type: 'input',
                             message: 'Trail Text',
                             default: 'Latest news, sport and comment from the Guardian'
-                        }  
+                        }
                     ]
                 }
             }
@@ -182,19 +181,23 @@ module.exports = function(grunt) {
             var jsonFile = path + '/source.json';
             var localDir = path.split('/')[1];
             var project = grunt.file.readJSON(jsonFile);
+            var embed = path + '/embed.html';
+            var documentBody = '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>' + css + '</style></head><body>';
             if (grunt.file.exists(path + '/hashmap.json')) {
                 var hashedMap = grunt.file.readJSON(path + '/hashmap.json');
             }
 
             project['html'] = '<div class="' + localDir + '__wrapper">' + '<style>' + css + '</style>' + html + '</div>';
-
+            var embedHtml = documentBody + html + '<script src="//j.ophan.co.uk/interactive.js"></script></body></html>';
             grunt.file.expand({}, dir + '/_source/*').forEach(function(file) {
                 file = file.split("/");
                 file = file[file.length-1];
                 project['html'] = project['html'].replace(RegExp(file, "g"), hashedMap[file]);
+                embedHtml = embedHtml.replace(RegExp(file, "g"), hashedMap[file]);
             });
 
             grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
+            grunt.file.write(embed, embedHtml);
         });
     });
 
@@ -215,16 +218,17 @@ module.exports = function(grunt) {
     grunt.registerTask('return-paths', function() {
         if (grunt.option('folderName')) {
             var project = grunt.file.readJSON(dir + '/source.json');
-            var s3Path = 'https://interactive.guim.co.uk/' + remoteDir + '/source.json';
-            var localPath = 'http://localhost:8000/' + dir + '/source.json';
-
+            var s3Path = 'https://interactive.guim.co.uk/' + remoteDir + '/embed.html';
+            var cssPath = 'https://interactive.guim.co.uk/' + remoteDir + '/style.css';
+            var localPath = 'https://localhost:8000/' + dir + '/embed.html';
             function returnSnapPath(location) {
-                return project.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(project.headline) + '&gu-trailText=' + encodeURIComponent(project.trailText);
+                // return project.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(project.headline) + '&gu-trailText=' + encodeURIComponent(project.trailText);
+                return project.url;
             }
 
-            grunt.log.writeln('Local Path: '['red'].bold + returnSnapPath(localPath));
             grunt.log.writeln('S3 Path: '['yellow'].bold + s3Path);
-            grunt.log.writeln('Snap Path: '['green'].bold + returnSnapPath(s3Path));
+            grunt.log.writeln('css Path: '['blue'].bold + cssPath);
+            grunt.log.writeln('localhost: '['red'].bold + localPath);
         }
     });
 
