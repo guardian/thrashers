@@ -5,10 +5,11 @@
 (function(){
 
   updateContent();
-  Modernizr.on('videoautoplay', function(autoplay) {
-    injectVideo();
+  Modernizr.on('videoautoplay', function (hasAutoplay) {
+    if (hasAutoplay) {
+      injectVideo();
+    }
   });
-
 
 
 
