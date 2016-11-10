@@ -263,6 +263,8 @@ $mq-breakpoints: (
         height: 0;
         width: 100%;
         padding-bottom: 75%;
+        display: block;
+
         @include mq(tablet) {
           width: 520px;
           height: 390px;
@@ -292,6 +294,7 @@ $mq-breakpoints: (
         }
       }
       &.double {
+        display: block;
         @include mq(tablet) {
           width: 340px;
           height: 140px;
