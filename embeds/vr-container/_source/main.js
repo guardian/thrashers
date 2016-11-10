@@ -30,23 +30,24 @@
     loadJSON("https://interactive.guim.co.uk/docsdata-test/1uwfhUcgAMvul6lKTKumG5AEnuXwDAjcDEAS7VrpmzeM.json", function(data) {
 
       var cardsData = data.sheets.Cards;
-      var containerData = data.sheets.Container;
+      var containerData = data.sheets.Container[0];
 
       var thrasher = document.querySelector('#vr-container');
 
       var containerTitle = thrasher.querySelector('.header__title');
-      containerTitle.innerHTML = containerData[0]['title'];
+      containerTitle.innerHTML = containerData['title'];
       var containerDescription = thrasher.querySelector('.header__description');
-      containerDescription.innerHTML = containerData[0]['description'];
+      containerDescription.innerHTML = containerData['description'];
 
-      var pageCards = [];
+      // Container layout mode
+      if (containerData['Layout'] == 'Compact: 3 links + button') {
+        console.log('compac');
+      } else {
+        console.log('eczpand');
+      }
 
-      pageCards.push(thrasher.querySelector('.card-1'));
-      pageCards.push(thrasher.querySelector('.card-2'));
-      pageCards.push(thrasher.querySelector('.card-3'));
-      pageCards.push(thrasher.querySelector('.card-4'));
-      pageCards.push(thrasher.querySelector('.card-5'));
-      pageCards.push(thrasher.querySelector('.card-6'));
+
+      var pageCards = thrasher.querySelectorAll('.card');
 
       for (var i = 0; i < pageCards.length; i++) {
 
@@ -58,12 +59,15 @@
         pageCards[i].querySelector('.kicker').innerHTML = cardsData[i]['Kicker'];
 
         // Inject images
-        if (cardsData[i]['Image'] != '' && cardsData[i]['HiResImage'] != '') {
+        if (cardsData[i]['Background'] == 'Image') {
           pageCards[i].classList.add('image')
           var imageTag = document.createElement('div');
           imageTag.classList.add('image');
           imageTag.innerHTML = '<img data-object-fit="cover" src="'+cardsData[i]['Image']+'" srcset="'+cardsData[i]['Image']+' 1x, '+cardsData[i]['HiResImage']+' 2x">';
           pageCards[i].appendChild(imageTag);
+
+          console.log(cardsData[i]['Image']);
+          console.log(imageTag);
 
         }
 
@@ -72,6 +76,8 @@
           pageCards[i].querySelector('.headline').classList.add('quote');
         }
       }
+
+
 
     });
   }
