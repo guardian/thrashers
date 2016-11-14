@@ -11,6 +11,9 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+#virtual-reality.fc-container--thrasher {
+  background-color: transparent;
+}
 @include base(vr-container, #fff);
 
 @mixin bar-at-right {
