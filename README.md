@@ -43,7 +43,7 @@ To run locally, use
 grunt local --folderName=the-name-of-your-embed
 ```
 
-To run remotely, you'll need to add AWS Keys. Use [`aws-keys.example.json`](aws-keys.example.json) to create an `aws-keys.json` file and replace the default values with your key values from the `gu-aws-interactive` AWS Account. From then on use
+To run remotely, you'll need to access to Interactives Prod via Janus. With Janus credentials pasted in terminal, run
 ```
 grunt remote --folderName=the-name-of-your-embed
 ```
@@ -72,7 +72,7 @@ grunt update --folderName=the-name-of-your-embed
 
 The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. Remember to choose benthrasher from the pull down if you want it to appear on that page.
 
-You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`. 
+You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
 
 OR IF YOU USED benthrasher you should now see your thrasher at the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
 
@@ -113,7 +113,7 @@ Due to multiple reports of the site crashing on older devices (iPad 2s, older An
 Due to the way we inject the thrashers into `frontend` we can't add `<script>` tags in the html. These are stripped out. The work around we've come up with so far, is to have a 1x1px image with an onload event that adds a `<script>` tag.
 
 ```html
-    <img 
+    <img
         style="height:0;width:0;visibility:hidden;position:absolute;z-index: 1;"
         height="0"
         width="0"
