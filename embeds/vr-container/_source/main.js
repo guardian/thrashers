@@ -70,9 +70,6 @@
           imageTag.innerHTML = '<img data-object-fit="cover" src="'+cardsData[i]['Image']+'" srcset="'+cardsData[i]['Image']+' 1x, '+cardsData[i]['HiResImage']+' 2x">';
           pageCards[i].appendChild(imageTag);
 
-          console.log(cardsData[i]['Image']);
-          console.log(imageTag);
-
         }
 
         // Inject quote mark
