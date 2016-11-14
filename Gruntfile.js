@@ -1,6 +1,24 @@
 module.exports = function(grunt) {
     require('jit-grunt')(grunt);
 
+    if (grunt.file.exists('aws-keys.json')) {
+      var aws = grunt.file.readJSON('aws-keys.json');
+      var awsOptions = {
+          accessKeyId: aws.AWSAccessKeyID,
+          secretAccessKey: aws.AWSSecretKey,
+          region: 'us-east-1'
+      };
+      grunt.log.writeln('PERMANENT KEYS');
+      grunt.log.writeln(awsOptions);
+    } else {
+      var awsOptions = {
+          awsProfile: 'interactivesProd',
+          region: 'us-east-1'
+      };
+      grunt.log.writeln('JANUS KEYS');
+      grunt.log.writeln(awsOptions);
+    }
+
     var newDir = grunt.option('folderName');
     var dir =  'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
     var scss = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName') + '/*.scss' : '**/*.scss');
@@ -98,10 +116,7 @@ module.exports = function(grunt) {
             }
         },
         aws_s3: {
-            options: {
-                awsProfile: 'interactivesProd',
-                region: 'us-east-1'
-            },
+            options: awsOptions,
             production: {
                 options: {
                     bucket: 'gdn-cdn',
