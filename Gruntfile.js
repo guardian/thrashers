@@ -8,15 +8,11 @@ module.exports = function(grunt) {
           secretAccessKey: aws.AWSSecretKey,
           region: 'us-east-1'
       };
-      grunt.log.writeln('PERMANENT KEYS');
-      grunt.log.writeln(awsOptions);
     } else {
       var awsOptions = {
           awsProfile: 'interactivesProd',
           region: 'us-east-1'
       };
-      grunt.log.writeln('JANUS KEYS');
-      grunt.log.writeln(awsOptions);
     }
 
     var newDir = grunt.option('folderName');
