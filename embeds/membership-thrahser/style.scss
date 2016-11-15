@@ -39,6 +39,10 @@ $mq-breakpoints: (
       }
       @include mq($from: wide){
         width: 1300px;
+        .has-page-skin & {
+          width: 980px;
+          height: 288px;
+        }
       }
 
       .stripe{
@@ -80,6 +84,12 @@ $mq-breakpoints: (
             @include mq($from: leftCol) {
               @include stripePosition(154px, 0px);
             }
+            @include mq(wide) {
+              .has-page-skin & {
+                display: block;
+                @include stripePosition(154px, -90px);
+              }
+            }
           }
 
           &.seven {
@@ -92,6 +102,9 @@ $mq-breakpoints: (
             @include mq($from: wide){
               display: block;
               @include stripePosition(202px, 560px);
+              .has-page-skin & {
+                display: none;
+              }
             }
           }
 
@@ -160,6 +173,9 @@ $mq-breakpoints: (
 
       @include mq($from: wide) {
         width: 1300px;
+        .has-page-skin & {
+          width: 980px;
+        }
       }
 
       p {
@@ -178,6 +194,11 @@ $mq-breakpoints: (
 
           @include mq($from: leftCol) {
             margin-left: 230px;
+          }
+          @include mq(wide) {
+            .has-page-skin & {
+              margin-left: 130px;
+            }
           }
         }
 
