@@ -1,0 +1,31 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.fc-container--story-package .fc-item.facia-snap-embed {
+  background-color: transparent !important;
+}
+
+h1.election--headline{
+  color: #333;
+  font-weight: 200;
+  font-size: 34px;
+  line-height: 34px;
+  color: #333;
+  font-weight: 100;
+  letter-spacing: -1px;
+
+  @include mq($from: desktop) {
+    font-size: 80px;
+    line-height: 84px;
+  }
+}
