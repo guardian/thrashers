@@ -280,6 +280,25 @@ module.exports = function(grunt) {
                             validate: validateInputColour
                         },
                         {
+                            config: 'appConfig.kickerFont',
+                            type: 'list',
+                            default: 'egypt-regular',
+                            message: 'Kicker typeface',
+                            choices: [
+                                { name: 'egypt-thin' },
+                                { name: 'egypt-light' },
+                                { name: 'egypt-regular'},
+                                { name: 'egypt-medium' },
+                                { name: 'egypt-bold' },
+                                '---',
+                                { name: 'agate-regular' },
+                                { name: 'agate-bold' },
+                                '---',
+                                { name: 'display-sans' },
+                                '---'
+                            ]
+                        },
+                        {
                             config: 'appConfig.kickerHide',
                             type: 'confirm',
                             default: false,
@@ -389,6 +408,7 @@ module.exports = function(grunt) {
         var kicker = grunt.config('appConfig.kicker');
         var kickerColour = grunt.config('appConfig.kickerColour');
         var kickerHide = grunt.config('appConfig.kickerHide');
+        var kickerFont = grunt.config('appConfig.kickerFont');
         var url   = grunt.config('appConfig.url');
         var buttonText = grunt.config('appConfig.buttonText');
         var buttonBackgroundColour = grunt.config('appConfig.buttonBackgroundColour');
@@ -412,6 +432,7 @@ module.exports = function(grunt) {
             app.hideKicker = false;
             if(kicker) app.kicker = kicker;
             if(kickerColour) app.kickerColour = "#" + kickerColour;
+            if(kickerFont) app.kickerFont = kickerFont;
         }
 
         if (url) app.url = url;
