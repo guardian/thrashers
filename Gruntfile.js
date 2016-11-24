@@ -305,6 +305,12 @@ module.exports = function(grunt) {
                             message: 'Hide kicker'
                         },
                         {
+                            config: 'appConfig.hideGuardianRoundel',
+                            type: 'confirm',
+                            default: false,
+                            message: 'Hide Guardian Roundel'
+                        },
+                        {
                             config: 'appConfig.buttonText',
                             type: 'input',
                             message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")'
@@ -413,6 +419,7 @@ module.exports = function(grunt) {
         var buttonText = grunt.config('appConfig.buttonText');
         var buttonBackgroundColour = grunt.config('appConfig.buttonBackgroundColour');
         var buttonTextColour = grunt.config('appConfig.buttonTextColour');
+        var hideGuardianRoundel = grunt.config('appConfig.hideGuardianRoundel');
 
         var app = {};
         if (title) app.title = title;
@@ -434,7 +441,7 @@ module.exports = function(grunt) {
             if(kickerColour) app.kickerColour = "#" + kickerColour;
             if(kickerFont) app.kickerFont = kickerFont;
         }
-
+        if(hideGuardianRoundel) app.hideGuardianRoundel = hideGuardianRoundel;
         if (url) app.url = url;
 
         return app;
