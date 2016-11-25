@@ -187,22 +187,25 @@ module.exports = function(grunt) {
                         {
                             config: 'appConfig.image',
                             type: 'input',
+                            default: defaultFromObject("image", null),
                             message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'
                         },
                         {
                             config: 'appConfig.url',
                             type: 'input',
+                            default: defaultFromObject("url", null),
                             message: 'OPTIONAL: '['red'].bold + 'URL override (leave blank to take user to default card)'
                         },
                         {
                             config: 'appConfig.title',
                             type: 'input',
+                            default: defaultFromObject("title", null),
                             message: 'OPTIONAL: '['red'].bold + 'Thrasher title (leave blank to use the default card title)'
                         },
                         {
                             config: 'appConfig.titleFont',
                             type: 'list',
-                            default: 'egypt-regular',
+                            default: defaultFromObject("titleFont", 'egypt-regular'),
                             message: 'Thrasher title typeface',
                             choices: [
                                 { name: 'egypt-thin' },
@@ -221,25 +224,29 @@ module.exports = function(grunt) {
                         {
                             config: 'appConfig.titleSize',
                             type: 'input',
+                            default: defaultFromObject("titleSize", null),
                             message: 'OPTIONAL: '['red'].bold + 'Thrasher title size (in density independent pixels)',
-                            validate: validateInputSize
+                            validate: validateInputSize,
+                            filter: sizeAsInt
                         },
                         {
                             config: 'appConfig.titleColour',
                             type: 'input',
-                            default: 'FFFFFF',
+                            default: defaultFromObject("titleColour", 'FFFFFF'),
                             message: 'OPTIONAL: '['red'].bold + 'Thrasher title text colour (default white)' + ' RGB'['red'].bold,
-                            validate: validateInputColour
+                            validate: validateInputColour,
+                            filter: hexToColour
                         },
                         {
                             config: 'appConfig.trail',
                             type: 'input',
+                            default: defaultFromObject("trail", null),
                             message: 'OPTIONAL: '['red'].bold + 'Trail text'
                         },
                         {
                             config: 'appConfig.trailFont',
                             type: 'list',
-                            default: 'egypt-regular',
+                            default: defaultFromObject("trailFont", 'egypt-regular'),
                             message: 'Trail typeface',
                             choices: [
                                 { name: 'egypt-thin' },
@@ -258,31 +265,37 @@ module.exports = function(grunt) {
                         {
                             config: 'appConfig.trailSize',
                             type: 'input',
+                            default: defaultFromObject("trailSize", null),
                             message: 'OPTIONAL: '['red'].bold + 'Trail text size (in density independent pixels)',
-                            validate: validateInputSize
+                            validate: validateInputSize,
+                            filter: sizeAsInt
                         },
                         {
                             config: 'appConfig.trailColour',
                             type: 'input',
-                            default: 'FFFFFF',
+                            default: defaultFromObject("trailColour", 'FFFFFF'),
                             message: 'OPTIONAL: '['red'].bold + 'Trail text colour (default white)' + ' RGB'['red'].bold,
-                            validate: validateInputColour
+                            validate: validateInputColour,
+                            filter: hexToColour
                         },
                         {
                             config: 'appConfig.kicker',
                             type: 'input',
+                            default: defaultFromObject("kicker", null),
                             message: 'OPTIONAL: '['red'].bold + 'Kicker text (leave blank to use default card section)'
                         },
                         {
                             config: 'appConfig.kickerColour',
                             type: 'input',
+                            default: defaultFromObject("kickerColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Kicker text colour (leave blank to use default)' + ' RGB'['red'].bold,
-                            validate: validateInputColour
+                            validate: validateInputColour,
+                            filter: hexToColour
                         },
                         {
                             config: 'appConfig.kickerFont',
                             type: 'list',
-                            default: 'egypt-regular',
+                            default: defaultFromObject("kickerFont", 'egypt-regular'),
                             message: 'Kicker typeface',
                             choices: [
                                 { name: 'egypt-thin' },
@@ -299,33 +312,46 @@ module.exports = function(grunt) {
                             ]
                         },
                         {
+                            config: 'appConfig.kickerSize',
+                            type: 'input',
+                            default: defaultFromObject("kickerSize", null),
+                            message: 'OPTIONAL: '['red'].bold + 'Kicker text size (in density independent pixels)',
+                            validate: validateInputSize,
+                            filter: sizeAsInt
+                        },
+                        {
                             config: 'appConfig.kickerHide',
                             type: 'confirm',
-                            default: false,
+                            default: defaultFromObject("kickerHide", false),
                             message: 'Hide kicker'
                         },
                         {
                             config: 'appConfig.hideGuardianRoundel',
                             type: 'confirm',
-                            default: false,
+                            default: defaultFromObject("hideGuardianRoundel", false),
                             message: 'Hide Guardian Roundel'
                         },
                         {
                             config: 'appConfig.buttonText',
                             type: 'input',
+                            default: defaultFromObject("buttonText", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")'
                         },
                         {
                             config: 'appConfig.buttonBackgroundColour',
                             type: 'input',
+                            default: defaultFromObject("buttonBackgroundColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'BACKGROUND'['blue'].bold+' colour' + ' RGB'['red'].bold,
-                            validate: validateInputColour
+                            validate: validateInputColour,
+                            filter: hexToColour
                         },
                         {
                             config: 'appConfig.buttonTextColour',
                             type: 'input',
+                            default: defaultFromObject("buttonTextColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'TEXT'['blue'].bold+' colour' + ' RGB'['red'].bold,
-                            validate: validateInputColour
+                            validate: validateInputColour,
+                            filter: hexToColour
                         }
                     ]
                 }
@@ -357,6 +383,15 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.registerTask('appConfigRemote', function() {
+        if(grunt.file.expand({}, dir + '*').length != 1) {
+            grunt.log.writeln('Skipping app configuration, rerun this command with the --folderName to change app config');
+            grunt.config('appConfig.remote', false);
+            return;
+        }
+        grunt.task.run('prompt:appConfigRemote');
+    });
+
     grunt.registerTask('appConfig', function() {
         if(grunt.config('appConfig.remote') === false) {
             return;
@@ -385,21 +420,27 @@ module.exports = function(grunt) {
             return;
         }
 
-        grunt.file.expand({}, dir + '*').forEach(function(path) {
-            var jsonFile = path + '/source.json';
-            var project = grunt.file.readJSON(jsonFile);
+        var jsonFile = dir + '/source.json';
+        var project = grunt.file.readJSON(jsonFile);
 
-            var app = getAppConfig();
+        var app = getAppConfig();
 
-            if (Object.keys(app).length === 0)
-                delete project.app;
-            else
-                project.app = app;
+        if (Object.keys(app).length === 0)
+            delete project.app;
+        else
+            project.app = app;
 
-            grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
-            grunt.log.writeln('File: '['red'].bold + jsonFile['blue'].bold + " updated");
-        });
+        grunt.file.write(jsonFile, JSON.stringify(project, null, 2));
+        grunt.log.writeln('File: '['red'].bold + jsonFile['blue'].bold + " updated");
     });
+
+    function defaultFromObject(key, defaultVal) {
+        var object = grunt.file.readJSON(dir + '/source.json').app;
+        if(object && object[key]) {
+            return object[key];
+        }
+        return defaultVal;
+    }
 
     function getAppConfig() {
         var title = grunt.config('appConfig.title');
@@ -415,6 +456,7 @@ module.exports = function(grunt) {
         var kickerColour = grunt.config('appConfig.kickerColour');
         var kickerHide = grunt.config('appConfig.kickerHide');
         var kickerFont = grunt.config('appConfig.kickerFont');
+        var kickerSize = grunt.config('appConfig.kickerSize');
         var url   = grunt.config('appConfig.url');
         var buttonText = grunt.config('appConfig.buttonText');
         var buttonBackgroundColour = grunt.config('appConfig.buttonBackgroundColour');
@@ -425,21 +467,22 @@ module.exports = function(grunt) {
         if (title) app.title = title;
         if (titleFont) app.titleFont = titleFont;
         if (titleSize) app.titleSize = titleSize;
-        if (titleColour) app.titleColour = "#" + titleColour;
+        if (titleColour) app.titleColour = titleColour;
         if (image) app.image = image;
         if (trail) app.trail = trail;
         if (trailFont) app.trailFont = trailFont;
         if (trailSize) app.trailSize = trailSize;
-        if (trailColour) app.trailColour = "#" + trailColour;
+        if (trailColour) app.trailColour = trailColour;
         if (buttonText) app.buttonText = buttonText;
-        if (buttonTextColour) app.buttonTextColour = "#" + buttonTextColour;
-        if (buttonBackgroundColour) app.buttonBackgroundColour = "#" + buttonBackgroundColour;
+        if (buttonTextColour) app.buttonTextColour = buttonTextColour;
+        if (buttonBackgroundColour) app.buttonBackgroundColour = buttonBackgroundColour;
         app.hideKicker = kickerHide;
         if(!kickerHide) {
             app.hideKicker = false;
             if(kicker) app.kicker = kicker;
-            if(kickerColour) app.kickerColour = "#" + kickerColour;
+            if(kickerColour) app.kickerColour = kickerColour;
             if(kickerFont) app.kickerFont = kickerFont;
+            if(kickerSize) app.kickerSize = kickerSize;
         }
         if(hideGuardianRoundel) app.hideGuardianRoundel = hideGuardianRoundel;
         if (url) app.url = url;
@@ -455,8 +498,22 @@ module.exports = function(grunt) {
         return true;
     }
 
+    function sizeAsInt(input) {
+        return Number(input);
+    }
+
+    function hexToColour(input) {
+        if(input.charAt(0) == '#') {
+            return input;
+        }
+        return "#" + input;
+    }
+
     function validateInputColour(val) {
         if(val.length > 0 && (val.length != 6 || !val.match(/[0-9a-fA-F]{6}/))) {
+            if(val.length == 7 && val.match(/#[0-9a-fA-F]{6}/)) {
+                return true;
+            }
             return "Invalid colour, should be in RBG hex format (eg FF0000 for pure red)";
         }
         return true;
@@ -519,6 +576,6 @@ module.exports = function(grunt) {
     grunt.registerTask('update', ['prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
     grunt.registerTask('local', ['connect', 'return-paths', 'update-local', 'watch:local']);
-    grunt.registerTask('remote', ['prompt:appConfigRemote', 'appConfig', 'return-paths', 'update-remote', 'watch:remote']);
+    grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'update-remote', 'watch:remote']);
     grunt.registerTask('paths', ['return-paths']);
 };
