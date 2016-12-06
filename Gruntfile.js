@@ -435,7 +435,12 @@ module.exports = function(grunt) {
     });
 
     function defaultFromObject(key, defaultVal) {
-        var object = grunt.file.readJSON(dir + '/source.json').app;
+        var path = dir + '/source.json';
+        if(!grunt.file.exists(path)) {
+            return defaultVal;
+        }
+
+        var object = grunt.file.readJSON(path).app;
         if(object && object[key]) {
             return object[key];
         }
