@@ -237,15 +237,19 @@ $c-multimedia-main-2: #fb0;
     &:after {
         transform: rotateY(180deg);
     }
+
+    &:nth-of-type(14) {
+        margin-left: 48px; // MINE
+    }
 }
 
-$face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;  // MINE
+$face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;
 
 @for $i from 1 through 8 {
     $position: $i - 1;
 
     .football100__face--#{$i} {
-       @include animation-delay(nth($face-delay, $i));  // MINE
+       @include animation-delay(nth($face-delay, $i));
 
         &:before {
             background-position: percentage($position/7) 0;
