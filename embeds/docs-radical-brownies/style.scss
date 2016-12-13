@@ -31,36 +31,41 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     width: 100%;
 }
 
+// **************************** FEATURED DOC **************************** //
+
 .featured-doc {
-    background-image: url("@@assetPath@@/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
     width: 100%;
     height: 320px;
     display: block;
     padding: 0 1.25rem;
-    .featured-doc--poster,
-    .featured-doc--toggle-more,
-    .featured-doc--info,
-    {
+    .background-image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: block;
+        height: 320px;
+        opacity: 0.4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .featured-doc-poster,
+    .featured-doc-toggle-more,
+    .featured-doc-info {
         display: inline-block;
-        margin: 0.625rem 0.625rem 0 0;
+        margin: 0.625rem 0.625rem 0 0.625rem;
         vertical-align: top;
         width: 220px;
         height: 320px;
         position: relative;
-
         h2 {
-        	border-top: 1px solid #f4f4f4;
-        	color: #f4f4f4;
-        	font-size: 22px;
-        	padding-top: 3px;
+            color: #f4f4f4;
+            font-size: 22px;
         }
     }
-    .featured-doc--toggle-more {
-        .docs-logo {
-            display: block;
-        }
+    .featured-doc-toggle-more,
+    .featured-doc-info {
+        margin-left: 0;
         .toggle-button {
             display: inline-block;
             padding: 2px 10px;
@@ -95,30 +100,31 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             }
         }
     }
-    .featured-doc--poster img {
+    .featured-doc-poster img {
         width: 220px;
     }
-    .featured-doc--info {
+    .featured-doc-info {
         color: #f4f4f4;
         font-family: 'Guardian Egyptian Web', serif;
         font-weight: 100;
-        font-size: 26px;
-        line-height: 30px;
-        .featured-doc--cta {
+        font-size: 24px;
+        line-height: 26px;
+        .featured-doc-cta {
             display: inline-block;
+            border: solid 1px #fb0;
             border-radius: 100px;
             background: #fb0;
             padding: 0 15px;
             position: absolute;
             bottom: 30px;
             transition: all .2s ease-in-out;
-            .featured-doc--cta-svg {
+            .featured-doc-cta-svg {
                 display: inline-block;
                 padding: 0 3px 0 0;
                 position: relative;
-                top: .5px;
+                top: 2px;
             }
-            .featured-doc--cta-text {
+            .featured-doc-cta-text {
                 border-left: solid 1px rgba(51, 51, 51, 0.6);
                 color: #333333;
                 display: inline-block;
@@ -128,32 +134,40 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
                 line-height: 14px;
                 padding: 0 0 0 8px;
                 position: relative;
-                top: -1px;
+                top: .5px;
             }
         }
     }
-    .featured-doc--cta:hover {
+    .featured-doc-cta:hover {
         transform: scale(1.1);
         text-decoration: none;
     }
 }
+
+// **************************** DROPDOWN - MORE DOCS **************************** //
 
 .more-docs-dropdown {
     width: 100%;
     height: 320px;
     display: none;
     padding: 0 1.25rem;
-    .second-doc--poster,
-    .third-doc--poster,
-    .more-doc--toggle-close,
-    .third-doc--toggle-close,
-    .second-doc--info,
-    .third-doc--info,
+    .second-doc-poster,
+    .third-doc-poster,
+    .more-doc-toggle-close,
+    .third-doc-toggle-close,
+    .second-doc-info,
+    .third-doc-info,
     {
         display: inline-block;
-        margin: 0.625rem 0.625rem 0 0;
+        margin: 0.625rem 0.625rem 0 0.625rem;
         vertical-align: top;
         width: 220px;
+    }
+    .more-doc-toggle-close,
+    .second-doc-info,
+    .third-doc-info,
+    {
+        margin-left: 0;
     }
     .toggle-button-close {
         display: inline-block;
@@ -188,38 +202,47 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             fill: #333;
         }
     }
-    .second-doc--poster img,
-    .third-doc--poster img {
+    .third-doc-poster {
+        border-left: solid .5px #525252;
+        padding-left: 0.625rem;
+        margin-left: 0;
+    }
+    .second-doc-poster img,
+    .third-doc-poster img {
         width: 220px;
     }
-    .second-doc--info,
-    .third-doc--info {
+    .second-doc-info,
+    .third-doc-info {
         color: #f4f4f4;
         font-family: 'Guardian Egyptian Web', serif;
         font-weight: 100;
         font-size: 18px;
         line-height: 22px;
+        .second-doc-quote,
+        .third-doc-quote {
+            display: inline;
+        }
         .second-title,
         .third-title {
             font-weight: 900;
         }
-        .second-doc--cta,
-        .third-doc--cta {
-            display: inline-block;
+        .second-doc-cta,
+        .third-doc-cta {
+            display: block;
             border: solid 1px #f4f4f4;
             border-radius: 100px;
             padding: 5px 15px;
             position: absolute;
             bottom: 30px;
-            .second-doc--cta-svg,
-            .third-doc--cta-svg {
+            .second-doc-cta-svg,
+            .third-doc-cta-svg {
                 display: inline-block;
                 padding: 0 5px 0 0;
                 position: relative;
                 top: 1.5px;
             }
-            .second-doc--cta-text,
-            .third-doc--cta-text {
+            .second-doc-cta-text,
+            .third-doc-cta-text {
                 border-left: solid 1px #f4f4f4;
                 color: #f4f4f4;
                 display: inline-block;
@@ -231,18 +254,20 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
                 margin: 0;
             }
         }
-        .second-doc--cta:hover,
-        .third-doc--cta:hover {
+        .second-doc-cta:hover,
+        .third-doc-cta:hover {
             background: #fff;
             text-decoration: none;
-            .second-doc--cta-text,
-            .third-doc--cta-text {
+            .second-doc-cta-text,
+            .third-doc-cta-text {
                 color: #333;
                 border-left: solid 1px #333;
             }
-            #secondary-doc--cta-svg-fill {
+            #secondary-doc-cta-svg-fill {
                 fill: #333;
             }
         }
     }
 }
+
+// **************************** RESPONSIVE **************************** //
