@@ -32,7 +32,6 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
 }
 
 // **************************** FEATURED DOC **************************** //
-
 .featured-doc {
     width: 100%;
     height: 320px;
@@ -53,7 +52,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     .featured-doc-toggle-more,
     .featured-doc-info {
         display: inline-block;
-        margin: 0.625rem 0.625rem 0 0.625rem;
+        margin: 0.625rem 10px 0 0px;
         vertical-align: top;
         width: 220px;
         height: 320px;
@@ -62,6 +61,9 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             color: #f4f4f4;
             font-size: 22px;
         }
+    }
+    .featured-doc-toggle-more {
+        margin-right: 15px;
     }
     .featured-doc-toggle-more,
     .featured-doc-info {
@@ -145,7 +147,6 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
 }
 
 // **************************** DROPDOWN - MORE DOCS **************************** //
-
 .more-docs-dropdown {
     width: 100%;
     height: 320px;
@@ -154,12 +155,11 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     .second-doc-poster,
     .third-doc-poster,
     .more-doc-toggle-close,
-    .third-doc-toggle-close,
     .second-doc-info,
     .third-doc-info,
     {
         display: inline-block;
-        margin: 0.625rem 0.625rem 0 0.625rem;
+        margin: 0.625rem 10px 0 0px;
         vertical-align: top;
         width: 220px;
     }
@@ -204,7 +204,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     }
     .third-doc-poster {
         border-left: solid .5px #525252;
-        padding-left: 0.625rem;
+        padding-left: 13px;
         margin-left: 0;
     }
     .second-doc-poster img,
@@ -218,17 +218,13 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         font-weight: 100;
         font-size: 18px;
         line-height: 22px;
-        .second-doc-quote,
-        .third-doc-quote {
-            display: inline;
-        }
         .second-title,
         .third-title {
             font-weight: 900;
         }
         .second-doc-cta,
         .third-doc-cta {
-            display: block;
+            display: inline-block;
             border: solid 1px #f4f4f4;
             border-radius: 100px;
             padding: 5px 15px;
@@ -271,3 +267,316 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
 }
 
 // **************************** RESPONSIVE **************************** //
+@include mq($until: wide) {
+    .featured-doc,
+    .more-docs-dropdown {
+        .featured-doc-toggle-more,
+        .more-doc-toggle-close {
+            margin-right: 15px;
+            width: 140px;
+            h2 {
+                font-size: 20px;
+            }
+            .featured-doc-poster,
+            .featured-doc-info,
+            .second-doc-poster,
+            .third-doc-poster,
+            .second-doc-info,
+            .third-doc-info {
+                margin: 0.625rem 5px 0 5px;
+            }
+            .toggle-button-svg,
+            .toggle-button-close-svg {
+                display: none;
+            }
+        }
+    }
+}
+
+@include mq($until: leftCol) {
+    .more-docs-dropdown {
+        height: auto;
+        .more-doc-toggle-close {
+            display: inline-block;
+        }
+        .second-doc-poster,
+        .third-doc-poster {
+            display: block;
+        }
+        .third-doc-info {
+            padding-left: 13px;
+        }
+        .third-doc-info,
+        .second-doc-info {
+            height: auto;
+            .featured-doc-cta,
+            .second-doc-cta,
+            .third-doc-cta {
+                position: relative;
+                bottom: 0;
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .responsive-stack {
+        display: inline-block;
+    }
+    .featured-doc,
+    .more-docs-dropdown {
+        .featured-doc-toggle-more,
+        .more-doc-toggle-close {
+            margin-right: 15px;
+            width: 220px;
+            h2 {
+                font-size: 22px;
+            }
+            .toggle-button-svg,
+            .toggle-button-close-svg {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@include mq($until: desktop) {
+    .featured-doc {
+        height: 240px;
+        .background-image {
+            height: 240px;
+        }
+    }
+    .more-docs-dropdown {
+        height: auto;
+        .responsive-stack {
+            .second-doc-info,
+            .third-doc-info {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+    }
+    .featured-doc,
+    .more-docs-dropdown {
+        padding: 0 10px;
+        .featured-doc-poster,
+        .featured-doc-toggle-more,
+        .featured-doc-info,
+        .more-doc-toggle-close,
+        .second-doc-poster,
+        .third-doc-poster,
+        .second-doc-info,
+        .third-doc-info {
+            margin: 0.625rem 10px 0 10px;
+            height: 215px;
+            width: 160px;
+        }
+        .featured-doc-toggle-more,
+        .more-doc-toggle-close {
+            margin-left: 0;
+        }
+        .featured-doc-poster img,
+        .second-doc-poster img,
+        .third-doc-poster img {
+            width: 160px;
+        }
+        .featured-doc-info,
+        .second-doc-info,
+        .third-doc-info {
+            font-size: 20px;
+            line-height: 22px;
+        }
+    }
+}
+
+@include mq($until: tablet) {
+    section#documentaries .facia-snap {
+        padding: 0;
+    }
+    .featured-doc {
+        height: 260px;
+        .background-image {
+            height: 260px;
+        }
+    }
+    .featured-doc,
+    .more-docs-dropdown {
+        .more-doc-toggle-close,
+        .featured-doc-toggle-more,
+        {
+            margin: 0.625rem 0.5rem 0 0.5rem;
+            width: 180px;
+            height: 260px;
+            h2 {
+                font-size: 20px;
+            }
+        }
+        .featured-doc-poster,
+        .featured-doc-info,
+        .second-doc-poster,
+        .third-doc-poster,
+        .second-doc-info,
+        .third-doc-info {
+            margin: 0.625rem 0.5rem 0 0.5rem;
+            width: 180px;
+            height: auto;
+        }
+        .featured-doc-toggle-more,
+        .more-doc-toggle-close {
+            .toggle-button,
+            .toggle-button-close {
+                bottom: 30px;
+            }
+        }
+        .featured-doc-poster img,
+        .second-doc-poster img,
+        .third-doc-poster img {
+            width: 180px;
+        }
+        .featured-doc-info,
+        .second-doc-info,
+        .third-doc-info {
+            font-size: 22px;
+            line-height: 24px;
+            .featured-doc-cta {
+                position: relative;
+                bottom: 0;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+@include mq($until: phablet) {
+    .featured-doc {
+        height: 320px;
+    }
+    .more-docs-dropdown {
+        height: auto;
+        margin-top: -65px;
+        .more-doc-toggle-close {
+            height: auto;
+            .toggle-button-close {
+                position: absolute;
+                bottom: 10px;
+                padding: 2px 14px;
+            }
+        }
+        .responsive-stack {
+            .second-doc-poster,
+            .third-doc-poster {
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+    }
+    .responsive-stack {
+        display: block;
+    }
+    .pad {
+        padding-bottom: 60px;
+    }
+    .featured-doc,
+    .more-docs-dropdown {
+        .background-image {
+            opacity: 0!important;
+            height: 320px;
+        }
+        .featured-doc-toggle-more {
+            height: 305px;
+            position: absolute;
+            top: 0px;
+            .toggle-button {
+                bottom: 10px;
+                padding: 2px 14px;
+            }
+        }
+        .featured-doc-info,
+        .featured-doc-poster {
+            margin: 45px 0.5rem 0 0.5rem;
+            height: 215px;
+        }
+        .second-doc-info,
+        .second-doc-poster,
+        .third-doc-info,
+        .third-doc-poster {
+            margin: 10px 0.5rem 0 0.5rem;
+        }
+        .featured-doc-poster,
+        .second-doc-poster,
+        .third-doc-poster {
+            width: 160px;
+            border-left: none;
+            padding-left: 0;
+        }
+        .featured-doc-poster img,
+        .second-doc-poster img,
+        .third-doc-poster img {
+            border-right: solid .5px #525252;
+            padding: 0 0.5rem 0 0;
+            width: 160px;
+        }
+        .featured-doc-info,
+        .second-doc-info,
+        .third-doc-info {
+            width: 50%;
+            font-size: 22px;
+            line-height: 24px;
+            padding-left: 0;
+            .featured-doc-cta,
+            .second-doc-cta,
+            .third-doc-cta {
+                position: relative;
+                margin-top: 10px;
+                padding: 2px 15px;
+            }
+        }
+    }
+}
+
+@include mq($until: mobileLandscape) {
+    .featured-doc {
+        height: 310px;
+    }
+    .more-docs-dropdown {
+        height: auto;
+    }
+    .featured-doc,
+    .more-docs-dropdown {
+        padding: 0 5px;
+        .featured-doc-toggle-more,
+        .featured-doc-poster,
+        .featured-doc-poster img,
+        .second-doc-toggle-more,
+        .second-doc-poster,
+        .second-doc-poster img,
+        .third-doc-toggle-more,
+        .third-doc-poster,
+        .third-doc-poster img {
+            width: 130px;
+        }
+        .featured-doc-toggle-more,
+        .more-doc-toggle-close {
+            .toggle-button,
+            .toggle-button-close {
+                padding: 2px 8px;
+                bottom: 25px;
+            }
+        }
+        .featured-doc-info,
+        .second-doc-info,
+        .third-doc-info {
+            width: 40%;
+            font-size: 16px;
+            line-height: 20px;
+            .featured-doc-cta {
+                .featured-doc-cta-svg {
+                    padding: 0 5px 0 0;
+                    top: 4.5px;
+                }
+                .featured-doc-cta-text {
+                    top: 2.5px;
+                }
+            }
+        }
+    }
+}
