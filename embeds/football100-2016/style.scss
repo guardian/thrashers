@@ -24,6 +24,11 @@ $c-multimedia-main-2: #fb0;
 
 @include base(football100, $c-neutral-1);
 
+// .fc-container--thrasher {
+//     background-color: #ff0000!important;
+// }
+
+
 .football100__anchor {
     position: absolute !important;
     top: 0;
@@ -33,6 +38,8 @@ $c-multimedia-main-2: #fb0;
     z-index: 4 !important;
     background: transparent;
     cursor: pointer;
+
+   
 
     &:hover ~ .football100__wrapper .football100__content .football100__button.button {
         background-color: $c-multimedia-main-2;
@@ -153,20 +160,26 @@ $c-multimedia-main-2: #fb0;
 @include keyframes(flip) { // MINE
    0% {
        @include transform(rotateY(0));
+    //    opacity: 0.5;
    }
 
    20% {
        @include transform(rotateY(180deg));
+    //    opacity: 1;
    }
 
    50% {
        @include transform(rotateY(180deg));
+    //    opacity: 1;
    }
 
    70% {
        @include transform(rotateY(0));
+    //    opacity: 0.5;
    }
 }
+
+
 
 .football100__faces {
     position: absolute;
@@ -174,8 +187,10 @@ $c-multimedia-main-2: #fb0;
     left: 0;
     right: 0;
     z-index: 1;
-   perspective: 1000;
-    opacity: 0.5;
+    @include mq(desktop) {
+        perspective: 1000;
+    }
+    opacity: 0.7;
     
 
     @include mq($until: tablet) {
@@ -192,8 +207,11 @@ $c-multimedia-main-2: #fb0;
     float: left;
     border-radius: 50%;
     overflow: hidden;
-   transform-style: preserve-3d; // MINE
-   @include animation(flip 15s ease-in-out infinite); // MINE
+    @include mq(desktop) {
+        transform-style: preserve-3d; // MINE
+        @include animation(flip 15s ease-in-out infinite); // MINE
+        //@include animation(fadeIn 15s ease-in-out infinite); // MINE
+    }
 
     @include mq(desktop) {
         height: 70px;
@@ -224,8 +242,10 @@ $c-multimedia-main-2: #fb0;
         background-image: url('http://interactive.guim.co.uk/thrashers/football100/source/faces.png');
         background-repeat: no-repeat;
         background-size: 800% 200%;
-       backface-visibility: hidden;  // MINE
-       -webkit-backface-visibility: hidden;  // MINE
+        @include mq(desktop) {
+            backface-visibility: hidden;  // MINE
+            -webkit-backface-visibility: hidden;  // MINE
+        }
     }
 
     &:before {
@@ -249,7 +269,9 @@ $face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;
     $position: $i - 1;
 
     .football100__face--#{$i} {
+        @include mq(desktop) {
        @include animation-delay(nth($face-delay, $i));
+        }
 
         &:before {
             background-position: percentage($position/7) 0;
@@ -267,7 +289,9 @@ $face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;
    $face-delay: -2s, -4s, -6s, -9s, -13s, -1s, -15s, -12s;
 
     .football100__face--#{$i} {
+        @include mq(desktop) {
        @include animation-delay(nth($face-delay, $index));
+        }
 
         &:before {
             background-position: percentage($position/7) 100%;
