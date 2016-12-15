@@ -163,6 +163,9 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         vertical-align: top;
         width: 220px;
     }
+    .more-doc-toggle-close {
+        margin-right: 15px;
+    }
     .more-doc-toggle-close,
     .second-doc-info,
     .third-doc-info,
@@ -175,7 +178,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         border: solid 1px #f4f4f4;
         border-radius: 100px;
         position: absolute;
-        bottom: 30px;
+        bottom: 20px;
         .toggle-button-close-svg {
             margin: 0 5px 0 0;
             position: relative;
@@ -229,7 +232,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             border-radius: 100px;
             padding: 5px 15px;
             position: absolute;
-            bottom: 30px;
+            bottom: 20px;
             .second-doc-cta-svg,
             .third-doc-cta-svg {
                 display: inline-block;
@@ -312,9 +315,24 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             .featured-doc-cta,
             .second-doc-cta,
             .third-doc-cta {
+                border: none;
+                padding: 0;
+                margin: 2px 0 20px 0;
                 position: relative;
                 bottom: 0;
-                margin-bottom: 30px;
+                .second-doc-cta-text,
+                .third-doc-cta-text {
+                    border-left: none;
+                    padding: 0;
+                    float: left;
+                    font-size: 14px;
+                }
+                .second-doc-cta-svg,
+                .third-doc-cta-svg {
+                    top: -2px;
+                    left: 8px;
+                    width: 11px;
+                }
             }
         }
     }
@@ -359,20 +377,21 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     .more-docs-dropdown {
         padding: 0 10px;
         .featured-doc-poster,
-        .featured-doc-toggle-more,
         .featured-doc-info,
-        .more-doc-toggle-close,
         .second-doc-poster,
         .third-doc-poster,
         .second-doc-info,
         .third-doc-info {
             margin: 0.625rem 10px 0 10px;
-            height: 215px;
+            height: auto;
             width: 160px;
         }
         .featured-doc-toggle-more,
         .more-doc-toggle-close {
             margin-left: 0;
+            margin: 0.625rem 10px 0 10px;
+            height: 240px;
+            width: 160px;
         }
         .featured-doc-poster img,
         .second-doc-poster img,
@@ -384,6 +403,15 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         .third-doc-info {
             font-size: 20px;
             line-height: 22px;
+            .featured-doc-cta {
+                position: relative;
+                bottom: 0;
+                margin-bottom: 30px;
+            }
+        }
+        .third-doc-poster,
+        .third-doc-info {
+            margin-left: 0;
         }
     }
 }
@@ -424,7 +452,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         .more-doc-toggle-close {
             .toggle-button,
             .toggle-button-close {
-                bottom: 30px;
+                bottom: 20px;
             }
         }
         .featured-doc-poster img,
@@ -437,11 +465,10 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         .third-doc-info {
             font-size: 22px;
             line-height: 24px;
-            .featured-doc-cta {
-                position: relative;
-                bottom: 0;
-                margin-bottom: 30px;
-            }
+        }
+        .third-doc-poster,
+        .third-doc-info {
+            margin-left: 0px;
         }
     }
 }
@@ -452,7 +479,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     }
     .more-docs-dropdown {
         height: auto;
-        margin-top: -65px;
+        margin-top: -55px;
         .more-doc-toggle-close {
             height: auto;
             .toggle-button-close {
@@ -465,7 +492,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             .second-doc-poster,
             .third-doc-poster {
                 display: inline-block;
-                margin-left: 10px;
+                margin-left: 8px;
             }
         }
     }
@@ -473,7 +500,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         display: block;
     }
     .pad {
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
     .featured-doc,
     .more-docs-dropdown {
@@ -488,6 +515,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             .toggle-button {
                 bottom: 10px;
                 padding: 2px 14px;
+                z-index: 9;
             }
         }
         .featured-doc-info,
@@ -522,12 +550,22 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             font-size: 22px;
             line-height: 24px;
             padding-left: 0;
-            .featured-doc-cta,
-            .second-doc-cta,
-            .third-doc-cta {
+            .featured-doc-cta {
                 position: relative;
                 margin-top: 10px;
                 padding: 2px 15px;
+            }
+            .second-doc-cta:hover,
+            .third-doc-cta:hover {
+                background: #161616;
+                text-decoration: none;
+                .second-doc-cta-text,
+                .third-doc-cta-text {
+                    color: #f4f4f4;
+                }
+                #secondary-doc-cta-svg-fill {
+                    fill: #f4f4f4;
+                }
             }
         }
     }
@@ -535,7 +573,10 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
 
 @include mq($until: mobileLandscape) {
     .featured-doc {
-        height: 310px;
+        height: 280px;
+        .background-image {
+            height: 280px;
+        }
     }
     .more-docs-dropdown {
         height: auto;
@@ -543,23 +584,33 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     .featured-doc,
     .more-docs-dropdown {
         padding: 0 5px;
-        .featured-doc-toggle-more,
         .featured-doc-poster,
         .featured-doc-poster img,
-        .second-doc-toggle-more,
         .second-doc-poster,
         .second-doc-poster img,
-        .third-doc-toggle-more,
         .third-doc-poster,
         .third-doc-poster img {
             width: 130px;
         }
+        .featured-doc-toggle-more {
+            height: 280px;
+        }
         .featured-doc-toggle-more,
         .more-doc-toggle-close {
+            .toggle-button {
+                bottom: 30px;
+            }
+            .toggle-button-close {
+                bottom: 15px;
+            }
             .toggle-button,
             .toggle-button-close {
                 padding: 2px 8px;
-                bottom: 25px;
+                .toggle-button-svg,
+                .toggle-button-close-svg {
+                    width: 10px;
+                    margin-right: 0;
+                }
             }
         }
         .featured-doc-info,
