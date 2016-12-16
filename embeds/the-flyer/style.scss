@@ -119,6 +119,11 @@ $gs-baseline: 12px;
       background-size: 1800px;
       background-position: -680px -100px;
 
+      video {
+          display: none;
+        }
+
+
       @include mq($from: mobileLandscape) {
         background-position: -580px -100px;
       }
@@ -126,15 +131,20 @@ $gs-baseline: 12px;
       @include mq($from: phablet) {
         background-size: 2000px;
         background-position: -460px -142px;
+
       }
 
       @include mq($from: tablet) {
         background-position: -390px -142px;
+
       }
 
       @include mq($from: desktop){
         background-size: 2400px;
         background-position: -390px -226px;
+         video {
+          display: block;
+        }
       }
 
       @include mq($from: leftCol) {
