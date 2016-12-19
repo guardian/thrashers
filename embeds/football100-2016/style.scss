@@ -86,7 +86,8 @@ $c-multimedia-main-2: #fb0;
     float: left;
     overflow: hidden;
     height: 100%;
-    background: url('http://interactive.guim.co.uk/thrashers/football100/source/logo.png') no-repeat center;
+    //background: url('http://interactive.guim.co.uk/thrashers/football100/source/logo.png') no-repeat center;
+    background: url('@@assetPath@@/logo.png') no-repeat center;
     background-position: left top;
     background-size: contain;
     text-indent: -200%;
@@ -177,7 +178,10 @@ $c-multimedia-main-2: #fb0;
        @include transform(rotateY(0));
     //    opacity: 0.5;
    }
+   
 }
+
+
 
 
 
@@ -187,10 +191,10 @@ $c-multimedia-main-2: #fb0;
     left: 0;
     right: 0;
     z-index: 1;
-    @include mq(desktop) {
+    @include mq(leftCol) {
         perspective: 1000;
     }
-    opacity: 0.7;
+    opacity: 0.5;
     
 
     @include mq($until: tablet) {
@@ -205,9 +209,9 @@ $c-multimedia-main-2: #fb0;
     height: 74px;
     width: 74px;
     float: left;
-    border-radius: 50%;
+    //border-radius: 50%;
     overflow: hidden;
-    @include mq(desktop) {
+    @include mq(leftCol) {
         transform-style: preserve-3d; // MINE
         @include animation(flip 15s ease-in-out infinite); // MINE
         //@include animation(fadeIn 15s ease-in-out infinite); // MINE
@@ -235,14 +239,15 @@ $c-multimedia-main-2: #fb0;
         right: 0;
         bottom: 0;
         left: 0;
-        border-radius: 50%; // MINE
+        //border-radius: 50%; // MINE
         overflow: hidden;   // MINE
         content: '';
         background-color: #000;
-        background-image: url('http://interactive.guim.co.uk/thrashers/football100/source/faces.png');
+        //background-image: url('http://interactive.guim.co.uk/thrashers/football100/source/faces.png');
+        background-image: url('@@assetPath@@/faces2.png');
         background-repeat: no-repeat;
         background-size: 800% 200%;
-        @include mq(desktop) {
+        @include mq(leftCol) {
             backface-visibility: hidden;  // MINE
             -webkit-backface-visibility: hidden;  // MINE
         }
@@ -255,12 +260,26 @@ $c-multimedia-main-2: #fb0;
     }
 
     &:after {
-        transform: rotateY(180deg);
+        transform: rotateY(180);
+       z-index: 3;
+       opacity: 0.3;
+       background-image: none;
+       background-color: #767676;
     }
 
-    &:nth-of-type(14) {
-        margin-left: 48px; // MINE
-    }
+    // @include mq(desktop) {
+    //     &:nth-of-type(16) {
+    //     margin-left: 38px; // MINE
+    //     }
+    // }
+
+    // @include mq(wide) {
+    //     &:nth-of-type(14) {
+    //     margin-left: 48px; // MINE
+    //     }
+    // }
+
+    
 }
 
 $face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;
@@ -269,7 +288,7 @@ $face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;
     $position: $i - 1;
 
     .football100__face--#{$i} {
-        @include mq(desktop) {
+        @include mq(leftCol) {
        @include animation-delay(nth($face-delay, $i));
         }
 
@@ -289,7 +308,7 @@ $face-delay: -2s, -3s, -5s, -7s, -11s, -13s, -17s, -19s;
    $face-delay: -2s, -4s, -6s, -9s, -13s, -1s, -15s, -12s;
 
     .football100__face--#{$i} {
-        @include mq(desktop) {
+        @include mq(leftCol) {
        @include animation-delay(nth($face-delay, $index));
         }
 
