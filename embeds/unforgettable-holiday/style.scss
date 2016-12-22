@@ -16,171 +16,209 @@ $gs-baseline: 12px;
 
 
 #unforgettable-holiday {
-
- .unforgettable-link {
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   z-index: 2000;
-
-   &:hover {
-     .cta__button {
-          color: inherit;
-
-          svg {
-            fill: inherit;
-          }
-        }
-     }
-
-
-   .cta__button {
-     position: absolute;
-     left: 16px;
-     bottom: 6px;
-     border: thin solid #ffffff;
-     background-color: transparent;
-     height: 40px;
-     line-height: 38px;
-     display: block;
-     width: 194px;
-     color: #ffffff;
-     padding-left: 16px;
-     padding-right: 8px;
-
-     @include mq($from: tablet) {
-       bottom: $gs-baseline;
-       left: 20px;
-     }
-
-     @include mq($from: leftCol) {
-       left: 172px;
-     }
-
-     @include mq($from: wide) {
-       left: 258px;
-     }
-   }
-
-     .arrow-icon {
-       height: auto;
-       width: auto;
-       float: right;
-       padding-top: 3px;
-       fill: #ffffff;
-     }
-   }
- }
-
- .container {
-     position: relative;
-     height: 306px;
-
-     @include mq($from: tablet) {
-       width: 740px;
-     }
-
-     @include mq($from: desktop) {
-       width: 980px;
-     }
-
-     @include mq($from: leftCol) {
-       width: 1140px;
-     }
-
-     @include mq($from: wide) {
-       width: 1300px;
-     }
-
-     &__image {
-       height: 306px;
-       width: 100%;
-       background-image: url('@@assetPath@@/holiday-pic-1.png');
-       position: absolute;
-       z-index: -10;
-       background-color: #000;
-       background-repeat: no-repeat;
-       background-position: -190px 0px;
-
-       @include mq($from: tablet) {
-         background-position: 0px 0px;
-     }
-   }
-
-   .text {
-     top: 40px;
-     left: 6px;
-     position: absolute;
-     color: #333333;
-
-     @include mq($from: tablet) {
-       top: 12px;
-       left: 20px;
-     }
-
-     @include mq($from: leftCol) {
-       left: 172px;
-     }
-
-     @include mq($from: wide) {
-       left: 258px;
-     }
-
-     &__intro {
-       @include fs-header(5);
-       font-size: 24px;
-       line-height: 24px;
-
-       @include mq($from: tablet) {
-           font-size: 36px;
-           top: 12px;
-       }
-     }
-
-     &__strapline {
-       @include fs-header(5);
-       font-size: 44px;
-       line-height: 44px;
-       min-width: 240px;
-       max-width: 750px;
-
-       @include mq($from: tablet) {
-           @include fs-header(5);
-           font-size: 72px;
-           line-height: 72px;
-          }
-        }
+	.unforgettable-link {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2000;
+		&:hover {
+			.cta__button {
+        color: inherit;
+        background-color: #ffffff;
+			}
+      .arrow-icon {
+        fill: inherit;
       }
-    }
+		}
+		.cta__button {
+			position: absolute;
+			left: 16px;
+			bottom: 6px;
+			border: thin solid #ffffff;
+			background-color: transparent;
+			height: 40px;
+			line-height: 38px;
+			display: block;
+			width: 194px;
+			color: #ffffff;
+			padding-left: 16px;
+			padding-right: 8px;
+			@include mq($from: tablet) {
+				bottom: $gs-baseline;
+				left: 20px;
+			}
+			@include mq($from: leftCol) {
+				left: 172px;
+			}
+			@include mq($from: wide) {
+				left: 258px;
+			}
+		}
+		.arrow-icon {
+			height: auto;
+			width: auto;
+			float: right;
+			padding-top: 3px;
+			fill: #ffffff;
+		}
+	}
 
-    .guardian__roundel {
-      position: absolute;
-      right: 6px;
-      bottom: 0px;
+	.container {
+		position: relative;
+		height: 306px;
+		@include mq($from: tablet) {
+			width: 740px;
+		}
+		@include mq($from: desktop) {
+			width: 980px;
+		}
+		@include mq($from: leftCol) {
+			width: 1140px;
+		}
+		@include mq($from: wide) {
+			width: 1300px;
+		}
+		&__image--one,
+    &__image--two,
+     {
+			height: 306px;
+			width: 100%;
+			position: absolute;
+			z-index: -10;
+      background-color: #000;
+      background-repeat: no-repeat;
 
-      svg {
-        @include mq($until: tablet) {
-          display: none;
-        }
-      }
-
-
-    }
-
-    .guardian__logo {
-      position: absolute;
-      right: 12px;
-      top: 6px;
-
-      svg {
-        width: 200px;
-        height: 21px;
-      }
-
+		}
+    &__image--one {
+      background-image: url('@@assetPath@@/holiday-pic-1.png');
+      background-position: -190px 0px;
+      z-index: -9;
       @include mq($from: tablet) {
-        right: 6px;
-
+				 background-position: 0px 0px;
+			}
     }
+    &__image--two {
+      background-image: url('@@assetPath@@/holiday-pic-2.png');
+			background-position: -144px 0px;
+      @include mq($from: leftCol) {
+				 background-position: 0px 0px;
+			}
+    }
+
+
+		.text {
+			top: 40px;
+			left: 6px;
+			position: absolute;
+			color: #333333;
+			@include mq($from: tablet) {
+				top: 24px;
+				left: 20px;
+			}
+			@include mq($from: leftCol) {
+				left: 172px;
+			}
+			@include mq($from: wide) {
+				left: 258px;
+			}
+			&__intro {
+				@include fs-header(5);
+				font-size: 24px;
+				line-height: 24px;
+				@include mq($from: tablet) {
+					font-size: 36px;
+					top: 12px;
+				}
+			}
+			&__strapline {
+				@include fs-header(5);
+				font-size: 44px;
+				line-height: 44px;
+				min-width: 240px;
+				max-width: 750px;
+				@include mq($from: tablet) {
+					@include fs-header(5);
+					font-size: 72px;
+					line-height: 72px;
+				}
+			}
+		}
+	}
+	.guardian__roundel {
+		position: absolute;
+		right: 6px;
+		bottom: 0px;
+		svg {
+			@include mq($until: tablet) {
+				display: none;
+			}
+		}
+	}
+	.guardian__logo {
+		position: absolute;
+		right: 12px;
+		top: 6px;
+		svg {
+			width: 200px;
+			height: 21px;
+		}
+		@include mq($from: tablet) {
+			right: 6px;
+		}
+	}
+  .gradient {
+    display: block;
+    position: absolute;
+    z-index: -5;
+    bottom: 0px;
+    height: 180px;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.0));
+    /* background:rgba(0,0,0,0.4) */
+  }
+
+  &.inView {
+
+    .container__image--two {
+        display: block;
+        z-index: -8;
+        animation-name: fadeIn;
+        animation-duration: 1800ms;
+        animation-fill-mode: backwards;
+        animation-timing-function: ease-in;
+    }
+
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  &.fadeOut {
+
+    .container__image--one {
+        display: block;
+        animation-name: fadeOut;
+        animation-duration: 1800ms;
+        animation-fill-mode: backwards;
+        animation-timing-function: ease-in;
+    }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+
 }
