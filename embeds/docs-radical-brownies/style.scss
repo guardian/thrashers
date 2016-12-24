@@ -48,9 +48,9 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         left: 0;
         width: 100%;
     }
-    .featured-doc-poster,
-    .featured-doc-toggle-more,
-    .featured-doc-info {
+    &-poster,
+    &-toggle-more,
+    &-info {
         display: inline-block;
         margin: 0.625rem 10px 0 0px;
         vertical-align: top;
@@ -62,11 +62,11 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             font-size: 22px;
         }
     }
-    .featured-doc-toggle-more {
+    &-toggle-more {
         margin-right: 15px;
     }
-    .featured-doc-toggle-more,
-    .featured-doc-info {
+    &-toggle-more,
+    &-info {
         margin-left: 0;
         .toggle-button {
             display: inline-block;
@@ -75,12 +75,12 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             border-radius: 100px;
             position: absolute;
             bottom: 30px;
-            .toggle-button-svg {
+            &-svg {
                 margin: 0 5px 0 0;
                 position: relative;
                 top: 2px;
             }
-            .toggle-button-text {
+            &-text {
                 display: inline-block;
                 font-family: 'Guardian Text Sans Web', serif;
                 font-weight: bold;
@@ -102,31 +102,35 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             }
         }
     }
-    .featured-doc-poster img {
+    &-poster img {
         width: 220px;
     }
-    .featured-doc-info {
+    &-info {
         color: #f4f4f4;
         font-family: 'Guardian Egyptian Web', serif;
         font-weight: 100;
         font-size: 24px;
         line-height: 26px;
-        .featured-doc-cta {
+        &-cta {
             display: inline-block;
             border: solid 1px #fb0;
             border-radius: 100px;
             background: #fb0;
             padding: 0 15px;
-            position: absolute;
+            position: absolute!important;
             bottom: 30px;
             transition: all .2s ease-in-out;
-            .featured-doc-cta-svg {
+            &:hover {
+                transform: scale(1.1);
+                text-decoration: none;
+            }
+            &-svg {
                 display: inline-block;
                 padding: 0 3px 0 0;
                 position: relative;
                 top: 2px;
             }
-            .featured-doc-cta-text {
+            &-text {
                 border-left: solid 1px rgba(51, 51, 51, 0.6);
                 color: #333333;
                 display: inline-block;
@@ -140,10 +144,6 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             }
         }
     }
-    .featured-doc-cta:hover {
-        transform: scale(1.1);
-        text-decoration: none;
-    }
 }
 
 // **************************** DROPDOWN - MORE DOCS **************************** //
@@ -154,22 +154,20 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     padding: 0 1.25rem;
     .second-doc-poster,
     .third-doc-poster,
-    .more-doc-toggle-close,
+    .more-docs-toggle-close,
     .second-doc-info,
-    .third-doc-info,
-    {
+    .third-doc-info {
         display: inline-block;
         margin: 0.625rem 10px 0 0px;
         vertical-align: top;
         width: 220px;
     }
-    .more-doc-toggle-close {
+    .more-docs-toggle-close {
         margin-right: 15px;
     }
-    .more-doc-toggle-close,
+    .more-docs-toggle-close,
     .second-doc-info,
-    .third-doc-info,
-    {
+    .third-doc-info {
         margin-left: 0;
     }
     .toggle-button-close {
@@ -179,12 +177,12 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         border-radius: 100px;
         position: absolute;
         bottom: 20px;
-        .toggle-button-close-svg {
+        &-svg {
             margin: 0 5px 0 0;
             position: relative;
             top: 2px;
         }
-        .toggle-button-close-text {
+        &-text {
             display: inline-block;
             font-family: 'Guardian Text Sans Web', serif;
             font-weight: bold;
@@ -193,26 +191,29 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             margin: 0;
             padding: 0;
         }
-    }
-    .toggle-button-close:hover {
-        background: #fff;
-        text-decoration: none;
-        cursor: pointer;
-        .toggle-button-close-text {
-            color: #333;
+        &:hover {
+            background: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            .toggle-button-close-text {
+                color: #333;
+            }
+            .toggle-button-close-svg-fill {
+                fill: #333;
+            }
         }
-        .toggle-button-close-svg-fill {
-            fill: #333;
+    }
+    /**************************/
+    .second-doc-poster,
+    .third-doc-poster {
+        img {
+            width: 220px;
         }
     }
     .third-doc-poster {
         border-left: solid .5px #525252;
         padding-left: 13px;
         margin-left: 0;
-    }
-    .second-doc-poster img,
-    .third-doc-poster img {
-        width: 220px;
     }
     .second-doc-info,
     .third-doc-info {
@@ -221,49 +222,68 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         font-weight: 100;
         font-size: 18px;
         line-height: 22px;
-        .second-title,
-        .third-title {
+    }
+    .second-doc-info {
+        &-title {
             font-weight: 900;
         }
-        .second-doc-cta,
-        .third-doc-cta {
+        &-cta {
             display: inline-block;
             border: solid 1px #f4f4f4;
             border-radius: 100px;
             padding: 5px 15px;
             position: absolute;
             bottom: 20px;
-            .second-doc-cta-svg,
-            .third-doc-cta-svg {
-                display: inline-block;
-                padding: 0 5px 0 0;
-                position: relative;
-                top: 1.5px;
-            }
-            .second-doc-cta-text,
-            .third-doc-cta-text {
-                border-left: solid 1px #f4f4f4;
-                color: #f4f4f4;
-                display: inline-block;
-                font-family: 'Guardian Text Sans Web', serif;
-                font-weight: bold;
-                font-size: 12px;
-                line-height: 14px;
-                padding: 0 0 0 8px;
-                margin: 0;
+            &:hover {
+                background: #fff;
+                text-decoration: none;
+                .second-doc-info-cta-text {
+                    color: #333;
+                    border-left: solid 1px #333;
+                }
+                #secondary-doc-cta-svg-fill {
+                    fill: #333;
+                }
             }
         }
-        .second-doc-cta:hover,
-        .third-doc-cta:hover {
-            background: #fff;
-            text-decoration: none;
-            .second-doc-cta-text,
-            .third-doc-cta-text {
-                color: #333;
-                border-left: solid 1px #333;
+        &-cta-svg {
+            display: inline-block;
+            padding: 0 5px 0 0;
+            position: relative;
+            top: 1.5px;
+        }
+        &-cta-text {
+            border-left: solid 1px #f4f4f4;
+            color: #f4f4f4;
+            display: inline-block;
+            font-family: 'Guardian Text Sans Web', serif;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 14px;
+            padding: 0 0 0 8px;
+            margin: 0;
+        }
+    }
+    .third-doc-info {
+        &-title {
+            @extend .second-doc-info-title;
+        }
+        &-cta {
+            @extend .second-doc-info-cta;
+            &:hover {
+                @extend .second-doc-info-cta;
+                .third-doc-info-cta-text {
+                    @extend .second-doc-info-cta-text:hover!optional;
+                }
             }
-            #secondary-doc-cta-svg-fill {
-                fill: #333;
+        }
+        &-cta-svg {
+            @extend .second-doc-info-cta-svg;
+        }
+        &-cta-text {
+            @extend .second-doc-info-cta-text;
+            &:hover {
+                @extend .second-doc-info-cta-text;
             }
         }
     }
@@ -274,7 +294,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     .featured-doc,
     .more-docs-dropdown {
         .featured-doc-toggle-more,
-        .more-doc-toggle-close {
+        .more-docs-toggle-close {
             margin-right: 15px;
             width: 140px;
             h2 {
@@ -299,7 +319,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
 @include mq($until: leftCol) {
     .more-docs-dropdown {
         height: auto;
-        .more-doc-toggle-close {
+        .more-docs-toggle-close {
             display: inline-block;
         }
         .second-doc-poster,
@@ -312,23 +332,23 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         .third-doc-info,
         .second-doc-info {
             height: auto;
-            .featured-doc-cta,
-            .second-doc-cta,
-            .third-doc-cta {
+            .featured-doc-info-cta,
+            .second-doc-info-cta,
+            .third-doc-info-cta {
                 border: none;
                 padding: 0;
                 margin: 2px 0 20px 0;
                 position: relative;
                 bottom: 0;
-                .second-doc-cta-text,
-                .third-doc-cta-text {
+                .second-doc-info-cta-text,
+                .third-doc-info-cta-text {
                     border-left: none;
                     padding: 0;
                     float: left;
                     font-size: 14px;
                 }
-                .second-doc-cta-svg,
-                .third-doc-cta-svg {
+                .second-doc-info-cta-svg,
+                .third-doc-info-cta-svg {
                     top: -2px;
                     left: 8px;
                     width: 11px;
@@ -342,7 +362,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     .featured-doc,
     .more-docs-dropdown {
         .featured-doc-toggle-more,
-        .more-doc-toggle-close {
+        .more-docs-toggle-close {
             margin-right: 15px;
             width: 220px;
             h2 {
@@ -387,7 +407,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             width: 160px;
         }
         .featured-doc-toggle-more,
-        .more-doc-toggle-close {
+        .more-docs-toggle-close {
             margin-left: 0;
             margin: 0.625rem 10px 0 10px;
             height: 240px;
@@ -403,7 +423,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         .third-doc-info {
             font-size: 20px;
             line-height: 22px;
-            .featured-doc-cta {
+            .featured-doc-info-cta {
                 position: relative;
                 bottom: 0;
                 margin-bottom: 30px;
@@ -428,7 +448,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     }
     .featured-doc,
     .more-docs-dropdown {
-        .more-doc-toggle-close,
+        .more-docs-toggle-close,
         .featured-doc-toggle-more,
         {
             margin: 0.625rem 0.5rem 0 0.5rem;
@@ -449,7 +469,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             height: auto;
         }
         .featured-doc-toggle-more,
-        .more-doc-toggle-close {
+        .more-docs-toggle-close {
             .toggle-button,
             .toggle-button-close {
                 bottom: 20px;
@@ -480,7 +500,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     .more-docs-dropdown {
         height: auto;
         margin-top: -55px;
-        .more-doc-toggle-close {
+        .more-docs-toggle-close {
             height: auto;
             .toggle-button-close {
                 position: absolute;
@@ -550,17 +570,17 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             font-size: 22px;
             line-height: 24px;
             padding-left: 0;
-            .featured-doc-cta {
+            .featured-doc-info-cta {
                 position: relative;
                 margin-top: 10px;
                 padding: 2px 15px;
             }
-            .second-doc-cta:hover,
-            .third-doc-cta:hover {
+            .second-doc-info-cta:hover,
+            .third-doc-info-cta:hover {
                 background: #161616;
                 text-decoration: none;
-                .second-doc-cta-text,
-                .third-doc-cta-text {
+                .second-doc-info-cta-text,
+                .third-doc-info-cta-text {
                     color: #f4f4f4;
                 }
                 #secondary-doc-cta-svg-fill {
@@ -596,7 +616,7 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             height: 280px;
         }
         .featured-doc-toggle-more,
-        .more-doc-toggle-close {
+        .more-docs-toggle-close {
             .toggle-button {
                 bottom: 30px;
             }
@@ -619,12 +639,12 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             width: 40%;
             font-size: 16px;
             line-height: 20px;
-            .featured-doc-cta {
-                .featured-doc-cta-svg {
+            .featured-doc-info-cta {
+                .featured-doc-info-cta-svg {
                     padding: 0 5px 0 0;
                     top: 4.5px;
                 }
-                .featured-doc-cta-text {
+                .featured-doc-info-cta-text {
                     top: 2.5px;
                 }
             }

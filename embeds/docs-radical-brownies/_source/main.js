@@ -32,19 +32,19 @@ loadJSON("https://interactive.guim.co.uk/docsdata-test/1tZ4zY1P3k5jOtVR7a-e0DY_C
 
     document.getElementsByClassName("background-image")[0].style.backgroundImage = "url('" + backgroundImage + "')";
     document.getElementsByClassName("featured-doc-poster-source")[0].setAttribute("src", featuredPoster);
-    document.getElementsByClassName("featured-doc-quote")[0].innerHTML = featuredCopy;
+    document.getElementsByClassName("featured-doc-info-quote")[0].innerHTML = featuredCopy;
     document.getElementsByClassName("featured-doc-link")[0].setAttribute("href", featuredLink);
-    document.getElementsByClassName("featured-doc-cta")[0].setAttribute("href", featuredLink);
+    document.getElementsByClassName("featured-doc-info-cta")[0].setAttribute("href", featuredLink);
     document.getElementsByClassName("second-doc-poster-source")[0].setAttribute("src", secondPoster);
-    document.getElementsByClassName("second-title")[0].innerHTML = secondTitle;
-    document.getElementsByClassName("second-doc-quote")[0].innerHTML = secondCopy;
-    document.getElementsByClassName("second-doc-link")[0].setAttribute("href", secondLink);
-    document.getElementsByClassName("second-doc-cta")[0].setAttribute("href", secondLink);
+    document.getElementsByClassName("second-doc-info-title")[0].innerHTML = secondTitle;
+    document.getElementsByClassName("second-doc-info-quote")[0].innerHTML = secondCopy;
+    document.getElementsByClassName("second-doc-poster-link")[0].setAttribute("href", secondLink);
+    document.getElementsByClassName("second-doc-info-cta")[0].setAttribute("href", secondLink);
     document.getElementsByClassName("third-doc-poster-source")[0].setAttribute("src", thirdPoster);
-    document.getElementsByClassName("third-title")[0].innerHTML = thirdTitle;
-    document.getElementsByClassName("third-doc-quote")[0].innerHTML = thirdCopy;
-    document.getElementsByClassName("third-doc-link")[0].setAttribute("href", thirdLink);
-    document.getElementsByClassName("third-doc-cta")[0].setAttribute("href", thirdLink);
+    document.getElementsByClassName("third-doc-info-title")[0].innerHTML = thirdTitle;
+    document.getElementsByClassName("third-doc-info-quote")[0].innerHTML = thirdCopy;
+    document.getElementsByClassName("third-doc-poster-link")[0].setAttribute("href", thirdLink);
+    document.getElementsByClassName("third-doc-info-cta")[0].setAttribute("href", thirdLink);
 });
 
 function showhide() {
