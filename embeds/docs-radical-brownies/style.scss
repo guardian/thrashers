@@ -22,6 +22,12 @@ section#documentaries.fc-container--thrasher {
     }
 }
 
+section#documentaries .facia-snap {
+    @include mq($until: tablet) {
+        padding: 0;
+    }
+}
+
 section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     display: none !important;
 }
@@ -36,7 +42,20 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     width: 100%;
     height: 320px;
     display: block;
-    padding: 0 1.25rem;
+    padding: 0 20px;
+    @include mq($until: desktop) {
+        height: 240px;
+    }
+    @include mq($until: tablet) {
+        height: 260px;
+    }
+    @include mq($until: phablet) {
+        height: 320px;
+    }
+    @include mq($until: mobileLandscape) {
+        height: 280px;
+        padding: 0 10px;
+    }
     .background-image {
         background-size: cover;
         background-repeat: no-repeat;
@@ -47,12 +66,25 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         top: 0;
         left: 0;
         width: 100%;
+        @include mq($until: desktop) {
+            height: 240px;
+        }
+        @include mq($until: tablet) {
+            height: 260px;
+        }
+        @include mq($until: phablet) {
+            opacity: 0!important;
+            height: 320px;
+        }
+        @include mq($until: mobileLandscape) {
+            height: 280px;
+        }
     }
     &-poster,
     &-toggle-more,
     &-info {
         display: inline-block;
-        margin: 0.625rem 10px 0 0px;
+        margin: 10px 10px 0 0px;
         vertical-align: top;
         width: 220px;
         height: 320px;
@@ -62,29 +94,109 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             font-size: 22px;
         }
     }
+    &-poster {
+        @include mq($until: phablet) {
+            width: 160px!important;
+            border-left: none;
+            padding-left: 0;
+            margin-left: 0!important;
+        }
+        @include mq($until: mobileLandscape) {
+            width: 130px!important;
+        }
+    }
+    &-poster,
+    &-info {
+        @include mq($until: desktop) {
+            margin: 10px 10px 0 10px;
+            height: auto;
+            width: 160px;
+        }
+        @include mq($until: tablet) {
+            margin: 10px 8px 0 8px;
+            width: 180px;
+        }
+        @include mq($until: phablet) {
+            margin-top: 45px;
+            height: 215px;
+        }
+    }
     &-toggle-more {
         margin-right: 15px;
+        @include mq($until: wide) {
+            width: 140px;
+            h2 {
+                font-size: 20px;
+            }
+        }
+        @include mq($until: leftCol) {
+            width: 220px;
+            h2 {
+                font-size: 22px;
+            }
+        }
+        @include mq($until: desktop) {
+            margin-left: 0;
+            margin: 10px 10px 0 10px;
+            height: 240px;
+            width: 160px;
+        }
+        @include mq($until: tablet) {
+            margin: 10px 8px 0 8px;
+            width: 180px;
+            height: 260px;
+            h2 {
+                font-size: 20px;
+            }
+        }
+        @include mq($until: phablet) {
+            height: 305px;
+            position: absolute;
+            top: 0px;
+        }
+        @include mq($until: mobileLandscape) {
+            height: 280px;
+        }
     }
-    &-toggle-more,
-    &-info {
+    &-toggle-more {
         margin-left: 0;
         .toggle-button {
             display: inline-block;
-            padding: 2px 10px;
+            padding: 0 10px;
             border: solid 1px #f4f4f4;
             border-radius: 100px;
             position: absolute;
             bottom: 30px;
+            @include mq($until: tablet) {
+                bottom: 20px;
+            }
+            @include mq($until: phablet) {
+                bottom: 10px;
+                z-index: 9;
+            }
+            @include mq($until: mobileLandscape) {
+                bottom: 30px;
+            }
             &-svg {
                 margin: 0 5px 0 0;
                 position: relative;
                 top: 2px;
+                @include mq($until: wide) {
+                    display: none;
+                }
+                @include mq($until: leftCol) {
+                    display: inline-block;
+                }
+                @include mq($until: mobileLandscape) {
+                    width: 10px;
+                    margin-right: 0;
+                }
             }
             &-text {
                 display: inline-block;
                 font-family: 'Guardian Text Sans Web', serif;
-                font-weight: bold;
                 font-size: 12px;
+                line-height: 26px;
                 color: #f4f4f4;
                 margin: 0;
                 padding: 0;
@@ -104,6 +216,20 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     }
     &-poster img {
         width: 220px;
+        @include mq($until: desktop) {
+            width: 160px;
+        }
+        @include mq($until: tablet) {
+            width: 180px;
+        }
+        @include mq($until: phablet) {
+            border-right: solid .5px #525252;
+            padding: 0 8px 0 0;
+            width: 160px;
+        }
+        @include mq($until: mobileLandscape) {
+            width: 130px;
+        }
     }
     &-info {
         color: #f4f4f4;
@@ -111,36 +237,72 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
         font-weight: 100;
         font-size: 24px;
         line-height: 26px;
+        @include mq($until: desktop) {
+            font-size: 20px;
+            line-height: 22px;
+        }
+        @include mq($until: phablet) {
+            width: 50%;
+            font-size: 22px;
+            line-height: 24px;
+            padding-left: 0;
+            margin-left: 8px;
+        }
+        @include mq($until: mobileLandscape) {
+            width: 40%;
+            font-size: 16px;
+            line-height: 18px;
+        }
         &-cta {
             display: inline-block;
             border: solid 1px #fb0;
+            background-color: #fb0;
             border-radius: 100px;
-            background: #fb0;
-            padding: 0 15px;
+            padding: 0 10px;
             position: absolute!important;
             bottom: 30px;
+            line-height: 22px;
             transition: all .2s ease-in-out;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 16px;
+                top: 6px;
+                left: 30px;
+                width: 1px;
+                background-color: #333;
+                @include mq($until: desktop) {
+                    height: 14px;
+                    left: 29px;
+                }
+            }
+            @include mq($until: desktop) {
+                position: relative!important;
+                bottom: 0;
+                margin-bottom: 30px;
+            }
+            @include mq($until: phablet) {
+                margin-top: 10px;
+            }
             &:hover {
                 transform: scale(1.1);
                 text-decoration: none;
             }
             &-svg {
                 display: inline-block;
-                padding: 0 3px 0 0;
+                padding: 0 5px 0 0;
                 position: relative;
-                top: 2px;
+                top: 1px;
             }
             &-text {
-                border-left: solid 1px rgba(51, 51, 51, 0.6);
                 color: #333333;
                 display: inline-block;
                 font-family: 'Guardian Text Sans Web', serif;
-                font-weight: bold;
                 font-size: 12px;
-                line-height: 14px;
+                line-height: 26px;
                 padding: 0 0 0 8px;
-                position: relative;
-                top: .5px;
+                margin: 0;
             }
         }
     }
@@ -151,19 +313,59 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     width: 100%;
     height: 320px;
     display: none;
-    padding: 0 1.25rem;
+    padding: 0 20px;
+    @include mq($until: leftCol) {
+        height: auto;
+    }
+    @include mq($until: desktop) {
+        padding: 0 20px;
+    }
+    @include mq($until: phablet) {
+        margin-top: -55px;
+    }
+    @include mq($until: mobileLandscape) {
+        padding: 0 10px;
+    }
     .second-doc-poster,
     .third-doc-poster,
     .more-docs-toggle-close,
     .second-doc-info,
     .third-doc-info {
         display: inline-block;
-        margin: 0.625rem 10px 0 0px;
+        margin: 10px 10px 0 0px;
         vertical-align: top;
         width: 220px;
     }
     .more-docs-toggle-close {
         margin-right: 15px;
+        @include mq($until: wide) {
+            width: 140px;
+            h2 {
+                font-size: 20px;
+            }
+        }
+        @include mq($until: leftCol) {
+            width: 220px;
+            h2 {
+                font-size: 22px;
+            }
+        }
+        @include mq($until: desktop) {
+            margin: 10px 10px 0 0;
+            height: 240px;
+            width: 160px;
+        }
+        @include mq($until: tablet) {
+            margin: 10px 8px 0 8px;
+            width: 180px;
+            height: 260px;
+            h2 {
+                font-size: 20px;
+            }
+        }
+        @include mq($until: phablet) {
+            height: auto;
+        }
     }
     .more-docs-toggle-close,
     .second-doc-info,
@@ -172,21 +374,41 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
     }
     .toggle-button-close {
         display: inline-block;
-        padding: 2px 10px;
+        padding: 0 10px;
         border: solid 1px #f4f4f4;
         border-radius: 100px;
         position: absolute;
         bottom: 20px;
+        @include mq($until: tablet) {
+            bottom: 20px;
+        }
+        @include mq($until: phablet) {
+            position: absolute;
+            bottom: 10px;
+        }
+        @include mq($until: mobileLandscape) {
+            bottom: 15px;
+        }
         &-svg {
             margin: 0 5px 0 0;
             position: relative;
             top: 2px;
+            @include mq($until: wide) {
+                display: none;
+            }
+            @include mq($until: leftCol) {
+                display: inline-block;
+            }
+            @include mq($until: mobileLandscape) {
+                width: 10px;
+                margin-right: 0;
+            }
         }
         &-text {
             display: inline-block;
             font-family: 'Guardian Text Sans Web', serif;
-            font-weight: bold;
             font-size: 12px;
+            line-height: 26px;
             color: #f4f4f4;
             margin: 0;
             padding: 0;
@@ -203,47 +425,148 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             }
         }
     }
-    /**************************/
+    .responsive-stack {
+        @include mq($until: leftCol) {
+            display: inline-block;
+        }
+        @include mq($until: phablet) {
+            display: block;
+        }
+    }
+    .pad {
+        @include mq($until: phablet) {
+            padding-bottom: 50px;
+        }
+    }
     .second-doc-poster,
     .third-doc-poster {
         img {
             width: 220px;
+            @include mq($until: desktop) {
+                width: 160px;
+            }
+            @include mq($until: tablet) {
+                width: 180px;
+            }
+            @include mq($until: phablet) {
+                border-right: solid .5px #525252;
+                padding: 0 8px 0 0;
+                width: 160px;
+            }
+            @include mq($until: mobileLandscape) {
+                width: 130px;
+            }
+        }
+        @include mq($until: leftCol) {
+            display: block;
+        }
+        @include mq($until: desktop) {
+            margin: 10px 10px 0 10px;
+            height: auto;
+            width: 160px;
+        }
+        @include mq($until: tablet) {
+            margin: 10px 8px 0 8px;
+            width: 180px;
+        }
+        @include mq($until: phablet) {
+            width: 160px;
+            border-left: none;
+            padding-left: 0;
+            margin: 10px 8px 0 0;
+            display: inline-block;
+        }
+        @include mq($until: mobileLandscape) {
+            width: 130px;
+            margin-left: 0;
         }
     }
-    .third-doc-poster {
-        border-left: solid .5px #525252;
-        padding-left: 13px;
-        margin-left: 0;
-    }
-    .second-doc-info,
-    .third-doc-info {
+    .second-doc-info {
         color: #f4f4f4;
         font-family: 'Guardian Egyptian Web', serif;
         font-weight: 100;
         font-size: 18px;
         line-height: 22px;
-    }
-    .second-doc-info {
+        @include mq($until: leftCol) {
+            height: auto;
+        }
+        @include mq($until: desktop) {
+            font-size: 16px;
+            line-height: 20px;
+            margin: 10px 10px 0 10px;
+            width: 160px;
+        }
+        @include mq($until: tablet) {
+            margin: 10px 8px 0 8px;
+            width: 180px;
+        }
+        @include mq($until: phablet) {
+            width: 50%;
+            padding-left: 0;
+            margin: 10px 8px 0 8px;
+        }
+        @include mq($until: mobileLandscape) {
+            width: 40%;
+            font-size: 16px;
+            line-height: 18px;
+        }
         &-title {
             font-weight: 900;
         }
         &-cta {
             display: inline-block;
-            border: solid 1px #f4f4f4;
+            border: solid 1px #999;
             border-radius: 100px;
-            padding: 5px 15px;
+            padding: 0 10px;
             position: absolute;
             bottom: 20px;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 15px;
+                top: 6px;
+                left: 30px;
+                width: 1px;
+                background-color: #f4f4f4;
+                opacity: 0.5;
+                @include mq($until: leftCol) {
+                    display: none;
+                }
+            }
             &:hover {
                 background: #fff;
+                border: solid 1px #fff;
                 text-decoration: none;
                 .second-doc-info-cta-text {
                     color: #333;
-                    border-left: solid 1px #333;
+                }
+                &:after {
+                    background-color: #333;
                 }
                 #secondary-doc-cta-svg-fill {
                     fill: #333;
                 }
+            }
+            @include mq($until: leftCol) {
+                &:hover {
+                    background: #161616;
+                    border: none;
+                    text-decoration: none;
+                    .second-doc-info-cta-text {
+                        color: #f4f4f4;
+                    }
+                    #secondary-doc-cta-svg-fill {
+                        fill: #f4f4f4;
+                    }
+                }
+            }
+            @include mq($until: leftCol) {
+                border: none;
+                padding: 0;
+                margin: 2px 0 20px 0;
+                position: relative;
+                bottom: 0;
             }
         }
         &-cta-svg {
@@ -251,20 +574,56 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             padding: 0 5px 0 0;
             position: relative;
             top: 1.5px;
+            @include mq($until: leftCol) {
+                top: 3px;
+                left: 8px;
+                width: 11px;
+            }
+            @include mq($until: mobileLandscape) {
+                top: 4px;
+            }
         }
         &-cta-text {
-            border-left: solid 1px #f4f4f4;
-            color: #f4f4f4;
+            color: #999;
             display: inline-block;
             font-family: 'Guardian Text Sans Web', serif;
-            font-weight: bold;
             font-size: 12px;
-            line-height: 14px;
+            line-height: 26px;
             padding: 0 0 0 8px;
             margin: 0;
+            @include mq($until: leftCol) {
+                font-weight: 800;
+                padding: 0;
+                float: left;
+                font-size: 14px;
+            }
+        }
+    }
+    .third-doc-poster {
+        border-left: solid .5px #525252;
+        padding-left: 13px;
+        margin-left: 0;
+        @include mq($until: desktop) {
+            margin-left: 0;
+        }
+        @include mq($until: phablet) {
+            border-left: none;
+            padding-left: 0;
+            margin-left: 0;
         }
     }
     .third-doc-info {
+        @extend .second-doc-info;
+        @include mq($until: leftCol) {
+            padding-left: 13px;
+        }
+        @include mq($until: desktop) {
+            margin-left: 0;
+        }
+        @include mq($until: phablet) {
+            padding-left: 0;
+            margin-left: 8px;
+        }
         &-title {
             @extend .second-doc-info-title;
         }
@@ -284,369 +643,6 @@ section#documentaries a.fc-trail__count.fc-trail__count--commentcount {
             @extend .second-doc-info-cta-text;
             &:hover {
                 @extend .second-doc-info-cta-text;
-            }
-        }
-    }
-}
-
-// **************************** RESPONSIVE **************************** //
-@include mq($until: wide) {
-    .featured-doc,
-    .more-docs-dropdown {
-        .featured-doc-toggle-more,
-        .more-docs-toggle-close {
-            margin-right: 15px;
-            width: 140px;
-            h2 {
-                font-size: 20px;
-            }
-            .featured-doc-poster,
-            .featured-doc-info,
-            .second-doc-poster,
-            .third-doc-poster,
-            .second-doc-info,
-            .third-doc-info {
-                margin: 0.625rem 5px 0 5px;
-            }
-            .toggle-button-svg,
-            .toggle-button-close-svg {
-                display: none;
-            }
-        }
-    }
-}
-
-@include mq($until: leftCol) {
-    .more-docs-dropdown {
-        height: auto;
-        .more-docs-toggle-close {
-            display: inline-block;
-        }
-        .second-doc-poster,
-        .third-doc-poster {
-            display: block;
-        }
-        .third-doc-info {
-            padding-left: 13px;
-        }
-        .third-doc-info,
-        .second-doc-info {
-            height: auto;
-            .featured-doc-info-cta,
-            .second-doc-info-cta,
-            .third-doc-info-cta {
-                border: none;
-                padding: 0;
-                margin: 2px 0 20px 0;
-                position: relative;
-                bottom: 0;
-                .second-doc-info-cta-text,
-                .third-doc-info-cta-text {
-                    border-left: none;
-                    padding: 0;
-                    float: left;
-                    font-size: 14px;
-                }
-                .second-doc-info-cta-svg,
-                .third-doc-info-cta-svg {
-                    top: -2px;
-                    left: 8px;
-                    width: 11px;
-                }
-            }
-        }
-    }
-    .responsive-stack {
-        display: inline-block;
-    }
-    .featured-doc,
-    .more-docs-dropdown {
-        .featured-doc-toggle-more,
-        .more-docs-toggle-close {
-            margin-right: 15px;
-            width: 220px;
-            h2 {
-                font-size: 22px;
-            }
-            .toggle-button-svg,
-            .toggle-button-close-svg {
-                display: inline-block;
-            }
-        }
-    }
-}
-
-@include mq($until: desktop) {
-    .featured-doc {
-        height: 240px;
-        .background-image {
-            height: 240px;
-        }
-    }
-    .more-docs-dropdown {
-        height: auto;
-        .responsive-stack {
-            .second-doc-info,
-            .third-doc-info {
-                font-size: 16px;
-                line-height: 20px;
-            }
-        }
-    }
-    .featured-doc,
-    .more-docs-dropdown {
-        padding: 0 10px;
-        .featured-doc-poster,
-        .featured-doc-info,
-        .second-doc-poster,
-        .third-doc-poster,
-        .second-doc-info,
-        .third-doc-info {
-            margin: 0.625rem 10px 0 10px;
-            height: auto;
-            width: 160px;
-        }
-        .featured-doc-toggle-more,
-        .more-docs-toggle-close {
-            margin-left: 0;
-            margin: 0.625rem 10px 0 10px;
-            height: 240px;
-            width: 160px;
-        }
-        .featured-doc-poster img,
-        .second-doc-poster img,
-        .third-doc-poster img {
-            width: 160px;
-        }
-        .featured-doc-info,
-        .second-doc-info,
-        .third-doc-info {
-            font-size: 20px;
-            line-height: 22px;
-            .featured-doc-info-cta {
-                position: relative;
-                bottom: 0;
-                margin-bottom: 30px;
-            }
-        }
-        .third-doc-poster,
-        .third-doc-info {
-            margin-left: 0;
-        }
-    }
-}
-
-@include mq($until: tablet) {
-    section#documentaries .facia-snap {
-        padding: 0;
-    }
-    .featured-doc {
-        height: 260px;
-        .background-image {
-            height: 260px;
-        }
-    }
-    .featured-doc,
-    .more-docs-dropdown {
-        .more-docs-toggle-close,
-        .featured-doc-toggle-more,
-        {
-            margin: 0.625rem 0.5rem 0 0.5rem;
-            width: 180px;
-            height: 260px;
-            h2 {
-                font-size: 20px;
-            }
-        }
-        .featured-doc-poster,
-        .featured-doc-info,
-        .second-doc-poster,
-        .third-doc-poster,
-        .second-doc-info,
-        .third-doc-info {
-            margin: 0.625rem 0.5rem 0 0.5rem;
-            width: 180px;
-            height: auto;
-        }
-        .featured-doc-toggle-more,
-        .more-docs-toggle-close {
-            .toggle-button,
-            .toggle-button-close {
-                bottom: 20px;
-            }
-        }
-        .featured-doc-poster img,
-        .second-doc-poster img,
-        .third-doc-poster img {
-            width: 180px;
-        }
-        .featured-doc-info,
-        .second-doc-info,
-        .third-doc-info {
-            font-size: 22px;
-            line-height: 24px;
-        }
-        .third-doc-poster,
-        .third-doc-info {
-            margin-left: 0px;
-        }
-    }
-}
-
-@include mq($until: phablet) {
-    .featured-doc {
-        height: 320px;
-    }
-    .more-docs-dropdown {
-        height: auto;
-        margin-top: -55px;
-        .more-docs-toggle-close {
-            height: auto;
-            .toggle-button-close {
-                position: absolute;
-                bottom: 10px;
-                padding: 2px 14px;
-            }
-        }
-        .responsive-stack {
-            .second-doc-poster,
-            .third-doc-poster {
-                display: inline-block;
-                margin-left: 8px;
-            }
-        }
-    }
-    .responsive-stack {
-        display: block;
-    }
-    .pad {
-        padding-bottom: 50px;
-    }
-    .featured-doc,
-    .more-docs-dropdown {
-        .background-image {
-            opacity: 0!important;
-            height: 320px;
-        }
-        .featured-doc-toggle-more {
-            height: 305px;
-            position: absolute;
-            top: 0px;
-            .toggle-button {
-                bottom: 10px;
-                padding: 2px 14px;
-                z-index: 9;
-            }
-        }
-        .featured-doc-info,
-        .featured-doc-poster {
-            margin: 45px 0.5rem 0 0.5rem;
-            height: 215px;
-        }
-        .second-doc-info,
-        .second-doc-poster,
-        .third-doc-info,
-        .third-doc-poster {
-            margin: 10px 0.5rem 0 0.5rem;
-        }
-        .featured-doc-poster,
-        .second-doc-poster,
-        .third-doc-poster {
-            width: 160px;
-            border-left: none;
-            padding-left: 0;
-        }
-        .featured-doc-poster img,
-        .second-doc-poster img,
-        .third-doc-poster img {
-            border-right: solid .5px #525252;
-            padding: 0 0.5rem 0 0;
-            width: 160px;
-        }
-        .featured-doc-info,
-        .second-doc-info,
-        .third-doc-info {
-            width: 50%;
-            font-size: 22px;
-            line-height: 24px;
-            padding-left: 0;
-            .featured-doc-info-cta {
-                position: relative;
-                margin-top: 10px;
-                padding: 2px 15px;
-            }
-            .second-doc-info-cta:hover,
-            .third-doc-info-cta:hover {
-                background: #161616;
-                text-decoration: none;
-                .second-doc-info-cta-text,
-                .third-doc-info-cta-text {
-                    color: #f4f4f4;
-                }
-                #secondary-doc-cta-svg-fill {
-                    fill: #f4f4f4;
-                }
-            }
-        }
-    }
-}
-
-@include mq($until: mobileLandscape) {
-    .featured-doc {
-        height: 280px;
-        .background-image {
-            height: 280px;
-        }
-    }
-    .more-docs-dropdown {
-        height: auto;
-    }
-    .featured-doc,
-    .more-docs-dropdown {
-        padding: 0 5px;
-        .featured-doc-poster,
-        .featured-doc-poster img,
-        .second-doc-poster,
-        .second-doc-poster img,
-        .third-doc-poster,
-        .third-doc-poster img {
-            width: 130px;
-        }
-        .featured-doc-toggle-more {
-            height: 280px;
-        }
-        .featured-doc-toggle-more,
-        .more-docs-toggle-close {
-            .toggle-button {
-                bottom: 30px;
-            }
-            .toggle-button-close {
-                bottom: 15px;
-            }
-            .toggle-button,
-            .toggle-button-close {
-                padding: 2px 8px;
-                .toggle-button-svg,
-                .toggle-button-close-svg {
-                    width: 10px;
-                    margin-right: 0;
-                }
-            }
-        }
-        .featured-doc-info,
-        .second-doc-info,
-        .third-doc-info {
-            width: 40%;
-            font-size: 16px;
-            line-height: 20px;
-            .featured-doc-info-cta {
-                .featured-doc-info-cta-svg {
-                    padding: 0 5px 0 0;
-                    top: 4.5px;
-                }
-                .featured-doc-info-cta-text {
-                    top: 2.5px;
-                }
             }
         }
     }

@@ -48,7 +48,6 @@ loadJSON("https://interactive.guim.co.uk/docsdata-test/1tZ4zY1P3k5jOtVR7a-e0DY_C
 });
 
 function showhide() {
-    console.log ('working');
     var expand = document.getElementById("expand");
     var buttonMore = document.getElementById('buttonMore');
     var buttonLess = document.getElementById('buttonLess');
@@ -65,10 +64,17 @@ function showhide() {
     }
 }
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-79365231-6', 'auto');
-  ga('send', 'pageview');
+ga('create', 'UA-79365231-6', 'auto');
+ga('send', 'pageview');
