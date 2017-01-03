@@ -27,61 +27,61 @@
   }
 
 
-  // function updateContent() {
-  //   loadJSON("https://interactive.guim.co.uk/docsdata-test/1uwfhUcgAMvul6lKTKumG5AEnuXwDAjcDEAS7VrpmzeM.json", function(data) {
+  function updateContent() {
+    loadJSON("https://interactive.guim.co.uk/docsdata-test/1uwfhUcgAMvul6lKTKumG5AEnuXwDAjcDEAS7VrpmzeM.json", function(data) {
 
-  //     var cardsData = data.sheets.Cards;
-  //     var containerData = data.sheets.Container[0];
+      var cardsData = data.sheets.Cards;
+      var containerData = data.sheets.Container[0];
 
-  //     var thrasher = document.querySelector('#vr-container');
+      var thrasher = document.querySelector('#vr-container');
 
-  //     var containerTitle = thrasher.querySelector('.header__title');
-  //     containerTitle.innerHTML = containerData['title'];
-  //     var containerDescription = thrasher.querySelector('.header__description');
-  //     containerDescription.innerHTML = containerData['description'];
+      var containerTitle = thrasher.querySelector('.header__title');
+      containerTitle.innerHTML = containerData['title'];
+      var containerDescription = thrasher.querySelector('.header__description');
+      containerDescription.innerHTML = containerData['description'];
 
-  //     // Container layout mode
-  //     if (containerData['Layout'] == 'Compact: 3 links + button') {
-  //       thrasher.querySelector('.expand-container').onclick = function() {
-  //         thrasher.classList.add('expanded');
-  //       }
-  //     } else {
-  //       thrasher.classList.add('expanded');
-  //     }
-
-
-
-  //     var pageCards = thrasher.querySelectorAll('.card');
-
-  //     for (var i = 0; i < pageCards.length; i++) {
-
-  //       // Update link
-  //       pageCards[i].setAttribute('href', cardsData[i]['Link'])
-
-  //       // Update kicker & headline
-  //       pageCards[i].querySelector('.headline').innerHTML = cardsData[i]['Headline'];
-  //       pageCards[i].querySelector('.kicker').innerHTML = cardsData[i]['Kicker'];
-
-  //       // Inject images
-  //       if (cardsData[i]['Background'] == 'Image') {
-  //         pageCards[i].classList.add('image')
-  //         var imageTag = document.createElement('div');
-  //         imageTag.classList.add('image');
-  //         imageTag.innerHTML = '<img data-object-fit="cover" src="'+cardsData[i]['Image']+'" srcset="'+cardsData[i]['Image']+' 1x, '+cardsData[i]['HiResImage']+' 2x">';
-  //         pageCards[i].appendChild(imageTag);
-
-  //       }
-
-  //       // Inject quote mark
-  //       if (cardsData[i]['Quote'] == 'Yes') {
-  //         pageCards[i].querySelector('.headline').classList.add('quote');
-  //       }
-  //     }
+      // Container layout mode
+      if (containerData['Layout'] == 'Compact: 3 links + button') {
+        thrasher.querySelector('.expand-container').onclick = function() {
+          thrasher.classList.add('expanded');
+        }
+      } else {
+        thrasher.classList.add('expanded');
+      }
 
 
 
-  //   });
-  // }
+      var pageCards = thrasher.querySelectorAll('.card');
+
+      for (var i = 0; i < pageCards.length; i++) {
+
+        // Update link
+        pageCards[i].setAttribute('href', cardsData[i]['Link'])
+
+        // Update kicker & headline
+        pageCards[i].querySelector('.headline').innerHTML = cardsData[i]['Headline'];
+        pageCards[i].querySelector('.kicker').innerHTML = cardsData[i]['Kicker'];
+
+        // Inject images
+        if (cardsData[i]['Background'] == 'Image') {
+          pageCards[i].classList.add('image')
+          var imageTag = document.createElement('div');
+          imageTag.classList.add('image');
+          imageTag.innerHTML = '<img data-object-fit="cover" src="'+cardsData[i]['Image']+'" srcset="'+cardsData[i]['Image']+' 1x, '+cardsData[i]['HiResImage']+' 2x">';
+          pageCards[i].appendChild(imageTag);
+
+        }
+
+        // Inject quote mark
+        if (cardsData[i]['Quote'] == 'Yes') {
+          pageCards[i].querySelector('.headline').classList.add('quote');
+        }
+      }
+
+
+
+    });
+  }
 
 
   function loadJSON(path, success, error) {
