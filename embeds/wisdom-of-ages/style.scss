@@ -1,0 +1,111 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.wisdom-of-ages__wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .image-goes-here {
+    height: 260px;
+    z-index: 1;
+    overflow: hidden;
+
+      @include mq($until: mobileLandscape) {
+        height: 180px;
+      }
+
+    .video,
+    img {
+      position: absolute;
+      top: 0;
+      left: 0px;
+
+        @include mq($until: leftCol) {
+          top: 0;
+          left: -100px;
+        }
+        @include mq($until: desktop) {
+          top: 0;
+          left: -100px;
+        }
+
+        @include mq($until: phablet) {
+          top: 0;
+          left: -220px;
+        }
+
+        @include mq($until: mobileLandscape) {
+          top: 0;
+          left: -250px;
+        }
+    }
+      .video {
+      z-index: 2;
+      }
+  }
+
+  .wisdom-header {
+    background: url('@@assetPath@@/wisdom-text-min.png') no-repeat 10px 10px;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    height: 260px;
+    top: 0;
+
+    @include mq($until: desktop) {
+      background-position: 10px 10px;
+      background-size: 60%;
+    }
+    @include mq($until: phablet) {
+      background-position: 10px 10px;
+      background-size: 70%;
+    }
+    @include mq($until: mobileLandscape) {
+      background-position: 10px 10px;
+      background-size: 85%;
+    }
+  }
+
+  .u-faux-block-link .fc-item & .wisdom-button {
+    z-index: 230;
+    position: absolute;
+    bottom: 20px;
+    right: 8px;
+    background-color: #00578a;
+    border: none;
+    height: 30px;
+    line-height: 32px;
+    display: block;
+    color: #fff;
+
+    @include mq($until: phablet) {
+      bottom: 10px;
+      right: 2px;
+    }
+
+    .arrow-icon {
+      height: auto!important;
+      width: auto!important;
+      float: right;
+      fill: #fff;
+    }
+  }
+
+  .wisdom-g-logo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 20;
+  }
+}
