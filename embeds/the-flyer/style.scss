@@ -1,0 +1,244 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$features-support-3: #fdadba;
+
+$gs-baseline: 12px;
+
+
+@import 'shared/_imports';
+
+#flyer {
+  .tone-news--item.fc-item {
+    border-top: 1px solid #46bcdf;
+    background-color: #ffffff;
+    padding-top: $gs-baseline;
+  }
+}
+
+#flyer.fc-container--thrasher {
+  background-color: transparent;
+}
+
+#the-flyer {
+
+  .flyer-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+
+    &:hover {
+      .cta__button {
+           background-color: $features-support-3;
+           color: inherit;
+
+           svg {
+             fill: inherit;
+           }
+         }
+      }
+
+
+    .cta__button {
+      position: absolute;
+      left: 18px;
+      bottom: 136px;
+      border: thin solid $features-support-3;
+      background-color: transparent;
+      height: 40px;
+      line-height: 38px;
+      display: block;
+      width: 160px;
+      color: #ffffff;
+      padding-left: 16px;
+      padding-right: 8px;
+
+      @include mq($from: tablet) {
+        bottom: $gs-baseline;
+        left: 26px;
+      }
+
+      .arrow-icon {
+        height: auto;
+        width: auto;
+        float: right;
+        padding-top: 3px;
+        fill: #ffffff;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    height: 270px;
+    @include mq(mobileLandscape) {
+      height: 270px;
+    }
+    border-top: 1px solid #fdadba;
+    overflow: hidden;
+
+    @include mq($from: tablet) {
+      margin-left: 20px;
+      width: 698px;
+    }
+
+    @include mq($from: desktop) {
+      width: 940px;
+    }
+
+    @include mq($from: leftCol) {
+      width: 1100px;
+    }
+
+    @include mq($from: wide) {
+      width: 1180px;
+    }
+
+    &__image {
+      height: 270px;
+      width: 100%;
+      // background-image: url('@@assetPath@@/trump.jpg');
+      // http://media.guim.co.uk/1dbe79ce1bb6e4b5d9adfe4029a907da1457bc33/0_0_3858_2315/2000.jpg
+      background-image: url('@@assetPath@@/the-flyer.svg');
+      position: absolute;
+      z-index: -10;
+      background-color: #000;
+      background-repeat: no-repeat;
+
+      background-size: 1800px;
+      background-position: -680px -100px;
+
+      video {
+          display: none;
+        }
+
+
+      @include mq($from: mobileLandscape) {
+        background-position: -580px -100px;
+      }
+
+      @include mq($from: phablet) {
+        background-size: 2000px;
+        background-position: -460px -142px;
+
+      }
+
+      @include mq($from: tablet) {
+        background-position: -390px -142px;
+
+      }
+
+      @include mq($from: desktop){
+        background-size: 2400px;
+        background-position: -390px -226px;
+         video {
+          display: block;
+        }
+      }
+
+      @include mq($from: leftCol) {
+        background-size: 2620px;
+        background-position: -420px -270px;
+      }
+
+      @include mq($from: wide) {
+        background-size: 2620px;
+        background-position: -340px -270px;
+      }
+    }
+  }
+
+  .guardian__roundel{
+    right: 18px;
+    top: 18px;
+    position: absolute;
+
+    @include mq($from: tablet){
+      right: 30px;
+    }
+
+    @include mq($from: wide) {
+      right: 106px;
+    }
+  }
+
+  .text {
+    color: #ffffff;
+
+    .mobile-heading {
+      @include mq($from: tablet) {
+        display: none;
+      }
+
+    }
+
+    .coloured-heading {
+      color: $features-support-3;
+    }
+
+    &__heading {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      width: 80%;
+      min-width: 240px;
+      max-width: 750px;
+
+      @include fs-header(5);
+      font-size: 32px;
+
+
+      @include mq($from: tablet) {
+          font-size: 45px;
+          top: 24px;
+          left: 26px;
+          margin-top: 2px;
+      }
+    }
+
+    &__intro {
+      @include fs-header(2);
+      position: absolute;
+      top: 48px;
+      left: 18px;
+      width: 80%;
+      min-width: 240px;
+      max-width: 750px;
+
+      @include mq($from: tablet) {
+          @include fs-header(3);
+          top: 64px;
+          left: 26px;
+          width: 80%;
+      }
+    }
+
+    &__paragraph {
+      @include fs-bodyCopy(2);
+      position: absolute;
+      top: 96px;
+      left: $gs-baseline;
+      width: 80%;
+      min-width: 240px;
+      max-width: 360px;
+      display: none;
+
+      @include mq($from: tablet) {
+        display: block;
+        left: 26px;
+        width: 28%;
+      }
+    }
+  }
+}
