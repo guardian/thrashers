@@ -32,10 +32,73 @@ $mq-breakpoints: (
     outline: none;
 }
 
+
 // dont let 3 items in a 4-col expand to fill width
-.has-flex .fc-slice-wrapper .l-row--cols-4 .l-row__item--span-1 {
-    flex: 0 1 auto;
+.has-flex .fc-slice-wrapper {
+    .fc-slice:not(.l-row--cols-1) {
+        display: block;
+        font-size: 0;
+        .fc-slice__item {
+            display: inline-block;
+            vertical-align: top;
+            padding-top: 0;
+            margin-bottom: 20px;
+            width: 50%;
+            @include mq(phablet) {
+                width: 25%;
+            }
+            .fc-item,
+            .fc-item:hover {
+                background-color: transparent;
+            }
+            .fc-trail__count {
+                display: none;
+            }
+        }
+    }
+    &.js-show-more {
+        .fc-slice .fc-slice__item .fc-item__container {
+            color: #F6F6F6;
+            .inline-icon {
+                display: none;
+            }
+            &:before {
+                background-color: #FB0;
+            }
+        }
+    }
 }
+// .has-flex .fc-slice-wrapper {
+//     .l-row--cols-4,
+//     .fc-slice {
+//         display: flex;
+//         .l-row__item--span-1 {
+//             flex: 0 1 auto;
+//             flex-basis: 50%;
+//             flex-wrap: wrap;
+//             flex-direction: row;
+//             .fc-item {
+//                 background-color: transparent;
+//             }
+//         }
+//     }
+// }
+
+
+.has-flex .fc-slice {
+    .l-row--cols-4 .l-row__item--span-1 {
+        flex: 0 1 auto;
+        flex-basis: 50%;
+        @include mq(desktop) {
+            flex-basis: 33%;
+        }
+    }
+}
+
+.has-flex-wrap .linkslist .fc-slice__item {
+    flex-basis: 33%;
+}
+
 
 
 //
