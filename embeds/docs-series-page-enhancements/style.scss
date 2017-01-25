@@ -32,6 +32,10 @@ $mq-breakpoints: (
     outline: none;
 }
 
+// remove 10px padding from top thrasher
+.fc-container--first {
+    padding-top: 0;
+}
 
 // dont let 3 items in a 4-col expand to fill width
 .has-flex .fc-slice-wrapper {
