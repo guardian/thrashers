@@ -1,12 +1,12 @@
 // Default breakpoints from Frontend
 $mq-breakpoints: (
-    mobile:          320px,
-    mobileLandscape: 480px,
-    phablet:         660px,
-    tablet:          740px,
-    desktop:         980px,
-    leftCol:         1140px,
-    wide:            1300px
+  mobile:          320px,
+  mobileLandscape: 480px,
+  phablet:         660px,
+  tablet:          740px,
+  desktop:         980px,
+  leftCol:         1140px,
+  wide:            1300px
 );
 
 @import 'shared/_imports';
@@ -14,9 +14,9 @@ $mq-breakpoints: (
 $c-background: #87be27;
 
 @mixin backgroundimage($background, $url, $size){
-    background: $background;
-    background-image: $url;
-    background-size: $size;
+  background: $background;
+  background-image: $url;
+  background-size: $size;
 }
 
 @include base(membership-ab-thrasher, $c-background);
@@ -26,168 +26,143 @@ section#membership-ab-thrasher a.fc-trail__count{
 }
 
 #membership-ab-thrasher.fc-container--thrasher{
-		@include mq($until: desktop) {
-			display: none;
-		}
-		.fc-container__inner{
-			overflow: visible;
+	@include mq($until: leftCol) {
+		display: none;
+	}
+	.fc-container__inner{
+		overflow: visible;
 
-			.fc-container__body{
-				.fc-slice-wrapper{
-					ul{
-						overflow: visible
-					}
+		.fc-container__body{
+			.fc-slice-wrapper{
+				ul{
+					overflow: visible
+				}
 
-					.facia-snap{
-						overflow: visible;
-					}
+				.facia-snap{
+					overflow: visible;
 				}
 			}
 		}
 	}
+}
 
 .membership-ab-thrasher__wrapper {
-    background-position: center;
-    font-family: $f-serif-headline;
-    color: #005689;
-    width: 1300px;
-    height: 300px;
+	background-position: center;
+  font-family: $f-serif-headline;
+  color: #005689;
+  width: 1300px;
+  height: 300px;
+	font-weight: normal;
+
+	.membership-ab-thrasher--wrapper {
+	  overflow: visible !important;
+	}
+
+	.membership-ab-thrasher_header {
+		@include mq($until: leftCol) {
+			margin-left: 20px;
+		}			
+		@include mq($from: leftCol) {
+			margin-left: 180px;
+		}
+		@include mq($from: wide) {
+			margin-left: 260px;
+		}
+		margin-top: 0px;
+		width: 460px;	
+	}
+
+  .main_title {
+  	display: block;
+  	font-family: $f-serif-headline;
+  	color: #ffffff;
+  	font-size: 56px;
+    line-height: 56px;
+    margin-top: 12px;
+  	p {
+  		margin-bottom: 0px;
+  	}
+  }
+
+  .sub_title {
+  	display: block;
+  	font-family: $f-serif-headline;
+  	color: #333333;
   	font-weight: normal;
+    font-size: 24px;	
+    line-height: 28px;
+  	.strong {
+  		font-weight: 900;
+  	}
+  }
 
-		.membership-ab-thrasher--wrapper {
-		  overflow: visible !important;
+  .membership-ab-thrasher__cta {
+		@include mq($from: leftCol) {
+			margin-left: 180px;
 		}
-
-		.membership-ab-thrasher_header {
-			@include mq($until: leftCol) {
-				margin-left: 20px;
-			}			
-			@include mq($from: leftCol) {
-				margin-left: 100px;
-			}
-			@include mq($from: wide) {
-				margin-left: 180px;
-			}
-			margin-top: 0px;
-			width: 460px;	
+		@include mq($from: wide) {
+			margin-left: 260px;
 		}
+  	display: inline-block;
+    padding: 5px 15px;
+    border-radius: 100px;
+    svg path {
+        stroke: #ffffff;
+        fill: #ffffff;
+    }
+    color: #ffffff;
+    background-color: #005689;
 
-    .main_title {
-    	display: block;
-    	font-family: $f-serif-headline;
-    	color: #ffffff;
-    	font-size: 56px;
-	    line-height: 56px;
-	    margin-top: 12px;
-    	@include mq($until: leftCol) {
-    		margin-right: 20px;
-    	}
-    	@include mq($from: leftCol) {
-    		margin-right: 80px;
-    	}
+    .inline-arrow-white-right {
+        display: block;
+        float: right;
+        height: 30px;
+        margin-left: 10px;
     }
 
-    .sub_title {
-    	display: block;
-    	margin-top: -5px;
-    	font-family: $f-serif-headline;
-    	color: #333333;
-    	font-weight: normal;
-      font-size: 24px;	
-      line-height: 28px;
-    	.strong {
-    		font-weight: 900;
-    	}
-	    margin-bottom: 12px;
-    	@include mq($until: leftCol) {
-    		margin-right: 20px;
-    	}
-    	@include mq($from: leftCol) {
-    		margin-right: 80px;
-    	}
-    }
+  	p {
+  		font-family: Guardian Text Sans Web;
+  		font-weight: 600;
+  		font-size: 15px;
+  		line-height: 30px;
+  		display: inline-block;
+  		vertical-align: middle;
+	    margin: 0;
+  	}
+  }
 
-    .link-button {
-      position: absolute;
-      bottom: 10px;
-    }
+  .membership-ab-thrasher__cta:hover {
+  	background-color: #00456e;
+  }
 
-    .membership-ab-thrasher__cta {
-    	display: inline-block;
-	    padding: 5px 15px;
-	    border: .6px solid #005689;
-	    border-radius: 100px;
-      svg path {
-          stroke: #ffffff;
-          fill: #ffffff;
-      }
-      color: #ffffff;
-      background-color: #005689;
+  .membership-ab-thrasher__cta:hover p {
+  	color: #fff;
+  }
 
-	    .inline-arrow-white-right {
-	        display: block;
-	        float: right;
-	        height: 30px;
-	        margin-left: 10px;
-	    }
+  .membership-ab-thrasher__logo {
+  	position: absolute;
+  	bottom: 15px;
+  	right: 10px;
+  	width: 160px;
+  	z-index: 2;
+  }
 
-    	p {
-    		font-family: Guardian Text Sans Web;
-    		font-weight: 600;
-    		font-size: 15px;
-    		line-height: 30px;
-    		display: inline-block;
-    		vertical-align: middle;
-		    margin: 0;
-    	}
-    }
-
-    .membership-ab-thrasher__cta:hover {
-    	background-color: #00456e;
-    	border: .6px solid #00456e;
-    }
-
-    .membership-ab-thrasher__cta:hover p {
-    	color: #fff;
-    }
-
-    .membership-ab-thrasher__cta:hover #arrow-color {
-    	fill: #fff;
-    }
-
-    .membership-ab-thrasher__logo {
-    	position: absolute;
-    	bottom: 15px;
-    	right: 10px;
-    	width: 160px;
-    	z-index: 2;
-    }
-
+  .main_image {
+		padding: 0;
+    margin: 0;
+  	@include mq($from: leftCol) {
+			left: 640px;
+  	}
+  	@include mq($from: wide) {
+  		left: 720px;
+  	}
+    position: absolute;
+    top: 0px;
+    height: 300px;
+    width: 480px;	  
     .membership-ab-thrasher__figure {
-    	overflow: visible !important;
-    	position: absolute;
-    	// bottom: 0;
-			top: -12px;
-			width: 480px;
-			height: 300px;
-    	z-index: 1;
-    	@include mq($until: leftCol) {
-  			left: 500px;
-    	}
-    	@include mq($from: leftCol) {
-  			left: 640px;
-    	}
-    	@include mq($from: wide) {
-    		left: 720px;
-    	}
-    }
-
-    .membership-ab-thrasher__g-logo {
-    	position: absolute;
-    	top: 10px;
-    	right: 10px;
-      width: 50px;
-      z-index: 2;
-    }
+	  	z-index: 1;
+	  }
+  }
 
 }
