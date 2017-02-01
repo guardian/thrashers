@@ -18,7 +18,7 @@ section#documentaries {
 .docs-mosul__wrapper {
     margin: 0 -10px;
     padding: 0 10px;
-    width: calc(100% - 20px);
+    width: 100%;
     @include mq(mobileLandscape) {
         padding: 0 20px;
     }
@@ -123,6 +123,24 @@ section#documentaries {
         }
         @include mq(wide) {
             right: -300px;
+        }
+    }
+    .roundel {
+        display: none;
+        @include mq(phablet) {
+            display: block;
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            transform-origin: top right;
+            transform: scale(0.92);
+        }
+        @include mq(tablet) {
+            right: 0;
+        }
+        @include mq(leftCol) {
+            top: 12px;
+            transform: scale(1.18);
         }
     }
     .main {
