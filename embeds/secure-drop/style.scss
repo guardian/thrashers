@@ -1,0 +1,64 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#secure-drop.fc-container--thrasher,
+#securedrop.fc-container--thrasher {
+    background: #003559;
+    .fc-item {
+        background: #00456E;
+    }
+}
+.secure-drop__wrapper .securedrop {
+    color: #F6F6F6;
+    position: relative;
+    &__title {
+        display: inline-block;
+        margin-top: 2px;
+        color: #4BC6DF;
+        float: none;
+    }
+    &__roundel {
+        position: absolute;
+        top: 5px;
+        right: 3px;
+    }
+    &__main {
+        display: block;
+        font-size: 28px;
+        line-height: 30px;
+        font-weight: 600;
+        padding-bottom: 18px;
+        margin-top: -3px;
+        &, &:hover {
+            text-decoration: none;
+        }
+        .eyes {
+            .eye {
+
+            }
+        }
+        .eyes,
+        .cta {
+            display: inline;
+        }
+        .btn {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 30px;
+            svg {
+                height: 24px;
+                display: block;
+            }
+        }
+    }
+}
