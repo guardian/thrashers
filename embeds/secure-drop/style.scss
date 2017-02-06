@@ -18,46 +18,102 @@ $mq-breakpoints: (
         background: #00456E;
     }
 }
-.secure-drop__wrapper .securedrop {
-    color: #F6F6F6;
+.secure-drop__wrapper {
     position: relative;
-    &__title {
-        display: inline-block;
-        margin-top: 2px;
-        color: #4BC6DF;
-        float: none;
+    @include mq(desktop) {
+        width: 100%;
     }
-    &__roundel {
-        position: absolute;
-        top: 5px;
-        right: 3px;
-    }
-    &__main {
-        display: block;
-        font-size: 28px;
-        line-height: 30px;
-        font-weight: 600;
-        padding-bottom: 18px;
-        margin-top: -3px;
-        &, &:hover {
-            text-decoration: none;
+    .securedrop {
+        color: #F6F6F6;
+        max-width: 620px;
+        margin: 0 auto;
+        @include mq(mobileLandscape) {
+            padding: 0 10px;
         }
-        .eyes {
-            .eye {
-
+        @include mq(tablet) {
+            padding: 0 20px;
+            max-width: none;
+        }
+        @include mq(leftCol) {
+            margin-left: 160px;
+        }
+        @include mq(wide) {
+            margin-left: 240px;
+        }
+        &__title {
+            display: inline-block;
+            padding-top: 2px;
+            color: #4BC6DF;
+            float: none;
+            width: auto;
+            @include mq(leftCol) {
+                position: absolute;
+                top: 0;
+                left: 20px;
             }
         }
-        .eyes,
-        .cta {
-            display: inline;
+        &__roundel {
+            float: right;
+            margin-top: 5px;
+            @include mq(phablet) {
+                transform-origin: top right;
+                transform: scale(1.1);
+            }
         }
-        .btn {
-            display: inline-block;
-            vertical-align: middle;
+        &__main {
+            display: block;
+            font-size: 28px;
             line-height: 30px;
-            svg {
+            font-weight: 600;
+            padding-top: 1px;
+            padding-bottom: 18px;
+            margin-top: -3px;
+            @include mq(tablet) {
+                font-size: 30px;
+                line-height: 32px;
+            }
+            @include mq(leftCol) {
+                margin-top: 3px;
+            }
+            &, &:hover {
+                text-decoration: none;
+            }
+            .eyes {
+                .eye {
+
+                }
+            }
+            .eyes,
+            .cta {
+                display: inline;
+            }
+            .btn {
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                top: 1px;
+                line-height: 30px;
+                width: 24px;
                 height: 24px;
-                display: block;
+                border-radius: 100%;
+                border: 1px solid #ececec;
+                svg {
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    path {
+                        fill: #ececec;
+                    }
+                }
+            }
+            &:hover {
+                .btn {
+                    background-color: #4BC6DF;
+                    border-color: transparent;
+                    svg path {
+                        fill: #F6F6F6;
+                    }
+                }
             }
         }
     }
