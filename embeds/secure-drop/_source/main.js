@@ -1,4 +1,17 @@
 
+document.onscroll = throttle(function(e) {
+    if (isMobile()) {
+        var windowY = window.innerHeight;
+        var target = document.getElementById('securedrop-eyes-target');
+        var targetY = target.getBoundingClientRect().top;
+
+        var cursorX = window.innerWidth*2/3
+        var cursorY = windowY-targetY;
+        moveEyes(cursorX, cursorY);
+    }
+}, 200);
+
+
 document.onmousemove = throttle(function(e){
     var cursorX = e.pageX;
     var cursorY = e.pageY-window.scrollY;
@@ -31,39 +44,45 @@ function throttle(fn, threshhold, scope) {
   };
 }
 
-
 function moveEyes(cursorX, cursorY) {
     var windowX = window.innerWidth;
     var windowY = window.innerHeight;
 
-    var ratioX = cursorX/windowX;
-    var ratioY = cursorY/windowY;
-
-    var target = document.querySelector('.eyes .target');
+    var target = document.getElementById('securedrop-eyes-target');
     var targetX = target.getBoundingClientRect().left;
     var targetY = target.getBoundingClientRect().top;
 
-    var diffX = cursorX-targetX;
-    var diffY = cursorY-targetY;
-    if (diffX>0) {
-        var fullOffsetX = (windowX-targetX)/2;
-    } else {
-        var fullOffsetX = targetX/2;
-    }
-    if (diffY>0) {
-        var fullOffsetY = (windowY-targetY)/2;
-    } else {
-        var fullOffsetY = (targetY)/2;
-    }
-    var ratioX = diffX/fullOffsetX;
-    var ratioY = diffY/fullOffsetY;
+    var ratioX = findCoord(cursorX, targetX, windowX);
+    var ratioY = findCoord(cursorY, targetY, windowY);
 
-    var percentX = Math.min(Math.max(Math.round((0.5 + (ratioX*0.3))*100), 30), 70);
-    var percentY = Math.min(Math.max(Math.round((0.5 + (ratioY*0.3))*100), 30), 70);
+    var percentX = ratioToOffset(ratioX*0.3);
+    var percentY = ratioToOffset(ratioY*0.3);
 
     var eyeBalls = document.querySelectorAll('.eye .inside');
     for (var i = 0; i < eyeBalls.length; i++) {
         eyeBalls[i].style.left = percentX + '%';
         eyeBalls[i].style.top = percentY + '%';
     }
+}
+
+function findCoord(cursor, target, win) {
+    var diff = cursor-target;
+    if (diff>0) {
+        var fullOffset = (win-target)/2;
+    } else {
+        var fullOffset = target/2;
+    }
+    var ratio = diff/fullOffset;
+    return ratio;
+}
+
+function ratioToOffset(r) {
+    return Math.min(Math.max(Math.round((0.5 + (r*0.3))*100), 30), 70);
+}
+
+function isMobile() {
+    const isIOS = () => /(iPad|iPhone|iPod touch)/i.test(navigator.userAgent);
+    const isAndroid = () => /Android/i.test(navigator.userAgent);
+
+    return isIOS() || isAndroid();
 }
