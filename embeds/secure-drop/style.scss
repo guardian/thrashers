@@ -55,9 +55,14 @@ $mq-breakpoints: (
         &__roundel {
             float: right;
             margin-top: 5px;
-            @include mq(phablet) {
-                transform-origin: top right;
-                transform: scale(1.1);
+            svg {
+                @include mq(mobileLandscape) {
+                    transform-origin: top right;
+                    transform: scale(1.2);
+                }
+            }
+            @include mq(leftCol) {
+                margin-top: 1px;
             }
         }
         &__main {
@@ -72,18 +77,73 @@ $mq-breakpoints: (
                 font-size: 30px;
                 line-height: 32px;
             }
+            @include mq(desktop) {
+                font-size: 28px;
+                line-height: 30px;
+            }
             @include mq(leftCol) {
                 margin-top: 3px;
+            }
+            @include mq(wide) {
+                font-size: 30px;
+                line-height: 32px;
             }
             &, &:hover {
                 text-decoration: none;
             }
             .eyes {
+                display: inline-block;
+                font-size: 0;
+                vertical-align: middle;
+                position: relative;
+                .target {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 20px;
+                    height: 18px;
+                    z-index: 1;
+                    transform: translate3d(-50%,-50%,0);
+                    &:hover+.eye .inside {
+                        top: 50% !important;
+                        left: 75% !important;
+                    }
+                    &:hover+.eye+.eye .inside {
+                        top: 50% !important;
+                        left: 25% !important;
+                    }
+                }
                 .eye {
-
+                    display: inline-block;
+                    position: relative;
+                    top: 5px;
+                    @include mq(tablet) {
+                        top: 7px;
+                    }
+                    @include mq(desktop) {
+                        top: 5px;
+                    }
+                    @include mq(wide) {
+                        top: 7px;
+                    }
+                    &+.eye {
+                        margin-left: 4px;
+                    }
+                    .outside {
+                        display: block;
+                    }
+                    .inside {
+                        transition: all 400ms;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate3d(-45%,-50%,0);
+                    }
+                    svg {
+                        display: block;
+                    }
                 }
             }
-            .eyes,
             .cta {
                 display: inline;
             }
