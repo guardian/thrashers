@@ -116,16 +116,8 @@ $mq-breakpoints: (
                 .eye {
                     display: inline-block;
                     position: relative;
-                    top: 5px;
-                    @include mq(tablet) {
-                        top: 7px;
-                    }
-                    @include mq(desktop) {
-                        top: 5px;
-                    }
-                    @include mq(wide) {
-                        top: 7px;
-                    }
+                    top: 7px;
+
                     &+.eye {
                         margin-left: 4px;
                     }
