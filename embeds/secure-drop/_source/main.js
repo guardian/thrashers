@@ -58,8 +58,8 @@ function moveEyes(cursorX, cursorY) {
     var ratioX = diffX/fullOffsetX;
     var ratioY = diffY/fullOffsetY;
 
-    var percentX = Math.min(Math.max(Math.round((0.5 + (ratioX*0.3))*100), 25), 75);
-    var percentY = Math.min(Math.max(Math.round((0.5 + (ratioY*0.3))*100), 25), 75);
+    var percentX = Math.min(Math.max(Math.round((0.5 + (ratioX*0.3))*100), 30), 70);
+    var percentY = Math.min(Math.max(Math.round((0.5 + (ratioY*0.3))*100), 30), 70);
 
     var eyeBalls = document.querySelectorAll('.eye .inside');
     for (var i = 0; i < eyeBalls.length; i++) {

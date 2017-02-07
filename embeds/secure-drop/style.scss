@@ -133,11 +133,11 @@ $mq-breakpoints: (
                         display: block;
                     }
                     .inside {
-                        transition: all 400ms;
+                        transition: all 400ms ease-in;
                         position: absolute;
                         top: 50%;
                         left: 50%;
-                        transform: translate3d(-45%,-50%,0);
+                        transform: translate3d(-48%,-50%,0);
                     }
                     svg {
                         display: block;
