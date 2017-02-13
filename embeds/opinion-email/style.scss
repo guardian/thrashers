@@ -1,6 +1,7 @@
 // Default breakpoints from Frontend
 $mq-breakpoints: (
     mobile:          320px,
+    mobileMedium:    375px,
     mobileLandscape: 480px,
     phablet:         660px,
     tablet:          740px,
@@ -41,6 +42,7 @@ $gs-baseline: 12px;
     &:hover {
       .cta__button {
            background-color: darken($comment-support-4, 10%);
+           border-color: darken($comment-support-4, 10%);
            color: #ffffff;
 
            svg {
@@ -55,9 +57,11 @@ $gs-baseline: 12px;
       left: 18px;
       bottom: 8px;
       background-color: $comment-support-4;
+      border-color: $comment-support-4;
       color: inherit;
       height: 36px;
-      line-height: 36px;
+      font-size: 14px;
+      line-height: 40px;
       display: block;
       width: 120px;
       color: #ffffff;
@@ -84,11 +88,12 @@ $gs-baseline: 12px;
   .container {
     position: relative;
     height: 300px;
-    @include mq(mobileLandscape) {
-      height: 270px;
-    }
     border-top: 1px solid $comment-support-4;
     overflow: hidden;
+
+    @include mq($from: phablet) {
+      height: 270px;
+    }
 
     @include mq($from: tablet) {
       margin-left: 20px;
@@ -107,6 +112,37 @@ $gs-baseline: 12px;
       width: 1180px;
     }
 
+    .video {
+      video {
+        position: absolute;
+        max-height: 180px;
+        left: -280px;
+        top: -10px;
+
+        @include mq($from: mobileMedium) {
+          left: -252px;
+        }
+
+        @include mq($from: mobileLandscape) {
+          left: -148px;
+        }
+
+        @include mq($from: phablet) {
+          top: 0px;
+          max-height: 270px;
+          left: -60px;
+        }
+
+        @include mq($from: tablet) {
+          left: 0px;
+        }
+
+        @include mq($from: desktop){
+          max-height: 100%;
+        }
+      }
+    }
+
     &__image {
       height: 300px;
       width: 100%;
@@ -121,12 +157,8 @@ $gs-baseline: 12px;
       background-size: 1080px;
       background-position: -368px -10px;
 
-      video {
-          display: none;
-        }
 
-
-      @include mq($from: mobileLandscape) {
+      @include mq($from: phablet) {
         height: 270px;
         background-size: 1600px;
         background-position: -380px -10px;
@@ -141,21 +173,19 @@ $gs-baseline: 12px;
       @include mq($from: desktop){
         background-size: 1600px;
         background-position: -148px 0px;
-         video {
-          display: block;
-        }
       }
     }
   }
 
-  .guardian__roundel{
+  .guardian__roundel {
     right: 18px;
     top: 18px;
     position: absolute;
-    display: none;
+    display: block;
+    z-index: 100;
+    opacity: 0.8;
 
     @include mq($from: tablet){
-      display: block;
       right: 30px;
     }
 
@@ -163,6 +193,28 @@ $gs-baseline: 12px;
       right: 106px;
     }
   }
+
+  .logo {
+    position: absolute;
+    bottom: 86px;
+    left: 18px;
+
+    @include mq($from: phablet) {
+      top: 18px;
+    }
+
+    @include mq($from: tablet) {
+        top: 24px;
+        left: 26px;
+
+        svg {
+          height: 38px;
+          width: 321px;
+        }
+    }
+
+  }
+
 
   .text {
     color: #ffffff;
@@ -172,33 +224,6 @@ $gs-baseline: 12px;
         display: none;
       }
 
-    }
-
-    .coloured-heading {
-      color: $comment-support-4;
-    }
-
-    &__heading {
-      position: absolute;
-      bottom: 94px;
-      left: 18px;
-      width: 80%;
-      min-width: 240px;
-      max-width: 750px;
-
-      @include fs-header(5);
-      font-size: 28px;
-
-      @include mq($from: mobileLandscape) {
-        top: 24px;
-      }
-
-
-      @include mq($from: tablet) {
-          font-size: 36px;
-          top: 24px;
-          left: 26px;
-      }
     }
 
     &__intro {
@@ -211,8 +236,12 @@ $gs-baseline: 12px;
       width: 60%;
 
       @include mq($from: mobileLandscape) {
-        top: 60px;
-        max-width: 174px;
+        max-width: 38%;
+      }
+
+      @include mq($from: phablet) {
+        top: 54px;
+        max-width: 220px;
       }
 
       @include mq($from: tablet) {
