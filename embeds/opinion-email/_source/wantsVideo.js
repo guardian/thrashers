@@ -31,7 +31,7 @@
 
           var videoTag = document.createElement('div');
           videoTag.setAttribute('class', 'video');
-          videoTag.innerHTML = '<video playsinline muted poster="'+videoPoster+'" loop="true"><source src="'+videoSource+'" type="video/mp4"></video>';
+          videoTag.innerHTML = '<video playsinline muted loop="true"><source src="'+videoSource+'" type="video/mp4"></video>';
 
           imageWrapper.insertBefore(videoTag, img);
 
