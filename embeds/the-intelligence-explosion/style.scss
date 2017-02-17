@@ -1,0 +1,168 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.the-intelligence-explosion__wrapper {
+    position: relative;
+    height: 312px;
+    overflow: hidden;
+    margin: 0 -10px;
+    .original-drama-logo {
+        position: absolute;
+        top: 5px;
+        left: 9px;
+        @include mq(mobileLandscape) {
+            left: 19px;
+        }
+    }
+    .roundel {
+        position: absolute;
+        top: 7px;
+        right: 11px;
+        @include mq(mobileLandscape) {
+            right: 20px;
+        }
+    }
+    .film-title {
+        position: absolute;
+        top: 87px;
+        left: 10px;
+        @include mq(mobileLandscape) {
+            left: 20px;
+        }
+    }
+    .tagline {
+        position: absolute;
+        top: 161px;
+        left: 10px;
+        font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+        font-size: 25px;
+        line-height: 23px;
+        color: #FDADBA;
+        font-weight: 900;
+        @include mq(mobileLandscape) {
+            left: 20px;
+        }
+        .word {
+
+        }
+        &__how {
+
+        }
+        &__to {
+
+        }
+        &__stop {
+
+        }
+        &__a {
+
+        }
+        &__robot {
+
+        }
+        &__turning {
+
+        }
+        &__evil {
+
+        }
+    }
+    .watch-now {
+        position: absolute;
+        bottom: 38px;
+        right: 21px;
+        cursor: pointer;
+        @include mq(mobileLandscape) {
+            right: auto;
+            left: 19px;
+            bottom: 42px;
+        }
+        &__play,
+        &__text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &__text {
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+            font-size: 18px;
+            padding-top: 4px;
+            line-height: 38px;
+            color: #333;
+            @include mq(mobileLandscape) {
+                color: #FB0;
+            }
+        }
+    }
+    .photography {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 32px;
+        z-index: -1;
+        img,
+        video {
+            position: absolute;
+            height: 100%;
+            left: -80px;
+            @include mq(340px) {
+                left: -70px;
+            }
+            @include mq(365px) {
+                left: -60px;
+            }
+            @include mq(390px) {
+                left: -45px;
+            }
+            @include mq(420px) {
+                left: -30px;
+            }
+            @include mq(450px) {
+                left: -15px;
+            }
+            @include mq(mobileLandscape) {
+                left: 0;
+            }
+        }
+        .video+img {
+            z-index: -1;
+        }
+    }
+    .supported-by {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 30px;
+        padding-top: 1px;
+        background-color: #fff;
+        &__text,
+        &__logo {
+            vertical-align: top;
+        }
+        &__text {
+            margin-left: 10px;
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+            font-size: 13px;
+            color: #333;
+            opacity: 0.5;
+            @include mq(mobileLandscape) {
+                margin-left: 20px;
+            }
+        }
+        &__logo {
+            opacity: 0.4;
+        }
+    }
+}
