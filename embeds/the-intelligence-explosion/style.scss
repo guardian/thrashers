@@ -209,6 +209,7 @@ $mq-breakpoints: (
             padding-top: 4px;
             line-height: 38px;
             color: #333;
+            margin-left: 2px;
             @include mq(mobileLandscape) {
                 color: #FB0;
             }
@@ -359,8 +360,10 @@ $mq-breakpoints: (
         right: 0;
         bottom: 32px;
         z-index: 101;
-        &:hover ~ .watch-now .watch-now__play {
-            transform: scale(1.08);
+        &:hover {
+            & ~ .foreground .watch-now__play {
+                transform: scale(1.07);
+            }
         }
         @include mq(desktop) {
             bottom: 0;
