@@ -1,6 +1,6 @@
 ;(function ( global ) {
 
-  var wantsVideo = (function() {
+  var wantsVideoIntelligence = (function() {
 
     function isIOS10() {
       return (navigator.userAgent.indexOf('Safari')>-1 && navigator.userAgent.indexOf('Version/10.')>-1);
@@ -20,13 +20,13 @@
     };
 
     var getsVideo = function() {
-      if (wantsVideo.canVideo()) {
-        var videoCandidates = document.querySelectorAll('[data-wants-video]');
+      if (wantsVideoIntelligence.canVideo()) {
+        var videoCandidates = document.querySelectorAll('[data-wants-video-intelligence]');
         for (var i = 0; i < videoCandidates.length; i++) {
           var img = videoCandidates[i];
           var imageWrapper = videoCandidates[i].parentElement;
 
-          var videoSource = img.getAttribute('data-wants-video');
+          var videoSource = img.getAttribute('data-wants-video-intelligence');
           var videoPoster = img.getAttribute('src');
 
           var videoTag = document.createElement('div');
@@ -52,7 +52,7 @@
 
 
     Modernizr.on('videoautoplay', function() {
-      wantsVideo.getsVideo();
+      wantsVideoIntelligence.getsVideo();
     });
 
 
@@ -65,16 +65,16 @@
 
   // CommonJS module
   if ( typeof module !== 'undefined' && module.exports ) {
-    module.exports = wantsVideo;
+    module.exports = wantsVideoIntelligence;
   }
 
   // AMD module
   else if ( typeof define !== 'undefined' && define.amd ) {
-    define( function () { return wantsVideo; });
+    define( function () { return wantsVideoIntelligence; });
   }
 
   // browser global
   else {
-    global.wantsVideo = wantsVideo;
+    global.wantsVideoIntelligence = wantsVideoIntelligence;
   }
 }((typeof window !== 'undefined') ? window : this ));

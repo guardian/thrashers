@@ -18,7 +18,7 @@ function animateRobot() {
     var thrasherHeight = thrasher.offsetHeight;
     var thrasherVideo = thrasher.querySelector('video');
     var thrasherTagline = thrasher.querySelector('.tagline');
-    var videoDelay = parseInt(thrasher.querySelector('[data-wants-video]').getAttribute('data-video-delay'));
+    var videoDelay = parseInt(thrasher.querySelector('[data-wants-video-intelligence]').getAttribute('data-video-delay'));
 
     if (top < (windowHeight-(thrasherHeight/2)) && top > (-1*(thrasherHeight/2))) {
         if (!thrasher.classList.contains('animate')) {

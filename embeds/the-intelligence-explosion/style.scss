@@ -73,6 +73,10 @@ $mq-breakpoints: (
         @include mq(mobileLandscape) {
             right: 20px;
         }
+        @include mq(desktop) {
+            transform-origin: top right;
+            transform: scale(1.25);
+        }
     }
     .film-title {
         pointer-events: none;
