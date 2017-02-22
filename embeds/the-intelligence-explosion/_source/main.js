@@ -1,5 +1,6 @@
 var thrasher = document.querySelector('.the-intelligence-explosion__wrapper');
 var robotTimeout;
+var robotTimeoutInProgress = false;
 window.onscroll = throttle(function() {
     animateRobot();
 }, 200);
@@ -23,14 +24,17 @@ function animateRobot() {
     if (top < (windowHeight-(thrasherHeight/2)) && top > (-1*(thrasherHeight/2))) {
         if (!thrasher.classList.contains('animate')) {
             thrasherTagline.classList.add('animate');
-            clearTimeout(robotTimeout);
-            robotTimeout = setTimeout(function() {
-                if (thrasherVideo != null) {
-                    thrasherVideo.play();
-                }
-            }, videoDelay);
+            if (robotTimeoutInProgress!=true) {
+                robotTimeoutInProgress = true;
+                robotTimeout = setTimeout(function() {
+                    if (thrasherVideo != null) {
+                        thrasherVideo.play();
+                    }
+                }, videoDelay);
+            }
         }
     } else {
+        robotTimeoutInProgress = false;
         clearTimeout(robotTimeout);
         thrasherTagline.classList.remove('animate');
         if (thrasherVideo != null) {
