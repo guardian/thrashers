@@ -13,6 +13,9 @@ $mq-breakpoints: (
 
 @include base(the-new-arrivals-header, rgba(108, 141, 162, 0.5));
 
+a:hover {
+  text-decoration: inherit;
+}
 
 #the-new-arrivals-header{
   @include mq($from:desktop){
@@ -26,6 +29,28 @@ $mq-breakpoints: (
 
 .new-arrivals {
   position: relative;
+
+  &__supported-by {
+
+    @include mq($from: tablet) {
+      margin-left: 20px;
+    }
+    @include mq($from: desktop) {
+      margin-left: 100px;
+    }
+    p {
+      width: 300px;
+
+      font-size: 14px;
+      line-height: 18px;
+      font-family: $f-sans-serif-text;
+      color: #d6d6d6;
+
+      @include mq($from: tablet) {
+        width: 330px;
+      }
+    }
+  }
 
   &__logo {
     width: 40px;
@@ -43,18 +68,18 @@ $mq-breakpoints: (
   }
 
   &__counter {
-    margin-bottom: 24px;
+    margin-bottom: 14px;
 
     @include mq($from: tablet) {
       margin-left: 18px;
     }
 
     @include mq($from: desktop) {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     @include mq($from: leftCol) {
-      margin-bottom: 80px;
+      margin-bottom: 40px;
     }
 
     ul {
