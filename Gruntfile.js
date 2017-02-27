@@ -72,7 +72,7 @@ module.exports = function(grunt) {
                 options: {
                     patterns: [{
                         match: /@@assetPath@@/g,
-                        replacement: 'http://localhost:8000/' + dir + '/hashed'
+                        replacement: 'https://localhost:8000/' + dir + '/hashed'
                     }]
                 },
                 files: [{
@@ -100,6 +100,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
+                    protocol: 'https',
                     middleware: function (connect, options, middlewares) {
                         middlewares.unshift(function (req, res, next) {
                             res.setHeader('Access-Control-Allow-Origin', '*');
@@ -565,7 +566,7 @@ module.exports = function(grunt) {
         if (grunt.option('folderName')) {
             var project = grunt.file.readJSON(dir + '/source.json');
             var s3Path = 'https://interactive.guim.co.uk/' + remoteDir + '/source.json';
-            var localPath = 'http://localhost:8000/' + dir + '/source.json';
+            var localPath = 'https://localhost:8000/' + dir + '/source.json';
 
             function returnSnapPath(location) {
                 return project.url + '?gu-snapType=json.html&gu-snapUri=' + encodeURIComponent(location) + '&gu-headline=' + encodeURIComponent(project.headline) + '&gu-trailText=' + encodeURIComponent(project.trailText);

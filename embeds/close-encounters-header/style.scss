@@ -119,21 +119,21 @@ body {
   color: #F7E4D5;
   // overflow-x: hidden !important;
   // overflow-y: visible !important;
-  overflow: visible;
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -500px;
-    right: -500px;
-    top: 0;
-    bottom: 0;
-    background-color: #2B1D20;
-    @include mq($until: tablet) {
-      background-color: #240D12;
-    }
-    z-index: -1;
-  }
+  // overflow: visible;
+  // &:before {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   left: -500px;
+  //   right: -500px;
+  //   top: 0;
+  //   bottom: 0;
+  //   background-color: #2B1D20;
+  //   @include mq($until: tablet) {
+  //     background-color: #240D12;
+  //   }
+  //   z-index: -1;
+  // }
   .branding {
     height: 34px;
     width: 56px;
