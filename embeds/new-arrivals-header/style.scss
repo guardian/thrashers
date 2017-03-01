@@ -363,22 +363,22 @@ a:hover {
     }
 
     @include mq($from: wide) {
-      margin-top: 50px;
+      margin-top: 40px;
     }
 
     h1 {
       font-family: $f-serif-headline;
-      font-size: 28px;
+      font-size: 23px;
       margin-left: 8px;
       font-weight: 200;
-      line-height: 28px;
+      line-height: 25px;
       color: white;
       padding-top: 6px;
       margin-bottom: 12px;
 
       @include mq($from: desktop) {
-        font-size: 30px;
-        line-height: 32px;
+        font-size: 26px;
+        line-height: 28px;
       }
     }
   }
