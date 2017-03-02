@@ -16,13 +16,6 @@ function loadJSON(path, success, error) {
     xhr.send();
 }
 
-var statLabels = {
-    'obamaActions' : 'Obama actions unpicked',
-    'nightsAtWhiteHouse' : 'Nights spent at White House',
-    'numberOfTweets' : 'Number of Tweets',
-    'metersOfWall' : 'Meters of the wall built'
-}
-
 function randomStat() {
     var options = [
         'obamaActions',
@@ -34,6 +27,21 @@ function randomStat() {
     var randomNumber = Math.floor(Math.random() * options.length);
 
     return options[randomNumber];
+}
+
+function getTarget(containers) {
+    for (var i = 0; i < containers.length; i++) {
+        if(document.getElementById(containers[i]) !== null) {
+            return document.getElementById(containers[i]);
+        }
+    }
+}
+
+var statLabels = {
+    'obamaActions' : 'Obama actions unpicked',
+    'nightsAtWhiteHouse' : 'Nights spent at White House',
+    'numberOfTweets' : 'Number of Tweets',
+    'metersOfWall' : 'Meters of the wall built'
 }
 
 loadJSON("https://interactive.guim.co.uk/docsdata/1TTV-g36nUE8uxVb882sC2lCeR8Yt8SGjIbJtN12yF0E.json", function(data) {
@@ -48,13 +56,15 @@ loadJSON("https://interactive.guim.co.uk/docsdata/1TTV-g36nUE8uxVb882sC2lCeR8Yt8
 
     // move html to the headline container
     var html = document.getElementsByClassName('supertreat')[0].outerHTML;
-    document.getElementById('headlines').getElementsByClassName('fc-container__inner')[0].innerHTML += html;
+    var target = getTarget(['trump-presidency', 'headlines']);
+    target.getElementsByClassName('fc-container__inner')[0].innerHTML += html;
+    target.className += ' fc-container--trumped';
 
     // add class
     var random = randomStat();
     document.getElementsByClassName('supertreat__stat')[0].innerHTML = statLabels[random];
     document.getElementsByClassName('supertreat__number')[0].innerHTML = stats[random];
-    document.getElementsByClassName('supertreat')[0].classList = 'supertreat supertreat--' + random;
+    document.getElementsByClassName('supertreat')[0].className += ' supertreat--' + random;
 
 }, function(xhr) {
     console.log("error fetching trump tracker data");

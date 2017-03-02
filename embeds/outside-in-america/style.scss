@@ -172,4 +172,20 @@ $c-white: #ffffff;
 #outside-in-america.fc-container--thrasher {
     padding-top: 0px;
     margin-bottom: 0px;
+
+    .fc-container__inner {
+        border-top: 0 !important;
+    }
+}
+
+#outside-in-america + .fc-container .fc-container__inner {
+    border-top: 0 !important;
+}
+
+.fc-container .fc-container__inner {
+    border-top: 3px $c-red solid;
+}
+
+.fc-container__header__title {
+    color: $c-blue;
 }

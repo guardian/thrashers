@@ -20,7 +20,7 @@ $c-blue: #1e3f74;
     margin: 0;
 }
 
-#headlines {
+.fc-container--trumped {
     padding-bottom: 0 !important;
 }
 
@@ -40,6 +40,7 @@ $c-blue: #1e3f74;
 
     @include mq(desktop) {
         width: 460px;
+        min-height: none;
     }
 
     @include mq(leftCol) {
@@ -76,7 +77,11 @@ $c-blue: #1e3f74;
 .supertreat__logo {
     display: block;
     margin-bottom: 8px;
-    max-width: 100%;
+    max-width: 168px;
+
+    @include mq(leftCol) {
+        max-width: 180px;
+    }
 }
 
 .supertreat__button {
@@ -151,7 +156,7 @@ $c-blue: #1e3f74;
     @include mq(leftCol) {
         position: absolute;
         bottom: -24px;
-        right: -10px;
+        right: 0;
     }
 }
 
