@@ -1,6 +1,7 @@
 // Default breakpoints from Frontend
 $mq-breakpoints: (
     mobile:          320px,
+    mobileMedium:    375px,
     mobileLandscape: 480px,
     phablet:         660px,
     tablet:          740px,
@@ -14,8 +15,37 @@ $mq-breakpoints: (
 $features-support-3: #fdadba;
 $gs-baseline: 12px;
 
+#unforgettable {
+  .tone-news--item.fc-item {
+    border-top: 1px solid #46bcdf;
+    background-color: #ffffff;
+    padding-top: 2px;
+  }
+}
+
+#unforgettable.fc-container--thrasher {
+  background-color: transparent;
+}
+
 
 #unforgettable-holiday {
+
+  @include mq($from: mobileLandscape) {
+    padding: 0px 10px;
+
+  }
+
+  @include mq($from: phablet) {
+    padding: 0px 20px;
+
+  }
+
+  @include mq($from: tablet) {
+    padding: 0px;
+
+  }
+
+
 	.unforgettable-link {
 		position: absolute;
 		top: 0;
@@ -34,8 +64,8 @@ $gs-baseline: 12px;
 		}
 		.cta__button {
 			position: absolute;
-			left: 16px;
-			bottom: 6px;
+			left: 6px;
+			bottom: 12px;
 			border: thin solid #ffffff;
 			background-color: transparent;
 			height: 40px;
@@ -45,16 +75,6 @@ $gs-baseline: 12px;
 			color: #ffffff;
 			padding-left: 16px;
 			padding-right: 8px;
-			@include mq($from: tablet) {
-				bottom: $gs-baseline;
-				left: 20px;
-			}
-			@include mq($from: leftCol) {
-				left: 172px;
-			}
-			@include mq($from: wide) {
-				left: 258px;
-			}
 		}
 		.arrow-icon {
 			height: auto;
@@ -65,83 +85,119 @@ $gs-baseline: 12px;
 		}
 	}
 
+  .section {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 138px;
+    top: 4px;
+
+    @include mq($from: mobileMedium) {
+      height: 120px;
+    }
+
+    @include mq($from: tablet) {
+      width: 400px;
+      left: 20px;
+    }
+
+    @include mq($from: leftCol) {
+      width: 152px;
+      height: 0px;
+    }
+
+    @include mq($from: wide) {
+      width: 220px;
+    }
+
+    &__header {
+      @include fs-header(4);
+        color: #005689;
+    }
+    &__description {
+      @include fs-bodyCopy(2);
+        color: #767676;
+        line-height: 19px;
+    }
+
+  }
+
 	.container {
-		position: relative;
-		height: 306px;
-		@include mq($from: tablet) {
-			width: 740px;
-		}
-		@include mq($from: desktop) {
-			width: 980px;
-		}
-		@include mq($from: leftCol) {
-			width: 1140px;
-		}
-		@include mq($from: wide) {
-			width: 1300px;
-		}
-		&__image--one,
-    &__image--two,
-     {
-			height: 306px;
-			width: 100%;
-			position: absolute;
-			z-index: -10;
+    position: relative;
+    display: inline-block;
+    height: 270px;
+    margin-top: -64px;
+    border-top: 1px solid #5FC0BB;
+    overflow: hidden;
+    width: 100%;
+
+    @include mq($from: tablet) {
+      margin-left: 20px;
+      width: 698px;
+    }
+
+    @include mq($from: desktop) {
+      width: 940px;
+    }
+
+    @include mq($from: leftCol) {
+      margin-top: -108px;
+      margin-left: 180px;
+      width: 940px;
+    }
+
+    @include mq($from: wide) {
+      margin-top: -60px;
+      margin-left: 260px;
+    }
+
+    &__image--one {
+      height: 270px;
+      width: 100%;
+      background-image: url('@@assetPath@@/holiday-pic-1.jpg');
+      position: absolute;
+      z-index: -10;
       background-color: #000;
       background-repeat: no-repeat;
+      background-size: 940px;
+      background-position: -236px 0px;
 
-		}
-    &__image--one {
-      background-image: url('@@assetPath@@/holiday-pic-1.png');
-      background-position: -190px 0px;
-      z-index: -9;
       @include mq($from: tablet) {
-				 background-position: 0px 0px;
-			}
+        background-position: 0px 0px;
+      }
     }
-    &__image--two {
-      background-image: url('@@assetPath@@/holiday-pic-2.png');
-			background-position: -144px 0px;
-      @include mq($from: leftCol) {
-				 background-position: 0px 0px;
-			}
-    }
+    &__card {
+      display: block;
+      position: absolute;
+      z-index: -5;
+      height: 116px;
+      background: rgba(95,192,187,0.7);
+      width: 100%;
+      bottom: 0px;
 
+      @include mq($from: tablet) {
+        height: 100%;
+        width: 220px;
+      }
+    }
 
 		.text {
-			top: 40px;
+			top: 160px;
 			left: 6px;
 			position: absolute;
-			color: #333333;
-			@include mq($from: tablet) {
-				top: 24px;
-				left: 20px;
-			}
-			@include mq($from: leftCol) {
-				left: 172px;
-			}
-			@include mq($from: wide) {
-				left: 258px;
-			}
+			color: #ffffff;
+      @include mq($from: tablet) {
+        top: 6px;
+      }
 			&__intro {
 				@include fs-header(5);
 				font-size: 24px;
 				line-height: 24px;
 				@include mq($from: tablet) {
-					font-size: 36px;
+          width: 220px;
+					font-size: 32px;
+          line-height: 32px;
 					top: 12px;
-				}
-			}
-			&__strapline {
-				@include fs-header(5);
-				font-size: 44px;
-				line-height: 44px;
-				min-width: 240px;
-				max-width: 750px;
-				@include mq($from: tablet) {
-					@include fs-header(5);
-					font-size: 72px;
-					line-height: 72px;
 				}
 			}
 		}
@@ -149,76 +205,7 @@ $gs-baseline: 12px;
 	.guardian__roundel {
 		position: absolute;
 		right: 6px;
-		bottom: 0px;
-		svg {
-			@include mq($until: tablet) {
-				display: none;
-			}
-		}
+		top: 4px;
+    opacity: 0.8;
 	}
-	.guardian__logo {
-		position: absolute;
-		right: 12px;
-		top: 6px;
-		svg {
-			width: 200px;
-			height: 21px;
-		}
-		@include mq($from: tablet) {
-			right: 6px;
-		}
-	}
-  .gradient {
-    display: block;
-    position: absolute;
-    z-index: -5;
-    bottom: 0px;
-    height: 180px;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.0));
-    /* background:rgba(0,0,0,0.4) */
-  }
-
-  &.inView {
-
-    .container__image--two {
-        display: block;
-        z-index: -8;
-        animation-name: fadeIn;
-        animation-duration: 1800ms;
-        animation-fill-mode: backwards;
-        animation-timing-function: ease-in;
-    }
-
-  }
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  &.fadeOut {
-
-    .container__image--one {
-        display: block;
-        animation-name: fadeOut;
-        animation-duration: 1800ms;
-        animation-fill-mode: backwards;
-        animation-timing-function: ease-in;
-    }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-}
-
-
 }
