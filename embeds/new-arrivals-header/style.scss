@@ -121,6 +121,7 @@ a:hover {
       font-size: 28px;
       line-height: 28px;
       font-weight: 200;
+      text-decoration: none !important;
 
       @include mq($from: tablet) {
         font-size: 40px;
@@ -389,6 +390,7 @@ a:hover {
     font-weight: 900;
     width: max-content;
     margin-top: 10px;
+    color: #fff !important;
 
     @include mq($from: desktop) {
       float: left;
