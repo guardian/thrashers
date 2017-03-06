@@ -1,0 +1,107 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet: 740px, desktop: 980px, leftCol: 1140px, wide: 1300px);
+@import 'shared/_imports';
+.beyond-the-blade-header__wrapper {
+    width: 100%;
+    background-color: #fff;
+}
+
+.blade-header {
+    &--wrapper {
+        background-color: #161616;
+        overflow: hidden;
+        padding: 0 20px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+        svg {
+            position: absolute;
+            right: -100px;
+            top: -45px
+        }
+        h3 {
+            color: #fff;
+            font-size: 20px;
+            margin: 0;
+            padding: 10px 0 0 10px;
+            border-left: solid 1px #fff;
+            font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+            font-weight: 600;
+        }
+    }
+    &--copy {
+        margin: 50px 0 80px 250px;
+        width: 520px;
+        font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+        h2 {
+            color: #DCDCDC;
+            font-weight: 600;
+            font-size: 35px;
+            line-height: 35px;
+            margin: 0;
+            span {
+                color: #FF5B3A;
+            }
+            &:nth-of-type(2) {
+                margin: 0 0 10px 150px;
+            }
+        }
+        p {
+            color: #757575;
+            font-size: 16px;
+            line-height: 22px;
+            margin-bottom: 15px;
+        }
+        &__CTA {
+            display: inline-block;
+            color: #FF5B3A;
+            border: 1px solid #FF5B3A;
+            border-radius: 25px;
+            padding: 2px 10px 2px 15px;
+            &:after {
+                height: 30px;
+                width: 30px;
+                content: '';
+                display: block;
+                float: right;
+                margin-top: -2px;
+                margin-left: 0px;
+                background-image: url('https://uploads.guim.co.uk/2017/03/06/arrow-red.svg');
+                background-size: 50%;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+            &:hover {
+                background-color: #FF5B3A;
+                & p {
+                    color: #161616;
+                }
+                &:after {
+                    height: 30px;
+                    width: 30px;
+                    content: '';
+                    display: block;
+                    float: right;
+                    margin-top: -2px;
+                    margin-left: 0px;
+                    background-image: url('https://uploads.guim.co.uk/2017/03/06/arrow-black.svg');
+                    background-size: 50%;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+            }
+            &:hover p {}
+        }
+        a {
+            text-decoration: none;
+        }
+        &__CTA p {
+            color: #FF5B3A;
+            display: inline-block;
+            margin: 0;
+            margin-top: 3px;
+            font-size: 15px;
+            font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 600;
+        }
+    }
+}
