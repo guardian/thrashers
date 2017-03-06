@@ -1,0 +1,57 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet: 740px, desktop: 980px, leftCol: 1140px, wide: 1300px);
+@import 'shared/_imports';
+.blade-header {
+    &--wrapper {
+        background-color: #161616;
+        overflow: hidden;
+        padding: 0 20px;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+        svg {
+            position: absolute;
+            right: -100px;
+            top: -45px
+        }
+        h3 {
+            color: #fff;
+            font-size: 20px;
+            margin: 0;
+            padding: 10px 0 0 10px;
+            border-left: solid 1px #fff;
+        }
+    }
+    &--copy {
+        margin: 50px 0 80px 250px;
+        width: 500px;
+        h2:nth-of-type(2) {
+            margin-left: 150px;
+        }
+        h2 {
+            color: #DCDCDC;
+            font-size: 35px;
+            line-height: 35px;
+            margin: 0;
+            span {
+                color: #FF5B3A;
+            }
+        }
+        p {
+            color: #757575;
+            font-size: 18px;
+            line-height: 22px;
+        }
+        &__CTA {
+            display: inline-block;
+            color: #FF5B3A;
+            border: 1px solid #FF5B3A;
+            border-radius: 25px;
+            padding: 5px 15px
+        }
+        &__CTA p {
+            color: #FF5B3A;
+            margin: 0;
+            font-size: 15px;
+        }
+    }
+}
