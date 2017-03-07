@@ -192,6 +192,12 @@ module.exports = function(grunt) {
                             message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'
                         },
                         {
+                            config: 'appConfig.imageGradient',
+                            type: 'confirm',
+                            default: defaultFromObject("imageGradient", true),
+                            message: 'Show gradient over image',
+                        },
+                        {
                             config: 'appConfig.url',
                             type: 'input',
                             default: defaultFromObject("url", null),
@@ -295,7 +301,7 @@ module.exports = function(grunt) {
                             type: 'input',
                             default: defaultFromObject("kicker", null),
                             message: 'OPTIONAL: '['red'].bold + 'Kicker text (leave blank to use default card section)',
-                            when: function() { !grunt.config('appConfig.kickerHide') }
+                            when: kickerEnabled
                         },
                         {
                             config: 'appConfig.kickerColour',
@@ -304,7 +310,7 @@ module.exports = function(grunt) {
                             message: 'OPTIONAL: '['red'].bold + 'Kicker text colour (leave blank to use default)' + ' RGB'['red'].bold,
                             validate: validateInputColour,
                             filter: hexToColour,
-                            when: function() { !grunt.config('appConfig.kickerHide') }
+                            when: kickerEnabled
                         },
                         {
                             config: 'appConfig.kickerFont',
@@ -324,7 +330,7 @@ module.exports = function(grunt) {
                                 { name:'Display Sans', value: 'display-sans' },
                                 '---'
                             ],
-                            when: function() { !grunt.config('appConfig.kickerHide') }
+                            when: kickerEnabled
                         },
                         {
                             config: 'appConfig.kickerSize',
@@ -333,7 +339,7 @@ module.exports = function(grunt) {
                             message: 'OPTIONAL: '['red'].bold + 'Kicker text size (in density independent pixels)',
                             validate: validateInputSize,
                             filter: sizeAsInt,
-                            when: function() { !grunt.config('appConfig.kickerHide') }
+                            when: kickerEnabled
                         },
                         {
                             config: 'appConfig.hideGuardianRoundel',
@@ -483,6 +489,10 @@ module.exports = function(grunt) {
         return grunt.config('appConfig.layout') == "default"
     }
 
+    function kickerEnabled() {
+        return grunt.config('appConfig.kickerHide') != null && !grunt.config('appConfig.kickerHide')
+    }
+
     function getAppConfig() {
         var layout = grunt.config('appConfig.layout');
         var title = grunt.config('appConfig.title');
@@ -490,6 +500,7 @@ module.exports = function(grunt) {
         var titleSize = grunt.config('appConfig.titleSize');
         var titleColour= grunt.config('appConfig.titleColour');
         var image = grunt.config('appConfig.image');
+        var imageGradient = grunt.config('appConfig.imageGradient');
         var trail = grunt.config('appConfig.trail');
         var trailFont = grunt.config('appConfig.trailFont');
         var trailSize = grunt.config('appConfig.trailSize');
@@ -520,6 +531,7 @@ module.exports = function(grunt) {
         if (buttonTextColour) app.buttonTextColour = buttonTextColour;
         if (buttonBackgroundColour) app.buttonBackgroundColour = buttonBackgroundColour;
         app.hideKicker = kickerHide;
+        app.imageGradient = imageGradient;
         if(!kickerHide) {
             if(kicker) app.kicker = kicker;
             if(kickerColour) app.kickerColour = kickerColour;
