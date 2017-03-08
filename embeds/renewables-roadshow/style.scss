@@ -11,83 +11,126 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-.wisdom-of-ages__wrapper {
+/* Standard syntax */
+@-webkit-keyframes rr-anim {
+    0%   {opacity:0;}
+    25%  {opacity:1;}
+    26%  {opacity:0;}
+    50%  {opacity:1;}
+    65%  {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes rr-anim {
+    0%   {opacity:0;}
+    25%  {opacity:1;}
+    26%  {opacity:0;}
+    50%  {opacity:1;}
+    65%  {opacity:0;}
+    100% {opacity:1;}
+}
+
+.renewables-roadshow__wrapper {
   width: 100%;
   position: relative;
   overflow: hidden;
+  background-color: black;
+  background-image: url("@@assetPath@@/background.png");
+  z-index: 1;
+  background-size: auto 100%;
 
   .image-goes-here {
+    top: 0px;
+    left: 0px;
     height: 260px;
-    z-index: 1;
+    z-index: 2;
     overflow: hidden;
+    -webkit-animation-name: rr-anim; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+    animation-name: rr-anim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
 
-      @include mq($until: mobileLandscape) {
-        height: 220px;
-      }
 
-    .video,
-    img {
-      position: absolute;
-      top: 0;
-      left: 0px;
-
-        @include mq($until: leftCol) {
-          top: 0;
-          left: -100px;
-        }
-        @include mq($until: desktop) {
-          top: 0;
-          left: -100px;
-        }
-
-        @include mq($until: phablet) {
-          top: 0;
-          left: -220px;
-        }
-
-        @include mq($until: mobileLandscape) {
-          top: 0;
-          left: -250px;
-        }
-    }
-      .video {
-      z-index: 2;
-      }
-  }
-
-  .wisdom-header {
-    background: url('@@assetPath@@/wisdom-text-min.png') no-repeat 10px 10px;
-    width: 100%;
-    position: absolute;
-    z-index: 100;
-    height: 260px;
-    top: 0;
-    display: block;
-
-    @include mq($until: desktop) {
-      background-position: 10px 10px;
-      background-size: 50%;
-    }
-    @include mq($until: phablet) {
-      background-position: 10px 10px;
-      background-size: 60%;
+    @include mq($until: mobile) {
+      background-position: -50px -50px;
+      background-size: 80%;
     }
     @include mq($until: mobileLandscape) {
-      background-position: 5px 8px;
+      background-position: -50px -50px;
       background-size: 80%;
+      height: 200px;
     }
-    @include mq($until: mobile) {
-      background-position: 5px 8px;
-      background-size: 80%;
+
+    img {
+      height: 100%;
+      width: auto;
     }
+
+    // .video,
+    // img {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0px;
+    //
+    //     @include mq($until: leftCol) {
+    //       top: 0;
+    //       left: 0px;
+    //     }
+    //     @include mq($until: desktop) {
+    //       top: 0;
+    //       left: 0px;
+    //     }
+    //
+    //     @include mq($until: phablet) {
+    //       top: 0;
+    //       left: 0px;
+    //     }
+    //
+    //     @include mq($until: mobileLandscape) {
+    //       top: 0;
+    //       left: 0px;
+    //     background-size: 80%;
+    //     }
+    //}
+      // .video {
+      // z-index: 2;
+      // }
   }
 
-  .u-faux-block-link .fc-item & .wisdom-button {
+  // .renewable-roadshow-header {
+  //   background: url('@@assetPath@@/logo.png') no-repeat 10px 10px;
+  //   width: 100%;
+  //   position: absolute;
+  //   z-index: 100;
+  //   height: 260px;
+  //   top: 0;
+  //   display: block;
+  //
+  //   @include mq($until: desktop) {
+  //     background-position: 10px 10px;
+  //     background-size: 50%;
+  //   }
+  //   @include mq($until: phablet) {
+  //     background-position: 10px 10px;
+  //     background-size: 60%;
+  //   }
+  //   @include mq($until: mobileLandscape) {
+  //     background-position: 5px 8px;
+  //     background-size: 80%;
+  //   }
+  //   @include mq($until: mobile) {
+  //     background-position: 5px 8px;
+  //     background-size: 80%;
+  //   }
+  // }
+
+  .u-faux-block-link .fc-item & .renewables-roadshow-button {
     z-index: 230;
     position: absolute;
     bottom: 20px;
     right: 8px;
-    background-color: #00578a;
+    background-color: #1c6326;
     border: none;
     height: 30px;
     line-height: 32px;
@@ -117,6 +160,7 @@ $mq-breakpoints: (
     font-weight: bold;
     line-height: 20px;
     margin: 0;
+    color: #FFFFFF;
 
     // h3 {
     //   font-size: 20px;
@@ -154,7 +198,7 @@ $mq-breakpoints: (
 
   }
 
-  .wisdom-g-logo {
+  .g-logo {
     position: absolute;
     top: 8px;
     right: 8px;
