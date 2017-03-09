@@ -45,15 +45,15 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
     }
     &--title {
         border-right: solid 20px #f5f5f5;
-        height: 40px;
+        height: 45px;
         background-color: #FF5B3A;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         h3 {
             color: #161616;
-            font-size: 20px;
+            font-size: 25px;
             margin-left: 20px;
-            padding-top: 5px;
+            padding-top: 10px;
             font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
             font-weight: 600;
         }
@@ -63,7 +63,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         height: 100px;
         margin-left: 20px;
         background-color: #dcdcdc;
-        background-image: url('@@assetPath@@/header-bg.png');
+        background-image: url('@@assetPath@@/header-bg2.png');
         background-size: cover;
         background-position-y: -13px;
         -webkit-clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 65%);
@@ -85,18 +85,30 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         &__main {
             font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
             color: #dcdcdc;
-            font-size: 18px;
-            line-height: 24px;
-            padding: 60px 20px 0px;
+            font-size: 25px;
+            line-height: 28px;
+            padding: 45px 100px 0px;
             width: 600px;
-            font-weight: 100;
+            margin-bottom: 0;
+            font-weight: 800;
             @include mq($until: desktop) {
-                font-size: 14px;
-                line-height: 20px;
+                // font-size: 14px;
+                // line-height: 20px;
             }
             span {
-                font-weight: 800;
+                margin-left: -80px;
+                display: block;
+                color: #FF5B3A;
             }
+        }
+        &__trail {
+            font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+            color: #757575;
+            font-size: 18px;
+            line-height: 22px;
+            padding: 0px 100px 0px;
+            width: 470px;
+            font-weight: 400;
         }
         &__CTA {
             display: inline-block;
