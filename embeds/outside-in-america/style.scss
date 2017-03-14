@@ -1,0 +1,191 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-black: #333333;
+$c-blue: #214583;
+$c-red: #cc2b12;
+$c-white: #ffffff;
+
+@include base(outside-in-america, darken($c-white, 4%));
+
+.outside-in-america__wrapper {
+    position: relative;
+    overflow: initial;
+
+    @include mq(tablet) {
+        overflow: hidden;
+    }
+}
+
+.outside-in-america__background {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    height: 33vw;
+
+    @include mq(tablet) {
+        margin-left: 190px;
+        height: 185px;
+        width: auto;
+        position: relative;
+    }
+
+    @include mq(desktop) {
+        height: 246px;
+        margin-left: 250px;
+    }
+
+    @include mq(leftCol) {
+        height: 323px;
+        margin-left: 180px;
+    }
+
+    @include mq(wide) {
+        height: 350px;
+        margin-left: 260px;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    },
+    30% {
+        opacity: 1;
+    }
+    35%, 95% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.outside-in-america__image {
+    position: absolute;
+    width: calc(100% + 20px);
+    opacity: 0;
+    animation: fade 18s ease-out infinite;
+
+    @include mq(tablet) {
+        width: 100%;
+    }
+}
+
+.outside-in-america__image--1 {
+    animation-delay: -6s;
+}
+
+.outside-in-america__image--2 {
+    animation-delay: -12s;
+}
+
+.outside-in-america__image--3 {
+    animation-delay: -18s;
+}
+
+.outside-in-america__content {
+    position: relative;
+    background-color: darken($c-white, 4%);
+    color: $c-black;
+    min-height: 72px;
+
+    @include mq(tablet) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 190px;
+        height: 100%;
+    }
+
+    @include mq(desktop) {
+        width: 250px;
+    }
+
+    @include mq(leftCol) {
+        width: 180px;
+    }
+
+    @include mq(wide) {
+        width: 260px;
+    }
+}
+
+.outside-in-america__description {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 4px 0 12px;
+    margin-left: 146px;
+
+    @include mq(mobileLandscape) {
+        margin-left: 196px;
+        margin-right: 10px;
+        max-width: 270px;
+    }
+
+    @include mq(tablet) {
+        margin-left: 20px;
+        color: $c-red;
+    }
+
+    @include mq(desktop) {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+.outside-in-america__logo {
+    position: absolute;
+    width: 140px;
+    top: -41px;
+
+    @include mq(mobileLandscape) {
+        top: -55px;
+        left: 10px;
+        width: 180px;
+    }
+
+    @include mq(tablet) {
+        right: -50px;
+        bottom: 12px;
+        top: auto;
+        left: auto;
+    }
+
+    @include mq(desktop) {
+        width: 200px;
+        right: -56px;
+    }
+}
+
+// Page bits
+#outside-in-america.fc-container--thrasher {
+    padding-top: 0px;
+    margin-bottom: 0px;
+
+    .fc-container__inner {
+        border-top: 0 !important;
+    }
+}
+
+#outside-in-america + .fc-container .fc-container__inner {
+    border-top: 0 !important;
+}
+
+.fc-container .fc-container__inner {
+    border-top: 3px $c-red solid;
+}
+
+.fc-container__header__title {
+    color: $c-blue;
+}

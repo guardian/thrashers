@@ -56,6 +56,14 @@ $mq-breakpoints: (
     margin: 0;
     padding: 0 20px;
   }
+  @include mq(wide) {
+    .has-page-skin & {
+      width: auto;
+      max-width: none;
+      margin: 0 20px;
+      padding: 0;
+    }
+  }
   .header {
     position: relative;
     padding-right: 45px;
@@ -76,9 +84,6 @@ $mq-breakpoints: (
       position: absolute;
       top: 4px;
       right: 0px;
-      svg {
-
-      }
     }
     @include mq(leftCol) {
       position: absolute;
@@ -101,6 +106,28 @@ $mq-breakpoints: (
       &__logo {
         transform: scale(2.2);
       }
+      .has-page-skin & {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        padding: 0;
+        &__logo {
+          position: absolute;
+          top: 4px;
+          right: 0px;
+          left: auto;
+          transform: none;
+        }
+        &__title {
+          display: block;
+        }
+        &__description {
+          width: auto;
+        }
+      }
     }
   }
 
@@ -114,6 +141,10 @@ $mq-breakpoints: (
     @include mq(wide) {
       margin-left: 240px;
       width: 942px;
+      .has-page-skin & {
+        width: 100%;
+        margin-left: 0;
+      }
     }
     &__main {
       width: 100%;
@@ -135,7 +166,7 @@ $mq-breakpoints: (
           }
         }
       }
-      @include mq(tablet) {
+      @include mq(desktop) {
         .card {
           &.single,
           &.double {

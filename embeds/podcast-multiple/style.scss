@@ -1,0 +1,786 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@mixin overflow-visible($container-name) {
+  ##{$container-name} {
+    &.fc-container--thrasher,
+    .fc-container__inner,
+    .fc-slice,
+    .facia-snap {
+      overflow: visible;
+      // overflow-y: visible !important;
+      // overflow-x: hidden !important;
+    }
+  }
+}
+@include overflow-visible(rio-2016);
+#rio-2016 {
+  padding-top: 0;
+  .tone-media--item {
+    background-color: #E8E8E8;
+  }
+  .fc-trail__count.fc-trail__count--commentcount {
+    display: none;
+  }
+}
+
+#rio-2016-header-inner {
+  // position: relative;
+  height: 200px;
+  @include mq($until: desktop) {
+    height: 160px;
+  }
+  @include mq($until: phablet) {
+    height: 120px;
+  }
+  @include mq($until: mobileLandscape) {
+    height: 100px;
+  }
+  // width: 100%;
+  .rio-2016-logo {
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 154px;
+    height: 87px;
+    padding: 16px 8px;
+    background-color: #E8E8E8;
+    @include mq($until: desktop) {
+      transform: scale(0.8);
+      transform-origin: top left;
+    }
+    @include mq($until: phablet) {
+      transform: scale(0.7);
+    }
+    @include mq($until: mobileLandscape) {
+      transform: scale(0.55);
+      padding: 12px 6px;
+    }
+    svg {
+      margin-top: 1px;
+      margin-left: 2px;
+      width: 137px;
+      height: 60px;
+    }
+    h1 {
+      position: absolute;
+      top: 70px;
+      left: 61px;
+      color: #000;
+      font-size: 32px;
+      letter-spacing: -1px;
+      font-family: $f-sans-serif-headline;
+      // font-family: "Guardian Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      // font-family: "Guardian Sans Headline","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+      font-weight: 300;
+      white-space: nowrap;
+    }
+  }
+  .diamond-pattern {
+    position: absolute;
+    z-index: -1;
+    top: 25px;
+    left: 208px;
+    transform: translateX(-940px);
+    @include mq($until: desktop) {
+    // @include mq($until: phablet) {
+      display: none;
+    }
+    .tagline {
+      position: absolute;
+      top: 7px;
+      right: -5px;
+      line-height: 47px;
+      transform: translateX(100%);
+      font-family: $f-sans-serif-headline;
+      font-weight: 400;
+      font-size: 18px;
+      &__live-coverage {
+        color: #EE3C57;
+      }
+      &__daily-briefing {
+        color: #1E9644;
+      }
+      &__commentary {
+        color: #0690C9;
+      }
+    }
+  }
+
+  .version {
+    display: none;
+    &.default {
+      display: block;
+    }
+  }
+
+  .swimming {
+    &__pool {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      left: 400px;
+      width: 1800px;
+      @include mq($until: wide) {
+        left: 363px;
+      }
+      @include mq($until: leftCol) {
+        left: 337px;
+      }
+      @include mq($until: desktop) {
+        left: 207px;
+      }
+      @include mq($until: phablet) {
+        left: 166px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 32%;
+      }
+      svg {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    &__phelps {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 30;
+      img {
+        width: 346px;
+        height: 211px;
+        position: absolute;
+        right: -1px;
+        top: -6px;
+        @include mq($until: desktop) {
+          right: -40px;
+          transform: scale(0.8);
+          transform-origin: top right;
+        }
+        @include mq($until: phablet) {
+          transform: scale(0.6);
+          top: 0;
+        }
+      }
+    }
+    &__stand {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      top: 0;
+      svg {
+        position: absolute;
+        top: -310px;
+        right: -620px;
+        @include mq($until: desktop) {
+          right: -700px;
+        }
+        @include mq($until: phablet) {
+          right: -760px;
+        }
+      }
+    }
+  }
+
+  .pingpong {
+    &__redband {
+      z-index: 30;
+      position: absolute;
+      top: 0;
+      left: 300px;
+      width: 1000px;
+      @include mq($until: desktop) {
+        left: 130px;
+      }
+      @include mq($until: phablet) {
+        left: 110px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 28%;
+      }
+      svg {
+        height: 627px;
+        width: 900px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__blueband {
+      z-index: 50;
+      position: absolute;
+      top: 0;
+      left: 440px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: 270px;
+      }
+      @include mq($until: phablet) {
+        left: 250px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 52%;
+      }
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__yellowband {
+      z-index: 20;
+      position: absolute;
+      top: 0;
+      left: 580px;
+      width: 1800px;
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__blackband {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      left: 720px;
+      width: 1800px;
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__malong {
+      z-index: 40;
+      position: absolute;
+      left: 492px;
+      top: -8px;
+      height: 100%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      @include mq($until: desktop) {
+        left: 316px;
+        top: -24px;
+        img {
+          transform: scale(0.8);
+        }
+      }
+      @include mq($until: phablet) {
+        left: 284px;
+        top: -44px;
+        img {
+          transform: scale(0.6);
+        }
+      }
+      @include mq($until: mobileLandscape) {
+        left: 60%;
+        top: -52px;
+        img {
+          transform: scale(0.5);
+        }
+      }
+    }
+    &__ball {
+        z-index: 60;
+        position: absolute;
+        left: 600px;
+        top: 80px;
+        height: 100%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        transform: scale(0.4);
+        width: 48px;
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        @include mq($until: desktop) {
+        top: 60px;
+        left: 400px;
+        img {
+          width: 100%;
+          display: block;
+          height: auto;
+          transform: scale(0.8);
+        }
+        @include mq($until: phablet) {
+          left: 340px;
+          top: 48px;
+          img {
+            transform: scale(0.6);
+          }
+        }
+       @include mq($until: mobileLandscape) {
+        left: 65%;
+        top: 40px;
+          img {
+            transform: scale(0.5);
+          }
+        }
+      }
+    }
+
+    @keyframes bounce{
+      0%{
+        width: 40px;
+        left: 364px;
+        top: 16px;
+        display: block;
+        opacity: 1;
+      }
+      25%{
+        width: 300px;
+        top: 30px;
+      }
+      50%{
+        width: 40px;
+        left: 1100px;
+        top: 16px;
+        display: block;
+        opacity: 1;
+      }
+      65%{
+        width: 200px;
+        left: 1300px;
+        top: 40px;
+      }
+      80%{
+        width: 40px;
+        left: 1600px;
+        top: 12px;
+        display: none;
+        opacity: 0;
+      }
+      100%{
+        width: 120px;
+        left: 2400px;
+        top: 20px;
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+
+  .cycling {
+    &__greyband {
+      z-index: -10;
+      position: absolute;
+      top: 0;
+      left: -400px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: -616px;
+      }
+      @include mq($until: phablet) {
+        left: -700px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: -196%;
+      }
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__yellowband {
+      z-index: -15;
+      position: absolute;
+      top: 0;
+      left: 0px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: -360px;
+      }
+      @include mq($until: phablet) {
+        left: -520px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: -160%;
+      }
+
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__blueband {
+      z-index: -25;
+      position: absolute;
+      top: 0;
+      left: 600px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: 360px;
+      }
+      @include mq($until: phablet) {
+        left: 240px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 32%;
+      }
+      svg {
+        height: 1394px;
+        width: 2000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__greyband__2 {
+      z-index: -20;
+      position: absolute;
+      top: 0;
+      left: 200px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: -100px;
+      }
+      @include mq($until: phablet) {
+        left: -320px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: -144%;
+      }
+      svg {
+        height: 697px;
+        width: 1000px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+      }
+    }
+    &__redline {
+      z-index: -5;
+      position: absolute;
+      top: 0;
+      left: 224px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: 0px;
+      }
+      @include mq($until: phablet) {
+        left: 120px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 12%;
+      }
+      svg {
+        height: 697px;
+        width: 500px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+        @include mq($until: phablet) {
+          width: 250px;
+          height: 344px;
+        }
+      }
+    }
+    &__greenline {
+      z-index: -5;
+      position: absolute;
+      top: 0;
+      left: 424px;
+      width: 1800px;
+      @include mq($until: desktop) {
+        left: 100px;
+      }
+      @include mq($until: phablet) {
+        left: 200px;
+      }
+      @include mq($until: mobileLandscape) {
+        left: 30%;
+      }
+
+      svg {
+        height: 697px;
+        width: 500px;
+        position: absolute;
+        top: 100%;
+        transform: translateY(-50%);
+        @include mq($until: phablet) {
+          width: 250px;
+          height: 344px;
+        }
+      }
+    }
+    &__cyclist {
+      z-index: 20;
+      position: absolute;
+      left:800px;
+      height: 100%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      img {
+        margin-top: 20px;
+      }
+      @include mq($until: desktop) {
+        left: 526px;
+        img {
+          margin-top: -20px;
+          transform: scale(0.8);
+        }
+      }
+      @include mq($until: phablet) {
+        left: 424px;
+        img {
+          margin-top: -40px;
+          transform: scale(0.6);
+        }
+      }
+      @include mq($until: mobileLandscape) {
+        left: 80%;
+        img {
+          margin-top: -60px;
+          transform: scale(0.5);
+        }
+      }
+    }
+  }
+
+
+  .boxing {
+    &__bands {
+      height: 200px;
+      width: 100%;
+      left: 50%;
+      overflow-y: hidden;
+      overflow-x: visible;
+      position: absolute;
+      z-index: -3;
+      svg {
+        position: absolute;
+        top: 50%;
+        width: 1601px;
+        height: 652px;
+        transform: translateY(-50%);
+        left: 0;
+        margin-left: -800px;
+      }
+    }
+    &__boxer {
+      position: absolute;
+      left: 35%;
+      width: 360px;
+      overflow: hidden;
+      height: 200px;
+      img {
+        width: 100%;
+        height: auto;
+        transform: rotate(-5deg);
+      }
+      @include mq($until: desktop) {
+        left: 30%;
+      }
+    }
+    &__bands,
+    &__boxer {
+      @include mq($until: desktop) {
+        transform: scale(0.8);
+        transform-origin: top left;
+      }
+      @include mq($until: phablet) {
+        transform: scale(0.6);
+      }
+      @include mq($until: mobileLandscape) {
+        transform: scale(0.5);
+      }
+    }
+  }
+
+
+  .running {
+    &__track {
+      height: 200px;
+      width: 500%; // Joshua’s hack
+      left: 30%;
+      overflow-y: hidden;
+      overflow-x: visible;
+      position: absolute;
+      z-index: -3;
+      svg {
+        position: absolute;
+        top: 50%;
+        width: 2159px;
+        height: 873px;
+        transform: translateY(-35%);
+        left: 0;
+      }
+      @include mq($until: desktop) {
+        left: 21%;
+      }
+    }
+    &__bolt {
+      position: absolute;
+      left: 31%;
+      width: 283px;
+      overflow: hidden;
+      height: 200px;
+      pointer-events: none;
+      img {
+        margin-top: 1.5%;
+        width: 100%;
+        height: auto;
+        transform: rotate(-5deg);
+      }
+      @include mq($until: desktop) {
+        left: 23%;
+      }
+    }
+    &__track,
+    &__bolt {
+      @include mq($until: desktop) {
+        transform: scale(0.8);
+        transform-origin: top left;
+      }
+      @include mq($until: phablet) {
+        transform: scale(0.6);
+      }
+      @include mq($until: mobileLandscape) {
+        transform: scale(0.5);
+      }
+    }
+  }
+
+  .dont-overflow {
+    overflow: hidden;
+    height: 100%;
+  }
+  .back {
+    z-index: -30;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    background-color: #E8E8E8;
+  }
+
+  &.easter {
+    .pingpong__ball {
+      @include mq($from: desktop) {
+        animation-name: bounce;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+    }
+  }
+
+
+  &[data-day] {
+    .default {
+      display: none;
+    }
+
+    &[data-day='1'] .running,
+    &[data-day='2'] .running {
+      display: block;
+    }
+
+    &[data-day='3'] .swimming,
+    &[data-day='4'] .swimming,
+    &[data-day='5'] .swimming,
+    &[data-day='6'] .swimming,
+    &[data-day='7'] .swimming,
+    &[data-day='8'] .swimming {
+      display: block;
+    }
+    &[data-day='9'] .pingpong,
+    &[data-day='10'] .pingpong,
+    &[data-day='11'] .pingpong,
+    &[data-day='12'] .pingpong {
+      display: block;
+    }
+    &[data-day='13'] .cycling,
+    &[data-day='14'] .cycling,
+    &[data-day='15'] .cycling {
+      display: block;
+    }
+    &[data-day='16'] .pingpong,
+    &[data-day='17'] .boxing,
+    &[data-day='18'] .boxing {
+      display: block;
+    }
+    &[data-day='19'] .running,
+    &[data-day='20'] .running,
+    &[data-day='21'] .running {
+      display: block;
+    }
+
+    // olympics end 21/08
+
+    &[data-day='22'] .running,
+    &[data-day='23'] .running {
+      display: block;
+    }
+
+    &[data-day='24'] .swimming,
+    &[data-day='23'] .swimming {
+      display: block;
+    }
+    &[data-day='25'] .pingpong,
+    &[data-day='26'] .pingpong {
+      display: block;
+    }
+    &[data-day='27'] .cycling,
+    &[data-day='28'] .cycling {
+      display: block;
+    }
+    &[data-day='29'] .boxing,
+    &[data-day='30'] .boxing,
+    &[data-day='31'] .boxing {
+      display: block;
+    }
+  }
+
+
+}
+
+
+
+
+
+
+
+// @font-face{
+// 	font-family:"Guardian Sans Headline";
+// 	src:url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian Sans Web-Light.eot');
+// 	src:url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.eot?#iefix') format('embedded-opentype'),
+// 		url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.woff') format('woff'),
+// 		url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.ttf') format('truetype'),
+// 		url('http://s3.amazonaws.com/gdn-cdn/fonts/ascii/Guardian+Sans+Web-Light.svg#Guardian+Sans+Web-Light') format('svg');
+// 	font-weight:200;font-style:normal;font-stretch:normal;
+// }

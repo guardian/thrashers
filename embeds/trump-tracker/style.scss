@@ -1,0 +1,185 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-red: #b51800;
+$c-blue: #1e3f74;
+
+#the-first-100-days-of-trump {
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.fc-container--trumped {
+    padding-bottom: 0 !important;
+}
+
+.fc-container__inner--no-treats .treats__container {
+    display: none;
+}
+
+.supertreat {
+    position: relative;
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    margin-top: -18px;
+
+    @include mq(mobileLandscape) {
+        min-height: 130px;
+        max-width: 440px;
+    }
+
+    @include mq(desktop) {
+        width: 460px;
+        min-height: none;
+    }
+
+    @include mq(leftCol) {
+        position: absolute;
+        width: 140px;
+        bottom: 1.5rem;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
+}
+
+.supertreat--numberOfTweets {
+    @include mq($until: mobileLandscape) {
+        min-height: 260px;
+    }
+
+    @include mq(leftCol) {
+        min-height: 310px;
+    }
+
+    @include mq(wide) {
+        min-height: 230px;
+    }
+}
+
+.supertreat--nightsAtWhiteHouse {
+    @include mq(leftCol) {
+        min-height: 270px;
+    }
+}
+
+.supertreat__logo {
+    display: block;
+    margin-bottom: 8px;
+    max-width: 168px;
+
+    @include mq(leftCol) {
+        max-width: 180px;
+    }
+}
+
+.supertreat__button {
+    border: 1px solid $c-red;
+    border-radius: 16px;
+    padding: 2px 27px 0px 8px;
+    font-size: 14px;
+    font-family: 'Guardian Sans Web';
+    color: $c-red;
+    background-image: url('@@assetPath@@/arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    display: inline-block;
+
+    a:hover & {
+        border-color: $c-blue;
+        color: $c-blue;
+    }
+}
+
+.supertreat__stat {
+    margin-top: 12px;
+    font-size: 20px;
+    line-height: 1.2;
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    font-weight: 900;
+    color: $c-blue;
+}
+
+.supertreat__number {
+    font-size: 64px;
+    line-height: 1;
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    font-weight: 900;
+    color: $c-blue;
+
+    @include mq(leftCol) {
+        margin-bottom: 24px;
+    }
+
+    @include mq(wide) {
+        margin-bottom: 0;
+    }
+}
+
+.supertreat__content {
+    width: 180px;
+
+    @include mq(mobileLandscape, leftCol) {
+        position: absolute;
+        left: 180px;
+        top: -12px;
+    }
+
+    @include mq(leftCol) {
+        max-width: 140px;
+    }
+}
+
+.supertreat__stat-image {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+
+    @include mq(mobileLandscape) {
+        width: auto;
+        max-height: 120px;
+    }
+
+    @include mq(leftCol) {
+        position: absolute;
+        bottom: -24px;
+        right: 0;
+    }
+}
+
+.supertreat--obamaActions {
+    .supertreat__stat-image--obamaActions {
+        display: block;
+    }
+}
+
+.supertreat--nightsAtWhiteHouse {
+    .supertreat__stat-image--nightsAtWhiteHouse {
+        display: block;
+    }
+}
+
+.supertreat--numberOfTweets {
+    .supertreat__stat-image--numberOfTweets {
+        display: block;
+    }
+}
+
+.supertreat--metersOfWall {
+    .supertreat__stat-image--metersOfWall {
+        display: block;
+    }
+}
