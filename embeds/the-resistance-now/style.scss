@@ -17,6 +17,36 @@ $c-white: #fff;
 
 @include base(the-resistance-now, $c-red);
 
+#the-resistance-now {
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 350px;
+        width: 50%;
+    }
+
+    &:before {
+        background-color: $c-red;
+        left: 0;
+    }
+
+    &:after {
+        background-color: $c-black;
+        left: 50%;
+    }
+}
+
+#the-resistance-now.fc-container--thrasher, #the-resistance-now.fc-container--thrasher .fc-item {
+    background-color: transparent;
+}
+
 .the-resistance-now__wrapper {
     background-color: $c-white;
     position: relative;
@@ -87,6 +117,7 @@ $c-white: #fff;
 .the-resistance-now__logo {
     width: 100%;
     max-width: 130px;
+    margin-top: 6px;
 
     @include mq(mobileLandscape) {
         max-width: 250px;
