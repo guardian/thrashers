@@ -30,7 +30,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
 
 .blade-header {
     &--wrapper {
-        background-color: #161616;
+        background-color: #FF5B3A;
         padding: 0 20px;
         height: 330px;
         @include mq($until: desktop) {
@@ -89,7 +89,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
             padding-bottom: 30px;
         }
         h2 {
-            color: #DCDCDC;
+            color: #f4f4f4;
             font-weight: 600;
             font-size: 35px;
             line-height: 35px;
@@ -103,7 +103,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
                 line-height: 25px;
             }
             span {
-                color: #FF5B3A;
+                color: #161616;
             }
             &:nth-of-type(2) {
                 margin: 5px 0 10px 130px;
@@ -117,7 +117,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         }
         p {
             font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
-            color: #dcdcdc;
+            color: #161616;
             font-size: 16px;
             line-height: 22px;
             margin-bottom: 15px;
@@ -128,8 +128,8 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         }
         &__CTA {
             display: inline-block;
-            color: #FF5B3A;
-            border: 1px solid #FF5B3A;
+            color: #161616;
+            border: 1px solid #161616;
             border-radius: 25px;
             padding: 0px 3px 0px 13px;
             &:after {
@@ -170,7 +170,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
             text-decoration: none;
         }
         &__CTA p {
-            color: #FF5B3A;
+            color: #161616;
             display: inline-block;
             margin: 0;
             margin-top: 3px;
