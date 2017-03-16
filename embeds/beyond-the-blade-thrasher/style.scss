@@ -22,7 +22,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
             padding-right: 0px;
         }
     }
-    .beyond-the-blade-tharsher__wrapper {
+    .beyond-the-blade-thrasher__wrapper {
         width: 100%;
         background-color: #333;
     }
@@ -34,7 +34,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         padding: 0 20px;
         height: 350px;
         @include mq($until: desktop) {
-            height: 300px;
+            height: auto;
         }
         @include mq($until: tablet) {
             height: auto;
@@ -44,11 +44,11 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
             padding-right: 10px;
         }
         h3 {
-            color: #fff;
+            color: #f4f4f4;
             font-size: 20px;
             margin: 0;
             padding: 10px 0 0 10px;
-            border-left: solid 1px #fff;
+            border-left: solid 1px #f4f4f4;
             font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
             font-weight: 600;
         }
@@ -83,11 +83,11 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         }
         @include mq($until: desktop) {
             width: 460px;
+            padding-bottom: 20px;
+            margin: 10px 0px 0px;
         }
         @include mq($until: tablet) {
             width: 100%;
-            margin: 20px 0px 0px;
-            padding-bottom: 30px;
         }
         h2 {
             color: #DCDCDC;
@@ -118,7 +118,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         }
         p {
             font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
-            color: #7e7e7e;
+            color: #8E8E8E;
             font-size: 16px;
             line-height: 22px;
             margin-bottom: 15px;
@@ -129,8 +129,8 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
         }
         &__CTA {
             display: inline-block;
-            color: #FF5B3A;
             border: 1px solid #FF5B3A;
+            background-color: #FF5B3A;
             border-radius: 25px;
             padding: 0px 3px 0px 13px;
             &:after {
@@ -141,37 +141,22 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
                 float: right;
                 margin-top: -2px;
                 margin-left: 0px;
-                background-image: url('https://uploads.guim.co.uk/2017/03/06/arrow-red.svg');
+                background-image: url('https://uploads.guim.co.uk/2017/03/06/arrow-black.svg');
+                // background-image: url('https://uploads.guim.co.uk/2017/03/06/arrow-red.svg');
                 background-size: 50%;
                 background-position: center center;
                 background-repeat: no-repeat;
             }
             &:hover {
-                background-color: #FF5B3A;
-                & p {
-                    color: #161616;
-                }
-                &:after {
-                    height: 30px;
-                    width: 30px;
-                    content: '';
-                    display: block;
-                    float: right;
-                    margin-top: -2px;
-                    margin-left: 0px;
-                    background-image: url('https://uploads.guim.co.uk/2017/03/06/arrow-black.svg');
-                    background-size: 50%;
-                    background-position: center center;
-                    background-repeat: no-repeat;
-                }
+                background-color: #f4f4f4;
+                border: 1px solid #f4f4f4;
             }
-            &:hover p {}
         }
         a {
             text-decoration: none;
         }
         &__CTA p {
-            color: #FF5B3A;
+            color: #161616;
             display: inline-block;
             margin: 0;
             margin-top: 3px;
@@ -201,8 +186,12 @@ $animationBaseCount: 0.5;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     transform: translateY(336px);
-    // overflow: hidden;
-    margin-bottom: -54px;
+    @include mq(mobile) {
+        margin-bottom: -66px;
+    }
+    @include mq(desktop) {
+        margin-bottom: -54px;
+    }
     .int-header__count__number h5 {
         display: block;
         height: 112px;
@@ -297,24 +286,42 @@ $animationBaseCount: 0.5;
     font-size: 38px;
     line-height: 38px;
     font-weight: 900;
-    max-width: 580px;
+    @include mq(mobile) {
+        max-width: 400px;
+        font-size: 30px;
+        line-height: 35px;
+    }
+    @include mq(mobileLandscape) {
+        max-width: 500px
+    }
     @include mq(tablet) {
-     
-        @include mq(desktop) {
-            font-size: 35px;
-            line-height: 35px;
-        }
-        @include mq(leftCol) {
-            margin-left: 160px;
-        }
-        @include mq(wide) {
-            margin-left: 240px;
-            padding: 0;
-        }
+        max-width: 450px
+    }
+    @include mq(desktop) {
+        font-size: 32px;
+        line-height: 32px;
+    }
+    @include mq(leftCol) {
+        max-width: 580px;
+        font-size: 35px;
+        line-height: 35px;
+        margin-left: 160px;
+    }
+    @include mq(wide) {
+        margin-left: 240px;
+        padding: 0;
     }
     span.int-header__count__number {
         color: #ff5b3a;
-        font-size: 112px;
+        @include mq(mobile) {
+            font-size: 80px;
+        }
+        @include mq(desktop) {
+            font-size: 100px;
+        }
+        @include mq(leftCol) {
+            font-size: 112px;
+        }
         // @include mq($until: phablet) {
         //     font-size: 80px;
         // }
