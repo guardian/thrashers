@@ -32,6 +32,7 @@ $mq-breakpoints: (
     height: 190px;
     overflow: hidden;
     position: relative;
+    background-color: #212121;
 
     @include mq($from: tablet) {
       height: 208px;
@@ -66,9 +67,27 @@ $mq-breakpoints: (
     position: absolute;
     right: 20px;
     width: 50%;
+    z-index: 2000;
 
     @include mq($from: wide) {
       width: 46%;
+    }
+
+    &.desktop {
+      display: none;
+
+      @include mq($from: tablet) {
+        display: block;
+      }
+    }
+
+    &.mobile {
+      display: block;
+      right: 10px;
+
+      @include mq($from: tablet) {
+        display: none;
+      }
     }
 
     svg {
@@ -89,9 +108,11 @@ $mq-breakpoints: (
     position: absolute;
     bottom: 0px;
     left: 20px;
+    z-index: 2000;
+
     h1{
       font-weight: 900;
-      color:#9B0C55;
+      color: white;
       font-size: 18px;
       width: 130px;
       margin-left: -13px;
@@ -105,6 +126,30 @@ $mq-breakpoints: (
         margin-left: auto;
       }
     }
+
+    &.mobile {
+      display: block;
+      position: relative;
+
+      h1 {
+        width: 100%;
+        color: #951c55;
+        margin-top: 6px;
+        font-size: 20px;
+      }
+
+      @include mq($from: tablet) {
+        display: none;
+      }
+    }
+
+    &.desktop {
+      display: none;
+
+      @include mq($from: tablet) {
+        display: block;
+      }
+    }
   }
 
   &__links {
@@ -112,29 +157,112 @@ $mq-breakpoints: (
       list-style: none;
       margin: 0;
       padding: 0;
-      margin-top: 6px;
-      padding-bottom: 6px;
       overflow: hidden;
+      padding-bottom: 6px;
+      padding-left: 8px;
 
       @include mq($from: tablet) {
         margin-left: 20px;
       }
 
-      li{
+      li {
+        padding-top: 10px;
+        line-height: 11px;
+        @include mq($from: tablet) {
+          padding-top: 16px;
+        }
+      }
+
+      li:not(.recipe-header__label){
         float: left;
-        border: 1px solid #951c55;
-        border-radius: 20px;
-        padding: 4px 12px;
         color: #951c55;
         font-family: $f-sans-serif-text;
-        margin-right: 6px;
-        margin-bottom: 6px;
+        margin-right: 8px;
+        margin-bottom: 7px;
 
         &:hover {
-          background-color: #951c55;
-          color: white;
+          border-bottom: 1px solid #951c55;
+          margin-bottom: 6px;
+        }
+      }
+
+      li.recipe-header__label {
+        float: left;
+        font-family: $f-sans-serif-text;
+        margin-right: 10px;
+        color: #767676;
+        clear: left;
+
+        @include mq($from: tablet) {
+          border-left: 1px solid #d6d6d6;
+          clear: none;
+          padding-left: 4px;
+        }
+      }
+
+      li.recipe-header__last {
+        margin-right: 16px;
+        clear: right;
+
+        @include mq($from: tablet) {
+          clear: none;
+        }
+      }
+
+      li.recipe-header__cta {
+        color: #333;
+        font-weight: 900;
+        margin-right: 0px;
+        display: none;
+        @include mq($from: tablet) {
+          margin-left: 16px;
+          display: block;
+        }
+
+        @include mq($from: leftCol) {
+          margin-left: 0px;
+        }
+
+        @include mq($from: wide) {
+          margin-left: 16px;
+        }
+
+        &:hover {
+          border-bottom: 1px solid #333;
         }
       }
     }
   }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }

@@ -1,0 +1,266 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@include base(thank-you, #4bc6df);
+
+#thank-you.fc-container--thrasher, #thank-you.fc-container--thrasher .fc-item, .thank-you__wrapper {
+  background-color: #4bc6df;
+  transition: background-color 1s ease-in-out;
+
+  &.visible {
+    @include mq($from: desktop) {
+      animation-name:colour;
+      animation-duration:10s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      -webkit-animation-name:colour;
+      -webkit-animation-duration:10s;
+      -webkit-animation-fill-mode: forwards;
+      -webkit-animation-iteration-count: infinite;
+      -moz-animation-name:colour;
+      -moz-animation-duration:10s;
+      -moz-animation-fill-mode: forwards;
+      -moz-animation-iteration-count: infinite;
+    }
+  }
+
+  .visible & {
+    @include mq($from: desktop) {
+      animation-name:colour;
+      animation-duration:10s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      -webkit-animation-name:colour;
+      -webkit-animation-duration:10s;
+      -webkit-animation-fill-mode: forwards;
+      -webkit-animation-iteration-count: infinite;
+      -moz-animation-name:colour;
+      -moz-animation-duration:10s;
+      -moz-animation-fill-mode: forwards;
+      -moz-animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes colour {
+  0% {
+    background-color: #4bc6df;
+  }
+  50% {
+    background-color: #ff5b3a;
+  }
+  100% {
+    background-color: #4bc6df;
+  }
+}
+
+a.thank-you-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: block;
+}
+
+.thank-you{
+  position: relative;
+
+  &:hover {
+    .thank-you-cta {
+      background-color: #005689;
+      color: white;
+
+      svg {
+        polygon {
+          fill: white;
+        }
+      }
+    }
+  }
+  @include mq($from: tablet) {
+    height: 200px;
+  }
+  @include mq($from: desktop){
+    height: 198px;
+  }
+  @include mq($from: leftCol){
+    height: 218px;
+  }
+  @include mq($from: wide){
+    height: 248px;
+  }
+
+  &-roundel, &-headline, &-copy, &-cta {
+    @include mq($from: tablet) {
+      position: absolute;
+    }
+  }
+
+  &-copy {
+    left: 10px;
+    @include mq($from: tablet) {
+      bottom:6px;
+    }
+    @include mq($from: desktop) {
+      top: 55px;
+    }
+    @include mq($from: leftCol) {
+      top: 55px;
+    }
+    @include mq($from: wide) {
+      top: 80px;
+    }
+    p {
+      color: white;
+      font-family: $f-serif-headline;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 24px;
+
+      @include mq($from: tablet) {
+        width: 390px;
+        font-size: 18px;
+        line-height: 20px;
+      }
+
+      @include mq($from: desktop) {
+        width: 200px;
+        font-size: 15px;
+        line-height: 18px;
+      }
+
+      @include mq($from: leftCol) {
+        width: 240px;
+        font-size: 18px;
+        line-height: 22px;
+      }
+      span {
+        color: #005689;
+      }
+    }
+  }
+
+  &-headline {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+
+    .inView & {
+      // transition: opacity 1s ease-in-out;
+      // animation-name:fadeIn;
+      // animation-duration: 1s;
+      // animation-fill-mode: forwards;
+      // animation-iteration-count: 1;
+      // -webkit-animation-name:fadeIn;
+      // -webkit-animation-duration: 1.5s;
+      // -webkit-animation-delay: 0.5s;
+      // -webkit-animation-fill-mode: forwards;
+      // -webkit-animation-iteration-count: 1;
+      // -moz-animation-name:fadeIn;
+      // -moz-animation-duration: 1.5s;
+      // -moz-animation-delay: 0.5s;
+      // -moz-animation-fill-mode: forwards;
+      // -moz-animation-iteration-count: 1;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    &.desktop{
+      display: none;
+      right: 10px;
+      top: 10px;
+      height: 280px;
+
+      @include mq($from: tablet) {
+        display: block;
+        width: 78%;
+      }
+
+      @include mq($from: leftCol) {
+        width: 76%;
+      }
+
+      @include mq($from: wide) {
+        width: 80%;
+      }
+    }
+    &.mobile{
+      display: block;
+      padding-top:12px;
+
+      @include mq($from: tablet){
+        padding-top: 0px;
+        display: none;
+      }
+    }
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &-roundel {
+    top: 6px;
+    position: absolute;
+    width: 28px;
+    right: 0px;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    @include mq($from: tablet){
+      width: 28px;
+      right: 20px;
+    }
+
+    @include mq($from: desktop){
+      width: 38px;
+    }
+  }
+
+  &-cta {
+    bottom: 12px;
+    border: 1px solid #005689;
+    border-radius: 18px;
+    padding: 5px 14px;
+    color: #005689;
+    font-family: $f-sans-serif-text;
+    font-size: 14px;
+    font-weight: 900;
+    right: 10px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    width: max-content;
+
+    @include mq($from: tablet) {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    svg {
+      width: 15px;
+      height: 13px;
+      margin-left: 2px;
+      margin-bottom: -2px;
+    }
+  }
+}
