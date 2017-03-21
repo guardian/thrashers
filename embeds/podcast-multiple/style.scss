@@ -15,12 +15,15 @@ $gs-gutter: 12px;
 @import 'shared/_imports';
 
 @include base(podcasthrasher, $c-background);
-.football-weekly__wrapper{
+.podcasthrasher {
 	width: 100%;
+}
+.fc-container--first {
+  padding-top: 0px;
 }
 
 section#podcasthrasher.fc-container--thrasher {
-  background-color: #333;
+  background-color: #161616;
   .fc-container__inner{
     overflow: visible;
 
@@ -50,9 +53,9 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
   .branding {
     position: absolute;
     top: 8px;
-    right: 22px;
-    width: 52px;
-    height: 33px;
+    right: 9px;
+    width: 44px;
+    height: 26px;
     svg {
       width: 100%;
       height: 100%;
@@ -66,7 +69,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
     position: absolute;
       &__one {
         @extend .bar;
-        top: 0px;
+        top: 8px;
         width: 216px;
         height: 50px;
           h1 {
@@ -75,7 +78,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       }
       &__two {
         @extend .bar;
-        top: 60px;
+        top: 66px;
         width: 310px;
           h1 {
             color: #CC2B12;
@@ -83,7 +86,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       }
       &__three {
         @extend .bar;
-        top: 120px;
+        top: 124px;
         width: 340px;
         height: 50px;
           h1 {
@@ -92,7 +95,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       }
       &__four {
         @extend .bar;
-        top: 180px;
+        top: 182px;
         width: 290px;
         height: 50px;
           h1 {
@@ -101,9 +104,41 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       }
 }
 
+.heading-spaced {
+  padding-left: 38px;
+}
+
+.bar {
+  svg {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  }
+}
+
+.bar__image--1 {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  height: 36px;
+  right: -63px;
+}
+.bar__two {
+    svg {
+    height: 60px;
+    right: 115px;
+    bottom: 14px;
+  }
+}
+.bar__three {
+  svg {
+  height: 100px;
+  right: -6px;
+  }
+}
+
   .cta {
-    width: 400px;
-    margin-left: 728px;
+    width: 302px;
     position: absolute;
     bottom: 26px;
     z-index: 300;
@@ -112,12 +147,6 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       font-size: 30px;
       line-height: 30px;
       display: block;
-
-      @include mq($from: tablet) {
-        right: 20px;
-        font-size: 44px;
-        line-height: 44px;
-      }
 
       @include mq($from: desktop) {
         font-size: 44px;
@@ -138,19 +167,19 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
     margin-left: 8px;
     margin-top: -2px;
     height: 26px;
-    line-height: 46px;
+    line-height: 30px;
     overflow: hidden;
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
+    width: 32px;
+    height: 32px;
     border: 1px solid currentColor;
     color: #FB0;
     .cta__arrow {
       position: absolute;
-      right: 10px;
-      top: 4px;
-      width: 22px;
-      height: 22px;
+      right: 8px;
+      top: -1px;
+      width: 16px;
+      height: 16px;
       svg {
         width: 100%;
         height: 100%;
@@ -166,69 +195,96 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
     }
   }
 
-  @include mq($until: wide) {
+  @include mq($from: tablet) {
+    min-height: 240px;
     .branding {
-      right: 20px;
+      right: 18px;
     }
     .cta {
-      margin-left: 170px;
+      padding-left: 0px;
+      right: 18px;
+      bottom: 58px;
     }
   }
 
-  @include mq($until: tablet) {
+  @include mq($from: desktop) {
     .branding {
-      right: 18px;
-      width: 35px;
-      height: 22px;
+      right: 16px;
+      width: 52px;
+      height: 32px;
+    }
+    .bar__one {
+      width: 232px;
+    }
+    .bar__image--1 {
+      height: 48px;
+      right: -102px;
+    }
+    .bar__two {
+      width: 320px;
+      svg {
+        height: 72px;
+        right: 91px;
+        bottom: 4px;
+      }
+    }
+    .bar__three {
+      svg {
+        height: 140px;
+        right: -170px;
+      }
+    }
+    .heading-spaced {
+      padding-left: 43px;
+    }
+    .cta {
+      right: 83px;
+      width: 400px;
+      bottom: 31px;
     }
     .cta_button {
-      width: 32px;
-      height: 32px;
-      line-height: 30px;
+      width: 44px;
+      height: 44px;
+      line-height: 46px;
       .cta__arrow {
-        width: 16px;
-        height: 16px;
-        right: 8px;
-        top: 0px;
+        width: 22px;
+        height: 22px;
+        right: 10px;
+        top: -3px;
       }
     }
   }
 
-  @include mq($until: desktop) {
-    min-height: 326px;
+  @include mq($from: wide) {
     .branding {
-      right: 16px;
-      width: 41px;
-      height: 26px;
+      right: 22px;
     }
-  }
-
-  @include mq($until: phablet) {
-    .branding {
-      top: 8px;
-      right: 9px;
-    }
-  }
-
-
-  @include mq($until: mobileLandscape) {
-
     .cta {
-      margin-left: 0px;
+      right: 163px;
     }
   }
-
-
-
 
   h1, h2 {
     @include fs-header(5);
-    font-size: 20px;
+    font-size: 18px;
     display: inline;
     padding-left: $gs-gutter / 2;
   }
 
+  @include mq($from: tablet) {
+    h1, h2 {
+    font-size: 22px;
+    }
+  }
+
+
+
+
+
+
+
 $size: 320px;
+
 
 // When $size is 40px, $max is 14px, $width is 4px, $margin is 1px
 
@@ -239,10 +295,8 @@ $color: #fb0;
 
 $equalizers: 1;
 $equalizerSize: ($equalizers * $height) + ( ($equalizers - 1) * $margin );
-$bottom: ( $size - $max ) / 2;
-$left: ( $size - $equalizerSize ) / 2;
 
-// Heights
+// Widths
 $two: $max / 7;
 $three: $max / 4.666666667;
 $four: $max / 3.5;
@@ -257,31 +311,66 @@ $twelve: $max / 1.166666667;
 $thirteen: $max / 1.076923077;
 $fourteen: $max;
 
-.equalizer {
+.equalizer--1 {
   position: absolute;
-  bottom: $bottom;
-  left: $left;
+  top: 8px;
+  left: 215px;
   display: block;
-  height: $height;
+  height: 50px;
+  background-color: $color;
+  width: $two;
+  @include mq($from: desktop) {
+    left: 231px;
+  }
+}
+
+.equalizer--2 {
+  position: absolute;
+  top: 66px;
+  left: 309px;
+  display: block;
+  height: 50px;
+  background-color: $color;
+  width: $two;
+  @include mq($from: desktop) {
+    left: 319px;
+  }
+}
+
+.equalizer--3 {
+  position: absolute;
+  top: 124px;
+  left: 339px;
+  display: block;
+  height: 50px;
   background-color: $color;
   width: $two;
 }
 
-.equalizer,
-.equalizer::before,
-.equalizer::after {
-  animation: equalize 1.25s steps(25, end) 0s infinite;
+.equalizer--4 {
+  position: absolute;
+  top: 182px;
+  left: 289px;
+  display: block;
+  height: 50px;
+  background-color: $color;
+  width: $ten;
 }
 
-.equalizer::before,
-.equalizer::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: $height + $margin;
-  width: $max;
-  height: $height;
-  background-color: $color;
+.equalizer--1, .equalizer--2, .equalizer--3, .equalizer--4 {
+  animation: equalize 2s steps(25, end) 0s infinite;
+}
+
+.equalizer--2 {
+  animation-name: equalize2;
+}
+
+.equalizer--3 {
+  animation-name: equalize3;
+}
+
+.equalizer--4 {
+  animation-name: equalize4;
 }
 
 @keyframes equalize {
@@ -365,17 +454,247 @@ $fourteen: $max;
   }
 }
 
-.center-me {
-  position: absolute;
-  top: 0px;
-  left: 300px;
-  margin-top: -184px;
-  margin-left: -228px;
-  height: $size;
-  width: $size;
+@keyframes equalize2 {
+  0% {
+    width: $twelve;
+  }
+  4% {
+    width: $thirteen;
+  }
+  8% {
+    width: $twelve;
+  }
+  12% {
+    width: $twelve;
+  }
+  16% {
+    width: $eleven;
+  }
+  20% {
+    width: $eleven;
+  }
+  24% {
+    width: $eleven;
+  }
+  28% {
+    width: $twelve;
+  }
+  32% {
+    width: $twelve;
+  }
+  36% {
+    width: $thirteen;
+  }
+  40% {
+    width: $thirteen;
+  }
+  44% {
+    width: $thirteen;
+  }
+  48% {
+    width: $eleven;
+  }
+  52% {
+    width: $eight;
+  }
+  56% {
+    width: $six;
+  }
+  60% {
+    width: $eight;
+  }
+  64% {
+    width: $ten;
+  }
+  68% {
+    width: $eleven;
+  }
+  72% {
+    width: $thirteen;
+  }
+  76% {
+    width: $twelve;
+  }
+  80% {
+    width: $twelve;
+  }
+  84% {
+    width: $eleven;
+  }
+  88% {
+    width: $eleven;
+  }
+  92% {
+    width: $nine;
+  }
+  96% {
+    width: $eleven;
+  }
+  100% {
+    width: $twelve;
+  }
+}
 
-  &:hover {
-    background-color: white;
+
+@keyframes equalize3 {
+  0% {
+    width: $nine;
+  }
+  4% {
+    width: $seven;
+  }
+  8% {
+    width: $nine;
+  }
+  12% {
+    width: $eleven;
+  }
+  16% {
+    width: $thirteen;
+  }
+  20% {
+    width: $twelve
+  }
+  24% {
+    width: $fourteen;
+  }
+  28% {
+    width: $eleven;
+  }
+  32% {
+    width: $nine;
+  }
+  36% {
+    width: $eight;
+  }
+  40% {
+    width: $seven;
+  }
+  44% {
+    width: $five;
+  }
+  48% {
+    width: $eight;
+  }
+  52% {
+    width: $ten;
+  }
+  56% {
+    width: $eleven;
+  }
+  60% {
+    width: $thirteen;
+  }
+  64% {
+    width: $twelve;
+  }
+  68% {
+    width: $eleven;
+  }
+  72% {
+    width: $eleven;
+  }
+  76% {
+    width: $ten;
+  }
+  80% {
+    width: $twelve;
+  }
+  84% {
+    width: $thirteen;
+  }
+  88% {
+    width: $fourteen;
+  }
+  92% {
+    width: $twelve;
+  }
+  96% {
+    width: $ten;
+  }
+  100% {
+    width: $nine;
+  }
+}
+
+@keyframes equalize4 {
+  0% {
+    width: $two;
+  }
+  4% {
+    width: $three;
+  }
+  8% {
+    width: $two;
+  }
+  12% {
+    width: $five;
+  }
+  16% {
+    width: $eight;
+  }
+  20% {
+    width: $eleven;
+  }
+  24% {
+    width: $ten;
+  }
+  28% {
+    width: $nine;
+  }
+  32% {
+    width: $nine;
+  }
+  36% {
+    width: $seven;
+  }
+  40% {
+    width: $eight;
+  }
+  44% {
+    width: $eight;
+  }
+  48% {
+    width: $nine;
+  }
+  52% {
+    width: $eleven;
+  }
+  56% {
+    width: $eleven;
+  }
+  60% {
+    width: $ten;
+  }
+  64% {
+    width: $ten;
+  }
+  68% {
+    width: $nine;
+  }
+  72% {
+    width: $eight;
+  }
+  76% {
+    width: $nine;
+  }
+  80% {
+    width: $ten;
+  }
+  84% {
+    width: $ten;
+  }
+  88% {
+    width: $eleven;
+  }
+  92% {
+    width: $eight;
+  }
+  96% {
+    width: $five;
+  }
+  100% {
+    width: $two;
   }
 }
 
