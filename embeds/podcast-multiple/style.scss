@@ -1,6 +1,7 @@
 // Default breakpoints from Frontend
 $mq-breakpoints: (
     mobile:          320px,
+    mobileMedium:    375px,
     mobileLandscape: 480px,
     phablet:         660px,
     tablet:          740px,
@@ -41,15 +42,50 @@ section#podcasthrasher.fc-container--thrasher {
 }
 
 
-section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
-  display: none !important;
-}
-
 
 #podcast-thrasher {
   background-color: #333;
-  width: auto;
+  width: 100%;
   min-height: 326px;
+  position: relative;
+  @include mq($from: mobileMedium) {
+    min-width: 375px;
+  }
+  @include mq($from: mobileLandscape) {
+    min-width: 480px;
+  }
+  @include mq($from: phablet) {
+    min-width: 660px;
+  }
+  @include mq($from: tablet) {
+    min-width: 740px;
+  }
+  @include mq($from: desktop) {
+    min-width: 980px;
+  }
+  @include mq($from: leftCol) {
+    min-width: 1140px;
+  }
+  @include mq($from: wide) {
+    min-width: 1300px;
+  }
+
+
+  &:hover {
+    .cta {
+      .cta__heading{
+        .cta_button {
+          background-color: #fb0;
+          color: #444;
+          text-decoration: none;
+          #right-arrow {
+            fill: #444;
+          }
+        }
+      }
+    }
+  }
+
   .branding {
     position: absolute;
     top: 8px;
@@ -70,7 +106,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       &__one {
         @extend .bar;
         top: 8px;
-        width: 216px;
+        width: 264px;
         height: 50px;
           h1 {
             color: #1D87BC;
@@ -79,7 +115,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       &__two {
         @extend .bar;
         top: 66px;
-        width: 310px;
+        width: 264px;
           h1 {
             color: #CC2B12;
           }
@@ -87,7 +123,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       &__three {
         @extend .bar;
         top: 124px;
-        width: 340px;
+        width: 264px;
         height: 50px;
           h1 {
             color: #333333;
@@ -96,7 +132,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       &__four {
         @extend .bar;
         top: 182px;
-        width: 290px;
+        width: 264px;
         height: 50px;
           h1 {
             color: #005689;
@@ -121,22 +157,29 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
   z-index: 1;
   bottom: 0px;
   height: 36px;
-  right: -63px;
+  right: 4px;
 }
 .bar__two {
     svg {
     height: 60px;
-    right: 115px;
+    right: 68px;
     bottom: 14px;
   }
 }
 .bar__three {
   svg {
   height: 100px;
-  right: -6px;
+  right: -88px;
   }
 }
-
+.podcast-multiple-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+}
   .cta {
     width: 302px;
     position: absolute;
@@ -161,6 +204,7 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       }
     }
   }
+
   .cta_button {
     position: absolute;
     display: inline-block;
@@ -200,6 +244,23 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
     .branding {
       right: 18px;
     }
+    .bar {
+        &__one {
+          width: 320px;
+        }
+        &__two {
+          width: 320px;
+          svg {
+            right: 94px;
+          }
+        }
+        &__three {
+          width: 320px;
+        }
+        &__four {
+          width: 320px;
+        }
+    }
     .cta {
       padding-left: 0px;
       right: 18px;
@@ -213,15 +274,11 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       width: 52px;
       height: 32px;
     }
-    .bar__one {
-      width: 232px;
-    }
     .bar__image--1 {
       height: 48px;
-      right: -102px;
+      right: -28px;
     }
     .bar__two {
-      width: 320px;
       svg {
         height: 72px;
         right: 91px;
@@ -229,10 +286,10 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
       }
     }
     .bar__three {
-      svg {
-        height: 140px;
-        right: -170px;
-      }
+    svg {
+      height: 140px;
+      right: -170px;
+    }
     }
     .heading-spaced {
       padding-left: 43px;
@@ -279,37 +336,365 @@ section#podcasthrasher a.fc-trail__count.fc-trail__count--commentcount {
 
 
 
+$color: #fb0;
 
 
+@mixin animation($sizeParameter){
+  $size: $sizeParameter;
+
+  $max: $size / 2.857142857;
+  $height: $max / 3.5;
+  $margin: $max / 14;
+
+  $equalizers: 1;
+  $equalizerSize: ($equalizers * $height) + ( ($equalizers - 1) * $margin );
+
+  // Widths
+  $two: $max / 7;
+  $three: $max / 4.666666667;
+  $four: $max / 3.5;
+  $five: $max / 2.8;
+  $six: $max / 2.333333333;
+  $seven: $max / 2;
+  $eight: $max / 1.75;
+  $nine: $max / 1.555555556;
+  $ten: $max / 1.4;
+  $eleven: $max / 1.272727273;
+  $twelve: $max / 1.166666667;
+  $thirteen: $max / 1.076923077;
+  $fourteen: $max;
+
+  @keyframes equalize {
+    0% {
+      width: $four;
+    }
+    4% {
+      width: $two;
+    }
+    8% {
+      width: $four;
+    }
+    12% {
+      width: $seven;
+    }
+    16% {
+      width: $ten;
+    }
+    20% {
+      width: $thirteen;
+    }
+    24% {
+      width: $twelve;
+    }
+    28% {
+      width: $eleven;
+    }
+    32% {
+      width: $eleven;
+    }
+    36% {
+      width: $eight;
+    }
+    40% {
+      width: $ten;
+    }
+    44% {
+      width: $ten;
+    }
+    48% {
+      width: $eleven;
+    }
+    52% {
+      width: $twelve;
+    }
+    56% {
+      width: $thirteen;
+    }
+    60% {
+      width: $twelve;
+    }
+    64% {
+      width: $twelve;
+    }
+    68% {
+      width: $eleven;
+    }
+    72% {
+      width: $ten;
+    }
+    76% {
+      width: $eleven;
+    }
+    80% {
+      width: $twelve;
+    }
+    84% {
+      width: $twelve;
+    }
+    88% {
+      width: $thirteen;
+    }
+    92% {
+      width: $ten;
+    }
+    96% {
+      width: $seven;
+    }
+    100% {
+      width: $four;
+    }
+  }
+
+  @keyframes equalize2 {
+    0% {
+      width: $two;
+    }
+    4% {
+      width: $two;
+    }
+    8% {
+      width: $two;
+    }
+    12% {
+      width: $five;
+    }
+    16% {
+      width: $eight;
+    }
+    20% {
+      width: $nine;
+    }
+    24% {
+      width: $ten;
+    }
+    28% {
+      width: $nine;
+    }
+    32% {
+      width: $nine;
+    }
+    36% {
+      width: $seven;
+    }
+    40% {
+      width: $eight;
+    }
+    44% {
+      width: $eight;
+    }
+    48% {
+      width: $nine;
+    }
+    52% {
+      width: $ten;
+    }
+    56% {
+      width: $nine;
+    }
+    60% {
+      width: $ten;
+    }
+    64% {
+      width: $ten;
+    }
+    68% {
+      width: $nine;
+    }
+    72% {
+      width: $eight;
+    }
+    76% {
+      width: $nine;
+    }
+    80% {
+      width: $ten;
+    }
+    84% {
+      width: $twelve;
+    }
+    88% {
+      width: $eleven;
+    }
+    92% {
+      width: $eight;
+    }
+    96% {
+      width: $five;
+    }
+    100% {
+      width: $two;
+    }
+  }
+
+  @keyframes equalize3 {
+  0% {
+    width: $nine;
+  }
+  4% {
+    width: $seven;
+  }
+  8% {
+    width: $nine;
+  }
+  12% {
+    width: $eleven;
+  }
+  16% {
+    width: $thirteen;
+  }
+  20% {
+    width: $size / 2.666666667;
+  }
+  24% {
+    width: $fourteen;
+  }
+  28% {
+    width: $eleven;
+  }
+  32% {
+    width: $nine;
+  }
+  36% {
+    width: $eight;
+  }
+  40% {
+    width: $seven;
+  }
+  44% {
+    width: $five;
+  }
+  48% {
+    width: $eight;
+  }
+  52% {
+    width: $ten;
+  }
+  56% {
+    width: $eleven;
+  }
+  60% {
+    width: $thirteen;
+  }
+  64% {
+    width: $twelve;
+  }
+  68% {
+    width: $eleven;
+  }
+  72% {
+    width: $eleven;
+  }
+  76% {
+    width: $ten;
+  }
+  80% {
+    width: $twelve;
+  }
+  84% {
+    width: $thirteen;
+  }
+  88% {
+    width: $fourteen;
+  }
+  92% {
+    width: $twelve;
+  }
+  96% {
+    width: $ten;
+  }
+  100% {
+    width: $nine;
+  }
+}
+
+  @keyframes equalize4 {
+    0% {
+      width: $two;
+    }
+    4% {
+      width: $two;
+    }
+    8% {
+      width: $two;
+    }
+    12% {
+      width: $five;
+    }
+    16% {
+      width: $six;
+    }
+    20% {
+      width: $nine;
+    }
+    24% {
+      width: $eight;
+    }
+    28% {
+      width: $seven;
+    }
+    32% {
+      width: $seven;
+    }
+    36% {
+      width: $four;
+    }
+    40% {
+      width: $six;
+    }
+    44% {
+      width: $six;
+    }
+    48% {
+      width: $seven;
+    }
+    52% {
+      width: $eight;
+    }
+    56% {
+      width: $nine;
+    }
+    60% {
+      width: $eight;
+    }
+    64% {
+      width: $eight;
+    }
+    68% {
+      width: $seven;
+    }
+    72% {
+      width: $six;
+    }
+    76% {
+      width: $seven;
+    }
+    80% {
+      width: $eight;
+    }
+    84% {
+      width: $eight;
+    }
+    88% {
+      width: $nine;
+    }
+    92% {
+      width: $six;
+    }
+    96% {
+      width: $four;
+    }
+    100% {
+      width: $two;
+    }
+  }
+}
 
 
-$size: 320px;
 
 
 // When $size is 40px, $max is 14px, $width is 4px, $margin is 1px
 
-$max: $size / 2.857142857;
-$height: $max / 3.5;
-$margin: $max / 14;
-$color: #fb0;
 
-$equalizers: 1;
-$equalizerSize: ($equalizers * $height) + ( ($equalizers - 1) * $margin );
-
-// Widths
-$two: $max / 7;
-$three: $max / 4.666666667;
-$four: $max / 3.5;
-$five: $max / 2.8;
-$six: $max / 2.333333333;
-$seven: $max / 2;
-$eight: $max / 1.75;
-$nine: $max / 1.555555556;
-$ten: $max / 1.4;
-$eleven: $max / 1.272727273;
-$twelve: $max / 1.166666667;
-$thirteen: $max / 1.076923077;
-$fourteen: $max;
 
 .equalizer--1 {
   position: absolute;
@@ -318,21 +703,19 @@ $fourteen: $max;
   display: block;
   height: 50px;
   background-color: $color;
-  width: $two;
-  @include mq($from: desktop) {
-    left: 231px;
+  @include mq($from: tablet) {
+    left: 319px;
   }
 }
 
 .equalizer--2 {
   position: absolute;
   top: 66px;
-  left: 309px;
+  left: 263px;
   display: block;
   height: 50px;
   background-color: $color;
-  width: $two;
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     left: 319px;
   }
 }
@@ -340,29 +723,61 @@ $fourteen: $max;
 .equalizer--3 {
   position: absolute;
   top: 124px;
-  left: 339px;
+  left: 263px;
   display: block;
   height: 50px;
   background-color: $color;
-  width: $two;
+  @include mq($from: tablet) {
+    left: 319px;
+  }
 }
 
 .equalizer--4 {
   position: absolute;
   top: 182px;
-  left: 289px;
+  left: 263px;
   display: block;
   height: 50px;
   background-color: $color;
-  width: $ten;
+  @include mq($from: tablet) {
+    left: 319px;
+  }
 }
 
 .equalizer--1, .equalizer--2, .equalizer--3, .equalizer--4 {
+  @include animation(200px);
+  transform: translate3d(0, 0, 0);
+  will-change: width;
   animation: equalize 2s steps(25, end) 0s infinite;
+  @include mq($from: mobileMedium) {
+    @include animation(280px);
+    animation: equalize 2.4s steps(25, end) 0s infinite;
+  }
+  @include mq($from: mobileLandscape) {
+    @include animation(480px);
+    animation: equalize 3s steps(25, end) 0s infinite;
+  }
+  @include mq($from: tablet) {
+    @include animation(280px);
+    animation: equalize 2s steps(25, end) 0s infinite;
+  }
+  @include mq($from: desktop) {
+    @include animation(480px);
+    animation: equalize 3s steps(25, end) 0s infinite;
+  }
+  @include mq($from: leftCol) {
+    @include animation(800px);
+    animation: equalize 3.5s steps(25, end) 0s infinite;
+  }
+  @include mq($from: wide) {
+    @include animation(1000px);
+    animation: equalize 3.8s steps(25, end) 0s infinite;
+  }
 }
 
 .equalizer--2 {
   animation-name: equalize2;
+  animation-delay: -2s;
 }
 
 .equalizer--3 {
@@ -371,331 +786,7 @@ $fourteen: $max;
 
 .equalizer--4 {
   animation-name: equalize4;
-}
-
-@keyframes equalize {
-  0% {
-    width: $four;
-  }
-  4% {
-    width: $two;
-  }
-  8% {
-    width: $four;
-  }
-  12% {
-    width: $seven;
-  }
-  16% {
-    width: $ten;
-  }
-  20% {
-    width: $thirteen;
-  }
-  24% {
-    width: $twelve;
-  }
-  28% {
-    width: $eleven;
-  }
-  32% {
-    width: $eleven;
-  }
-  36% {
-    width: $eight;
-  }
-  40% {
-    width: $ten;
-  }
-  44% {
-    width: $ten;
-  }
-  48% {
-    width: $eleven;
-  }
-  52% {
-    width: $twelve;
-  }
-  56% {
-    width: $thirteen;
-  }
-  60% {
-    width: $twelve;
-  }
-  64% {
-    width: $twelve;
-  }
-  68% {
-    width: $eleven;
-  }
-  72% {
-    width: $ten;
-  }
-  76% {
-    width: $eleven;
-  }
-  80% {
-    width: $twelve;
-  }
-  84% {
-    width: $twelve;
-  }
-  88% {
-    width: $thirteen;
-  }
-  92% {
-    width: $ten;
-  }
-  96% {
-    width: $seven;
-  }
-  100% {
-    width: $four;
-  }
-}
-
-@keyframes equalize2 {
-  0% {
-    width: $twelve;
-  }
-  4% {
-    width: $thirteen;
-  }
-  8% {
-    width: $twelve;
-  }
-  12% {
-    width: $twelve;
-  }
-  16% {
-    width: $eleven;
-  }
-  20% {
-    width: $eleven;
-  }
-  24% {
-    width: $eleven;
-  }
-  28% {
-    width: $twelve;
-  }
-  32% {
-    width: $twelve;
-  }
-  36% {
-    width: $thirteen;
-  }
-  40% {
-    width: $thirteen;
-  }
-  44% {
-    width: $thirteen;
-  }
-  48% {
-    width: $eleven;
-  }
-  52% {
-    width: $eight;
-  }
-  56% {
-    width: $six;
-  }
-  60% {
-    width: $eight;
-  }
-  64% {
-    width: $ten;
-  }
-  68% {
-    width: $eleven;
-  }
-  72% {
-    width: $thirteen;
-  }
-  76% {
-    width: $twelve;
-  }
-  80% {
-    width: $twelve;
-  }
-  84% {
-    width: $eleven;
-  }
-  88% {
-    width: $eleven;
-  }
-  92% {
-    width: $nine;
-  }
-  96% {
-    width: $eleven;
-  }
-  100% {
-    width: $twelve;
-  }
-}
-
-
-@keyframes equalize3 {
-  0% {
-    width: $nine;
-  }
-  4% {
-    width: $seven;
-  }
-  8% {
-    width: $nine;
-  }
-  12% {
-    width: $eleven;
-  }
-  16% {
-    width: $thirteen;
-  }
-  20% {
-    width: $twelve
-  }
-  24% {
-    width: $fourteen;
-  }
-  28% {
-    width: $eleven;
-  }
-  32% {
-    width: $nine;
-  }
-  36% {
-    width: $eight;
-  }
-  40% {
-    width: $seven;
-  }
-  44% {
-    width: $five;
-  }
-  48% {
-    width: $eight;
-  }
-  52% {
-    width: $ten;
-  }
-  56% {
-    width: $eleven;
-  }
-  60% {
-    width: $thirteen;
-  }
-  64% {
-    width: $twelve;
-  }
-  68% {
-    width: $eleven;
-  }
-  72% {
-    width: $eleven;
-  }
-  76% {
-    width: $ten;
-  }
-  80% {
-    width: $twelve;
-  }
-  84% {
-    width: $thirteen;
-  }
-  88% {
-    width: $fourteen;
-  }
-  92% {
-    width: $twelve;
-  }
-  96% {
-    width: $ten;
-  }
-  100% {
-    width: $nine;
-  }
-}
-
-@keyframes equalize4 {
-  0% {
-    width: $two;
-  }
-  4% {
-    width: $three;
-  }
-  8% {
-    width: $two;
-  }
-  12% {
-    width: $five;
-  }
-  16% {
-    width: $eight;
-  }
-  20% {
-    width: $eleven;
-  }
-  24% {
-    width: $ten;
-  }
-  28% {
-    width: $nine;
-  }
-  32% {
-    width: $nine;
-  }
-  36% {
-    width: $seven;
-  }
-  40% {
-    width: $eight;
-  }
-  44% {
-    width: $eight;
-  }
-  48% {
-    width: $nine;
-  }
-  52% {
-    width: $eleven;
-  }
-  56% {
-    width: $eleven;
-  }
-  60% {
-    width: $ten;
-  }
-  64% {
-    width: $ten;
-  }
-  68% {
-    width: $nine;
-  }
-  72% {
-    width: $eight;
-  }
-  76% {
-    width: $nine;
-  }
-  80% {
-    width: $ten;
-  }
-  84% {
-    width: $ten;
-  }
-  88% {
-    width: $eleven;
-  }
-  92% {
-    width: $eight;
-  }
-  96% {
-    width: $five;
-  }
-  100% {
-    width: $two;
-  }
+  animation-delay: -1s;
 }
 
 
