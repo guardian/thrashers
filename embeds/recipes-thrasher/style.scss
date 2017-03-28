@@ -1,0 +1,235 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.recipes {
+  background-position: center center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #212121;
+  @include mq($from: tablet) {
+    width: 740px;
+  }
+  @include mq($from: desktop) {
+    width: 980px;
+  }
+  @include mq($from: leftCol) {
+    width: 1140px;
+  }
+  @include mq($from: wide) {
+    width: 1300px;
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .recipe--image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+  }
+
+  &:hover {
+    .recipes-headline  {
+      svg {
+        background-color: white;
+        transform: scale(1.2);
+        polygon {
+          fill: #333;
+        }
+      }
+    }
+  }
+}
+
+.recipes-headline {
+  position: absolute;
+  top: 118px;
+  height: 100px;
+  width: 220px;
+  left: 6px;
+  z-index: 10;
+  font-family: $f-serif-headline;
+  font-weight: 900;
+  opacity: 0;
+
+  @include mq($from: tablet) {
+    left: 20px;
+  }
+
+  @include mq($from: wide) {
+    top: 100px;
+    width: 280px;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+
+    path {
+      fill: white;
+    }
+  }
+  h1 {
+    line-height: 30px;
+    font-size: 32px;
+    color:#F7ACBB;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 200;
+    color: white;
+  }
+
+  &.lunch {
+    width: 280px;
+    top: auto;
+    bottom: 32px;
+
+    @include mq($from: tablet) {
+      width: 270px;
+      top: auto;
+      bottom: 32px;
+    }
+    @include mq($from: desktop) {
+      width: 270px;
+      top: auto;
+      bottom: 32px;
+    }
+    @include mq($from: leftCol) {
+      left: 180px;
+      top: auto;
+      bottom: 32px;
+      width: 270px;
+    }
+    @include mq($from: wide) {
+      bottom: 32px;
+      top: auto;
+      left: 258px;
+    }
+  }
+
+  &.dinner, &.breakfast {
+    top: auto;
+    bottom: 32px;
+    width: 280px;
+
+    @include mq($from: desktop) {
+      width: 270px;
+    }
+
+    @include mq($from: desktop) {
+      bottom: 100px;
+    }
+  }
+
+  &.breakfast {
+    top: auto;
+    bottom: 32px;
+    width: 280px;
+
+    @include mq($from: desktop) {
+      width: 270px;
+    }
+  }
+  svg {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 95px;
+    right: 66px;
+    border: 1px solid white;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+
+    @include mq($from: tablet){
+      right: 27px;
+    }
+
+    polygon {
+      fill: white;
+    }
+  }
+}
+
+.recipes-background {
+  position: absolute;
+  background-color: rgba(0,0,0,0.6);
+  width: 100%;
+  height: 300px;
+  z-index: 10;
+  bottom: 0px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.6)));
+  background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+}
+
+.recipes-roundel {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+
+  svg {
+    height: auto;
+    width: 100%;
+    path{
+      fill: white;
+    }
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}

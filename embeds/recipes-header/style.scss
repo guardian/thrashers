@@ -11,12 +11,24 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-#recipe-header {
-  margin-top: -6px;
+$amp: '&';
+
+#food-#{$amp}-drink {
+  margin-top: -9px !important;
+  @include mq($from: tablet) {
+    margin-top: -6px !important;
+  }
+  .fc-item {
+    @include mq($from: tablet) {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
 }
 .recipe-header {
   height: auto;
   position: relative;
+  overflow: hidden;
 
   @include mq($from: desktop){
     width: 980px;

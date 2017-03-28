@@ -34,6 +34,6 @@ function initMealTime(){
   image.setAttribute('class', 'header-image animated fadeIn');
   image.setAttribute('src', mainImage);
   image.setAttribute('style', styleType);
-  imageContainer.append(image);
+  imageContainer.appendChild(image);
 }
 initMealTime();
