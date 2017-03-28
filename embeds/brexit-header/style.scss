@@ -59,19 +59,19 @@ $name: '#brexit-header';
   text-align: center;
   position: absolute;
   z-index: 10;
-  top: 145px;
-  width: 160px;
-  left: 55px;
+  top: 65px;
+  width: 142px;
+  left: 29px;
 
   @include mq($from: tablet) {
-    top: 110px;
-    width: 155px;
-    left: 158px;
+    top: 50px;
+    width: 132px;
+    left: 148px;
   }
   @include mq($from: desktop) {
-    top: 155px;
-    width: 155px;
-    left: 236px;
+    top: 82px;
+    width: 160px;
+    left: 196px;
   }
 
   h1 {
@@ -93,6 +93,34 @@ $name: '#brexit-header';
   position: absolute;
   z-index: 0;
   display: block;
+  height: auto;
+  width: 810px;
+  margin-left: -138px;
+
+  @include mq($from: tablet) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.england-image {
+  position: absolute;
+  z-index: 0;
+  display: none;
+  height: auto;
+  width: 810px;
+  margin-left: -138px;
+
+  @include mq($from: tablet) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.scotland-image {
+  position: absolute;
+  z-index: 0;
+  display: none;
   height: auto;
   width: 810px;
   margin-left: -138px;
