@@ -130,3 +130,16 @@ $name: '#brexit-header';
     margin-left: 0;
   }
 }
+
+.brussels-image {
+  display: none;
+
+  @include mq($from: leftCol) {
+    position: absolute;
+    display: none;
+    top: 120px;
+    left: 20px;
+    width: 134px;
+    height: auto;
+  }
+}
