@@ -16,7 +16,7 @@ function loadJSON(path, success, error) {
     xhr.send();
 }
 
-loadJSON("https://interactive.guim.co.uk/docsdata/1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g.json", function(data) {
+loadJSON("https://interactive.guim.co.uk/docsdata-test/1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g.json", function(data) {
     var comingSoonData = data.sheets['coming-soon'][0];
 
     var replaceContents = document.querySelectorAll('.docs-coming-soon__wrapper [data-sheet-contents]');
