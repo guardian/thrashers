@@ -11,9 +11,26 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-$name: '#brexit-header';
+$name: '#article-50';
 
 #{$name} {
+
+  &.fc-container--story-package {
+    background-color: #f6f6f6;
+  }
+
+  &.fc-container--story-package .fc-container__inner {
+    @include mq($from: leftCol) {
+      margin-top: -13px;
+    }
+  }
+
+  &.fc-container--story-package .fc-container__header {
+    @include mq($from: leftCol) {
+      margin-top: 13px;
+    }
+  }
+
   &.fc-container--story-package .fc-item.facia-snap {
     background-color: transparent !important;
   }
@@ -26,15 +43,27 @@ $name: '#brexit-header';
 .brexit-header {
   overflow: hidden;
   width: 100%;
-  height: 390px;
   position: relative;
+  height: 336px;
+
+  &:hover {
+    h1 {
+      svg {
+       transform: scale(1.2);
+       transition: transform 0.2s ease-in-out;
+       -webkit-transition: transform 0.2s ease-in-out;
+       -moz-transition: transform 0.2s ease-in-out;
+      }
+    }
+  }
 
   @include mq($from: tablet){
     width: 700px;
-    height: 350px;
+    height: 291px;
   }
   @include mq($from: desktop){
     width: 940px;
+    height: 390px;
   }
   @include mq($from: leftCol){
     width: 936px;
@@ -47,7 +76,7 @@ $name: '#brexit-header';
 
 .brexit-link {
   position: absolute !important;
-  z-index: 20;
+  z-index: 100 !important;
   display: block;
   top: 0;
   bottom: 0;
@@ -56,29 +85,102 @@ $name: '#brexit-header';
 }
 
 .brexit-headline {
-  text-align: center;
   position: absolute;
   z-index: 10;
   top: 65px;
   width: 142px;
-  left: 29px;
+  left: 43px;
 
   @include mq($from: tablet) {
-    top: 50px;
+    top: 54px;
     width: 132px;
-    left: 148px;
+    left: 151px;
   }
   @include mq($from: desktop) {
     top: 82px;
     width: 160px;
-    left: 196px;
+    left: 217px;
   }
 
   h1 {
     color: #e31f26;
     font-family: $f-serif-headline;
-    line-height: 22px;
-    font-size: 22px;
+    line-height: 26px;
+    font-size: 26px;
+    opacity: 0;
+    animation: fadeIn;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
+    -webkit-animation: fadeIn;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 3s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation: fadeIn;
+    -moz-animation-duration: 1s;
+    -moz-animation-delay: 3s;
+    -moz-animation-fill-mode: both;
+
+    @include mq($from: tablet) {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    @include mq($from: desktop) {
+      font-size: 32px;
+      line-height: 32px;
+    }
+
+
+        svg {
+          margin-left: 65px;
+          width: 20px;
+          height: 20px;
+
+          @include mq($from: tablet) {
+            width: 20px;
+            height: 20px;
+          }
+
+          @include mq($from: desktop) {
+            width: 28px;
+            height: 28px;
+          }
+        }
+  }
+
+  span {
+    display: block;
+
+    &.brexit {
+      color: #333;
+    }
+
+    &.today {
+      margin-left: 20px;
+    }
+
+    &.britain {
+      margin-left: 2px;
+    }
+
+    &.steps {
+      margin-left: 59px;
+    }
+
+    &.into {
+      display: inline;
+      margin-left: 73px;
+      margin-right: 5px;
+    }
+
+    &.the {
+      display: inline;
+    }
+
+    &.unknown {
+      margin-left: 44px;
+    }
   }
 
   h2 {
@@ -106,10 +208,22 @@ $name: '#brexit-header';
 .england-image {
   position: absolute;
   z-index: 0;
-  display: none;
+  opacity: 0;
   height: auto;
   width: 810px;
   margin-left: -138px;
+  animation: fadeOut;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  -webkit-animation: fadeOut;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation: fadeOut;
+  -moz-animation-duration: 1s;
+  -moz-animation-delay: 2s;
+  -moz-animation-fill-mode: both;
 
   @include mq($from: tablet) {
     width: 100%;
@@ -120,10 +234,22 @@ $name: '#brexit-header';
 .scotland-image {
   position: absolute;
   z-index: 0;
-  display: none;
   height: auto;
   width: 810px;
   margin-left: -138px;
+  opacity: 0;
+  animation: fadeOut;
+  animation-duration: 1s;
+  animation-delay:1s;
+  animation-fill-mode: both;
+  -webkit-animation: fadeOut;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay:1s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation: fadeOut;
+  -moz-animation-duration: 1s;
+  -moz-animation-delay:1s;
+  -moz-animation-fill-mode: both;
 
   @include mq($from: tablet) {
     width: 100%;
@@ -136,10 +262,56 @@ $name: '#brexit-header';
 
   @include mq($from: leftCol) {
     position: absolute;
-    display: none;
+    opacity: 0;
     top: 120px;
     left: 20px;
     width: 134px;
     height: auto;
+  }
+}
+
+.puzzle-peice {
+  height: 228px;
+  width: 170px;
+  position: absolute;
+  top: 470px;
+  left: 110px;
+  z-index: 10;
+  transform: rotate(-20deg);
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
