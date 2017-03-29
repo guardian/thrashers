@@ -1,0 +1,241 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    375px,
+    mobileLandscape: 480px,
+    mobileLong:      520px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#documentaries {
+    background-color: #161616;
+}
+
+.docs-internet-warriors__wrapper {
+    position: relative;
+    margin: 0 -10px;
+    background-color: #161616;
+    color: #F6F6F6;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 900;
+    overflow: hidden;
+    @include mq(tablet) {
+        width: 100%;
+        margin: 0;
+    }
+    @include mq(desktop) {
+        font-size: 32px;
+        line-height: 32px;
+    }
+    .background {
+        position: relative;
+        z-index: 10;
+        height: 216px;
+        @include mq(phablet) {
+            height: 280px;
+        }
+        @include mq(desktop) {
+            height: 330px;
+        }
+        .image {
+            height: 100%;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100px;
+                z-index: 13;
+                opacity: 0.5;
+                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
+                background: -moz-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+                @include mq(phablet) {
+                    height: 100%;
+                    width: 480px;
+                    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,1+0,0+100 */
+                    background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+                }
+                @include mq(desktop) {
+                    width: 620px;
+                }
+                @include mq(leftCol) {
+                    opacity: 0.6;
+                    width: 680px;
+                }
+                @include mq(wide) {
+                    width: 820px;
+                }
+            }
+            img,
+            video {
+                height: 100%;
+                width: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                transform: translateX(-45%);
+                @include mq(mobileMedium) {
+                    transform: translateX(-38%);
+                }
+                @include mq(mobileLandscape) {
+                    transform: translateX(-33%);
+                }
+                @include mq(mobileLong) {
+                    transform: translateX(-22%);
+                }
+                @include mq(desktop) {
+                    transform: translateX(-5%);
+                }
+                @include mq(leftCol) {
+                    transform: translateX(0);
+                }
+                @include mq(wide) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            img {
+                z-index: 10;
+            }
+            video {
+                z-index: 11;
+            }
+        }
+        .docs-logo {
+            position: absolute;
+            top: 5px;
+            left: 9px;
+            z-index: 15;
+            svg {
+                width: 140px;
+                height: 79px;
+            }
+            @include mq(tablet) {
+                left: 19px;
+            }
+            @include mq(desktop) {
+                transform-origin: top left;
+                transform: scale(1.15);
+            }
+        }
+    }
+    .foreground {
+        position: relative;
+        z-index: 10;
+        padding: 7px 10px 18px;
+        @include mq(phablet) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        @include mq(tablet) {
+            padding: 7px 20px 18px;
+        }
+        @include mq(leftCol) {
+            padding-left: 180px;
+        }
+        @include mq(wide) {
+            padding-left: 260px;
+        }
+        .title {
+            &:after {
+                content: '';
+                display: inline-block;
+                margin-left: 3px;
+                width: 7px;
+                height: 24px;
+                background-color: rgba(246, 246, 246, 0.9);
+                opacity: 0.67;
+                vertical-align: middle;
+                position: relative;
+                bottom: 2px;
+                animation-name: cursorPulse;
+                animation-duration: 1.2s;
+                animation-iteration-count: infinite;
+                animation-fill-mode: forwards;
+                @keyframes cursorPulse {
+                    0% {
+                        opacity: 1;
+                    }
+                    40% {
+                        opacity: 1
+                    }
+                    60% {
+                        opacity: 0.15;
+                    }
+                    70% {
+                        opacity: 0;
+                    }
+                    100% {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+        .strapline,
+        .play {
+            color: #FB0;
+        }
+        .strapline {
+            max-width: 80%;
+        }
+        .play {
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+            font-size: 16px;
+            margin-top: 9px;
+            margin-left: -2px;
+            position: relative;
+            &:before {
+                content: '';
+                width: 42px;
+                height: 42px;
+                border-radius: 100%;
+                background-color: #FB0;
+                display: inline-block;
+                margin-right: 3px;
+                vertical-align: middle;
+                position: relative;
+                bottom: 2px;
+            }
+            svg {
+                position: absolute;
+                width: 23px;
+                height: 19px;
+                top: 10px;
+                left: 12px;
+            }
+        }
+    }
+
+    .full-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 15 !important;
+        color: transparent;
+        &:hover ~ .foreground div,
+        &:hover ~ .background {
+            opacity: 0.9;
+        }
+    }
+}
