@@ -17,7 +17,7 @@ section#documentaries {
     background-color: #161616;
 }
 
-.docs-erica__wrapper {
+.docs-the-island__wrapper {
     position: relative;
     margin: 0 -10px;
     background-color: #161616;
@@ -48,6 +48,8 @@ section#documentaries {
         .image {
             height: 100%;
             &:before {
+                display: none; // turn on for overlay
+
                 content: '';
                 position: absolute;
                 top: 0;
@@ -89,27 +91,21 @@ section#documentaries {
                 top: 0;
                 left: 0;
                 bottom: 0;
-                transform: translateX(-58%);
-                @include mq(mobile) {
-                    transform: translateX(-53.5%);
-                }
-                @include mq(mobileMedium) {
-                    transform: translateX(-44.5%);
-                }
+                transform: translateX(-25%);
                 @include mq(mobileLandscape) {
-                    transform: translateX(-33%);
-                }
-                @include mq(mobileLong) {
-                    transform: translateX(-23.5%);
+                    transform: translateX(-18%);
                 }
                 @include mq(phablet) {
-                    transform: translateX(-34%);
+                    transform: translateX(-19%);
+                }
+                @include mq(tablet) {
+                    transform: translateX(-17%);
                 }
                 @include mq(desktop) {
-                    transform: translateX(-23%);
+                    transform: translateX(-11%);
                 }
                 @include mq(leftCol) {
-                    transform: translateX(-11%);
+                    transform: translateX(-1%);
                 }
                 @include mq(wide) {
                     transform: translateX(0);
@@ -168,43 +164,19 @@ section#documentaries {
             color: #F6DCD0;
             margin-top: 6px;
         }
-        .title,
-        .strapline {
-            font-size: 0;
-            span {
-                font-size: 24px;
-                line-height: 12px;
-                @include mq(desktop) {
-                    font-size: 32px;
-                    line-height: 16px;
-                }
-                display: inline-block;
-                animation-name: go-crazy;
-                animation-duration: 5400ms;
-                animation-timing-function: linear;
-                animation-iteration-count: infinite;
-
-                $elements: 60;
-                @for $i from 0 to $elements {
-                  &:nth-child(#{$i}) {
-                     animation-delay: #{4600 + random(120)}ms;
-                  }
-                }
-            }
-        }
         .strapline,
         .play {
             color: #FB0;
+            max-width: 440px;
         }
         .strapline {
-            max-width: 80%;
             @include mq(phablet) {
                 margin-top: 1px;
                 margin-bottom: -7px;
             }
             @include mq(desktop) {
                 margin-top: 1px;
-                margin-bottom: -10px;
+                // margin-bottom: -10px;
             }
             br {
                 display: none;
@@ -254,49 +226,5 @@ section#documentaries {
         &:hover ~ .background {
             opacity: 0.9;
         }
-    }
-}
-
-
-@keyframes go-crazy {
-    0.2%, 14.2% {
-        transform: translate(8px, 6px) rotate(10deg);
-        opacity: 0.14;
-    }
-    0.4%, 14.4% {
-        transform: translate(9px, -4px) rotate(16deg);
-        opacity: 0.46;
-    }
-    0.6%, 14.6% {
-        transform: translate(5px, 4px) rotate(9deg);
-        opacity: 0.22;
-    }
-    0.8%, 14.8% {
-        transform: translate(8px, 7px) rotate(0deg);
-        opacity: 0.92;
-    }
-    1.0%, 15% {
-        transform: translate(0px, 6px) rotate(8deg);
-        opacity: 0.2;
-    }
-    1.2%, 15.2% {
-        transform: translate(7px, -5px) rotate(-8deg);
-        opacity: 0.72;
-    }
-    15.4% {
-        transform: translate(3px, -5px) rotate(-6deg);
-        opacity: 0.2;
-    }
-    15.6% {
-        transform: translate(5px, -9px) rotate(16deg);
-        opacity: 0.7;
-    }
-    1.8%, 15.8% {
-        transform: translate(-5px, -9px) rotate(18deg);
-        opacity: 0.34;
-    }
-    0%, 2%, 14%, 16%, 100% {
-        transform: translate(0, 0) rotate(0);
-        opacity: 1;
     }
 }
