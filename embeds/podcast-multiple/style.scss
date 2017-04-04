@@ -27,6 +27,7 @@ section#podcasthrasher.fc-container--thrasher {
   background-color: #161616;
   .fc-container__inner{
     overflow: visible;
+    padding-top: 0px;
 
     .fc-container__body{
       .fc-slice-wrapper{
@@ -46,9 +47,10 @@ section#podcasthrasher.fc-container--thrasher {
 #podcast-thrasher {
   background-color: #333;
   width: 100%;
-  min-height: 326px;
-  position: relative;
+  min-height: 366px;
+  // position: relative;
   @include mq($from: mobileMedium) {
+    min-height: 326px;
     min-width: 375px;
   }
   @include mq($from: mobileLandscape) {
@@ -68,6 +70,9 @@ section#podcasthrasher.fc-container--thrasher {
   }
   @include mq($from: wide) {
     min-width: 1300px;
+    .has-page-skin & {
+      min-width: 980px;
+    }
   }
 
 
@@ -92,6 +97,7 @@ section#podcasthrasher.fc-container--thrasher {
     right: 9px;
     width: 44px;
     height: 26px;
+    z-index: 1;
     svg {
       width: 100%;
       height: 100%;
@@ -105,43 +111,65 @@ section#podcasthrasher.fc-container--thrasher {
     position: absolute;
       &__one {
         @extend .bar;
-        top: 8px;
-        width: 264px;
+        top: 48px;
+        width: 286px;
         height: 50px;
+        @include mq($from: mobileMedium) {
+          top: 8px;
+        }
+        @include mq($from: mobileLandscape) {
+          width: 312px;
+        }
           h1 {
-            color: #1D87BC;
+            color: #a65033;
           }
       }
       &__two {
         @extend .bar;
-        top: 66px;
-        width: 264px;
+        top: 106px;
+        width: 286px;
+        @include mq($from: mobileMedium) {
+          top: 66px;
+        }
+        @include mq($from: mobileLandscape) {
+          width: 312px;
+        }
           h1 {
-            color: #CC2B12;
+            margin-left: 36px;
+            color: #6B879A;
           }
       }
       &__three {
         @extend .bar;
-        top: 124px;
-        width: 264px;
+        top: 164px;
+        width: 286px;
         height: 50px;
-          h1 {
-            color: #333333;
-          }
-      }
-      &__four {
-        @extend .bar;
-        top: 182px;
-        width: 264px;
-        height: 50px;
+        @include mq($from: mobileMedium) {
+          top: 124px;
+        }
+        @include mq($from: mobileLandscape) {
+          width: 312px;
+        }
           h1 {
             color: #005689;
           }
       }
-}
-
-.heading-spaced {
-  padding-left: 38px;
+      &__four {
+        @extend .bar;
+        top: 222px;
+        width: 286px;
+        height: 50px;
+        @include mq($from: mobileMedium) {
+          top: 182px;
+        }
+        @include mq($from: mobileLandscape) {
+          width: 312px;
+        }
+          h1 {
+            margin-left: 34px;
+            color: #a12061;
+          }
+      }
 }
 
 .bar {
@@ -157,20 +185,28 @@ section#podcasthrasher.fc-container--thrasher {
   z-index: 1;
   bottom: 0px;
   height: 36px;
-  right: 4px;
+  right: 28px;
 }
-.bar__two {
-    svg {
-    height: 60px;
-    right: 68px;
-    bottom: 14px;
-  }
+.bar__image--2 {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  height: 80px;
+  left: 8px;
 }
-.bar__three {
-  svg {
-  height: 100px;
-  right: -88px;
-  }
+.bar__image--3 {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  width: 92px;
+  right: -12px;
+}
+.bar__image--4 {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  width: 60px;
+  left: -16px;
 }
 .podcast-multiple-link {
   position: absolute;
@@ -238,28 +274,24 @@ section#podcasthrasher.fc-container--thrasher {
       }
     }
   }
+  @include mq($from: mobileLandscape) {
+  .bar {
+    &__four {
+      h1 {
+      margin-left: 52px;
+      }
+    }
+    &__image--4 {
+      left: 0px;
+    }
+  }
+}
+
 
   @include mq($from: tablet) {
     min-height: 240px;
     .branding {
       right: 18px;
-    }
-    .bar {
-        &__one {
-          width: 320px;
-        }
-        &__two {
-          width: 320px;
-          svg {
-            right: 94px;
-          }
-        }
-        &__three {
-          width: 320px;
-        }
-        &__four {
-          width: 320px;
-        }
     }
     .cta {
       padding-left: 0px;
@@ -274,25 +306,41 @@ section#podcasthrasher.fc-container--thrasher {
       width: 52px;
       height: 32px;
     }
+    .bar {
+        &__one {
+          width: 422px;
+        }
+        &__two {
+          width: 422px;
+            h1 {
+              margin-left: 46px;
+            }
+        }
+        &__three {
+          width: 422px;
+        }
+        &__four {
+          width: 422px;
+          h1 {
+            margin-left: 62px;
+          }
+        }
+    }
     .bar__image--1 {
-      height: 48px;
-      right: -28px;
+      height: 44px;
+      right: 72px;
     }
-    .bar__two {
-      svg {
-        height: 72px;
-        right: 91px;
-        bottom: 4px;
-      }
+    .bar__image--2 {
+      height: 98px;
+      right: 66px;
     }
-    .bar__three {
-    svg {
-      height: 140px;
-      right: -170px;
+    .bar__image--3 {
+      width: 112px;
+      right: 22px;
     }
-    }
-    .heading-spaced {
-      padding-left: 43px;
+    .bar__image--4 {
+      width: 64px;
+      right: -32px;
     }
     .cta {
       right: 83px;
@@ -318,17 +366,21 @@ section#podcasthrasher.fc-container--thrasher {
     }
     .cta {
       right: 163px;
+      .has-page-skin & {
+        right: 48px;
+      }
     }
+
   }
 
   h1, h2 {
     @include fs-header(5);
-    font-size: 18px;
+    font-size: 16px;
     display: inline;
     padding-left: $gs-gutter / 2;
   }
 
-  @include mq($from: tablet) {
+  @include mq($from: desktop) {
     h1, h2 {
     font-size: 22px;
     }
@@ -526,167 +578,167 @@ $color: #fb0;
     }
   }
 
-  @keyframes equalize3 {
-  0% {
-    width: $nine;
-  }
-  4% {
-    width: $seven;
-  }
-  8% {
-    width: $nine;
-  }
-  12% {
-    width: $eleven;
-  }
-  16% {
-    width: $thirteen;
-  }
-  20% {
-    width: $size / 2.666666667;
-  }
-  24% {
-    width: $fourteen;
-  }
-  28% {
-    width: $eleven;
-  }
-  32% {
-    width: $nine;
-  }
-  36% {
-    width: $eight;
-  }
-  40% {
-    width: $seven;
-  }
-  44% {
-    width: $five;
-  }
-  48% {
-    width: $eight;
-  }
-  52% {
-    width: $ten;
-  }
-  56% {
-    width: $eleven;
-  }
-  60% {
-    width: $thirteen;
-  }
-  64% {
-    width: $twelve;
-  }
-  68% {
-    width: $eleven;
-  }
-  72% {
-    width: $eleven;
-  }
-  76% {
-    width: $ten;
-  }
-  80% {
-    width: $twelve;
-  }
-  84% {
-    width: $thirteen;
-  }
-  88% {
-    width: $fourteen;
-  }
-  92% {
-    width: $twelve;
-  }
-  96% {
-    width: $ten;
-  }
-  100% {
-    width: $nine;
-  }
-}
+//   @keyframes equalize3 {
+//   0% {
+//     width: $nine;
+//   }
+//   4% {
+//     width: $seven;
+//   }
+//   8% {
+//     width: $nine;
+//   }
+//   12% {
+//     width: $eleven;
+//   }
+//   16% {
+//     width: $thirteen;
+//   }
+//   20% {
+//     width: $size / 2.666666667;
+//   }
+//   24% {
+//     width: $fourteen;
+//   }
+//   28% {
+//     width: $eleven;
+//   }
+//   32% {
+//     width: $nine;
+//   }
+//   36% {
+//     width: $eight;
+//   }
+//   40% {
+//     width: $seven;
+//   }
+//   44% {
+//     width: $five;
+//   }
+//   48% {
+//     width: $eight;
+//   }
+//   52% {
+//     width: $ten;
+//   }
+//   56% {
+//     width: $eleven;
+//   }
+//   60% {
+//     width: $thirteen;
+//   }
+//   64% {
+//     width: $twelve;
+//   }
+//   68% {
+//     width: $eleven;
+//   }
+//   72% {
+//     width: $eleven;
+//   }
+//   76% {
+//     width: $ten;
+//   }
+//   80% {
+//     width: $twelve;
+//   }
+//   84% {
+//     width: $thirteen;
+//   }
+//   88% {
+//     width: $fourteen;
+//   }
+//   92% {
+//     width: $twelve;
+//   }
+//   96% {
+//     width: $ten;
+//   }
+//   100% {
+//     width: $nine;
+//   }
+// }
 
-  @keyframes equalize4 {
-    0% {
-      width: $two;
-    }
-    4% {
-      width: $two;
-    }
-    8% {
-      width: $two;
-    }
-    12% {
-      width: $five;
-    }
-    16% {
-      width: $six;
-    }
-    20% {
-      width: $nine;
-    }
-    24% {
-      width: $eight;
-    }
-    28% {
-      width: $seven;
-    }
-    32% {
-      width: $seven;
-    }
-    36% {
-      width: $four;
-    }
-    40% {
-      width: $six;
-    }
-    44% {
-      width: $six;
-    }
-    48% {
-      width: $seven;
-    }
-    52% {
-      width: $eight;
-    }
-    56% {
-      width: $nine;
-    }
-    60% {
-      width: $eight;
-    }
-    64% {
-      width: $eight;
-    }
-    68% {
-      width: $seven;
-    }
-    72% {
-      width: $six;
-    }
-    76% {
-      width: $seven;
-    }
-    80% {
-      width: $eight;
-    }
-    84% {
-      width: $eight;
-    }
-    88% {
-      width: $nine;
-    }
-    92% {
-      width: $six;
-    }
-    96% {
-      width: $four;
-    }
-    100% {
-      width: $two;
-    }
-  }
+  // @keyframes equalize4 {
+  //   0% {
+  //     width: $two;
+  //   }
+  //   4% {
+  //     width: $two;
+  //   }
+  //   8% {
+  //     width: $two;
+  //   }
+  //   12% {
+  //     width: $five;
+  //   }
+  //   16% {
+  //     width: $six;
+  //   }
+  //   20% {
+  //     width: $nine;
+  //   }
+  //   24% {
+  //     width: $eight;
+  //   }
+  //   28% {
+  //     width: $seven;
+  //   }
+  //   32% {
+  //     width: $seven;
+  //   }
+  //   36% {
+  //     width: $four;
+  //   }
+  //   40% {
+  //     width: $six;
+  //   }
+  //   44% {
+  //     width: $six;
+  //   }
+  //   48% {
+  //     width: $seven;
+  //   }
+  //   52% {
+  //     width: $eight;
+  //   }
+  //   56% {
+  //     width: $nine;
+  //   }
+  //   60% {
+  //     width: $eight;
+  //   }
+  //   64% {
+  //     width: $eight;
+  //   }
+  //   68% {
+  //     width: $seven;
+  //   }
+  //   72% {
+  //     width: $six;
+  //   }
+  //   76% {
+  //     width: $seven;
+  //   }
+  //   80% {
+  //     width: $eight;
+  //   }
+  //   84% {
+  //     width: $eight;
+  //   }
+  //   88% {
+  //     width: $nine;
+  //   }
+  //   92% {
+  //     width: $six;
+  //   }
+  //   96% {
+  //     width: $four;
+  //   }
+  //   100% {
+  //     width: $two;
+  //   }
+  // }
 }
 
 
@@ -698,79 +750,99 @@ $color: #fb0;
 
 .equalizer--1 {
   position: absolute;
-  top: 8px;
-  left: 215px;
+  top: 48px;
+  left: 285px;
   display: block;
   height: 50px;
   background-color: $color;
-  @include mq($from: tablet) {
-    left: 319px;
+  @include mq($from: mobileMedium) {
+    top: 8px;
+  }
+  @include mq($from: mobileLandscape) {
+    left: 311px;
+  }
+  @include mq($from: desktop) {
+    left: 421px;
   }
 }
 
 .equalizer--2 {
   position: absolute;
-  top: 66px;
-  left: 263px;
+  top: 106px;
+  left: 285px;
   display: block;
   height: 50px;
   background-color: $color;
-  @include mq($from: tablet) {
-    left: 319px;
+  @include mq($from: mobileMedium) {
+    top: 66px;
+  }
+  @include mq($from: mobileLandscape) {
+    left: 311px;
+  }
+  @include mq($from: desktop) {
+    left: 421px;
   }
 }
 
 .equalizer--3 {
   position: absolute;
-  top: 124px;
-  left: 263px;
+  top: 164px;
+  left: 285px;
   display: block;
   height: 50px;
   background-color: $color;
-  @include mq($from: tablet) {
-    left: 319px;
+  @include mq($from: mobileMedium) {
+    top: 124px;
+  }
+  @include mq($from: mobileLandscape) {
+    left: 311px;
+  }
+  @include mq($from: desktop) {
+    left: 421px;
   }
 }
 
 .equalizer--4 {
   position: absolute;
-  top: 182px;
-  left: 263px;
+  top: 222px;
+  left: 285px;
   display: block;
   height: 50px;
   background-color: $color;
-  @include mq($from: tablet) {
-    left: 319px;
+  @include mq($from: mobileMedium) {
+    top: 182px;
+  }
+  @include mq($from: mobileLandscape) {
+    left: 311px;
+  }
+  @include mq($from: desktop) {
+    left: 421px;
   }
 }
 
 .equalizer--1, .equalizer--2, .equalizer--3, .equalizer--4 {
-  @include animation(200px);
+  @include animation(100px);
   transform: translate3d(0, 0, 0);
   will-change: width;
-  animation: equalize 2s steps(25, end) 0s infinite;
+    animation: equalize 1.5s steps(25, end) 0s infinite;
   @include mq($from: mobileMedium) {
-    @include animation(280px);
-    animation: equalize 2.4s steps(25, end) 0s infinite;
-  }
-  @include mq($from: mobileLandscape) {
-    @include animation(480px);
-    animation: equalize 3s steps(25, end) 0s infinite;
-  }
-  @include mq($from: tablet) {
-    @include animation(280px);
+    @include animation(140px);
     animation: equalize 2s steps(25, end) 0s infinite;
   }
-  @include mq($from: desktop) {
-    @include animation(480px);
+  @include mq($from: mobileLandscape) {
+    @include animation(320px);
     animation: equalize 3s steps(25, end) 0s infinite;
   }
+  @include mq($from: desktop) {
+    @include animation(200px);
+    animation: equalize 2.2s steps(25, end) 0s infinite;
+  }
   @include mq($from: leftCol) {
-    @include animation(800px);
+    @include animation(600px);
     animation: equalize 3.5s steps(25, end) 0s infinite;
   }
   @include mq($from: wide) {
-    @include animation(1000px);
+    @include animation(800px);
     animation: equalize 3.8s steps(25, end) 0s infinite;
   }
 }
@@ -781,11 +853,12 @@ $color: #fb0;
 }
 
 .equalizer--3 {
-  animation-name: equalize3;
+  animation-name: equalize;
+  animation-delay:-.2s;
 }
 
 .equalizer--4 {
-  animation-name: equalize4;
+  animation-name: equalize2;
   animation-delay: -1s;
 }
 
