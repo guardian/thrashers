@@ -91,15 +91,15 @@ section#documentaries {
                 top: 0;
                 left: 0;
                 bottom: 0;
-                transform: translateX(-25%);
+                transform: translateX(-44%);
                 @include mq(mobileLandscape) {
-                    transform: translateX(-18%);
+                    transform: translateX(-22%);
                 }
                 @include mq(phablet) {
                     transform: translateX(-19%);
                 }
                 @include mq(tablet) {
-                    transform: translateX(-17%);
+                    transform: translateX(-18%);
                 }
                 @include mq(desktop) {
                     transform: translateX(-11%);
@@ -161,7 +161,7 @@ section#documentaries {
             padding-left: 260px;
         }
         .title {
-            color: #F6DCD0;
+            color: #D4F0FF;
             margin-top: 6px;
         }
         .strapline,
