@@ -21,12 +21,12 @@
 
     var getsVideo = function() {
       if (wantsVideo.canVideo()) {
-        var videoCandidates = document.querySelectorAll('[data-wants-video]');
+        var videoCandidates = document.querySelectorAll('[data-wants-first-impressions]');
         for (var i = 0; i < videoCandidates.length; i++) {
           var img = videoCandidates[i];
           var imageWrapper = videoCandidates[i].parentElement;
 
-          var videoSource = img.getAttribute('data-wants-video');
+          var videoSource = img.getAttribute('data-wants-first-impressions');
           var videoPoster = img.getAttribute('src');
 
           var videoTag = document.createElement('div');
