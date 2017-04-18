@@ -11,15 +11,17 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-$amp: '&';
 
-#food-#{$amp}-drink {
-  margin-top: -9px !important;
-  @include mq($from: tablet) {
-    margin-top: -6px !important;
+
+#food-and-drink {
+  &.fc-container {
+    margin-top: 0px !important;
+    @include mq($from: tablet) {
+      margin-top: -6px !important;
+    }
   }
   .fc-item {
-    @include mq($from: tablet) {
+    @include mq($until: tablet) {
       padding-left: 0px !important;
       padding-right: 0px !important;
     }
