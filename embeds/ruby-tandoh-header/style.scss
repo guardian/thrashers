@@ -11,7 +11,7 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-.jones__header {
+.tandoh__header {
   height: 200px;
   position: relative;
 
@@ -33,7 +33,7 @@ $mq-breakpoints: (
   }
 }
 
-.jones__image--foreground {
+.tandoh__image--foreground {
   position: absolute;
   z-index: 10;
 
@@ -58,7 +58,7 @@ $mq-breakpoints: (
   }
 }
 
-.jones__image {
+.tandoh__image {
   position: absolute;
   height: 200px;
 
@@ -66,26 +66,31 @@ $mq-breakpoints: (
     object-fit: cover;
     height: 100%;
     width: 100%;
+    object-position: 30.5%;
+
+    @include mq($from: mobileLandscape){
+      object-position: 50% bottom;
+    }
 
     @include mq($from: tablet) {
       height: 270px;
     }
 
-    @include mq($until: desktop) {
-      object-position: 33%;
+    @include mq($from: desktop) {
+      object-position: 63% bottom;
     }
 
-    @include mq($until: mobileLandscape) {
-      object-position: 33%;
+    @include mq($from: leftCol){
+      object-position: 20% bottom;
     }
 
-    @include mq($until: 321px) {
-      object-position: 36%;
+    @include mq($from: wide){
+      object-position: left bottom;
     }
   }
 }
 
-.jones__type {
+.tandoh__type {
   position: absolute;
   top: 40px;
   overflow: hidden;
@@ -110,29 +115,29 @@ $mq-breakpoints: (
     }
     @include mq($from: leftCol) {
       height: 180px;
-      width: 690px;
+      width: 530px;
       margin-top: 0px;
     }
     @include mq($from: wide) {
       height: 200px;
-      width: 730px;
+      width: 520px;
     }
   }
 }
 
-.jones__type-mobile {
+.tandoh__type-mobile {
   font-family: $f-serif-headline;
   color: white;
   position: absolute;
-  bottom: 0px;
+  bottom: 20px;
   right: 20px;
 
   @include mq($from: mobileLandscape) {
-    right: 110px;
+    right: 40px;
   }
 
   @include mq($from: tablet) {
-    right: 110px;
+    right: 40px;
   }
 
   h1 {
@@ -152,11 +157,15 @@ $mq-breakpoints: (
       display: block;
       line-height: 10px;
       margin-bottom: 15px;
-      margin-left: 30px;
+      margin-left: 63px;
+
+      @include mq($until: 479px) {
+        margin-left: -26px;
+      }
 
       @include mq($from: mobileLandscape) {
         margin-bottom: 30px;
-        margin-left: 60px;
+        margin-left: 50px;
       }
     }
   }
