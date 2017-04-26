@@ -11,6 +11,21 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+#recipe-header {
+  &.fc-container {
+    margin-top: 0px !important;
+    @include mq($from: tablet) {
+      margin-top: -6px !important;
+    }
+  }
+  .fc-item {
+    @include mq($until: tablet) {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+  }
+}
+
 .jones__header {
   height: 200px;
   position: relative;
@@ -158,6 +173,46 @@ $mq-breakpoints: (
         margin-bottom: 30px;
         margin-left: 60px;
       }
+    }
+  }
+}
+
+.chefs-container--nav {
+  width: 100%;
+  overflow: auto;
+}
+
+.page-container-list {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  margin-left: 6px;
+  padding-bottom: 6px;
+
+  @include mq($from: tablet) {
+    margin-top: 6px;
+  }
+
+  li {
+    float: left;
+    list-style: none;
+    margin-left: 0;
+    margin-right: 10px;
+    box-sizing: border-box;
+    height: 25px;
+    font-family: $f-sans-serif-text;
+    font-weight: 600;
+    color: #333;
+
+    &:hover {
+      border-bottom: 1px solid #b72166;
+      color: #b72166;
+    }
+
+    @include mq($from: tablet) {
+      float: right;
+      font-size: 16px;
+      line-height: 20px;
     }
   }
 }
