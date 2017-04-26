@@ -26,7 +26,7 @@ section#membership-ab-thrasher a.fc-trail__count{
 }
 
 #membership-ab-thrasher.fc-container--thrasher{
-	@include mq($until: leftCol) {
+	@include mq($until: tablet) {
 		display: none;
 	}
 	.fc-container__inner{
@@ -76,8 +76,14 @@ section#membership-ab-thrasher a.fc-trail__count{
   	display: block;
   	font-family: $f-serif-headline;
   	color: #ffffff;
-  	font-size: 56px;
-    line-height: 56px;
+  	@include mq($from: tablet, $until: desktop) {
+      font-size: 48px;
+      line-height: 48px;
+    }
+    @include mq($from: desktop) {
+      font-size: 56px;
+      line-height: 56px;
+    }
     margin-top: 12px;
   	p {
   		margin-bottom: 0px;
@@ -89,15 +95,29 @@ section#membership-ab-thrasher a.fc-trail__count{
   	font-family: $f-serif-headline;
   	color: #333333;
   	font-weight: normal;
-    font-size: 24px;	
-    line-height: 28px;
+    @include mq($from: tablet, $until: desktop) {
+      font-size: 20px;
+      line-height: 24px;
+      width: 350px;
+    }
+    @include mq($from: desktop) {
+      font-size: 24px;  
+      line-height: 28px;
+    }
   	.strong {
   		font-weight: 900;
   	}
   }
 
   .membership-ab-thrasher__cta {
-		@include mq($from: leftCol) {
+    margin-top: 10px;
+		@include mq($from: tablet, $until: desktop) {
+      margin-left: 20px;
+    }
+    @include mq($from: desktop, $until: leftCol) {
+      margin-left: 20px;
+    }
+    @include mq($from: leftCol, $until: wide) {
 			margin-left: 180px;
 		}
 		@include mq($from: wide) {
@@ -150,16 +170,28 @@ section#membership-ab-thrasher a.fc-trail__count{
   .main_image {
 		padding: 0;
     margin: 0;
-  	@include mq($from: leftCol) {
+    position: absolute;
+    top: 0px;
+    height: 300px;
+    width: 480px;   
+    @include mq($from: tablet, $until: desktop) {
+      left: 380px;
+      height: 200px;
+      width: 480px;
+      img {
+        height: 200px;
+        width: 320px;
+      }
+    }
+    @include mq($from: desktop, $until: leftCol) {
+      left: 480px;
+    }
+  	@include mq($from: leftCol, $until: wide) {
 			left: 640px;
   	}
   	@include mq($from: wide) {
   		left: 720px;
   	}
-    position: absolute;
-    top: 0px;
-    height: 300px;
-    width: 480px;	  
     .membership-ab-thrasher__figure {
 	  	z-index: 1;
 	  }
