@@ -22,6 +22,10 @@ $c-blue: #1e3f74;
 
 .fc-container--trumped {
     padding-bottom: 0 !important;
+
+    .fc-container__inner {
+//         min-height: 370px;
+    }
 }
 
 .fc-container__inner--no-treats .treats__container {
