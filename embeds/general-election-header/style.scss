@@ -14,104 +14,245 @@
             width: 100%;
             height: 225px;
             background-color: #f4f4f4;
+            border-bottom: solid 1px #6195B3;
+        }
+        &--logo {
+            width: auto;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            #logo-copy {
+                color: #333;
+                display: inline-block;
+                font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+                font-weight: 900;
+                font-size: 28px;
+                line-height: 27px;
+                padding-left: 5px;
+                vertical-align: top;
+                margin-top: -6px;
+            }
         }
         &--bars {
             height: 33.333%;
             float: right;
-            animation-timing-function: ease-in;
+            animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            clear: right;
             &-wrap {
                 height: 100%;
-                width: 100%;
+                width: 80%;
+                float: right;
             }
             &__one {
-                animation: colorchange-one 8s 3s forwards;
-                -webkit-animation: colorchange-one 8s 3s forwards;
+                animation: colorScale-one 8s 1s forwards;
+                -webkit-animation: colorScale-one 8s 1s forwards;
                 background: #AAD8F1;
-                width: 80%;
+                width: 0%;
             }
             &__two {
-            	animation: colorchange-two 8s 3s forwards;
-                -webkit-animation: colorchange-two 8s 3s forwards;
+                animation: colorScale-two 8s 1s forwards;
+                -webkit-animation: colorScale-two 8s 1s forwards;
                 background: #C7E3F2;
-                width: 40%;
+                width: 0%;
             }
             &__three {
-            	animation: colorchange-three 8s 3s forwards;
-                -webkit-animation: colorchange-three 8s 3s forwards;
+                animation: colorScale-three 8s 1s forwards;
+                -webkit-animation: colorScale-three 8s 1s forwards;
                 background: #DDEBF2;
-                width: 70%;
+                width: 0%;
+            }
+        }
+        &--figures {
+            animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: absolute;
+            bottom: -220px;
+            &-wrap {
+                #may {
+                    left: 50%;
+                    animation: figures 2s 1.4s;
+                }
+                #farron {
+                    left: 70%;
+                    animation: figures 2s 2.9s;
+                }
+                #corbyn {
+                    left: 55%;
+                    animation: figures 2s 4.4s;
+                }
+                #sturgeon {
+                    left: 80%;
+                    animation: figures 2s 5.9s;
+                    // -webkit-animation: figures 1.6s 7s;
+                }
+                #group {
+                    left: 60%;
+                    animation: group 2s 8s forwards;
+                }
+            }
+        }
+        &--copy {
+            position: absolute;
+            left: 20px;
+            bottom: 5px;
+            opacity: 0;
+            width: 195px;
+            animation: fade 1.5s 8.2s forwards;
+            p {
+                color: #63747C;
+                font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
             }
         }
     }
     
-    @keyframes colorchange-one {
+    @keyframes figures {
         0% {
-            background: #AAD8F1;
-        }
-        25% {
-            background: #EC2533;
+            bottom: -220px;
         }
         50% {
-            background: #F9AF1B;
+            bottom: 0px;
         }
         75% {
+            bottom: 0px;
+        }
+        100% {
+            bottom: -220px;
+        }
+    }
+    
+    @keyframes group {
+        0% {
+            bottom: -220px;
+        }
+        80% {
+            bottom: 0;
+        }
+        100% {
+        	bottom:0;
+        }
+    }
+    
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes colorScale-one {
+        0% {
+            width: 0%;
+        }
+        20% {
+            background: #AAD8F1;
+            width: 50%;
+        }
+        35% {
+            background: #AAD8F1;
+        }
+        40% {
+            background: #F9AF1B;
+            width: 80%;
+        }
+        55% {
+            background: #F9AF1B;
+        }
+        60% {
+            background: #EC2533;
+            width: 60%;
+        }
+        75% {
+            background: #EC2533;
+        }
+        80% {
+            background: #F9D918;
+            width: 40%;
+        }
+        95% {
             background: #F9D918;
         }
         100% {
             background: #005689;
+            width: 80%;
         }
     }
-
-    @keyframes colorchange-two {
+    
+    @keyframes colorScale-two {
         0% {
+            width: 0%;
+        }
+        20% {
+            background: #C7E3F2;
+            width: 80%;
+        }
+        35% {
             background: #C7E3F2;
         }
-        25% {
-            background: #EF7780;
+        40% {
+            background: #F6CA71;
+            width: 60%;
         }
-        50% {
+        55% {
             background: #F6CA71;
         }
+        60% {
+            background: #EF7780;
+            width: 80%;
+        }
         75% {
+            background: #EF7780;
+        }
+        80% {
+            background: #F6E36F;
+            width: 70%;
+        }
+        95% {
             background: #F6E36F;
         }
         100% {
             background: #6195B3;
+            width: 55%;
         }
     }
-
-    @keyframes colorchange-three {
+    
+    @keyframes colorScale-three {
         0% {
+            width: 0%;
+        }
+        20% {
+            background: #DDEBF2;
+            width: 60%;
+        }
+        35% {
             background: #DDEBF2;
         }
-        25% {
-            background: #F1B5B9;
+        40% {
+            background: #F5DFB2;
+            width: 90%;
         }
-        50% {
+        55% {
             background: #F5DFB2;
         }
+        60% {
+            background: #F1B5B9;
+            width: 70%;
+        }
         75% {
+            background: #F1B5B9;
+        }
+        80% {
+            background: #F5EBB1;
+            width: 80%;
+        }
+        95% {
             background: #F5EBB1;
         }
         100% {
             background: #AAC4D3;
-        }
-    }
-    
-    @-webkit-keyframes colorchange-one {
-        0% {
-            background: #AAD8F1;
-        }
-        25% {
-            background: #EC2533;
-        }
-        50% {
-            background: #F9AF1B;
-        }
-        75% {
-            background: #F9D918;
-        }
-        100% {
-            background: #005689;
+            width: 100%;
         }
     }
