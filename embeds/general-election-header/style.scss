@@ -1,7 +1,7 @@
     // Default breakpoints from Frontend
     $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet: 740px, desktop: 980px, leftCol: 1140px, wide: 1300px);
     @import 'shared/_imports';
-    #beyond-the-blade {
+    #general-election-header {
         padding: 0;
         .facia-snap {
             @include mq($until: phablet) {
@@ -57,6 +57,7 @@
             height: 33.333%;
             float: right;
             animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
             clear: right;
             &-wrap {
                 display: none;
@@ -78,20 +79,20 @@
                 }
             }
             &__one {
-                animation: colorScale-one 10s 0s forwards;
-                -webkit-animation: colorScale-one 10s 0s forwards;
+                animation: colorScale-one 10s 1s forwards;
+                -webkit-animation: colorScale-one 10s 1s forwards;
                 background: #AAD8F1;
                 width: 0%;
             }
             &__two {
-                animation: colorScale-two 10s 0s forwards;
-                -webkit-animation: colorScale-two 10s 0s forwards;
+                animation: colorScale-two 10s 1s forwards;
+                -webkit-animation: colorScale-two 10s 1s forwards;
                 background: #C7E3F2;
                 width: 0%;
             }
             &__three {
-                animation: colorScale-three 10s 0s forwards;
-                -webkit-animation: colorScale-three 10s 0s forwards;
+                animation: colorScale-three 10s 1s forwards;
+                -webkit-animation: colorScale-three 10s 1s forwards;
                 background: #DDEBF2;
                 width: 0%;
             }
@@ -124,6 +125,7 @@
         }
         &--figures {
             animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            -webkit-animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
             position: absolute;
             bottom: -220px;
             display: none;
@@ -138,24 +140,28 @@
             &-wrap {
                 #may {
                     left: 50%;
-                    animation: figures 2s .5s;
+                    animation: figures 2s 1.5s;
+                    -webkit-animation: figures 2s 1.5s;
                 }
                 #farron {
                     left: 70%;
-                    animation: figures 2s 2.5s;
+                    animation: figures 2s 3.5s;
+                    -webkit-animation: figures 2s 3.5s;
                 }
                 #corbyn {
                     left: 55%;
-                    animation: figures 2s 4.5s;
+                    animation: figures 2s 5.5s;
+                    -webkit-animation: figures 2s 5.5s;
                 }
                 #sturgeon {
                     left: 80%;
-                    animation: figures 2s 6.5s;
-                    // -webkit-animation: figures 1.6s 7s;
+                    animation: figures 2s 7.5s;
+                    -webkit-animation: figures 2s 7.5s;
                 }
                 #group {
                     right: 3%;
-                    animation: group 2s 9s forwards;
+                    animation: group 2s 10s forwards;
+                    -webkit-animation: group 2s 10s forwards;
                 }
                 #simple {
                     right: 10%;
@@ -163,6 +169,7 @@
                     display: block!important;
                     transform: scale(.6, .6);
                     animation: group 2s 0s forwards;
+                    -webkit-animation: group 2s 0s forwards;
                     @include mq($from: phablet) {
                         display: none!important;
                     }
@@ -176,8 +183,9 @@
             display: none;
             opacity: 1;
             // width: 208px;
-            border-top: solid 2px #AAD8F1;
-            animation: border 10s 0s forwards;
+            border-top: solid 1px #AAD8F1;
+            animation: border 10s 1s forwards;
+            -webkit-animation: border 10s 1s forwards;
             @include mq($from: phablet) {
                 display: inline-block;
                 width: 188px;
@@ -270,31 +278,31 @@
     @keyframes border {
         0% {}
         20% {
-            border-top: solid 2px #AAD8F1;
+            border-top: solid 1px #AAD8F1;
         }
         35% {
-            border-top: solid 2px #AAD8F1;
+            border-top: solid 1px #AAD8F1;
         }
         40% {
-            border-top: solid 2px #F9AF1B;
+            border-top: solid 1px #F9AF1B;
         }
         55% {
-            border-top: solid 2px #F9AF1B;
+            border-top: solid 1px #F9AF1B;
         }
         60% {
-            border-top: solid 2px #EC2533;
+            border-top: solid 1px #EC2533;
         }
         75% {
-            border-top: solid 2px #EC2533;
+            border-top: solid 1px #EC2533;
         }
         80% {
-            border-top: solid 2px #F9D918;
+            border-top: solid 1px #F9D918;
         }
         95% {
-            border-top: solid 2px #F9D918;
+            border-top: solid 1px #F9D918;
         }
         100% {
-            border-top: solid 2px #005689;
+            border-top: solid 1px #005689;
         }
     }
     
@@ -375,6 +383,204 @@
     }
     
     @keyframes colorScale-three {
+        0% {
+            width: 0%;
+        }
+        20% {
+            background: #DDEBF2;
+            width: 60%;
+        }
+        35% {
+            background: #DDEBF2;
+        }
+        40% {
+            background: #F5DFB2;
+            width: 90%;
+        }
+        55% {
+            background: #F5DFB2;
+        }
+        60% {
+            background: #F1B5B9;
+            width: 70%;
+        }
+        75% {
+            background: #F1B5B9;
+        }
+        80% {
+            background: #F5EBB1;
+            width: 80%;
+        }
+        95% {
+            background: #F5EBB1;
+        }
+        100% {
+            background: #AAC4D3;
+            width: 100%;
+        }
+    }
+
+    ///////// WEBKIT KEYFRAMES /////////
+    
+    @-webkit-keyframes figures {
+        0% {
+            bottom: -220px;
+        }
+        50% {
+            bottom: 0px;
+        }
+        75% {
+            bottom: 0px;
+        }
+        100% {
+            bottom: -220px;
+        }
+    }
+    
+    @-webkit-keyframes group {
+        0% {
+            bottom: -220px;
+        }
+        80% {
+            bottom: 0;
+        }
+        100% {
+            bottom: 0;
+        }
+    }
+    
+    @-webkit-keyframes fade {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    @-webkit-keyframes fade-hold {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @-webkit-keyframes border {
+        0% {}
+        20% {
+            border-top: solid 1px #AAD8F1;
+        }
+        35% {
+            border-top: solid 1px #AAD8F1;
+        }
+        40% {
+            border-top: solid 1px #F9AF1B;
+        }
+        55% {
+            border-top: solid 1px #F9AF1B;
+        }
+        60% {
+            border-top: solid 1px #EC2533;
+        }
+        75% {
+            border-top: solid 1px #EC2533;
+        }
+        80% {
+            border-top: solid 1px #F9D918;
+        }
+        95% {
+            border-top: solid 1px #F9D918;
+        }
+        100% {
+            border-top: solid 1px #005689;
+        }
+    }
+    
+    @-webkit-keyframes colorScale-one {
+        0% {
+            width: 0%;
+        }
+        20% {
+            background: #AAD8F1;
+            width: 50%;
+        }
+        35% {
+            background: #AAD8F1;
+        }
+        40% {
+            background: #F9AF1B;
+            width: 80%;
+        }
+        55% {
+            background: #F9AF1B;
+        }
+        60% {
+            background: #EC2533;
+            width: 60%;
+        }
+        75% {
+            background: #EC2533;
+        }
+        80% {
+            background: #F9D918;
+            width: 40%;
+        }
+        95% {
+            background: #F9D918;
+        }
+        100% {
+            background: #005689;
+            width: 80%;
+        }
+    }
+    
+    @-webkit-keyframes colorScale-two {
+        0% {
+            width: 0%;
+        }
+        20% {
+            background: #C7E3F2;
+            width: 80%;
+        }
+        35% {
+            background: #C7E3F2;
+        }
+        40% {
+            background: #F6CA71;
+            width: 60%;
+        }
+        55% {
+            background: #F6CA71;
+        }
+        60% {
+            background: #EF7780;
+            width: 80%;
+        }
+        75% {
+            background: #EF7780;
+        }
+        80% {
+            background: #F6E36F;
+            width: 70%;
+        }
+        95% {
+            background: #F6E36F;
+        }
+        100% {
+            background: #6195B3;
+            width: 55%;
+        }
+    }
+    
+    @-webkit-keyframes colorScale-three {
         0% {
             width: 0%;
         }
