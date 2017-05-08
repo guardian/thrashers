@@ -76,7 +76,8 @@ section#membership-ab-thrasher a.fc-trail__count{
   	display: block;
   	font-family: $f-serif-headline;
   	color: #ffffff;
-  	@include mq($from: tablet, $until: desktop) {
+    @include mq($from: tablet, $until: desktop) {
+      width: 300px;
       font-size: 48px;
       line-height: 48px;
     }
@@ -96,9 +97,9 @@ section#membership-ab-thrasher a.fc-trail__count{
   	color: #333333;
   	font-weight: normal;
     @include mq($from: tablet, $until: desktop) {
+      width: 300px;
       font-size: 20px;
       line-height: 24px;
-      width: 350px;
     }
     @include mq($from: desktop) {
       font-size: 24px;  
@@ -110,7 +111,7 @@ section#membership-ab-thrasher a.fc-trail__count{
   }
 
   .membership-ab-thrasher__cta {
-    margin-top: 10px;
+    margin-top: 0;
 		@include mq($from: tablet, $until: desktop) {
       margin-left: 20px;
     }
@@ -175,12 +176,12 @@ section#membership-ab-thrasher a.fc-trail__count{
     height: 300px;
     width: 480px;   
     @include mq($from: tablet, $until: desktop) {
-      left: 380px;
-      height: 200px;
-      width: 480px;
+      left: 340px;
+      height: 300px;
+      width: 380px;
+      margin-top: 62px;
       img {
-        height: 200px;
-        width: 320px;
+        width: 380px;
       }
     }
     @include mq($from: desktop, $until: leftCol) {
