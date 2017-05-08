@@ -48,16 +48,8 @@ section#podcasthrasher.fc-container--thrasher {
   background-color: #333;
   width: 100%;
   min-height: 366px;
-  // position: relative;
   @include mq($from: mobileMedium) {
     min-height: 326px;
-    min-width: 375px;
-  }
-  @include mq($from: mobileLandscape) {
-    min-width: 480px;
-  }
-  @include mq($from: phablet) {
-    min-width: 660px;
   }
   @include mq($from: tablet) {
     min-width: 740px;
