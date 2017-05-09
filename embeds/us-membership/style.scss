@@ -140,11 +140,14 @@ $c-black: #333;
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     font-weight: 900;
     color: $c-blue;
-    margin: 5px 0;
 
     @include mq(mobileLandscape) {
         font-size: 34px;
     }
+
+	@include mq(phablet) {
+		margin: 5px 0;
+	}
 
     @include mq(tablet) {
         font-size: 28px;
@@ -160,7 +163,7 @@ $c-black: #333;
 }
 
 .us-membership__headline--second-line {
-    margin-left: 20%;
+    margin-left: 0;
 
     @include mq(phablet) {
         margin-left: 30%;

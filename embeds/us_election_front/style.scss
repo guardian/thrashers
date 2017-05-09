@@ -213,10 +213,12 @@ $blue: #214583;
 		top: 0;
 		right: 20px;
 		transform-origin: top center;
+		transform: scale(.6);
 
 		@include mq(mobileLandscape) {
 			top: -10px;
 			height: 130px;
+			transform: none;
 		}
 
 		@include mq(tablet) {
@@ -233,16 +235,14 @@ $blue: #214583;
 		}
 	}
 
-	.election-header__person--hillary {
-		background-image: url('@@assetPath@@/clinton.png');
+	.election-header__person--trump {
+		background-image: url('@@assetPath@@/trump.png');
 		right: -20px;
-		transform: scaleX(-1) scale(.6);
 		animation-delay: -2.5s;
 
 		@include mq(mobileLandscape) {
 			right: auto;
 			left: 380px;
-			transform: scaleX(-1);
 		}
 
 		@include mq(tablet) {
@@ -258,15 +258,13 @@ $blue: #214583;
 		}
 	}
 
-	.election-header__person--trump {
-		background-image: url('@@assetPath@@/trump.png');
+	.election-header__person--hillary {
+		background-image: url('@@assetPath@@/clinton.png');
 		right: 40px;
-		transform: scale(.6);
 
 		@include mq(mobileLandscape) {
 			right: auto;
 			left: 290px;
-			transform: none;
 		}
 
 		@include mq(tablet) {
@@ -419,7 +417,15 @@ $blue: #214583;
 
 // Page Changers
 .fc-container__header__title {
-    color: $blue;
+    color: $blue !important;
+}
+
+.fc-container--story-package .fc-container__inner {
+	background-color: transparent !important;
+}
+
+#explore-the-result .tone-news--item.fc-item {
+	background-color: transparent !important;
 }
 
 .fc-container .fc-container__inner {
