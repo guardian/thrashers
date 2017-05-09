@@ -1,3 +1,7 @@
+$aniTime:18s;
+$marginAniVal:60px;
+$textColor:red;
+
 // Default breakpoints from Frontend
 $mq-breakpoints: (
     mobile:          320px,
@@ -10,3 +14,118 @@ $mq-breakpoints: (
 );
 
 @import 'shared/_imports';
+
+.university-guide-2017__wrapper{
+	overflow:hidden !important;
+}
+
+.illo-container{
+	@include mq(wide){
+		width:3900px;
+		height:1500px;
+    	background-image:url('@@assetPath@@/bg-mock-up.png');
+    	overflow:hidden;
+    	animation: AniOne $aniTime ease-out infinite;
+    }
+}
+
+.thrash-container {
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #999;
+    padding: 0;
+	height:300px;
+	
+	overflow:hidden;
+
+    @each $bp in (mobile,mobileLandscape,phablet,tablet,desktop,leftCol,wide) {
+        @include mq($bp) {
+            min-width: map-get($mq-breakpoints, $bp);
+        }
+    }
+}
+
+.texts-container{
+	position: absolute;
+	width:auto;
+	height:auto;
+	padding: 0 0 0 20px;
+	top:0;
+	left:0;
+	color:$textColor;
+
+	h1{
+		font-weight:200;
+		font-size:36px;
+	}
+}
+
+
+@keyframes AniOne {
+    0% {
+        margin-top: 0;
+        margin-left:0;
+    }
+    9% {
+        margin-top: 0;
+        margin-left:0;
+    }
+    15% {
+        margin-top: -500px;
+        margin-left:0;
+    }
+
+    24% {
+        margin-top: -500px;
+        margin-left:0;
+    }
+    30% {
+        margin-top: -500px;
+        margin-left:-1300px;
+    }
+
+    39% {
+        margin-top: -500px;
+        margin-left:-1300px;
+    }
+
+    45% {
+        margin-top: -500px;
+        margin-left:-2600px;
+    }
+
+    54% {
+        margin-top: -500px;
+        margin-left:-2600px;
+    }
+
+    60% {
+        margin-top: -1200px;
+        margin-left:-2600px;
+    }
+
+    69% {
+        margin-top: -1200px;
+        margin-left:-2600px;
+    }
+
+    75% {
+        margin-top: -1500px;
+        margin-left:-2600px;
+    }
+
+    80% {
+        margin-top: -1400px;
+        margin-left:-2600px;
+    }
+
+    80% {
+        margin-top: -1400px;
+        margin-left:-2100px;
+    }
+ 
+    100% {
+        margin-top: -1400px;
+        margin-left:-2100px;
+    }
+}
