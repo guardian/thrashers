@@ -80,19 +80,19 @@
             }
             &__one {
                 animation: colorScale-one 10s 1s forwards;
-                -webkit-animation: colorScale-one 10s 1s forwards;
+                // -webkit-animation: colorScale-one 10s 1s forwards;
                 background: #AAD8F1;
                 width: 0%;
             }
             &__two {
                 animation: colorScale-two 10s 1s forwards;
-                -webkit-animation: colorScale-two 10s 1s forwards;
+                // -webkit-animation: colorScale-two 10s 1s forwards;
                 background: #C7E3F2;
                 width: 0%;
             }
             &__three {
                 animation: colorScale-three 10s 1s forwards;
-                -webkit-animation: colorScale-three 10s 1s forwards;
+                // -webkit-animation: colorScale-three 10s 1s forwards;
                 background: #DDEBF2;
                 width: 0%;
             }
