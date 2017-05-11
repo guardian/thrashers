@@ -51,7 +51,8 @@ section#membership-ab-thrasher a.fc-trail__count{
 	background-position: center;
   font-family: $f-serif-headline;
   color: #005689;
-  width: 1300px;
+  width: 100%;
+  max-width: 1300px;
   height: 300px;
 	font-weight: normal;
 
@@ -61,9 +62,6 @@ section#membership-ab-thrasher a.fc-trail__count{
 
 	.membership-ab-thrasher--wrapper {
 	  overflow: visible !important;
-    @include mq($from: mobile, $until: mobileMedium) {
-      width: 300px;
-    }
 	}
 
   .main_title {
