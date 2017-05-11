@@ -1,6 +1,14 @@
-$aniTime:18s;
+$aniTime:24s;
 $marginAniVal:60px;
-$textColor:red;
+$textColor:#333;
+$clean-turq: #68d3cf;
+$dirty-turq: #5ebeb9;
+
+$dirty-green:#ceb41d;
+
+$desktopHeight:300px;
+
+$animation-looping:forwards;
 
 // Default breakpoints from Frontend
 $mq-breakpoints: (
@@ -19,113 +27,587 @@ $mq-breakpoints: (
 	overflow:hidden !important;
 }
 
-.illo-container{
+.bg-illo-container{
 	@include mq(wide){
-		width:3900px;
+		width:1300px;
 		height:1500px;
-    	background-image:url('@@assetPath@@/bg-mock-up.png');
+    	background-image:url('@@assetPath@@/bg-plai.png');
     	overflow:hidden;
-    	animation: AniOne $aniTime ease-out infinite;
+
+        -webkit-animation: AniOne $aniTime ease-out $animation-looping;
+        -moz-animation: AniOne $aniTime ease-out $animation-looping;
+        -o-animation:  AniOne $aniTime ease-out $animation-looping;
     }
 }
 
 .thrash-container {
     margin: 0 auto;
     box-sizing: border-box;
-    background-color: #999;
+    background-color: $dirty-turq;
     padding: 0;
-	height:300px;
+	height:$desktopHeight;	
+    position:relative;
 	
-	overflow:hidden;
 
     @each $bp in (mobile,mobileLandscape,phablet,tablet,desktop,leftCol,wide) {
         @include mq($bp) {
             min-width: map-get($mq-breakpoints, $bp);
         }
     }
+
+    overflow:hidden !important;
 }
 
 .texts-container{
 	position: absolute;
 	width:auto;
 	height:auto;
-	padding: 0 0 0 20px;
+	padding: 12px 0 0 20px;
 	top:0;
 	left:0;
 	color:$textColor;
 
 	h1{
-		font-weight:200;
-		font-size:36px;
+		font-family: "Guardian Egyptian Web", Georgia, serif;
+        font-weight:200;
+		font-size:40px;
+        line-height:42px;
+        width:400px;
 	}
 }
 
+.cta-button{
+    position: absolute;
+    width:auto;
+    height:18px;
+    padding: 12px 36px 12px 18px;
+    top:220px;
+    left:20px;
+    background-color:$textColor;
+    border-radius:999px;
+    color:#FFF;
+    font-family: "Guardian Text Sans Web", Helvetica, Arial, sans-serif;
+    font-weight:200;
+    font-size:14px;
+    line-height:18px;
+}
+
+.cta-button::after{
+    content:' _ ';
+
+    }
+
+
+.illo-element{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    
+    @include mq(wide){      
+        height:$desktopHeight;
+    }
+}
+
+.road-el{
+    top:280px;
+    height:100%;
+    background-color: #ddd;
+
+    -webkit-animation: AniRoad $aniTime ease-in $animation-looping;
+    -moz-animation: AniRoad $aniTime ease-in $animation-looping;
+    -o-animation:  AniRoad $aniTime ease-in $animation-looping; 
+}
+
+.verge-el{
+    top:150px;
+    height:100%;
+    background-color: $dirty-green;
+
+    // -webkit-animation: AniRoad $aniTime ease-in forwards;
+    // -moz-animation: AniRoad $aniTime ease-in forwards;
+    // -o-animation:  AniRoad $aniTime ease-in forwards; 
+}
+
+
+@keyframes AniRoad {
+    0% {
+        top: 280px;
+        width: 100%;
+    }
+    73% {
+        top: 280px;
+        width: 100%;
+    }
+    75% {
+        top: 0px;
+        width: 100%;
+        left:0;
+    }
+    80%{
+        top: 0;
+        width: 5%;
+        left:47.5%;
+    }
+    100% {
+        top: 0;
+        width: 5%;
+        left:47.5%;
+    }
+}
+
+.car-el{
+    background-image:url('@@assetPath@@/car-main.png');
+    -webkit-animation: AniCarMain $aniTime ease-in $animation-looping;
+    -moz-animation: AniCarMain $aniTime ease-in $animation-looping;
+    -o-animation:  AniCarMain $aniTime ease-in $animation-looping;   
+    overflow-y: hidden;
+}
+
+@keyframes AniCarMain {
+    0% {
+        left: 0;
+        top:-100px;
+    }
+
+     0.5% {
+        left: 0;
+        top:-7px;
+    }
+
+    1%{
+     top:0px;
+    }
+    2%{
+        top:-6px;
+    }
+
+    6%{
+     top:0px;
+    }
+
+    9%{
+     top:0px;
+    }
+    9.5%{
+     top:-4px;
+    }
+    10% {
+        left: 0;
+    }
+
+    11%{
+     top:0px;
+    }
+
+    11%{
+     top:0px;
+    }
+    
+
+
+    15% {
+        left: 100%;
+    }
+
+    20% {
+        left: 100%;
+    }
+ 
+    100% {
+        left: 100%;
+    }
+}
+
+
+.car-extra{
+    background-image:url('@@assetPath@@/car-extras.png');
+    -webkit-animation: AniCarExtra $aniTime ease-in $animation-looping;
+    -moz-animation: AniCarExtra $aniTime ease-in $animation-looping;
+    -o-animation:  AniCarExtra $aniTime ease-in $animation-looping;   
+    overflow-y: hidden;
+}
+
+@keyframes AniCarExtra {
+    0% {
+        left: 0;
+    }
+
+    10% {
+        left: 0;
+    }
+ 
+    15% {
+        left: 100%;
+    }
+
+    20% {
+        left: 100%;
+    }
+ 
+    100% {
+        left: 100%;
+    }
+}
+
+
+
+.wheelchair-el{
+    background-image:url('@@assetPath@@/wheelchair-main.png');
+    -webkit-animation: AniWheelChairMain $aniTime ease-in $animation-looping;
+    -moz-animation: AniWheelChairMain $aniTime ease-in $animation-looping;
+    -o-animation:  AniWheelChairMain $aniTime ease-in $animation-looping;
+}
+.wheelchair-extra{
+
+    background-image:url('@@assetPath@@/wheelchair-extras.png');
+    -webkit-animation: AniWheelChairExtra $aniTime ease-in $animation-looping;
+    -moz-animation: AniWheelChairExtra $aniTime ease-in $animation-looping;
+    -o-animation:  AniWheelChairExtra $aniTime ease-in $animation-looping;
+}
+
+@keyframes AniWheelChairMain {
+    0% {
+        left: -100%;
+    } 
+    20% {
+        left: -100%;
+    }
+    25% {
+        left: 0px;
+    }
+    35% {
+        left: 0px;
+    }
+    40% {
+        left: 100%;
+    }
+ 
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes AniWheelChairExtra {
+    0% {
+        opacity: 0;
+    } 
+    25% {
+        top: -60px;
+        opacity: 0;
+    }
+   
+
+    27% {
+        top: 0;
+        opacity: 1;
+    }
+
+    27.5% {
+        opacity: 0;
+    }
+
+    28% {
+        opacity: 1;
+    }
+
+    28.5% {
+        opacity: 0;
+    }
+
+    29% {
+        opacity: 1;
+    }
+
+    33% {
+        top: 0;
+        opacity: 1;
+    }
+   
+    35% {
+        top: -100%;
+    }
+    40% {
+        top: -100%;
+    }
+ 
+    100% {
+        top: -100%;
+    }
+}
+
+
+
+
+
+.skater-el{
+    background-image:url('@@assetPath@@/sb-main.png');
+    -webkit-animation: AniSkaterMain $aniTime ease-in $animation-looping;
+    -moz-animation: AniSkaterMain $aniTime ease-in $animation-looping;
+    -o-animation:  AniSkaterMain $aniTime ease-in $animation-looping;
+}
+
+.skater-extra{
+    background-image:url('@@assetPath@@/sb-extras.png');
+    -webkit-animation: AniSkaterExtra $aniTime ease-in $animation-looping;
+    -moz-animation: AniSkaterExtra $aniTime ease-in $animation-looping;
+    -o-animation:  AniSkaterExtra $aniTime ease-in $animation-looping;
+}
+
+
+@keyframes AniSkaterMain {
+    0% {
+        left: -100%;
+    }
+    40% {
+        left: -100%;
+    }
+    45% {
+        left: 0px;
+    }
+    55% {
+        left: 0px;
+    }
+    60% {
+        left: 100%;
+    }
+ 
+    100% {
+        left: 100%;
+    }
+}
+
+
+
+@keyframes AniSkaterExtra {
+    0% {
+
+         opacity:0;
+    }
+    40% {
+ 
+         opacity:0;
+    }
+    45% {
+       
+        opacity: 0;
+    }
+
+    45.5% {
+        opacity: 1;
+    }
+
+    46% {
+        opacity: 0;
+    }
+    47.5% {
+        opacity: 0;
+    }
+
+    48% {
+        opacity: 1;
+    }
+
+    48.5% {
+        opacity: 0;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    49.5% {
+        opacity:0;
+    }
+
+    53.5% {
+        opacity: 0;
+    }
+    54% {
+        opacity: 1;
+    }
+
+    54.5% {
+        opacity: 0;
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    55.5% {
+        opacity: 0;
+    }
+ 
+    100% {
+             opacity:0;
+    }
+}
+
+.guideDog-el{
+    background-image:url('@@assetPath@@/guideDog-main.png');
+    -webkit-animation: AniGuideDogMain $aniTime ease-out $animation-looping;
+    -moz-animation: AniGuideDogMain $aniTime ease-out $animation-looping;
+    -o-animation:  AniGuideDogMain $aniTime ease-out $animation-looping;
+}
+
+@keyframes AniGuideDogMain {
+
+     0% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    76% {
+        opacity: 0;
+    }
+ 
+    100% {
+        opacity: 0;
+    }
+
+
+    // 0% {
+    //     left: 100%;
+    // }
+
+    // 60% {
+    //     left: 100%;
+    // }
+    // 65% {
+    //     left: 0px;
+    // }
+    // 75% {
+    //     left: 0px;
+    // }
+    // 80% {
+    //     left: -100%;
+    // }
+ 
+    // 100% {
+    //     left: -100%;
+    // }
+}
+
+.scooter-el{
+    background-image:url('@@assetPath@@/scooter-main.png');
+    -webkit-animation: AniScooterMain $aniTime ease-out $animation-looping;
+    -moz-animation: AniScooterMain $aniTime ease-out $animation-looping;
+    -o-animation:  AniScooterMain $aniTime ease-out $animation-looping;
+}
+
+
+.scooter-el{
+    background-image:url('@@assetPath@@/scooter-main.png');
+    -webkit-animation: AniScooterMain $aniTime ease-out $animation-looping;
+    -moz-animation: AniScooterMain $aniTime ease-out $animation-looping;
+    -o-animation:  AniScooterMain $aniTime ease-out $animation-looping;
+}
+
+@keyframes AniScooterMain {
+    0% {
+        top: -100%;
+    }
+    80% {
+        top: -100%;
+    }
+    85% {
+        top: 0px;
+    }
+    95% {
+        top: 0px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+
+.scooter-hedge-el{
+    background-image:url('@@assetPath@@/bg-scooter-hedge.png');
+    -webkit-animation: AniScooterHedge $aniTime ease-out $animation-looping;
+    -moz-animation: AniScooterHedge $aniTime ease-out $animation-looping;
+    -o-animation:  AniScooterHedge $aniTime ease-out $animation-looping;
+}
+
+
+@keyframes AniScooterHedge {
+    0% {
+        top: 100%;
+    }
+    80% {
+        top: 100%;
+    }
+    85% {
+        top: 0px;
+    }
+    95% {
+        top: 0px;
+    }
+    100% {
+        top: 0;
+    }
+}
 
 @keyframes AniOne {
     0% {
         margin-top: 0;
-        margin-left:0;
     }
     9% {
         margin-top: 0;
-        margin-left:0;
     }
     15% {
-        margin-top: -500px;
-        margin-left:0;
+        margin-top: 0;
     }
 
-    24% {
-        margin-top: -500px;
-        margin-left:0;
-    }
-    30% {
-        margin-top: -500px;
-        margin-left:-1300px;
-    }
+    // 20% {
+    //     margin-top: 0;
+    // }
+    // 25% {
+    //     margin-top: -300px;
+    // }
 
-    39% {
-        margin-top: -500px;
-        margin-left:-1300px;
-    }
+    // 35% {
+    //     margin-top: -600px;
+    // }
 
-    45% {
-        margin-top: -500px;
-        margin-left:-2600px;
-    }
+    // 45% {
+    //     margin-top: -900px;
+    // }
 
-    54% {
-        margin-top: -500px;
-        margin-left:-2600px;
-    }
+    // 50% {
+    //     margin-top: -900px;
+    // }
 
-    60% {
-        margin-top: -1200px;
-        margin-left:-2600px;
-    }
+    // 55% {
+    //     margin-top: -900px;
+    // }
 
-    69% {
-        margin-top: -1200px;
-        margin-left:-2600px;
-    }
+    // 60% {
+    //     margin-top: -900px;
+    // }
 
     75% {
-        margin-top: -1500px;
-        margin-left:-2600px;
+        margin-top: 0;
     }
 
-    80% {
-        margin-top: -1400px;
-        margin-left:-2600px;
-    }
+    // 80% {
+    //     margin-top: -1200px;
+    // }
 
     80% {
-        margin-top: -1400px;
-        margin-left:-2100px;
+        margin-top: -300px;
     }
  
     100% {
-        margin-top: -1400px;
-        margin-left:-2100px;
+        margin-top: -300px;
     }
 }
