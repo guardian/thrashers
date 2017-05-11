@@ -1,6 +1,7 @@
 // Default breakpoints from Frontend
 $mq-breakpoints: (
   mobile:          320px,
+  mobileMedium:    375px,
   mobileLandscape: 480px,
   phablet:         660px,
   tablet:          740px,
@@ -26,7 +27,7 @@ section#membership-ab-thrasher a.fc-trail__count{
 }
 
 #membership-ab-thrasher.fc-container--thrasher{
-	@include mq($until: tablet) {
+	@include mq($until: mobile) {
 		display: none;
 	}
 	.fc-container__inner{
@@ -54,12 +55,28 @@ section#membership-ab-thrasher a.fc-trail__count{
   height: 300px;
 	font-weight: normal;
 
+  @include mq($from: mobile, $until: mobileMedium) {
+    height: 150px;
+  }
+
 	.membership-ab-thrasher--wrapper {
 	  overflow: visible !important;
 	}
 
 	.membership-ab-thrasher_header {
-		@include mq($until: leftCol) {
+    width: 460px;
+    @include mq($from: mobile, $until: mobileMedium) {
+      margin-left: 0;
+      width: 280px;
+    }
+    // TODO
+    //@include mq($from: mobileMedium, $until: mobileLandscape) {
+    //}
+    //@include mq($from: mobileLandscape, $until: phablet) {
+    //}
+    //@include mq($from: phablet, $until: tablet) {
+    //}
+    @include mq($until: leftCol) {
 			margin-left: 20px;
 		}			
 		@include mq($from: leftCol) {
@@ -69,13 +86,25 @@ section#membership-ab-thrasher a.fc-trail__count{
 			margin-left: 260px;
 		}
 		margin-top: 0px;
-		width: 460px;	
+			
 	}
 
   .main_title {
   	display: block;
   	font-family: $f-serif-headline;
   	color: #ffffff;
+    @include mq($from: mobile, $until: mobileMedium) {
+      width: 180px;
+      font-size: 20px;
+      line-height: 20px;
+    }
+    // TODO
+    //@include mq($from: mobileMedium, $until: mobileLandscape) {
+    //}
+    //@include mq($from: mobileLandscape, $until: phablet) {
+    //}
+    //@include mq($from: phablet, $until: tablet) {
+    //}
     @include mq($from: tablet, $until: desktop) {
       width: 300px;
       font-size: 48px;
@@ -96,6 +125,18 @@ section#membership-ab-thrasher a.fc-trail__count{
   	font-family: $f-serif-headline;
   	color: #333333;
   	font-weight: normal;
+    @include mq($from: mobile, $until: mobileMedium) {
+      width: 120px;
+      font-size: 12px;
+      line-height: 12px;
+    }
+    // TODO
+    //@include mq($from: mobileMedium, $until: mobileLandscape) {
+    //}
+    //@include mq($from: mobileLandscape, $until: phablet) {
+    //}
+    //@include mq($from: phablet, $until: tablet) {
+    //}
     @include mq($from: tablet, $until: desktop) {
       width: 300px;
       font-size: 20px;
@@ -110,8 +151,46 @@ section#membership-ab-thrasher a.fc-trail__count{
   	}
   }
 
+  .membership-ab-thrasher-button {
+    @include mq($from: mobile, $until mobileMedium) {
+      position: absolute;
+      top: 110px;
+      left: 140px;
+    }
+    // TODO
+    //@include mq($from: mobileMedium, $until: mobileLandscape) {
+    //}
+    //@include mq($from: mobileLandscape, $until: phablet) {
+    //}
+    //@include mq($from: phablet, $until: tablet) {
+    //}
+  }
+
   .membership-ab-thrasher__cta {
     margin-top: 0;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 100px;
+    svg path {
+        stroke: #ffffff;
+        fill: #ffffff;
+    }
+    color: #ffffff;
+    background-color: #005689;
+
+    @include mq($from: mobile, $until: mobileMedium) {
+      height: 15px;
+      width: 140px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    // TODO
+    //@include mq($from: mobileMedium, $until: mobileLandscape) {
+    //}
+    //@include mq($from: mobileLandscape, $until: phablet) {
+    //}
+    //@include mq($from: phablet, $until: tablet) {
+    //}
 		@include mq($from: tablet, $until: desktop) {
       margin-left: 20px;
     }
@@ -124,21 +203,27 @@ section#membership-ab-thrasher a.fc-trail__count{
 		@include mq($from: wide) {
 			margin-left: 260px;
 		}
-  	display: inline-block;
-    padding: 5px 15px;
-    border-radius: 100px;
-    svg path {
-        stroke: #ffffff;
-        fill: #ffffff;
-    }
-    color: #ffffff;
-    background-color: #005689;
 
     .inline-arrow-white-right {
         display: block;
         float: right;
         height: 30px;
         margin-left: 10px;
+
+        @include mq($from: mobile, $until: mobileMedium) {
+          svg {
+            position: absolute;
+            top: -2px;
+            left: 110px;
+          }
+        }
+        // TODO
+        //@include mq($from: mobileMedium, $until: mobileLandscape) {
+        //}
+        //@include mq($from: mobileLandscape, $until: phablet) {
+        //}
+        //@include mq($from: phablet, $until: tablet) {
+        //}        
     }
 
   	p {
@@ -149,6 +234,13 @@ section#membership-ab-thrasher a.fc-trail__count{
   		display: inline-block;
   		vertical-align: middle;
 	    margin: 0;
+      @include mq($from: mobile, $until: mobileMedium) {
+        position: absolute;
+        font-size: 12px;
+        padding-top: 0;
+        top: 7px;
+        left: 15px;
+      }
   	}
   }
 
@@ -175,6 +267,22 @@ section#membership-ab-thrasher a.fc-trail__count{
     top: 0px;
     height: 300px;
     width: 480px;   
+    @include mq($from: mobile, $until: mobileMedium) {
+      left: 140px;
+      width: 160px;
+      height: 100px;
+      margin-top: 0;
+      img {
+        width: 160px;
+      }
+    }
+    // TODO
+    //@include mq($from: mobileMedium, $until: mobileLandscape) {
+    //}
+    //@include mq($from: mobileLandscape, $until: phablet) {
+    //}
+    //@include mq($from: phablet, $until: tablet) {
+    //}
     @include mq($from: tablet, $until: desktop) {
       left: 340px;
       height: 300px;
@@ -197,5 +305,4 @@ section#membership-ab-thrasher a.fc-trail__count{
 	  	z-index: 1;
 	  }
   }
-
 }
