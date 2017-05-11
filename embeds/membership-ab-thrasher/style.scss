@@ -152,7 +152,7 @@ section#membership-ab-thrasher a.fc-trail__count{
   }
 
   .membership-ab-thrasher-button {
-    @include mq($from: mobile, $until mobileMedium) {
+    @include mq($from: mobile, $until: mobileMedium) {
       position: absolute;
       top: 110px;
       left: 140px;
