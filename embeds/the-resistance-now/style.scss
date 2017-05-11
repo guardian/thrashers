@@ -11,72 +11,38 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-$c-red: #b51800;
-$c-black: #333;
+$c-red: #e31f26;
+$c-black: #222;
 $c-white: #fff;
 
-@include base(the-resistance-now, $c-red);
+@include base(the-resistance-now, $c-black);
+
+#the-resistance-now {
+    position: relative;
+}
 
 .the-resistance-now__wrapper {
-    background-color: $c-white;
     position: relative;
-
-    &:before,
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        background-repeat: no-repeat;
-        width: 140px;
-        background-size: auto 100%;
-
-        @include mq(desktop) {
-            width: 480px;
-        }
-    }
-
-    &:before {
-        left: 0;
-        background-image: url('@@assetPath@@/banner-left--mobile.jpg');
-        background-position: left center;
-
-        @include mq(desktop) {
-            background-image: url('@@assetPath@@/banner-left.jpg');
-        }
-    }
-
-    &:after {
-        right: 0;
-        background-image: url('@@assetPath@@/banner-right--mobile.jpg');
-        background-position: right center;
-
-        @include mq(desktop) {
-            background-image: url('@@assetPath@@/banner-right.jpg');
-        }
-    }
+    background-image: url('@@assetPath@@/background.jpg');
+    background-size: cover;
 }
 
 .the-resistance-now__content {
     position: relative;
     width: 330px;
-    margin-left: 40px;
     z-index: 2;
     height: 130px;
+    padding: 6px 0;
+    margin-left: 10px;
 
     @include mq(mobileLandscape) {
         height: 200px;
-        margin-left: 60px;
-    }
-
-    @include mq(phablet) {
-        height: 350px;
-        margin-left: 120px;
+        margin-left: 20px;
     }
 
     @include mq(desktop) {
-        margin-left: 260px;
         width: 330px;
+        height: 350px;
     }
 
     @include mq(leftCol) {
@@ -87,12 +53,13 @@ $c-white: #fff;
 .the-resistance-now__logo {
     width: 100%;
     max-width: 130px;
+    margin-top: 6px;
 
     @include mq(mobileLandscape) {
         max-width: 250px;
     }
 
-    @include mq(phablet) {
+    @include mq(desktop) {
         max-width: 450px;
     }
 }
@@ -102,11 +69,11 @@ $c-white: #fff;
     bottom: 6px;
 }
 
-.the-resistance-now__link {
+a.the-resistance-now__link {
     position: relative;
     font-family: 'Guardian Egyptian Web';
     font-weight: 900;
-    color: $c-black;
+    color: $c-white;
     font-size: 16px;
     padding-right: 34px;
     margin-right: 10px;
@@ -139,7 +106,7 @@ $c-white: #fff;
         text-decoration: none;
 
         &:after {
-            background-color: $c-black;
+            background-color: darken($c-red, 10%);
         }
     }
 }

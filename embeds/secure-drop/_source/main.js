@@ -81,8 +81,14 @@ function ratioToOffset(r) {
 }
 
 function isMobile() {
-    const isIOS = () => /(iPad|iPhone|iPod touch)/i.test(navigator.userAgent);
-    const isAndroid = () => /Android/i.test(navigator.userAgent);
+    
+    function isIOS() { 
+        return /(iPad|iPhone|iPod touch)/i.test(navigator.userAgent);
+    }
+
+    function isAndroid() {
+        return /Android/i.test(navigator.userAgent);
+    }
 
     return isIOS() || isAndroid();
 }
