@@ -31,7 +31,6 @@ $mq-breakpoints: (
 	@include mq(wide){
 		width:1300px;
 		height:1500px;
-    	background-image:url('@@assetPath@@/bg-plai.png');
     	overflow:hidden;
 
         -webkit-animation: AniOne $aniTime ease-out $animation-looping;
@@ -93,7 +92,7 @@ $mq-breakpoints: (
 }
 
 .cta-button::after{
-    content:' _ ';
+    content:' _';
 
     }
 
