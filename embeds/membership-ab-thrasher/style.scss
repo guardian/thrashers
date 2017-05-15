@@ -56,22 +56,55 @@ section#membership-ab-thrasher a.fc-trail__count{
   height: 300px;
 	font-weight: normal;
 
-	.membership-ab-thrasher--wrapper {
-	  overflow: visible !important;
-    @include mq($from: mobile, $until: mobileMedium) {
-      //height: 150px;
-      width: 320px;
-    }
-    @include mq($from: mobileMedium, $until: mobileLandscape) {
-      //height: 200px;
-      width: 375px;
-    }
-    @include mq($from: mobileLandscape, $until: tablet) {
-      //height: 210px;
-      width: 440px;
-    }
+  @include mq($from: mobile, $until: mobileMedium) {
+    height: 320px;
   }
 
+  @include mq($from: mobileMedium, $until: mobileLandscape) {
+    height: 290px;
+  }
+
+	.membership-ab-thrasher--wrapper {
+	  overflow: visible !important;
+/*    @include mq($from: mobile, $until: mobileMedium) {
+      width: 300px;
+    }
+    @include mq($from: mobileMedium, $until: mobileLandscape) {
+      width: 355px;
+    }
+    @include mq($from: mobileLandscape, $until: tablet) {
+      width: 440px;
+    }
+*/
+    max-width: 620px;
+    margin: 0 auto;
+    @include mq($from: mobileLandscape, $until: tablet) {
+        max-width: 440px;
+        padding: 0 10px;
+    }
+    @include mq(tablet) {
+        padding: 0 20px;
+        max-width: none;
+    }
+    @include mq(leftCol) {
+        margin-left: 160px;
+    }
+    @include mq(wide) {
+        margin-left: 240px;
+    }
+
+  }
+
+/*  .membership-ab-thrasher_header {
+    @include mq($from: mobileLandscape, $until: phablet) {
+      margin-left: 10px;
+    }
+    @include mq($from: phablet, $until: tablet) {
+      width: 90%;
+      margin-left: 5%;
+    }
+  }
+*/
   .main_title {
     position: absolute;
   	display: block;
@@ -80,45 +113,24 @@ section#membership-ab-thrasher a.fc-trail__count{
     margin-top: 12px;
     margin-left: 20px;
 
-    //@include mq($from: mobile, $until: tablet) {
-      //position: relative;
-      //float: left;
-      //display: inline-block;
-    //}
-    
+    @include mq($from: mobile, $until: tablet) {
+      margin-top: 3px;
+      margin-left: 0px;  
+      font-size: 36px;
+      line-height: 36px;
+    }
+
     @include mq($from: mobile, $until: mobileMedium) {
-      //width: 120px;
-      width: 280px;
-      margin-left: 10px;
-      //font-size: 24px;
-      //line-height: 24px;
-      font-size: 26px;
-      line-height: 26px;
-      margin-top: 10px;
+      width: 300px;
     }
 
     @include mq($from: mobileMedium, $until: mobileLandscape) {
-      //width: 170px;
-      //font-size: 26px;
-      //line-height: 26px;
-      //margin-top: 10px;
+      height: 36px;
       width: 350px;
-      margin-left: 10px;
-      font-size: 26px;
-      line-height: 26px;
-      margin-top: 10px;
     }
 
     @include mq($from: mobileLandscape, $until: tablet) {
-      //width: 170px;
-      //font-size: 26px;
-      //line-height: 26px;
-      //margin-top: 10px; 
       width: 440px;
-      margin-left: 10px;
-      font-size: 26px;
-      line-height: 26px;
-      margin-top: 10px;
     }
     
     @include mq($from: tablet, $until: desktop) {
@@ -151,51 +163,23 @@ section#membership-ab-thrasher a.fc-trail__count{
     margin-top: 110px;
     margin-left: 20px;
 
-    //@include mq($from: mobile, $until: tablet) {
-    //  position: relative;
-    //  float: left;
-    //  display: inline-block;
-    //}
-
   	font-family: $f-serif-headline;
   	color: #333333;
   	font-weight: normal;
-    
-    @include mq($from: mobile, $until: mobileMedium) {
-      //margin-top: 60px;
-      //margin-left: -120px;
-      //width: 120px;
-      margin-top: 70px;
-      margin-left: 10px;
-      //font-size: 14px;
-      //line-height: 14px;
-      font-size: 18px;
-      line-height: 22px;
-    }
-    
-    // TODO
-    @include mq($from: mobileMedium, $until: mobileLandscape) {
-      //margin-top: 70px;
-      //margin-left: -170px;
-      //width: 170px;
-      //font-size: 16px;
-      //line-height: 16px;
-      margin-top: 70px;
-      margin-left: 10px;
+
+    @include mq($from: mobile, $until: tablet) {
+      max-width: 440px;
+      margin-left: 0px;
       font-size: 18px;
       line-height: 22px;
     }
 
-    @include mq($from: mobileLandscape, $until: tablet) {
-      //margin-top: 70px;
-      //margin-left: -170px;
-      //width: 40%;
-      //font-size: 16px;
-      //line-height: 16px;
-      margin-top: 70px;
-      margin-left: 10px;
-      font-size: 18px;
-      line-height: 22px;
+    @include mq($from: mobile, $until: mobileMedium) {
+      margin-top: 75px;
+    }
+    
+    @include mq($from: mobileMedium, $until: tablet) {
+      margin-top: 42px;
     }
 
     @include mq($from: tablet, $until: desktop) {
@@ -225,34 +209,16 @@ section#membership-ab-thrasher a.fc-trail__count{
   }
 
   .link-button {
-    position: absolute;
-    margin-top: 240px;
-
-    //@include mq($from: mobile, $until: tablet) {
-      //position: relative;
-      //float: left;
-      //display: inline-block;
-    //}
+    //position: absolute;
+    top: 240px;
+    margin-left: 0;      
 
     @include mq($from: mobile, $until: mobileMedium) {
-      //margin-top: 110px;
-      //margin-right: -155px;
-      margin-top: 185px;
-      margin-left: -10px;      
+      top: 190px;
     }
 
-    @include mq($from: mobileMedium, $until: mobileLandscape) {
-      //margin-top: 150px;
-      //margin-right: -165px;
-      margin-top: 165px;
-      margin-left: -10px;      
-    }
-
-    @include mq($from: mobileLandscape, $until: tablet) {
-      //margin-top: 150px;
-      //margin-right: -220px;
-      margin-top: 165px;
-      margin-left: -10px;          
+    @include mq($from: mobileMedium, $until: tablet) {
+      top: 135px;
     }
 
     @include mq($from: desktop) {
@@ -271,37 +237,7 @@ section#membership-ab-thrasher a.fc-trail__count{
     }
     color: #ffffff;
     background-color: #005689;
-    margin-left: 20px;
-
-    @include mq($from: mobile, $until: mobileMedium) {
-      height: 15px;
-      width: 140px;
-      padding-left: 5px;
-      padding-right: 5px;
-    }
-
-    @include mq($from: mobileMedium, $until: mobileLandscape) {
-      //height: 20px;
-      //width: 150px;
-      //padding-left: 5px;
-      //padding-right: 5px;
-      height: 15px;
-      width: 140px;
-      padding-left: 5px;
-      padding-right: 5px;
-    }
-
-    @include mq($from: mobileLandscape, $until: tablet) {
-      //height: 20px;
-      //margin-top: 10px;
-      //width: 200px;
-      //padding-left: 5px;
-      //padding-right: 5px;
-      height: 15px;
-      width: 140px;
-      padding-left: 5px;
-      padding-right: 5px;    
-    }
+    margin-left: 0;
 
     @include mq($from: leftCol) {
       margin-left: 180px;
@@ -317,35 +253,14 @@ section#membership-ab-thrasher a.fc-trail__count{
       height: 30px;
       margin-left: 10px;
 
-      @include mq($from: mobile, $until: mobileMedium) {        
+      @include mq($from: mobile, $until: tablet) {        
         svg {
           position: absolute;
-          //top: -2px;
-          //left: 110px;
-          margin-top: -6px;
-          margin-left: 90px;
+          margin-top: 0px;
+          margin-left: 110px;
         }
       }
 
-      @include mq($from: mobileMedium, $until: mobileLandscape) {
-        svg {
-          position: absolute;
-          //top: 0;
-          //left: 120px;
-          margin-top: -6px;
-          margin-left: 90px;
-        }
-      }
-
-      @include mq($from: mobileLandscape, $until: tablet) {
-        svg {
-          position: absolute;
-          //top: 10px;
-          //left: 160px;
-          margin-top: -6px;
-          margin-left: 90px;
-        }
-      }
     }
 
   	p {
@@ -360,42 +275,22 @@ section#membership-ab-thrasher a.fc-trail__count{
         position: relative;
         float: right;
         margin-right: 45px;
-        font-size: 12px;
-        line-height: 12px;
         margin-top: 2px;
         padding-top: 0;
       }
 
       @include mq($from: mobileMedium, $until: mobileLandscape) {
-        //position: relative;
-        //float: right;
-        //margin-right: 50px;
-        //font-size: 14px;
-        //line-height: 14px;
-        //margin-top: 4px;
-        //padding-top: 0;
         position: relative;
         float: right;
         margin-right: 45px;
-        font-size: 12px;
-        line-height: 12px;
         margin-top: 2px;
         padding-top: 0;
       }
 
       @include mq($from: mobileLandscape, $until: tablet) {
-        //position: relative;
-        //float: right;
-        //margin-right: 80px;
-        //font-size: 16px;
-        //line-height: 16px;
-        //margin-top: 2px;
-        //padding-top: 0;
         position: relative;
         float: right;
         margin-right: 45px;
-        font-size: 12px;
-        line-height: 12px;
         margin-top: 2px;
         padding-top: 0;      
       }
@@ -428,57 +323,30 @@ section#membership-ab-thrasher a.fc-trail__count{
     height: 300px;
     width: 480px;   
 
-    //@include mq($from: mobile, $until: tablet) {
-    //  position: relative;
-    //  float: right;
-    //  display: inline-block;
-    //}
-    
-    @include mq($from: mobile, $until: mobileMedium) {
-      //margin-right: 0;            
-      //width: 160px;
-      //height: 100px;
-      //margin-top: 0;
-      margin-top: 200px;
+    @include mq($from: mobile, $until: tablet) {
+      max-width: 440px;
+      text-align: right;
       img {
         width: 300px;
       }
     }
 
-    // TODO
+    @include mq($from: mobile, $until: mobileMedium) {
+      max-width: 300px;
+      margin-top: 225px;
+    }
+
     @include mq($from: mobileMedium, $until: mobileLandscape) {
-      //margin-right: 0;            
-      //width: 180px;
-      //height: 113px;
-      //margin-top: 0;
+      max-width: 355px;
       margin-top: 180px;
-      margin-left: 75px;
-      img {
-        //width: 180px;
-        width: 300px;
-      }
     }
 
     @include mq($from: mobileLandscape, $until: phablet) {
-      //margin-right: 0;            
-      //width: 50%;
-      //height: 156px;
-      //top: -5px;
-      //margin-top: 0;
       margin-top: 180px;
-      margin-left: 140px;      
-      img {
-        //height: 100%;
-        width: 300px;
-      }    
     }
     
     @include mq($from: phablet, $until: tablet) {
-      margin-top: 115px;
-      margin-left: 330px;
-      img {
-        width: 300px;
-      }
+      margin-top: 170px;
     }
 
     @include mq($from: tablet, $until: desktop) {
