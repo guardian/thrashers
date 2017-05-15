@@ -145,11 +145,7 @@ section#membership-ab-thrasher a.fc-trail__count{
     }
     
     @include mq($from: leftCol) {
-      margin-left: 180px;
-    }
-
-    @include mq($from: wide) {
-      margin-left: 260px;
+      margin-left: 0;
     }
 
   	p {
@@ -196,21 +192,16 @@ section#membership-ab-thrasher a.fc-trail__count{
     }
 
     @include mq($from: leftCol) {
-      margin-left: 180px;
+      margin-left: 0;
     }
 
-    @include mq($from: wide) {
-      margin-left: 260px;
-    }
-  	
     .strong {
   		font-weight: 900;
   	}
   }
 
   .link-button {
-    //position: absolute;
-    top: 240px;
+    top: 245px;
     margin-left: 0;      
 
     @include mq($from: mobile, $until: mobileMedium) {
@@ -221,8 +212,12 @@ section#membership-ab-thrasher a.fc-trail__count{
       top: 135px;
     }
 
-    @include mq($from: desktop) {
-      margin-top: 250px;
+    @include mq($from: tablet, $until: leftCol) {
+      margin-left: 20px;
+    }
+
+    @include mq($from: leftCol) {
+      margin-left: 0;
     }
   }
 
@@ -238,14 +233,6 @@ section#membership-ab-thrasher a.fc-trail__count{
     color: #ffffff;
     background-color: #005689;
     margin-left: 0;
-
-    @include mq($from: leftCol) {
-      margin-left: 180px;
-    }
-
-    @include mq($from: wide) {
-      margin-left: 260px;
-    }
 
     .inline-arrow-white-right {
       display: block;
