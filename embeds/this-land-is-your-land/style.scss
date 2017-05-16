@@ -24,21 +24,24 @@ $c-white: #fff;
 }
 
 .this-land-is-your-land__wrapper {
-    display: flex;
+    overflow: visible;
 
-    @include mq(desktop) {
+    @include mq(tablet) {
         height: 300px;
+        display: flex;
+        overflow: hidden;
     }
 }
 
 .this-land-is-your-land__content {
     position: relative;
     height: 100%;
-    padding: 0 10px;
+    padding: 6px 0;
     flex-shrink: 0;
     box-sizing: border-box;
 
-    @include mq(mobileLandscape) {
+    @include mq(tablet) {
+        width: 360px;
         padding: 6px 20px;
     }
 
@@ -50,21 +53,29 @@ $c-white: #fff;
 .this-land-is-your-land__title {
     font-family: 'Guardian Egyptian Web';
     font-weight: 800;
-    font-size: 44px;
+    font-size: 28px;
     line-height: 1.1;
+
+    @include mq(desktop) {
+        font-size: 44px;
+        line-height: 1.1;
+    }
 }
 
 .this-land-is-your-land__description {
     font-family: 'Guardian Text Egyptian Web';
     font-size: 16px;
     line-height: 1.4;
+    margin-bottom: 24px;
 }
 
 .this-land-is-your-land__goal {
-    position: absolute;
-    left: 20px;
-    bottom: 56px;
-    right: 20px;
+    @include mq(tablet) {
+        position: absolute;
+        left: 20px;
+        bottom: 56px;
+        right: 20px;
+    }
 }
 
 .this-land-is-your-land__count {
@@ -100,7 +111,8 @@ $c-white: #fff;
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(-30%);
+    transform: translateX(-100%);
+    transition: transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
 }
 
 a.this-land-is-your-land__button {
@@ -111,14 +123,16 @@ a.this-land-is-your-land__button {
     background-color: $c-black;
     color: $c-yellow;
     display: inline-block;
+    margin-top: 10px;
 
-    @include mq(desktop) {
+    @include mq(tablet) {
         position: absolute;
         bottom: 12px;
         left: 20px;
     }
 
     &:hover {
+        background-color: darken($c-black, 5%);
         text-decoration: none;
     }
 }
@@ -140,4 +154,11 @@ a.this-land-is-your-land__button {
     background-position: center 20%;
     background-size: cover;
     width: 100%;
+
+    @include mq($until: tablet) {
+        padding-top: 40%;
+        display: block;
+        width: calc(100% + 20px);
+        margin-left: -10px;
+    }
 }
