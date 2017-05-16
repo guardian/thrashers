@@ -154,15 +154,23 @@ $gs-baseline: 12px;
     &__image--one {
       height: 270px;
       width: 100%;
-      background-image: url('@@assetPath@@/holiday-pic-1.jpg');
+      background-image: url('@@assetPath@@/holiday-pic-mobile.jpg');
+      background-size: 446px;
+      background-position: right;
       position: absolute;
       z-index: -10;
       background-color: #000;
       background-repeat: no-repeat;
-      background-size: 940px;
-      background-position: -236px 0px;
+
+      @include mq($from: mobileLandscape) {
+        background-size: 670px;
+        background-position: right -26px;
+      }
+
 
       @include mq($from: tablet) {
+        background-image: url('@@assetPath@@/holiday-pic-2.jpg');
+        background-size: 940px;
         background-position: 0px 0px;
       }
     }
