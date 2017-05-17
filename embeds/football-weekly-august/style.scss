@@ -18,7 +18,7 @@ $c-background: #333;
 	width: 100%;
 }
 
-section#football-weekly-august.fc-container--thrasher {
+section#football-weekly.fc-container--thrasher {
   background-color: #333;
   .fc-container__inner{
     overflow: visible;
@@ -37,7 +37,7 @@ section#football-weekly-august.fc-container--thrasher {
 }
 
 
-section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
+section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
   display: none !important;
 }
 
@@ -62,9 +62,9 @@ section#football-weekly-august a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   .figure img {
-    width: 260px;
+    width: 210px;
     position: absolute;
-    bottom: -105px;
+    bottom: -80px;
     right: 22%;
     z-index: 99999;
   }
