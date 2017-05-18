@@ -1,0 +1,62 @@
+<div class="bulletin--wrapper">
+  <div class="bulletin--counter">
+    <span class="counter">8</span>
+    <span class="replay">
+      <svg width="33px" height="35px" viewBox="349 227 33 35">
+          <path d="M364.999942,227.091015 C359.204507,227.091015 354.065888,230.027368 351.052262,234.470535 L351.245443,235.513713 L352.597712,236.325074 L353.64089,236.05462 C356.152245,232.500087 360.247685,230.143277 364.999942,230.143277 C372.61128,230.143277 378.870349,236.402346 378.870349,244.090957 C378.870349,251.74093 372.61128,257.961364 364.999942,257.961364 C360.634048,257.961364 356.886333,256.029552 354.297706,252.938654 L359.899959,252.011384 L359.899959,250.079572 L350.009084,250.079572 L349.274996,250.813661 L349.274996,261.013626 L351.168171,261.013626 L352.134077,255.179555 C355.224975,258.772725 359.784051,261.013626 364.999942,261.013626 C374.388546,261.013626 381.999884,253.440925 381.999884,244.090957 C381.999884,234.663716 374.388546,227.091015 364.999942,227.091015 L364.999942,227.091015 Z" id="" stroke="none" fill="#FFFFFF" fill-rule="evenodd"></path>
+      </svg>
+    </span>
+  </div>
+  <script id="data__template" type="text/x-handlebars-template">
+    <div class="bulletin--button">
+      {{#each cover}}
+        <li style="background-image:url({{cover_image}})">
+          <div class="play--button">
+          <svg width="30px" height="24px" viewBox="25 28 30 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <polygon id="" stroke="none" fill="#FFFFFF" fill-rule="evenodd" points="54.1083671 40.6541747 54.1083671 39.4330486 26.8947007 28.1812443 25.8916329 28.9662539 25.8916329 51.1209694 26.8947007 51.8187557"></polygon>
+          </svg>
+          Watch now
+          </div>
+          <div class="headline">
+            <h1>election update</h1>
+            <p><span class="kicker">{{edition}}<span class="time-stamp">GMT</span></span> <span class="slash">/</span> {{cover_text}}plus&nbsp;{{plus_text}}</p>
+          </div>
+        </li>
+      {{/each}}
+    </div>
+    {{#each bulletin}}
+      {{#if slide_1_image}}
+      <li class="story" style="background-image:url({{slide_1_image}})">
+        <div class="clicker"></div>
+        <h1><span class="bulletin--kicker">{{story_kicker}}</span> / {{slide_1_text}}</h1>
+      </li>
+      {{/if}}
+      {{#if slide_2_image}}
+      <li class="story" style="background-image:url({{slide_2_image}})">
+        <div class="clicker"></div>
+        <h1><span class="bulletin--kicker">{{story_kicker}}</span> / {{slide_2_text}}</h1>
+      </li>
+      {{/if}}
+      {{#if slide_3_image}}
+      <li class="story" style="background-image:url({{slide_3_image}})">
+        <div class="clicker"></div>
+        <h1><span class="bulletin--kicker">{{story_kicker}}</span> / {{slide_3_text}}</h1>
+      </li>
+      {{/if}}
+    {{/each}}
+    <ul class="bulletin--onward">
+      <h1>read the full story</h1>
+      {{#each bulletin}}
+      <a href="{{link}}"><li><div class="image"><img src="{{slide_1_image}}"></div><div class="text"><span class="bulletin--kicker oj">{{story_kicker}}</span> / {{slide_1_text}}</div></li></a>
+      {{/each}}
+    </ul>
+  </script>
+</div>
+
+<img
+    style="height:0;width:0;visibility:hidden;position:absolute;z-index: 1;"
+    height="0"
+    width="0"
+    src="@@assetPath@@/empty3.gif"
+    onload="var script=document.createElement('script');script.src='@@assetPath@@/main.js'; document.body.appendChild(script);"
+/>

@@ -1,0 +1,296 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.bulletin{
+    &--counter {
+      position: absolute;
+      top: 10px;
+      right: 6px;
+      color: white;
+      font-family: $f-sans-serif-text;
+      font-size: 14px;
+      opacity: 0;
+      z-index: 4000;
+      background-color: rgba(51,51,51,0.8);
+      padding: 6px;
+      border-radius: 50%;
+      width: 20px;
+      height: 16px;
+      text-align: center;
+      padding-top:9px;
+
+        &.active {
+          opacity: 1;
+        }
+
+        .counter {
+          display: block;
+        }
+
+        .replay {
+          display: none;
+
+          svg {
+            width: 21px;
+            height: 14px;
+          }
+        }
+
+        &.end{
+          .counter {
+            display: none;
+          }
+
+          .replay {
+            display: block;
+          }
+        }
+    }
+
+    &--kicker {
+        color: #f7acbb;
+
+        &.oj {
+          color: #005689;
+        }
+    }
+
+    &--wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 100vw;
+      background-color: rgba(170,216,241,0.50);
+    }
+
+    &--button{
+      width: 100%;
+      width: 100vw;
+      height: 375px;
+      height: 100vw;
+      position: absolute;
+      z-index: 200;
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+
+
+      &.active{
+        opacity: 0;
+      }
+
+      li{
+        width: 100%;
+        width: 100vw;
+        height: 375px;
+        height: 100vw;
+        list-style: none;
+        background-size: cover;
+        background-position: center center;
+      }
+
+      .play--button{
+        height: 30px;
+        background-color: #e31f26;
+        border-radius: 30px;
+        color: white;
+        font-family: $f-sans-serif-headline;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 90px;
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 5px;
+        z-index: 3000;
+
+        svg {
+          width: 12px;
+          float: left;
+          margin-right: 6px;
+          margin-left: -2px;
+          margin-top: 0px;
+        }
+      }
+
+      .headline{
+        width: 90%;
+        position: absolute;
+        bottom: 0px;
+        padding: 0 8px 0 8px;
+        background-color: rgba(0,0,0,0.6);
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(22,22,22,0.8)));
+        background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(22,22,22,0.8));
+        background: linear-gradient(rgba(0,0,0,0), rgba(22,22,22,0.8));
+      }
+
+      h1{
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-family: $f-serif-headline;
+        -webkit-font-smoothing: antialiased;
+        margin-bottom: 5px;
+      }
+
+      p{
+        color: white;
+        font-family: $f-serif-text;
+        -webkit-font-smoothing: antialiased;
+        margin-top: 0px;
+        font-size: 19px;
+        line-height: 22px;
+      }
+
+      .kicker {
+        color: #f7acbb;
+        letter-spacing: -0.5px;
+      }
+
+      .time-stamp {
+        font-size: 12px;
+        font-family: $f-sans-serif-headline;
+        font-weight: 900;
+        letter-spacing: 0.8px;
+        margin-left: 4px;
+      }
+
+      .slash {
+        opacity: 0.5;
+      }
+    }
+    &--wrapper{
+      display: block;
+
+      @include mq($from:desktop){
+        display: none;
+      }
+
+      .story {
+        width: 100%;
+        width: 100vw;
+        height: 375px;
+        height: 100vw;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        background-size: cover;
+        background-position: center center;
+        opacity: 0;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        list-style: none;
+
+        &.active {
+          opacity: 1;
+          z-index: 2000;
+        }
+
+        h1 {
+          color: white;
+          font-family: $f-serif-headline;
+          font-size: 22px;
+          line-height: 26px;
+          font-weight: 500;
+          -webkit-font-smoothing: antialiased;
+          bottom: 0px;
+          width: 90%;
+          position: absolute;
+          background-color: rgba(0,0,0,0.6);
+          background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(22,22,22,0.8)));
+          background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(22,22,22,0.8));
+          background: linear-gradient(rgba(0,0,0,0), rgba(22,22,22,0.8));
+          padding: 0 8px 0 8px;
+          margin: 0px;
+        }
+
+        .clicker {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 3000;
+          }
+      }
+    }
+    &--onward {
+      margin: 0;
+      padding: 0;
+      display: none;
+      margin-left: 12px;
+      margin-right: 12px;
+      &.active {
+        display: block;
+        z-index: 99999999999;
+      }
+
+      h1 {
+        margin: 6px 0px 24px;
+        padding: 0;
+        color: #333;
+        font-size: 24px;
+        font-weight: 900;
+        font-family: $f-serif-headline;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      li{
+        font-family: $f-serif-headline;
+        font-weight: 500;
+        color: #333;
+        line-height: 18px;
+        list-style: none;
+        overflow: auto;
+        margin-bottom: 12px;
+
+
+        .image{
+          overflow: hidden;
+          height: 50px;
+          width: 50px;
+          float: left;
+          border-radius: 50%;
+        }
+
+        .text {
+          padding-top: 3px;
+          margin-left: 8px;
+          float: left;
+          width: 75%;
+          font-size: 13px;
+          line-height: 16px;
+        }
+
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+}
+.website--image {
+  img {
+    width: 100%;
+  }
+}
