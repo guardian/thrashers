@@ -1,0 +1,246 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#voices-and-votes {
+    @include mq($from: desktop) {
+        margin-top: -12px;
+    }
+
+    &:before {
+        position: absolute;
+        top: -12px;
+        height: 12px;
+        background-color: #dcdcdc;
+        width: 100%;
+        content: '';
+        display: block;
+        z-index: 20000;
+
+        @include mq($from: desktop) {
+            display: none;
+        }
+    }
+}
+
+@include base(voices-and-votes, #dcdcdc);
+
+.voices-and-votes-container__wrapper {
+    width: 100%;
+    background-color: #dcdcdc;
+    border-top: 2px solid #b6b6b6;
+    padding-bottom: 24px;
+
+    @include mq($from: tablet) {
+        width: 740px;
+    }
+    @include mq($from: desktop) {
+        width: 980px;
+    }
+    @include mq($from: leftCol) {
+        width: 1140px;
+    }
+    @include mq($from: wide) {
+        width: 1300px;
+    }
+}
+
+.voices-and-votes__container-header {
+    overflow: hidden;
+    position: relative;
+    height: 60px;
+
+    a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    @include mq($from: tablet) {
+        height: 70px;
+    }
+
+    @include mq($from: leftCol) {
+        float: left;
+        width: 180px;
+        height: auto;
+    }
+    @include mq($from: wide) {
+        width: 260px;
+    }
+}
+.voices-and-votes__logo {
+    position: absolute;
+    height: 50px;
+    width: 188px;
+    top: -58px;
+    right: -45px;
+
+    @include mq($from: tablet) {
+        width: 230px;
+        right: -50px;
+        top: -70px;
+    }
+
+    @include mq($from: leftCol) {
+        top: -50px;
+        width: 100%;
+        left: 20px;
+    }
+    @include mq($from: wide) {
+        top: -80px;
+    }
+}
+
+.voices-and-votes__description {
+    p {
+        font-family: $f-sans-serif-text;
+        font-weight: 900;
+        font-size: 14px;
+        color: #474F53;
+        line-height: 16px;
+        margin-top: 6px;
+        width: 200px;
+
+        @include mq($from: leftCol) {
+            width: 150px;
+        }
+        @include mq($from: wide) {
+            width: 200px;
+        }
+
+    }
+    @include mq($from: tablet) {
+        margin-top: 10px;
+        width: 200px;
+        padding-left: 20px;
+    }
+    @include mq($from: leftCol) {
+        margin-top: 70px;
+    }
+    @include mq($from: wide) {
+        margin-top: 90px;
+    }
+}
+
+.voices-and-votes__container-stories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 12px;
+
+    @include mq($from: tablet) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @include mq($from: leftCol) {
+        padding-right: 20px;
+        padding-left: 0px;
+    }
+    @include mq($from: wide) {
+        padding-right: 98px;
+        flex-wrap: nowrap;
+    }
+}
+
+.voices-and-votes__story-content {
+    position: relative;
+    width: 48%;
+    background-color: 333;
+    height: 200px;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 10px;
+
+    &:nth-child(even){
+        margin-left: 10px;
+
+        @include mq($from: tablet){
+            margin-left: 0px;
+        }
+    }
+
+    @include mq($from: tablet) {
+        margin-right: 3px;
+        flex-grow: 1;
+        width: 100px;
+    }
+
+    &.lab {
+        .voices-and-votes__kicker {
+            color:#FF4042;
+        }
+    }
+
+    &.con {
+        .voices-and-votes__kicker {
+            color:#448EDB;
+        }
+    }
+
+    &.snp {
+        .voices-and-votes__kicker {
+            color:#FAB817;
+        }
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+    }
+}
+
+.voices-and-votes__headline-container {
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    bottom: 0px;
+    font-family: $f-serif-headline;
+    font-size: 16px;
+    line-height: 18px;
+    color: white;
+    width: 92%;
+    font-weight: 500;
+    z-index: 10;
+    min-height: 85px;
+    padding-left: 4%;
+    padding-top: 3px;
+    padding-right: 4%;
+
+    @include mq($from: tablet) {
+        font-size: 13px;
+        line-height: 14px;
+    }
+
+    @include mq($from: desktop) {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .voices-and-votes__kicker {
+        &:after {
+            content: '/';
+            display: inline-block;
+            color: rgba(255,255,255,0.5)
+        }
+    }
+}
