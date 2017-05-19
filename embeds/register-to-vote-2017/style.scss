@@ -84,6 +84,7 @@ $mq-breakpoints: (
     .headline {
         &__days-box,
         &__box-text,
+        &__last-day,
         &__illustration {
             display: inline-block;
             vertical-align: bottom;
@@ -141,8 +142,17 @@ $mq-breakpoints: (
         }
         &__last-day {
             display: none;
+            @include mq(leftCol) {
+                font-size: 24px;
+                line-height: 22px;
+                width: 60px;
+            }
+            @include mq(wide) {
+                width: auto;
+            }
         }
-        &__box-text {
+        &__box-text,
+        &__last-day {
             color: #CC2B12;
         }
         &__illustration {
@@ -347,6 +357,28 @@ $mq-breakpoints: (
                 margin-left: 8px;
                 margin-right: -5px;
             }
+        }
+    }
+    &.last-day-message {
+        .headline {
+            &__days-box,
+            &__box-text {
+                display: none;
+            }
+            &__last-day {
+                display: inline-block;
+            }
+            &__illustration {
+                @include mq(leftCol) {
+                    top: 28px;
+                    left: 38px;
+                }
+                @include mq(wide) {
+                    top: -23px;
+                    left: 108px;
+                }
+            }
+
         }
     }
 }

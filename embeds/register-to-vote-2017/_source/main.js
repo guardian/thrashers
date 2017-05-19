@@ -7,7 +7,7 @@ var daysBox = regThrasher.querySelector('.headline__days-box');
 
 // set if last day
 if (today.getMonth()>=regDeadline.month-1 && today.getDate()>=regDeadline.day) {
-    regThrasher.classList.add('last-day')
+    regThrasher.classList.add('last-day-message')
 }
 
 // set days left box
@@ -19,6 +19,7 @@ daysBox.innerHTML = daysLeft;
 if (daysLeft==1) {
     daysBox.classList.add('last-day');
 }
+
 
 
 // set up to clone thrasher
