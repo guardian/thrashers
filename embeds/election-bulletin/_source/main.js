@@ -4137,7 +4137,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 ///BULLETIN START
 
-$.getJSON("https://interactive.guim.co.uk/docsdata-test/1qK-I9OOB8s38kLmy4sWiy-qWSqHXdCEyHCp7vT9igFQ.json", function(json) {
+$.getJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl1_RsrbW2xaLBZ-0-fpb4.json", function(json) {
     console.log(json);
     var bulletinData = json.sheets;
     var source   = $("#data__template").html();
@@ -4148,13 +4148,16 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1qK-I9OOB8s38kLmy4sWiy-q
 
     var button = $('.bulletin--button');
     var c = document.querySelector('.bulletin--counter');
-    var cEnd = document.querySelector('.bulletin--counter.end');
+    var cEnd = document.querySelector('.bulletin--counter');
+    var feedback = document.querySelector('.reactions');
+    var notification = document.querySelector('.notification');
+    var endSlide = document.querySelector('.bulletin--onward');
     var story = $('li.story');
     var clicker = $('.clicker');
     var l = story.length - 1;
     var counter = $('.bulletin--counter');
     var counterSpan = $('.counter');
-    var count = 9;
+    var count = 6;
     var secondsTimer,
         storyTimer;
 
@@ -4172,7 +4175,7 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1qK-I9OOB8s38kLmy4sWiy-q
 
     function storyTimerF(){
       var storyTimer = setInterval(function(){
-        count = 9;
+        count = 7;
         console.log(count);
         var a = document.querySelector('li.active');
         var n = document.querySelector('li.active + li.story');
@@ -4188,7 +4191,7 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1qK-I9OOB8s38kLmy4sWiy-q
         }
           a.classList.remove('active');
           n.classList.add('active');
-      }, 8000);
+      }, 6000);
     }
 
     $(document).ready(function(){
@@ -4213,36 +4216,53 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1qK-I9OOB8s38kLmy4sWiy-q
           a.classList.remove('active');
           n.classList.add('active');
           ClearAllIntervals()
-          count = 8;
+          count = 6;
           counterSpan[0].innerHTML = count;
           secondsTimerF();
           storyTimerF();
         });
       })
+      $(feedback).click(function(){
+      	$(feedback).css("display", "none");
+      	$(notification).css("display", "block");
+      });
       $(cEnd).click(function(){
+      	console.log('end');
         $(story[0]).addClass('active');
+        $(story).css("display", "block");
         $(counter).addClass('active');
+        $(counter).removeClass('end');
+        $(endSlide).removeClass('active');
+        counter = 6;
+        ClearAllIntervals()
         secondsTimerF();
         storyTimerF();
-        $(clicker).click(function(){
-          console.log('clicker')
-          var oj = document.querySelector('ul.bulletin--onward');
-          var a = document.querySelector('li.active');
-          var n = document.querySelector('li.active + li.story');
-          if(n === null){
-            oj.classList.add('active');
-            $(button).css("display", "none");
-            $(story).css("display", "none");
-            c.classList.add('end');
-          }
-          a.classList.remove('active');
-          n.classList.add('active');
-          ClearAllIntervals()
-          count = 8;
-          counterSpan[0].innerHTML = count;
-          secondsTimerF();
-          storyTimerF();
-        });
+        // $(clicker).click(function(){
+        //   console.log('clicker')
+        //   var oj = document.querySelector('ul.bulletin--onward');
+        //   var a = document.querySelector('li.active');
+        //   var n = document.querySelector('li.active + li.story');
+        //   if(n === null){
+        //     oj.classList.add('active');
+        //     $(button).css("display", "none");
+        //     $(story).css("display", "none");
+        //     c.classList.add('end');
+        //   }
+        //   a.classList.remove('active');
+        //   n.classList.add('active');
+        //   ClearAllIntervals()
+        //   count = 6;
+        //   counterSpan[0].innerHTML = count;
+        //   secondsTimerF();
+        //   storyTimerF();
+        // });
       });
     });
+
+   window.guardian.ophan.record({
+   component: 'thrasher : the wrap'
+   // value: 
 });
+});
+
+
