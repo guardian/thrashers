@@ -1,0 +1,17 @@
+{
+  "html": "<div class=\"vizual-test__wrapper\"><style></style><!-- <img style=\"height:0;width:0;visibility:hidden;position:absolute;z-index: 1;\" height=\"0\" width=\"0\" src=\"https://interactive.guim.co.uk/thrashers/vizual-test/hashed/empty.gif\" onload=\"var script=document.createElement('script');script.src='https://interactive.guim.co.uk/thrashers/vizual-test/hashed/main.88caa772.js'; document.body.appendChild(script);\"> -->\n<script type=\"text/javascript\" src=\"https://interactive.guim.co.uk/thrashers/vizual-test/hashed/main.88caa772.js\"></script>\n</div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com",
+  "headline": "The Guardian",
+  "trailText": "Latest news, sport and comment from the Guardian",
+  "app": {
+    "layout": "default",
+    "titleFont": "egypt-regular",
+    "titleColour": "#FFFFFF",
+    "buttonTextColour": "#",
+    "buttonBackgroundColour": "#",
+    "hideKicker": true,
+    "hideGuardianRoundel": true
+  }
+}
