@@ -140,6 +140,8 @@ Due to the strong use of imagery and other components on the front. For this rea
 
 Due to multiple reports of the site crashing on older devices (iPad 2s, older Android smartphones, etc...), it's best to keep animations and transitions to a minimum unless they add a lot of value.
 
+**All animation should be wrapped with a class `flashing-image` so that user's with accessibility issues can remove them. This class will `display: none` the element if the user preference is set.**
+
 ### Javascript
 
 Due to the way we inject the thrashers into `frontend` we can't add `<script>` tags in the html. These are stripped out. The work around we've come up with so far, is to have a 1x1px image with an onload event that adds a `<script>` tag.
