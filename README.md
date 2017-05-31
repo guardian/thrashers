@@ -78,9 +78,15 @@ You can add containers through the [fronts config](https://fronts.code.dev-gutoo
 
 The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers).
 
- You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. This easiest way is to paste it into the url bar, highlight and drag down:
+ You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. This easiest way is to paste it into the url bar, highlight and drag down into the clipboard:
 
 ![Drag gif](doc-images/snaps-process.gif)
+
+It should show as `snap json.html`
+
+![Snap JSON example](doc-images/snap-json-html.jpg)
+
+You can then drag that link into the thrasher container.
 
 Remember to choose benthrasher from the select-element drop down if you want it to appear on that page.
 
