@@ -4158,6 +4158,7 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl
 	var countStart = 8;
     var count = 8;
     var slide = 0;
+    var w = 0;
     var indicatorContainer = $('.bulletin--slides');
     var Showindicator = $('.bulletin--slides__wrapper');
 	var showEnd = false;
@@ -4173,6 +4174,35 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl
             ul = ar.join('');
         }
         return ul;
+    }
+
+    function getLength(){
+        var l = 0;
+        for(var k = 0; k < story.length; k++) {
+            l ++;
+        }
+        return l;
+    }
+
+    function totalTime(){
+        var total = getLength() * countStart;
+        var totalTime = 100 / total;
+        return totalTime;
+    }
+
+    //percentage 100 / totalTime() = 1%
+
+    function clickPercentage(){
+        var clickWidth = (100 / getLength()) - (countStart - count);
+        console.log(clickWidth);
+        w = w + clickWidth;
+        indicatorContainer.css("width", w + '%');
+    }
+
+    function progress(){
+        console.log('progress', totalTime());
+        w = w + totalTime();
+        indicatorContainer.css("width", w + '%');
     }
 
 	if(showEnd === true) {
@@ -4196,6 +4226,7 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl
       var secondsTimer = setInterval(function(){
         count --;
         counterSpan[0].innerHTML = '<span class="counter">' + count + '</span>';
+        progress()
       }, 1000);
     }
 
@@ -4226,7 +4257,9 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl
     }
 
     $(document).ready(function(){
-      initIndicator();
+    //   initIndicator();
+      console.log(getLength(), 'length');
+      console.log(getLength() * 8,'total time');
       $(button).click(function(){
         $(this).addClass('active');
         $(story[0]).addClass('active');
@@ -4237,6 +4270,7 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl
         storyTimerF();
         $(clicker).click(function(){
           slide ++;
+          clickPercentage();
 		  $('.blankIndicator').removeClass('active');
 		  $('.indicator-'+slide).addClass('active');
           var oj = document.querySelector('ul.bulletin--onward');
@@ -4267,6 +4301,7 @@ $.getJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl
       });
       $(cEnd).click(function(){
 		count = countStart;
+        w = 0;
 		secondsTimerF();
         $(story[0]).addClass('active');
         $(story).css("display", "block");
