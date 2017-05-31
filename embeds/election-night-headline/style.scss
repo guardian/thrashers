@@ -1,0 +1,48 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.election-night-headline {
+    min-height: 80px;
+    background-color: #dcdcdc;
+    color: #484f53;
+    font-family: $f-serif-headline;
+    padding-bottom: 6px;
+    font-size: 24px;
+    line-height: 36px;
+
+    @include mq($from: phablet) {
+        width: 100%;
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    @include mq($from: tablet) {
+        width: 740px;
+    }
+
+    @include mq($from: desktop) {
+        width: 980px;
+        font-size: 36px;
+        line-height: 52px;
+    }
+
+    @include mq($from: leftCol) {
+        font-size: 36px;
+        line-height: 52px;
+        width: 940px;
+    }
+
+    h1 {
+        font-weight: 500;
+    }
+}

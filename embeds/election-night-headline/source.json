@@ -1,0 +1,8 @@
+{
+  "html": "<div class=\"election-night-headline__wrapper\"><style>.election-night-headline{min-height:80px;background-color:#dcdcdc;color:#484f53;font-family:\"Guardian Egyptian Web\",Georgia,serif;padding-bottom:6px;font-size:24px;line-height:36px}@media all and (min-width:41.25em){.election-night-headline{width:100%;font-size:28px;line-height:40px}}@media all and (min-width:46.25em){.election-night-headline{width:740px}}@media all and (min-width:61.25em){.election-night-headline{width:980px;font-size:36px;line-height:52px}}@media all and (min-width:71.25em){.election-night-headline{font-size:36px;line-height:52px;width:940px}}.election-night-headline h1{font-weight:500}</style><div class=\"election-night-headline\">\n    <h1>Theresa May accused of making UK a laughing stock in Europe</h1>\n</div>\n</div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com",
+  "headline": "The Guardian",
+  "trailText": "Latest news, sport and comment from the Guardian"
+}
