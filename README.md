@@ -1,7 +1,7 @@
 Thrashers
 =========
 
-Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend) project. View them all the [Thrasher front](http://m.code.dev-theguardian.com/thrashers).
+Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend) project.
 
 
 ## Installation
@@ -52,18 +52,20 @@ To compile and deploy *everything* run the above commands without the `--folderN
 
 ### Creating the container
 
-To preview your Thrasher on the site it will need to be added to a front with it's own container. For development and archival reasons, add it to the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`. Or add it to the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
+To preview your Thrasher on the site it will need to be added to a front with it's own container. Test on the CODE environment.
 
-The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool [Fascia fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config). Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
+The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool [Facia fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config). Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
 
 ### Getting the snapURL
 
 To embed the Thrasher you'll need to get the snapURL. This is a URL that contains the path to your `source.json` file and fallback information for while the snap is loading or if it fails. By running either `grunt local --folderName=the-name-of-your-embed` or `grunt remote --folderName=the-name-of-your-embed` commands, the terminal will return both local and remote snapURLs. If you wish to get these URLs without having to watch, compile and deploy, use
+
 ```
 grunt paths --folderName=the-name-of-your-embed
 ```
 
 If any of the fallback information has changed since you first ran `grunt new`, you can update those values using
+
 ```
 grunt update --folderName=the-name-of-your-embed
 ```
@@ -76,7 +78,7 @@ Your thrasher will need to be added to a container on a front of type `fixed/thr
 
 You can add containers through the [fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config) (you may need to get access from central production).
 
-The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers).
+The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial).
 
  You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. This easiest way is to paste it into the url bar, highlight and drag down into the clipboard:
 
@@ -86,13 +88,7 @@ It should show as `snap json.html`
 
 ![Snap JSON example](doc-images/snap-json-html.jpg)
 
-You can then drag that link into the thrasher container.
-
-Remember to choose benthrasher from the select-element drop down if you want it to appear on that page.
-
-You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
-
-OR IF YOU USED benthrasher you should now see your thrasher at the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
+You can then drag that link into the thrasher container on the front you want the thrasher to appear on.
 
 #### Display on Apps
 
