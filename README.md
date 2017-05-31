@@ -78,7 +78,7 @@ grunt update --folderName=the-name-of-your-embed
 
 Your thrasher will need to be added to a container on a front of type `fixed/thrasher`.
 
-![Thrasher container](doc-images/container-type.jpg)
+![Thrasher container](doc_images/container-type.jpg)
 
 You can add containers through the [fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config) (you may need to get access from central production).
 
@@ -86,11 +86,11 @@ The appropriate snapURL then needs to be added to your container using the [Faci
 
  You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. This easiest way is to paste it into the url bar, highlight and drag down into the clipboard:
 
-![Drag gif](doc-images/snaps-process.gif)
+![Drag gif](doc_images/snaps-process.gif)
 
 It should show as `snap json.html`
 
-![Snap JSON example](doc-images/snap-json-html.jpg)
+![Snap JSON example](/doc_images/snap-json-html.jpg)
 
 You can then drag that link into the thrasher container on the front you want the thrasher to appear on.
 
@@ -102,11 +102,11 @@ If you do not add this specific config, then apps will use the `mainMedia` image
 
 For example, football weekly, which displays like this on desktop:
 
-![Football weekly desktop](doc-images/football-weekly-desktop.gif)
+![Football weekly desktop](doc_images/football-weekly-desktop.gif)
 
 will display like this on apps:
 
-![Drag gif](doc-images/football-weekly-apps.gif)
+![Drag gif](doc_images/football-weekly-apps.gif)
 
 ## Developing
 
