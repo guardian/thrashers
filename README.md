@@ -54,11 +54,15 @@ To compile and deploy *everything* run the above commands without the `--folderN
 
 To preview your Thrasher on the site it will need to be added to a front with it's own container. Test on the CODE environment.
 
-The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool [Facia fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config). Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
+The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool [Facia fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config).
+
+Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
 
 ### Getting the snapURL
 
-To embed the Thrasher you'll need to get the snapURL. This is a URL that contains the path to your `source.json` file and fallback information for while the snap is loading or if it fails. By running either `grunt local --folderName=the-name-of-your-embed` or `grunt remote --folderName=the-name-of-your-embed` commands, the terminal will return both local and remote snapURLs. If you wish to get these URLs without having to watch, compile and deploy, use
+To embed the Thrasher you'll need to get the snapURL. This is a URL that contains the path to your `source.json` file and fallback information for while the snap is loading or if it fails.
+
+By running either `grunt local --folderName=the-name-of-your-embed` or `grunt remote --folderName=the-name-of-your-embed` commands, the terminal will return both local and remote snapURLs. If you wish to get these URLs without having to watch, compile and deploy, use
 
 ```
 grunt paths --folderName=the-name-of-your-embed
