@@ -70,11 +70,37 @@ grunt update --folderName=the-name-of-your-embed
 
 ### Embedding the Thrasher
 
-The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. Remember to choose benthrasher from the pull down if you want it to appear on that page.
+Your thrasher will need to be added to a container on a front of type `fixed/thrasher`.
+
+![Thrasher container](doc-images/container-type.jpg)
+
+You can add containers through the [fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config) (you may need to get access from central production).
+
+The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers).
+
+ You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. This easiest way is to paste it into the url bar, highlight and drag down:
+
+![Drag gif](doc-images/snaps-process.gif)
+
+Remember to choose benthrasher from the select-element drop down if you want it to appear on that page.
 
 You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`.
 
 OR IF YOU USED benthrasher you should now see your thrasher at the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
+
+#### Display on Apps
+
+You'll be prompted to provide an app-specific config when running `grunt remote` with the `--folderName=` parameter. If you wish to update the app config without running grunt remote, you can run `grunt appConfig --folderName=<FOLDER>`
+
+If you do not add this specific config, then apps will use the `mainMedia` image from the article, with the card's title.
+
+For example, football weekly, which displays like this on desktop:
+
+![Football weekly desktop](doc-images/football-weekly-desktop.gif)
+
+will display like this on apps:
+
+![Drag gif](doc-images/football-weekly-apps.gif)
 
 ## Developing
 
@@ -123,8 +149,3 @@ Due to the way we inject the thrashers into `frontend` we can't add `<script>` t
 ```
 
 Although the same practice applies to javascript as it does for animations and transitions. There has to be a good reason for it to exist and they have to be incredibly light. It's also best not to require heavy libraries like `jQuery` to achieve the same results that could be done with vanilla javascript and/or micro-libraries.
-
-### Apps
-
-You'll be prompted to provide an app-specific config when running `grunt remote` with the `--folderName=` parameter. If you wish to update the app config without running grunt remote, you can run `grunt appConfig --folderName=<FOLDER>`
-
