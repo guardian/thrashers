@@ -102,11 +102,11 @@ If you do not add this specific config, then apps will use the `mainMedia` image
 
 For example, football weekly, which displays like this on desktop:
 
-![Football weekly desktop](doc_images/football-weekly-desktop.gif)
+![Football weekly desktop](doc_images/football-weekly-desktop.jpg)
 
 will display like this on apps:
 
-![Drag gif](doc_images/football-weekly-apps.gif)
+![Drag gif](doc_images/football-weekly-apps.jpg)
 
 ## Developing
 
