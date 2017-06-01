@@ -41,7 +41,7 @@ function closest(el, selector) {
 
 // set up date
 var now = new Date().getHours();
-var regDeadline = 18;
+var regDeadline = 17;
 var hoursLeft = regDeadline - now;
 var regThrasher = document.querySelector('.register-to-vote-thrasher');
 var regContainer = closest(regThrasher, 'section');
