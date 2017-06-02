@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       };
     } else {
       var awsOptions = {
-          awsProfile: 'interactivesProd',
+          awsProfile: 'interactives',
           region: 'us-east-1'
       };
     }
