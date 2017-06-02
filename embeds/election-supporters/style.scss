@@ -165,15 +165,49 @@ $lightest-blue: #4bc6df;
     display: none;
   }
 
+  @for $i from 0 through 7 {
+    &__display-#{$i} {
+      display: none;
+    }
+  }
+
   &__wrapper--ask {
-    &__display-ask {
+    .election-supporters__display-ask {
       display: block;
     }
   }
 
   &__wrapper--thanks {
-    &__display-thanks {
+    .election-supporters__display-thanks {
       display: block;
+    }
+  }
+
+  @for $i from 0 through 3 {
+    &__wrapper--#{$i} {
+      .election-supporters__display-#{$i} {
+        display: block;
+      }
+
+      @include mq(desktop) {
+        .election-supporters__display-#{$i + 4} {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @for $i from 4 through 7 {
+    &__wrapper--#{$i} {
+      .election-supporters__display-#{$i} {
+        display: block;
+      }
+
+      @include mq(desktop) {
+        .election-supporters__display-#{$i - 4} {
+          display: block;
+        }
+      }
     }
   }
 }
