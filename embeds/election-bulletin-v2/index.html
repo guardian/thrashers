@@ -1,6 +1,10 @@
 <!-- <div class="fc-container__header__title">
     <span>evening bulletin</span>
 </div> -->
+
+<div class="bulletin--container-title">
+    <span class="container-title">The evening wrap</span>
+</div>
 <div class="bulletin--wrapper">
     <div class="bulletin--counter">
         <span class="counter">6</span>
@@ -10,36 +14,9 @@
       </svg>
     </span>
     </div>
-    <script id="data__template" type="text/x-handlebars-template">
-        {{#each bulletin}} {{#if slide_1_image}}
-        <li class="story" style="background-image:url({{slide_1_image}})">
-            <div data-link-name='thrasher : bulletin : next' class="clicker"></div>
-            <div class="story--copy">
-                <span class="bulletin--kicker">{{story_kicker}}</span>
-                <br />
-                <h1>{{slide_1_text}}</h1>
-            </div>
-        </li>
-        {{/if}} {{#if slide_2_image}}
-        <li class="story" style="background-image:url({{slide_2_image}})">
-            <div data-link-name='thrasher : bulletin : next' class="clicker"></div>
-            <div class="story--copy">
-                <span class="bulletin--kicker">{{story_kicker}}</span>
-                <br />
-                <h1>{{slide_2_text}}</h1>
-            </div>
-        </li>
-        {{/if}} {{#if slide_3_image}}
-        <li class="story" style="background-image:url({{slide_3_image}})">
-            <div data-link-name='thrasher : bulletin : next' class="clicker"></div>
-            <div class="story--copy">
-                <span class="bulletin--kicker">{{story_kicker}}</span>
-                <br />
-                <h1> {{slide_3_text}}</h1>
-            </div>
-        </li>
-        {{/if}}
-        {{/each}}
+    <ul class="bulletin--template">
+
+    </ul>
         <div class="bulletin--slides__wrapper">
             <div class="bulletin--slides">
 
@@ -67,30 +44,23 @@
                     </svg>
                 </div>
                 <p class="notification">Thanks for your feedback</p>
-                <div class="bulletin-oj">
-                    {{#each bulletin}}
-                        {{#if link}}
-                            <a data-link-name="thrasher : bulletin : oj" class="bulletin-oj-link" href="{{link}}"><span class="bulletin-oj-link__kicker">{{story_kicker}}</span> <span class="bulletin-oj-link__dash">/</span> {{linkText}}</a>
-                        {{/if}}
-                    {{/each}}
-                </div>
+            </div>
+            <div class="bulletin-oj">
+
             </div>
         </ul>
-    </script>
     <div class="bulletin--button">
         <ul>
-            <li style="background-image:url(https://media.guim.co.uk/1dbda7a78a739ab4724359c2425f6f60a2a3fea5/500_0_2353_2354/1000.jpg)">
+            <li style="background-image:url(https://media.guim.co.uk/2bc5191061694e0579fc446051283c68562ddf37/348_0_1341_1341/500.jpg)">
                 <div data-link-name='thrasher : bulletin : play' class="play--button">
                     <svg viewBox="0 0 23 20" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF" d="M22.114 10.352v-.954L.84.602l-.783.614v17.318l.784.546" fill-rule="evenodd"/></svg>
                     Watch now
                 </div>
                 <div class="headline">
-                    <span class="bulletin--kicker container-title">The evening wrap</span>
-                    <br />
                     <h1>Today's headlines at a glance</h1>
                 </div>
             </li>
         </ul>
     </div>
 </div>
-<img style="height:0;width:0;visibility:hidden;position:absolute;z-index: 1;" height="0" width="0" src="@@assetPath@@/empty3.gif" onload="var script=document.createElement('script');script.src='@@assetPath@@/main.js'; document.body.appendChild(script);" />
+<img style="height:0;width:0;visibility:hidden;position:absolute;z-index: 1;" height="0" width="0" src="@@assetPath@@/empty.gif" onload="var script=document.createElement('script');script.src='@@assetPath@@/main.js'; document.body.appendChild(script);" />
