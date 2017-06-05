@@ -1,0 +1,384 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#general-election-manifestos {
+    &,
+    .tone-news--item.fc-item {
+        background-color: #fff;
+    }
+    @include mq(leftCol) {
+        background-color: tomato;
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+    }
+}
+.treats__container .treat-separator {
+    position: relative;
+    margin-top: 12px;
+    padding-top: 12px;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 1px;
+        height: 1px;
+        background-color: #BDBDBD;
+        width: 60px;
+        @include mq(wide) {
+            width: 140px;
+        }
+    }
+}
+.ge2017-manifestos__wrapper {
+    width: 100%;
+}
+.who-should-i-vote-for-thrasher {
+    overflow: hidden;
+    font-size: 0;
+    border-bottom: 2px solid #DFE1E4;
+    padding-top: 24px;
+    position: relative;
+    @include mq(mobileLandscape) {
+        margin: 0 10px;
+    }
+    @include mq(phablet) {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+    @include mq(tablet) {
+        max-width: 700px;
+    }
+    @include mq(desktop) {
+        max-width: 940px;
+    }
+    @include mq(leftCol) {
+        max-width: none;
+        width: 140px;
+        border: 0;
+        padding-top: 3px;
+        overflow: inherit;
+    }
+    @include mq(wide) {
+        width: 220px;
+    }
+    .link,
+    .graphic {
+        display: inline-block;
+        vertical-align: bottom;
+    }
+    .link {
+        font-family: 'Guardian Egyptian Web', 'Guardian Text Egyptian Web', Georgia, serif;
+        color: #00456E;
+        display: inline-block;
+        padding-bottom: 2px;
+        max-width: 150px;
+        width: 50%;
+        &, &:hover {
+            text-decoration: none;
+        }
+        @include mq(phablet) {
+            max-width: none;
+            width: 280px;
+        }
+        @include mq(leftCol) {
+            width: auto;
+        }
+        @include mq($until:leftCol) {
+            position: relative;
+        }
+        &__arrow {
+            width: 24px;
+            height: 24px;
+            border-radius: 100%;
+            background-color: #00456E;
+            color: #fff;
+            position: relative;
+            margin-left: -1px;
+            @include mq($from:phablet, $until:leftCol) {
+                margin-left: 0;
+            }
+            svg {
+                fill: currentColor;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        &__headline,
+        &__subheadline {
+            font-size: 20px;
+            line-height: 20px;
+            @include mq($from:phablet, $until:leftCol) {
+                padding-left: 1px;
+            }
+            @include mq(tablet) {
+                font-size: 22px;
+                line-height: 22px;
+            }
+            @include mq(leftCol) {
+                font-size: 18px;
+                line-height: 18px;
+            }
+        }
+        &__headline {
+            font-weight: 800;
+            margin: 3px 0 -1px;
+        }
+        &__subheadline {
+            font-weight: 400;
+        }
+        &__tap-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            text-indent: -999em;
+            z-index: 2;
+        }
+        &:hover {
+            color: #005689;
+            .link__arrow {
+                background-color: #005689;
+            }
+            // color: #197CAA;
+            // .link__arrow {
+            //     background-color: #197CAA;
+            // }
+            // .link__arrow {
+            //     background-color: #4BC6DF;
+            //     svg path {
+            //         fill: #333;
+            //     }
+            // }
+        }
+    }
+    .graphic {
+        position: relative;
+        width: calc(100% - 150px);
+        min-width: 50%;
+        @include mq(phablet) {
+            max-width: none;
+            width: calc(100% - 280px);
+        }
+        @include mq(tablet) {
+            width: calc(100% - 312px);
+            float: right;
+        }
+        @include mq(leftCol) {
+            width: 100%;
+            float: none;
+        }
+        &__illustration {
+            @include mq(leftCol) {
+                padding-top: 12px;
+            }
+            .flag,
+            .economy,
+            .health,
+            .brexit,
+            .education,
+            .flag {
+                transform-origin: bottom center;
+                position: absolute;
+                z-index: 1;
+                transform: scale(1.3);
+                @include mq(340px) {
+                    transform: scale(1.42);
+                }
+                @include mq(phablet) {
+                    transform: scale(1);
+                }
+                @include mq(tablet) {
+                    transform: scale(1.1);
+                }
+                @include mq(leftCol) {
+                    transform: scale(0.95);
+                }
+            }
+            .flag {
+                display: none;
+                @include mq(phablet) {
+                    display: block;
+                    bottom: 0;
+                    right: 103%;
+                }
+                @include mq(tablet) {
+                    right: 101%;
+                }
+                @include mq(leftCol) {
+                    display: none;
+                }
+            }
+            .economy {
+                bottom: 0;
+                left: 30px;
+                @include mq(340px) {
+                    left: auto;
+                    right: 50%;
+                }
+                @include mq(mobileLandscape) {
+                    right: 61%;
+                }
+                @include mq(phablet) {
+                    right: 65%;
+                }
+                @include mq(tablet) {
+                    right: 72%;
+                }
+                @include mq(leftCol) {
+                    right: 71%;
+                }
+                @include mq(wide) {
+                    right: 80%;
+                }
+            }
+            .health {
+                display: none;
+                @include mq(mobileLandscape) {
+                    display: block;
+                    bottom: 5px;
+                    right: 29%;
+                }
+                @include mq(phablet) {
+                    right: 45%;
+                }
+                @include mq(tablet) {
+                    right: 48%;
+                }
+                @include mq($from:leftCol, $until:wide) {
+                    display: none;
+                }
+                @include mq(wide) {
+                    right: 14%;
+                }
+            }
+            .brexit {
+                bottom: 0;
+                right: 10px;
+                @include mq(mobileLandscape) {
+                    right: 0;
+                }
+                @include mq(phablet) {
+                    right: 26%;
+                }
+                @include mq(tablet) {
+                    right: 25%;
+                }
+                @include mq(leftCol) {
+                    right: 30%;
+                }
+                @include mq(wide) {
+                    right: 45%;
+                }
+            }
+            .education {
+                display: none;
+                @include mq(phablet) {
+                    display: block;
+                    bottom: 5px;
+                    right: 5%;
+                }
+                @include mq(phablet) {
+                    right: 2%;
+                }
+                @include mq(tablet) {
+                    right: 0;
+                }
+                @include mq(leftCol) {
+                    display: none;
+                }
+            }
+        }
+        &__bars {
+            width: 100%;
+            @include mq($from:phablet, $until:tablet) {
+                overflow: hidden;
+            }
+            .bar {
+                height: 24px;
+                background-color: #005689;
+                margin-right: -10px;
+                width: 200%;
+                @include mq(phablet) {
+                    height: 18px;
+                    background-color: #00456E;
+                }
+                &.bar-1 {
+                    transform: translateX(18%);
+                    @include mq(phablet) {
+                        transform: translateX(0%);
+                    }
+                    @include mq(leftCol) {
+                        transform: translateX(-48%);
+                    }
+                    @include mq(wide) {
+                        transform: translateX(-51%);
+                    }
+                }
+                &.bar-2 {
+                    opacity: 0.7;
+                    transform: translateX(7%);
+                    @include mq(phablet) {
+                        transform: translateX(2.5%);
+                    }
+                    @include mq(tablet) {
+                        transform: translateX(1.5%);
+                    }
+                    @include mq(leftCol) {
+                        transform: translateX(-51%);
+                    }
+                    @include mq(wide) {
+                        transform: translateX(-54%);
+                    }
+                }
+                &.bar-3 {
+                    opacity: 0.5;
+                    transform: translateX(12%);
+                    @include mq(phablet) {
+                        transform: translateX(8%);
+                    }
+                    @include mq(tablet) {
+                        transform: translateX(5%);
+                    }
+                    @include mq(leftCol) {
+                        transform: translateX(-59%);
+                    }
+                    @include mq(wide) {
+                        transform: translateX(-58%);
+                    }
+                }
+                &.bar-4 {
+                    opacity: 0.3;
+                    transform: translateX(1%);
+                    @include mq(phablet) {
+                        transform: translateX(4%);
+                    }
+                    @include mq(tablet) {
+                        transform: translateX(2%);
+                    }
+                    @include mq(leftCol) {
+                        transform: translateX(-53%);
+                    }
+                    @include mq(wide) {
+                        transform: translateX(-55%);
+                    }
+                }
+            }
+        }
+    }
+}
