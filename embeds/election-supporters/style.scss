@@ -38,6 +38,11 @@ $mq-breakpoints: (
   padding-left: 0;
   padding-right: 0;
 
+  @include mq(mobileLandscape) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   @include mq(tablet) {
     padding-left: 20px;
     padding-right: 20px;
@@ -49,19 +54,28 @@ $lightest-blue: #4bc6df;
 
 .election-supporters {
   &__wrapper {
-    // @include mq()
+    @include mq($until: mobileLandscape) {
+      width: 300px;
+    }
 
-    // height: 354px
+    @include mq($from: mobileLandscape, $until: tablet) {
+      width: 317px;
+    }
 
-    // @include mq(desktop) {
-    //   height: 569px;
-    // }
+    height: 294px;
 
-    // @include mq(leftCol) {
-    //   height: 494px  
-    // }
+    @include mq(tablet) {
+      height: 242px;
+    }
+
+    @include mq(desktop) {
+      height: 246px;
+    }
+
+    @include mq(wide) {
+      height: 294px;
+    }
   }
-
 
   &__container {
     padding-top: 18px;
@@ -204,16 +218,6 @@ $lightest-blue: #4bc6df;
         height: 19px;
       }
     }
-
-    @include mq(mobileLandscape) {
-      padding-left: 16px;
-      padding-right: 38px;
-      margin-left: 10px;
-
-      &:after {
-        right: 9px;
-      }
-    }
   }
 
   &__button--right {
@@ -272,7 +276,6 @@ $lightest-blue: #4bc6df;
   }
 
   &__title {
-    // padding-right: 40px;
     padding-bottom: 20px;
 
     @include mq(tablet) {
