@@ -371,6 +371,8 @@ section#bulletin.fc-container--thrasher {
         }
         &-feedback {
             margin-top: 10px;
+            position: relative;
+            z-index: 999999999999;
             h1 {
                 color: #fff;
             }

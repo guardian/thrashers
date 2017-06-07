@@ -222,8 +222,9 @@ loadJSON("https://interactive.guim.co.uk/docsdata-test/1DxXq4oAWOPZBANB2avkhGhl1
       })
       console.log(feedback);
       feedback.addEventListener('click', function(){ //.click(function(){
+          console.log('feedback clicked');
           feedback.style.display = "none"; //("display", "none");
-          notification.style.display = "none"; //.css("display", "block");
+          notification.style.display = "block"; //.css("display", "block");
       });
       cEnd.addEventListener('click', function(){  //.click(function(){
 		count = countStart;
