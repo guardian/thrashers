@@ -77,7 +77,7 @@ $lightest-blue: #4bc6df;
     }
   }
 
-  &__container {
+  &__quotes {
     padding-top: 18px;
     @include container-gutters;
 
@@ -300,7 +300,7 @@ $lightest-blue: #4bc6df;
     }
   }
 
-  &__wrapper--ask {
+  &__container--ask {
     .election-supporters__display-ask {
       display: block;
     }
@@ -310,7 +310,7 @@ $lightest-blue: #4bc6df;
     }
   }
 
-  &__wrapper--thanks {
+  &__container--thanks {
     .election-supporters__display-thanks {
       display: block;
     }
@@ -321,7 +321,7 @@ $lightest-blue: #4bc6df;
   }
 
   @for $i from 0 through 3 {
-    &__wrapper--#{$i} {
+    &__container--#{$i} {
       .election-supporters__display-#{$i} {
         display: block;
       }
@@ -335,7 +335,7 @@ $lightest-blue: #4bc6df;
   }
 
   @for $i from 4 through 7 {
-    &__wrapper--#{$i} {
+    &__container--#{$i} {
       .election-supporters__display-#{$i} {
         display: block;
       }
