@@ -11,8 +11,7 @@ function updateCountdownTime() {
     // utc time now
     var now = new Date;
     var utcTime = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() ,
-      now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
-
+      (now.getUTCHours()), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
 
     // polls closing time, timezone independent
     var pollsClose = new Date(Date.UTC(2017,5,8,21,0,0));
@@ -46,7 +45,7 @@ function updateCountdownTime() {
             }
             var h2 = document.querySelectorAll('.hour-2');
             for (ih2 = 0; ih2 < h2.length; ih2++) {
-                h2[ih2].innerHTML = hours.toString().charAt(0);
+                h2[ih2].innerHTML = hours.toString().charAt(1);
             }
         } else {
             var h1 = document.querySelectorAll('.hour-1');
