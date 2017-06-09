@@ -12,7 +12,6 @@ $mq-breakpoints: (
 @import 'shared/_imports';
 
 section#election-opinion-style {
-    background-color: tomato;
     height: 0;
     overflow: hidden;
     margin: 0;
@@ -49,6 +48,14 @@ section#election-opinion {
 
     .fc-item {
         background-color: #484f53;
+    }
+
+    .u-faux-block-link--hover {
+        background-color: darken(#484f53 , 10%);
+    }
+
+    .fc-item__link:visited, .fc-sublink__link:visited {
+        color: #f6f6f6;
     }
 
     .u-faux-block-link--hover {
