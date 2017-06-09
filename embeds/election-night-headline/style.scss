@@ -69,9 +69,18 @@ $mq-breakpoints: (
 
         p {
             font-size: 16px;
-            line-height: 26px;
+            line-height: 20px;
             margin: 0;
             margin-right: 12px;
+            max-width: 600px;
+            color: #e31f26;
+            font-weight: 900;
+
+            .election-night-kicker {
+                font-weight: 900;
+                color: #333;
+                margin-right: 6px;
+            }
 
             &::before {
                 display: block;
@@ -80,6 +89,7 @@ $mq-breakpoints: (
                 width: 60px;
                 height: 1px;
                 background-color: #969696;
+                margin-bottom: 3px;
             }
 
             @include mq($from: leftCol){
