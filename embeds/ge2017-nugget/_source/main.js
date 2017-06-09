@@ -44,7 +44,13 @@ setTimeout(function() {
     // Taken from https://www.w3schools.com/js/js_cookies.asp
     function getCookie(cname) {
         var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
+        var decodedCookie;
+        try {
+            decodedCookie = decodeURIComponent(document.cookie);
+        }
+        catch(err) {
+            return null;
+        }
         var ca = decodedCookie.split(';');
         for(var i = 0; i <ca.length; i++) {
             var c = ca[i];
