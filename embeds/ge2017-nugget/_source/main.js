@@ -84,6 +84,8 @@
             // find this thrasher
             var thrasher = document.querySelector('.ge2017-supporter-nugget');
 
+            thrasher.classList.add('sees-nugget');
+
             // the thrasher's section tag
             var thrasherContainer = closest(thrasher, 'section');
 
@@ -132,10 +134,9 @@
                     component: 'thrasher : manifestos compared',
                     value: 1
                 });
-            }       
+            }
         }
     } catch (err) {
         console.log('Golden Nugget:', err);
     }
 })();
-

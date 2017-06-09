@@ -42,9 +42,11 @@ section#support-the-guardian {
     }
 }
 .ge2017-supporter-nugget {
+    display: none;
+    &.sees-nugget {
+        display: block;
+    }
     width: 100%;
-}
-.ge2017-supporter-nugget {
     overflow: hidden;
     font-size: 0;
     border-bottom: 2px solid #DFE1E4;
