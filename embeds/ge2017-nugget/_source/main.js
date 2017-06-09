@@ -135,8 +135,7 @@
             }       
         }
     } catch (err) {
-
+        console.log('Golden Nugget:', err);
     }
-  
 })();
 
