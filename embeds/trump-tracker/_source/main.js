@@ -56,7 +56,7 @@ loadJSON("https://interactive.guim.co.uk/docsdata/1TTV-g36nUE8uxVb882sC2lCeR8Yt8
 
     // move html to the headline container
     var html = document.getElementsByClassName('supertreat')[0].outerHTML;
-    var target = getTarget(['trump-presidency', 'headlines']);
+    var target = getTarget(['trump\'s-first-100-days', 'trump-presidency', 'headlines']);
     target.getElementsByClassName('fc-container__inner')[0].innerHTML += html;
     target.className += ' fc-container--trumped';
 

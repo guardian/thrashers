@@ -1,0 +1,350 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin sans-font-sizes {
+  font-size: 12px;
+  line-height: 16px;
+
+  @include mq(desktop) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include mq(wide) {
+    font-size: 16px;
+    line-height: 22px;      
+  }
+}
+
+@mixin container-gutters {
+  padding-left: 0;
+  padding-right: 0;
+
+  @include mq(mobileLandscape) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @include mq(tablet) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+$light-blue: #01a2c3;
+$lightest-blue: #4bc6df;
+
+.election-supporters {
+  &__wrapper {
+    @include mq($until: mobileLandscape) {
+      width: 300px;
+    }
+
+    @include mq($from: mobileLandscape, $until: tablet) {
+      width: 317px;
+    }
+
+    height: 294px;
+
+    @include mq(tablet) {
+      height: 242px;
+    }
+
+    @include mq(desktop) {
+      height: 246px;
+    }
+
+    @include mq(wide) {
+      height: 294px;
+    }
+  }
+
+  &__quotes {
+    padding-top: 18px;
+    @include container-gutters;
+
+    position: relative;
+
+    @include mq(tablet) { 
+      display: flex;   
+    }
+  }
+
+  &__line {
+    border-top: 15px solid #4bc6df;
+    position: absolute;
+    left: 20px;
+    top: 0;
+
+    width: 100px;
+
+    @include mq(desktop) {
+      width: 225px;
+    }
+  }
+
+  &__header {
+    @include f-header;
+
+    font-size: 18px;
+    line-height: 20px;
+
+    @include mq(tablet) {
+      font-size: 22px;
+      line-height: 24px;
+    }
+
+    @include mq(desktop) {
+      font-size: 26px;
+      line-height: 28px;
+    }
+
+    @include mq(wide) {
+      font-size: 32px;
+      line-height: 36px;      
+    }
+
+    color: guss-colour(guardian-brand, $pasteup-palette);
+  }
+
+  &__highlight {
+    color: $light-blue;
+  }
+
+  &__quote,
+  &__title {
+    @include mq(tablet) {
+      width: 30%;
+    }
+  }
+
+  &__quote {
+    @include f-textSans;
+
+    @include sans-font-sizes;
+
+    position: relative;
+    padding: 0 30px 0 35px;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='30' height='20' viewBox='0 0 40 25' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EFill 1%3C/title%3E%3Cpath d='M31.447 24.132c-.107 0-.144-.036-.18-.036-6.756-.073-10.817-5.674-10.637-12.292.108-6.656 5.534-12.11 12.326-11.71l.72.98c-4.242-.108-8.123 2.656-8.23 6.874 0 .583.072 1.2.107 1.782 1.618-1.6 3.774-2.654 6.182-2.618 4.67.11 8.265 3.964 8.265 8.656-.108 4.727-3.917 8.364-8.553 8.364zm-20.627-.036c-.11 0-.073-.037-.18-.037C3.848 23.985-.106 18.42.002 11.767.11 5.148 5.572-.38 12.33.02l.753 1.02C8.735.93 4.925 3.73 4.818 7.91c0 .62.035 1.2.143 1.818 1.546-1.636 3.703-2.654 6.147-2.654 4.67.11 8.373 4 8.265 8.655-.108 4.656-3.917 8.474-8.552 8.366z' fill='%23005689' fill-rule='evenodd'/%3E%3C/svg%3E");
+
+    @include mq(wide) {
+      padding-left: 45px;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='40' height='25' viewBox='0 0 40 25' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EFill 1%3C/title%3E%3Cpath d='M31.447 24.132c-.107 0-.144-.036-.18-.036-6.756-.073-10.817-5.674-10.637-12.292.108-6.656 5.534-12.11 12.326-11.71l.72.98c-4.242-.108-8.123 2.656-8.23 6.874 0 .583.072 1.2.107 1.782 1.618-1.6 3.774-2.654 6.182-2.618 4.67.11 8.265 3.964 8.265 8.656-.108 4.727-3.917 8.364-8.553 8.364zm-20.627-.036c-.11 0-.073-.037-.18-.037C3.848 23.985-.106 18.42.002 11.767.11 5.148 5.572-.38 12.33.02l.753 1.02C8.735.93 4.925 3.73 4.818 7.91c0 .62.035 1.2.143 1.818 1.546-1.636 3.703-2.654 6.147-2.654 4.67.11 8.373 4 8.265 8.655-.108 4.656-3.917 8.474-8.552 8.366z' fill='%23005689' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    
+    background-repeat: no-repeat;
+    background-position: 0 4px;
+  }
+
+  &__cta {
+    justify-content: flex-end;
+ 
+    text-align: right;
+
+    @include fs-textSans(3);
+
+    @include container-gutters;
+    padding-bottom: 10px;
+
+    padding-top: 14px;
+  }
+
+  @mixin button-heights {
+    $mobile-button-height: 24px;
+    $desktop-button-height: 36px;
+
+    height: $mobile-button-height;
+    line-height: $mobile-button-height;
+    border-radius: $mobile-button-height;
+
+    @include mq(desktop) {
+      height: $desktop-button-height;
+      line-height: $desktop-button-height;
+      border-radius: $desktop-button-height;
+    }
+  }
+
+  &__button {
+    @include fs-textSans(3);
+
+    @include sans-font-sizes;
+    @include button-heights;
+
+    padding-left: 8px;
+    padding-right: 30px;
+
+    color: guss-colour(guardian-brand, $pasteup-palette) !important;
+    background-color: $lightest-blue;
+    color: #fff;
+
+    position: relative;
+    font-weight: 500;
+
+    align-self: center;
+
+    &:hover {
+      background-color: lighten($lightest-blue, 10%);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 23%;
+      right: 7px;
+      background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2215%22%20height%3D%2214%22%20viewBox%3D%22172%20360%2020%2019%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23005689%22%20fill-rule%3D%22evenodd%22%20d%3D%22M191.64%20370.05l-8.53%208.55-.8-.8%206.16-7.35H172.8v-1.63h15.65l-6.14-7.34.8-.8%208.55%208.55%22%2F%3E%3C%2Fsvg%3E');
+      width: 15px;
+      height: 14px;
+
+      @include mq(desktop) {
+        background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2220%22%20height%3D%2219%22%20viewBox%3D%22172%20360%2020%2019%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23005689%22%20fill-rule%3D%22evenodd%22%20d%3D%22M191.64%20370.05l-8.53%208.55-.8-.8%206.16-7.35H172.8v-1.63h15.65l-6.14-7.34.8-.8%208.55%208.55%22%2F%3E%3C%2Fsvg%3E');
+        width: 20px;
+        height: 19px;
+      }
+    }
+  }
+
+  &__button--right {
+    margin-left: 5px;
+  }
+
+  $small-button-height: 24px;
+  &__small-button {
+    @include fs-textSans(3);
+    color: guss-colour(guardian-brand, $pasteup-palette) !important;
+    background-color: guss-colour(guardian-brand, $pasteup-palette);
+    color: #fff;
+    height: $small-button-height;
+    line-height: 36px;
+    border-radius: 36px;
+    padding-left: $small-button-height / 2;
+    padding-right: $small-button-height / 2;
+    position: relative;
+    font-weight: 500;
+
+    margin-left: 5px;
+
+    align-self: center;
+
+    &:hover {
+      background-color: lighten(guss-colour(guardian-brand, $pasteup-palette), 5%);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 14%;
+      right: 4px;
+      background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2217%22%20height%3D%2217%22%20viewBox%3D%22172%20360%2020%2019%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M191.64%20370.05l-8.53%208.55-.8-.8%206.16-7.35H172.8v-1.63h15.65l-6.14-7.34.8-.8%208.55%208.55%22%2F%3E%3C%2Fsvg%3E');
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__link {
+    align-self: center;
+
+    @include sans-font-sizes;
+
+    color: guss-colour(guardian-brand, $pasteup-palette) !important;
+  }
+
+  &__quote-name {
+    font-weight: bold;
+  }
+
+  &__quote-icon {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    fill: guss-colour(guardian-brand, $pasteup-palette);
+  }
+
+  &__title {
+    padding-bottom: 20px;
+
+    @include mq(tablet) {
+      width: 48%;  
+    }
+
+    @include mq(desktop) {
+      width: 35%;
+      padding-bottom: 0;
+      padding-right: 20px;
+    }
+  }
+
+  &__display-ask,
+  &__display-thanks {
+    display: none;
+  }
+
+  @for $i from 0 through 7 {
+    &__display-#{$i} {
+      display: none;
+    }
+  }
+
+  &__container--ask {
+    .election-supporters__display-ask {
+      display: block;
+    }
+
+    .election-supporters__cta.election-supporters__display-ask {
+      display: flex;
+    }
+  }
+
+  &__container--thanks {
+    .election-supporters__display-thanks {
+      display: block;
+    }
+
+    .election-supporters__cta.election-supporters__display-thanks {
+      display: flex;
+    }
+  }
+
+  @for $i from 0 through 3 {
+    &__container--#{$i} {
+      .election-supporters__display-#{$i} {
+        display: block;
+      }
+
+      @include mq(tablet) {
+        .election-supporters__display-#{$i + 4} {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @for $i from 4 through 7 {
+    &__container--#{$i} {
+      .election-supporters__display-#{$i} {
+        display: block;
+      }
+
+      @include mq(tablet) {
+        .election-supporters__display-#{$i - 4} {
+          display: block;
+        }
+      }
+    }
+  }
+}
