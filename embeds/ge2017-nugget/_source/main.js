@@ -1,4 +1,4 @@
-setTimeout(function() {
+(function() {
 
     function findTargetContainer(container) {
         var prev = container.previousElementSibling;
@@ -77,51 +77,66 @@ setTimeout(function() {
         return !isPayingMember() && !isContributor()
     }
 
-    if (shouldReaderSeeGoldenNugget()) {
+    try {
 
-        // find this thrasher
-        var thrasher = document.querySelector('.ge2017-supporter-nugget');
+        if (shouldReaderSeeGoldenNugget()) {
 
-        // the thrasher's section tag
-        var thrasherContainer = closest(thrasher, 'section');
+            // find this thrasher
+            var thrasher = document.querySelector('.ge2017-supporter-nugget');
 
-        // section where the treat should go
-        var targetContainer = findTargetContainer(thrasherContainer);
+            // the thrasher's section tag
+            var thrasherContainer = closest(thrasher, 'section');
 
-        // get thrasher innerHTML
-        var thrasherWrap = document.createElement('div');
-        thrasherWrap.appendChild(thrasher.cloneNode(true));
-        var thrasherHTML = thrasherWrap.innerHTML;
+            if (!thrasherContainer) {
+                return;
+            }
 
-        // clone thrasher into newTreat
-        var newTreat = document.createElement('li');
-        newTreat.classList.add('treats__list-item');
-        newTreat.innerHTML = thrasherHTML;
+            // section where the treat should go
+            var targetContainer = findTargetContainer(thrasherContainer);
 
-        // find target container's treats
-        // or make it if it doesnt' exist
-        var containerTreats = targetContainer.querySelector('.treats__container');
-        if (!containerTreats) {
-            var newTreatList = document.createElement('ul');
-            newTreatList.classList.add('treats__container');
-            targetContainer.querySelector('.fc-container__inner').appendChild(newTreatList);
-            containerTreats = targetContainer.querySelector('.treats__container');
+            if (!targetContainer) {
+                return;
+            }
+
+            // get thrasher innerHTML
+            var thrasherWrap = document.createElement('div');
+            thrasherWrap.appendChild(thrasher.cloneNode(true));
+            var thrasherHTML = thrasherWrap.innerHTML;
+
+            // clone thrasher into newTreat
+            var newTreat = document.createElement('li');
+            newTreat.classList.add('treats__list-item');
+            newTreat.innerHTML = thrasherHTML;
+
+            // find target container's treats
+            // or make it if it doesnt' exist
+            var containerTreats = targetContainer.querySelector('.treats__container');
+            if (!containerTreats) {
+                var newTreatList = document.createElement('ul');
+                newTreatList.classList.add('treats__container');
+                targetContainer.querySelector('.fc-container__inner').appendChild(newTreatList);
+                containerTreats = targetContainer.querySelector('.treats__container');
+            }
+
+            // inject on top if there are treats, at bottom otherwise
+            var firstTreat = containerTreats.querySelector('li:first-child');
+            if (firstTreat) {
+                containerTreats.insertBefore(newTreat, firstTreat);
+                firstTreat.classList.add('treat-separator');
+            } else {
+                containerTreats.appendChild(newTreat);
+            }
+
+            if (window.guardian.ophan && window.guardian.ophan.record) {
+                 window.guardian.ophan.record({
+                    component: 'thrasher : manifestos compared',
+                    value: 1
+                });
+            }       
         }
+    } catch (err) {
 
-        // inject on top if there are treats, at bottom otherwise
-        var firstTreat = containerTreats.querySelector('li:first-child');
-        if (firstTreat) {
-            containerTreats.insertBefore(newTreat, firstTreat);
-            firstTreat.classList.add('treat-separator');
-        } else {
-            containerTreats.appendChild(newTreat);
-        }
-
-
-        window.guardian.ophan.record({
-            component: 'thrasher : manifestos compared',
-            value: 1
-        });
     }
   
-}, 20);
+})();
+
