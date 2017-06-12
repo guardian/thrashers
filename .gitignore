@@ -2,7 +2,9 @@
 .sass-cache
 components/
 node_modules/
+npm-debug.log
 style.css.map
 style.css
 aws-keys.json
 hashed/
+.idea/

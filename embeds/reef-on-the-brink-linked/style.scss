@@ -1,0 +1,213 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.reef-on-the-brink-linked__wrapper {
+  width: 100%;
+  position: relative;
+  .anchor {
+    position: absolute;
+    z-index: 200!important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+#reef-series-header-linked {
+  width: 100%;
+  background-color: #333;
+  position: relative;
+  overflow: hidden;
+    @include mq($from: phablet) {
+      height: 210px;
+    }
+
+  h1 {
+    font-family: "Guardian Egyptian Web",Georgia,serif;
+    color: #4BC6DF;
+    z-index: 90;
+    bottom: inherit;
+    padding: 8px 12px 0px;
+    background-color: rgb(51, 51, 51);
+    line-height: auto;
+    font-size: 1.5em;
+    font-weight: 600;
+
+    @include mq($from: phablet) {
+      bottom: 70px;
+      left: 20px;
+      height: 50px;
+      font-size: 2em;
+      background-color: none;
+      line-height: 50px;
+      padding: 0 6px;
+      top: inherit;
+      position: absolute;
+      background-color: rgba(51, 51, 51, 0.7);
+    }
+
+    @include mq($from: desktop) {
+      font-size: 3em;
+    }
+  }
+
+  h2 {
+    font-family: "Guardian Egyptian Web",Georgia,serif;
+    color: #f6f6f6;
+    bottom: inherit;
+    padding: 0px 12px 8px;
+    background-color: rgb(51, 51, 51);
+    line-height: auto;
+    font-size: 1em;
+    font-weight: 300;
+    z-index: 100;
+
+    @include mq($from: phablet) {
+      position: absolute;
+      bottom: 50px;
+      height: 25px;
+      font-size: 1.25em;
+      left: 20px;
+      line-height: 25px;
+      padding: 0 6px;
+      top: inherit;
+      background-color: rgba(51, 51, 51, 0.7);
+    }  
+    @include mq($from: desktop) {
+      font-size: 1.5em;
+    }
+  }
+
+  .button {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    line-height: 30px;
+    border: none;
+    background-color: #63717a;
+    z-index:100;
+
+    .arrow-icon {
+      height: auto!important;
+      width: auto!important;
+      float: right;
+      fill: #fff;
+    }
+  }
+
+  .before-after {
+    left: -70px;
+    right: inherit;
+    width: 560px;
+    height: 210px;
+    overflow: hidden;
+    position: relative;
+
+    @include mq($from: phablet) {
+      right: 70px;
+      left: inherit;
+      position: absolute;
+    }
+    
+    .image-container {
+      width: 560px;
+      height: 210px;
+      position: absolute;
+
+      @include mq($until: mobileLandscape) {
+        &.after-image-top-1, &.after-image-top-2, &.after-image-bottom-1, &.after-image-bottom-2 {
+          animation-name: none;
+        }
+      }
+    }
+    .before-image {
+      background-image: url('@@assetPath@@/before.png');
+    }
+    .after-image-top-1, .after-image-top-2 {
+      animation-duration: 8s;      
+      animation-iteration-count: infinite;
+/*      animation-direction: alternate;
+*/      animation-name: top;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: backwards;
+    }
+    .after-image-bottom-1, .after-image-bottom-2 {
+      animation-duration: 7s;      
+      animation-iteration-count: infinite;
+/*      animation-direction: alternate;      
+*/      animation-name: bottom;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: backwards;
+    }
+    .after-image-top-1 { 
+      background-image: url('@@assetPath@@/after-top-1.png');
+    }
+    .after-image-top-2 { 
+      background-image: url('@@assetPath@@/after-top-2.png');
+      animation-delay: 1.6s; 
+    }
+    .after-image-bottom-1 { 
+      background-image: url('@@assetPath@@/after-bottom-1.png');
+      animation-delay: 0.5s; 
+    }
+    .after-image-bottom-2 { 
+      background-image: url('@@assetPath@@/after-bottom-2.png');
+      animation-delay: 2.9s; 
+    }
+  }
+}
+
+@keyframes top {
+  0% {
+    top: -210px;
+    opacity: 0;
+  }
+
+  30% {
+    top: 0px;
+    opacity: 1;
+  }
+
+  80% {
+    top: 0px;
+    opacity: 1;
+  }
+
+  100% {
+    top: -210px;
+    opacity: 0;
+  }
+}
+
+
+@keyframes bottom {
+  0% {
+    bottom: -210px;
+    opacity: 0;    
+  }
+  
+  30% {
+    bottom: 0;
+    opacity: 1;    
+  }
+
+  80% {
+    bottom: 0;
+    opacity: 1;
+  }
+  100% {
+    bottom: -210px;
+    opacity: 0;    
+  }
+}

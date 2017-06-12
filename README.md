@@ -1,7 +1,7 @@
 Thrashers
 =========
 
-Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend) project. View them all the [Thrasher front](http://m.code.dev-theguardian.com/thrashers).
+Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend) project.
 
 
 ## Installation
@@ -43,7 +43,7 @@ To run locally, use
 grunt local --folderName=the-name-of-your-embed
 ```
 
-To run remotely, you'll need to add AWS Keys. Use [`aws-keys.example.json`](aws-keys.example.json) to create an `aws-keys.json` file and replace the default values with your key values from the `gu-aws-interactive` AWS Account. From then on use
+To run remotely, you'll need to access to Interactives Prod via Janus. With Janus credentials pasted in terminal, run
 ```
 grunt remote --folderName=the-name-of-your-embed
 ```
@@ -52,29 +52,61 @@ To compile and deploy *everything* run the above commands without the `--folderN
 
 ### Creating the container
 
-To preview your Thrasher on the site it will need to be added to a front with it's own container. For development and archival reasons, add it to the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`. Or add it to the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
+To preview your Thrasher on the site it will need to be added to a front with it's own container. Test on the CODE environment.
 
-The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool [Fascia fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config). Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
+The first thing that you'll need to do is create a new container with the name of the thrasher in the Facia Fronts Config tool [Facia fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config).
+
+Make sure to pick `fixed/thrasher` as you'll only need one item. Best practices would be to name it the same as your classes' name space and embed folder. This way anyone can look at the embeds folder and instantly figure out the appropriate name of the container. For example the Thrasher inside `embeds/coal-us` has classes called `.coal-us__*` and requires a container called `coal-us`.
 
 ### Getting the snapURL
 
-To embed the Thrasher you'll need to get the snapURL. This is a URL that contains the path to your `source.json` file and fallback information for while the snap is loading or if it fails. By running either `grunt local --folderName=the-name-of-your-embed` or `grunt remote --folderName=the-name-of-your-embed` commands, the terminal will return both local and remote snapURLs. If you wish to get these URLs without having to watch, compile and deploy, use
+To embed the Thrasher you'll need to get the snapURL. This is a URL that contains the path to your `source.json` file and fallback information for while the snap is loading or if it fails.
+
+By running either `grunt local --folderName=the-name-of-your-embed` or `grunt remote --folderName=the-name-of-your-embed` commands, the terminal will return both local and remote snapURLs. If you wish to get these URLs without having to watch, compile and deploy, use
+
 ```
 grunt paths --folderName=the-name-of-your-embed
 ```
 
 If any of the fallback information has changed since you first ran `grunt new`, you can update those values using
+
 ```
 grunt update --folderName=the-name-of-your-embed
 ```
 
 ### Embedding the Thrasher
 
-The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial?front=thrashers). You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. Remember to choose benthrasher from the pull down if you want it to appear on that page.
+Your thrasher will need to be added to a container on a front of type `fixed/thrasher`.
 
-You should now see your thrasher at the bottom of the [Thrasher front](http://m.code.dev-theguardian.com/thrashers) on `CODE`. 
+![Thrasher container](doc_images/container-type.jpg)
 
-OR IF YOU USED benthrasher you should now see your thrasher at the bottom of the [Ben Thrasher front](http://m.code.dev-theguardian.com/benthrasher) on `CODE`.
+You can add containers through the [fronts config](https://fronts.code.dev-gutools.co.uk/editorial/config) (you may need to get access from central production).
+
+The appropriate snapURL then needs to be added to your container using the [Facia Fronts Tool](https://fronts.code.dev-gutools.co.uk/editorial).
+
+ You'll need drag it in as an active link onto the clipboard, the result of which then needs to be dragged to the appropriate container. This easiest way is to paste it into the url bar, highlight and drag down into the clipboard:
+
+![Drag gif](doc_images/snaps-process.gif)
+
+It should show as `snap json.html`
+
+![Snap JSON example](/doc_images/snap-json-html.jpg)
+
+You can then drag that link into the thrasher container on the front you want the thrasher to appear on.
+
+#### Display on Apps
+
+You'll be prompted to provide an app-specific config when running `grunt remote` with the `--folderName=` parameter. If you wish to update the app config without running grunt remote, you can run `grunt appConfig --folderName=<FOLDER>`
+
+If you do not add this specific config, then apps will use the `mainMedia` image from the article, with the card's title.
+
+For example, football weekly, which displays like this on desktop:
+
+![Football weekly desktop](doc_images/football-weekly-desktop.jpg)
+
+will display like this on apps:
+
+![Drag gif](doc_images/football-weekly-apps.jpg)
 
 ## Developing
 
@@ -108,12 +140,14 @@ Due to the strong use of imagery and other components on the front. For this rea
 
 Due to multiple reports of the site crashing on older devices (iPad 2s, older Android smartphones, etc...), it's best to keep animations and transitions to a minimum unless they add a lot of value.
 
+**All animation should be wrapped with a class `flashing-image` so that user's with accessibility issues can remove them. This class will `display: none` the element if the user preference is set.**
+
 ### Javascript
 
 Due to the way we inject the thrashers into `frontend` we can't add `<script>` tags in the html. These are stripped out. The work around we've come up with so far, is to have a 1x1px image with an onload event that adds a `<script>` tag.
 
 ```html
-    <img 
+    <img
         style="height:0;width:0;visibility:hidden;position:absolute;z-index: 1;"
         height="0"
         width="0"

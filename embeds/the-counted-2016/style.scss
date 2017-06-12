@@ -31,12 +31,11 @@ $face-size--wide: 6.25%;            // 16 per row
     font-family: $f-serif-headline;
 
     @include mq(desktop) {
-        height: 0;
-        padding-top: $face-size--desktop * 4;
+        height: 280px;
     }
 
     @include mq(wide) {
-        padding-top: $face-size--wide * 4;
+        height: 325px;
     }
 }
 
@@ -159,13 +158,13 @@ $number-height: 33.333%;
 .animate {
     @for $count from 0 to 10 {
         .number--#{$count} {
-            background-position-y: 11.1111% * $count;
+            background-position: 0 11.1111% * $count;
         }
     }
 
     @for $count from 0 to 10 {
         .the-counted__number--one.number--#{$count} {
-            background-position-y: (11.1111% * $count) + 2.5%;
+            background-position: 0 (11.1111% * $count) + 2.5%;
         }
     }
 }
@@ -334,7 +333,8 @@ a.the-counted__anchor {
 // National convention code
 
 #republican-national-convention,
-#democratic-national-convention {
+#democratic-national-convention,
+#final-presidential-debate {
     background-image: url('@@assetPath@@/blocks.png');
     background-repeat: no-repeat;
     background-color: #f1f1f1;

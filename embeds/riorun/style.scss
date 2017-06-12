@@ -37,7 +37,7 @@ $c-neutral-1: #333;
 	left: 0;
 	height: 207px;
 	width:100%;
-	background-image: url('@@assetPath@@/parallax-08.svg');
+	background-image: url('@@assetPath@@/background.png');
 	background-repeat: no-repeat;
 	background-size: calc(100% + 10px) auto;
 	background-position: -5px 75%;
@@ -59,7 +59,7 @@ $c-neutral-1: #333;
 .go-grouping {
 	position: absolute;
 	display: block;
-	top: 8px;
+	top: 12px;
 	right: 8px;
 	z-index: 101;
 	font-size: 16px;
@@ -146,4 +146,34 @@ canvas {
 		right: 0;
 		top: 0;
 	}
+}
+
+.fc-container__inner--no-treats .treats__container {
+    display: none;
+}
+
+.badge-wrapper {
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    color: #005689;
+    margin-top: -18px;
+
+    @include mq(tablet) {
+        margin-top: -11px;
+        width: 340px;
+        float: right;
+    }
+
+    @include mq(desktop) {
+        width: 460px;
+    }
+
+    @include mq(leftCol) {
+        position: absolute;
+        width: 140px;
+        bottom: 1.5rem;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
 }
