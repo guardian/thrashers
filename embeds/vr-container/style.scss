@@ -1,0 +1,413 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#virtual-reality.fc-container--thrasher {
+  background-color: transparent;
+}
+@include base(vr-container, #fff);
+
+@mixin bar-at-right {
+  overflow: visible;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -11px;
+    bottom: 0;
+    background-color: #DFDFDF;
+    height: 100%;
+    width: 1px;
+  }
+}
+
+
+// this id is the container name
+#virtual-reality {
+  .tone-news--item.fc-item {
+    background-color: #fff;
+  }
+}
+
+#vr-container {
+  border-top: 1px solid #4BC6DF;
+  background-color: #fff;
+  @include mq(mobileLandscape) {
+    width: calc(100% - 20px);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  @include mq(tablet) {
+    width: auto;
+    max-width: none;
+    margin: 0 20px;
+  }
+  @include mq(leftCol) {
+    margin: 0;
+    padding: 0 20px;
+  }
+  @include mq(wide) {
+    .has-page-skin & {
+      width: auto;
+      max-width: none;
+      margin: 0 20px;
+      padding: 0;
+    }
+  }
+  .header {
+    position: relative;
+    padding-right: 45px;
+    margin-bottom: 6px;
+    &__title {
+      color: #00456e;
+      padding-top: 3px;
+      padding-bottom: 0;
+      float: none;
+    }
+    &__description {
+      text-align: left;
+      @include mq(tablet) {
+        display: block;
+      }
+    }
+    &__logo {
+      position: absolute;
+      top: 4px;
+      right: 0px;
+    }
+    @include mq(leftCol) {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 140px;
+      padding-right: 0;
+      padding-top: 96px;
+      &__logo {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        transform: scale(1.6);
+        transform-origin: top left;
+      }
+    }
+    @include mq(wide) {
+      padding-top: 132px;
+      width: 220px;
+      &__logo {
+        transform: scale(2.2);
+      }
+      .has-page-skin & {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        padding: 0;
+        &__logo {
+          position: absolute;
+          top: 4px;
+          right: 0px;
+          left: auto;
+          transform: none;
+        }
+        &__title {
+          display: block;
+        }
+        &__description {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .cards {
+    width: 100%;
+    padding-top: 5px;
+    font-size: 0;
+    @include mq(leftCol) {
+      margin-left: 160px;
+    }
+    @include mq(wide) {
+      margin-left: 240px;
+      width: 942px;
+      .has-page-skin & {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+    &__main {
+      width: 100%;
+      clear: both;
+    }
+    & .cards__secondary {
+      display: none;
+      width: 100%;
+      clear: both;
+      @include mq(tablet) {
+        .card {
+          &.single,
+          &.double {
+            height: 144px;
+            @include bar-at-right;
+            &+.single+.single {
+              overflow: hidden;
+            }
+          }
+        }
+      }
+      @include mq(desktop) {
+        .card {
+          &.single,
+          &.double {
+            height: 168px;
+          }
+        }
+      }
+    }
+
+    .card {
+      border-top: 1px solid #68D2E7;
+      position: relative;
+      overflow: hidden;
+      background-color: #402563;
+      margin-bottom: 12px;
+      vertical-align: top;
+      height: 144px;
+      text-decoration: none;
+
+      @include mq(mobileLandscape) {
+        height: 120px;
+      }
+      &:hover {
+        background-color: #301d49;
+      }
+
+      .description {
+        position: relative;
+        z-index: 130;
+        padding: 4px 6px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 20px;
+        text-shadow: 0 0 9px rgba(0,0,0,0.2);
+
+        @include mq(desktop) {
+          font-size: 22px;
+          line-height: 24px;
+          max-width: 205px;
+        }
+        .kicker {
+          color: #68D2E7;
+        }
+        .headline {
+          color: #f6f6f6;
+          &.quote:before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 13px;
+            background-size: 20px 13px;
+            background-repeat: no-repeat;
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2220%22%20height%3D%2213%22%20viewBox%3D%22386%204066%2020%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M395.68%204073.86c.02-2.27-1.84-4.1-4.1-4.13-1.2-.03-2.1.43-2.9%201.22%200-.27-.04-.6-.04-.9.04-2.1%202-3.28%204.1-3.25l-.58-.6c-3.52%200-5.82%202.64-5.86%205.9-.05%203.3%201.95%205.83%205.3%205.9%202.24.05%204.04-1.84%204.08-4.14zm10.02%200c.05-2.27-1.84-4.1-4.1-4.13-1.2-.03-2.12.43-2.9%201.22-.04-.27-.06-.6-.06-.9.02-2.1%202.02-3.28%204.13-3.25l-.6-.6c-3.53%200-5.8%202.64-5.87%205.9-.07%203.3%201.97%205.83%205.3%205.9%202.26.05%204.06-1.84%204.1-4.14z%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+            @include mq(desktop) {
+              transform: scale(1.15);
+              top: 0;
+            }
+          }
+        }
+      }
+
+      .image {
+        z-index: 110;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0,0,0,0.25);
+          display: block;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+      }
+
+      .video {
+        z-index: 120;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .image,
+      .video {
+        &:hover {
+          opacity: 0.85;
+        }
+      }
+
+      .media-type {
+        z-index: 130;
+        position: absolute;
+        bottom: 0.2em;
+        left: 0.2em;
+        &.video {
+
+        }
+        &.photo {
+
+        }
+        &.audio {
+
+        }
+      }
+
+      &.major {
+        height: 0;
+        width: 100%;
+        padding-bottom: 75%;
+        display: block;
+
+        @include mq(tablet) {
+          width: 520px;
+          height: 390px;
+          padding: 0;
+          float: left;
+          @include bar-at-right;
+        }
+        @include mq(desktop) {
+          width: 700px;
+          height: 350px;
+        }
+        .description {
+          font-size: 28px;
+          line-height: 30px;
+          @include mq(desktop) {
+            font-size: 36px;
+            line-height: 38px;
+            max-width: 460px;
+          }
+          padding-top: 4px;
+          .kicker {
+            font-weight: 200;
+          }
+          .kicker+.headline {
+            margin-top: -1px;
+          }
+        }
+      }
+      &.double {
+        display: block;
+        @include mq(tablet) {
+          width: 340px;
+          height: 140px;
+          float: left;
+        }
+        @include mq(desktop) {
+          width: 460px;
+        }
+      }
+      &.single {
+        width: 50%;
+        width: calc(50% - 6px);
+        display: inline-block;
+        overflow: hidden;
+        &+.single {
+          margin-left: 12px;
+        }
+        @include mq(tablet) {
+          width: 160px;
+          height: 188px;
+          float: left;
+          margin-left: 20px;
+          &+.single {
+            margin-left: 20px;
+          }
+        }
+        @include mq(desktop) {
+          width: 220px;
+          height: 168px;
+        }
+      }
+
+      &.image {
+        background-color: #000;
+      }
+      &.text {
+
+      }
+    }
+  }
+  .expand-container {
+    cursor: pointer;
+    display: inline-block;
+    clear: both;
+    height: 32px;
+    line-height: 34px;
+    font-size: 14px;
+    background-color: #005689;
+    color: #f6f6f6;
+    border-radius: 28px;
+    position: relative;
+    padding-left: 32px;
+    padding-right: 16px;
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-weight: 600;
+    margin-bottom: 12px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%22562%20651%2018%2018%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill%3D%22%23F6F6F6%22%20fill-rule%3D%22evenodd%22%20d%3D%22M570.02%20660.98l.35%208.02h1.24l.4-8.02%208-.37v-1.2l-8-.35-.36-8.02h-1.23l-.35%208.03-8.02.35v1.25%22%2F%3E%3C%2Fsvg%3E');
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .clear {
+    clear: both;
+    width: 1px;
+    height: 1px;
+  }
+
+  &.expanded {
+    .expand-container {
+      display: none;
+    }
+    .cards__secondary {
+      display: block;
+    }
+  }
+}
