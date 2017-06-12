@@ -1,0 +1,164 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#secure-drop.fc-container--thrasher,
+#securedrop.fc-container--thrasher {
+    background: #003559;
+    .fc-item {
+        background: #00456E;
+    }
+}
+.secure-drop__wrapper {
+    position: relative;
+    @include mq(desktop) {
+        width: 100%;
+    }
+    .securedrop {
+        color: #F6F6F6;
+        max-width: 620px;
+        margin: 0 auto;
+        @include mq(mobileLandscape) {
+            padding: 0 10px;
+        }
+        @include mq(tablet) {
+            padding: 0 20px;
+            max-width: none;
+        }
+        @include mq(leftCol) {
+            margin-left: 160px;
+        }
+        @include mq(wide) {
+            margin-left: 240px;
+        }
+        &__title {
+            display: inline-block;
+            padding-top: 2px;
+            color: #4BC6DF;
+            float: none;
+            width: auto;
+            @include mq(leftCol) {
+                position: absolute;
+                top: 0;
+                left: 20px;
+            }
+        }
+        &__roundel {
+            float: right;
+            margin-top: 5px;
+            svg {
+                @include mq(mobileLandscape) {
+                    transform-origin: top right;
+                    transform: scale(1.2);
+                }
+            }
+            @include mq(leftCol) {
+                margin-top: 1px;
+            }
+        }
+        &__main {
+            display: block;
+            font-size: 24px;
+            line-height: 26px;
+            font-weight: 600;
+            padding-top: 1px;
+            padding-bottom: 18px;
+            margin-top: -3px;
+            @include mq(tablet) {
+                font-size: 26px;
+                line-height: 28px;
+            }
+            @include mq(leftCol) {
+                margin-top: 3px;
+            }
+            &, &:hover {
+                text-decoration: none;
+            }
+            .eyes {
+                display: inline-block;
+                font-size: 0;
+                vertical-align: bottom;
+                position: relative;
+                .target {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 20px;
+                    height: 18px;
+                    z-index: 1;
+                    transform: translate3d(-50%,-50%,0);
+                    &:hover+.eye .inside {
+                        top: 50% !important;
+                        left: 75% !important;
+                    }
+                    &:hover+.eye+.eye .inside {
+                        top: 50% !important;
+                        left: 25% !important;
+                    }
+                }
+                .eye {
+                    display: inline-block;
+                    position: relative;
+                    top: 7px;
+
+                    &+.eye {
+                        margin-left: 4px;
+                    }
+                    .outside {
+                        display: block;
+                    }
+                    .inside {
+                        transition: all 400ms ease-in;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate3d(-48%,-50%,0);
+                    }
+                    svg {
+                        display: block;
+                    }
+                }
+            }
+            .cta {
+                display: inline;
+            }
+            .btn {
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                top: 1px;
+                line-height: 30px;
+                width: 24px;
+                height: 24px;
+                border-radius: 100%;
+                border: 1px solid #ececec;
+                svg {
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    path {
+                        fill: #ececec;
+                    }
+                }
+            }
+            &:hover {
+                .btn {
+                    background-color: #4BC6DF;
+                    border-color: transparent;
+                    svg path {
+                        fill: #F6F6F6;
+                    }
+                }
+            }
+        }
+    }
+}

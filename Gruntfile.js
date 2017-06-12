@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       };
     } else {
       var awsOptions = {
-          awsProfile: 'interactivesProd',
+          awsProfile: 'interactives',
           region: 'us-east-1'
       };
     }
@@ -209,16 +209,16 @@ module.exports = function(grunt) {
                             default: defaultFromObject("titleFont", 'egypt-regular'),
                             message: 'Thrasher title typeface',
                             choices: [
-                                { name: 'egypt-thin' },
-                                { name: 'egypt-light' },
-                                { name: 'egypt-regular'},
-                                { name: 'egypt-medium' },
-                                { name: 'egypt-bold' },
+                                { name:'DE1 Display Egyptian Thin', value: 'egypt-thin' },
+                                { name:'DE2 Display Egyptian Light', value: 'egypt-light' },
+                                { name:'DE3 Display Egyptian Regular', value: 'egypt-regular'},
+                                { name:'DE4 Display Egyptian Medium', value: 'egypt-medium' },
+                                { name:'DE6 Display Egyptian Bold', value: 'egypt-bold' },
                                 '---',
-                                { name: 'agate-regular' },
-                                { name: 'agate-bold' },
+                                { name:'Agate Regular', value: 'agate-regular' },
+                                { name:'Agate Bold', value: 'agate-bold' },
                                 '---',
-                                { name: 'display-sans' },
+                                { name:'Display Sans', value: 'display-sans' },
                                 '---'
                             ]
                         },
@@ -242,7 +242,8 @@ module.exports = function(grunt) {
                             config: 'appConfig.trail',
                             type: 'input',
                             default: defaultFromObject("trail", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Trail text'
+                            message: 'OPTIONAL: '['red'].bold + 'Trail text (blank to hide)',
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.trailFont',
@@ -261,7 +262,8 @@ module.exports = function(grunt) {
                                 '---',
                                 { name:'Display Sans', value: 'display-sans' },
                                 '---'
-                            ]
+                            ],
+                            when: function() { return grunt.config('appConfig.trail') != null }
                         },
                         {
                             config: 'appConfig.trailSize',
@@ -269,7 +271,8 @@ module.exports = function(grunt) {
                             default: defaultFromObject("trailSize", null),
                             message: 'OPTIONAL: '['red'].bold + 'Trail text size (in density independent pixels)',
                             validate: validateInputSize,
-                            filter: sizeAsInt
+                            filter: sizeAsInt,
+                            when: function() { return grunt.config('appConfig.trail') != null }
                         },
                         {
                             config: 'appConfig.trailColour',
@@ -277,13 +280,22 @@ module.exports = function(grunt) {
                             default: defaultFromObject("trailColour", 'FFFFFF'),
                             message: 'OPTIONAL: '['red'].bold + 'Trail text colour (default white)' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour
+                            filter: hexToColour,
+                            when: function() { return grunt.config('appConfig.trail') != null }
+                        },
+                        {
+                            config: 'appConfig.kickerHide',
+                            type: 'confirm',
+                            default: defaultFromObject("kickerHide", false),
+                            message: 'Hide kicker',
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.kicker',
                             type: 'input',
                             default: defaultFromObject("kicker", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Kicker text (leave blank to use default card section)'
+                            message: 'OPTIONAL: '['red'].bold + 'Kicker text (leave blank to use default card section)',
+                            when: function() { !grunt.config('appConfig.kickerHide') }
                         },
                         {
                             config: 'appConfig.kickerColour',
@@ -291,7 +303,8 @@ module.exports = function(grunt) {
                             default: defaultFromObject("kickerColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Kicker text colour (leave blank to use default)' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour
+                            filter: hexToColour,
+                            when: function() { !grunt.config('appConfig.kickerHide') }
                         },
                         {
                             config: 'appConfig.kickerFont',
@@ -299,18 +312,19 @@ module.exports = function(grunt) {
                             default: defaultFromObject("kickerFont", 'egypt-regular'),
                             message: 'Kicker typeface',
                             choices: [
-                                { name: 'egypt-thin' },
-                                { name: 'egypt-light' },
-                                { name: 'egypt-regular'},
-                                { name: 'egypt-medium' },
-                                { name: 'egypt-bold' },
+                                { name:'DE1 Display Egyptian Thin', value: 'egypt-thin' },
+                                { name:'DE2 Display Egyptian Light', value: 'egypt-light' },
+                                { name:'DE3 Display Egyptian Regular', value: 'egypt-regular'},
+                                { name:'DE4 Display Egyptian Medium', value: 'egypt-medium' },
+                                { name:'DE6 Display Egyptian Bold', value: 'egypt-bold' },
                                 '---',
-                                { name: 'agate-regular' },
-                                { name: 'agate-bold' },
+                                { name:'Agate Regular', value: 'agate-regular' },
+                                { name:'Agate Bold', value: 'agate-bold' },
                                 '---',
-                                { name: 'display-sans' },
+                                { name:'Display Sans', value: 'display-sans' },
                                 '---'
-                            ]
+                            ],
+                            when: function() { !grunt.config('appConfig.kickerHide') }
                         },
                         {
                             config: 'appConfig.kickerSize',
@@ -318,25 +332,22 @@ module.exports = function(grunt) {
                             default: defaultFromObject("kickerSize", null),
                             message: 'OPTIONAL: '['red'].bold + 'Kicker text size (in density independent pixels)',
                             validate: validateInputSize,
-                            filter: sizeAsInt
-                        },
-                        {
-                            config: 'appConfig.kickerHide',
-                            type: 'confirm',
-                            default: defaultFromObject("kickerHide", false),
-                            message: 'Hide kicker'
+                            filter: sizeAsInt,
+                            when: function() { !grunt.config('appConfig.kickerHide') }
                         },
                         {
                             config: 'appConfig.hideGuardianRoundel',
                             type: 'confirm',
                             default: defaultFromObject("hideGuardianRoundel", false),
-                            message: 'Hide Guardian Roundel'
+                            message: 'Hide Guardian Roundel',
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.buttonText',
                             type: 'input',
                             default: defaultFromObject("buttonText", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")'
+                            message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")',
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.buttonBackgroundColour',
@@ -344,7 +355,8 @@ module.exports = function(grunt) {
                             default: defaultFromObject("buttonBackgroundColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'BACKGROUND'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour
+                            filter: hexToColour,
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.buttonTextColour',
@@ -352,9 +364,28 @@ module.exports = function(grunt) {
                             default: defaultFromObject("buttonTextColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'TEXT'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour
+                            filter: hexToColour,
+                            when: defaultLayout
                         }
-                    ]
+                    ],
+                    then: function() { grunt.task.run('confirmAppConfig'); }
+                }
+            },
+            appConfigLayouts: {
+                options: {
+                    questions: [
+                        {
+                            config: 'appConfig.layout',
+                            type: 'list',
+                            default: defaultFromObject("layout", 'default'),
+                            message: 'Which layout should this thrasher use? ' ['red'].bold + 'SEE GITHUB DOCS FOR EXAMPLES',
+                            choices: [
+                                { name:'Layout 1: Default thrasher layout', value: 'default' },
+                                { name:'Layout 2: Headline, right aligned', value: 'headline-right-aligned' },
+                            ]
+                        }
+                    ],
+                    then: function() { grunt.task.run(['prompt:appConfig']); }
                 }
             },
             appConfigConfirm: {
@@ -402,7 +433,7 @@ module.exports = function(grunt) {
         global['headerLogger'] = grunt.log.header;
         grunt.log.header = function() {};
         grunt.log.writeln('SEE GITHUB DOCUMENTATION FOR ILLUSTRATED EXAMPLES'['blue'].bold);
-        grunt.task.run(['prompt:appConfig', 'confirmAppConfig']);
+        grunt.task.run(['prompt:appConfigLayouts']);
     });
 
     grunt.registerTask('confirmAppConfig', function() {
@@ -448,7 +479,12 @@ module.exports = function(grunt) {
         return defaultVal;
     }
 
+    function defaultLayout() {
+        return grunt.config('appConfig.layout') == "default"
+    }
+
     function getAppConfig() {
+        var layout = grunt.config('appConfig.layout');
         var title = grunt.config('appConfig.title');
         var titleFont = grunt.config('appConfig.titleFont');
         var titleSize = grunt.config('appConfig.titleSize');
@@ -470,6 +506,7 @@ module.exports = function(grunt) {
         var hideGuardianRoundel = grunt.config('appConfig.hideGuardianRoundel');
 
         var app = {};
+        if (layout) app.layout = layout;
         if (title) app.title = title;
         if (titleFont) app.titleFont = titleFont;
         if (titleSize) app.titleSize = titleSize;
@@ -484,7 +521,6 @@ module.exports = function(grunt) {
         if (buttonBackgroundColour) app.buttonBackgroundColour = buttonBackgroundColour;
         app.hideKicker = kickerHide;
         if(!kickerHide) {
-            app.hideKicker = false;
             if(kicker) app.kicker = kicker;
             if(kickerColour) app.kickerColour = kickerColour;
             if(kickerFont) app.kickerFont = kickerFont;
