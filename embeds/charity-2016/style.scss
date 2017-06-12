@@ -1,0 +1,299 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#charity-appeal{
+  .fc-container__inner{
+    @include mq($from: tablet) {
+      overflow: visible !important;
+    }
+  }
+  .facia-snap{
+    @include mq($from: tablet) {
+    overflow: visible !important;
+    }
+  }
+}
+
+a.charity-link{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+}
+.charity {
+  &-wrapper {
+    background-image: url('@@assetPath@@/refugee_mother_child.jpg');
+    background-size: cover;
+    padding-top:8px;
+    position: relative;
+    overflow: auto;
+    background-position: center;
+    overflow: hidden;
+    padding-left: 6px;
+    padding-bottom: 6px;
+
+    @include mq($from: tablet) {
+      background-position-y: -80px;
+      height: 300px;
+      width: 740px;
+    }
+    @include mq($from: desktop) {
+      padding-left: 0px;
+      padding-bottom: 0px;
+      background-position-y: -110px;
+      width: 980px;
+      overflow: visible;
+    }
+    @include mq($from: leftCol) {
+      background-position-y: -150px;
+      width: 1140px;
+    }
+    @include mq($from: wide) {
+      background-position-y: -170px;
+      width: 1300px;
+    }
+
+    &:hover {
+      svg {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &-bag {
+    width: 50%;
+    float: left;
+
+    @include mq($from: tablet) {
+      width: 780px;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      float: none;
+      overflow: hidden;
+    }
+
+    @include mq($from: desktop) {
+      width: 980px;
+    }
+
+    @include mq($from: leftCol) {
+      width: 1140px;
+      margin-top: -20px;
+      height: 320px;
+    }
+
+    @include mq($from: wide) {
+      width: 1300px;
+    }
+
+    img{
+      width: 160%;
+      margin-left: -110px;
+      height: auto;
+      display: block;
+
+      @include mq($from: 420px) {
+        margin-left: -150px;
+      }
+
+      @include mq($from: mobileLandscape) {
+        width: 130%;
+        margin-left: -80px;
+      }
+
+      @include mq($from: phablet) {
+        width: 100%;
+        margin-left: -20px;
+      }
+
+      @include mq($from: tablet) {
+        right: 90px;
+        position: absolute;
+        width: 440px;
+      }
+
+      @include mq($from: desktop) {
+        right: 160px;
+      }
+
+      @include mq($from: leftCol) {
+        right: 220px;
+        width: 500px;
+      }
+
+      @include mq($from: wide) {
+        right: 270px;
+        width: 530px;
+      }
+    }
+  }
+
+  &-text {
+    float: left;
+    width: 50.5%;
+    margin-top: 80px;
+
+    @include mq($from: tablet) {
+      position: absolute;
+      left: 20px;
+      top: 40px;
+      width: 40%;
+    }
+
+    @include mq($from: leftCol) {
+      width: 31%;
+    }
+
+    @include mq($from: wide) {
+      margin-top: 20px;
+    }
+
+    h1{
+      font-size: 22px;
+      font-weight: 900;
+      font-family: $f-serif-headline;
+      line-height: 22px;
+      margin-bottom: 6px;
+      color: white;
+
+      @include mq($until: 330px) {
+        font-size: 18px;
+        line-height: 18px;
+      }
+
+      @include mq($from: desktop) {
+        font-size: 22px;
+        line-height: 22px;
+      }
+
+      @include mq($from: wide) {
+        font-size: 32px;
+        line-height: 32px;
+      }
+    }
+
+    h2{
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 300;
+      font-family: $f-serif-headline;
+      color: white;
+
+      @include mq($from: tablet) {
+        font-size: 20px;
+        line-height: 22px;
+      }
+
+      @include mq($from: desktop) {
+        font-size: 24px;
+        line-height: 26px;
+      }
+
+      @include mq($from: leftCol) {
+      }
+
+      @include mq($from: wide) {
+        padding-right: 60px;
+      }
+
+      @include mq($until: 330px) {
+        font-size: 18px;
+        line-height: 18px;
+      }
+
+      span.donation {
+        font-weight: 900;
+        display: block;
+        margin-top: 6px;
+        color: #ffbb00;
+
+        svg {
+          margin-bottom: -10px;
+          margin-left: 6px;
+          width: 30px;
+
+          #Oval {
+            stroke: #ffbb00;
+          }
+
+          #Arrow {
+            fill: #ffbb00;
+          }
+
+          @include mq($from: tablet) {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &-cta {
+    margin-top: 6px;
+    @include mq($from: tablet) {
+      position: absolute;
+      right: 74px;
+      bottom: 40px;
+    }
+
+    @include mq($from: desktop) {
+      right: 188px;
+    }
+
+    @include mq($from: leftCol) {
+      right: 268px;
+      bottom: 60px;
+    }
+
+    @include mq($from: wide) {
+      right: 324px;
+    }
+
+    svg {
+      width: 15px;
+      float: right;
+      margin-left: 7px;
+      margin-top: -2px;
+    }
+
+    &.button {
+      background-color: #333;
+      border: none;
+      padding-top: 2px;
+    }
+  }
+
+  &-logo {
+    position: absolute;
+    top: 6px;
+    right: 16px;
+    height: 60px;
+    width: 60px;
+
+    @include mq($from: tablet) {
+      width: 100px;
+      height: 100px;
+      right: 6px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}

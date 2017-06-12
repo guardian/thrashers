@@ -1,0 +1,140 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#recipe-header {
+  margin-top: -6px;
+}
+.recipe-header {
+  height: auto;
+  position: relative;
+
+  @include mq($from: desktop){
+    width: 980px;
+  }
+  @include mq($from: leftCol){
+    width: 1140px;
+  }
+  @include mq($from: wide){
+    width: 1300px;
+  }
+
+  &__image {
+    height: 190px;
+    overflow: hidden;
+    position: relative;
+
+    @include mq($from: tablet) {
+      height: 208px;
+    }
+    @include mq($from: desktop) {
+      height: 244px;
+    }
+    @include mq($from: leftCol) {
+      height: 270px;
+    }
+
+    img {
+      height: 130%;
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      bottom: 0px;
+
+      @include mq($from: tablet) {
+        height: 260%;
+      }
+
+      @include mq($from: leftCol) {
+        height: 100%;
+        object-position: center 88%;
+      }
+    }
+  }
+
+  &__title {
+    bottom:0px;
+    position: absolute;
+    right: 20px;
+    width: 50%;
+
+    @include mq($from: wide) {
+      width: 46%;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      path {
+        stroke: white;
+        fill: white;
+
+        @include mq($from: desktop) {
+          stroke: none;
+        }
+      }
+    }
+  }
+
+  &__description {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    h1{
+      font-weight: 900;
+      color:#9B0C55;
+      font-size: 18px;
+      width: 130px;
+      margin-left: -13px;
+      margin-bottom: 4px;
+      line-height: 18px;
+      font-family: $f-serif-headline;
+      @include mq($from: desktop){
+        font-size: 32px;
+        width: auto;
+        margin-bottom: 16px;
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__links {
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-top: 6px;
+      padding-bottom: 6px;
+      overflow: hidden;
+
+      @include mq($from: tablet) {
+        margin-left: 20px;
+      }
+
+      li{
+        float: left;
+        border: 1px solid #951c55;
+        border-radius: 20px;
+        padding: 4px 12px;
+        color: #951c55;
+        font-family: $f-sans-serif-text;
+        margin-right: 6px;
+        margin-bottom: 6px;
+
+        &:hover {
+          background-color: #951c55;
+          color: white;
+        }
+      }
+    }
+  }
+}
