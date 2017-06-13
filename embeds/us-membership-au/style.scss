@@ -1,0 +1,238 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-red: #ea212d;
+$c-blue: #214583;
+$c-black: #333;
+
+// Container overrides
+#membership {
+    .fc-container__inner {
+        border-top-width: 24px;
+        border-top-color: $c-red;
+        overflow: initial;
+
+        @include mq(desktop) {
+            border-top-width: 32px;
+        }
+    }
+
+    .fc-container__header {
+        display: none;
+    }
+
+    .fc-slice {
+        overflow: initial;
+    }
+
+    .facia-snap {
+        overflow: initial;
+    }
+
+    .facia-snap-embed {
+        background-color: transparent;
+
+        @include mq(leftCol) {
+            margin-left: -170px;
+        }
+
+        @include mq(wide) {
+            margin-left: -250px;
+        }
+    }
+
+    .fc-container__body {
+        overflow: initial;
+        @include mq($until: tablet) {
+            padding-top: 0px;
+        }
+
+        @include mq(leftCol) {
+            padding-top: 0;
+        }
+    }
+}
+
+// Snap specific styling
+.us-membership-au__wrapper {
+    overflow: hidden;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 0 10px;
+
+    @include mq(mobileLandscape) {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 0 20px;
+    }
+
+    @include mq(desktop) {
+        margin: 0;
+        padding: 0;
+    }
+
+    @include mq(leftCol) {
+        padding-left: 20px;
+        width: 100%;
+    }
+}
+
+.us-membership__bar {
+    width: 80%;
+    height: 24px;
+    background-color: $c-red;
+
+    @include mq(desktop) {
+        width: 460px;
+        height: 32px;
+    }
+}
+
+.us-membership__bar--1 {
+    margin-left: 10%;
+
+    @include mq(desktop) {
+        margin-left: 10px;
+    }
+
+    @include mq(leftCol) {
+        margin-left: 120px;
+    }
+}
+
+.us-membership__bar--2 {
+    margin-left: 25%;
+
+    @include mq(tablet) {
+        margin-left: 23%;
+    }
+
+    @include mq(leftCol) {
+        margin-left: 170px;
+    }
+}
+
+.us-membership__bar--3 {
+    margin-left: -5%;
+}
+
+.us-membership__bar--4 {
+    margin-left: 14%;
+
+    @include mq(leftCol) {
+        margin-left: 40%;
+    }
+}
+
+.us-membership__headline {
+    font-size: 24px;
+    line-height: 1;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    font-weight: 900;
+    color: $c-blue;
+    margin: 5px 0;
+
+    @include mq(mobileLandscape) {
+        font-size: 34px;
+    }
+
+    @include mq(tablet) {
+        font-size: 28px;
+    }
+
+    @include mq(desktop) {
+        font-size: 38px;
+    }
+}
+
+.us-membership__headline--first-line {
+    margin-top: 2px;
+}
+
+.us-membership__headline--second-line {
+    margin-left: 20%;
+
+    @include mq(phablet) {
+        margin-left: 30%;
+    }
+
+    @include mq(tablet) {
+        margin-left: 14%;
+    }
+
+    @include mq(wide) {
+        margin-left: 240px;
+    }
+}
+
+.us-membership__paragraph {
+    color: $c-black;
+    font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 4px 0;
+    max-width: 480px;
+
+    @include mq(phablet) {
+        margin-left: 14%;
+    }
+
+    @include mq(tablet) {
+        margin-left: 0;
+    }
+
+    @include mq(leftCol) {
+        margin-left: 120px;
+    }
+}
+
+.us-membership__buttons {
+    margin-top: 6px;
+
+    @include mq(phablet) {
+        margin-left: 14%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+a.us-membership__button {
+    position: relative;
+    padding: 4px 34px 4px 12px;
+    border-radius: 20px;
+    background-color: $c-blue;
+    color: white;
+    font-family: "Guardian Text Sans Web";
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 6px;
+
+    &:hover {
+        text-decoration: none;
+        background-color: darken($c-blue, 5%);
+    }
+}
+
+a.us-membership__button:last-of-type {
+    margin-bottom: 0 !important;
+}
+
+.us-membership__icon {
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    right: 7px;
+    top: 0;
+    bottom: 0;
+}

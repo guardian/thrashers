@@ -11,6 +11,18 @@ $mq-breakpoints: (
 
 $c-background: #333;
 
+$xlarge: 120px;
+$large: 100px;
+$medium: 80px;
+$small: 50px;
+$xsmall: 30px;
+
+$bounce-xlarge: 85px;
+$bounce-large: 100px;
+$bounce-medium: 115px;
+$bounce-small: 125px;
+$bounce-xsmall: 175px;
+
 @import 'shared/_imports';
 
 @include base(sos-thrasher, $c-background);
@@ -19,203 +31,103 @@ $c-background: #333;
   overflow: hidden;
 }
 
-// super specific thing that could be a mixin instead?
-/*section#the-citadel.fc-container.fc-container--thrasher.fc-container--has-toggle {
-  background-color: #333;
+#summer-of-sport .facia-snap{
+      padding: 0;
+    }
+
+section#summer-of-sport.fc-container.fc-container--thrasher.fc-container--has-toggle {
+  background-color: #9BD5E0;
 }
 
-section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
+section#summer-of-sport a.fc-trail__count.fc-trail__count--commentcount {
   display: none !important;
 }
-
-#the-citadel.fc-container--thrasher{
-  .fc-container__inner{
-    overflow: visible;
-
-    .fc-container__body{
-      .fc-slice-wrapper{
-        ul{
-          overflow: visible;
-        }
-        .facia-snap{
-          overflow: visible;
-        }
-      }
-    }
-  }
-}*/
-
 
 #sos-thrasher {
   background-color: #0D7CAD;
   width: auto;
   position: relative;
-  min-height: 250px;
-  .branding {
-    position: absolute;
-    top: 8px;
-    right: 22px;
-    width: 52px;
-    height: 33px;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .player {
-    height: 140px;
-    width: 362px;
-    white-space: nowrap;
-    position: absolute;
-    top: 70px;
-    left: 300px;
-    // margin: 0 80px 28px auto;
-    background-color: transparent;
-    .player__circle {
-      padding: 1px;
-      display: inline-block;
-      height: 100px;
-      width: 100px;
+  min-height: 200px;
+    .branding {
       position: absolute;
-      top: 0;
+      top: 10px;
+      right: 20px;
+      width: 60px;
+      height: auto;
       svg {
-        height: 100%;
         width: 100%;
+        height: 100%;
       }
-    }
-    .player__name {
-      left: 30%;
-      z-index: 310;
-    }
-
-    .player__playing {
-      left: 59.5%;
-      z-index: 19;
-      transform: scale(0.97,0.97);
-      opacity: 0;
-      transition: opacity 160ms, transform 160ms;
-    }
-
-    .player__play {
-      cursor: pointer;
-      left: 59.5%;
-      z-index: 310;
-      opacity: 1;
-      transform: scale(1,1);
-      transition: opacity 240ms, transform 240ms;
-      &:hover {
-        opacity: 0.95;
-      }
-    }
-  }
-  &[data-playing] .player {
-    .player__play {
-      transform: scale(0.92,0.92);
-      opacity: 0;
-    }
-    .player__playing {
-      transform: scale(1,1);
-      opacity: 1;
-    }
   }
 
   .episode-info {
-    width: 400px;
-    padding-top: 30px;
-    margin-left: 30px;
+    display: inline-block;
+    padding-top: 10px;
+    margin-left: 20px;
     position: relative;
     z-index: 300;
+
     .episode-info__heading {
       display: block;
-      font-size: 35px;
-      line-height: 35px;
+      font-size: 32px;
+      line-height: 32px;
       font-family: 'Guardian Egyptian Web', serif;
       font-weight: 800;
-      .episode-info__kicker {
-        display: block;
-        color: #BEE202;
-      }
-      .episode-info__title {
-        color: #FFF;
-      }
+
+        .episode-info__kicker {
+          display: block;
+          color: #fff;
+        }
+
+        .episode-info__title {
+          color: #BEE202;
+        }
     }
   }
 
-  .episode-info_full {
-    position: relative;
-    right: 1px;
+ 
+  .episode-info__links {
     display: inline-block;
-    height: 26px;
-    line-height: 28px;
-    overflow: hidden;
-    font-size: 13px;
-    padding-left: 12px;
-    padding-right: 30px;
-    margin: 14px 0 30px;
-    border-radius: 15px;
-    border: 1px solid currentColor;
-    color: #BEE202;
-    font-family: 'Guardian Text Sans Web';
-    .episode-info__arrow {
+    margin-top: 10px;
+    color: #fff;
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 800;
+    width: 500px;
+    
+    .episode-info_title {
+      font-size: 20px;
+    }
+    .episode-info_full {
+      font-size: 16px;
+      display: block;
+      height: 23px;
+
+    .episode-info__label {
+      display: inline-block;
       position: absolute;
-      right: 10px;
-      top: 2px;
-      width: 1em;
-      height: 1em;
+      top: -3px;
+      margin-left:5px;
+
+      &:hover {
+        text-decoration: underline;
+        } 
+    }
+    }
+    .episode-info__arrow {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
       svg {
         width: 100%;
         height: 100%;
       }
     }
-    &:hover {
-      background-color: #BEE202;
-      color: #444;
-      text-decoration: none;
-      #right-arrow {
-        fill: #444;
-      }
-    }
   }
 
-  .subscription {
-    position: absolute;
-    bottom: 0;
-    left: 30px;
-    font-family: 'Guardian Text Sans Web';
-    font-size: 13px;
-    padding-bottom: 2px;
-    color: #ddd;
-    z-index: 300;
-    &__icon,
-    &__itunes,
-    &__download,
-    &__feed {
-      display: inline-block;
-    }
-    &__icon {
-      position: relative;
-      top: 2px;
-      margin-right: 1px;
-    }
-    &__itunes,
-    &__download {
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 1px;
-        height: 20px;
-        background-color: #ccc;
-        opacity: 0.8;
-        vertical-align: top;
-        position: relative;
-        top: 2px;
-        margin: 0 6px;
-      }
-    }
-  }
-
-.balls-container {
+.display img {
+  display: none;
+}
+.visible{
   width: 100%;
 
   .all-balls {
@@ -224,145 +136,160 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
   }
 
   #figure {
-    width: 450px;
+    display: block;
+    width: 400px;
     position: absolute;
-    right: 100px;
+    right: 120px;
     bottom: -660px;
+    z-index: 9;
 
+    @include mq($until: mobileLandscape) { -webkit-animation:move-figure 3s 0s forwards ; -moz-animation:move-figure 3s 0s forwards ; animation:move-figure 3s 0s forwards ; }
     -webkit-animation:move-figure 3s 3.8s forwards ;
     -moz-animation:move-figure 3s 3.8s forwards ;
     animation:move-figure 3s 3.8s forwards ;
   }
 
+  #all-balls{
+    display: block;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 40px;
+      opacity: 0;
+      z-index: 8;
 
+      animation-name: balls-fadein;
+      animation-duration: 2s;
+      animation-delay: 6.5s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;  
+  }
+
+
+    
    #tennis {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:150px;
-    width: 100px;
+    width: $large;
 
-     -webkit-animation:spin-reverse 2s linear forwards, bounce-tennis 2s forwards  ;
-    -moz-animation:spin-reverse 2s  linear forwards, bounce-tennis 2s forwards ;
-    animation:spin-reverse 2s linear forwards, bounce-tennis 2s forwards ;
+    -webkit-animation: bounce-tennis 2s .5s forwards  ;
+    -moz-animation: bounce-tennis 2s .5s forwards ;
+    animation: bounce-tennis 2s .5s forwards ;
 
    }
 
    #tennis-two {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:700px;
-    width: 100px;
+    width: $large;
 
-     -webkit-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards  ;
-    -moz-animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards ;
-    animation:spin-reverse 2s 3.3s linear forwards, bounce-tennis-two 2s 3.3s forwards ;
+     -webkit-animation:bounce-tennis-two 2s 3.3s forwards  ;
+    -moz-animation:bounce-tennis-two 2s 3.3s forwards ;
+    animation:bounce-tennis-two 2s 3.3s forwards ;
 
    }
 
    #basketball {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:300px;
-    width: 120px;
+    width: $xlarge;
 
-    -webkit-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards  ;
-    -moz-animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards ;
-    animation:spin 2s 1.5s linear forwards, bounce-basket 2s 1.5s forwards ;
+    -webkit-animation: bounce-basket 2s 1.5s forwards  ;
+    -moz-animation: bounce-basket 2s 1.5s forwards ;
+    animation: bounce-basket 2s 1.5s forwards ;
 
    }
 
    #pool {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:300px;
-    width: 80px;
+    width: $medium;
 
-    -webkit-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
-    -moz-animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
-    animation:spin-reverse 2s 2.2s linear forwards, bounce-pool 2s 2.2s forwards;
+    -webkit-animation:bounce-pool 2s 2.2s forwards;
+    -moz-animation:bounce-pool 2s 2.2s forwards;
+    animation:bounce-pool 2s 2.2s forwards;
 
    }
 
    #baseball {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:10px;
-    width: 80px;
+    width: $medium;
 
-    -webkit-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
-    -moz-animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
-    animation:spin-reverse 2s 2.5s linear forwards, bounce-base 2s 2.5s forwards;
+    -webkit-animation:bounce-base 2s 2.5s forwards;
+    -moz-animation: bounce-base 2s 2.5s forwards;
+    animation: bounce-base 2s 2.5s forwards;
 
    }
 
    #football {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:500px;
-    width: 80px;
+    width: $medium;
 
-    -webkit-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
-    -moz-animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
-    animation:spin-reverse 2s 3s linear forwards, bounce-foot 2s 3s forwards;
+    -webkit-animation: bounce-foot 2s 3s forwards;
+    -moz-animation: bounce-foot 2s 3s forwards;
+    animation: bounce-foot 2s 3s forwards;
 
    }
 
    #golf {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:600px;
-    width: 50px;
+    width: $small;
 
-    -webkit-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards  ;
-    -moz-animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards ;
-    animation:spin 2s 3.1s linear forwards, bounce-golf 2s 3.1s forwards ;
+    -webkit-animation: bounce-golf 2s 3.1s forwards  ;
+    -moz-animation: bounce-golf 2s 3.1s forwards ;
+    animation: bounce-golf 2s 3.1s forwards ;
   
    } 
 
    #ping {
+    display: block;
+    @include mq($until: phablet) { display: none; }
     right:150px;
-    width: 30px;
+    width: $xsmall;
 
-    -webkit-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards  ;
-    -moz-animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
-    animation:spin 2s 3.5s linear forwards, bounce-ping 2s 3.5s forwards ;
+    -webkit-animation: bounce-ping 2s 3.5s forwards  ;
+    -moz-animation: bounce-ping 2s 3.5s forwards ;
+    animation: bounce-ping 2s 3.5s forwards ;
   
    }
+ }
 
-}
+
 
 /****** Animation Keyframes *******/
-
-
-/****** Rotation *******/
-
-@-moz-keyframes spin { 
-  100% { -moz-transform: rotate(360deg);} 
-  }
-@-webkit-keyframes spin { 
-  100% { -webkit-transform: rotate(360deg);} 
-  }
-@keyframes spin { 
-  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg);} 
-  }
-
-
-@-moz-keyframes spin-reverse { 
-  100% { -moz-transform: rotate(-360deg);} 
-  }
-@-webkit-keyframes spin-reverse { 
-  100% { -webkit-transform: rotate(-360deg);} 
-  }
-@keyframes spin-reverse { 
-  100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg);} 
-  }
-
 
 /****** Tennis *******/
 
 @-webkit-keyframes bounce-tennis {
-    0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:145px; animation-timing-function:ease-out; }
+    0%   { top:-200px;  animation-timing-function:ease-in;   }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:145px; animation-timing-function:ease-out; }
+    1%   { -moz-transform: rotate(-360deg);   }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-tennis {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:145px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
     
 }
@@ -371,21 +298,24 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:145px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:145px; animation-timing-function:ease-out; }
+    1%   { -moz-transform: rotate(-360deg);   }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-tennis-two {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:145px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    50%  { top:$bounce-large; animation-timing-function:ease-out; }
     100%  { top:-200px; right: -400px; animation-timing-function:ease-in;  }
     
 }
@@ -395,21 +325,24 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:135px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(360deg);   }
+    33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
 }
 
 @-moz-keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:135px; animation-timing-function:ease-out; }
+    1%   { -moz-transform: rotate(360deg);   }
+    33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
 }
 
 @keyframes bounce-basket {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:135px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(360deg);   }
+    33.333%  { top:$bounce-xlarge; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-10px; animation-timing-function:ease-out; }
 }
@@ -419,24 +352,27 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-pool {
     0%   { top:-2000px; animation-timing-function:ease-in;  }
-    90%  { top:175px; animation-timing-function:ease-out; }
-    95%  { top:80px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    90%  { top:$bounce-small; animation-timing-function:ease-out; }
+    95%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
     
 }
 
 @-moz-keyframes bounce-pool {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:175px; animation-timing-function:ease-out; }
-    66.666%  { top:80px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(-360deg);   }
+    33.333%  { top:$bounce-small; animation-timing-function:ease-out; }
+    66.666%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
     
 }
 
 @keyframes bounce-pool {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:175px; animation-timing-function:ease-out; }
-    66.666%  { top:80px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    33.333%  { top:$bounce-small; animation-timing-function:ease-out; }
+    66.666%  { top:30px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:350px; animation-timing-function:ease-out; }
     
 }
@@ -446,22 +382,25 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-base {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    50%  { top:$bounce-small; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 750px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+     1%   { -moz-transform: rotate(-360deg);   }
+    50%  { top:$bounce-small; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 750px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-base {
      0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:175px; animation-timing-function:ease-out; }
-    100%  { top:-200px; right: 600px; animation-timing-function:ease-in;  }
+     1%   { -webkit-transform: rotate(-360deg);   }
+    50%  { top:$bounce-small; animation-timing-function:ease-out; }
+    100%  { top:-200px; right: 750px; animation-timing-function:ease-in;  }
     
 }
 
@@ -469,21 +408,24 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:165px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
 }
 
 @-moz-keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:165px; animation-timing-function:ease-out; }
+    1%   { -moz-transform: rotate(-360deg);   }
+    33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
 }
 
 @keyframes bounce-foot {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    33.333%  { top:165px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(-360deg);   }
+    33.333%  { top:$bounce-medium; animation-timing-function:ease-out; }
     66.666%  { top:-35px; animation-timing-function:ease-in;  }
     100%  { top:250px; right:-100px; animation-timing-function:ease-out; }
 }
@@ -493,22 +435,25 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:225px; animation-timing-function:ease-out; }
-    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
+    50%  { top:160px; animation-timing-function:ease-out; }
+    100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:225px; animation-timing-function:ease-out; }
-    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    1%   { -moz-transform: rotate(360deg);   }
+    50%  { top:160px; animation-timing-function:ease-out; }
+    100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-golf {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:225px; animation-timing-function:ease-out; }
-    100%  { top:100px; right: -300px; animation-timing-function:ease-in;  }
+    1%   { -webkit-transform: rotate(360deg);   }
+    50%  { top:160px; animation-timing-function:ease-out; }
+    100%  { top:100px; right: -200px; animation-timing-function:ease-in;  }
     
 }
 
@@ -517,21 +462,24 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @-webkit-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:245px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(360deg);   }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @-moz-keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:245px; animation-timing-function:ease-out; }
+    1%   { -moz-transform: rotate(360deg);   }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
 }
 
 @keyframes bounce-ping {
     0%   { top:-200px; animation-timing-function:ease-in;  }
-    50%  { top:245px; animation-timing-function:ease-out; }
+    1%   { -webkit-transform: rotate(360deg);   }
+    50%  { top:$bounce-xsmall; animation-timing-function:ease-out; }
     100%  { top:-100px; right: 600px; animation-timing-function:ease-in;  }
     
 }
@@ -541,229 +489,196 @@ section#the-citadel a.fc-trail__count.fc-trail__count--commentcount {
 
 @keyframes move-figure {
   from {bottom: -660px;} 
-  to{bottom:-260px;}
+  to{bottom:-240px;}
 }
 
 @-moz-keyframes move-figure {
   from {bottom: -660px;} 
-  to{bottom:-260px;}
+  to{bottom:-240px;}
 }
 
 @-webkit-keyframes move-figure {
   from {bottom: -660px;} 
-  to{bottom:-260px;}
+  to{bottom:-240px;}
+}
+
+/****** Balls Fade-In *******/
+
+
+@keyframes balls-fadein {
+  0%   { opacity: 0; }
+  100%  { opacity: 1; }
+    
+}
+
+@-moz-keyframes balls-fadein {
+  0%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+@-webkit-keyframes balls-fadein {
+  0%   { opacity: 0; }
+  100%  { opacity: 1; }
 }
 
 
-
-
-
-
-  @include mq($until: wide) {
-    .branding {
-      right: 20px;
-    }
-    .player {
-      right: 80px;
-    }
-    .episode-info {
-      margin-left: 170px;
-    }
-    .subscription {
-      left: 182px;
-    }
-  }
-
   @include mq($until: leftCol) {
-    .branding {
-      right: 18px;
-    }
-    .player {
-      right: 64px;
-    }
-    .episode-info {
-      margin-left: 10px;
-    }
-    .subscription {
-      left: 23px;
-    }
+    
   }
 
   @include mq($until: desktop) {
-    min-height: 120px;
-    .branding {
-      right: 16px;
-      width: 41px;
-      height: 26px;
-    }
-    .player {
-      right: 51px;
-      height: 130px;
-      width: 336px;
-      .player__circle {
-        height: 130px;
-        width: 130px;
+
+    .visible {
+      #all-balls {
+        display: none;
       }
     }
+
+    .branding {
+      width: 55px;
+    }
+
+    
     .episode-info {
       .episode-info__heading {
-        font-size: 26px;
-        line-height: 26px;
+        font-size: 28px;
+        line-height: 28px;
       }
     }
-    .subscription {
-      font-size: 12px;
-      padding-bottom: 1px;
+
+    .episode-info_title {
+      font-size: 18px;
     }
+    .episode-info_full {
+      font-size: 16px;
+      display: block;
+      height: 23px;
+    .episode-info__label {
+      top:-2px;
+      }
+    }
+    .episode-info__arrow {
+      width: 17px;
+      height: 17px;
+    }
+
+
+    .visible {
+      #figure {
+        width: 350px;
+      }
+
+    }
+
+    @keyframes move-figure {
+      to{bottom:-190px;}
+    }
+
+    @-moz-keyframes move-figure {
+      to{bottom:-190px;}
+    }
+
+    @-webkit-keyframes move-figure {
+      to{bottom:-190px;}
+    }
+
+
+    
   }
 
   @include mq($until: tablet) {
-    min-height: 105px;
-    .branding {
-      right: 19px;
-      width: 35px;
-      height: 22px;
-    }
-    .player {
-      top: 8px;
-      right: 50px;
-      height: 110px;
-      width: 284px;
-      .player__circle {
-        height: 110px;
-        width: 110px;
-      }
-    }
-    .episode-info {
-      .episode-info__heading {
-        font-size: 22px;
-        line-height: 22px;
-      }
-    }
-    .episode-info_full {
-      font-size: 12px;
-      height: 24px;
-      line-height: 24px;
-      padding-left: 12px;
-      padding-right: 28px;
-      margin: 12px 0 26px;
-      border-radius: 15px;
-      .episode-info__arrow {
-        top: 1px;
-        right: 8px;
-      }
-    }
-    .subscription {
-      font-size: 11px;
-      padding-bottom: 0;
-      &__icon {
-        width: 12px;
-        height: 16px;
-        top: 4px;
-        svg {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      &__itunes,
-      &__download {
-        &:after {
-          height: 18px;
-          top: 1px;
-          margin: 0 5px;
-        }
+
+    .visble {
+      #figure {
+        right:40px;
+
+        -webkit-animation:move-figure 3s 0s forwards ;
+        -moz-animation:move-figure 3s 0s forwards ;
+        animation:move-figure 3s 0s forwards ;
       }
     }
   }
 
   @include mq($until: phablet) {
-    height: auto;
-    min-height: auto;
-    width: auto;
-    padding: 12px;
-    .branding {
-      top: 8px;
-      right: 9px;
+
+    #sos-thrasher .branding {
+      width: 40px;
     }
 
-    .player {
-      top: 45px;
-      left: -1px;
-      right: 0;
-      bottom: auto;
-      height: 140px;
-      width: 362px;
-      margin: 24px 0 16px;
-      .player__circle {
-        height: 140px;
-        width: 140px;
-      }
-    }
-
-    .episode-info {
-      position: static;
-      top: 140px;
-      left: 0;
-      padding-top: 0px;
-      width: auto;
-      margin-top: -3px;
-      margin-left: 0;
+    .episode-info_title {
+      font-size: 15px;
     }
     .episode-info_full {
-      margin-top: 170px;
-      z-index: 400;
+      font-size: 15px;
+      display: block;
+      height: 23px;
+    .episode-info__label {
+      top:-2px;
+      }
+    }
+    .episode-info__arrow {
+      width: 15px;
+      height: 15px;
     }
 
-    .subscription {
-      position: absolute;
-      bottom: 0;
-      left: 12px;
+    .visbile {
+      #figure {
+        right:0px;
+        width: 280px;
+        bottom: -360px;
+
+      }
+     
+    }
+    @keyframes move-figure {
+      to{bottom:-160px;}
     }
 
-    .circles {
-      top: 140px;
-      left: -120px;
-      right: -120px;
+    @-moz-keyframes move-figure {
+      to{bottom:-160px;}
     }
+
+    @-webkit-keyframes move-figure {
+      to{bottom:-160px;}
+    }
+  
   }
 
   @include mq($until: mobileLandscape) {
-    .player {
-      top: 40px;
-      height: 115px;
-      width: 300px;
-      margin: 24px 0 16px;
-      .player__circle {
-        height: 115px;
-        width: 115px;
-      }
+
+
+    #sos-thrasher {
+      min-height: 300px!important;
+    }
+
+    .branding {
+      display:none;
     }
 
     .episode-info {
-      margin-left: -12px;
-    }
-    .episode-info_full {
-      margin-top: 145px;
+      margin-left: 10px;
     }
 
-    .subscription {
-      left: 2px;
+    .visible {
+    #figure {
+      right:-35px;
+      width: 190px;
+      bottom: -660px;
+
+    }
+     
+    }
+    @keyframes move-figure {
+      to{bottom:-55px;}
     }
 
-    .circles {
-      top: 125px;
+    @-moz-keyframes move-figure {
+      to{bottom:-55px;}
     }
 
+    @-webkit-keyframes move-figure {
+      to{bottom:-55px;}
+    }     
   }
-
-
-  h1, h2 {
-    display: inline;
-    font-weight: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-  }
-
 }
 
