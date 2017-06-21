@@ -139,7 +139,7 @@ section#virtual-reality.fc-container--thrasher {
         position: relative;
         z-index: 10;
         padding: 7px 10px 18px;
-        max-width: 500px;
+        max-width: 450px;
         @include mq(phablet) {
             position: absolute;
             top: 53%;
@@ -155,7 +155,7 @@ section#virtual-reality.fc-container--thrasher {
             padding: 7px 20px 18px;
         }
          @include mq(desktop) {
-          max-width: 500px;
+          max-width: 450px;
         }
         @include mq(leftCol) {
             padding-left: 180px;
