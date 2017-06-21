@@ -11,7 +11,7 @@
       if (isIOS10()) {
         return true;
       } else if (htmlEl.classList.contains('videoautoplay')) {
-        return false;
+        return true;
       } else if (htmlEl.classList.contains('no-videoautoplay')) {
         return false;
       } else {
