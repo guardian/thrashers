@@ -33,3 +33,19 @@
         }
     }
  }
+
+// Page skin fix
+// Substitute for the
+@mixin mc($from) {
+    @if (map-get($mq-breakpoints, $from) < map-get($mq-breakpoints, leftCol)) {
+        @include mq($from) {
+            @content;
+        }
+    } @else {
+        body:not(.has-active-pageskin) & {
+            @include mq($from) {
+                @content;
+            }
+        }
+    }
+}
