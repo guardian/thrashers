@@ -35,7 +35,8 @@
  }
 
 // Page skin fix
-// Substitute for the
+// Use mc() in place of mq() so your thrashers don't get broken
+// when a page skin ad is present
 @mixin mc($from) {
     @if (map-get($mq-breakpoints, $from) < map-get($mq-breakpoints, leftCol)) {
         @include mq($from) {
