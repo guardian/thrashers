@@ -1,0 +1,110 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#glastonbury-style {
+    display: none;
+}
+
+section#glastonbury-2017 {
+    overflow: visible;
+    margin-top: 24px;
+
+    @include mq($from: leftCol) {
+        margin-top: auto;
+    }
+
+    .fc-container__inner {
+        overflow: visible;
+    }
+
+    .fc-container__body {
+        overflow: hidden;
+    }
+
+    .fc-container__header__title {
+        padding-bottom: 20px;
+
+        @include mq($from: leftCol){
+            padding: auto;
+        }
+    }
+
+    .fc-container__toggle {
+        display: none;
+    }
+}
+
+.fc-container__mpu--mobile + section#glastonbury-2017 {
+    margin-top: 44px;
+
+    @include mq($from: leftCol) {
+        margin-top: auto;
+    }
+}
+
+section#glastonbury-2017 .fc-container__inner {
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -41px;
+        right: 3px;
+        z-index: 1000;
+        width: 90px;
+        height: 86px;
+        background-image: url('@@assetPath@@/glastonbury-one.svg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #c7c7c7;
+        background-position: bottom;
+
+        @include mq($from: leftCol) {
+            height: 140px;
+            width: 140px;
+            bottom: 54px;
+            top: auto;
+            left: 20px;
+            right: auto;
+            animation-name: pyramid;
+            animation-delay: 1s;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            transition: all 1s ease-in-out;
+        }
+    }
+}
+
+@keyframes pyramid {
+    0% {
+        background-image: url('@@assetPath@@/glastonbury-one.svg');
+    }
+    22% {
+        background-image: url('@@assetPath@@/glastonbury-one.svg');
+    }
+    25% {
+        background-image: url('@@assetPath@@/glastonbury-two.svg');
+    }
+    72% {
+        background-image: url('@@assetPath@@/glastonbury-two.svg');
+    }
+    75% {
+        background-image: url('@@assetPath@@/glastonbury-three.svg');
+    }
+    97% {
+        background-image: url('@@assetPath@@/glastonbury-three.svg');
+    }
+    100% {
+        background-image: url('@@assetPath@@/glastonbury-one.svg');
+    }
+}
