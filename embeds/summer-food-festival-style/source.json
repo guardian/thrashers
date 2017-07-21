@@ -1,0 +1,8 @@
+{
+  "html": "<div class=\"summer-food-festival-style__wrapper\"><style>section#summer-food-special-style{display:none}section#summer-food-special .fc-container__header,section#summer-food-special .fc-container__inner{overflow:visible}section#summer-food-special .fc-container--rolled-up-hide{overflow:hidden;position:relative;bottom:30px}@media all and (min-width:71.25em){section#summer-food-special .fc-container--rolled-up-hide{position:static;bottom:initial}}section#summer-food-special .fc-container__header__title{width:234px;height:92px;background-image:url(https://localhost:8000/embeds/summer-food-festival-style/hashed/sfs-mobile.df47fda3.svg);background-repeat:no-repeat;position:relative;right:10px;bottom:20px;background-size:100% 100%}@media all and (min-width:71.25em){section#summer-food-special .fc-container__header__title{background-image:url(https://localhost:8000/embeds/summer-food-festival-style/hashed/sfs-desktop.c005ab6e.svg);width:136px;height:215px;right:4px;bottom:0}}section#summer-food-special .fc-container__header__title span{visibility:hidden}</style><span></span>\n</div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com",
+  "headline": "Summer Food Festival",
+  "trailText": "Container Style"
+}
