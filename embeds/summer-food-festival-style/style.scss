@@ -16,106 +16,16 @@ section#summer-food-special-style {
 }
 
 section#summer-food-special {
-  .fc-container__header,
-  .fc-container__inner {
-    overflow: visible;
-  }
-  .fc-container--rolled-up-hide {
-    overflow: hidden;
-    position: relative;
-    bottom: 30px;
-    @include mq(leftCol) {
-      position: static;
-      bottom: initial;
-    }
-  }
-  .fc-container__header__title {
-    width: 234px;
-    height: 92px;
-    background-image: url(@@assetPath@@/sfs-mobile.svg);
-    background-repeat: no-repeat;
-    position: relative;
-    right: 10px;
-    bottom: 20px;
+  .fc-container__inner:after {
+    content: '';
+    display: block;
+    width: 111px;
+    height: 214px;
+    background-image: url(@@assetPath@@/summer-food.svg);
     background-size: 100% 100%;
-    @include mq(leftCol) {
-      background-image: url(@@assetPath@@/sfs-desktop.svg);
-      width: 136px;
-      height: 215px;
-      right: 4px;
-      bottom: 0;
-    }
-    @include mq(wide) {
-      // width: 176px;
-      // height: 278px;
-    }
-    span {
-      visibility: hidden;
-    }
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 12px;
+    bottom: 28px;
   }
 }
-//
-// .fc-container__mpu--mobile + section#glastonbury-2017 {
-//     margin-top: 44px;
-//
-//     @include mq($from: leftCol) {
-//         margin-top: auto;
-//     }
-// }
-//
-// section#glastonbury-2017 .fc-container__inner {
-//     &:after {
-//         display: block;
-//         content: '';
-//         position: absolute;
-//         top: -41px;
-//         right: 3px;
-//         z-index: 1000;
-//         width: 90px;
-//         height: 86px;
-//         background-image: url('@@assetPath@@/glastonbury-one.svg');
-//         background-size: 100%;
-//         background-repeat: no-repeat;
-//         border-bottom: 1px solid #c7c7c7;
-//         background-position: bottom;
-//
-//         @include mq($from: leftCol) {
-//             height: 140px;
-//             width: 140px;
-//             bottom: 54px;
-//             top: auto;
-//             left: 20px;
-//             right: auto;
-//             animation-name: pyramid;
-//             animation-delay: 1s;
-//             animation-duration: 4s;
-//             animation-iteration-count: infinite;
-//             animation-fill-mode: forwards;
-//             transition: all 1s ease-in-out;
-//         }
-//     }
-// }
-//
-// @keyframes pyramid {
-//     0% {
-//         background-image: url('@@assetPath@@/glastonbury-one.svg');
-//     }
-//     22% {
-//         background-image: url('@@assetPath@@/glastonbury-one.svg');
-//     }
-//     25% {
-//         background-image: url('@@assetPath@@/glastonbury-two.svg');
-//     }
-//     72% {
-//         background-image: url('@@assetPath@@/glastonbury-two.svg');
-//     }
-//     75% {
-//         background-image: url('@@assetPath@@/glastonbury-three.svg');
-//     }
-//     97% {
-//         background-image: url('@@assetPath@@/glastonbury-three.svg');
-//     }
-//     100% {
-//         background-image: url('@@assetPath@@/glastonbury-one.svg');
-//     }
-// }
