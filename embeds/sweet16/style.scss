@@ -1,0 +1,45 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.sweet {
+  background: url('@@assetPath@@/background.png');
+  width: 100%;
+  overflow: hidden;
+
+  @include mq($from: tablet) {
+    width: 740px;
+  }
+
+  @include mq($from: desktop){
+    width: 980px;
+  }
+
+  @include mq($from: leftCol) {
+    width: 1140px;
+  }
+
+  @include mq($from: wide) {
+    width: 1300px;
+  }
+
+  &--cake {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    margin-bottom: -10px;
+  }
+}
+
+.ab{
+  position: absolute;
+}
