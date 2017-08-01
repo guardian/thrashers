@@ -33,7 +33,7 @@ $c-white: #fff;
     }
 
     @include mq(desktop) {
-        height: 300px;
+        height: 320px;
     }
 }
 
@@ -71,13 +71,17 @@ $c-white: #fff;
     font-size: 16px;
     line-height: 1.4;
     margin-bottom: 24px;
+
+    @include mq(tablet) {
+        margin-bottom: 14px;
+    }
 }
 
 .this-land-is-your-land__goal {
     @include mq(tablet) {
         position: absolute;
         left: 20px;
-        bottom: 56px;
+        bottom: 50px;
         right: 20px;
     }
 }
@@ -105,7 +109,7 @@ $c-white: #fff;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.3);
     position: relative;
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .this-land-is-your-land__filled-progress {
@@ -130,7 +134,7 @@ $c-white: #fff;
     font-size: 14px;
     color: rgba(0, 0, 0, 0.8);
     position: absolute;
-    top: 5px;
+    top: 2px;
 }
 
 .this-land-is-your-land__label--target {
@@ -142,7 +146,7 @@ $c-white: #fff;
     position: absolute;
     width: 1px;
     height: 14px;
-    top: -17px;
+    top: -14px;
     left: 0;
     right: 0;
     margin: auto;
@@ -161,12 +165,13 @@ a.this-land-is-your-land__button {
     background-color: $c-black;
     color: $c-yellow;
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 6px;
 
     @include mq(tablet) {
         position: absolute;
         bottom: 12px;
         left: 20px;
+        margin-top: 10px;
     }
 
     &:hover {
@@ -192,6 +197,7 @@ a.this-land-is-your-land__button {
     background-position: center 20%;
     background-size: cover;
     width: 100%;
+    position: relative;
 
     @include mq($until: tablet) {
         padding-top: 40%;
@@ -199,4 +205,31 @@ a.this-land-is-your-land__button {
         width: calc(100% + 20px);
         margin-left: -10px;
     }
+}
+
+.this-land-is-your-land__image-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.this-land-is-your-land__countdown {
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 900;
+    padding: 4px 0px 0px;
+}
+
+.this-land-is-your-land__countdown__number {
+    color: #fff;
+    font-size: 48px;
+    line-height: .9;
+    display: block;
+}
+
+.this-land-is-your-land__countdown__label {
+    font-size: 18px;
+    line-height: 1.1;
+    color: #333;
 }
