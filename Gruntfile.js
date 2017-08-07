@@ -22,7 +22,30 @@ module.exports = function(grunt) {
     var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/_source/*' : '**/source/*');
     var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
+    var videoMaxAssetSize = 1 * 1000 * 1000; //1MB
+    var imageMaxAssetSize = 50 * 1000; //50kb
+
     grunt.initConfig({
+        maxFilesize: {
+            videos: {
+                options: {
+                    maxBytes: videoMaxAssetSize
+                },
+                src: [source + '.mp4', source + '.mov']
+            },
+            images: {
+                options: {
+                    maxBytes: imageMaxAssetSize
+                },
+                src: [source + '.jpg', source + '.jpeg', source + '.png']
+            },
+            gif: {
+                options: {
+                    maxBytes: 1 //only tracking GIFs
+                },
+                src: [source + '.gif']
+            }
+        },
         watch: {
             local: {
                 files: [scss, html, source],
@@ -618,6 +641,6 @@ module.exports = function(grunt) {
     grunt.registerTask('update', ['prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
     grunt.registerTask('local', ['connect', 'return-paths', 'update-local', 'watch:local']);
-    grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'update-remote', 'watch:remote']);
+    grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'maxFilesize', 'update-remote', 'watch:remote']);
     grunt.registerTask('paths', ['return-paths']);
 };
