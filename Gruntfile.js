@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
     var videoMaxAssetSize = 1 * 1000 * 1000; //1MB
-    var imageMaxAssetSize = 50 * 1000; //50kb
+    var imageMaxAssetSize = 200 * 1000; //200kb
 
     grunt.initConfig({
         maxFilesize: {
@@ -640,7 +640,7 @@ module.exports = function(grunt) {
     grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths', 'return-paths']);
     grunt.registerTask('update', ['prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
-    grunt.registerTask('local', ['connect', 'return-paths', 'update-local', 'watch:local']);
+    grunt.registerTask('local', ['connect', 'return-paths', 'maxFilesize', 'update-local', 'watch:local']);
     grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'maxFilesize', 'update-remote', 'watch:remote']);
     grunt.registerTask('paths', ['return-paths']);
 };
