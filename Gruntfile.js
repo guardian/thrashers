@@ -22,7 +22,31 @@ module.exports = function(grunt) {
     var source = 'embeds/' + (grunt.option('folderName') ? grunt.option('folderName')+ '/_source/*' : '**/source/*');
     var remoteDir = 'thrashers/' + (grunt.option('folderName') ? grunt.option('folderName') : '');
 
+    var videoMaxAssetSize = 1 * 1000 * 1000; //1MB
+    var imageMaxAssetSize = 200 * 1000; //200kb
+    var maxGifSize = 1.5 * 1000; //1500kb, which should be enough for a tracking pixel
+
     grunt.initConfig({
+        maxFilesize: {
+            videos: {
+                options: {
+                    maxBytes: videoMaxAssetSize
+                },
+                src: [source + '.mp4', source + '.mov']
+            },
+            images: {
+                options: {
+                    maxBytes: imageMaxAssetSize
+                },
+                src: [source + '.jpg', source + '.jpeg', source + '.png']
+            },
+            gif: {
+                options: {
+                    maxBytes: maxGifSize
+                },
+                src: [source + '.gif']
+            }
+        },
         watch: {
             local: {
                 files: [scss, html, source],
@@ -617,7 +641,7 @@ module.exports = function(grunt) {
     grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths', 'return-paths']);
     grunt.registerTask('update', ['prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
-    grunt.registerTask('local', ['connect', 'return-paths', 'update-local', 'watch:local']);
-    grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'update-remote', 'watch:remote']);
+    grunt.registerTask('local', ['connect', 'return-paths', 'maxFilesize', 'update-local', 'watch:local']);
+    grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'maxFilesize', 'update-remote', 'watch:remote']);
     grunt.registerTask('paths', ['return-paths']);
 };
