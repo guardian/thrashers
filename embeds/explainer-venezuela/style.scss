@@ -1,0 +1,412 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+// Colours
+$news-main-1:         #005689;
+$news-main-2:         #4bc6df;
+$news-extra-1:        #6e99b3;
+$guardian-brand-dark: #00456e;
+$neutral-1:           #333333;
+$neutral-2:           #767676;
+$neutral-3:           #bdbdbd;
+$neutral-4:           #dcdcdc;
+$neutral-5:           #eaeaea;
+$neutral-6:           #f6f6f6;
+$neutral-11:          #dfdfdf;
+$features-support-1:  #951c55;
+$features-support-3:  #fdadba;
+$comment-support-2:   #efefec;
+$comment-support-4:   #e6711b;
+
+
+section#explainer-venezuela {
+  &,
+  .tone-news--item.fc-item {
+    background-color: #ffffff;
+  }
+}
+
+.explainer-venezuela__wrapper {
+  background-color: #ffffff;
+
+  h1.header {
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: 900;
+    color: $neutral-1;
+    padding-top: 6px;
+    padding-bottom: 12px;
+    @include mq(tablet) {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 0px;
+    }
+    @include mq(desktop) {
+      font-size: 36px;
+      line-height: 40px;
+      padding-top: 0px;
+    }
+  }
+  .content-wrapper {
+    border-top: 1px solid $news-main-2;
+
+    .container-title {
+      font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+      font-size: 22px;
+      line-height: 24px;
+      font-weight: 900;
+      color: $guardian-brand-dark;
+      padding-top: 6px;
+      padding-bottom: 16px;
+      @include mq(tablet) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      @include mq(desktop) {
+        padding-bottom: 18px;
+      }
+    }
+    .explainer {
+      .chapter {
+        img {
+          float: left;
+          margin-right: 10px;
+          margin-top: -9px;
+          width: 100px;
+          height: 100px;
+          overflow: hidden;
+          border-radius: 50%;
+          @include mq(leftCol) {
+            margin-top: -3px;
+          }
+        }
+        h3 {
+          font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: 900;
+          color: $neutral-1;
+          margin-bottom: 0px;
+
+          .title {
+            position: relative;
+            padding-top: 6px;
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              display: block;
+              width: 100px;
+              height: 0;
+              border-top: 1px dotted $neutral-3;
+            }
+          }
+          @include mq(desktop) {
+            font-size: 20px;
+            line-height: 24px;
+          }
+        }
+        p {
+          font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: 400;
+          color: $neutral-1;
+          margin-bottom: 20px;
+          margin-top: 0px;
+          a {
+            color: $news-main-1;
+            text-decoration: none;
+            border-bottom: 1px solid $neutral-4;
+            transition: border-color .15s ease-out;
+            &:hover {
+              border-color: $news-extra-1;
+            }
+            &:active {
+              border-color: $news-main-2;
+            }
+            &:active {
+              color: $news-main-2;
+            }
+          }
+          @include mq(desktop) {
+            font-size: 18px;
+            line-height: 22px;
+          }
+        }
+        &:first-child {
+          @include mq (leftCol) {
+            .title {
+              &:before {
+                border-top: none;
+              }
+            }
+          }
+        }
+      }
+      .feedback {
+        margin-top: -6px;
+        margin-bottom: 12px;
+        @include mq(tablet) {
+          margin-bottom: 0;
+        }
+        display: flex;
+        justify-content: flex-end;
+        .label {
+          display: inline-block;
+          margin-top: 8px;
+          font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+          font-size: 13px;
+          line-height: 16px;
+          color: $neutral-1;
+        }
+        .button {
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          background-color: $news-main-1;
+          border-color: $news-main-1;
+          position: relative;
+          margin-left: 5px;
+          margin-right: 0;
+          &:hover, &:focus {
+            background: darken($news-main-1, 10%);
+            border-color: darken($news-main-1, 10%);
+        }
+          svg {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+          }
+          &.like svg {
+            top: 3px;
+            left: 4px;
+          }
+          &.dislike {
+            transform: rotate(180deg);
+            svg {
+              top: 3px;
+              left: 4px;
+            }
+          }
+        }
+        .yes {
+
+        }
+        .no {
+
+        }
+      }
+      .feedback-thankyou {
+        margin-top: -6px;
+        margin-bottom: 16px;
+        @include mq(tablet) {
+          margin-bottom: 4px;
+        }
+        display: flex;
+        justify-content: flex-end;
+        .label {
+          display: inline-block;
+          margin-top: 8px;
+          font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+          font-size: 13px;
+          line-height: 16px;
+          color: $neutral-1;
+        }
+
+      }
+    }
+    .cards {
+      position: relative;
+      overflow: visible;
+      @include mq(tablet) {
+        width: 220px;
+        float: right;
+        margin-right: 20px;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -11px;
+          bottom: 0;
+          background-color: $neutral-11;
+          width: 1px;
+          height: 100%;
+        }
+      }
+      @include mq(desktop) {
+        width: 300px;
+      }
+      @include mq(wide) {
+        margin-right: 100px;
+      }
+      .card {
+        background-color: $neutral-6;
+        margin-bottom: 12px;
+        border-top: 1px solid $news-main-2;
+        position: relative;
+        overflow: hidden;
+        a {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          font-size: 0;
+        }
+        img {
+          vertical-align: top;
+          display: inline-block;
+          width: 127px;
+          margin-top: 3px;
+          margin-left: 4px;
+          margin-right: 0;
+          margin-bottom: 4px;
+          @include mq(tablet) {
+            display: block;
+            width: 100%;
+            margin-top: 0;
+            margin-left: 0;
+          }
+        }
+        h4 {
+          vertical-align: top;
+          display: inline-block;
+          font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: 500;
+          color: $neutral-1;
+          padding-top: 2px;
+          padding-left: 5px;
+          padding-right: 5px;
+          padding-bottom: 12px;
+          margin-left: 0;
+        }
+        .byline {
+          color: $comment-support-4;
+        }
+        .inline-quote {
+          fill: $neutral-2;
+        }
+        img+h4 {
+          max-width: calc(100% - 150px);
+          @include mq(tablet) {
+            max-width: calc(100%);
+            margin-top: -4px;
+          }
+        }
+        &.big {
+          h4 {
+            font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 500;
+            color: $neutral-1;
+          }
+        }
+        &:hover, &:focus {
+          background: darken($neutral-6, 5%);
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &.feature {
+          background-color: $features-support-1;
+        	border-top: 1px solid $features-support-3;
+        	h4 {
+        		color: #ffffff;
+        	}
+        	&.big {
+        		h4 {
+        			color: #ffffff;
+        		}
+        	}
+        	&:hover, &:focus {
+        		background: darken($features-support-1, 5%);
+        	}
+        }
+        &.comment {
+          background-color: $comment-support-2;
+        	border-top: 1px solid $comment-support-4;
+        	h4 {
+        		color: $neutral-1;
+        	}
+        	&.big {
+        		h4 {
+        			color: $neutral-1;
+        		}
+        	}
+          &.byline {
+            color: $comment-support-4;
+          }
+        	&:hover, &:focus {
+        		background: darken($comment-support-2, 5%);
+        	}
+        }
+      }
+    }
+  }
+}
+
+@include mq(tablet) {
+    #explainerwrapper {
+      width: 740px;
+      overflow: hidden;
+    }
+    #explainercontent {
+      width: 460px;
+      float: left;
+      margin-left: 20px;
+      border-right: 1px solid $neutral-11;
+      padding-right: 9px;
+      margin-right: 10px;
+    }
+}
+@include mq(desktop) {
+    #explainerwrapper {
+      width: 980px;
+    }
+    #explainercontent {
+      width: 620px;
+    }
+}
+@include mq(leftCol) {
+    #explainerwrapper {
+      width: 1140px;
+    }
+    #explainertitle {
+      width: 140px;
+      float: left;
+    }
+    #explainercontent {
+      width: 620px;
+      margin-left: 0;
+      margin-top: 9px;
+    }
+    #explainercards {
+      width: 300px;
+      margin-top: 9px;
+    }
+}
+@include mq(wide) {
+    #explainerwrapper {
+      width: 1300px;
+    }
+    #explainertitle {
+      width: 220px;
+    }
+}
