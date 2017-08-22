@@ -1,0 +1,248 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$borderBlue: #4bc6df;
+$darkBlue: #00456e;
+$midBlack: #333333;
+$white: #fff;
+$cardGrey1: #484F53;
+$cardGrey2: #DCDCDC;
+$bgGrey: #f1f1f1;
+
+.ios,
+.windows,
+.android {
+    .e-content__related-content {
+        margin: 0;
+        padding-left: 10px;
+    }
+}
+
+#tagpage-explainer-component.fc-container {
+  // background-color: #e8e8e8;
+  padding-top: 0px;
+  margin-bottom: 24px;
+  overflow: hidden;
+   .facia-snap {
+       overflow: hidden;
+       @include mq($until: leftCol) {
+           padding-left: 0px;
+           padding-right: 0px;
+       }
+   }
+   .tagpage-explainer__wrapper{
+     width: 100%;
+     background-color: $bgGrey;
+   }
+}
+
+.e-content__related {
+    border-top: solid 1px $borderBlue;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px 12px 20px;
+    @include mq($until: wide) {
+        width:100%;
+    }
+    @include mq($until: leftCol) {
+        padding-left:10px;
+        padding-top: 6px;
+    }
+    @include mq($until: desktop) {
+        padding-left:10px;
+
+    }
+    @include mq($until: tablet) {
+        padding: 0;
+        max-width: 100%;
+        padding-top:4px;
+    }
+    h2 {
+        font-size: 22px;
+        line-height: 24px;
+        font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+        font-weight: 900;
+        position: relative;
+        display: block;
+        float: left;
+        color: $darkBlue;
+        margin-top: 6px;
+
+        @include mq($from:wide) {
+          width: 220px!important;
+        }
+
+        @include mq(leftCol) {
+          width: 140px;
+        }
+
+        @include mq($until: leftCol) {
+            float: none;
+            margin: 0;
+            padding-left:10px;
+            width: 100%;
+        }
+
+        @include mq($until: tablet) {
+            margin-left: 3%;
+            padding-left:0;
+        }
+    }
+    &-content {
+        //ul
+        padding-top:9px;
+        margin: 0;
+        margin-left: 230px;
+        max-width: 960px;
+        font-size: 0;
+        display: block;
+        @include mq($until: wide) {
+            margin-left: 150px;
+            //width:calc(100%-900px);
+        }
+        @include mq($until: leftCol) {
+            margin-left: 0px;
+        }
+        @include mq($until: desktop) {
+            width: 720px;
+        }
+        @include mq($until: tablet) {
+            width: 94%;
+            margin: 0 3%;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            width: 25%;
+            vertical-align: top;
+            position: relative;
+            @include mq($until: tablet) {
+                width: 100%;
+            }
+            &:not(:first-child) {
+                @include mq($from: tablet) {
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        width: 1px;
+                        height: 100%;
+                        border-left: 1px solid #dfdfdf;
+                    }
+                }
+            }
+            &:hover .e-content__related-content-item-wrap {
+                background: darken( $cardGrey1, 5% );
+            }
+        }
+        &-item {
+            //li
+            @include mq($until: tablet) {
+                padding-bottom: 12px;
+            }
+            &-wrap {
+                background-color: $cardGrey1;
+                border-top: solid 1px $borderBlue;
+                margin: 0 10px;
+                height: 240px;
+                overflow: hidden;
+
+                @include mq($until: desktop) {
+                    height: 216px;
+                    margin: 0 10px;
+                }
+
+                @include mq($until: tablet) {
+                    height: 84px;
+                    margin: 0;
+                }
+
+                @include mq($until: mobileLandscape) {
+                    height: auto;
+                }
+                &-image {
+                    width: 100%;
+                    &-container {
+                      width: 100%;
+                      // padding-bottom: 60%;
+                      // background-size: cover;
+                      // background-position: center center;
+                    }
+
+                    @include mq($until: tablet) {
+                        display: inline-block;
+                        width: 26%;
+                        margin: 3px 3px 0;
+                        max-width: 129px;
+                    }
+                    @include mq($until: mobileLandscape) {
+                        width: 45%;
+                    }
+                }
+                &-copy {
+                    padding: 0 5px 24px;
+                    @include mq($until: tablet) {
+                        position: relative;
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 70%;
+                    }
+
+                    @include mq($until: mobileLandscape) {
+                        padding: 0 2px;
+                        width: 55%;
+                    }
+
+                    @include mq($until: mobileMedium) {
+                        padding: 0 2px;
+                        width: 50%;
+                    }
+
+                    @include mq($until:mobile) {
+                        padding: 0 2px;
+                        width: 50%;
+                    }
+                    &-caption {
+                        color: $white;
+                        display: inline-block;
+                        font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+                        font-weight: 200;
+                        font-size: 28px;
+                        line-height: 30px;
+                        margin: 4px 0;
+
+                        @include mq($until: desktop) {
+                            font-size: 24px;
+                            line-height: 26px;
+                            word-wrap: break-word;
+                            margin: 3px 0;
+                        }
+
+                        @include mq($until: tablet) {
+                            font-size: 20px;
+                            line-height: 22px;
+                            word-wrap: break-word;
+                            margin: 3px 0;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
