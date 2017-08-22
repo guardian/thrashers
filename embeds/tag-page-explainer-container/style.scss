@@ -205,7 +205,12 @@ $bgGrey: #f1f1f1;
 
                     @include mq($until: mobileLandscape) {
                         padding: 0 2px;
-                        width: 55%;
+                        width: 62%;
+                    }
+
+                    @include mq($until: 415px) {
+                        padding: 0 2px;
+                        width: 57%;
                     }
 
                     @include mq($until: mobileMedium) {
