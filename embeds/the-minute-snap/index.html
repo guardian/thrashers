@@ -1,0 +1,38 @@
+<div class="fc-item__container">
+    <div class="fc-item__media-wrapper">
+        <div class="fc-item__image-container u-responsive-ratio inlined-image">
+            <img class="responsive-img" alt="" cool-src> 
+        </div>
+    </div>
+
+    <div class="fc-item__content">
+        <div class="fc-item__header">
+            <h2 class="fc-item__title"><a href="https://www.theguardian.com/us-news/series/the-campaign-minute-2016/latest" class="fc-item__link" data-link-name="article"><span class="fc-item__kicker">the&nbsp;&nbsp;minute</span> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text"><!-- HEADLINE --></span></span> </a></h2>
+        </div>
+        <div class="fc-item__standfirst">
+            Get the today’s politics news in 60 seconds.
+        </div>
+        <aside class="fc-item__meta js-item__meta"> 
+        </aside>
+    </div>
+    <a href="https://www.theguardian.com/us-news/series/the-campaign-minute-2016/latest" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1"></a> 
+</div>
+
+<script>
+    if (window.XMLHttpRequest) {
+       xhttp = new XMLHttpRequest();
+    } else {
+       xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xhttp.overrideMimeType('text/xml');
+    xhttp.open("GET", 'https://www.theguardian.com/us-news/series/the-campaign-minute-2016/rss', false);
+    xhttp.send(null);
+    xmlDoc = xhttp.responseXML;
+
+    console.log(xmlDoc);
+
+    var item = xmlDoc.getElementsByTagName("item")[0];
+
+    document.getElementsByClassName('the-minute-snap__wrapper')[0].innerHTML = document.getElementsByClassName('the-minute-snap__wrapper')[0].innerHTML.replace('<!-- HEADLINE -->', item.getElementsByTagName("title")[0].childNodes[0].textContent.replace(' | The minute', '')).replace('cool-src', 'src=\'' + item.getElementsByTagName('media:content')[1].getAttribute('url') + '\'');
+</script>
