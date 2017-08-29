@@ -160,7 +160,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
     }
     .episode-info_full {
         position: relative;
-        right: 1px;
+        right: 0;
         display: inline-block;
         height: 26px;
         line-height: 28px;
@@ -498,6 +498,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
 
         .subscription {
             left: 2px;
+            margin-left: 0;
         }
 
         .circles {
