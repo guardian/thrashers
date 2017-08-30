@@ -11,62 +11,6 @@ wide: 1300px);
 @import 'shared/_imports';
 
 
-// Page takeover
-// body {
-//   .l-side-margins:before, .l-side-margins:after {
-//     background: #302426;
-//   }
-//   .facia-page  {
-//     background-color: #241C1E;
-//   }
-//   .fc-container__header__title,
-//   .fc-date-headline,
-//   .fc-container__toggle,
-//   .fc-container__toggle:hover {
-//     color: #DDDBD7;
-//   }
-//   .fc-container .fc-container__inner,
-//   .fc-slice__item+.fc-slice__item:before {
-//     border-color: #484848;
-//   }
-//   .close-encounters-header__wrapper {
-//     overflow: visible;
-//     // margin-top: -10px;
-//   }
-//   .fc-item__link .headline-list__body {
-//     color: #dddbd7;
-//   }
-//   .tone-media--most-popular .fc-item__kicker {
-//     color: #FEBB00;
-//     &:after {
-//       opacity: 0.5;
-//     }
-//   }
-//   .headline-list__item:before {
-//     background-color: #666;
-//   }
-//   .tabs__tab,
-//   .tabs__tab--selected+.tabs__tab {
-//     border-bottom-color: #DDDBD7 !important;
-//     a {
-//       background: #DDDBD7 !important;
-//       color: #241C1E !important;
-//     }
-//   }
-//   .tabs__tab--selected {
-//     border-bottom-color: #241C1E !important;
-//     a {
-//       background: #241C1E !important;
-//       color: #DDDBD7 !important;
-//     }
-//   }
-//   .submeta .keyword-list .js-more-tags.more-tags .button--more {
-//     color: #DDDBD7;
-//   }
-//   .submeta hr {
-//     border-color: #666;
-//   }
-// }
 @include base(close-encounters-header, #240D12);
 #close-encounters-header {
     padding-top: 0;
@@ -86,33 +30,27 @@ wide: 1300px);
 
 @include overflow-visible(close-encounters-header);
 
-#football-weekly.fc-container {
-  
+#sea-prayer.fc-container {
+
     overflow: hidden;
-    background: #2D1D37;
-    .facia-snap {
-        overflow: hidden;
-        @include mq($until: leftCol) {
-            padding-left: 0px;
-            padding-right: 0px;
-        }
-    }
+    background: #675970; // .facia-snap {
+    //     overflow: hidden;
+    //     @include mq($until: leftCol) {
+    //         padding-left: 0px;
+    //         padding-right: 0px;
+    //     }
+    // }
 }
 
-//
-// .close-encounters-header__wrapper {
-//   overflow: visible;
-//   width: 100%;
-// }
+
 .vr-sea-prayer__wrapper {
     width: 100%;
-    background: #42304D;
+    background: #42304D; // background-image: url('@@assetPath@@/bg.png'); 
 }
 
 #close-encounters-header-inner {
-    // margin: 30px 0;
     position: relative;
-    height: 210px;
+    height: 190px;
     width: 100%;
     @include mq($until: desktop) {
         height: 178px;
@@ -126,95 +64,10 @@ wide: 1300px);
     @include mq($until: mobileSneaky) {
         height: 286px;
     }
-    font-family: 'Guardian Egyptian Web',serif;
-    color: #8D8294; // overflow-x: hidden !important;
-    // overflow-y: visible !important;
-    // overflow: visible;
-    // &:before {
-    //   content: '';
-    //   display: block;
-    //   position: absolute;
-    //   left: -500px;
-    //   right: -500px;
-    //   top: 0;
-    //   bottom: 0;
-    //   background-color: #2B1D20;
-    //   @include mq($until: tablet) {
-    //     background-color: #240D12;
-    //   }
-    //   z-index: -1;
-    // }
-    .branding {
-        height: 34px;
-        width: 56px;
-        position: absolute;
-        top: 9px;
-        right: 17px;
-        transform: scaleX(1);
-        @include mq($until: desktop) {
-            transform-origin: top right;
-            transform: scaleX(0.7) scaleY(0.7);
-            top: 13px;
-            width: 39px;
-            height: 24px;
-        }
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    }
-    // .illustration {
-    //     position: absolute;
-    //     top: -30px;
-    //     left: 580px;
-    //     pointer-events: none;
-    //     width: 411px;
-    //     height: 276px; // wide:            1300px,
-    //     // leftCol:         1140px,
-    //     // desktop:         980px,
-    //     // tablet:          740px,
-    //     // phablet:         660px,
-    //     // mobileLandscape: 480px,
-    //     // mobile:          320px,
-    //     @include mq($until: wide) {
-    //         left: 582px;
-    //     }
-    //     @include mq($until: leftCol) {
-    //         left: 568px;
-    //     }
-    //     @include mq($until: desktop) {
-    //         transform-origin: top left;
-    //         transform: scale(0.7);
-    //         top: 10px;
-    //         left: 230px;
-    //     }
-    //     @include mq($until: phablet) {
-    //         transform: scale(1);
-    //         top: 144px;
-    //         left: 200px;
-    //         right: auto;
-    //         width: 275px;
-    //         height: 186px;
-    //         svg {
-    //             transform: scaleX(-1);
-    //         }
-    //     }
-    //     @include mq($until: mobileLandscape) {
-    //         top: 143px;
-    //         left: 165px;
-    //     }
-    //     @include mq($until: mobileSneaky) {
-    //         top: 137px;
-    //         width: 251px;
-    //         height: 170px;
-    //         left: 164px;
-    //     }
-    //     svg {
-    //         width: 100%;
-    //         height: 100%;
-    //     }
-    // }
-    .close-encounters-logo {
+    font-family: 'Guardian Egyptian Web',
+    serif;
+    color: #8D8294;
+    .logo {
         position: absolute;
         top: 10px;
         left: 19px;
@@ -230,23 +83,17 @@ wide: 1300px);
     .subscribe {
         width: 210px;
         position: absolute;
-        left: 980px; // wide:            1300px,
-        // leftCol:         1140px,
-        // desktop:         980px,
-        // tablet:          740px,
-        // phablet:         660px,
-        // mobileLandscape: 480px,
-        // mobile:          320px,
+        left: 980px;
+
         @include mq($until: wide) {
-            left: 863px;
+            left: 900px;
         }
         @include mq($until: leftCol) {
-            left: auto;
-            right: 307px;
+            left: 740px;
         }
         @include mq($until: desktop) {
-            right: auto;
-            left: 500px;
+            left: 560px;
+            width: 200px;
             transform-origin: top left;
             transform: scale(0.9);
         }
@@ -258,25 +105,30 @@ wide: 1300px);
         }
         @include mq($until: phablet) {
             left: 10px;
-            top: 187px;
+            top: 200px;
+            width: 100%;
             transform: scale(1);
         }
         @include mq($until: mobileLandscape) {
             top: 183px;
         }
         @include mq($until: mobileSneaky) {
-            top: 160px;
+            top: 180px;
         }
-        top: 16px; // color: #CC8F79;
+        top: 15px; // color: #CC8F79;
         &__headline {
-          color: #D9D5DB;
-            font-size: 22px;
+            color: #D9D5DB;
+            font-size: 24px;
             font-weight: 600;
             line-height: 20px;
             padding-bottom: 4px; // color: #F7E4D5;
+            @include mq($until: mobileSneaky) {
+                font-size: 20px;
+                line-height: 15px;
+            }
         }
         &__strap {
-          line-height: 20px;
+            line-height: 20px;
         }
         &__option {
             font-size: 16.5px;
@@ -303,31 +155,40 @@ wide: 1300px);
             display: none;
         }
     }
-    .description {
+
+    .visible {
+      opacity: 1!important;
+    }
+
+    .hidden {
+      opacity: 0;
+    }
+   
+    .invisible {
+        display: none;
         position: absolute;
-        top: 28px;
+        top: 30px;
         left: 260px;
         width: 600px;
-        height: 125px; // wide:            1300px,
-        // leftCol:         1140px,
-        // desktop:         980px,
-        // tablet:          740px,
-        // phablet:         660px,
-        // mobileLandscape: 480px,
-        // mobile:          320px,
+        height: 125px;
+    }
+    .description {
+        position: absolute;
+        top: 12px;
+        left: 260px;
+        width: 600px;
+        height: 125px; 
         @include mq($until: wide) {
             left: 180px;
         }
-        @include mq($until: leftCol) {
-            left: 20px;
-        }
+        @include mq($until: leftCol) {}
         @include mq($until: desktop) {
             transform: scale(0.7);
             transform-origin: top left;
         }
         @include mq($until: phablet) {
             left: 10px;
-            top: 33px;
+            top: 45px;
             transform: scale(0.95);
         }
         @include mq($until: mobileLandscape) {
@@ -343,8 +204,7 @@ wide: 1300px);
         &__word {
             position: absolute;
             font-size: 38px;
-            line-height: 38px;
-            // font-family: Guardian Sans Web;
+            line-height: 38px; // font-family: Guardian Sans Web;
             font-weight: lighter;
             z-index: 10;
             opacity: 0;
@@ -360,27 +220,47 @@ wide: 1300px);
             color: #8D8294;
         }
         .light-tone {
-          color: #675970;
+            color: #675970;
         }
-        .honest {
-            top: 0px;
-            left: 0;
-            animation-delay: 0;
-        }
-        .unguarded {
-            top: 38px;
-            left: 220px;
-            animation-delay: 700ms;
-        }
-        .conversations {
-            top: 76px;
-            left: 100px;
-            animation-delay: 1300ms;
-        }
-        .about {
-            top: 114px;
-            left: 220px;
-            animation-delay: 2500ms;
+        .visible {
+            .honest {
+                top: 0px;
+                left: 0;
+                animation-delay: 2000ms;
+            }
+            .unguarded {
+                top: 38px;
+                left: 220px;
+                animation-delay: 3300ms;
+                @include mq($until: desktop) {
+                    left: 120px;
+                }
+                @include mq($until: mobileSneaky) {
+                    left: 90px;
+                }
+            }
+            .conversations {
+                top: 76px;
+                left: 100px;
+                animation-delay: 4300ms;
+                @include mq($until: desktop) {
+                    left: 60px;
+                }
+                @include mq($until: mobileSneaky) {
+                    left: 0px;
+                }
+            }
+            .about {
+                top: 114px;
+                left: 220px;
+                animation-delay: 5300ms;
+                @include mq($until: desktop) {
+                    left: 120px;
+                }
+                @include mq($until: mobileSneaky) {
+                    left: 90px;
+                }
+            }
         }
     }
 }
@@ -405,7 +285,8 @@ wide: 1300px);
 
 @font-face {
     font-family: 'Guardian Sans Web';
-    src: url('https://interactive.guim.co.uk/fonts/ascii/Guardian Egyp Web-Light.woff') format('woff');
+    src: url('https://interactive.guim.co.uk/fonts/displaysans/fonts/gdnsands1thi-webfont.woff2') format('woff2'),
+    url('https://interactive.guim.co.uk/fonts/displaysans/fonts/gdnsands1thi-webfont.woff') format('woff');
     font-weight: 200;
     font-style: normal;
 }
