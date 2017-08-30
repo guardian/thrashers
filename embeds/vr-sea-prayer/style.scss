@@ -16,36 +16,29 @@ wide: 1300px);
     padding-top: 0;
 }
 
-@mixin overflow-visible($folder-name) {
-    ##{$folder-name} {
-        &.fc-container--thrasher,
-        .fc-container__inner,
-        .fc-slice,
-        .facia-snap {
-            overflow: visible; // overflow-y: visible !important;
-            // overflow-x: hidden !important;
-        }
-    }
-}
-
-@include overflow-visible(close-encounters-header);
 
 #sea-prayer.fc-container {
-
     overflow: hidden;
-    background: #675970; // .facia-snap {
-    //     overflow: hidden;
-    //     @include mq($until: leftCol) {
-    //         padding-left: 0px;
-    //         padding-right: 0px;
-    //     }
-    // }
+    background: #675970; 
+    .facia-snap {
+        overflow: hidden;
+        @include mq($until: leftCol) {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
 }
 
 
 .vr-sea-prayer__wrapper {
     width: 100%;
-    background: #42304D; // background-image: url('@@assetPath@@/bg.png'); 
+    background: #3F304A;
+    background-image: url('@@assetPath@@/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include mq($until: phablet) {
+        background-image: none;
+    }
 }
 
 #close-encounters-header-inner {
@@ -53,20 +46,20 @@ wide: 1300px);
     height: 190px;
     width: 100%;
     @include mq($until: desktop) {
-        height: 178px;
+        height: 150px;
     }
     @include mq($until: phablet) {
-        height: 308px;
+        height: 300px;
     }
     @include mq($until: mobileLandscape) {
-        height: 306px;
+        height: 290px;
     }
     @include mq($until: mobileSneaky) {
-        height: 286px;
+        height: 280px;
     }
     font-family: 'Guardian Egyptian Web',
     serif;
-    color: #8D8294;
+    color: #C6C1C9;
     .logo {
         position: absolute;
         top: 10px;
@@ -79,9 +72,13 @@ wide: 1300px);
         @include mq($until: phablet) {
             left: 12px;
         }
+
+        @include mq($until: mobileSneaky) {
+            transform: scale(0.70);
+        }
     }
     .subscribe {
-        width: 210px;
+        width: 190px;
         position: absolute;
         left: 980px;
 
@@ -108,12 +105,16 @@ wide: 1300px);
             top: 200px;
             width: 100%;
             transform: scale(1);
+            width: 56%;
+
         }
         @include mq($until: mobileLandscape) {
             top: 183px;
+            width: 80%;
         }
         @include mq($until: mobileSneaky) {
             top: 180px;
+            width: 90%;
         }
         top: 15px; // color: #CC8F79;
         &__headline {
@@ -157,13 +158,13 @@ wide: 1300px);
     }
 
     .visible {
-      opacity: 1!important;
+        opacity: 1!important;
     }
 
     .hidden {
-      opacity: 0;
+        opacity: 0;
     }
-   
+
     .invisible {
         display: none;
         position: absolute;
@@ -177,7 +178,7 @@ wide: 1300px);
         top: 12px;
         left: 260px;
         width: 600px;
-        height: 125px; 
+        height: 125px;
         @include mq($until: wide) {
             left: 180px;
         }
@@ -198,7 +199,7 @@ wide: 1300px);
         }
         @include mq($until: mobileSneaky) {
             left: 9px;
-            top: 50px;
+            top: 45px;
             transform: scale(0.71);
         }
         &__word {
@@ -225,8 +226,11 @@ wide: 1300px);
         .visible {
             .honest {
                 top: 0px;
-                left: 0;
+                left: 70px;
                 animation-delay: 2000ms;
+                @include mq($until: tablet) {
+                    left: 0px;
+                }
             }
             .unguarded {
                 top: 38px;
@@ -235,8 +239,8 @@ wide: 1300px);
                 @include mq($until: desktop) {
                     left: 120px;
                 }
-                @include mq($until: mobileSneaky) {
-                    left: 90px;
+                @include mq($until: tablet) {
+                    left: 0;
                 }
             }
             .conversations {
@@ -246,8 +250,8 @@ wide: 1300px);
                 @include mq($until: desktop) {
                     left: 60px;
                 }
-                @include mq($until: mobileSneaky) {
-                    left: 0px;
+                @include mq($until: tablet) {
+                    left: 0;
                 }
             }
             .about {
@@ -257,8 +261,8 @@ wide: 1300px);
                 @include mq($until: desktop) {
                     left: 120px;
                 }
-                @include mq($until: mobileSneaky) {
-                    left: 90px;
+                @include mq($until: tablet) {
+                    left: 0;
                 }
             }
         }
