@@ -1,0 +1,82 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+section#lgbt-style {
+    display: none;
+}
+
+section[id='50-years-of-gay-rights'] {
+    overflow: visible;
+    margin-top: 24px;
+
+    @include mq($from: leftCol) {
+        margin-top: auto;
+    }
+
+    .fc-container__inner {
+        overflow: visible;
+    }
+
+    .fc-container__body {
+        overflow: hidden;
+    }
+
+    .fc-container__header__title {
+        padding-bottom: 20px;
+
+        @include mq($from: leftCol){
+            padding: auto;
+        }
+    }
+
+    .fc-container__toggle {
+        display: none;
+    }
+}
+
+.fc-container__mpu--mobile + section[id='50-years-of-gay-rights'] {
+    margin-top: 44px;
+
+    @include mq($from: leftCol) {
+        margin-top: auto;
+    }
+}
+
+section[id='50-years-of-gay-rights'] .fc-container__inner {
+    &:after {
+        display: block !important;
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: 3px;
+        z-index: 1000;
+        width: 90px;
+        height: 86px;
+        background-image: url('@@assetPath@@/lgbt-one.svg');
+        background-size: 80%;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #c7c7c7;
+        background-position: bottom;
+
+        @include mq($from: leftCol) {
+            height: 140px;
+            width: 140px;
+            bottom: 27px;
+            top: auto;
+            left: 20px;
+            right: auto;
+            transition: all 1s ease-in-out;
+        }
+    }
+}

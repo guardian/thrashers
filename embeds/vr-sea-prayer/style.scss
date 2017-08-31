@@ -19,7 +19,7 @@ wide: 1300px);
 
 #sea-prayer.fc-container {
     overflow: hidden;
-    background: #675970; 
+    background: #675970;
     .facia-snap {
         overflow: hidden;
         @include mq($until: leftCol) {
@@ -33,9 +33,10 @@ wide: 1300px);
 .vr-sea-prayer__wrapper {
     width: 100%;
     background: #3F304A;
-    background-image: url('@@assetPath@@/bg.png');
+    background-image: url('@@assetPath@@/bg2.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-y: -243px;
     @include mq($until: phablet) {
         background-image: none;
     }
@@ -78,7 +79,7 @@ wide: 1300px);
         }
     }
     .subscribe {
-        width: 190px;
+        width: 232px;
         position: absolute;
         left: 980px;
 

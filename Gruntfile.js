@@ -642,6 +642,6 @@ module.exports = function(grunt) {
     grunt.registerTask('update', ['prompt:input', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
     grunt.registerTask('local', ['connect', 'return-paths', 'maxFilesize', 'update-local', 'watch:local']);
-    grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'maxFilesize', 'update-remote', 'watch:remote']);
+    grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'update-remote', 'watch:remote']);
     grunt.registerTask('paths', ['return-paths']);
 };
