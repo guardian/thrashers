@@ -35,8 +35,11 @@ wide: 1300px);
     background: #3F304A;
     background-image: url('@@assetPath@@/bg2.png');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: -243px;
+    background-size: 100%;
+    background-position-y: -65px;
+    @include mq($until: leftCol) {
+          background-position-y: 0;
+    }
     @include mq($until: phablet) {
         background-image: none;
     }
@@ -107,7 +110,6 @@ wide: 1300px);
             width: 100%;
             transform: scale(1);
             width: 56%;
-
         }
         @include mq($until: mobileLandscape) {
             top: 183px;
