@@ -8,3 +8,4 @@ style.css
 aws-keys.json
 hashed/
 .idea/
+/package-lock.json
