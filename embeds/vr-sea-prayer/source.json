@@ -9,12 +9,13 @@
     "layout": "default",
     "title": "Sea Prayer",
     "titleFont": "egypt-bold",
-    "titleColour": "#FFFFFF",
-    "image": "https://uploads.guim.co.uk/2017/09/01/app-tile2.png",
+    "titleColour": "#ffffff",
+    "image": "https://uploads.guim.co.uk/2017/09/04/app-tile3.png",
     "trail": "A new 360 film by award-winning author Khaled Hosseini",
     "buttonTextColour": "#000000",
     "buttonBackgroundColour": "#ffffff",
     "hideKicker": false,
-    "hideGuardianRoundel": true
+    "hideGuardianRoundel": true,
+    "url": "https://www.theguardian.com/world/2017/sep/01/sea-prayer-a-360-story-inspired-by-refugee-alan-kurdi-khaled-hosseini"
   }
 }

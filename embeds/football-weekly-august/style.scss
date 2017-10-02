@@ -206,6 +206,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
         left: 12px;
         font-family: 'Guardian Text Sans Web';
         font-size: 13px;
+        line-height: 15px;
         padding-bottom: 2px;
         color: #fff;
         z-index: 300;
@@ -477,6 +478,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
     }
 
     @include mq($until: mobileLandscape) {
+         height: 275px;
         .player {
             top: 70px;
             height: 115px;
