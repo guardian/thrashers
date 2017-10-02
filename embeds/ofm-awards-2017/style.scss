@@ -1,0 +1,160 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+#ofm-awards-2017 {
+  background: #fff;
+  padding: 0;
+  @include mq(tablet) {
+    div, ul, li {
+      overflow: visible;
+    }
+  }
+}
+.ofm-awards-2017__wrapper {
+  position: relative;
+  margin: 0 -10px;
+  width: 100%;
+  @include mq(tablet) {
+    margin: -10px 0 0;
+    position: static;
+    height: 190px;
+  }
+  @include mq(desktop) {
+    height: 251px;
+  }
+  .foreground {
+    max-width: 400px;
+    position: relative;
+    z-index: 1;
+    padding: 10px 10px 55%;
+    @include mq(mobileLandscape) {
+      padding: 10px 10px 36%;
+    }
+    @include mq(tablet) {
+      position: absolute;
+      z-index: 2;
+    }
+    .svg-wrapper {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 35.22%;
+      @include mq(tablet) {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+      }
+    }
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      @include mq(tablet) {
+        top: 18px;
+        left: 0;
+        right: auto;
+        bottom: auto;
+        width: 382px;
+        height: 134px;
+      }
+      @include mq(desktop) {
+        top: 18px;
+        width: 477px;
+        height: 168px;
+      }
+      @include mq(leftCol) {
+        left: 35px;
+      }
+      @include mq(wide) {
+        left: 115px;
+      }
+    }
+  }
+  .background {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 355%;
+    background-position: 77% 100%;
+    background-repeat: no-repeat;
+    background-color: #8393A3;
+    @include mq(mobileLandscape) {
+      background-size: 230%;
+    }
+    @include mq(tablet) {
+      left: -900px;
+      right: -900px;
+      background-size: auto 310%;
+      background-position: 40% 96%;
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 900px;
+        background-color: rgba(0,0,0,0.1);
+        display: block;
+      }
+      &:before {
+        left: 0;
+      }
+      &:after {
+        right: 0;
+      }
+    }
+    @include mq(desktop) {
+      background-size: auto 285.7%;
+      background-position: 39% 100%;
+    }
+    @include mq(leftCol) {
+      background-position: 51% 100%;
+    }
+    .o {
+      @include mq(tablet) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 900px;
+          display: block;
+        }
+        &:before {
+          left: 0;
+          background: linear-gradient(to right, rgba(145,162,179,1) 0%,rgba(145,162,179,1) 86%,rgba(145,162,179,0) 100%);
+        }
+        &:after {
+          right: 0;
+          background: linear-gradient(to right, rgba(116,132,148,0) 0%,rgba(116,132,148,1) 16%,rgba(116,132,148,1) 100%);
+        }
+      }
+    }
+  }
+}
