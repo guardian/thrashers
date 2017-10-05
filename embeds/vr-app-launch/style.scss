@@ -33,7 +33,7 @@ wide: 1300px);
 .vr-app-launch__wrapper {
     width: 100%;
     background: #000;
-    background-image: url('@@assetPath@@/bg2.jpg');
+    background-image: url('@@assetPath@@/bg1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     @include mq($until: phablet) {
