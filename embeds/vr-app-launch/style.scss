@@ -17,9 +17,9 @@ wide: 1300px);
 }
 
 
-#sea-prayer.fc-container {
+#virtual-reality.fc-container {
     overflow: hidden;
-    background: #675970;
+    background: #333;
     .facia-snap {
         overflow: hidden;
         @include mq($until: leftCol) {
