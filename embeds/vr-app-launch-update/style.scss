@@ -96,21 +96,25 @@ wide: 1300px);
 
         @include mq($until: wide) {
             left: 900px;
+            display: block;
         }
         @include mq($until: leftCol) {
             left: 740px;
+            display: block;
         }
         @include mq($until: desktop) {
             left: 560px;
             width: 200px;
             transform-origin: top left;
             transform: scale(0.9);
+            display: block;
         }
         @include mq($until: tablet) {
             left: auto;
             right: 3px;
             transform-origin: top left;
             transform: scale(0.9);
+            display: none;
         }
         @include mq($until: phablet) {
             left: 10px;
@@ -118,14 +122,17 @@ wide: 1300px);
             width: 100%;
             transform: scale(1);
             width: 56%;
+            display: block;
         }
         @include mq($until: mobileLandscape) {
             top: 240px;
             width: 80%;
+            display: block;
         }
         @include mq($until: mobileSneaky) {
             top: 240px;
             width: 90%;
+            display: block;
         }
         top: 10px; // color: #CC8F79;
         &__headline {
@@ -202,6 +209,7 @@ wide: 1300px);
             left: 10px;
             top: 45px;
             transform: scale(0.95);
+            width: 100%;
         }
         @include mq($until: mobileLandscape) {
             left: 9px;
