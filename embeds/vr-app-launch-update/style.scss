@@ -19,7 +19,7 @@ wide: 1300px);
 
 #virtual-reality.fc-container {
     overflow: hidden;
-    background: #333;
+    background: #f5f5f5;
     .facia-snap {
         overflow: hidden;
         @include mq($until: leftCol) {
@@ -33,7 +33,7 @@ wide: 1300px);
 .vr-app-launch-update__wrapper {
     width: 100%;
     background: #000;
-    background-image: url('@@assetPath@@/bg4.jpg');
+    background-image: url('@@assetPath@@/bg5.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     @include mq($until: phablet) {
@@ -241,7 +241,11 @@ wide: 1300px);
             color: #fff;
 
             span {
-                color: #43C6E1;
+                color: #d4d4d4;
+                
+                @include mq($until: mobileLandscape) {
+                    color: #43C6E1;
+                }
             }
             .big-link {
                 text-decoration: none;
