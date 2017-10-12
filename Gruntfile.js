@@ -178,7 +178,12 @@ module.exports = function(grunt) {
                     flatten: true,
                     src: ['template/*'],
                     dest: 'embeds/' + newDir
-                }]
+                }, {
+                    expand: true,
+                    flatten: true,
+                    src: ['template/_source/*'],
+                    dest: 'embeds/' + newDir + '/_source'
+                }],
             }
         },
         prompt: {
