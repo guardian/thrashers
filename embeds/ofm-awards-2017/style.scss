@@ -25,8 +25,8 @@ $mq-breakpoints: (
 .ofm-awards-2017__wrapper {
   position: relative;
   margin: 0 -10px;
-  width: 100%;
   @include mq(tablet) {
+    padding: 0 19px;
     margin: -10px 0 0;
     position: static;
     height: 190px;
@@ -80,10 +80,10 @@ $mq-breakpoints: (
         height: 168px;
       }
       @include mq(leftCol) {
-        left: 35px;
+        left: 16px;
       }
       @include mq(wide) {
-        left: 115px;
+        left: 96px;
       }
     }
   }
@@ -102,18 +102,18 @@ $mq-breakpoints: (
       background-size: 230%;
     }
     @include mq(tablet) {
-      left: -900px;
-      right: -900px;
-      background-size: auto 310%;
-      background-position: 40% 96%;
+      left: calc(370px - 50vw);
+      right: calc(370px - 50vw);
+      background-size: auto 300%;
+      background-position: 63% 94%;
       &:before,
       &:after {
         content: '';
         position: absolute;
         top: 0;
         bottom: 0;
-        width: 900px;
-        background-color: rgba(0,0,0,0.1);
+        width: calc(370px - 50vw);
+        background-color: tomato;
         display: block;
       }
       &:before {
@@ -124,11 +124,31 @@ $mq-breakpoints: (
       }
     }
     @include mq(desktop) {
-      background-size: auto 285.7%;
-      background-position: 39% 100%;
+      background-size: auto 300%;
+      background-position: 64.5% 98%;
+      left: calc(490px - 50vw);
+      right: calc(490px - 50vw);
+      &:before,
+      &:after {
+        width: calc(490px - 50vw);
+      }
     }
     @include mq(leftCol) {
-      background-position: 51% 100%;
+      background-position: 50% 97.5%;
+      left: calc(570px - 50vw);
+      right: calc(570px - 50vw);
+      &:before,
+      &:after {
+        width: calc(570px - 50vw);
+      }
+    }
+    @include mq(wide) {
+      left: calc(650px - 50vw);
+      right: calc(650px - 50vw);
+      &:before,
+      &:after {
+        width: calc(650px - 50vw);
+      }
     }
     .o {
       @include mq(tablet) {
@@ -143,16 +163,39 @@ $mq-breakpoints: (
           position: absolute;
           top: 0;
           bottom: 0;
-          width: 900px;
+          width: calc(50vw - 370px);
           display: block;
+          background: rgba(0,0,0, .05);
         }
         &:before {
           left: 0;
-          background: linear-gradient(to right, rgba(145,162,179,1) 0%,rgba(145,162,179,1) 86%,rgba(145,162,179,0) 100%);
+          @include mq(wide) {
+            background: linear-gradient(to right, rgba(145,162,179,1) 0%,rgba(145,162,179,1) 70%,rgba(145,162,179,0) 100%), rgba(0,0,0, 0.05);
+          }
         }
         &:after {
           right: 0;
-          background: linear-gradient(to right, rgba(116,132,148,0) 0%,rgba(116,132,148,1) 16%,rgba(116,132,148,1) 100%);
+          @include mq(wide) {
+            background: linear-gradient(to right, rgba(116,132,148,0) 0%,rgba(116,132,148,1) 30%,rgba(116,132,148,1) 100%), rgba(0,0,0, .05);
+          }
+        }
+      }
+      @include mq(desktop) {
+        &:before,
+        &:after {
+          width: calc(50vw - 490px);
+        }
+      }
+      @include mq(leftCol) {
+        &:before,
+        &:after {
+          width: calc(50vw - 570px);
+        }
+      }
+      @include mq(wide) {
+        &:before,
+        &:after {
+          width: calc(50vw - 650px);
         }
       }
     }
