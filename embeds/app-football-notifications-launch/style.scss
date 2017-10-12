@@ -11,3 +11,233 @@ $mq-breakpoints: (
 );
 
 @import 'shared/_imports';
+section#app-football-notifications {
+    &,
+    .tone-news--item.fc-item {
+        background-color: #fff;
+    }
+    @include mq(leftCol) {
+        background-color: tomato;
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+    }
+}
+.treats__container.has-thrasher .treat-separator {
+  position: relative;
+  margin-top: 12px;
+  padding-top: 12px;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1px;
+    height: 1px;
+    background-color: #BDBDBD;
+    width: 60px;
+    @include mq(wide) {
+      width: 140px;
+    }
+  }
+}
+.app-football-notifications-launch__wrapper {
+  width: 100%;
+}
+
+.app-fn-thrasher {
+  position: relative;
+  @include mq(tablet) {
+    padding: 0 20px;
+    border-bottom: 1px solid #dedede;
+  }
+  @include mq(leftCol) {
+    padding: 0;
+  }
+  .top {
+    position: relative;
+    margin-top: 24px;
+    @include mq(tablet) {
+      width: 50%;
+    }
+    @include mq(desktop) {
+      margin-top: 36px;
+    }
+    @include mq(leftCol) {
+      width: auto;
+    }
+  }
+  .copy {
+    display: block;
+    color: #00456E;
+    font-size: 22px;
+    line-height: 20px;
+    width: 50%;
+    font-family: 'Guardian Egyptian Web';
+    padding-bottom: 6px;
+    @include mq(leftCol) {
+      width: 142px;
+      margin-left: -1px;
+      font-size: 18px;
+      line-height: 18px;
+    }
+    @include mq(wide) {
+      width: 220px;
+      font-size: 22px;
+      line-height: 20px;
+    }
+    .icon {
+      display: block;
+    }
+    .headline {
+      font-weight: 800;
+    }
+    .description {
+      font-weight: 200;
+    }
+  }
+  .image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 164px;
+    overflow: hidden;
+
+    @include mq(leftCol) {
+      display: none;
+    }
+    @include mq(wide) {
+      display: block;
+      bottom: -68px;
+      width: 80px;
+      padding-right: 6px;
+    }
+    .phone {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0 auto;
+      width: 144px;
+      transform: translateY(36px);
+      transition: all 600ms ease-in-out;
+      @include mq(desktop) {
+        transform: translateY(44px);
+        margin-left: 0;
+      }
+      @include mq(wide) {
+        width: 80px;
+        transform: translateY(26px);
+      }
+      &:hover {
+        transform: translateY(18px);
+        @include mq(desktop) {
+          transform: translateY(30px);
+        }
+      }
+    }
+  }
+  .download {
+    width: 100%;
+    border-top: 1px solid #dedede;
+    font-family: 'Guardian Text Sans Web';
+    color: #767676;
+    font-size: 16px;
+    @include mq(tablet) {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      width: calc(50% - 10px);
+      border: 0;
+    }
+    @include mq(leftCol) {
+      position: relative;
+      width: auto;
+      color: #333;
+    }
+    .free {
+      @include mq(tablet) {
+        margin-bottom: -14px;
+      }
+      @include mq(leftCol) {
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+      .long {
+        display: block;
+        @include mq(leftCol) {
+          display: none;
+        }
+      }
+      .short {
+        display: none;
+        @include mq(leftCol) {
+          display: block;
+        }
+      }
+    }
+
+    .buttons {
+      padding-bottom: 12px;
+      @include mq(tablet) {
+        padding-bottom: 6px;
+      }
+      .ios,
+      .android {
+        font-size: 0;
+        display: inline-block;
+        width: 136px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        @include mq(leftCol) {
+          display: block;
+          margin: 3px 0 3px;
+          font-size: 14px;
+          background-image: none !important;
+          width: auto;
+          height: auto;
+          color: #333;
+          line-height: 16px;
+          text-decoration: none;
+          &:hover {
+            &:before {
+              background-color: #333;
+            }
+          }
+          &:before {
+            transition: all 120ms;
+            content: '';
+            width: 16px;
+            height: 16px;
+            background-color: #767676;
+            border-radius: 100%;
+            display: inline-block;
+            margin-right: 3px;
+            vertical-align: middle;
+            background-image: url(@@assetPath@@/a.svg);
+            background-size: 9px 9px;
+            background-position: 3.5px 3.5px;
+            background-repeat: no-repeat;
+            position: relative;
+            bottom: 2px;
+            right: 1px;
+          }
+        }
+        @include mq(wide) {
+          width: 100px;
+        }
+      }
+      .ios {
+        background-image: url(@@assetPath@@/app-store.png);
+        // background-image: url('https://uploads.guim.co.uk/2017/10/12/app-store.png');
+        margin-right: 12px;
+      }
+      .android {
+        background-image: url(@@assetPath@@/play-store.png);
+        // background-image: url('https://uploads.guim.co.uk/2017/10/12/play-store.png');
+      }
+    }
+  }
+}

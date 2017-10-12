@@ -77,7 +77,7 @@ setTimeout(function() {
         containerTreats.appendChild(newTreat);
     }
 
-
+    // Traque
     window.guardian.ophan.record({
         component: 'thrasher : manifestos compared',
         value: 1
