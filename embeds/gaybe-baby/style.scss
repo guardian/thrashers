@@ -447,5 +447,23 @@ section#thrasher{
 
 }
 
+.has-active-pageskin {
+
+  .gaybe-baby__wrapper .foreground {
+    padding-left: 20px;
+  }
+
+  @media (min-width: 81.25em) {
+
+    .gaybe-baby__wrapper .background .image video {
+        height: 100%;
+        width: auto;
+    }
+
+
+  }
+
+
+}
 
 
