@@ -5,8 +5,8 @@ if (window.XMLHttpRequest) {
 }
 
 xhttp.overrideMimeType('text/xml');
-   xhttp.open("GET", 'https://www.theguardian.com/us-news/series/the-campaign-minute-2016/rss', false);
-xhttp.open("GET", 'https://localhost:8000/embeds/the-minute-snap/hashed/rss.349b8b71.xml', false);
+xhttp.open("GET", 'https://www.theguardian.com/us-news/series/the-campaign-minute-2016/rss', false);
+// xhttp.open("GET", 'https://localhost:8000/embeds/the-minute-snap/hashed/rss.349b8b71.xml', false);
 xhttp.send(null);
 xmlDoc = xhttp.responseXML;
 
