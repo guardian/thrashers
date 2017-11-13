@@ -1,0 +1,546 @@
+
+
+.hokie-pokie__wrapper {
+
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  font-family: "Guardian Egyptian Web", Georgia, serif;
+  width: 100%;
+
+  #reel1 {
+    position: absolute;
+    top: 0px;
+    right: 100px;
+    height: 100%;
+    width: 300px;
+    padding: 0px;
+    border: 0px;
+  }
+
+  #reel2 {
+    position: absolute;
+    top: -50%;
+    right: 400px;
+    height: 100%;
+    width: 300px;
+    padding: 0px;
+    border: 0px;
+  }
+
+  @media (max-width:81.24em) {
+    #reel1 {
+      position: absolute;
+      top: 0px;
+      right: 100px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+
+    #reel2 {
+      position: absolute;
+      top: -50%;
+      right: 400px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+  }
+  @media (max-width:71.24em) {
+    #reel1 {
+      position: absolute;
+      top: 0px;
+      right: 100px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+
+    #reel2 {
+      position: absolute;
+      top: -50%;
+      right: 400px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+  }
+  @media (max-width:61.24em) {
+    #reel1 {
+      position: absolute;
+      top: 30px;
+      right: -100px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+
+    #reel2 {
+      position: absolute;
+      top: 50%;
+      right: 150px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+  }
+  @media (max-width:46.24em) {
+    #reel1 {
+      position: absolute;
+      top: 20px;
+      right: -100px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+
+    #reel2 {
+      position: absolute;
+      top: 50%;
+      right: 150px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+  }
+  @media (max-width:41.24em) {
+    #reel1 {
+      position: absolute;
+      top: 50px;
+      right: -150px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+
+    #reel2 {
+      position: absolute;
+      top: 60%;
+      right: 100px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+  }
+  @media (max-width:29.99em) {
+
+    .interactive-information {
+      padding-left: 10px;
+    }
+
+    #reel1 {
+      position: absolute;
+      top: 50px;
+      right: -150px;
+      height: 100%;
+      width: 300px;
+      padding: 0px;
+      border: 0px;
+    }
+
+    #reel2 {
+      display: none;
+    }
+  }
+
+
+  #pokie-machine {
+  background-color: red;
+  width: auto;
+  position: relative;
+  padding: 12px;
+  min-height: 130px
+}
+#pokie-machine .branding {
+  position: absolute;
+  top: 8px;
+  right: 22px;
+  width: 52px;
+  height: 33px
+}
+#pokie-machine .branding svg {
+  width: 100%;
+  height: 100%
+}
+#pokie-machine .player {
+  height: 140px;
+  width: 362px;
+  white-space: nowrap;
+  position: absolute;
+  top: 6px;
+  right: 96px;
+  background-color: transparent
+}
+#pokie-machine .player .player__circle {
+  padding: 1px;
+  display: inline-block;
+  height: 140px;
+  width: 140px;
+  position: absolute;
+  top: 0
+}
+#pokie-machine .player .player__circle svg {
+  height: 100%;
+  width: 100%
+}
+#pokie-machine .player .player__name {
+  left: 0;
+  z-index: 310
+}
+#pokie-machine .player .player__illustration {
+  left: 29%;
+  z-index: 300
+}
+#pokie-machine .player .player__playing {
+  left: 59.5%;
+  z-index: 19;
+  -webkit-transform: scale(.97, .97);
+  transform: scale(.97, .97);
+  opacity: 0;
+  -webkit-transition: opacity 160ms, -webkit-transform 160ms;
+  transition: opacity 160ms, transform 160ms
+}
+#pokie-machine .player .player__play {
+  cursor: pointer;
+  left: 59.5%;
+  z-index: 310;
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition: opacity 240ms, -webkit-transform 240ms;
+  transition: opacity 240ms, transform 240ms
+}
+#pokie-machine .player .player__play:hover {
+  opacity: .95
+}
+#pokie-machine[data-playing] .player .player__play {
+  -webkit-transform: scale(.92, .92);
+  transform: scale(.92, .92);
+  opacity: 0
+}
+#pokie-machine[data-playing] .player .player__playing {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity: 1
+}
+#pokie-machine .interactive-information {
+  width: 400px;
+  margin-top: -5px;
+  position: relative;
+  z-index: 300
+}
+#pokie-machine .interactive-information .pokie_headline_block {
+  display: block;
+  font-size: 28px;
+  line-height: 28px;
+  font-family: 'Guardian Egyptian Web', serif;
+  font-weight: 500
+}
+#pokie-machine .interactive-information .pokie_headline_block .main_pokie_headline {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  display: block;
+  color: #fff
+}
+#pokie-machine .interactive-information .pokie_headline_block .pokie_headline_subheader {
+  font-size: 1.2rem;
+  color: black
+}
+#pokie-machine .interactive-information_full {
+  position: relative;
+  right: 1px;
+  display: inline-block;
+  height: 26px;
+  line-height: 28px;
+  overflow: hidden;
+  font-size: 13px;
+  padding-left: 12px;
+  padding-right: 30px;
+  margin: 14px 0 30px;
+  border-radius: 15px;
+  border: 1px solid currentColor;
+  color: #fff;
+  font-family: 'Guardian Text Sans Web'
+}
+#pokie-machine .interactive-information_full .interactive-information__arrow {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  width: 1em;
+  height: 1em
+}
+#pokie-machine .interactive-information_full .interactive-information__arrow svg {
+  width: 100%;
+  height: 100%
+}
+#pokie-machine .interactive-information_full:hover {
+  background-color: #fff;
+  color: #444;
+  text-decoration: none
+}
+#pokie-machine .interactive-information_full:hover #right-arrow {
+  fill: #444
+}
+#pokie-machine .subscription {
+  position: absolute;
+  bottom: 0;
+  left: 262px;
+  font-family: 'Guardian Text Sans Web';
+  font-size: 13px;
+  padding-bottom: 2px;
+  color: #ddd;
+  z-index: 300
+}
+#pokie-machine .subscription__download, #pokie-machine .subscription__feed, #pokie-machine .subscription__icon, #pokie-machine .subscription__itunes {
+  display: inline-block
+}
+#pokie-machine .subscription__icon {
+  position: relative;
+  top: 2px;
+  margin-right: 1px
+}
+#pokie-machine .subscription__download:after, #pokie-machine .subscription__itunes:after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  background-color: #ccc;
+  opacity: .8;
+  vertical-align: top;
+  position: relative;
+  top: 2px;
+  margin: 0 6px
+}
+
+@media (min-width:1300px) {
+
+  #pokie-machine .interactive-information {
+    margin-left: 250px
+  }
+
+}
+
+
+@media (max-width:81.24em) {
+  #pokie-machine .branding {
+    right: 20px
+  }
+  #pokie-machine .player {
+    right: 80px
+  }
+  #pokie-machine .interactive-information {
+    margin-left: 170px
+  }
+  #pokie-machine .subscription {
+    left: 182px
+  }
+}
+@media (max-width:71.24em) {
+  #pokie-machine .branding {
+    right: 18px
+  }
+  #pokie-machine .player {
+    right: 64px
+  }
+  #pokie-machine .interactive-information {
+    margin-left: 10px
+  }
+  #pokie-machine .subscription {
+    left: 23px
+  }
+}
+@media (max-width:61.24em) {
+  #pokie-machine {
+    min-height: 120px
+  }
+  #pokie-machine .branding {
+    right: 16px;
+    width: 41px;
+    height: 26px
+  }
+  #pokie-machine .player {
+    right: 51px;
+    height: 130px;
+    width: 336px
+  }
+  #pokie-machine .player .player__circle, #pokie-machine .player .player__illustration img {
+    height: 130px;
+    width: 130px
+  }
+  #pokie-machine .interactive-information .pokie_headline_block {
+    font-size: 26px;
+    line-height: 26px
+  }
+  #pokie-machine .subscription {
+    font-size: 12px;
+    padding-bottom: 1px
+  }
+}
+@media (max-width:46.24em) {
+  #pokie-machine {
+    min-height: 105px
+  }
+  #pokie-machine .branding {
+    right: 19px;
+    width: 35px;
+    height: 22px
+  }
+  #pokie-machine .player {
+    top: 8px;
+    right: 50px;
+    height: 110px;
+    width: 284px
+  }
+  #pokie-machine .player .player__circle, #pokie-machine .player .player__illustration img {
+    height: 110px;
+    width: 110px
+  }
+  #pokie-machine .interactive-information .pokie_headline_block {
+    font-size: 22px;
+    line-height: 22px
+  }
+  #pokie-machine .interactive-information_full {
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 12px;
+    padding-right: 28px;
+    margin: 12px 0 26px;
+    border-radius: 15px
+  }
+  #pokie-machine .interactive-information_full .interactive-information__arrow {
+    top: 1px;
+    right: 8px
+  }
+  #pokie-machine .subscription {
+    font-size: 11px;
+    padding-bottom: 0
+  }
+  #pokie-machine .subscription__icon {
+    width: 12px;
+    height: 16px;
+    top: 4px
+  }
+  #pokie-machine .subscription__icon svg {
+    width: 100%;
+    height: 100%
+  }
+  #pokie-machine .subscription__download:after, #pokie-machine .subscription__itunes:after {
+    height: 18px;
+    top: 1px;
+    margin: 0 5px
+  }
+}
+@media (max-width:41.24em) {
+  #pokie-machine {
+    height: auto;
+    min-height: auto;
+    width: auto;
+    padding: 12px
+  }
+  #pokie-machine .branding {
+    top: 8px;
+    right: 9px
+  }
+  #pokie-machine .player {
+    top: 45px;
+    left: -1px;
+    right: 0;
+    bottom: auto;
+    height: 140px;
+    width: 362px;
+    margin: 24px 0 16px
+  }
+  #pokie-machine .player .player__circle {
+    height: 140px;
+    width: 140px
+  }
+  #pokie-machine .interactive-information {
+    position: static;
+    top: 140px;
+    left: 0;
+    padding-top: 0;
+    width: auto;
+    margin-top: -3px;
+    margin-left: 0
+  }
+  #pokie-machine .interactive-information_full {
+    margin-top: 170px;
+    z-index: 400
+  }
+  #pokie-machine .subscription {
+    position: absolute;
+    bottom: 0;
+    left: 12px
+  }
+  #pokie-machine .circles {
+    top: 140px;
+    left: -120px;
+    right: -120px
+  }
+}
+@media (max-width:29.99em) {
+  #pokie-machine .player {
+    top: 40px;
+    height: 115px;
+    width: 300px;
+    margin: 24px 0 16px
+  }
+  #pokie-machine .player .player__circle {
+    height: 115px;
+    width: 115px
+  }
+  #pokie-machine .interactive-information {
+    margin-left: -12px
+  }
+  #pokie-machine .interactive-information_full {
+    margin-top: 145px
+  }
+  #pokie-machine .subscription {
+    left: 2px
+  }
+  #pokie-machine .circles {
+    top: 125px
+  }
+}
+#pokie-machine h1, #pokie-machine h2 {
+  display: inline;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit
+}
+
+
+
+}
+
+
+section#thrasher{
+
+  [data-id="australia-news/datablog/ng-interactive/2017/sep/28/hooked-how-pokies-are-designed-to-be-addictive"] {
+    background-color: white;
+  }
+
+}
+
+
+.has-active-pageskin {
+
+  #pokie-machine .interactive-information {
+    margin-left: 0px;
+  }
+
+}
