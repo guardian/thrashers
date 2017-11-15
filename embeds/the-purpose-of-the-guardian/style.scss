@@ -1,0 +1,252 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin sans-font-sizes {
+  font-size: 12px;
+  line-height: 16px;
+
+  @include mq(desktop) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include mq(wide) {
+    font-size: 16px;
+    line-height: 22px;      
+  }
+}
+
+@mixin container-gutters {
+  padding-left: 0;
+  padding-right: 0;
+
+  @include mq(mobileLandscape) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @include mq(tablet) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+$light-blue: #4bc6df;
+$blue: guss-colour(guardian-brand, $pasteup-palette);
+
+.the-purpose-of-the-guardian__wrapper {
+  height: 300px;
+}
+
+.purpose {
+  &__wrapper {
+    // @include mq($until: mobileLandscape) {
+    //   width: 300px;
+    // }
+
+    // @include mq($from: mobileLandscape, $until: tablet) {
+    //   width: 317px;
+    // }
+
+    // height: 294px;
+
+    // @include mq(tablet) {
+    //   height: 242px;
+    // }
+
+    // @include mq(desktop) {
+    //   height: 246px;
+    // }
+
+    // @include mq(wide) {
+    //   height: 294px;
+    // }
+  }
+
+  &__container {
+    padding-left: 10px;
+
+    @include mq(tablet) {
+      padding-left: 20px;
+    }
+  }
+
+  &__gu-roundel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    & > svg {
+      path {
+        fill: $blue;
+      }      
+
+      height: auto;
+      width: 36px;
+    }
+
+    @include mq(tablet) {
+      & > svg {
+        width: 42px;
+      }
+    }
+  }
+
+  // &__quote {
+  //   padding-top: 18px;
+  //   @include container-gutters;
+
+  //   position: relative;
+
+  //   @include mq(tablet) { 
+  //     display: flex;   
+  //   }
+  // }
+
+  &__line {
+    border-top: 10px solid $light-blue;
+    position: absolute;
+    top: 0;
+
+    width: 80px;
+
+    @include mq(tablet) {
+      border-top: 20px solid $light-blue;
+      width: 230px;
+    }
+  }
+
+  &__quote {
+    @include f-headline;
+
+    display: flex;
+    align-items: start;
+
+    color: $blue;
+    font-weight: 100;
+
+    font-size: 24px;
+    line-height: 26px;
+
+    max-width: 327px;
+
+    margin: 15px 0 0 0;
+
+    @include mq(desktop) {
+      max-width: none;
+      width: 640px;
+      margin: 25px 0 0 70px;
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    svg {
+      flex-shrink: 0;
+      height: auto;
+
+      width: 26px;
+
+      @include mq(tablet) {
+        width: 51px;
+      }
+
+      padding-top: 3px;
+
+      path {
+        fill: $light-blue;
+      }
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    justify-content: flex-end;
+
+    bottom: 0;
+    right: 20px;
+
+    width: 245px;
+ 
+    text-align: left;
+
+    @include f-header;
+    color: $blue;
+    font-size: 18px;
+    line-height: 20px;
+
+    font-weight: 500;
+
+    // @include container-gutters;
+    padding-bottom: 10px;
+
+    padding-top: 14px;
+
+    @include mq(tablet) {
+      font-size: 20px;
+      line-height: 22px;
+      // width: 23%;
+    }
+  }
+
+  &__link:hover {
+    text-decoration: none;
+  }
+
+  @mixin round($radius) {
+    border-radius: $radius;
+    height: $radius;
+    width: $radius;
+    line-height: $radius;
+
+    svg {
+      height: $radius;
+      width: $radius;
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: $blue;
+    @include round(20px);
+
+    path {
+      fill: #fff;
+    }
+
+    @include mq(tablet) {
+      display: block;
+      @include round(30px);
+    }
+  }
+
+  &__quote-name {
+    font-weight: bold;
+  }
+
+  &__quote-icon {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    fill: guss-colour(guardian-brand, $pasteup-palette);
+  }
+
+}
