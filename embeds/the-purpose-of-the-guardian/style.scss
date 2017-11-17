@@ -19,6 +19,8 @@ $mq-breakpoints: (
   }
 }
 
+@include base(the-purpose-of-the-guardian, #f6f6f6);
+
 $light-blue: #4bc6df;
 $blue: guss-colour(guardian-brand, $pasteup-palette);
 
