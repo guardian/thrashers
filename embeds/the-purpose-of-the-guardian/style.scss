@@ -36,6 +36,10 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     @include mq(tablet) {
       padding-left: 20px;
     }
+
+    @include mq(wide) {
+      padding-left: 260px;
+    }
   }
 
   &__gu-roundel-placeholder {
@@ -99,7 +103,9 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     font-size: 24px;
     line-height: 24px;
 
-    max-width: 327px;
+    @include mq(368px) {
+      width: 90%;      
+    }
 
     margin: 15px 0 0 0;
 
@@ -119,7 +125,6 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     @include mq(tablet) {
       font-size: 30px;
       line-height: 30px;
-      max-width: none;
       width: 380px;
 
       svg {
@@ -145,7 +150,7 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     }
 
     @include mq(wide) {
-      margin-left: 70px;
+      width: 490px;
     }
   }
 
