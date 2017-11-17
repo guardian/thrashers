@@ -38,6 +38,12 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     }
   }
 
+  &__gu-roundel-placeholder {
+    width: 30px;
+    height: 20px;
+    float: right;
+  }
+
   &__gu-roundel {
     position: absolute;
     top: 10px;
