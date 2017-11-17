@@ -57,6 +57,10 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
       }
     }
 
+    @include mq(mobileLandscape) {
+      right: 20px;
+    }
+
     @include mq(tablet) {
       & > svg {
         width: 42px;
@@ -172,8 +176,10 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     }
 
     @include mq(tablet) {
-      @include image-width(150px);
-      width: 335px;
+      // Box width: 160
+      // Gutter: 10
+      @include image-width(160px, 20px);
+      width: 340px; // 2 * 160 + 2 * 10
       right: 20px;
       left: auto;
     }
@@ -183,12 +189,16 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     }
 
     @include mq(leftCol) {
-      @include image-width(200px);
-      width: 520px;
+      // @include image-width(200px);
+      // width: 520px;
+
+      // Box width: 220
+      @include image-width(220px, 20px);
+      width: 460px; // 2 * 220 + 2 * 10
     }
 
     @include mq(wide) {
-      @include image-width(200px, 30px);
+      right: 100px;
     }
   }
 
