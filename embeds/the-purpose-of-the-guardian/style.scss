@@ -160,16 +160,22 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     position: absolute;
     justify-content: flex-end;
 
-    bottom: 0;
-    right: 20px;
-
     width: 245px;
 
+    bottom: 0;
+    left: 10px;
+
     @include image-width(100px);
+
+    @include mq(mobileLandscape) {
+      left: 20px;
+    }
 
     @include mq(tablet) {
       @include image-width(150px);
       width: 335px;
+      right: 20px;
+      left: auto;
     }
 
     @include mq(desktop) {
@@ -202,7 +208,7 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     padding-top: 14px;
 
     @include mq($until: tablet) {
-      width: 150px;      
+      width: 180px;      
     }
 
     @include mq(tablet) {
