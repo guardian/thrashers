@@ -72,7 +72,7 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     width: 80px;
 
     @include mq(desktop) {
-      border-top: 20px solid $light-blue;
+      // border-top: 20px solid $light-blue;
       width: 230px;
     }
   }
@@ -119,28 +119,19 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     }
 
     @include mq(desktop) {
-      width: 540px;
-
+      margin-top: 25px;
+      width: 550px;
+      font-size: 32px;
+      line-height: 32px;
       svg {
         width: 40px;
         padding-top: 3px;
       }
     }
 
-    @include mq(desktop) {
-      margin-top: 25px;
-      width: 550px;
-      font-size: 32px;
-      line-height: 32px;
-    }
-
     @include mq(leftCol) {
       font-size: 34px;
       line-height: 34px;
-
-      svg {
-        width: 51px;
-      }
     }
 
     @include mq(wide) {
@@ -177,11 +168,11 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     @include image-width(100px);
 
     @include mq(tablet) {
+      @include image-width(150px);
       width: 335px;
     }
 
     @include mq(desktop) {
-      @include image-width(150px);
       width: 400px;
     }
 
