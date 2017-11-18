@@ -267,6 +267,9 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    whitespace: nowrap !important;
   }
 
   &__link:hover {
