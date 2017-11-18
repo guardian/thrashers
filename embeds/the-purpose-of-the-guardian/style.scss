@@ -21,6 +21,22 @@ $mq-breakpoints: (
 
 @include base(the-purpose-of-the-guardian, #f6f6f6);
 
+#the-purpose-of-the-guardian.fc-container--thrasher:hover {
+    background-color: darken(#f6f6f6, 3%);
+
+    .fc-item {
+        background-color: darken(#f6f6f6, 3%);
+    }
+}
+
+.the-purpose-of-the-guardian__wrapper:hover {
+    background-color: darken(#f6f6f6, 3%);
+
+    .purpose__cutout {
+      opacity: 0.9;
+    }
+}
+
 $light-blue: #4bc6df;
 $blue: guss-colour(guardian-brand, $pasteup-palette);
 
@@ -238,6 +254,15 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
       font-size: 20px;
       line-height: 22px;
     }
+  }
+
+  &__link {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
   }
 
   &__link:hover {
