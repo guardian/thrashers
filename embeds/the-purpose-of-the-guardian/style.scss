@@ -41,7 +41,11 @@ $light-blue: #4bc6df;
 $blue: guss-colour(guardian-brand, $pasteup-palette);
 
 .the-purpose-of-the-guardian__wrapper {
-  height: 280px;
+  height: 295px;
+
+  @include mq($from: mobileLandscape, $to: tablet) {
+    height: 260px;
+  }
 }
 
 .purpose {
