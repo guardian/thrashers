@@ -117,7 +117,7 @@ $blue: guss-colour(guardian-brand, $pasteup-palette);
     @include f-headline;
 
     display: flex;
-    align-items: start;
+    align-items: flex-start;
 
     color: $blue;
     font-weight: 100;
