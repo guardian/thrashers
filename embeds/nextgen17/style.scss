@@ -31,24 +31,30 @@ $bg: #2A2A2A;
   }
 }
 
+@keyframes nextgen17__pan {
+  from {
+      transform: translate(-20px,0);
+  }
+  to {
+      transform: translate(20px,0);
+  }
+}
+
 .nextgen17__wrapper {
     position: relative;
     width: 100%;
     .nextgen17 {
         color: #fff;
+        position: relative;
+        border-top: 1px solid $green;
         &__logo {
             position: absolute;
-            bottom: 5px;
-            left: 10px;
             z-index: 10;
             width: 180px;
-            @include mq(phablet) {
-                bottom: 10px;
-                left: 20px;
-            }
+            bottom: 0;
+            left: 0;
             @include mq(desktop) {
                 width: 260px;
-                top: 10px;
                 bottom: auto;
             }
         }
@@ -58,6 +64,7 @@ $bg: #2A2A2A;
             left: -20px;
             opacity: .65;
             height: 200px;
+            top: 0;
             @include mq(tablet) {
                 height: 400px;
                 animation: nextgen17__slide 60s linear;
@@ -70,13 +77,24 @@ $bg: #2A2A2A;
             z-index: 1;
             height: 160px;
             left: -40px;
-            @include mq(phablet) {
+            animation: nextgen17__pan 30s linear;
+            .disable-flashing-elements & {
+                animation: 0;
+            }
+            @include mq(mobileLandscape) {
                 height: 300px;
             }
             @include mq(desktop) {
                 margin: auto;
                 left: 0;
+                height: 400px;
+                padding-right: 200px;
+            }
+            @include mq(leftCol) {
+                margin: auto;
+                left: 0;
                 height: 500px;
+                padding-right: 0;
             }
         }
         &__cta {
@@ -91,8 +109,8 @@ $bg: #2A2A2A;
             text-align: right;
             padding: 40px 0 60px;
             float: right;
-            width: 60%;
-            @include mq(tablet) {
+            width: 160px;
+            @include mq(phablet) {
                 text-align: left;
                 width: 240px;
                 padding: 30px 80px 30px 0;
@@ -102,12 +120,8 @@ $bg: #2A2A2A;
             float: right;
             margin-top: 5px;
             position: absolute;
-            top: 5px;
-            right: 10px;
-            @include mq(phablet) {
-                top: 10px;
-                right: 20px;
-            }
+            top: 0;
+            right: 0;
             svg {
                 path {
                     fill: $pink;
@@ -136,53 +150,25 @@ $bg: #2A2A2A;
                 }
             }
         }
+        &__padding {
+            position: relative;
+            margin: 5px 0;
+            overflow: hidden;
+            @include mq(mobileLandscape) {
+                margin: 10px 20px;
+            }
+        }
         &__main {
             display: block;
-            position: relative;
             overflow: hidden;
             z-index: 10;
-            padding: 10px;
             line-height: 1.1;
             font-size: 16px;
-            margin-left: -10px;
-            margin-right: -10px;
-            @include mq(phablet) {
-                padding: 10px 20px;
-                margin-left: auto;
-                margin-right: auto;
-            }
             @include mq(tablet) {
                 font-size: 24px;
             }
             &, &:hover {
                 text-decoration: none;
-            }
-            .btn {
-                display: inline-block;
-                vertical-align: top;
-                position: relative;
-                top: 1px;
-                line-height: 30px;
-                height: 24px;
-                border-radius: 100%;
-                border: 1px solid #ececec;
-                svg {
-                    height: 100%;
-                    width: 100%;
-                    display: block;
-                    path {
-                        fill: #ececec;
-                    }
-                }
-            }
-            &:hover {
-                .btn {
-                    background-color: #4BC6DF;
-                    border-color: transparent;
-                    svg path {
-                        fill: #F6F6F6;
-                    }
-                }
             }
         }
     }
