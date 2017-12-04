@@ -14,39 +14,17 @@ $green: #aad801;
 $bg: #2A2A2A;
 
 @import 'shared/_imports';
+@include base('nextgen17', #2A2A2A);
+@include rule('nextgen17', $green);
 
 #nextgen17.fc-container--thrasher {
     background: #333;
-    .fc-item {
-        background: #2A2A2A;
-    }
-}
-
-@keyframes nextgen17__slide {
-  from {
-      transform: translate(0,-40px);
-  }
-  to {
-      transform: translate(-40px,-300px);
-  }
-}
-
-@keyframes nextgen17__pan {
-  from {
-      transform: translate(-20px,0);
-  }
-  to {
-      transform: translate(20px,0);
-  }
+    color: #fff;
 }
 
 .nextgen17__wrapper {
-    position: relative;
-    width: 100%;
+
     .nextgen17 {
-        color: #fff;
-        position: relative;
-        border-top: 1px solid $green;
         &__logo {
             position: absolute;
             z-index: 10;
@@ -172,4 +150,22 @@ $bg: #2A2A2A;
             }
         }
     }
+}
+
+@keyframes nextgen17__slide {
+  from {
+      transform: translate(0,-40px);
+  }
+  to {
+      transform: translate(-40px,-300px);
+  }
+}
+
+@keyframes nextgen17__pan {
+  from {
+      transform: translate(-20px,0);
+  }
+  to {
+      transform: translate(20px,0);
+  }
 }
