@@ -1,0 +1,171 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$pink: #ec2991;
+$green: #aad801;
+$bg: #2A2A2A;
+
+@import 'shared/_imports';
+@include base('nextgen17', #2A2A2A);
+@include rule('nextgen17', $green);
+
+#nextgen17.fc-container--thrasher {
+    background: #333;
+    color: #fff;
+}
+
+.nextgen17__wrapper {
+
+    .nextgen17 {
+        &__logo {
+            position: absolute;
+            z-index: 10;
+            width: 180px;
+            bottom: 0;
+            left: 0;
+            @include mq(desktop) {
+                width: 260px;
+                bottom: auto;
+            }
+        }
+        &__bg {
+            position: absolute;
+            margin: auto;
+            left: -20px;
+            opacity: .65;
+            height: 200px;
+            top: 0;
+            @include mq(tablet) {
+                height: 400px;
+                animation: nextgen17__slide 60s linear;
+            }
+        }
+        &__hero {
+            position: absolute;
+            right: 0;
+            top: 5px;
+            z-index: 1;
+            height: 160px;
+            left: -40px;
+            animation: nextgen17__pan 30s linear;
+            .disable-flashing-elements & {
+                animation: 0;
+            }
+            @include mq(mobileLandscape) {
+                height: 300px;
+            }
+            @include mq(desktop) {
+                margin: auto;
+                left: 0;
+                height: 400px;
+                padding-right: 200px;
+            }
+            @include mq(leftCol) {
+                margin: auto;
+                left: 0;
+                height: 500px;
+                padding-right: 0;
+            }
+        }
+        &__cta {
+            strong {
+                color: $green;
+            }
+        }
+        &__content {
+            z-index: 2;
+            position: relative;
+            font-weight: 100;
+            text-align: right;
+            padding: 40px 0 60px;
+            float: right;
+            width: 160px;
+            @include mq(phablet) {
+                text-align: left;
+                width: 240px;
+                padding: 30px 80px 30px 0;
+            }
+        }
+        &__roundel {
+            float: right;
+            margin-top: 5px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            svg {
+                path {
+                    fill: $pink;
+                }
+            }
+        }
+        &__button {
+            background: $green;
+            color: $bg;
+            border-color: transparent;
+            vertical-align: middle;
+            margin-top: 10px;
+            margin-right: 0;
+            transition: background-color .025s linear;
+            svg {
+                vertical-align: middle;
+                transition: transform .25s linear;
+            }
+            svg path {
+                fill: $bg;
+            }
+            &:hover {
+                background-color: #c8ff00;
+                svg {
+                    transform: translateX(3px);
+                }
+            }
+        }
+        &__padding {
+            position: relative;
+            margin: 5px 0;
+            overflow: hidden;
+            @include mq(mobileLandscape) {
+                margin: 10px 20px;
+            }
+        }
+        &__main {
+            display: block;
+            overflow: hidden;
+            z-index: 10;
+            line-height: 1.1;
+            font-size: 16px;
+            @include mq(tablet) {
+                font-size: 24px;
+            }
+            &, &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+@keyframes nextgen17__slide {
+  from {
+      transform: translate(0,-40px);
+  }
+  to {
+      transform: translate(-40px,-300px);
+  }
+}
+
+@keyframes nextgen17__pan {
+  from {
+      transform: translate(-20px,0);
+  }
+  to {
+      transform: translate(20px,0);
+  }
+}
