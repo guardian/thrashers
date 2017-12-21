@@ -1,0 +1,25 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#feedback{
+    background: #003559;
+}
+
+.userhelp-feedback__wrapper{
+    background-color: #5890d8;
+    width: 100%;
+    color: white;
+    padding: 0.5em;
+}
+    

@@ -1,0 +1,8 @@
+{
+  "html": "<div class=\"userhelp-feedback__wrapper\"><style>#feedback{background:#003559}.userhelp-feedback__wrapper{background-color:#5890d8;width:100%;color:#fff;padding:.5em}</style><h1>If you can read this then something has gone right</h1>\n\n<div class='feedback' id='feedback'>\n  <a href='https://theguardian.com/info/tech-feedback'</a>\n</div>\n</div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com",
+  "headline": "The Guardian?",
+  "trailText": "Latest news, sport and comment from the Guardian"
+}
