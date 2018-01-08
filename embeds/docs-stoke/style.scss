@@ -1,0 +1,236 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    400px,
+    mobileLandscape: 480px,
+    mobileLong:      580px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#documentaries {
+    background-color: #101820;
+}
+
+.docs-stoke__wrapper {
+    position: relative;
+    margin: 0 -10px;
+    background-color: #202B2B;
+    color: #F6F6F6;
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    overflow: hidden;
+
+    @include mq(tablet) {
+        width: 100%;
+        margin: 0;
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+    .background {
+        position: relative;
+        z-index: 10;
+        height: 216px;
+
+        @include mq(phablet) {
+          height: 280px;
+        }
+
+        @include mq(desktop) {
+          height: 320px;
+        }
+
+        .image {
+            height: 100%;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100px;
+                z-index: 11;
+
+                @include mq(phablet) {
+                    height: 100%;
+                    width: 480px;
+                }
+                @include mq(desktop) {
+                    width: 620px;
+                }
+                @include mq(leftCol) {
+                    opacity: 0.6;
+                    width: 680px;
+                }
+                @include mq(wide) {
+                    width: 820px;
+                }
+            }
+
+            img {
+                height: 100%;
+                width: auto;
+                position: absolute;
+                z-index: 11;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                transform: translateX(-50%);
+
+                @include mq(mobileMedium) {
+                    transform: translateX(-10%);
+                }
+
+                @include mq(mobileLandscape) {
+                    transform: translateX(-5%);
+                }
+
+                @include mq(mobileLong) {
+                    transform: translateX(0%);
+                }
+
+                @include mq(phablet) {
+                    transform: translateX(-25%);
+                }
+
+                @include mq(desktop) {
+                    transform: translateX(-20%);
+                }
+
+                @include mq(leftCol) {
+                    transform: translateX(-11%);
+                }
+
+                @include mq(wide) {
+                    transform: translateX(0%);
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+        .docs-logo {
+            position: absolute;
+            top: 5px;
+            right: 9px;
+            z-index: 15;
+
+            svg {
+                width: 48px;
+                height: 48px;
+            }
+
+            @include mq(mobileLandscape) {
+                right: 20px;
+            }
+        }
+    }
+
+    .foreground {
+        position: relative;
+        z-index: 10;
+        padding: 7px 10px 18px;
+
+        @include mq(phablet) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        @include mq(tablet) {
+            padding: 7px 20px 18px;
+        }
+
+        @include mq(leftCol) {
+            padding-left: 180px;
+        }
+
+        @include mq(wide) {
+            padding-left: 260px;
+        }
+
+        .title {
+            margin-top: 10px;
+            margin-bottom: 3px;
+            max-width: 100%;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .strapline {
+            color: #FFFFFF;
+            max-width: 80%;
+
+            br {
+                display: none;
+
+                @include mq(tablet) {
+                    display: block;
+                }
+            }
+        }
+
+        .play {
+            color: #fff;
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+            font-size: 16px;
+            margin-top: 16px;
+            margin-left: -2px;
+            position: relative;
+
+            @include mq(phablet) {
+                position: absolute;
+                bottom: 6px;
+            }
+
+            &:before {
+                content: '';
+                width: 42px;
+                height: 42px;
+                border-radius: 100%;
+                background-color: #FB0;
+                display: inline-block;
+                margin-right: 3px;
+                vertical-align: middle;
+                position: relative;
+                bottom: 2px;
+            }
+
+            svg {
+                position: absolute;
+                width: 23px;
+                height: 19px;
+                top: 10px;
+                left: 12px;
+            }
+        }
+    }
+
+    .full-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 15 !important;
+        color: transparent;
+        &:hover ~ .foreground div,
+        &:hover ~ .background {
+            opacity: 0.9;
+        }
+    }
+}
