@@ -10,11 +10,12 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
 // .fc-container__inner {
 //     border-top: solid 0.0625rem #757575!important;
 // }
-#beyond-the-blade.fc-container {
+
+#btb-header.fc-container {
     padding-top: 0px;
     margin-bottom: 0px;
     overflow: hidden;
-    background-color: #333;
+    background: #333;
     .facia-snap {
         overflow: hidden;
         @include mq($until: leftCol) {
@@ -22,7 +23,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
             padding-right: 0px;
         }
     }
-    .beyond-the-blade-header-thrasher__wrapper {
+    .beyond-the-blade-header-two__wrapper {
         width: 100%;
         background-color: #333;
     }
@@ -49,7 +50,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
             margin: 0;
             padding: 10px 0 0 10px;
             border-left: solid 1px #f4f4f4;
-            font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+            font-family:  "Guardian Text Egyptian Web", Georgia, serif;
             font-weight: 600;
         }
     }
@@ -71,7 +72,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
     &--copy {
         margin: 10px 0 0 240px;
         width: 520px;
-        font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+        font-family: "Guardian Text Egyptian Web", Georgia, serif;
         @include mq($until: wide) {
             margin-left: 240px;
         }
@@ -117,7 +118,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
             }
         }
         p {
-            font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+            font-family:  "Guardian Text Egyptian Web", Georgia, serif;
             color: #8E8E8E;
             font-size: 16px;
             line-height: 22px;
@@ -171,7 +172,7 @@ $mq-breakpoints: ( mobile: 320px, mobileLandscape: 480px, phablet: 660px, tablet
     position: relative;
     z-index: 10;
     .inner {
-        padding-top: 24px;
+        padding-top: 5px;
         box-sizing: border-box;
     }
 }
@@ -317,10 +318,7 @@ $animationBaseCount: 0.5;
             font-size: 80px;
         }
         @include mq(desktop) {
-            font-size: 100px;
-        }
-        @include mq(leftCol) {
-            font-size: 112px;
+            font-size: 95px;
         }
         // @include mq($until: phablet) {
         //     font-size: 80px;
