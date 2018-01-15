@@ -100,6 +100,13 @@ $mq-breakpoints: (
             &, &:hover {
                 text-decoration: none;
             }
+            @include mq(desktop) {
+                &:hover {
+                    span {
+                        border-bottom: 1px solid rgba(#121212, .5);
+                    }
+                }
+            }
             .eyes {
                 display: inline-block;
                 font-size: 0;
