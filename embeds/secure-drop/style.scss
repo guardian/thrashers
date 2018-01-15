@@ -61,6 +61,11 @@ $mq-breakpoints: (
             &:after {
                 display: none;
             }
+            &, &:hover {
+                text-decoration-skip: ink;
+                -webkit-text-decoration-skip: ink;
+                -moz-text-decoration-skip: ink;
+            }
         }
         &__roundel {
             float: right;
