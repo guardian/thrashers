@@ -11,6 +11,12 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+
+.userhelp-feedback__wrapper .userhelpfeedback__title:after{
+    display:none
+}
+
+
 #userhelp-feedback.fc-container--thrasher {
     background: #FFF280;
     .fc-item {
@@ -50,6 +56,11 @@ $mq-breakpoints: (
                 top: 0;
                 left: 20px;
             }
+            &:hover{
+                text-decoration-skip:ink;
+                -webkit-text-decoration-skip:ink;
+                -moz-text-decoration-skip:ink
+            }
         }
         &__roundel {
             float: right;
@@ -67,7 +78,7 @@ $mq-breakpoints: (
         &__main {
             display: block;
             font-size: 24px;
-            line-height: 26px;
+            line-height: 32px;
             font-weight: 600;
             padding-top: 1px;
             padding-bottom: 18px;
@@ -79,8 +90,15 @@ $mq-breakpoints: (
             @include mq(leftCol) {
                 margin-top: 3px;
             }
-            &, &:hover {
+            &,&:hover{
                 text-decoration: none;
+            }
+            div {
+                padding-bottom: 3px;
+
+                &:hover{
+                    border-bottom:1px solid rgba(18,18,18,.5)
+                }
             }
             .cta {
                 display: inline;
@@ -99,7 +117,8 @@ $mq-breakpoints: (
                 background-color: #fff;
 
 
-                border: 1px solid #ececec;
+                border: 1px solid #fff;
+
                 svg {
                     height: 100%;
                     width: 100%;
