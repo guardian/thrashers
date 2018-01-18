@@ -12,9 +12,9 @@ $mq-breakpoints: (
 @import 'shared/_imports';
 
 #userhelp-feedback.fc-container--thrasher {
-    background: #003559;
+    background: #FFF280;
     .fc-item {
-        background: #00456E;
+        background: #FFE500;
     }
 }
 .userhelp-feedback__wrapper {
@@ -23,7 +23,7 @@ $mq-breakpoints: (
         width: 100%;
     }
     .userhelpfeedback {
-        color: #F6F6F6;
+        color: #000000;
         max-width: 620px;
         margin: 0 auto;
         @include mq(mobileLandscape) {
@@ -42,7 +42,7 @@ $mq-breakpoints: (
         &__title {
             display: inline-block;
             padding-top: 2px;
-            color: #4BC6DF;
+            color: #000000;
             float: none;
             width: auto;
             @include mq(leftCol) {
@@ -86,30 +86,35 @@ $mq-breakpoints: (
                 display: inline;
             }
             .btn {
-                display: inline-block;
-                vertical-align: top;
+
+
+                vertical-align: middle;
                 position: relative;
-                top: 1px;
+                top: -1px;
                 line-height: 30px;
-                width: 24px;
-                height: 24px;
+                width: 26px;
+                height: 26px;
+                display: inline-block;
                 border-radius: 100%;
+                background-color: #fff;
+
+
                 border: 1px solid #ececec;
                 svg {
                     height: 100%;
                     width: 100%;
                     display: block;
                     path {
-                        fill: #ececec;
+                        fill: #000000;
                     }
                 }
             }
             &:hover {
                 .btn {
-                    background-color: #4BC6DF;
+                    background-color: #000000;
                     border-color: transparent;
                     svg path {
-                        fill: #F6F6F6;
+                        fill: #FFFFFF;
                     }
                 }
             }
