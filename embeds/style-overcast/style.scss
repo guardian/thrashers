@@ -1,0 +1,80 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+section#overcast-style {
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+
+    & + .fc-container,
+    & + .fc-container__mpu--mobile + .fc-container {
+      background-color: #dcdcdc;
+      @include mq($from: leftCol) {
+          margin-top: -12px;
+          padding-top: 0;
+      }
+      .fc-container__header__title {
+          color: #197caa;
+      }
+
+      .fc-item {
+          background-color: #484f53;
+      }
+
+      .u-faux-block-link--hover {
+          background-color: darken(#484f53 , 10%);
+      }
+
+      .fc-item__link:visited, .fc-sublink__link:visited {
+          color: #f6f6f6;
+      }
+
+      .u-faux-block-link--hover {
+          background-color: darken(#484f53 , 10%);
+      }
+
+      .fc-item__title--quoted .inline-quote {
+          fill:#f6f6f6;
+      }
+
+      .fc-item__title {
+          color: white;
+      }
+
+      .fc-item__byline {
+          color: #ff9b0b;
+      }
+
+      .fc-item__standfirst {
+          color: white;
+      }
+
+      .tone-news--item .fc-item__title .fc-item__kicker {
+        color: #4BC6DF;
+      }
+      .tone-feature--item .fc-item__kicker:after {
+        color: rgba(255,255,255,0.5);
+      }
+
+      .fc-item__meta .inline-icon {
+        fill: #ececec;
+      }
+      .u-faux-block-link .fc-item a {
+        color: #ececec;
+      }
+
+    }
+
+}
