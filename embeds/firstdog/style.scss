@@ -1,0 +1,376 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+
+
+.firstdog__wrapper {
+
+  width: 100%;
+  position: relative;
+  color: #F6F6F6;
+  font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: 200;
+  overflow: hidden;
+  cursor: pointer;
+
+
+  #animation_station {
+    width: 100%;
+    background-color: #197caa;
+    overflow: hidden;
+    z-index: 1
+  }
+
+  #editorial_platform {
+    background-repeat: no-repeat;
+    background-position: center top 70px; 
+    z-index: 100000001;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+
+
+  @media all and (max-width:29.99em) {
+    #editorial_platform {
+      background-color: #94b1ca;
+      background-size: 95%;
+      position: relative;
+
+    }
+
+  }
+
+
+  @media all and (min-width:30em) and (max-width:49.99em) {
+    #editorial_platform {
+      background-color: #94b1ca;
+      background-size: 80%;
+      position: relative;
+    }
+
+  }
+
+
+  @media all and (min-width:50em) and (max-width:69.99em) {
+    #editorial_platform {
+      position: absolute;
+      top: 0px;
+      background-size: 460px;
+    }
+
+  }
+
+
+  @media all and (min-width:70em) {
+    #editorial_platform {
+      position: absolute;
+      top: 0px;
+      background-size: 600px;
+    }
+
+  }
+
+  @media all and (max-width:19.99em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:20em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:25em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:30em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:36.25em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:41.25em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:51.25em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:61.25em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:71.25em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  @media all and (min-width:81.25em) {
+    #animation_station {
+      height: 200px;
+    }
+  }
+
+  .branding {
+    position: absolute;
+    top: 8px;
+    right: 22px;
+    width: 70px;
+    height: 70px
+  }
+
+  .branding svg {
+    width: 100%;
+    height: 100%
+  }
+
+  .brenda {
+    position: absolute;
+    left: 0px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 180px;
+    overflow: hidden;
+    z-index: 1000;
+
+  }
+
+
+  @media all and (max-width:59.99em) {
+    .brenda {
+      width: 200px;
+    }
+  }
+
+  @media all and (min-width:60em) {
+    .brenda {
+      width: 300px;
+    }
+  }
+
+
+
+  @keyframes penguin {
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    50%{
+      transform: translate3d(-5px, 0, 0);
+    }
+    100%{
+      transform: translate3d(0, 0, 0);
+    }
+
+  }
+
+  .support_the_guardian {
+    background-repeat: no-repeat;
+    z-index: 10001;
+  }
+
+
+  @media all and (max-width:49.99em) {
+    .support_the_guardian {
+      width: 250px;
+      height: 60px;
+      margin: auto;
+      z-index: 100;
+      background-position: center;
+      padding-top: 30px;
+    }
+  }
+
+  @media all and (min-width:50em) and (max-width:69.99em) {
+    .support_the_guardian {
+      width: 400px;
+      height: 50px;
+      background-position: center;
+      margin: auto;
+      margin-top: 20px;
+      z-index: 100;
+    }
+  }
+
+
+  @media all and (min-width:70em) {
+    .support_the_guardian {
+      width: 500px;
+      height: 60px;
+      background-position: center;
+      margin: auto;
+      margin-top: 20px;
+      z-index: 100;
+    }
+  }
+
+
+  #m1 {
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .sliding-background {
+    height: 200px;
+    background: repeat-x;
+    width: 5076px;
+    opacity: 0.7;
+    animation: slide 60s linear infinite;
+  }
+
+
+  .bg-img {
+    width: 100%;
+    height: 200px;
+    z-index: 99;
+    position: absolute
+  }
+
+  .bg-img:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .9
+  }
+
+  @media all and (min-width:46.25em) {
+    .bg-img:before {
+      background-image: linear-gradient(to right, #197caa, transparent);
+    }
+  }
+
+
+
+
+  @keyframes slide {
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-1692px, 0, 0);
+    }
+  }
+
+
+
+  #m2 {
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    display: none;
+    animation: fishie 5s ease-in-out infinite alternate;
+  }
+
+
+  @media all and (max-width:59.99em) {
+    #m2 {
+      background-position: bottom 20px right 10px;
+    }
+  }
+
+  @media all and (min-width:60em) {
+    #m2 {
+      background-position: center right 90px;
+    }
+  }
+
+
+  @keyframes fishie {
+    0%{
+      transform: translate3d(0, -250px, 0);
+    }
+    40%{
+      transform: translate3d(0, 0px, 0);
+    }
+
+    100%{
+      transform: translate3d(0, 0px, 0);
+    }
+
+  }
+
+
+  #m3 {
+    position: absolute;
+    right: 0px;
+    width: 300%;
+    height: 200px;
+    overflow: hidden;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position: bottom right 60px;
+    display: none;
+    animation: pizza 5s infinite;
+  }
+
+
+  @media all and (max-width:59.99em) {
+    #m3 {
+      background-position: bottom right 20px;
+    }
+  }
+
+  @media all and (min-width:60em) {
+    #m3 {
+      background-position: bottom right 60px;
+    }
+  }
+
+
+  @keyframes pizza {
+    0%{
+      transform: translate3d(0, 50px, 0);
+    }
+    100%{
+      transform: translate3d(0, 0px, 0);
+    }
+
+  }
+
+}
+

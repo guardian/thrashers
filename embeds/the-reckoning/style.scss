@@ -415,9 +415,9 @@ $mq-breakpoints: (
 }
 @media all and (min-width:81.25em) {
 
-  .marr {
-    left: -30px;
-  }
+    .marr {
+      left: -30px;
+    }
 
 }
 
@@ -558,9 +558,17 @@ $mq-breakpoints: (
 .has-active-pageskin .the-reckoning__wrapper .foreground {
   padding-left: 20px
 }
+
 @media (min-width:81.25em) {
   .has-active-pageskin .the-reckoning__wrapper {
-    height: 240px;
-    width: 100%;
+
+    .hands {
+      display: none;
+    }
+
+    .marr {
+      right: 100px;
+    }
+
   }
 }
