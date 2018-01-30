@@ -426,7 +426,7 @@ $mq-breakpoints: (
 	margin-top: 5px;
 	margin-bottom: 5px;
 	font-family: 'Guardian Text Egyptian Web';
-	line-height: 1.2rem;
+	line-height: 1.1rem;
 	color: #333333
 }
 .wbl__wrapper .this_wide_brown_land a:link {
@@ -530,12 +530,12 @@ $mq-breakpoints: (
 		display: none
 	}
 	.wbl__wrapper .fc-container__description {
-		font-size: 0.9rem
+		font-size: 0.8rem
 	}
 }
 @media all and (min-width: 61.25em) {
 	.wbl__wrapper .this_wide_brown_land span {
-		padding: 5px;
+		padding: 2px;
 		background-color: #ffe500;
 		display: inline-block;
 		margin-bottom: 5px
@@ -642,6 +642,22 @@ $mq-breakpoints: (
 .wbl__wrapper .wbl__label--goal {
 	right: 0
 }
+
+.wbl__wrapper .wbl__label--middle {
+	  width: 100%;
+      text-align: center;
+}
+
+.wbl__wrapper .wbl__filled-middle {
+	  background-color: black;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      right: 0;
+      bottom: 0;
+}
+
 .wbl__wrapper a.wbl__button {
 	font-family: 'Guardian Sans Web';
 	font-size: 14px;

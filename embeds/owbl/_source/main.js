@@ -43,6 +43,7 @@ function loadJSON(path, success, error) {
 
 function populateText() {
     document.getElementsByClassName('owbl__label--goal')[0].innerHTML = '$' + toK(goal) + ' goal';
+    document.getElementsByClassName('owbl__label--middle')[0].innerHTML = '$' + toK(goal / 2);
 }
 
 function toK(val) {

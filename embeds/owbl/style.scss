@@ -426,7 +426,7 @@ $mq-breakpoints: (
 .owbl__wrapper .fc-container__description {
     font-size: 0.9rem;
     font-family:'Guardian Text Egyptian Web';
-    line-height: 1.1rem;
+    line-height: 1rem;
     color: #333333;
 }
 .owbl__wrapper .this_wide_brown_land a:link {
@@ -537,7 +537,7 @@ $mq-breakpoints: (
 	.owbl__wrapper .this_wide_brown_land span {
 		padding-left: 5px;
 		padding-right: 5px;
-		padding-top: 5px;
+		padding-top: 2px;
 		background-color: #ffe500;
 		display: inline-block;
 		margin-bottom: 10px;
@@ -595,6 +595,9 @@ $mq-breakpoints: (
 .owbl__wrapper .owbl__goal {
 	margin-bottom: 4px
 }
+
+
+
 .owbl__wrapper .owbl__count {
 	font-family: 'GHGuardianHeadline-Bold';
 	font-weight: 800;
@@ -644,6 +647,22 @@ $mq-breakpoints: (
 .owbl__wrapper .owbl__label--goal {
 	right: 0
 }
+
+.owbl__wrapper .owbl__label--middle {
+	  width: 100%;
+      text-align: center;
+}
+
+.owbl__wrapper .owbl__filled-middle {
+	  background-color: black;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      right: 0;
+      bottom: 0;
+}
+
 .owbl__wrapper a.owbl__button {
 	font-family: 'Guardian Sans Web';
 	font-size: 14px;
