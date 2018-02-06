@@ -1,0 +1,31 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#tech-special-style {
+    display: none;
+}
+
+section#weekend-technology-special {
+  .fc-container__inner:after {
+    content: '';
+    display: block;
+    width: 111px;
+    height: 44px;
+    background-image: url(@@assetPath@@/techspecial.svg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 12px;
+    bottom: 28px;
+  }
+}

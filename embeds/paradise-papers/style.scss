@@ -1,0 +1,254 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+// section#pp {
+//     background: #5c717b;
+//
+//     .tone-news--item.fc-item {
+//         background: #5c717b;
+//     }
+// }
+
+.paradise-papers__background {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    z-index: 0;
+    background-color: #fff;
+    bottom: 0px;
+    transform: translateY(14px);
+    display: none;
+
+    @include mq($from: tablet) {
+        display: block;
+    }
+}
+
+.paradise-papers__wrapper {
+    padding-top: 12px;
+    padding-bottom: 14px;
+    position: relative;
+    overflow: hidden;
+    background: #5c717b;
+
+    @include mq($from: tablet) {
+        width: 740px;
+        overflow:visible;
+    }
+
+    @include mq($from: desktop){
+        width: 980px;
+    }
+    @include mq($from: leftCol){
+        width: 1140px;
+    }
+    @include mq($from: wide){
+        width: 1300px;
+    }
+
+    &:after {
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        z-index: 0;
+        background-color: white;
+    }
+}
+
+.paradise-papers__logo {
+    width: 85px;
+    height: 85px;
+    z-index: 100;
+    float: left;
+    margin-left: 10px;
+
+    svg {
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+
+    @include mq($from: tablet) {
+        margin-left: 20px;
+    }
+
+    @include mq($from: desktop) {
+        width: 120px;
+        height: 120px;
+    }
+
+    @include mq($from: wide){
+        width: 160px;
+        height: 160px;
+    }
+}
+
+.paradise-papers__image {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+   filter: grayscale(100%);
+    margin-top: 10px;
+    margin-bottom: -10px;
+    position: relative;
+    z-index: 10;
+
+    img {
+        width: 100%;
+        height: auto;
+
+        @include mq($from: tablet){
+            object-position: center;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @include mq($from: tablet){
+        max-height: 300px;
+        overflow: hidden;
+        width: 540px;
+    }
+
+    @include mq($from: desktop) {
+        width: 630px;
+    }
+
+    @include mq($from: desktop){
+        max-height: 600px;
+    }
+}
+
+.paradise-papers__description {
+    background-color: #ffd900;
+    width: 64%;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+    margin-bottom: 12px;
+    position: relative;
+
+    @include mq($from: tablet) {
+        position: absolute;
+        float: none;
+        bottom: 30px;
+        left: 50px;
+        z-index: 100;
+        width: 232px;
+    }
+
+    @include mq($from: desktop) {
+        left: 90px;
+    }
+
+    @include mq($from: leftCol) {
+        left: 68px;
+    }
+
+    @include mq($from: leftCol) {
+        left: 130px;
+    }
+
+    @include mq($from: wide) {
+        left: 200px;
+        width: 270px;
+    }
+}
+
+.paradise-papers__headline {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border: 2px solid black;
+    position: relative;
+    z-index: 1000;
+    color: black;
+
+    a {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1000 !important;
+    }
+
+    &:before {
+        content: 'Revealed';
+        color: #fff;
+        background-color: #005689;
+        padding-top: 3px;
+        padding-left: 6px;
+        padding-bottom: 6px;
+        padding-right: 6px;
+        font-family: $f-serif-headline;
+        font-weight: 900;
+        position: absolute;
+        top: -40px;
+    }
+
+    @include mq($from: tablet) {
+        position: absolute;
+        right: 20px;
+        top: 130px;
+        width: 230px;
+    }
+
+    @include mq($from: desktop) {
+        width: 360px;
+    }
+
+    @include mq($from: wide) {
+        right: 80px;
+    }
+
+    h1 {
+        font-family: $f-serif-headline;
+        line-height: 22px;
+        font-size: 20px;
+        font-weight: 400;
+
+        @include mq($from: desktop){
+            font-size: 30px;
+            line-height: 32px;
+        }
+    }
+
+    svg {
+        display: inline;
+        margin-top: 9px;
+    }
+}
+
+.paradise-papers__description--inner {
+    padding: 6px;
+    background-color: white;
+    border: 2px solid black;
+    font-weight: 900;
+    font-family: $f-serif-headline;
+    line-height: 16px;
+    font-size: 14px;
+    transform: translate(-10px, -10px);
+    color: black;
+}
+
+.paradise-papers__headline--inner {
+    background-color: #ffd900;
+    padding: 6px;
+    transform: translate(-10px,-10px);
+}

@@ -1,0 +1,61 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+@include base(about-header, #005689);
+
+
+.about--header {
+    background-color: #005689;
+    width: 100%;
+
+    @include mq($from: tablet) {
+        width: 740px;
+    }
+
+    @include mq($from: desktop) {
+        width: 980px;
+    }
+
+    @include mq($from: leftCol) {
+        width: 1140px;
+    }
+
+    @include mq($from: wide) {
+        width: 1300px;
+    }
+}
+
+.abour--header-left {
+    h1 {
+        color: white;
+        font-family: $f-serif-headline;
+
+        @include mq($from: desktop) {
+            margin-left: 20px;
+        }
+    }
+}
+
+.about--header-right {
+    width: 100%;
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+
+    @include mq($from: desktop) {
+        margin-left: auto;
+        width: 720px;
+    }
+}

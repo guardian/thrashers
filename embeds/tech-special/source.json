@@ -1,0 +1,8 @@
+{
+  "html": "<div class=\"tech-special__wrapper\"><style>section#tech-special-style{display:none}section#weekend-technology-special .fc-container__inner:after{content:'';display:block;width:111px;height:44px;background-image:url(https://interactive.guim.co.uk/thrashers/tech-special/hashed/techspecial.95566fbc.svg);background-size:100% 100%;background-repeat:no-repeat;position:absolute;left:12px;bottom:28px}</style><span></span>\n</div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com/uk",
+  "headline": "Tech special",
+  "trailText": "Latest news, sport and comment from the Guardian"
+}

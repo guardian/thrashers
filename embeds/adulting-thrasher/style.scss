@@ -1,0 +1,205 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.g-roundel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.adulting-thrasher__wrapper {
+    background-color: #10347a;
+    height: 340px;
+    position: relative;
+    overflow: hidden;
+
+    @include mq($from: tablet) {
+        width: 740px;
+    }
+    @include mq($from: desktop) {
+        width: 980px;
+        height: 280px;
+    }
+    @include mq($from: leftCol) {
+        width: 1140px;
+    }
+    @include mq($from: wide) {
+        width: 1300px;
+    }
+}
+
+
+.adulting-thrasher__sponsorship {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    width: 100px;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.adulting-trasher__paid {
+    color: white;
+    font-family: $f-sans-serif-text;
+    font-size: 14px;
+    background-color: #145d46;
+    padding-left: 6px;
+    font-weight: 900;
+}
+
+.adulting-thrasher__headline {
+    position: relative;
+    z-index: 10;
+    width: 220px;
+    padding-left: 10px;
+    padding-top: 10px;
+
+    @include mq($from: tablet) {
+        width: 330px;
+    }
+
+    @include mq($from: desktop) {
+        width: 400px;
+        margin-left: 160px;
+        padding-top: 30px;
+    }
+
+    @include mq($from: leftCol) {
+        margin-left: 240px;
+    }
+
+    h3 {
+        font-size: 18px;
+        color: white;
+        line-height: 18px;
+        font-family: $f-serif-headline;
+        color: #f5b50b;
+        font-weight: 900;
+    }
+
+    h1 {
+        font-size: 22px;
+        color: white;
+        line-height: 22px;
+        font-family: $f-serif-headline;
+        color: #ff7fa7;
+
+        @include mq($from: tablet) {
+            font-size: 26px;
+            line-height: 26px;
+        }
+
+        @include mq($from: desktop) {
+            font-size: 36px;
+            line-height: 36px;
+        }
+    }
+    h2 {
+        font-size: 22px;
+        color: white;
+        line-height: 22px;
+        font-family: $f-serif-headline;
+
+        @include mq($from: tablet) {
+            font-size: 26px;
+            line-height: 26px;
+        }
+
+        @include mq($from: desktop) {
+            font-size: 20px;
+            line-height: 22px;
+            margin-left: 70px;
+            margin-top: 12px;
+        }
+    }
+}
+
+.adulting-thrahser__image {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+
+    img {
+        width: 105%;
+        height: auto;
+        margin-left: auto;
+        display: block;
+        margin-top: -50px;
+        margin-left: 180px;
+
+        @include mq($from: mobileLandscape) {
+            margin-left: auto;
+            width: 56%;
+        }
+
+        @include mq($from: desktop) {
+            width: 42%;
+        }
+
+        @include mq($from: wide) {
+            margin-top: -100px;
+        }
+    }
+}
+
+.adulting-thrasher__cta {
+    font-size: 16px;
+    color: white;
+    line-height: 19px;
+    font-family: $f-serif-headline;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 8px;
+    right: 0px;
+
+    @include mq($from: desktop) {
+        right: auto;
+        left: 160px;
+    }
+    @include mq($from: leftCol) {
+        right: auto;
+        left: 240px;
+    }
+
+
+    a {
+        border: 1px solid #fff;
+        margin-bottom: 4px;
+        margin-top: 4px;
+        padding: 4px 8px 4px 8px;
+        border-radius: 22px;
+        display: inline-block;
+        font-family: $f-sans-serif-text;
+        font-size: 14px;
+        margin-right: 5px;
+
+        &:hover {
+            text-decoration: none;
+            background-color: white;
+            color: #10347a;
+        }
+    }
+}
