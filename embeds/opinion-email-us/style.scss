@@ -10,263 +10,166 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
-$comment-support-4: #e6711b;
-
+$comment-support-4: #ec6407;
 $gs-baseline: 12px;
 
-
 @import 'shared/_imports';
+@include base(opinion-email-us, #2d3f80);
 
-#opinion-email-us {
-  .tone-news--item.fc-item {
-    border-top: 1px solid #46bcdf;
-    background-color: #ffffff;
-    padding-top: $gs-baseline;
-  }
-}
-
-#opinion-email-us.fc-container--thrasher {
-  background-color: transparent;
-}
-
-#opinion-email-us-wrapper {
-
-  .opinion-link-us {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2000;
-
-    &:hover {
-      .cta__button {
-           background-color: darken($comment-support-4, 10%);
-           border-color: darken($comment-support-4, 10%);
-           color: #ffffff;
-
-           svg {
-             fill: #ffffff;
-           }
-         }
-      }
-
-
-    .cta__button {
-      position: absolute;
-      left: 18px;
-      bottom: 8px;
-      background-color: $comment-support-4;
-      border-color: $comment-support-4;
-      color: inherit;
-      height: 36px;
-      font-size: 14px;
-      line-height: 40px;
-      display: block;
-      width: 120px;
-      color: #ffffff;
-      padding-left: 16px;
-      padding-right: 8px;
-
-      @include mq($from: tablet) {
-        height: 40px;
-        width: 160px;
-        bottom: $gs-baseline;
-        left: 26px;
-      }
-
-      .arrow-icon {
-        height: auto;
-        width: auto;
-        float: right;
-        padding-top: 3px;
-        fill: #ffffff;
-      }
-    }
-  }
-
-  .container {
+.opinion-email-us__wrapper {
     position: relative;
     height: 300px;
     border-top: 1px solid $comment-support-4;
     overflow: hidden;
 
-    @include mq($from: phablet) {
-      height: 270px;
-    }
+    .opinion-link-us {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2000;
 
-    @include mq($from: tablet) {
-      margin-left: 20px;
-      width: 698px;
-    }
+        &:hover {
+            .opinion-email-us__button {
+                background-color: darken($comment-support-4, 5%);
+            }
 
-    @include mq($from: desktop) {
-      width: 940px;
-    }
-
-    @include mq($from: leftCol) {
-      width: 1100px;
-    }
-
-    @include mq($from: wide) {
-      width: 1180px;
+            .arrow-icon {
+                transform: translateX(3px);
+            }
+        }
     }
 
     .video {
-      video {
-        position: absolute;
-        max-height: 180px;
-        left: -280px;
-        top: -10px;
+        video {
+            position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            left: -280px;
+            top: 0;
 
-        @include mq($from: mobileMedium) {
-          left: -252px;
-        }
+            @include mq(mobileMedium) {
+                left: -252px;
+            }
 
-        @include mq($from: mobileLandscape) {
-          left: -148px;
-        }
+            @include mq(mobileLandscape) {
+                left: -148px;
+            }
 
-        @include mq($from: phablet) {
-          top: 0px;
-          max-height: 270px;
-          left: -60px;
-        }
+            @include mq(phablet) {
+                top: 0px;
+                left: -60px;
+            }
 
-        @include mq($from: tablet) {
-          left: 0px;
+            @include mq(tablet) {
+                left: 0px;
+            }
         }
-
-        @include mq($from: desktop){
-          max-height: 100%;
-        }
-      }
     }
 
     &__image {
-      height: 300px;
-      width: 100%;
-      background-image: url('@@assetPath@@/opinion-email-mobile.svg');
-      position: absolute;
-      z-index: -10;
-      background-color: #1d265d;
-      background-repeat: no-repeat;
+        height: 300px;
+        width: 100%;
+        background-image: url('@@assetPath@@/opinion-email-mobile.svg');
+        position: absolute;
+        z-index: -10;
+        background-color: #1d265d;
+        background-repeat: no-repeat;
+        background-size: 1080px;
+        background-position: -368px -10px;
 
-      background-size: 1080px;
-      background-position: -368px -10px;
+        @include mq(phablet) {
+            height: 270px;
+            background-size: 1600px;
+            background-position: -380px -10px;
+        }
 
+        @include mq(tablet) {
+            background-image: url('@@assetPath@@/opinion-email.svg');
+            background-position: -148px 0px;
+        }
 
-      @include mq($from: phablet) {
-        height: 270px;
-        background-size: 1600px;
-        background-position: -380px -10px;
-      }
-
-      @include mq($from: tablet) {
-        background-image: url('@@assetPath@@/opinion-email.svg');
-        background-position: -148px 0px;
-
-      }
-
-      @include mq($from: desktop){
-        background-size: 1600px;
-        background-position: -148px 0px;
-      }
+        @include mq(desktop){
+            background-size: 1600px;
+            background-position: -148px 0px;
+        }
     }
-  }
+}
 
-  .guardian__roundel {
-    right: 18px;
-    top: 18px;
+.opinion-email-us__button {
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+    background-color: $comment-support-4;
+    font-size: 16px;
+    line-height: 36px;
+    width: 120px;
+    color: #ffffff;
+    padding-left: 12px;
+    padding-right: 6px;
+    z-index: 2;
+    border-radius: 32px;
+    font-family: 'Guardian Text Sans Web';
+
+    @include mq(mobileLandscape) {
+        left: 20px;
+    }
+
+    @include mq(tablet) {
+        width: 160px;
+        bottom: 12px;
+    }
+
+    .arrow-icon {
+        height: 32px;
+        width: 32px;
+        float: right;
+        padding-top: 3px;
+        fill: #ffffff;
+        transition: transform 0.2s ease-out;
+    }
+}
+
+.guardian__roundel {
+    right: 10px;
+    top: 12px;
     position: absolute;
     display: block;
     z-index: 100;
-    opacity: 0.8;
 
-    @include mq($from: tablet){
-      right: 30px;
+    @include mq(mobileLandscape) {
+        right: 20px;
     }
 
-    @include mq($from: wide) {
-      right: 106px;
+    svg {
+        width: 40px;
+        height: 40px;
     }
-  }
+}
 
-  .logo {
+.opinion-email-us__content {
     position: absolute;
-    bottom: 86px;
-    left: 18px;
+    top: 12px;
+    left: 10px;
+    bottom: 0;
+    width: 40%;
+    max-width: 300px;
 
-    @include mq($from: phablet) {
-      top: 18px;
+    @include mq(mobileLandscape) {
+        left: 20px;
     }
+}
 
-    @include mq($from: tablet) {
-        top: 24px;
-        left: 26px;
+.opinion-email-us__copy {
+    margin: 0;
+    color: #fff;
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.2;
 
-        svg {
-          height: 38px;
-          width: 375px;
-        }
+    @include mq(desktop) {
+        font-size: 18px;
     }
-
-  }
-
-
-  .text {
-    color: #ffffff;
-
-    .mobile-heading {
-      @include mq($from: tablet) {
-        display: none;
-      }
-
-    }
-
-    &__intro {
-      @include fs-header(2);
-      font-size: 16px;
-      line-height: 18px;
-      position: absolute;
-      bottom: 56px;
-      left: 18px;
-      width: 60%;
-
-      @include mq($from: mobileLandscape) {
-        max-width: 38%;
-      }
-
-      @include mq($from: phablet) {
-        top: 54px;
-        max-width: 220px;
-      }
-
-      @include mq($from: tablet) {
-          @include fs-header(3);
-          top: 60px;
-          left: 26px;
-          width: 80%;
-          min-width: 240px;
-          max-width: 750px;
-      }
-    }
-
-    &__paragraph {
-      @include fs-bodyCopy(2);
-      position: absolute;
-      top: 92px;
-      left: $gs-baseline;
-      width: 80%;
-      min-width: 240px;
-      max-width: 360px;
-      display: none;
-
-      @include mq($from: tablet) {
-        display: block;
-        left: 26px;
-        width: 22%;
-      }
-    }
-  }
 }
