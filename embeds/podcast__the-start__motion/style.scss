@@ -18,11 +18,13 @@ $background-colour: #F0C0C9;
     width: 100%;
 }
 
-section#the-start {
+section#the-start,
+section#the-start-podcast {
     background-color: $background-colour;
 }
 
 .the-start-thrasher {
+    color: #121212;
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     position: relative;
     margin: 0 -10px;
@@ -104,7 +106,7 @@ section#the-start {
         display: inline-block;
         border-radius: 36px;
         line-height: 32px;
-        padding: 3px 40px 1px 18px;
+        padding: 3px 40px 1px 16px;
         transition: all 160ms;
         border: 1px solid rgba(#121212,.5);
         background-color: rgba($background-colour,.05);
@@ -180,23 +182,40 @@ section#the-start {
         z-index: -1;
         background-color: $background-colour;
 
-
+        &--inner {
+            position: relative;
+            @include mq(tablet) {
+                right: 254px;
+            }
+            @include mq(desktop) {
+                right: 420px;
+            }
+        }
         .the-start-thrasher__circ {
-
+            position: absolute;
         }
 
-        #the-start-thrasher__circ__top,
+        .the-start-thrasher__circ__top {
+            top: -150px;
+            right: -160px;
+        }
+        #the-start-thrasher__circ__top_a {
+            z-index: 1;
+        }
+        #the-start-thrasher__circ__top_b {
+            mix-blend-mode: multiply;
+            z-index: 3;
+        }
         #the-start-thrasher__circ__bottom {
-
-        }
-        #the-start-thrasher__circ__top {
-
-        }
-        #the-start-thrasher__circ__bottom {
-
+            top: 73px;
+            right: -46px;
+            z-index: 2;
         }
         #the-start-thrasher__circ__middle {
-
+            top: 51px;
+            right: -12px;
+            z-index: 4;
+            transform: scale(0.33);
         }
 
 
