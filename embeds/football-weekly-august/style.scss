@@ -7,7 +7,8 @@ desktop: 980px,
 leftCol: 1140px,
 wide: 1300px);
 
-$c-background: #A7C91A;
+$c-background: #00b2ff;
+$c-background-circles: ;
 
 @import 'shared/_imports';
 
@@ -17,7 +18,7 @@ $c-background: #A7C91A;
 }
 
 section#football-weekly.fc-container--thrasher {
-    background-color: #A7C91A;
+    background-color: $c-background;
     .fc-container__inner {
         overflow: visible;
 
@@ -41,7 +42,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
 
 
 #football-daily-euro-2016-podcast-thrasher {
-    background-color: #A7C91A;
+    background-color: $c-background;
     width: auto;
     position: relative;
     padding: 12px;
@@ -50,7 +51,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
     .branding {
         position: absolute;
         top: 8px;
-        left: 22px;
+        right: 22px;
         width: 52px;
         height: 33px;
         svg {
@@ -61,7 +62,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
 
     .figure img {
         position: absolute;
-        bottom: 11px;
+        top: 10px;
         right: 16%;
         z-index: 99999;
     }
@@ -115,6 +116,12 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
             &:hover {
                 opacity: 0.95;
             }
+
+            svg {
+                path {
+                    fill: #121212;
+                }
+            }
         }
     }
     &[data-playing] .player {
@@ -130,7 +137,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
 
     .episode-info {
         // position: absolute;
-        width: 300px;
+        width: 310px;
         margin-top: -5px;
         margin-left: 240px;
         position: relative;
@@ -154,7 +161,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
                 font-size: 16px;
                 line-height: 16px!important;
                 font-weight: lighter;
-                color: #333;
+                color: #121212;
             }
         }
     }
@@ -170,10 +177,10 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
         padding-right: 30px;
         margin: 5px 0 15px;
         border-radius: 15px;
-        // background-color: #333;
-        color: #333;
+        // background-color: #121212;
+        color: #121212;
         text-decoration: none;
-        border: solid .55px #333;
+        border: solid .55px #121212;
         font-family: 'Guardian Text Sans Web';
         .episode-info__arrow {
             position: absolute;
@@ -187,15 +194,15 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
             }
         }
         #right-arrow {
-            fill: #333;
+            fill: #121212;
         }
         &:hover {
-            background-color: #333;
-            color: #A7C91A;
+            background-color: #121212;
+            color: $c-background;
             text-decoration: none;
-            border: solid 1px #333;
+            border: solid 1px #121212;
             #right-arrow {
-                fill: #A7C91A;
+                fill: $c-background;
             }
         }
     }
@@ -266,7 +273,7 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
             }
         }
         &__yellow circle {
-            stroke: #333;
+            stroke: #121212;
         }
         &__blue circle {
             stroke: #97AC21;
@@ -279,8 +286,8 @@ section#football-weekly a.fc-trail__count.fc-trail__count--commentcount {
             fill: #97AC21;
         }
         &__disc-yellow circle {
-            stroke: #333;
-            fill: #333;
+            stroke: #121212;
+            fill: #121212;
         }
         &__disc-white circle {
             stroke: #fff;
