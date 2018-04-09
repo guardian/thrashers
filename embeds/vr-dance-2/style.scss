@@ -1,0 +1,383 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: ( mobile: 320px,
+mobileSneaky: 375px,
+mobileLandscape: 480px,
+phablet: 660px,
+tablet: 740px,
+desktop: 980px,
+leftCol: 1140px,
+wide: 1300px);
+
+@import 'shared/_imports';
+
+
+@include base(close-encounters-header, #240D12);
+#virtual-reality {
+    padding-top: 0;
+}
+
+
+#virtual-reality.fc-container {
+    overflow: hidden;
+    background: #222;
+    .facia-snap {
+        overflow: hidden;
+        @include mq($until: leftCol) {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+}
+
+
+.vr-dance-2__wrapper {
+    width: 100%;
+    background: #000;
+    background-image: url('@@assetPath@@/bg6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -800px 0!important;
+
+    @include mq(phablet) {
+      background-image: url('@@assetPath@@/bg6.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: -200px 0!important;
+    }
+
+    @include mq(desktop) {
+        background-position: -180px 0!important;
+    }
+
+    @include mq(leftCol) {
+        background-position: -60px 0!important;
+    }
+    @include mq(wide) {
+        background-position: 40px 0!important;
+    }
+}
+
+#close-encounters-header-inner {
+    position: relative;
+    height: 160px;
+    width: 100%;
+    @include mq($until: desktop) {
+        height: 160px;
+    }
+    @include mq($until: phablet) {
+        height: 250px;
+    }
+
+    font-family: 'Guardian Egyptian Web',
+    serif;
+    color: #fff;
+    .logo ,
+    .logo h2 {
+        position: absolute;
+        top: 0px;
+        left: 5px;
+        font-size: 20px;
+        width: 200px;
+        @include mq(desktop) {
+          font-size: 20px;
+        }
+        @include mq(leftCol) {
+          left: 10px;
+          font-size: 20px;
+        }
+
+        @include mq(wide) {
+          font-size: 24px;
+        }
+
+        // transform-origin: top left;
+        // transform: scale(0.80);
+        // @include mq($until: desktop) {
+        //     transform-origin: top left;
+        //     transform: scale(0.85);
+        // }
+
+        @include mq($until: mobileSneaky) {
+            // transform: scale(0.70);
+        }
+    }
+    .logo-cardboard {
+        position: absolute;
+        bottom: 10px;
+        left: 19px;
+
+        img {
+            width: 45px;
+        }
+        @include mq($until: phablet) {
+            display: none
+        }
+    }
+    .subscribe {
+        width: 232px;
+        position: absolute;
+        left: 980px;
+
+        @include mq($until: wide) {
+            left: 900px;
+            display: block;
+        }
+        @include mq($until: leftCol) {
+            left: 740px;
+            display: block;
+        }
+        @include mq($until: desktop) {
+            left: 560px;
+            width: 200px;
+            transform-origin: top left;
+            transform: scale(0.9);
+            display: block;
+        }
+        @include mq($until: tablet) {
+            left: auto;
+            right: 3px;
+            transform-origin: top left;
+            transform: scale(0.9);
+            display: none;
+        }
+        @include mq($until: phablet) {
+            left: 10px;
+            top: 200px;
+            width: 100%;
+            transform: scale(1);
+            width: 56%;
+            display: block;
+            margin-top: -50px;
+        }
+        @include mq($until: mobileLandscape) {
+            top: 240px;
+            width: 80%;
+            display: block;
+        }
+        @include mq($until: mobileSneaky) {
+            top: 240px;
+            width: 90%;
+            display: block;
+        }
+        top: 5px; // color: #CC8F79;
+        &__headline {
+            color: #D9D5DB;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 20px;
+            padding-bottom: 4px; // color: #F7E4D5;
+            @include mq($until: mobileSneaky) {
+                font-size: 20px;
+                line-height: 15px;
+            }
+        }
+        &__strap {
+            line-height: 20px;
+        }
+        &__option {
+            font-size: 16.5px;
+            font-weight: 700;
+            padding-left: 23px;
+            position: relative;
+            display: block;
+            line-height: 24px;
+            height: 24px;
+            color: #fff;
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 3px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                background-image: url(@@assetPath@@/arrow.svg);
+                background-repeat: no-repeat;
+            }
+        }
+        &__google_play {
+            display: none;
+        }
+    }
+
+    .visible {
+        opacity: 1!important;
+    }
+
+    .hidden {
+        opacity: 0;
+    }
+
+    .invisible {
+        display: none;
+        position: absolute;
+        top: 30px;
+        left: 260px;
+        width: 600px;
+        height: 125px;
+    }
+    .description {
+      .link {
+        font-family: 'Guardian Egyptian Web'!important;
+        font-weight: 700!important;
+        font-size: 16.5px;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        line-height: 24px;
+        height: 24px;
+        color: #FF7F0E;
+        margin-top: 5px;
+        &:hover {
+          text-decoration: none;
+        }
+        &:after {
+            content: '';
+            display: inline-block;
+            position: relative;
+            top: 3px;
+            left: 5px;
+            width: 18px;
+            height: 18px;
+            background-image: url(@@assetPath@@/arrow.svg);
+            background-repeat: no-repeat;
+
+        }
+        position: relative;
+        display: block;
+      }
+        position: absolute;
+        top: 8px;
+        left: 260px;
+        width: 600px;
+        height: 125px;
+        @include mq($until: wide) {
+            left: 180px;
+        }
+        @include mq($until: desktop) {
+            // transform: scale(0.7);
+            transform-origin: top left;
+        }
+        @include mq($until: desktop) {
+            left: 10px;
+            top: 35px;
+            transform: scale(0.95);
+            width: 100%;
+        }
+        @include mq($until: mobileLandscape) {
+            left: 9px;
+            top: 43px;
+            transform: scale(0.84);
+            width: 100%;
+        }
+        @include mq($until: mobileSneaky) {
+            left: 9px;
+            top: 45px;
+            transform: scale(.81);
+            width: 100%;
+        }
+        &__word {
+            position: absolute;
+            font-size: 44px;
+            line-height: 46px;
+            font-family: Guardian Sans Web;
+            margin-top: -5px;
+            font-weight: lighter;
+            z-index: 10;
+            opacity: 0;
+            animation-name: fadeIn;
+            animation-duration: 1800ms;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+        .full-tone {
+            color: #FF7F0E;
+
+            span {
+                color: #fff;
+
+                @include mq($until: mobileLandscape) {
+                    color: #43C6E1;
+                }
+            }
+            .big-link {
+                text-decoration: none;
+            }
+        }
+        .mid-tone {
+            color: #8D8294;
+        }
+        .light-tone {
+            color: #675970;
+        }
+        .visible {
+            .honest {
+                top: 0px;
+                left: 70px;
+                animation-delay: 2000ms;
+                @include mq($until: tablet) {
+                    left: 0px;
+                }
+            }
+            .unguarded {
+                top: 38px;
+                left: 220px;
+                animation-delay: 3300ms;
+                @include mq($until: desktop) {
+                    left: 120px;
+                }
+                @include mq($until: tablet) {
+                    left: 0;
+                }
+            }
+            .conversations {
+                top: 76px;
+                left: 100px;
+                animation-delay: 4300ms;
+                @include mq($until: desktop) {
+                    left: 60px;
+                }
+                @include mq($until: tablet) {
+                    left: 0;
+                }
+            }
+            .about {
+                top: 114px;
+                left: 220px;
+                animation-delay: 5300ms;
+                @include mq($until: desktop) {
+                    left: 120px;
+                }
+                @include mq($until: tablet) {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes connectLogo {
+    0% {
+        left: 9px;
+    }
+    100% {
+        left: -9px;
+    }
+}
+
+@font-face {
+    font-family: 'Guardian Sans Web';
+    src: url('https://interactive.guim.co.uk/fonts/displaysans/fonts/gdnsands1thi-webfont.woff2') format('woff2'),
+    url('https://interactive.guim.co.uk/fonts/displaysans/fonts/gdnsands1thi-webfont.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}

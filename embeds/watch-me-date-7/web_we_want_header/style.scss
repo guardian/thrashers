@@ -1,0 +1,211 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLarge:	 436px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$height: 280px;
+$primary-color:#9bd5e0;
+
+@import 'shared/_imports';
+
+@include base(the-web-we-want, #fff);
+@include base(web-we-want, #fff);
+
+.www-thrasher{
+	
+		&__wrapper{
+			height: $height;
+			width: 1300px;
+			position: relative;
+			overflow: hidden;
+			background: url('@@assetPath@@/background.png');
+			background-position-y: -36px;
+			
+			@include mq($until: wide){
+					width: 1140px;
+				}
+				
+			@include mq($until: leftCol){
+				width: 980px;
+			}
+
+			@include mq($until: desktop){
+					width: 740px;
+				}
+
+			@include mq($until: tablet){
+					width: 100%;
+					height: 190px;
+				}	
+
+			@include mq($until: mobileLandscape){
+					height: 156px;
+				}
+
+			@include mq($until: mobileLarge){
+					height: 148px;
+				}		
+
+				
+		}	
+		
+		
+		&__logo{
+			position: absolute;
+			left: 10px;
+			bottom: 0px;
+
+			@include mq($until: mobileLarge){
+					left: 0px;
+					bottom: 71px;
+				}
+		}
+		
+		&__face{
+				float: left;
+				overflow: hidden;
+
+				img{
+					@include mq($until: phablet){
+					display:block;
+					width: 58px;
+				}
+				}
+		}
+		
+		&__headline{
+			float: left;
+			overflow: hidden;
+			margin-left: 8px;
+
+			img{
+				@include mq($until: phablet){
+					display:block;
+					width: 180px;
+				}
+			}
+		}
+		
+		&__stand{
+			position: absolute;
+			left: 15px;
+			top: 10px;
+			width: 240px;
+
+			@include mq($until: phablet){
+					width: 218px;
+				}	
+
+			@include mq($until: mobileLarge){
+					width: 286px;
+					left: 0px;
+					top: 90px;
+				}	
+			
+			h2{
+				font-family: $f-serif-headline;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 18px;
+				color: #333;
+				
+				&::before{
+					display: block;
+					content: "";
+					height: 12px;
+					background-color: $primary-color;
+					width: 150px;
+					margin-bottom: 6px;
+				}
+			}
+		}
+		
+		&__image-one{
+			position: absolute;
+			right: 51%;
+			top: 0px;
+
+			@include mq($until: wide){
+					right: 36.3%;
+				}	
+
+			@include mq($until: desktop){
+					right: 26.3%;
+					top: -9px;
+				}
+
+			@include mq($until: tablet){
+					right: 7%;
+					top: -6px;
+				}
+
+			@include mq($until: phablet){
+					right: -4%;
+					top: -6px;
+				}	
+
+			@include mq($until: mobileLarge){
+					display:none;
+				}	
+
+			img{
+				@include mq($until: desktop){
+					display:block;
+					width: 280px;
+				}
+
+				@include mq($until: mobileLandscape){
+					display:block;
+					width: 221px;
+				}
+			}		
+
+		}
+		
+		&__image-two{
+			position: absolute;
+		    right: 23.56%;
+			top: 8.4%;
+			
+			@include mq($until: wide){
+					right: 0%;
+				}
+
+			@include mq($until: desktop){
+				right: -22px;
+				top: 27%;
+			}	
+			
+			@include mq($until: tablet){
+					display: none;
+				}	
+
+			img{
+					@include mq($until: desktop){
+					display:block;
+					width: 330px;
+				}
+			}	
+		}
+		
+		&__image-three{
+			position: absolute;
+			right: 0%;
+			
+			@include mq($until: leftCol){
+					right: 36%;
+				}
+			
+			
+			@include mq($until: wide){
+					display: none;
+				}	
+		}
+}		
