@@ -1,0 +1,211 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+#caf-header.fc-container--thrasher {
+  background-color: #3F464A;
+  padding-top: 0;
+  .fc-item {
+      background-color: #3F464A;
+  }
+  @include mq(tablet) {
+    margin-bottom: 32px;
+    overflow: visible;
+    .fc-item,
+    .fc-container__inner {
+      overflow: visible;
+    }
+  }
+}
+
+.cambridge-analytica-files-header__wrapper {
+  width: 100%;
+}
+.caf-header {
+  padding-top: 6px;
+  margin: 0 -10px;
+  position: relative;
+  z-index: 0;
+  
+  background-image: url(https://uploads.guim.co.uk/2018/03/23/Illustration.svg);
+  background-size: 1047px 257px;
+  background-position: 96% -2%;
+  @include mq(mobileLandscape) {
+    background-position: 0% -2%;
+  }
+  @include mq(tablet) {
+    background-image: url(https://uploads.guim.co.uk/2018/03/23/Illustration3.svg);
+    background-position: 82% 15%;
+  }
+  @include mq(desktop) {
+    background-position: 10% 15%;
+  }
+  @include mq(wide) {
+    background-position: 92% 15%;
+    background-repeat: no-repeat;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    background-color: #eff1f2; 
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 42px;
+  }
+  @include mq(tablet) {
+    min-height: 144px;
+    margin: 0;
+    &:after {
+      display: none;
+    }
+  }
+  @include mq(desktop) {
+    height: 170px;
+  }
+
+  &__logo,
+  &__title,
+  &__box {
+    position: relative;
+    z-index: 10;
+  }
+  &__logo {
+    float: right;
+    width: 79px;
+    margin-right: 10px;
+    @include mq(mobileLandscape) {
+      margin-right: 20px;
+    }
+    @include mq(tablet) {
+      float: none;
+      width: 90px;
+      position: absolute;
+      top: 6px;
+      left: 19px;
+    }
+    @include mq(desktop) {
+      width: 98px;
+    }
+    @include mq(wide) {
+      width: 128px;
+    }
+  }
+  &__title {
+    width: 160px;
+    margin-left: 10px;
+    @include mq(mobileLandscape) {
+      margin-left: 20px;
+    }
+    @include mq(tablet) {
+      margin-left: 0;
+      width: 197px;
+      position: absolute;
+      top: 6px;
+      left: 128px;
+    }
+    @include mq(desktop) {
+      width: 254px;
+      left: 140px;
+    }
+    @include mq(leftCol) {
+      left: 130px;
+    }
+    @include mq(wide) {
+      left: 208px;
+    }
+  }
+  &__box {
+    margin: 24px 20px 0 10px;
+    border: 3px solid #3F464A;
+    background-color: #FFE500;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 3px 5px 6px;
+    font-weight: bold;
+
+    @include mq(mobileLandscape) {
+      margin: 24px 30px 0 20px;
+    }
+    @include mq(tablet) {
+      font-size: 18px;
+      line-height: 22px;
+      margin: 0 20px 0 380px;
+      transform: translateY(74px);
+    }
+
+    @include mq(desktop) {
+      margin-top: 48px;
+      margin-left: 500px;
+      width: 300px;
+      transform: translateY(52px);
+    }
+    @include mq(leftCol) {
+      margin-left: 660px;
+      width: 444px;
+      transform: translateY(74px);
+    }
+    @include mq(wide) {
+      margin-left: 740px;
+    }
+  }
+}
+
+// .cambridge-analytica-files-header__wrapper .treatment {
+//   display: none;
+//   opacity: .8;
+//   &__left,
+//   &__right {
+//     position: absolute;
+//     bottom: -80px;
+//     background-image: url(https://uploads.guim.co.uk/2018/03/24/bg-zef.svg);
+//     width: 2000px;
+//     height: 2000px;
+//     background-repeat: repeat-y;
+//     pointer-events: none;
+//     z-index: 200;
+//     display: none;
+//     @include mq(tablet) {
+//       display: block;
+//     }
+//   }
+//   &__left {
+//     left: 15px;
+//     transform: translate(-100%, 100%);
+//     @include mq(leftCol) {
+//       left: 40px;
+//     }
+//     @include mq(wide) {
+//       left: 60px;
+//     }
+//   }
+//   &__right {
+//     right: 15px;
+//     transform: translate(100%, 100%);
+//     @include mq(wide) {
+//       right: 40px;
+//     }
+//   }
+// }
+// 
+// @include mq(tablet) {
+//   .fc-container__header__title span {
+//     position: relative;
+//     z-index: 201;
+//   }
+// }
+// 
+// 
