@@ -1,0 +1,27 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#special-report-tone {
+  display: none;
+}
+
+.facia-page, .index-page,
+a.treats__treat,
+a.treats__treat:hover {
+  background-color: #eff1f2;
+}
+
+.fc-container__header__title span {
+  color: #3F464A;
+}
