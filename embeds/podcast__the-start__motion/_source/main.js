@@ -50,6 +50,9 @@
 			thrasher.classList.add('data-loaded');
 
 		});
+		
+		// set the circles to the right initial position
+		animateCircles();
 	}
 
 	function loadJSON(path, success, error) {
