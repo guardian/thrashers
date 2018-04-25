@@ -38,6 +38,7 @@ $mq-breakpoints: (
     height: 280px;
     overflow: hidden;
     position: relative;
+    transition: background-color .3s ease-in-out;
 
     &:hover {
         background-color: darken(#00B2FF, 5%);
@@ -163,10 +164,9 @@ $mq-breakpoints: (
     z-index: 1;
     transform: translateY(100%);
     transition: transform .4s ease-in-out;
-
     -webkit-backface-visibility: hidden;
 
-    &.active {
+    .ZCK-GT--wrapper.animated & {
         transform: translateY(0);
     }
 
@@ -252,6 +252,11 @@ a.ZCK-GT--cta {
         top: 50%;
         transform: translate(0, -50%);
         width: 40px;
+        transition: transform .3s;
+
+        .ZCK-GT--wrapper:hover & {
+            transform: translate(5px, -50%);
+        }
     }
 }
 
