@@ -1,0 +1,247 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#email-sign-up-.fc-container--thrasher {
+    background: #ffffff;
+}
+
+.GuardianToday__wrapper {
+    background: #ffffff;
+    background: pink;
+    height: 400px;
+    width: 100%;
+
+    @include mq(tablet) {
+        height: 190px;
+    }
+
+    @include mq(desktop) {
+        height: 220px;
+    }
+}
+
+.ZCK-GT--wrapper {
+    background-color: #00B2FF;
+    color: #ffffff;
+    display: block;
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 900;
+    height: 400px;
+    position: relative;
+
+    @include mq(tablet) {
+        height: 190px;
+    }
+
+    @include mq(desktop) {
+        height: 160px;
+        margin-top: 60px;
+    }
+}
+
+.ZCK-GT--logo {
+    bottom: 6px;
+    left: 10px;
+    position: absolute;
+    z-index: 3;
+
+    @include mq(mobileLandscape) {
+        left: 20px;
+    }
+
+    @include mq($from: tablet, $until: desktop) {
+        top: 6px;
+    }
+
+    @include mq(desktop) {
+        bottom: 6px;
+        left: 30px;
+    }
+
+    @include mq(leftCol) {
+        left: 20px;
+    }
+
+    svg {
+        height: 36px;
+        width: 97px;
+
+        @include mq(leftCol) {
+            path {
+                fill: #ffffff;
+            }
+        }
+    }
+}
+
+.ZCK-GT--envelope {
+    display: block;
+    bottom: 0;
+    right: 20px;
+    position: absolute;
+    height: 103px;
+    width: 220px;
+
+    @include mq(mobileLandscape) {
+        right: 20px;
+    }
+
+    @include mq(desktop) {
+        left: 20px;
+        right: auto;
+        height: 216px;
+        width: 460px;
+    }
+
+    @include mq(leftCol) {
+        left: 180px;
+    }
+
+    @include mq(wide) {
+        left: 260px;
+    }
+}
+
+.ZCK-GT--blue,
+.ZCK-GT--white {
+    height: auto;
+    width: 220px;
+
+    @include mq(desktop) {
+        width: 460px;
+    }
+}
+
+.ZCK-GT--white {
+    position: absolute;
+    bottom: -1px;
+    z-index: 2;
+}
+
+.ZCK-GT--blue {
+    margin-top: auto;
+}
+
+.ZCK-GT--countdown {
+    background-color: #ffe500;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 6px;
+    text-align: center;
+    height: 160px;
+    width: 160px;
+    z-index: 1;
+
+    @include mq(desktop) {
+        height: 260px;
+        top: 12px;
+        width: 260px;
+    }
+
+    h2 {
+        color: #121212;
+        font-size: 32px;
+        line-height: .95;
+        margin: 13% 10%;
+
+        @include mq(desktop) {
+            font-size: 63px;
+        }
+    }
+}
+
+.ZCK-GT--content {
+    position: absolute;
+    left: 10px;
+    right: 90px;
+    top: 6px;
+    width: auto;
+
+    @include mq(mobileLandscape) {
+        left: 20px;
+    }
+
+    @include mq(tablet) {
+        left: 280px;
+        right: 90px;
+    }
+
+    @include mq(desktop) {
+        left: 500px;
+    }
+
+    @include mq(leftCol) {
+        left: 660px;
+    }
+
+    @include mq(wide) {
+        left: 740px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.2;
+        margin: 0;
+
+        @include mq(desktop) {
+            font-size: 23px;
+        }
+    }
+}
+
+a.ZCK-GT--cta {
+    background-color: #FFF000;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    color: #121212;
+    display: inline-block;
+    font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 16px;
+    line-height: 36px;
+    margin-top: 18px;
+    min-width: 160px;
+    padding: 0 43px 0 18px;
+    position: relative;
+    text-decoration: none;
+
+    svg {
+        fill: currentColor;
+        height: 40px;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 40px;
+    }
+}
+
+.ZCK-GT--highlight {
+    color: #121212;
+    background: linear-gradient(to bottom, #ffe500 0%, #ffe500 50%, #ffe500 100%);
+    box-shadow: -0.25rem 0 0 0 #ffe500;
+    display: inline;
+    margin-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.ZCK-GT--roundel {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+
+    @include mq(mobileLandscape) {
+        right: 20px;
+    }
+}
