@@ -39,6 +39,10 @@ $mq-breakpoints: (
     overflow: hidden;
     position: relative;
 
+    &:hover {
+        background-color: darken(#00B2FF, 5%);
+    }
+
     @include mq(tablet) {
         height: 190px;
     }
@@ -160,12 +164,10 @@ $mq-breakpoints: (
     transform: translateY(100%);
     transition: transform .4s ease-in-out;
 
+    -webkit-backface-visibility: hidden;
+
     &.active {
         transform: translateY(0);
-    }
-
-    .ZCK-GT--wrapper:hover & {
-        transform: translateY(4%);
     }
 
     @include mq(desktop) {
