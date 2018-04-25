@@ -639,7 +639,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('new', ['copy', 'prompt:input', 'write-paths', 'return-paths']);
-    grunt.registerTask('update', ['prompt:input', 'write-paths']);
+    grunt.registerTask('update', ['prompt:input', 'appConfigRemote', 'appConfig', 'write-paths']);
     grunt.registerTask('default', ['sass', 'compile']);
     grunt.registerTask('local', ['connect', 'return-paths', 'maxFilesize', 'update-local', 'watch:local']);
     grunt.registerTask('remote', ['appConfigRemote', 'appConfig', 'return-paths', 'maxFilesize', 'update-remote', 'watch:remote']);
