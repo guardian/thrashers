@@ -17,8 +17,7 @@ $mq-breakpoints: (
 
 .GuardianToday__wrapper {
     background: #ffffff;
-    background: pink;
-    height: 400px;
+    height: 280px;
     width: 100%;
 
     @include mq(tablet) {
@@ -36,7 +35,8 @@ $mq-breakpoints: (
     display: block;
     font-family: 'Guardian Egyptian Web';
     font-weight: 900;
-    height: 400px;
+    height: 280px;
+    overflow: hidden;
     position: relative;
 
     @include mq(tablet) {
@@ -46,7 +46,22 @@ $mq-breakpoints: (
     @include mq(desktop) {
         height: 160px;
         margin-top: 60px;
+        overflow: visible;
     }
+}
+
+.ZCK-GT--link {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    background: transparent;
+    position: absolute !important;
+    opacity: 0;
+    z-index: 5 !important;
 }
 
 .ZCK-GT--logo {
@@ -87,7 +102,7 @@ $mq-breakpoints: (
 .ZCK-GT--envelope {
     display: block;
     bottom: 0;
-    right: 20px;
+    right: -50px;
     position: absolute;
     height: 103px;
     width: 220px;
@@ -96,9 +111,12 @@ $mq-breakpoints: (
         right: 20px;
     }
 
-    @include mq(desktop) {
+    @include mq(tablet) {
         left: 20px;
         right: auto;
+    }
+
+    @include mq(desktop) {
         height: 216px;
         width: 460px;
     }
@@ -128,25 +146,31 @@ $mq-breakpoints: (
     z-index: 2;
 }
 
-.ZCK-GT--blue {
-    margin-top: auto;
-}
-
 .ZCK-GT--countdown {
     background-color: #ffe500;
     border-radius: 50%;
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 0);
+    margin-left: -80px;
     top: 6px;
     text-align: center;
     height: 160px;
     width: 160px;
     z-index: 1;
+    transform: translateY(100%);
+    transition: transform .4s ease-in-out;
+
+    &.active {
+        transform: translateY(0);
+    }
+
+    .ZCK-GT--wrapper:hover & {
+        transform: translateY(4%);
+    }
 
     @include mq(desktop) {
         height: 260px;
-        top: 12px;
+        margin-left: -130px;
         width: 260px;
     }
 
@@ -154,10 +178,11 @@ $mq-breakpoints: (
         color: #121212;
         font-size: 32px;
         line-height: .95;
-        margin: 13% 10%;
+        margin: 10% 10%;
 
         @include mq(desktop) {
             font-size: 63px;
+            margin: 15% 10%;
         }
     }
 }
@@ -167,6 +192,7 @@ $mq-breakpoints: (
     left: 10px;
     right: 90px;
     top: 6px;
+    max-width: 360px;
     width: auto;
 
     @include mq(mobileLandscape) {
@@ -174,8 +200,8 @@ $mq-breakpoints: (
     }
 
     @include mq(tablet) {
-        left: 280px;
-        right: 90px;
+        left: 260px;
+        max-width: none;
     }
 
     @include mq(desktop) {
@@ -195,7 +221,7 @@ $mq-breakpoints: (
         line-height: 1.2;
         margin: 0;
 
-        @include mq(desktop) {
+        @include mq(tablet) {
             font-size: 23px;
         }
     }
@@ -212,7 +238,7 @@ a.ZCK-GT--cta {
     line-height: 36px;
     margin-top: 18px;
     min-width: 160px;
-    padding: 0 43px 0 18px;
+    padding: 0 40px 0 18px;
     position: relative;
     text-decoration: none;
 
@@ -229,11 +255,13 @@ a.ZCK-GT--cta {
 
 .ZCK-GT--highlight {
     color: #121212;
-    background: linear-gradient(to bottom, #ffe500 0%, #ffe500 50%, #ffe500 100%);
-    box-shadow: -0.25rem 0 0 0 #ffe500;
+    box-shadow: -0.1875rem 0 0 0 #ffe500, 0.1875rem 0 0 0 #ffe500;
     display: inline;
-    margin-left: 0.25rem;
-    padding-right: 0.25rem;
+    margin: 0 2px;
+
+    span {
+        background: #ffe500;
+    }
 }
 
 .ZCK-GT--roundel {
