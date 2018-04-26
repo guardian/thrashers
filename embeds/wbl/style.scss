@@ -120,7 +120,8 @@ $mq-breakpoints: (
 .wbl__wrapper .this_wide_brown_land {
 	font-family: 'Guardian Text Egyptian Web';
 	font-weight: 600;
-	font-size: 1.4rem;
+	font-size: 1.8rem;
+	line-height: 1.8rem;
 	margin-top: 10px
 }
 .wbl__wrapper .fc-container__description {
@@ -385,7 +386,7 @@ $mq-breakpoints: (
 }
 @media all and (min-width: 46.25em) {
 	.wbl__wrapper {
-		height: 340px;
+		height: 260px;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -394,6 +395,6 @@ $mq-breakpoints: (
 }
 @media all and (min-width: 61.25em) {
 	.wbl__wrapper {
-		height: 320px
+		height: 260px
 	}
 }
