@@ -42,7 +42,7 @@
 	      (now.getUTCHours()), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
 
 	    // polls closing time, timezone independent
-	    var pollsClose = new Date(Date.UTC(2018,4,1,0,0));
+	    var pollsClose = new Date(Date.UTC(2018,4,2,1,0));
 
 
 	    if (utcTime > pollsClose.getTime()) {
