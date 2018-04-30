@@ -1,0 +1,100 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.missing-something__wrapper {
+  background-color: #1E8DCD;
+  margin: 0 -10px;
+  padding: 0 10px;
+  @include mq(mobileLandscape) {
+    padding: 0 20px;
+  }
+  @include mq(tablet) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.missing-something {
+  position: relative;
+  padding: 9px 0 12px;
+  @include mq(tablet) {
+    padding: 9px 20px 12px;
+  }
+  &__roundel {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+  }
+  &__heading {
+    width: 280px;
+    max-width: 100%;
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+  &__copy {
+    font-family: "Guardian Egyptian Web",Georgia,serif;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 9px;
+    font-size: 20px;
+    line-height: 21px;
+  }
+  &__cta {
+    margin-left: -1px;
+    font-size: 14px;
+    line-height: 28px;
+    height: 28px;
+    padding-top: 2px;
+    padding: 0 14px;
+    background-color: #ffe500;
+    color: #121212;
+    margin: 12px 0 0;
+    border-radius: 14px;
+    display: inline-block;
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      left: 8px;
+    }
+  }
+  @include mq(mobileMedium) {
+    &__copy {
+      padding-right: 120px;
+    }
+    .missing-something &__cta {
+      position: absolute;
+      bottom: 12px;
+      right: 0;
+    }
+  }
+  .mob-only {
+    display: block;
+    @include mq(tablet) {
+      display: none;
+    }
+  }
+  .dsk-only {
+    display: none;
+    @include mq(tablet) {
+      display: block;
+    }
+  }
+}
+
