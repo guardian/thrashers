@@ -64,7 +64,7 @@
 		guToday = document.querySelector('.ZCK-GT--wrapper');
 
 		animate(guToday);
-		updateCountdownTime()
+		// updateCountdownTime()
 	}
 
 
