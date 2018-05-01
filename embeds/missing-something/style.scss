@@ -76,6 +76,9 @@ section#email-sign-up- {
     @include mq(tablet) {
       margin-top: 6px;
     }
+    @include mq(desktop) {
+      width: 720px;
+    }
   }
   &__cta {
     margin-left: -1px;
@@ -106,7 +109,7 @@ section#email-sign-up- {
   }
   @include mq(mobileMedium) {
     &__copy {
-      padding-right: 120px;
+      padding-right: 140px;
     }
     .missing-something &__cta {
       position: absolute;
@@ -125,7 +128,7 @@ section#email-sign-up- {
     @include mq(desktop) {
       right: auto;
       left: 806px;
-      bottom: 9px;
+      bottom: 10px;
     }
   }
 
