@@ -26,16 +26,33 @@ $mq-breakpoints: (
   }
 }
 
+section#email-sign-up,
+section#email-sign-up- {
+  background-color: #fff;
+}
+
 .missing-something {
   position: relative;
   padding: 9px 0 12px;
   @include mq(tablet) {
     padding: 9px 20px 12px;
   }
+  @include mq(desktop) {
+    padding: 9px 20px 15px;
+  }
+  @include mq(leftCol) {
+    margin-left: 160px;
+  }
+  @include mq(wide) {
+    margin-left: 240px;
+  }
   &__roundel {
     position: absolute;
     top: 9px;
     right: 10px;
+    @include mq(tablet) {
+      right: 20px;
+    }
   }
   &__heading {
     width: 280px;
@@ -45,6 +62,9 @@ $mq-breakpoints: (
       height: auto;
       display: block;
     }
+    @include mq(tablet) {
+      width: 520px;
+    }
   }
   &__copy {
     font-family: "Guardian Egyptian Web",Georgia,serif;
@@ -53,6 +73,9 @@ $mq-breakpoints: (
     margin-top: 9px;
     font-size: 20px;
     line-height: 21px;
+    @include mq(tablet) {
+      margin-top: 6px;
+    }
   }
   &__cta {
     margin-left: -1px;
@@ -67,11 +90,18 @@ $mq-breakpoints: (
     border-radius: 14px;
     display: inline-block;
     font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    &:hover {
+      text-decoration: none;
+      background-color: #EED600;
+    }
     svg {
       display: inline-block;
       vertical-align: middle;
       position: relative;
       left: 8px;
+      @include mq(tablet) {
+        right: 10px;
+      }
     }
   }
   @include mq(mobileMedium) {
@@ -84,6 +114,22 @@ $mq-breakpoints: (
       right: 0;
     }
   }
+  .missing-something &__cta {
+    @include mq(tablet) {
+      font-size: 16px;
+      line-height: 30px;
+      height: 30px;
+      border-radius: 15px;
+      right: 20px;
+    }
+    @include mq(desktop) {
+      right: auto;
+      left: 806px;
+      bottom: 9px;
+    }
+  }
+
+
   .mob-only {
     display: block;
     @include mq(tablet) {
