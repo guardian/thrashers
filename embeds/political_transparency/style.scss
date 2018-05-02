@@ -1,0 +1,144 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+#wrappers {
+
+  width: 100%;
+
+}
+
+#wrappers {
+  padding-top: 0.375rem;
+  padding-bottom: 0.75rem;
+  opacity: 1;
+  -webkit-transition: opacity .25s linear;
+  transition: opacity .25s linear
+}
+@media (min-width: 46.25em) {
+  #wrappers {
+    padding-top: 0.1875rem
+  }
+}
+@media (min-width: 71.25em) {
+  #wrappers {
+    margin-left: 10rem
+  }
+}
+@media (min-width: 81.25em) {
+  #wrappers {
+    margin-left: 15rem;
+    max-width: 58.75rem
+  }
+  .has-page-skin .fc-container__body, .has-page-skin{
+    margin-left: 0;
+    clear: left
+  }
+}
+@media (max-width: 71.24em) {
+  #wrappers {
+    clear: left
+  }
+}
+@media (min-width: 71.25em) and (max-width: 81.24em) {
+  #wrappers{
+    padding-top: 2.25rem
+  }
+}
+
+#wrappers ul {
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+}
+
+#wrappers ul li {
+
+  @include mq($until: tablet) {
+    width: 100%;
+  }
+
+}
+
+ul.l-list li:nth-child(2) {
+
+  @include mq($until: tablet) {
+    margin-top: 8px;
+  }
+
+  
+}
+
+.political_transparency__block {
+  width: 100%;
+  min-height: 200px;
+  position: relative;
+  font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+  overflow: hidden;
+}
+
+.political_square_container {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.l-list--columns-2 .political_square {
+  width: 100%;
+ 
+  @include mq($from: tablet) {
+      padding-bottom: 100%;
+       height: 0px;
+  }
+
+}
+
+.l-list--columns-1 .political_square {
+  width: 100%;
+
+  @include mq($from: tablet) {
+    padding-bottom: calc(50% - 10px);
+    height: 0px;
+  }
+  
+}
+
+.political_square_content {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  padding: 10px;
+  font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  overflow: hidden;
+
+  @include mq($until: desktop) {
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+  }
+
+} 
+
+.political_square_content_headline {
+  color: white;
+}
+
+.political_square_content_desc {
+  color: black;
+  font-weight: 400;
+}
