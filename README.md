@@ -157,3 +157,9 @@ Due to the way we inject the thrashers into `frontend` we can't add `<script>` t
 ```
 
 Although the same practice applies to javascript as it does for animations and transitions. There has to be a good reason for it to exist and they have to be incredibly light. It's also best not to require heavy libraries like `jQuery` to achieve the same results that could be done with vanilla javascript and/or micro-libraries.
+
+
+### Previewing your thrasher locally
+
+Recent versions of Chrome block `https` local requests by default. To preview your thrasher in chrome, open `chrome://flags/` and enable the "Allow invalid certificates for resources loaded from localhost" flag.
+
