@@ -114,12 +114,17 @@ section#email-sign-up- {
   }
   @include mq(mobileMedium) {
     &__copy {
-      padding-right: 140px;
+      padding-right: 136px;
     }
     .missing-something &__cta {
       position: absolute;
       bottom: 12px;
       right: 0;
+    }
+  }
+  @include mq(tablet) {
+    &__copy {
+      padding-right: 174px;
     }
   }
   .missing-something &__cta {
@@ -177,7 +182,7 @@ section#email-sign-up- {
     }
     .i-dot-cover {
       width: 18px;
-      height: 11px;
+      height: 12px;
       border-radius: 0 0 20% 0;
     }
     .number {

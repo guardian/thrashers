@@ -31,7 +31,7 @@
 
 	function trackLoad() {
 		window.guardian.ophan.record({
-			component: 'missing something thrasher : load',
+			component: 'missing something thrasher v2 : load',
 			value: 1
 		});
 	}
