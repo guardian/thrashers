@@ -13,9 +13,13 @@ $mq-breakpoints: (
 @import 'shared/_imports';
 
 .missing-something__wrapper {
-  background-color: #1E8DCD;
+  background-color: #eee8da;
+  border-top: 1px solid #A1845C;
   margin: 0 -10px;
   padding: 0 10px;
+  &:hover {
+    background-color: #e7decb;
+  }
   @include mq(mobileLandscape) {
     padding: 0 20px;
   }
@@ -28,7 +32,10 @@ $mq-breakpoints: (
 
 section#email-sign-up,
 section#email-sign-up- {
-  background-color: #fff;
+  background-color: #eee8da;
+  &:hover {
+    background-color: #e7decb;
+  }
   .fc-container__inner,
   .fc-slice,
   .facia-snap {
@@ -55,170 +62,102 @@ section#email-sign-up- {
     position: absolute;
     top: 9px;
     right: 0;
+    width: 32px;
+    height: 32px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
     @include mq(tablet) {
+      width: 44px;
+      height: 44px;
       right: 20px;
     }
   }
   &__heading {
-    width: 280px;
-    max-width: 100%;
-    svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    @include mq(tablet) {
-      width: 520px;
+    font-size: 31px;
+    line-height: 34px;
+    font-weight: 700;
+    font-family: "Guardian Egyptian Web",Georgia,serif;
+    color: #6B5840;
+  }
+  &__typewriter {
+    display: inline-block;
+    width: calc(100% - 32px);
+    &:after {
+      content: '_';
+      display: inline-block;
+      vertical-align: bottom;
+      color: #A1845C;
+      margin-left: 2px;
+      transition: opacity 300ms;
+    }    
+    &.blink:after {
+      animation-iteration-count: infinite;
+      animation-name: cursorBlink;
+      animation-duration: 1s;
     }
   }
   &__copy {
-    font-family: "Guardian Egyptian Web",Georgia,serif;
-    color: #fff;
+    font-family: "Guardian Text Egyptian Web",Georgia,serif;
+    color: #121212;
     font-weight: 500;
     margin-top: 9px;
-    font-size: 20px;
-    line-height: 21px;
+    font-size: 16px;
+    line-height: 20px;
+    p {
+      margin: 0;
+      display: inline;
+    }
     @include mq(tablet) {
       margin-top: 6px;
-    }
-    @include mq(desktop) {
-      width: 720px;
-    }
-  }
-  &__cta {
-    margin-left: -1px;
-    font-size: 14px;
-    line-height: 28px;
-    height: 28px;
-    padding-top: 2px;
-    padding: 0 14px;
-    background-color: #ffe500;
-    color: #121212;
-    margin: 12px 0 0;
-    border-radius: 14px;
-    display: inline-block;
-    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-    &:hover {
-      text-decoration: none;
-      background-color: #EED600;
-    }
-    svg {
-      display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      left: 8px;
-      @include mq(tablet) {
-        right: 10px;
-      }
-    }
-  }
-  @include mq(mobileMedium) {
-    &__copy {
-      padding-right: 136px;
-    }
-    .missing-something &__cta {
-      position: absolute;
-      bottom: 12px;
-      right: 0;
-    }
-  }
-  @include mq(tablet) {
-    &__copy {
-      padding-right: 174px;
-    }
-  }
-  .missing-something &__cta {
-    @include mq(tablet) {
-      font-size: 16px;
-      line-height: 30px;
-      height: 30px;
-      border-radius: 15px;
-      right: 20px;
-    }
-    @include mq(desktop) {
-      right: 20px;
-      bottom: 10px;
-    }
-    @include mq(wide) {
-      right: 100px;
-    }
-  }
-
-  &__marker {
-    transform: scale(0.2);
-    opacity: 0;
-    transition: all 240ms;
-    &.on {
-      transform: scale(1);
-      opacity: 1;
-    }
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    background-color: tomato;
-    top: 5px;
-    left: 52px;
-    @include mq(tablet) {
-      top: 6px;
-      left: 75px;
-    }
-    .number,
-    .outline,
-    .i-dot-cover {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .outline,
-    .i-dot-cover {
-      z-index: 8;
-      background-color: #1E8DCD;
-    }
-    .outline {
-      width: 18px;
-      height: 18px;
-      border-radius: 0 0 0 100%;
-      transform: translate(-100%, 0);
-    }
-    .i-dot-cover {
-      width: 18px;
-      height: 12px;
-      border-radius: 0 0 20% 0;
-    }
-    .number {
-      z-index: 9;
-      font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-      font-size: 14px;
-      text-align: center;
-      line-height: 24px;
-      font-weight: 700;
-      transform: translate(-50%,-50%);
-      width: 24px;
-      height: 24px;
-      border-radius: 100%;
-      background-color: #ff4e36;
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-      &:before {
-        content: attr(data-num);
-        transform: translateY(1px);
+      p {
         display: block;
       }
     }
+    &__arrow {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      background-color: #A1845C;
+      position: absolute;
+      vertical-align: middle;
+      transform: translate(3px, -2px);
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
+  .missing-something &__cta {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20000;
+    opacity: 0;
+    }
 
-  .mob-only {
-    display: block;
-    @include mq(tablet) {
-      display: none;
-    }
-  }
-  .dsk-only {
-    display: none;
-    @include mq(tablet) {
-      display: block;
-    }
-  }
 }
 
+@keyframes cursorBlink {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
