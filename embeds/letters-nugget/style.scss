@@ -11,7 +11,7 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-section#culture-treat {
+section#letters-treat {
     &,
     .tone-news--item.fc-item {
         background-color: #dcdcdc;
@@ -39,10 +39,10 @@ section#culture-treat {
         }
     }
 }
-.cultural-nugget {
+.letters-nugget {
     width: 100%;
 }
-.cultural-nugget {
+.letters-nugget {
     overflow: hidden;
     font-size: 0;
     border-bottom: 2px solid #DFE1E4;
@@ -171,7 +171,7 @@ section#culture-treat {
         }
     }
 
-    .cultural-button {
+    .letters-button {
         font-size: 16px;
         line-height: 19px;
         font-weight: 900;
