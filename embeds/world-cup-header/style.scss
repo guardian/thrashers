@@ -36,6 +36,10 @@ $mq-breakpoints: (
   .fc-trail__count.fc-trail__count--commentcount {
     display: none;
   }
+
+  .facia-snap {
+    padding: 0;
+  }
 }
 
 .world-cup-header__wrapper {
@@ -75,7 +79,10 @@ $mq-breakpoints: (
     left: 0;
     width: 154px;
     height: 87px;
-    padding: 6px 20px 12px;
+    padding: 6px 10px 12px;
+    @include mq(mobileLandscape) {
+      padding-left:20px;
+    }
     @include mq($until: leftCol) {
       transform: scale(0.8);
       transform-origin: top left;
@@ -99,7 +106,7 @@ $mq-breakpoints: (
     bottom: 0;
     width: 150px;
     @include mq(desktop) {
-      width: 150px;
+      width: 180px;
     }
     @include mq(leftCol) {
       left: 170px;
@@ -113,9 +120,12 @@ $mq-breakpoints: (
       line-height: 20px;
       font-weight: bolder;
       color: #000;
-      padding-left: 10px;
+      padding-left: 0px;
       padding-bottom: 8px;
       margin-bottom: 0;
+      @include mq(mobileLandscape) {
+        padding-left: 10px;
+      }
       @include mq(desktop) {
         border-left: solid 1px #000;
       }
