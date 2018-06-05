@@ -1,0 +1,136 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileMedium: 360px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px
+);
+@import 'shared/_imports';
+@mixin overflow-visible($container-name) {
+  ##{$container-name} {
+    &.fc-container--thrasher,
+    .facia-snap,
+    .fc-container__inner,
+    .fc-slice {
+      overflow: visible;
+      // overflow-y: visible !important;
+      // overflow-x: hidden !important;
+    }
+  }
+}
+@include overflow-visible(world-cup-header);
+
+#world-cup-header {
+  padding-top: 0;
+  width: 100%;
+  margin-bottom: 0;
+
+  .tone-media--item {
+    background-color: #FFE500;
+  }
+
+  .fc-trail__count.fc-trail__count--commentcount {
+    display: none;
+  }
+}
+
+.world-cup-header__wrapper {
+  width: 100%;
+}
+
+#world-cup-header-inner {
+  // position: relative;
+  height: 150px;
+  background-color: #FFE500;
+  width: 100%;
+  background-image: url("@@assetPath@@/bg-small.png");
+  background-size: 320px;
+  background-repeat: no-repeat;
+  background-position: 20px 0;
+  @include mq(mobileMedium) {
+    background-position: right;
+  }
+  @include mq(mobileLandscape) {
+    background-image: url("@@assetPath@@/bg.png");
+    background-size: 1300px;
+    background-position: -220px 0;
+  }
+  @include mq(desktop) {
+    background-position: -200px 0;
+  }
+  @include mq(leftCol) {
+    background-position: -100px 0;
+  }
+  @include mq(wide) {
+    background-position: 0 0;
+  }
+  .logo {
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 154px;
+    height: 87px;
+    padding: 6px 20px 12px;
+    @include mq($until: leftCol) {
+      transform: scale(0.8);
+      transform-origin: top left;
+    }
+    @include mq($until: phablet) {
+      transform: scale(0.7);
+    }
+
+    svg {
+      margin-top: 1px;
+      margin-left: 2px;
+      width: 137px;
+      height: 60px;
+    }
+  }
+
+  .subhead {
+    z-index: 9999;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    width: 150px;
+    @include mq(desktop) {
+      width: 150px;
+    }
+    @include mq(leftCol) {
+      left: 170px;
+    }
+    @include mq(wide) {
+      left: 250px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: bolder;
+      color: #000;
+      padding-left: 10px;
+      padding-bottom: 8px;
+      margin-bottom: 0;
+      @include mq(desktop) {
+        border-left: solid 1px #000;
+      }
+      @include mq(leftCol) {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .version {
+    display: none;
+
+    &.default {
+      display: block;
+    }
+  }
+}
