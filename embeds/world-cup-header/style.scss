@@ -104,9 +104,12 @@ $mq-breakpoints: (
     position: absolute;
     left: 10px;
     bottom: 0;
-    width: 150px;
+    width: 130px;
+    @include mq(mobileLandscape) {
+      width: 140px;
+    }
     @include mq(desktop) {
-      width: 180px;
+      width: 175px;
     }
     @include mq(leftCol) {
       left: 170px;
@@ -116,8 +119,8 @@ $mq-breakpoints: (
     }
 
     p {
-      font-size: 16px;
-      line-height: 20px;
+      font-size: 14px;
+      line-height: 18px;
       font-weight: bolder;
       color: #000;
       padding-left: 0px;
@@ -128,6 +131,8 @@ $mq-breakpoints: (
       }
       @include mq(desktop) {
         border-left: solid 1px #000;
+        font-size: 16px;
+        line-height: 20px;
       }
       @include mq(leftCol) {
         font-size: 18px;
