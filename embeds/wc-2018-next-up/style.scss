@@ -17,8 +17,9 @@ $sport-main: #0084C6;
 $sport-invert: #00B2FF;
 $sport-light: #90DCFF;
 
+
 .wc-2018-next-up__wrapper {
-  background-color: #fff;
+  background: transparent;
   margin: 0 -10px;
   padding: 0 10px;
   @include mq(mobileLandscape) {
@@ -30,11 +31,13 @@ $sport-light: #90DCFF;
   }
 }
 
-section#world-cup-2018-next-up,
 section#world-cup-2018-upcoming-fixtures {
   position: relative;
   z-index: 1030;
-  background-color: transparent;
+  background: transparent;
+  .fc-item--pillar-news {
+    background-color: transparent;
+  }
   .fc-container__inner,
   .facia-snap,
   .fc-slice {
@@ -47,7 +50,6 @@ section#world-cup-2018-upcoming-fixtures {
     display: none;
   }
 }
-
 
 .wc-next-up {
   position: relative;
@@ -96,7 +98,9 @@ section#world-cup-2018-upcoming-fixtures {
       display: inline-block;
       margin-left: 1px;
       cursor: pointer;
-      @include mq($from: leftCol, $to: wide) {
+      background-color: #fff;
+      
+      @include mq(leftCol) {
         display: block;
       }
       &:before {
@@ -112,7 +116,7 @@ section#world-cup-2018-upcoming-fixtures {
         display: inline-block;
         width: 12px;
         height: 12px;
-        background-color: $sport-dark;
+        background-color: $sport-main;
         border-radius: 100%;
         background-image: url(https://uploads.guim.co.uk/2018/06/12/chev.svg);
         margin-left: 3px;
@@ -124,10 +128,10 @@ section#world-cup-2018-upcoming-fixtures {
       }
       &.open:after {
         transform: rotate(180deg);
-        background-color: $sport-main;
+        background-color: $sport-dark;
       }
       &:hover:after {
-        background-color: $sport-main;
+        background-color: $sport-dark;
       }
     }
     
@@ -139,13 +143,16 @@ section#world-cup-2018-upcoming-fixtures {
       box-shadow: 0 0 1px rgba(0,0,0,0.5);
       position: absolute;
       border-radius: 3px;
-      transform: translate(32px, 3px);
       font-family: 'Guardian Text Sans Web', 'Guardian Sans Web', sans-serif;
       padding: 3px 0;
       font-size: 16px;
       color: #767676;
       overflow-y: scroll;
       display: none;
+      transform: translate(32px, 3px);
+      @include mq(leftCol) {
+        transform: translate(0, 3px);
+      }
       .wc-next-up__title__selected-team.open + & {
         display: block;
       }
@@ -308,7 +315,7 @@ section#world-cup-2018-upcoming-fixtures {
     }
     
     &__link.link {
-      display: block;
+      display: none;
       opacity: 0;
       position: absolute;
       top: 0;
@@ -320,13 +327,17 @@ section#world-cup-2018-upcoming-fixtures {
         color: $sport-main;
       }
     }
+    &.live .wc-next-up__match__link {
+      display: block;
+    }
   }
   
   &__full-schedule.link {
     display: inline-block;
-    color: $sport-dark;
+    color: $sport-main;
     font-weight: 700;
     margin-top: 12px;
+    padding-left: 3px;
     &:after {
       content: '';
       display: inline-block;
@@ -342,10 +353,13 @@ section#world-cup-2018-upcoming-fixtures {
       background-position: 5px 5px;
     }
     &:hover {
-      color: $sport-main;
+      color: $sport-dark;
       text-decoration: none;
     }
 
+    @include mq(tablet) {
+      margin-top: 6px;
+    }
     @include mq(leftCol) {
       margin-left: 160px;
     }

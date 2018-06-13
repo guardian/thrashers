@@ -98,6 +98,7 @@
 					if (teamName==false) {
 						console.warn('Hiding next up thrasher: no matches to display');
 						hideSelf();
+						connectCup();
 					} else {
 						console.warn('No upcoming matches for', teamName, 'so resetting to all teams');
 						updateTeamFiltering(false);
@@ -107,6 +108,7 @@
 					selectedMatches.forEach(function(matchInfo) {
 						injectMatch(matchInfo);
 					});
+					connectCup();
 				}
 				
 				
@@ -205,6 +207,21 @@
 		});
 	}
 
+	function connectCup() {
+		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
+		var prevSection = thrasherSection.previousElementSibling;
+		if (prevSection.id.indexOf('world-cup')>=0) {
+			var thrasherHeight = thrasherSection.clientHeight;
+			var thrasherStyle = '-'+(thrasherHeight+6)+'px';
+			var prevStyle = (thrasherHeight+12)+'px';
+			
+			thrasherSection.style.marginTop = thrasherStyle;
+			prevSection.style.paddingBottom = prevStyle;
+		}
+	}
+	
+	window.addEventListener('resize', connectCup);
+
 	function windUp() {
 		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
 		var prevSection = thrasherSection.previousElementSibling;
@@ -249,6 +266,7 @@
 	checkExists(windUp);
 	checkExists(loadContent);
 	checkExists(loadTeamSelect);
+	checkExists(connectCup);
 	checkExists(trackLoad);
 
 })();
