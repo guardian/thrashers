@@ -99,6 +99,14 @@ section#world-cup-2018-upcoming-fixtures {
       @include mq($from: leftCol, $to: wide) {
         display: block;
       }
+      &:before {
+        content: 'for ';
+        font-weight: 400;
+      }
+      &.team {
+        font-weight: 600;
+      }
+      
       &:after {
         content: '';
         display: inline-block;
@@ -194,7 +202,7 @@ section#world-cup-2018-upcoming-fixtures {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    @include mq(desktop) {
+    @include mq(tablet) {
       justify-content: flex-start;
     }
     @include mq(leftCol) {
@@ -216,7 +224,8 @@ section#world-cup-2018-upcoming-fixtures {
     z-index: 1;
 
     @include mq(tablet) {
-      flex-basis: calc(25% - 20px);
+      flex-basis: calc(25% - 22px);
+      margin-right: 20px;
       border-left: 0;
     }
     @include mq(desktop) {
@@ -233,41 +242,10 @@ section#world-cup-2018-upcoming-fixtures {
     &__timing {
       font-size: 12px;
       font-family: 'Guardian Text Sans Web', 'Guardian Sans Web', sans-serif;
-      &[class*=weekday] {
-        color: #767676;
-      }
+      color: #767676;
       &:before {
         content: attr(data-time);
-      }
-      &:after {
-        color: #767676;
-      }
-      &.today:after {
-        content: ' today';
-      }
-      &.tomorrow:after {
-        content: ' tomorrow';
-      }
-      &.weekday_1:after {
-        content: ' on Monday';
-      }
-      &.weekday_2:after {
-        content: ' on Tuesday';
-      }
-      &.weekday_3:after {
-        content: ' on Wednesday';
-      }
-      &.weekday_4:after {
-        content: ' on Thursday';
-      }
-      &.weekday_5:after {
-        content: ' on Friday';
-      }
-      &.weekday_6:after {
-        content: ' on Saturday';
-      }
-      &.weekday_7:after {
-        content: ' on Sunday';
+        color: #121212;
       }
     }
 
