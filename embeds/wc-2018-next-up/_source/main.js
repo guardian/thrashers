@@ -95,8 +95,13 @@
 				
 				// if there are no matches to display, hide this
 				if (selectedMatches.length==0) {
-					console.warn('Hiding next up thrasher: no matches to display')
-					hideSelf();
+					if (teamName==false) {
+						console.warn('Hiding next up thrasher: no matches to display');
+						hideSelf();
+					} else {
+						console.warn('No upcoming matches for', teamName, 'so resetting to all teams');
+						updateTeamFiltering(false);
+					}
 				} else {
 					clearMatches();
 					selectedMatches.forEach(function(matchInfo) {
