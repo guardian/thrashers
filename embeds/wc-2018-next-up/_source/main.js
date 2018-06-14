@@ -159,6 +159,8 @@
 		// var tomorrow = new Date(Date.UTC(2018,5,25));		
 		
 		var months = ['', '', '', '', '', 'June', 'July'];
+		var weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+		
 		if (today.getDate() == matchDate.getDate()
 		&& today.getHours() >= matchDate.getHours()
 		&& today.getHours() <= matchDate.getHours()+2) {
@@ -170,7 +172,7 @@
 		} else if (tomorrow.getDate() == m.day) {
 			timing.innerText = ' tomorrow'
 		} else {
-			timing.innerText = ' '+matchDate.getDate()+' '+months[matchDate.getMonth()]
+			timing.innerText = ' '+weekdays[parseInt(matchDate.getDay())]+' '+matchDate.getDate()+' '+months[matchDate.getMonth()]
 		}
 		
 		// actually inject this in the DOM
