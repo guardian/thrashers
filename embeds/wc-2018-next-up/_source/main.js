@@ -76,9 +76,14 @@
 		}
 
 		// actually load the content
-		var jsonAddress = "https://interactive.guim.co.uk/thrashers/wc-2018-next-up/hashed/wc-schedule-linked-1536110618.23bd7aae.json";
-		loadJSON(jsonAddress,
-			function(schedule) {
+
+		// note, the old json address was:
+		// https://interactive.guim.co.uk/thrashers/wc-2018-next-up
+		// /hashed/wc-schedule-linked-1536110618.23bd7aae.json
+		loadJSON("https://interactive.guim.co.uk/docsdata-test/1YWKqp9_wKyy7WDO64x27qsxM3wwWMymMcIj2kyDHakM.json",
+			function(data) {
+				var schedule = data.sheets['world-cup-schedule'];
+				
 				var today = new Date();
 				// var today = new Date(Date.UTC(2018,5,24,16));
 
@@ -87,7 +92,7 @@
 
 				// first filter out past matches
 				var selectedMatches = schedule.filter(function(matchInfo) {
-					var matchEpoch = Date.UTC(2018,matchInfo.month,matchInfo.day,matchInfo.hour,0,0);
+					var matchEpoch = Date.UTC(2018,parseInt(matchInfo.month),parseInt(matchInfo.day),parseInt(matchInfo.hour),0,0);
 					var matchDate = new Date(matchEpoch);
 					return (today < matchDate);
 				});
@@ -141,7 +146,7 @@
 	
 	function injectMatch(m) {
 		// get timezone independent match time
-		var matchDate = new Date(Date.UTC(2018,m.month,m.day,m.hour,0,0));
+		var matchDate = new Date(Date.UTC(2018,parseInt(m.month),parseInt(m.day),parseInt(m.hour),0,0));
 		
 		// setup blank match element
 		var el = document.createElement('div');
@@ -161,7 +166,7 @@
 		
 		// fill in match time
 		var timing = el.querySelector('.wc-next-up__match__timing');
-		timing.dataset.time = matchDate.getHours()+':00 ';
+		timing.dataset.time = matchDate.getHours()+':00';
 		
 		
 		// fill in match date
@@ -170,7 +175,7 @@
 		var tomorrow = new Date(today.getYear(), today.getMonth(), today.getDate()+1);
 		
 		var months = ['', '', '', '', '', 'June', 'July'];
-		var weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+		var weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 		
 		if (today.getDate() == matchDate.getDate()
 		&& today.getHours() >= matchDate.getHours()) {
@@ -181,13 +186,13 @@
 		} else if (today.getDate() == matchDate.getDate()) {
 			timing.innerText = 'today';
 			
-		} else if (tomorrow.getDate() == m.day) {
+		} else if (tomorrow.getDate() == matchDate.getDate()) {
 			timing.innerText = 'tomorrow';
 			
 		} else {
 			
 			timing.innerText = [
-				weekdays[parseInt(matchDate.getDay())],
+				weekdays[matchDate.getDay()],
 				matchDate.getDate(),
 				months[matchDate.getMonth()]
 			].join(' ');

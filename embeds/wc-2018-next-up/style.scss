@@ -251,7 +251,7 @@ section#world-cup-2018-upcoming-fixtures {
       font-family: 'Guardian Text Sans Web', 'Guardian Sans Web', sans-serif;
       color: #767676;
       &:before {
-        content: attr(data-time);
+        content: attr(data-time) ' ';
         color: #121212;
       }
     }
