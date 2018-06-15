@@ -93,22 +93,28 @@
 				// now trim to the first 4 only;
 				var selectedMatches = selectedMatches.slice(0,4)
 				
-				// if there are no matches to display, hide this
 				if (selectedMatches.length==0) {
+				// no matches with current settings
 					if (teamName==false) {
 						console.warn('Hiding next up thrasher: no matches to display');
 						hideSelf();
-						connectCup();
+						repositionWithWorldCupSection();
 					} else {
 						console.warn('No upcoming matches for', teamName, 'so resetting to all teams');
 						updateTeamFiltering(false);
 					}
 				} else {
-					clearMatches();
+					// clear content
+					var matchesEl = document.querySelector('.wc-next-up__matches');
+					matchesEl.innerHTML = '';
+					
+					// inject all matches
 					selectedMatches.forEach(function(matchInfo) {
 						injectMatch(matchInfo);
 					});
-					connectCup();
+
+					// resize
+					repositionWithWorldCupSection();
 				}
 				
 				
@@ -116,11 +122,6 @@
 				console.warn('Next up thrasher failed to load schedule — hiding');
 				hideSelf();
 			});
-	}
-	
-	function clearMatches() {
-		var matchesEl = document.querySelector('.wc-next-up__matches');
-		matchesEl.innerHTML = '';
 	}
 	
 	function injectMatch(m) {
@@ -179,6 +180,42 @@
 		document.querySelector('.wc-next-up__matches').appendChild(el);
 	}
 	
+	function hideSelf() {
+		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
+		thrasherSection.style.display = 'none';
+	}
+	
+	function repositionWithWorldCupSection() {
+		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
+		var prevSection = thrasherSection.previousElementSibling;
+		if (prevSection.id.indexOf('world-cup')>=0) {
+			var thrasherHeight = thrasherSection.clientHeight;
+			var thrasherStyle = '-'+(thrasherHeight+6)+'px';
+			var prevStyle = (thrasherHeight+12)+'px';
+			
+			thrasherSection.style.marginTop = thrasherStyle;
+			prevSection.style.paddingBottom = prevStyle;
+		}
+	}
+	
+	window.addEventListener('resize', repositionWithWorldCupSection);
+
+	function windUp() {
+		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
+		var prevSection = thrasherSection.previousElementSibling;
+
+		if (prevSection.classList.contains('fc-container__mpu--mobile')
+		||  prevSection.classList.contains('fc-container--commercial')) {
+			var front = thrasherSection.parentElement;
+			front.insertBefore(thrasherSection, prevSection);
+		}
+		
+		repositionWithWorldCupSection();
+	}
+	
+	
+	// Utility functions below
+	
 	function loadJSON(path, success, error) {
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
@@ -195,45 +232,6 @@
 		};
 		xhr.open("GET", path, true);
 		xhr.send();
-	}
-	
-	function hideSelf() {
-		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
-		thrasherSection.style.display = 'none';
-	}
-	
-	function trackLoad() {
-		window.guardian.ophan.record({
-			component: 'thrasher : world cup next up : load',
-			value: 1
-		});
-	}
-
-	function connectCup() {
-		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
-		var prevSection = thrasherSection.previousElementSibling;
-		if (prevSection.id.indexOf('world-cup')>=0) {
-			var thrasherHeight = thrasherSection.clientHeight;
-			var thrasherStyle = '-'+(thrasherHeight+6)+'px';
-			var prevStyle = (thrasherHeight+12)+'px';
-			
-			thrasherSection.style.marginTop = thrasherStyle;
-			prevSection.style.paddingBottom = prevStyle;
-		}
-	}
-	
-	window.addEventListener('resize', connectCup);
-
-	function windUp() {
-		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
-		var prevSection = thrasherSection.previousElementSibling;
-
-		if (prevSection.classList.contains('fc-container__mpu--mobile')
-		||  prevSection.classList.contains('fc-container--commercial')) {
-			var front = thrasherSection.parentElement;
-			front.insertBefore(thrasherSection, prevSection);
-		}
-		
 	}
 	
 	function setCookie(name,value,days) {
@@ -256,6 +254,13 @@
 	    return null;
 	}
 
+	function trackLoad() {
+		window.guardian.ophan.record({
+			component: 'thrasher : world cup next up : load',
+			value: 1
+		});
+	}
+
 	function checkExists(startThrasherFunction) {
 		var checkInterval = setInterval(function() {
 			if (document.querySelector('.wc-2018-next-up__wrapper')) {
@@ -268,7 +273,6 @@
 	checkExists(windUp);
 	checkExists(loadContent);
 	checkExists(loadTeamSelect);
-	checkExists(connectCup);
 	checkExists(trackLoad);
 
 })();
