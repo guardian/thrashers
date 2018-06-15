@@ -285,6 +285,20 @@ section#world-cup-2018-upcoming-fixtures {
     
     &.live {
       border-color: $sport-invert;
+      border-left: 1px solid $sport-invert;
+      background-color: #f1f8fc;
+      padding-left: 4px;
+      min-height: 42px;
+
+      // needs to be 1px shorter because left border…
+      flex-basis: calc(50% - 8px);
+      @include mq(tablet) {
+        flex-basis: calc(25% - 23px);
+      }
+      @include mq(desktop) {
+        flex-basis: 133px;
+      }
+      
       .wc-next-up__match__timing {
         color: $sport-main;
         font-weight: 700;
@@ -297,7 +311,7 @@ section#world-cup-2018-upcoming-fixtures {
           width: 8px;
           height: 8px;
           border-radius: 100%;
-          background-color: $sport-main;
+          background-color: currentColor;
           animation: slow-blink 2.2s linear infinite;
           position: relative;
           top: 0;
@@ -312,6 +326,23 @@ section#world-cup-2018-upcoming-fixtures {
           }
         }
       }
+      .wc-next-up__match__link.link {
+        display: block;
+      }
+      
+      &:hover {
+        background-color: #ddecf5;
+        .wc-next-up__match__timing {
+          &,
+          &:before,
+          &:after {
+            color: $sport-dark;
+          }
+          &:after {
+            animation-duration: 1.1s;
+          }
+        }
+      }
     }
     
     &__link.link {
@@ -323,12 +354,6 @@ section#world-cup-2018-upcoming-fixtures {
       right: 0;
       bottom: 0;
       z-index: 1;
-      &:hover ~ .wc-next-up__match__teams {
-        color: $sport-main;
-      }
-    }
-    &.live .wc-next-up__match__link {
-      display: block;
     }
   }
   
