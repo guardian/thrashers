@@ -1,6 +1,10 @@
 (function() {
 
-	function loadTeamSelect() {
+	// sets up event listeners
+	// on the team select dropdown
+	function setupTeamSelect() {
+		
+		// show/hide the dropdown
 		var selectedTeamEl = document.querySelector('.wc-next-up__title__selected-team');
 		selectedTeamEl.addEventListener('click', function(e) {
 			e.stopPropagation();
@@ -10,6 +14,7 @@
 			selectedTeamEl.classList.remove('open');
 		});
 		
+		// reload content when a team is picked
 		var teamOptions = document.querySelectorAll('.wc-next-up__title__team-select__option');
 		teamOptions.forEach(function(teamOption) {
 			teamOption.addEventListener('click', function() {
@@ -21,6 +26,7 @@
 		
 	}
 
+	// change INTERFACE to reflect a team selection (or 'all teams')
 	function updateTeamFiltering(teamName=false) {
 		var thrasher = document.querySelector('.wc-2018-next-up__wrapper');
 
@@ -28,7 +34,7 @@
 			teamName = false;
 		}
 		
-		// update team name in title
+		// update team name in dropdown
 		var selectedTeamEl = thrasher.querySelector('.wc-next-up__title__selected-team');
 		if (teamName) {
 			selectedTeamEl.innerText = teamName;
@@ -52,7 +58,11 @@
 		loadContent(teamName);
 	}
 
+	// change CONTENT to reflect a team selection (or 'all teams')
 	function loadContent(teamName) {
+		
+		// for initial setup, check for a cookie-based setting
+		// and update interface if necessary
 		if (typeof(teamName)==='undefined') {
 			var cookieTeam = getCookie('wc-2018-next-up');
 
@@ -65,55 +75,60 @@
 			}
 		}
 
+		// actually load the content
 		var jsonAddress = "https://interactive.guim.co.uk/thrashers/wc-2018-next-up/hashed/wc-schedule-linked-1536110618.23bd7aae.json";
-		// var jsonAddress = '@@assetPath@@/wc-schedule-linked-1536110618.23bd7aae.json';
 		loadJSON(jsonAddress,
 			function(schedule) {
 				var today = new Date();
 				// var today = new Date(Date.UTC(2018,5,24,16));
 
-				// still display matches up to three hours after they finish
-				today = today - (1000*60*60*3);
+				// still display matches while they're going on
+				today = today - (1000*60*60*2);
 
-				// first filter to future matches
+				// first filter out past matches
 				var selectedMatches = schedule.filter(function(matchInfo) {
 					var matchEpoch = Date.UTC(2018,matchInfo.month,matchInfo.day,matchInfo.hour,0,0);
 					var matchDate = new Date(matchEpoch);
 					return (today < matchDate);
 				});
 				
-				
-				// if a team is assigned, filter by team
+				// filter out matches not involving teamName
+				// if one is selected (i.e not 'all teams')				
 				if (teamName!=false) {
 					selectedMatches = selectedMatches.filter(function(matchInfo) {
 						return (matchInfo.home==teamName || matchInfo.away==teamName);
 					}); 
 				}
 
-				// now trim to the first 4 only;
+				// finally, trim to the first 4 only;
 				var selectedMatches = selectedMatches.slice(0,4)
-				
+
 				if (selectedMatches.length==0) {
-				// no matches with current settings
+					// no matches with current settings
+					
 					if (teamName==false) {
-						console.warn('Hiding next up thrasher: no matches to display');
+						// this basically means the world cup must have ended
+						console.warn('Hiding next up thrasher: no future matches to display');
 						hideSelf();
 						repositionWithWorldCupSection();
 					} else {
+						// this means the selected team is no longer running
 						console.warn('No upcoming matches for', teamName, 'so resetting to all teams');
 						updateTeamFiltering(false);
 					}
 				} else {
-					// clear content
+					// we have fixtures to show;
+					
+					// clear current content
 					var matchesEl = document.querySelector('.wc-next-up__matches');
 					matchesEl.innerHTML = '';
 					
-					// inject all matches
+					// inject all selectedMatches
 					selectedMatches.forEach(function(matchInfo) {
 						injectMatch(matchInfo);
 					});
 
-					// resize
+					// resize thrasher
 					repositionWithWorldCupSection();
 				}
 				
@@ -126,65 +141,76 @@
 	
 	function injectMatch(m) {
 		// get timezone independent match time
-		var matchEpoch = Date.UTC(2018,m.month,m.day,m.hour,0,0);
-		var matchDate = new Date(matchEpoch);
+		var matchDate = new Date(Date.UTC(2018,m.month,m.day,m.hour,0,0));
 		
-		// create match div
+		// setup blank match element
 		var el = document.createElement('div');
 		el.classList.add('wc-next-up__match');
 		el.innerHTML = "<a  data-link-name='wc next up : match page' class='wc-next-up__match__link link'></a><div class='wc-next-up__match__timing'></div><div class='wc-next-up__match__teams'><em></em> v <em></em></div>";
 		
-		// fill in the teams
+		// fill in the team names
 		var teams = el.querySelectorAll('em');
-		var timing = el.querySelector('.wc-next-up__match__timing');
-		var link = el.querySelector('.wc-next-up__match__link');
-
 		teams[0].innerText = m.home;
 		teams[1].innerText = m.away;
 
-		// inject the link to the match screen
-		var matchLink = "https://www.theguardian.com/football/match-redirect/"+m.link
-		link.href = matchLink;
+		// fill in link target
+		var link = el.querySelector('.wc-next-up__match__link');
+		var linkTarget = "https://www.theguardian.com/football/match-redirect/"+m.link
+		link.href = linkTarget;
 		link.innerText = m.home + " v " + m.away + " match report"
 		
-
-		// add the localised time
-		timing.dataset.time = matchDate.getHours()+':00';
+		// fill in match time
+		var timing = el.querySelector('.wc-next-up__match__timing');
+		timing.dataset.time = matchDate.getHours()+':00 ';
 		
 		
-		// Add classes to state wether it's live,
-		// later today, tomorrow, or later in the week
+		// fill in match date
+		// and whether the match is live
 		var today = new Date();
 		var tomorrow = new Date(today.getYear(), today.getMonth(), today.getDate()+1);
-		// var today = new Date(Date.UTC(2018,5,24,15));
-		// var tomorrow = new Date(Date.UTC(2018,5,25));		
 		
 		var months = ['', '', '', '', '', 'June', 'July'];
 		var weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 		
 		if (today.getDate() == matchDate.getDate()
-		&& today.getHours() >= matchDate.getHours()
-		&& today.getHours() <= matchDate.getHours()+2) {
-			timing.innerText = ' live now '
+		&& today.getHours() >= matchDate.getHours()) {
+			timing.innerText = 'live now '
 			timing.classList.add('now');
 			timing.parentElement.classList.add('live');
+			
 		} else if (today.getDate() == matchDate.getDate()) {
-			timing.innerText = ' today'
+			timing.innerText = 'today';
+			
 		} else if (tomorrow.getDate() == m.day) {
-			timing.innerText = ' tomorrow'
+			timing.innerText = 'tomorrow';
+			
 		} else {
-			timing.innerText = ' '+weekdays[parseInt(matchDate.getDay())]+' '+matchDate.getDate()+' '+months[matchDate.getMonth()]
+			
+			timing.innerText = [
+				weekdays[parseInt(matchDate.getDay())],
+				matchDate.getDate(),
+				months[matchDate.getMonth()]
+			].join(' ');
+			
 		}
 		
-		// actually inject this in the DOM
+		// the element data is all in
+		// so actually add it to the DOM
 		document.querySelector('.wc-next-up__matches').appendChild(el);
 	}
 	
+	// this hides the thrasher
+	// in case there were no matches left in the world cup
+	// or the JSON data load failed!
 	function hideSelf() {
 		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
 		thrasherSection.style.display = 'none';
 	}
 	
+	// this sets a negative margin-top to the thrasher,
+	// and padding-bottom in the world cup section
+	// so the world cup section background image
+	// is present in the thrasher too
 	function repositionWithWorldCupSection() {
 		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
 		var prevSection = thrasherSection.previousElementSibling;
@@ -197,9 +223,11 @@
 			prevSection.style.paddingBottom = prevStyle;
 		}
 	}
-	
 	window.addEventListener('resize', repositionWithWorldCupSection);
 
+	// this function runs on load
+	// and moves the thrasher before an ad section
+	// if there is one immediately before it
 	function windUp() {
 		var thrasherSection = document.querySelector('.wc-2018-next-up__wrapper').closest('section');
 		var prevSection = thrasherSection.previousElementSibling;
@@ -272,7 +300,7 @@
 
 	checkExists(windUp);
 	checkExists(loadContent);
-	checkExists(loadTeamSelect);
+	checkExists(setupTeamSelect);
 	checkExists(trackLoad);
 
 })();
