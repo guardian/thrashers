@@ -1,0 +1,148 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$c-white: #fff;
+$c-black: #121212;
+$c-red: #ff5b3a;
+$c-grey: #f6f6f6;
+
+@include base(trump-russia, $c-grey);
+
+#trump-russia-investigation {
+    @include mq(leftCol) {
+        display: none;
+    }
+}
+
+.trump-russia__wrapper {
+    padding: 6px 10px;
+    box-sizing: border-box;
+    background-image: url('@@assetPath@@/mobile-bg.jpg');
+    background-position: right bottom -10px;
+    background-repeat: no-repeat;
+    background-size: 350px;
+
+    @include mq(mobileLandscape) {
+        padding: 6px 20px;
+        background-position: right center center;
+    }
+
+    @include mq(phablet) {
+        background-position: right 40px center;
+    }
+
+    @include mq(tablet) {
+        background-size: 480px;
+    }
+
+    @include mq(desktop) {
+        background-position: right 70px bottom -78px;
+        background-size: auto;
+    }
+}
+
+.trump-russia__headline {
+    font-family: 'Guardian Egyptian Web';
+    font-size: 16px;
+    line-height: 20px;
+    color: $c-white;
+    margin-bottom: 40px;
+    max-width: 200px;
+
+    @include mq(tablet) {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    @include mq(desktop) {
+        max-width: 300px;
+    }
+
+    @include mq(leftCol) {
+        max-width: 200px;
+    }
+}
+
+.trump-russia__main {
+    display: inline;
+    font-weight: bold;
+    padding-bottom: 2px;
+    background: linear-gradient($c-red, $c-red) no-repeat;
+    box-shadow: 4px 0 0 $c-red, -4px 0 0 $c-red;
+}
+
+.trump-russia__sub {
+    display: inline;
+    font-weight: normal;
+    padding-bottom: 2px;
+    background: linear-gradient($c-black, $c-black) no-repeat;
+    box-shadow: 4px 0 0 $c-black, -4px 0 0 $c-black;
+}
+
+.trump-russia__button {
+    display: block;
+    z-index: 4 !important;
+    font-family: 'Guardian Text Sans Web';
+    font-size: 16px;
+    color: $c-white !important;
+    background-color: $c-red;
+    background-image: url('https://interactive.guim.co.uk/atoms/2017/03/march-madness/v/1489774628381/assets/images/arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+    border-radius: 19px;
+    padding: 4px 40px 4px 12px;
+    display: inline-block;
+    transition: background 0.2s linear;
+
+    &:hover {
+        text-decoration: none;
+        background-color: darken($c-red, 5%);
+        background-position: right center;
+    }
+}
+
+.trump-russia__treat {
+    display: none;
+    position: absolute;
+    bottom: 24px;
+    background-image: url('@@assetPath@@/desktop-bg.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom 19px center;
+    width: 140px;
+
+    @include mq(leftCol) {
+        display: block;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+        background-position: bottom;
+    }
+
+    .trump-russia__headline {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .trump-russia__button {
+        font-size: 14px;
+    }
+}
+
+.fc-container__inner--no-treats {
+    .treats__container {
+        display: none;
+    }
+}
