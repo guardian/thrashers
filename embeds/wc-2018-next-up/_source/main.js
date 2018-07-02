@@ -1,30 +1,5 @@
 (function() {
 
-	// sets up event listeners
-	// on the team select dropdown
-	function setupTeamSelect() {
-		
-		// show/hide the dropdown
-		var selectedTeamEl = document.querySelector('.wc-next-up__title__selected-team');
-		selectedTeamEl.addEventListener('click', function(e) {
-			e.stopPropagation();
-			this.classList.toggle('open');
-		});
-		document.body.addEventListener('click', function() {
-			selectedTeamEl.classList.remove('open');
-		});
-		
-		// reload content when a team is picked
-		var teamOptions = document.querySelectorAll('.wc-next-up__title__team-select__option');
-		teamOptions.forEach(function(teamOption) {
-			teamOption.addEventListener('click', function() {
-				var teamName = teamOption.innerText;
-				updateTeamFiltering(teamName);
-				setCookie('wc-2018-next-up', teamName);
-			});
-		});
-		
-	}
 
 	// change INTERFACE to reflect a team selection (or 'all teams')
 	function updateTeamFiltering(teamName=false) {
@@ -34,16 +9,6 @@
 			teamName = false;
 		}
 		
-		// update team name in dropdown
-		var selectedTeamEl = thrasher.querySelector('.wc-next-up__title__selected-team');
-		if (teamName) {
-			selectedTeamEl.innerText = teamName;
-			selectedTeamEl.classList.add('team');
-		} else {
-			selectedTeamEl.innerText = 'all teams';
-			selectedTeamEl.classList.remove('team');
-		}
-
 		// update checkmark in select
 		var teamSelectOptions = document.querySelectorAll('.wc-next-up__title__team-select__option');
 		teamSelectOptions.forEach(function(teamSelectOption) {
@@ -61,22 +26,6 @@
 	// change CONTENT to reflect a team selection (or 'all teams')
 	function loadContent(teamName) {
 		
-		// for initial setup, check for a cookie-based setting
-		// and update interface if necessary
-		if (typeof(teamName)==='undefined') {
-			var cookieTeam = getCookie('wc-2018-next-up');
-
-			if (cookieTeam && cookieTeam != 'All teams') {
-				teamName = cookieTeam;
-				updateTeamFiltering(teamName);
-				return false;
-			} else {
-				teamName = false;
-			}
-		}
-
-		// actually load the content
-
 		// note, the old json address was:
 		// https://interactive.guim.co.uk/thrashers/wc-2018-next-up
 		// /hashed/wc-schedule-linked-1536110618.23bd7aae.json
@@ -305,7 +254,6 @@
 
 	checkExists(windUp);
 	checkExists(loadContent);
-	checkExists(setupTeamSelect);
 	checkExists(trackLoad);
 
 })();
