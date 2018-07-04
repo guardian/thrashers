@@ -38,7 +38,7 @@ function closest(el, selector) {
 }
 
 
-setTimeout(function() {
+function thrasherMain() {
     // find this thrasher
     var thrasher = document.querySelector('.cultural-nugget');
 
@@ -79,10 +79,15 @@ setTimeout(function() {
     } else {
         containerTreats.appendChild(newTreat);
     }
+}
 
+function checkExists(startThrasherFunction) {
+  var checkInterval = setInterval(function() {
+    if (document.querySelector('.cultural-nugget')) {
+      startThrasherFunction();
+      clearInterval(checkInterval);
+    }
+  }, 2000);
+}
 
-    window.guardian.ophan.record({
-        component: 'thrasher : manifestos compared',
-        value: 1
-    });
-}, 20);
+checkExists(thrasherMain);

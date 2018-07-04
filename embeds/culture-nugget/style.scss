@@ -117,25 +117,12 @@ section#culture-treat {
     }
 
     .culture-nugget__image {
-        overflow: hidden;
-        height: 69px;
-        width: 63px;
         float: left;
-
-        @include mq($from: desktop) {
-            margin-bottom: -25px;
-            width: 98px;
-            height: 120px;
-            width: 117px;
-        }
-
-        @include mq($from: wide) {
-            width: 117px;
-            margin-bottom: -10px;
-        }
+        margin-bottom: -5px;
+        width: 130px;
 
         img {
-            width: 100%;
+            width: 130px;
             height: auto;
         }
     }
