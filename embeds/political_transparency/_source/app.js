@@ -143,7 +143,7 @@
 
       template: function() {
 
-        return `<div class="fc-slice-wrapper">
+        return `<div class="political-wrapper">
 
           <ul class="l-row  l-row--cols-4">
 
@@ -214,13 +214,13 @@
 
           app.initialize(json.sheets.data)
 
+            // Typical action to be performed when the document is ready:
+            // document.getElementById("demo").innerHTML = xhttp.responseText;
         }
     };
 
     xhttp.open("GET", "https://interactive.guim.co.uk/docsdata/1LpJQBtRBYSfzmJwWQSdr5khWoZHQEjYA-blSEzP9E3M.json", true);
     xhttp.send();
-
-console.log("Boom")
 
   }());
 

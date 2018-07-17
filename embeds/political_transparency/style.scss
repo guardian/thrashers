@@ -12,11 +12,32 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+.wrapper_panel {
+  display: inline-block;
+  float: left;
+  padding-bottom: 20px;
+
+  @include mq($until: desktop) {
+    margin-top: 20px;
+  }
+
+  br {
+
+    @include mq($until: desktop) {
+      display: none;
+    }
+    
+  }
+
+}
+
+.wrapper_panel h2 {
+  line-height: 1.5rem;
+}
 
 #wrappers {
-
+  box-sizing: border-box;
   width: 100%;
-
 }
 
 #wrappers {
@@ -24,18 +45,22 @@ $mq-breakpoints: (
   padding-bottom: 0.75rem;
   opacity: 1;
   -webkit-transition: opacity .25s linear;
-  transition: opacity .25s linear
+  transition: opacity .25s linear;
+  margin-top: 20px;
 }
+
 @media (min-width: 46.25em) {
   #wrappers {
     padding-top: 0.1875rem
   }
 }
+
 @media (min-width: 71.25em) {
   #wrappers {
     margin-left: 10rem
   }
 }
+
 @media (min-width: 81.25em) {
   #wrappers {
     margin-left: 15rem;
@@ -46,11 +71,13 @@ $mq-breakpoints: (
     clear: left
   }
 }
+
 @media (max-width: 71.24em) {
   #wrappers {
     clear: left
   }
 }
+
 @media (min-width: 71.25em) and (max-width: 81.24em) {
   #wrappers{
     padding-top: 2.25rem
@@ -83,10 +110,15 @@ ul.l-list li:nth-child(2) {
 
 .political_transparency__block {
   width: 100%;
-  min-height: 200px;
+  display: inline-block;
   position: relative;
   font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
   overflow: hidden;
+
+  @include mq($from: desktop) {
+   padding: 20px;
+  }
+
 }
 
 .political_square_container {
