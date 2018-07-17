@@ -7,11 +7,14 @@
   "trailText": "Get the latest US opinion articles sent directly to you every weekday evening",
   "app": {
     "layout": "default",
+    "title": "Sign up for the Guardian US opinion newsletter",
     "titleFont": "egypt-bold",
     "titleColour": "#FFFFFF",
+    "image": "https://media.guim.co.uk/4ef30ca444a6980ad09f9c651b620000ede91d68/2258_5_3247_1951/1000.png",
     "buttonText": "Sign up",
     "buttonTextColour": "#FFFFFF",
-    "buttonBackgroundColour": "#E6711B",
-    "hideKicker": true
+    "buttonBackgroundColour": "#ec6407",
+    "hideKicker": true,
+    "hideGuardianRoundel": true
   }
 }

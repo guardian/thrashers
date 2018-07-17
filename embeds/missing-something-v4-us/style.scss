@@ -12,13 +12,27 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-.missing-something__wrapper {
-  background-color: #eee8da;
-  border-top: 1px solid #A1845C;
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.missing-something-v4-us__wrapper {
+  background-color: #0084C6;
+  border-top: 1px solid #005689;
   margin: 0 -10px;
   padding: 0 10px;
   &:hover {
-    background-color: #e7decb;
+    background-color: #007EBD;
   }
   @include mq(mobileLandscape) {
     padding: 0 20px;
@@ -32,9 +46,9 @@ $mq-breakpoints: (
 
 section#email-sign-up,
 section#email-sign-up- {
-  background-color: #eee8da;
+  background-color: #0084C6;
   &:hover {
-    background-color: #e7decb;
+    background-color: #007EBD;
   }
   .fc-container__inner,
   .fc-slice,
@@ -45,12 +59,12 @@ section#email-sign-up- {
 
 .missing-something {
   position: relative;
-  padding: 6px 0 12px;
+  padding: 2px 0 12px;
   @include mq(tablet) {
-    padding: 6px 20px 12px;
+    padding: 2px 20px 12px;
   }
   @include mq(desktop) {
-    padding: 6px 20px 15px;
+    padding: 2px 20px 15px;
   }
   @include mq(leftCol) {
     margin-left: 160px;
@@ -74,33 +88,20 @@ section#email-sign-up- {
       right: 20px;
     }
   }
+  &__heading,
+  &__copy {
+    padding-right: 32px;
+  }
   &__heading {
     font-size: 31px;
     line-height: 34px;
-    font-weight: 700;
+    font-weight: 600;
     font-family: "Guardian Egyptian Web",Georgia,serif;
-    color: #6B5840;
-  }
-  &__typewriter {
-    display: inline-block;
-    width: calc(100% - 32px);
-    &:after {
-      content: '_';
-      display: inline-block;
-      vertical-align: bottom;
-      color: #A1845C;
-      margin-left: 2px;
-      transition: opacity 300ms;
-    }    
-    &.blink:after {
-      animation-iteration-count: infinite;
-      animation-name: cursorBlink;
-      animation-duration: 1s;
-    }
+    color: #FFE500;
   }
   &__copy {
     font-family: "Guardian Text Egyptian Web",Georgia,serif;
-    color: #121212;
+    color: #F6F6F6;
     font-weight: 500;
     margin-top: 9px;
     font-size: 16px;
@@ -120,10 +121,10 @@ section#email-sign-up- {
       width: 24px;
       height: 24px;
       border-radius: 100%;
-      background-color: #A1845C;
+      background-color: #fff;
       position: absolute;
       vertical-align: middle;
-      transform: translate(3px, -2px);
+      transform: translate(5px, -1px);
       svg {
         position: absolute;
         top: 50%;
@@ -140,8 +141,7 @@ section#email-sign-up- {
     bottom: 0;
     z-index: 20000;
     opacity: 0;
-    }
-
+  }
 }
 
 @keyframes cursorBlink {
