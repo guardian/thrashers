@@ -1,0 +1,157 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileMedium: 360px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px
+);
+@import 'shared/_imports';
+@mixin overflow-visible($container-name) {
+  ##{$container-name} {
+    &.fc-container--thrasher,
+    .facia-snap,
+    .fc-container__inner,
+    .fc-slice {
+      overflow: visible;
+      // overflow-y: visible !important;
+      // overflow-x: hidden !important;
+    }
+  }
+}
+@include overflow-visible(the-defenders-thrasher);
+
+#the-defenders-thrasher {
+  padding-top: 0;
+  width: 100%;
+  margin-bottom: 0;
+
+  .tone-media--item {
+    background-color: #FFE500;
+  }
+
+  .fc-trail__count.fc-trail__count--commentcount {
+    display: none;
+  }
+
+  .facia-snap {
+    padding: 0;
+  }
+}
+
+.the-defenders__wrapper {
+  width: 100%;
+}
+
+#the-defenders-thrasher-inner {
+  // position: relative;
+  height: 150px;
+  background-color: #121212;
+  width: 100%;
+  background-image: url("@@assetPath@@/bg-small.jpg");
+  background-size: 320px;
+  background-repeat: no-repeat;
+  background-position: 20px 0;
+  @include mq(mobileMedium) {
+    background-position: right;
+  }
+  @include mq(mobileLandscape) {
+    background-image: url("@@assetPath@@/bg.jpg");
+    background-size: 1300px;
+    background-position: -220px 0;
+  }
+  @include mq(desktop) {
+    background-position: -200px 0;
+  }
+  @include mq(leftCol) {
+    background-position: -100px 0;
+  }
+  @include mq(wide) {
+    background-position: 0 0;
+  }
+  .logo {
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 220px;
+    padding-left:10px;
+
+    h1 {
+      font-family: "Guardian Egyptian Web",Georgia,serif;
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: 800;
+      color: white;
+    }
+    @include mq(mobileLandscape) {
+      padding-left:20px;
+    }
+    @include mq(leftCol) {
+      width: 332px;
+      h1 {
+      font-size: 36px;
+      line-height: 36px;
+      }
+      // transform: scale(0.8);
+      // transform-origin: top left;
+    }
+    @include mq($until: phablet) {
+      // transform: scale(0.7);
+    }
+
+  }
+
+  .subhead {
+    z-index: 9999;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    width: 180px;
+    @include mq(mobileLandscape) {
+      width: 180px;
+    }
+    @include mq(desktop) {
+      width: 240px;
+    }
+    @include mq(leftCol) {
+      left: 170px;
+    }
+    @include mq(wide) {
+      left: 250px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: bolder;
+      color: white;
+      padding-left: 0px;
+      padding-bottom: 8px;
+      margin-bottom: 0;
+      @include mq(mobileLandscape) {
+        padding-left: 10px;
+      }
+      @include mq(desktop) {
+        border-left: solid 1px white;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      @include mq(leftCol) {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .version {
+    display: none;
+
+    &.default {
+      display: block;
+    }
+  }
+}
