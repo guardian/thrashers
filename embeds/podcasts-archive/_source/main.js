@@ -1,7 +1,8 @@
 ;(function ( global ) {
   //Move the container outside of the standard list element
-  let sliceWrapper = document.querySelector('#current-series .fc-slice-wrapper');
-  let directoryWrapper = document.querySelector('#current-series .podcasts-directory__wrapper');
+  console.log("RUNNING")
+  let sliceWrapper = document.querySelector('#from-the-archive .fc-slice-wrapper');
+  let directoryWrapper = document.querySelector('#from-the-archive .podcasts-archive__wrapper');
   sliceWrapper.appendChild(directoryWrapper);
 
   sliceWrapper.removeChild(sliceWrapper.querySelector("ul"))
