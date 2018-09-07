@@ -16,9 +16,8 @@ $mq-breakpoints: (
     .facia-snap,
     .fc-container__inner,
     .fc-slice {
-      overflow: visible;
       // overflow-y: visible !important;
-      // overflow-x: hidden !important;
+      overflow-x: hidden !important;
     }
   }
 }
@@ -28,9 +27,11 @@ $mq-breakpoints: (
   padding-top: 0;
   width: 100%;
   margin-bottom: 0;
+  background-color: #444;
+
 
   .tone-media--item {
-    background-color: #f6f6f6;
+    background-color: #444;
   }
 
   .fc-trail__count.fc-trail__count--commentcount {
@@ -50,27 +51,41 @@ $mq-breakpoints: (
   width: 100%;
 }
 
-.link {
-  // background: #000;
+.link:hover {
+  #btb-videos-inner {
+    opacity: 0.9;
+  }
+
 }
 
 #btb-videos-inner {
   // position: relative;
-  height: 200px;
-  background-color: #f6f6f6;
+  height: 240px;
+  background-color: #333;
   width: 100%;
   // background-image: url("@@assetPath@@/bg.png");
   // background-size: 320px;
   // background-position: 20px 0;
   background-repeat: no-repeat;
-  background-image: url("@@assetPath@@/bg-father.png");
-  background-size: 1300px;
-  background-position: -360px 0;
+  background-image: url("@@assetPath@@/bg-mobile-father.jpg");
+  // background-image: url("@@assetPath@@/bg-mobile-mother.jpg");
+  // background-image: url("@@assetPath@@/bg-mobile-boy.jpg");
+  // background-image: url("@@assetPath@@/bg-mobile-doctor.jpg");
+  background-size: 375px;
+  background-position: 0 0;
+  position: relative;
+
   @include mq(mobileMedium) {
-    // background-position: right;
+    background-size: 100%;
   }
   @include mq(mobileLandscape) {
-    // background-image: url("@@assetPath@@/bg.png");
+    height: 200px;
+    background-image: url("@@assetPath@@/bg-father.jpg");
+    // background-image: url("@@assetPath@@/bg-mother.jpg");
+    // background-image: url("@@assetPath@@/bg-boy.jpg");
+    // background-image: url("@@assetPath@@/bg-doctor.jpg");
+    background-size: 1300px;
+    background-position: -360px 0;
     // background-size: 1300px;
     // background-position: -220px 0;
     // background-position: right;
@@ -155,27 +170,34 @@ $mq-breakpoints: (
     padding-left: 0;
     padding-bottom: 8px;
     margin-bottom: 0;
-    @include mq(mobileLandscape) {
+    @include mq(leftCol) {
       padding-left: 10px;
     }
   }
 
   .header {
-    font-size: 32px;
-    line-height: 32px;
+    font-size: 28px;
+    line-height: 28px;
     font-weight: bolder;
     color: #fff;
     font-family: "Guardian Egyptian Web",Georgia,serif;
+    @include mq(tablet) {
+      font-size: 32px;
+      line-height: 32px;
+    }
   }
 
   .subhead {
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 22px;
+    line-height: 24px;
     font-weight: lighter;
     color: #CFCFCF;
     font-family: "Guardian Egyptian Headline Light", Georgia, serif;
-    width: 80%;
+    width: 50%;
     margin-top: -6px;
+    @include mq(tablet) {
+      width: 80%;
+    }
     // color: #fff;
     // padding-left: 0;
     // padding-bottom: 8px;
@@ -183,11 +205,6 @@ $mq-breakpoints: (
     // @include mq(mobileLandscape) {
     //   padding-left: 10px;
     // }
-    @include mq(desktop) {
-      // border-left: solid 1px #69D1CA;
-      font-size: 16px;
-      line-height: 19px;
-    }
     @include mq(leftCol) {
       font-size: 28px;
       line-height: 30px;
@@ -195,7 +212,10 @@ $mq-breakpoints: (
   }
 
   .father-sub {
-    width: 70%;
+    width: 50%;
+    @include mq(mobileLandscape) {
+      width: 70%;
+    }
   }
 
   .cta {
@@ -203,7 +223,24 @@ $mq-breakpoints: (
     font-size: 16px;
     font-weight: bold;
     color: #fff;
+    position: relative;
+    display: inline-block;
+    padding-right: 25px;
+    top: -5px;
     // margin-top: -6px;
+
+  //   &:after {
+  //     content: '';
+  //     background-image: url('https://uploads.guim.co.uk/2018/09/07/Right4x.png');
+  //     background-repeat: no-repeat;
+  //     background-size: contain;
+  //     width: 15px;
+  //     height: 17px;
+  //     position: absolute;
+  //     right: 5px;
+  //     top:6px;
+  //
+  // }
   }
 
   .version {
