@@ -1,0 +1,224 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileMedium: 360px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px
+);
+@import 'shared/_imports';
+@mixin overflow-visible($container-name) {
+  ##{$container-name} {
+    &.fc-container--thrasher,
+    .facia-snap,
+    .fc-container__inner,
+    .fc-slice {
+      overflow: visible;
+      // overflow-y: visible !important;
+      // overflow-x: hidden !important;
+    }
+  }
+}
+@include overflow-visible(btb-videos);
+
+#btb-videos {
+  padding-top: 0;
+  width: 100%;
+  margin-bottom: 0;
+
+  .tone-media--item {
+    background-color: #f6f6f6;
+  }
+
+  .fc-trail__count.fc-trail__count--commentcount {
+    display: none;
+  }
+
+  .facia-snap {
+    padding: 0;
+  }
+
+  .fc-container--thrasher {
+    background-color: #DAE4E7;
+  }
+}
+
+.btb-video-thrasher__wrapper {
+  width: 100%;
+}
+
+.link {
+  // background: #000;
+}
+
+#btb-videos-inner {
+  // position: relative;
+  height: 200px;
+  background-color: #f6f6f6;
+  width: 100%;
+  // background-image: url("@@assetPath@@/bg.png");
+  // background-size: 320px;
+  // background-position: 20px 0;
+  background-repeat: no-repeat;
+  background-image: url("@@assetPath@@/bg-father.png");
+  background-size: 1300px;
+  background-position: -360px 0;
+  @include mq(mobileMedium) {
+    // background-position: right;
+  }
+  @include mq(mobileLandscape) {
+    // background-image: url("@@assetPath@@/bg.png");
+    // background-size: 1300px;
+    // background-position: -220px 0;
+    // background-position: right;
+  }
+  @include mq(tablet) {
+    background-position: -360px 0;
+  }
+  @include mq(desktop) {
+    background-position: -240px 0;
+  }
+  @include mq(leftCol) {
+    background-position: -80px 0;
+  }
+  @include mq(wide) {
+    background-position: 0 0;
+  }
+
+  .logo {
+    position: absolute;
+    z-index: 50;
+    top: 6px;
+    right: 10px;
+    // width: 154px;
+    // height: 87px;
+    @include mq(mobileLandscape) {}
+    // @include mq($until: leftCol) {
+    //   transform: scale(0.8);
+    //   transform-origin: top left;
+    // }
+    @include mq(leftCol) {
+      left: 20px
+    }
+    @include mq($until: leftCol) {
+      transform: scale(0.8);
+      transform-origin: top left;
+    }
+    // @include mq(wide) {
+    //   transform: scale(1);
+    // }
+    svg {
+      margin-top: 1px;
+      margin-left: 2px;
+      width: 137px;
+      height: 60px;
+    }
+  }
+
+  .copy {
+    z-index: 9999;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    padding-top: 6px;
+    height: 100%;
+    width: 478px;
+    // border-left: solid 1px rgba(255, 255, 255, 1);
+    // border-right: solid 1px rgba(255, 255, 255, 1);
+    @include mq(mobileLandscape) {
+      // width: 200px;
+    }
+    @include mq(tablet) {
+      left: 20px;
+      width: 348px;
+    }
+    @include mq(desktop) {
+      width: 468px;
+    }
+
+    @include mq(leftCol) {
+      left: 170px;
+      width: 478px;
+
+    }
+    @include mq(wide) {
+      left: 250px;
+    }
+  }
+
+  .cta,
+  .header,
+  .subhead {
+    padding-left: 0;
+    padding-bottom: 8px;
+    margin-bottom: 0;
+    @include mq(mobileLandscape) {
+      padding-left: 10px;
+    }
+  }
+
+  .header {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: bolder;
+    color: #fff;
+    font-family: "Guardian Egyptian Web",Georgia,serif;
+  }
+
+  .subhead {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: lighter;
+    color: #CFCFCF;
+    font-family: "Guardian Egyptian Headline Light", Georgia, serif;
+    width: 80%;
+    margin-top: -6px;
+    // color: #fff;
+    // padding-left: 0;
+    // padding-bottom: 8px;
+    // margin-bottom: 0;
+    // @include mq(mobileLandscape) {
+    //   padding-left: 10px;
+    // }
+    @include mq(desktop) {
+      // border-left: solid 1px #69D1CA;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    @include mq(leftCol) {
+      font-size: 28px;
+      line-height: 30px;
+    }
+  }
+
+  .father-sub {
+    width: 70%;
+  }
+
+  .cta {
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    // margin-top: -6px;
+  }
+
+  .version {
+    display: none;
+
+    &.default {
+      display: block;
+    }
+  }
+}
+@font-face {
+  font-family: "Guardian Egyptian Headline Light";
+  // src: url('https://s3.amazonaws.com/gdn-cdn/fonts/garnett/Guardian Egyp Web-Bold.eot');
+  src: url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Light.woff") format('woff'), url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Light.ttf") format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+}
