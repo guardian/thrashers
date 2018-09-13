@@ -67,10 +67,11 @@ $mq-breakpoints: (
   // background-size: 320px;
   // background-position: 20px 0;
   background-repeat: no-repeat;
-  background-image: url("@@assetPath@@/bg-mobile-father.jpg");
+  // background-image: url("@@assetPath@@/bg-mobile-father.jpg");
   // background-image: url("@@assetPath@@/bg-mobile-mother.jpg");
   // background-image: url("@@assetPath@@/bg-mobile-boy.jpg");
   // background-image: url("@@assetPath@@/bg-mobile-doctor.jpg");
+  background-image: url("@@assetPath@@/bg-mobile-pod.jpg");
   background-size: 375px;
   background-position: 0 0;
   position: relative;
@@ -80,10 +81,14 @@ $mq-breakpoints: (
   }
   @include mq(mobileLandscape) {
     height: 170px;
-    background-image: url("@@assetPath@@/bg-father.jpg");
+    // background-image: url("@@assetPath@@/bg-father.jpg");
     // background-image: url("@@assetPath@@/bg-mother.jpg");
     // background-image: url("@@assetPath@@/bg-boy.jpg");
     // background-image: url("@@assetPath@@/bg-doctor.jpg");
+    background-image: url("@@assetPath@@/bg-pod-1.jpg");
+    // background-image: url("@@assetPath@@/bg-pod-2.jpg");
+    // background-image: url("@@assetPath@@/bg-pod-3.jpg");
+
     background-size: 1300px;
     background-position: -360px 0;
     // background-size: 1300px;
@@ -100,7 +105,9 @@ $mq-breakpoints: (
     background-position: -80px 0;
   }
   @include mq(wide) {
-    background-position: 0 0;
+      // background-image: url("@@assetPath@@/bg-doctor-ad.jpg");
+      background-position: 0px 0;
+    // background-position: -70px 0;
   }
 
   .logo {
@@ -226,7 +233,7 @@ $mq-breakpoints: (
     position: relative;
     display: inline-block;
     padding-right: 25px;
-    top: -5px;
+    top: -2px;
     // margin-top: -6px;
 
   //   &:after {
