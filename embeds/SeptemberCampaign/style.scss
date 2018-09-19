@@ -1,0 +1,397 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.SeptemberCampaign__wrapper {
+    width: 100%;
+}
+
+.wrapper {
+    display: block;
+    position: relative;
+    padding: 70px 0;
+    transition: background-color .3s ease-in-out;
+
+    @include mc(tablet) {
+        padding: 30px 0;
+    }
+}
+
+.var-a {
+    background-color: #65C3D8;
+
+    &:hover {
+        background-color: #60B8CC;
+    }
+
+    .firstHeadline--windrush {
+        display: block;
+    }
+    .firstHeadline--tech {
+        display: none;
+    }
+}
+
+.var-b {
+    background-color: #E0135E;
+
+    &:hover {
+        background-color: #D41359;
+    }
+
+    .firstHeadline--windrush {
+        display: none;
+    }
+    .firstHeadline--tech {
+        display: block;
+    }
+}
+
+a.linkOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.roundel {
+    position: absolute;
+    right: 20px;
+    bottom: 12px;
+    height: 42px;
+    width: 42px;
+}
+
+$pageW-small: 136px;
+$pageH-small: 244px;
+
+$pageW-large: 300px;
+$pageH-large: 212px;
+
+@keyframes payoffLogo {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes payoffCTA {
+    from {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 1;
+    }
+}
+
+.page {
+    height: $pageH-small;
+    margin: 0 auto;
+    position: relative;
+    width: $pageW-small;
+
+    @include mc(tablet) {
+        height: $pageH-large;
+        width: $pageW-large;
+    }
+}
+
+.paper {
+    background: #ffffff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+@keyframes firstImage {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    30% {
+        transform: translate(120px, 20px);
+        opacity: 1;
+    }
+    60% {
+        transform: translate(120px, 20px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(120px, 20px);
+        opacity: 0;
+    }
+}
+
+@keyframes firstImageSmall {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    30% {
+        transform: translate(70px, -50px);
+        opacity: 1;
+    }
+    60% {
+        transform: translate(70px, -50px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(70px, -50px);
+        opacity: 0;
+    }
+}
+
+.firstImage {
+    background-size: cover;
+    background-position: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $pageW-small;
+    height: $pageH-small;
+    mix-blend-mode: multiply;
+    transform: translate(0, 0);
+    opacity: 0;
+    z-index: 1;
+
+    .playing & {
+        animation-fill-mode: forwards;
+        animation-name: firstImageSmall;
+        animation-duration: 4s;
+    }
+
+    .var-a & {background-image: url('https://uploads.guim.co.uk/2018/09/18/windrush-optimised.jpg');}
+    .var-b & {background-image: url('https://uploads.guim.co.uk/2018/09/18/tech.jpg');}
+
+    @include mc(tablet) {
+        height: $pageH-large;
+        width: $pageW-large;
+        .playing & {
+            animation-name: firstImage;
+        }
+    }
+}
+
+@keyframes firstHeadline {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translate(-191px, -14px);
+        opacity: 1;
+    }
+
+    84% {
+        transform: translate(-191px, -14px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-191px, -14px);
+        opacity: 0;
+    }
+}
+
+@keyframes firstHeadlineSmall {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translate(-66px, 128px);
+        opacity: 1;
+    }
+
+    84% {
+        transform: translate(-66px, 128px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-66px, 128px);
+        opacity: 0;
+    }
+}
+
+.firstHeadline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    opacity: 0;
+    z-index: 1;
+    height: auto;
+    .playing & {
+        animation-fill-mode: forwards;
+        animation-name: firstHeadlineSmall;
+        animation-duration: 4s;
+    }
+    .var-a & {width: 163px;}
+    .var-b & {width: 180px;}
+
+    @include mc(tablet) {
+        .playing & {
+            animation-name: firstHeadline;
+        }
+        .var-a & {width: 284px;}
+        .var-b & {width: 305px;}
+    }
+}
+
+@keyframes payoffYellow {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes payoffText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.payoffHeadline {
+    position: absolute;
+    top: 123px;
+    left: -72px;
+    z-index: 1;
+    height: auto;
+    width: 160px;
+
+    @include mc(tablet) {
+        width: 277px;
+        top: -20px;
+        left: -200px;
+    }
+
+    & > .yellow {
+        .playing & {
+            animation-delay: 3.4s;
+            animation-fill-mode: forwards;
+            animation-name: payoffYellow;
+            animation-duration: .5s;
+        }
+        transform: translateX(-100%);
+    }
+
+    & > .text {
+        .playing & {
+            animation-delay: 3.7s;
+            animation-fill-mode: forwards;
+            animation-name: payoffText;
+            animation-duration: .5s;
+        }
+        opacity: 0;
+    }
+}
+
+.payoffLogo {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    opacity: 0;
+    height: auto;
+    width: 70%;
+    z-index: 1;
+
+    .playing & {
+        animation-delay: 3.6s;
+        animation-fill-mode: forwards;
+        animation-name: payoffLogo;
+        animation-duration: 1s;
+    }
+
+    @include mc(tablet) {
+        width: 40%;
+    }
+}
+
+.payoffCTA {
+    position: absolute;
+    bottom: -58px;
+    right: 210px;
+    transform: translateX(0);
+    width: 200px;
+    opacity: 0;
+    z-index: 0;
+
+    .playing & {
+        animation-delay: 3.6s;
+        animation-fill-mode: forwards;
+        animation-name: payoffCTA;
+        animation-duration: .5s;
+    }
+
+    @include mc(tablet) {
+        bottom: 24px;
+        right: -10px;
+    }
+}
+
+.payoffCTA-text {
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+a.payoffCTA-button {
+    background: #121212;
+    color: #ffffff;
+    font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 16px;
+    border: none;
+    box-sizing: border-box;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 40px;
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    border-radius: 21px;
+    padding: 0 47px 0 21px;
+
+    .icon {
+        position: absolute;
+        right: 14px;
+        top: 11px;
+        height: auto;
+        width: 21px;
+        transform: translateX(0);
+        transition: transform .3s ease-in-out;
+
+        .wrapper:hover & {
+            transform: translateX(5px);
+        }
+    }
+}
