@@ -26,7 +26,7 @@ section#documentaries {
     font-weight: 500;
     overflow: hidden;
 
-    @include mq(tablet) {
+    @include mc(tablet) {
         width: 100%;
         margin: 0;
     }
@@ -37,27 +37,27 @@ section#documentaries {
         z-index: 10;
         height: 230px;
 
-        @include mq(mobile) {
+        @include mc(mobile) {
           height: 250px;
         }
 
-        @include mq(mobileMedium) {
+        @include mc(mobileMedium) {
           height: 250px;
         }
 
-        @include mq(mobileLandscape) {
+        @include mc(mobileLandscape) {
           height: 240px;
         }
 
-        @include mq(mobileLong) {
+        @include mc(mobileLong) {
           height: 160px;
         }
 
-        @include mq(phablet) {
+        @include mc(phablet) {
           height: 160px;
         }
 
-        @include mq(desktop) {
+        @include mc(desktop) {
           height: 160px;
         }
 
@@ -82,63 +82,59 @@ section#documentaries {
             animation-fill-mode: both;
 
 
-                @include mq(mobile) {
+                @include mc(mobile) {
                   background-image: url('@@assetPath@@/image-mobile-small.jpg');
                   background-color: #00a194;
                   background-repeat: no-repeat;
                   background-position: -5px 15px;
                 }
-                @include mq(mobileLandscape) {
+                @include mc(mobileLandscape) {
                   background-image: url('@@assetPath@@/image-mobile.jpg');
                   background-color: #00a194;
                   background-repeat: no-repeat;
                   background-position: 0px 20px;
                 }
 
-                @include mq(mobileLong) {
+                @include mc(mobileLong) {
                   background-image: url('@@assetPath@@/image-mobile.jpg');
                   background-color: #00a194;
                   background-repeat: no-repeat;
                   background-position: 0px 10px;
                 }
 
-                @include mq(phablet) {
+                @include mc(phablet) {
                   background-image: url('@@assetPath@@/image-mobile.jpg');
                   z-index: 12;
                   background-repeat: no-repeat;
                   background-position: 0px 10px;
                 }
 
-                @include mq(tablet) {
+                @include mc(tablet) {
                   background-image: url('@@assetPath@@/image-tablet.jpg');
                   z-index: 12;
                   background-repeat: no-repeat;
                   background-position: 0px 0px;
                 }
-                @include mq(desktop) {
+                @include mc(desktop) {
                   background-image: url('@@assetPath@@/image-desktop.jpg');
                   z-index: 12;
                   background-repeat: no-repeat;
                   transform: translateX(2%);
                   background-position: 0px 0px;
                 }
-                @include mq(leftCol) {
-                  :not(.has-page-skin) & {
-                    background-image: url('@@assetPath@@/image-wide.jpg');
-                    z-index: 12;
-                    transform: translateX(-3.5%);
-                    background-repeat: no-repeat;
-                    background-position: 0px 0px;
-                 }
+                @include mc(leftCol) {
+                  background-image: url('@@assetPath@@/image-wide.jpg');
+                  z-index: 12;
+                  transform: translateX(-3.5%);
+                  background-repeat: no-repeat;
+                  background-position: 0px 0px;
                 }
-                @include mq(wide) {
-                  :not(.has-page-skin) & {
+                @include mc(wide) {
                     background-image: url('@@assetPath@@/image-wide.jpg');
                     z-index: 12;
                     transform: translateX(0%);
                     background-repeat: no-repeat;
                     background-position: 12px 0px;
-                 }
                 }
         }
         .docs-logo {
@@ -148,10 +144,10 @@ section#documentaries {
             right: 8px;
             z-index: 15;
 
-            @include mq(mobile) {
+            @include mc(mobile) {
             transform: scale(.75);
           }
-            @include mq(phablet) {
+            @include mc(phablet) {
              transform: scale(1);
           }
 
@@ -168,26 +164,22 @@ section#documentaries {
         z-index: 10;
         padding: 7px 10px 18px;
 
-        @include mq(phablet) {
+        @include mc(phablet) {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
         }
-        @include mq(tablet) {
+        @include mc(tablet) {
             padding: 7px 20px 18px;
         }
 
-        @include mq(leftCol) {
-            :not(.has-page-skin) & {
-             padding-left: 10px;
-            }
+        @include mc(leftCol) {
+           padding-left: 10px;
         }
 
-        @include mq(wide) {
-          :not(.has-page-skin) & {
-            padding-left: 10px;
-          }
+        @include mc(wide) {
+          padding-left: 10px;
         }
 
         .padding {
@@ -220,7 +212,7 @@ section#documentaries {
             top: -100px;
             max-width: 80%;
 
-            @include mq(mobile) {
+            @include mc(mobile) {
               position:absolute;
               left: 16px;
               top: -100px;
@@ -229,7 +221,7 @@ section#documentaries {
               max-width: 80%;
 
             }
-            @include mq(mobileLandscape) {
+            @include mc(mobileLandscape) {
               left: 16px;
               top: -90px;
               font-size: 18px;
@@ -237,7 +229,7 @@ section#documentaries {
               max-width: 80%;
             }
 
-            @include mq(mobileLong) {
+            @include mc(mobileLong) {
               left: 290px;
               top: -100px;
               font-size: 16px;
@@ -245,7 +237,7 @@ section#documentaries {
               max-width: 40%;
             }
 
-            @include mq(phablet) {
+            @include mc(phablet) {
               left: 340px;
               top: 17px;
               font-size: 17px;
@@ -253,7 +245,7 @@ section#documentaries {
               max-width: 38%;
             }
 
-            @include mq(tablet) {
+            @include mc(tablet) {
               left: 380px;
               top: 18px;
               font-size: 18px;
@@ -261,7 +253,7 @@ section#documentaries {
               max-width: 35%;
             }
 
-            @include mq(desktop) {
+            @include mc(desktop) {
               left: 520px;
               top: 20px;
               font-size: 19px;
@@ -269,54 +261,48 @@ section#documentaries {
               max-width: 33%;
             }
 
-            @include mq(leftCol) {
-              :not(.has-page-skin) & {
-                left: 663px;
-                top: 18px;
-                font-size: 20px;
-                line-height: 20px;
-             }
+            @include mc(leftCol) {
+              left: 663px;
+              top: 18px;
+              font-size: 20px;
+              line-height: 20px;
             }
 
-            @include mq(wide) {
-              :not(.has-page-skin) & {
-                left: 735px;
-                top: 28px;
-                font-size: 20px;
-                line-height: 20px;
-                max-width: 33%;
-              }
+            @include mc(wide) {
+              left: 735px;
+              top: 28px;
+              font-size: 20px;
+              line-height: 20px;
+              max-width: 33%;
             }
 
             br {
                 display: none;
-                @include mq(mobile) {
+                @include mc(mobile) {
                     display: block;
                 }
 
-                @include mq(mobileLandscape) {
+                @include mc(mobileLandscape) {
                     display: block;
                 }
 
-                @include mq(mobileLong) {
+                @include mc(mobileLong) {
                     display: block;
                 }
 
-                @include mq(phablet) {
+                @include mc(phablet) {
                     display: block;
                 }
-                @include mq(tablet) {
-                    display: block;
-                }
-
-                @include mq(desktop) {
+                @include mc(tablet) {
                     display: block;
                 }
 
-                @include mq(wide) {
-                  :not(.has-page-skin) & {
+                @include mc(desktop) {
+                    display: block;
+                }
+
+                @include mc(wide) {
                    display: block;
-                  }
                 }
             }
         }
