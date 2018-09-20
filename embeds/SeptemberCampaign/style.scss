@@ -20,39 +20,41 @@ $mq-breakpoints: (
     display: block;
     position: relative;
     padding: 70px 0;
+    margin: 0 -10px;
     transition: background-color .3s ease-in-out;
 
-    @include mc(tablet) {
+    @include mc(desktop) {
         padding: 30px 0;
+        margin: 0;
     }
 }
 
 .var-a {
-    background-color: #65C3D8;
+    background-color: #00B2FF;
 
     &:hover {
-        background-color: #60B8CC;
+        background-color: #01A8F1;
     }
 
-    .firstHeadline--windrush {
+    .firstHeadline--a {
         display: block;
     }
-    .firstHeadline--tech {
+    .firstHeadline--b {
         display: none;
     }
 }
 
 .var-b {
-    background-color: #E0135E;
+    background-color: #DB2D6C;
 
     &:hover {
-        background-color: #D41359;
+        background-color: #CF2B67;
     }
 
-    .firstHeadline--windrush {
+    .firstHeadline--a {
         display: none;
     }
-    .firstHeadline--tech {
+    .firstHeadline--b {
         display: block;
     }
 }
@@ -74,11 +76,8 @@ a.linkOverlay {
     width: 42px;
 }
 
-$pageW-small: 136px;
-$pageH-small: 244px;
-
-$pageW-large: 300px;
-$pageH-large: 212px;
+$pageW-large: 187px;
+$pageH-large: 239px;
 
 @keyframes payoffLogo {
     from {
@@ -102,15 +101,10 @@ $pageH-large: 212px;
 }
 
 .page {
-    height: $pageH-small;
+    height: $pageH-large;
     margin: 0 auto;
     position: relative;
-    width: $pageW-small;
-
-    @include mc(tablet) {
-        height: $pageH-large;
-        width: $pageW-large;
-    }
+    width: $pageW-large;
 }
 
 .paper {
@@ -128,16 +122,12 @@ $pageH-large: 212px;
         transform: translate(0, 0);
         opacity: 0;
     }
-    30% {
-        transform: translate(120px, 20px);
-        opacity: 1;
-    }
-    60% {
-        transform: translate(120px, 20px);
+    30%, 60% {
+        transform: translate(135px, 20px);
         opacity: 1;
     }
     100% {
-        transform: translate(120px, 20px);
+        transform: translate(135px, 20px);
         opacity: 0;
     }
 }
@@ -147,11 +137,7 @@ $pageH-large: 212px;
         transform: translate(0, 0);
         opacity: 0;
     }
-    30% {
-        transform: translate(70px, -50px);
-        opacity: 1;
-    }
-    60% {
+    30%, 60% {
         transform: translate(70px, -50px);
         opacity: 1;
     }
@@ -167,8 +153,8 @@ $pageH-large: 212px;
     position: absolute;
     top: 0;
     left: 0;
-    width: $pageW-small;
-    height: $pageH-small;
+    height: $pageH-large;
+    width: $pageW-large;
     mix-blend-mode: multiply;
     transform: translate(0, 0);
     opacity: 0;
@@ -183,9 +169,7 @@ $pageH-large: 212px;
     .var-a & {background-image: url('https://uploads.guim.co.uk/2018/09/18/windrush-optimised.jpg');}
     .var-b & {background-image: url('https://uploads.guim.co.uk/2018/09/18/tech.jpg');}
 
-    @include mc(tablet) {
-        height: $pageH-large;
-        width: $pageW-large;
+    @include mc(desktop) {
         .playing & {
             animation-name: firstImage;
         }
@@ -198,18 +182,13 @@ $pageH-large: 212px;
         opacity: 0;
     }
 
-    30% {
-        transform: translate(-191px, -14px);
-        opacity: 1;
-    }
-
-    84% {
-        transform: translate(-191px, -14px);
+    30%, 84% {
+        transform: translate(-210px, -14px);
         opacity: 1;
     }
 
     100% {
-        transform: translate(-191px, -14px);
+        transform: translate(-210px, -14px);
         opacity: 0;
     }
 }
@@ -244,20 +223,22 @@ $pageH-large: 212px;
     opacity: 0;
     z-index: 1;
     height: auto;
+
     .playing & {
         animation-fill-mode: forwards;
         animation-name: firstHeadlineSmall;
         animation-duration: 4s;
     }
+
     .var-a & {width: 163px;}
     .var-b & {width: 180px;}
 
-    @include mc(tablet) {
+    @include mc(desktop) {
         .playing & {
             animation-name: firstHeadline;
         }
-        .var-a & {width: 284px;}
-        .var-b & {width: 305px;}
+        .var-a & {width: 305px;}
+        .var-b & {width: 328px;}
     }
 }
 
@@ -287,10 +268,10 @@ $pageH-large: 212px;
     height: auto;
     width: 160px;
 
-    @include mc(tablet) {
-        width: 277px;
+    @include mc(desktop) {
+        width: 299px;
         top: -20px;
-        left: -200px;
+        left: -240px;
     }
 
     & > .yellow {
@@ -320,7 +301,7 @@ $pageH-large: 212px;
     right: 6px;
     opacity: 0;
     height: auto;
-    width: 70%;
+    width: 64%;
     z-index: 1;
 
     .playing & {
@@ -328,10 +309,6 @@ $pageH-large: 212px;
         animation-fill-mode: forwards;
         animation-name: payoffLogo;
         animation-duration: 1s;
-    }
-
-    @include mc(tablet) {
-        width: 40%;
     }
 }
 
@@ -351,9 +328,10 @@ $pageH-large: 212px;
         animation-duration: .5s;
     }
 
-    @include mc(tablet) {
+    @include mc(desktop) {
+        width: 220px;
         bottom: 24px;
-        right: -10px;
+        right: -20px;
     }
 }
 
@@ -361,10 +339,10 @@ $pageH-large: 212px;
     font-family: "Guardian Egyptian Web", Georgia, serif;
     font-size: 18px;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 400;
 }
 
-a.payoffCTA-button {
+.payoffCTA-button {
     background: #121212;
     color: #ffffff;
     font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
