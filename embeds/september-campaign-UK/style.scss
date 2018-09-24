@@ -68,7 +68,7 @@ a.linkOverlay {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 2 !important;
     overflow: hidden;
     text-indent: 200%;
     white-space: nowrap;
