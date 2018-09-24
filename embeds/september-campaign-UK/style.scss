@@ -12,7 +12,7 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-.SeptemberCampaign__wrapper {
+.september-campaign-UK__wrapper {
     width: 100%;
 }
 
@@ -23,17 +23,20 @@ $mq-breakpoints: (
     margin: 0 -10px;
     transition: background-color .3s ease-in-out;
 
+    @include mc(tablet) {
+        margin: 0;
+    }
+
     @include mc(desktop) {
         padding: 30px 0;
-        margin: 0;
     }
 }
 
 .var-a {
-    background-color: #00B2FF;
+    background-color: #61c3d9;
 
     &:hover {
-        background-color: #01A8F1;
+        background-color: #5CB8CD;
     }
 
     .firstHeadline--a {
@@ -45,10 +48,10 @@ $mq-breakpoints: (
 }
 
 .var-b {
-    background-color: #DB2D6C;
+    background-color: #e5005a;
 
     &:hover {
-        background-color: #CF2B67;
+        background-color: #D80156;
     }
 
     .firstHeadline--a {
@@ -66,6 +69,10 @@ a.linkOverlay {
     right: 0;
     bottom: 0;
     z-index: 2;
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+    background: transparent;
 }
 
 .roundel {
@@ -138,11 +145,11 @@ $pageH-large: 239px;
         opacity: 0;
     }
     30%, 60% {
-        transform: translate(70px, -50px);
+        transform: translate(65px, -55px);
         opacity: 1;
     }
     100% {
-        transform: translate(70px, -50px);
+        transform: translate(65px, -55px);
         opacity: 0;
     }
 }
@@ -199,18 +206,13 @@ $pageH-large: 239px;
         opacity: 0;
     }
 
-    30% {
-        transform: translate(-66px, 128px);
-        opacity: 1;
-    }
-
-    84% {
-        transform: translate(-66px, 128px);
+    30%, 84% {
+        transform: translate(-43px, 147px);
         opacity: 1;
     }
 
     100% {
-        transform: translate(-66px, 128px);
+        transform: translate(-43px, 147px);
         opacity: 0;
     }
 }
@@ -231,7 +233,7 @@ $pageH-large: 239px;
     }
 
     .var-a & {width: 163px;}
-    .var-b & {width: 180px;}
+    .var-b & {width: 174px;}
 
     @include mc(desktop) {
         .playing & {
@@ -262,8 +264,8 @@ $pageH-large: 239px;
 
 .payoffHeadline {
     position: absolute;
-    top: 123px;
-    left: -72px;
+    top: 143px;
+    left: -47px;
     z-index: 1;
     height: auto;
     width: 160px;
@@ -297,8 +299,8 @@ $pageH-large: 239px;
 
 .payoffLogo {
     position: absolute;
-    top: 6px;
-    right: 6px;
+    top: 12px;
+    right: 8px;
     opacity: 0;
     height: auto;
     width: 64%;
@@ -315,7 +317,7 @@ $pageH-large: 239px;
 .payoffCTA {
     position: absolute;
     bottom: -58px;
-    right: 210px;
+    right: 234px;
     transform: translateX(0);
     width: 200px;
     opacity: 0;

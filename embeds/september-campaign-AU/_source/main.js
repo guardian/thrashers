@@ -1,12 +1,5 @@
 (function() {
     function variantAssignator() {
-        // var backgrounds = ["var-a", "var-b"];
-        // var elements = document.getElementsByClassName("wrapper-september");
-        // var len = backgrounds.length;
-        // for (i = 0; i < elements.length; i++) {
-        //     elements[i].className += ' ' + backgrounds[i%len];
-        // }
-
         var el = document.querySelector(".wrapper-september");
         var variant;
         if (Math.random() > 0.5) {
@@ -17,7 +10,7 @@
 
         el.classList.add('var-'+variant);
         window.guardian.ophan.record({
-			component: ('thrasher : september campaign : variant '+variant),
+			component: ('thrasher : september campaign au : variant '+variant),
 			value: 1
 		});
 
@@ -26,7 +19,7 @@
 
     function checkExists(startThrasherFunction) {
         var checkInterval = setInterval(function() {
-            if (document.querySelector('.SeptemberCampaign__wrapper')) {
+            if (document.querySelector('.september-campaign-AU__wrapper')) {
                 startThrasherFunction();
                 clearInterval(checkInterval);
             }
@@ -35,7 +28,7 @@
 
 	function playThrasher() {
 
-		var thrasher = document.querySelector('.SeptemberCampaign__wrapper');
+		var thrasher = document.querySelector('.september-campaign-AU__wrapper');
 
 		window.addEventListener('scroll', function() {
 			var thrasherY = thrasher.getBoundingClientRect().y;
