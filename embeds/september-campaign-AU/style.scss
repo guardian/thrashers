@@ -22,6 +22,7 @@ $mq-breakpoints: (
     padding: 70px 0;
     margin: 0 -10px;
     transition: background-color .3s ease-in-out;
+    -webkit-backface-visibility: hidden;
 
     @include mc(tablet) {
         margin: 0;
@@ -369,6 +370,7 @@ $pageH-large: 239px;
         width: 21px;
         transform: translateX(0);
         transition: transform .3s ease-in-out;
+        -webkit-backface-visibility: hidden;
 
         .wrapper:hover & {
             transform: translateX(5px);
