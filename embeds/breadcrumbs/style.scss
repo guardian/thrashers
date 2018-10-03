@@ -15,33 +15,27 @@ $mq-breakpoints: (
 .breadcrumbs__wrapper {
 
   width: 100%;
-  display: inline-block;
-
-  .breadbin {
-    width: 100%;
-    cursor: pointer;
-  }
 
   .background {
     width: 100%;
     max-width: 1300px;
     height: 280px;
     background-repeat:   no-repeat;
-    background-color: black;
+    background-color: #f6e6d7;
 
     @include mq($until: tablet) {
       background-position: center center; 
-      background-image: url(@@assetPath@@/background-image-9.jpg);
+      background-image: url(@@assetPath@@/background-image-12.jpg);
     }
 
     @include mq($from: tablet, $until: desktop) {
       background-position: center right; 
-      background-image: url(@@assetPath@@/background-image-9.jpg);
+      background-image: url(@@assetPath@@/background-image-12.jpg);
     }
 
     @include mq($from: desktop) {
       background-position: center right; 
-      background-image: url(@@assetPath@@/background-image-10.jpg);
+      background-image: url(@@assetPath@@/background-image-11.jpg);
     }
 
 
@@ -55,7 +49,7 @@ $mq-breakpoints: (
     max-width: 1300px;
     
     @include mq($until: desktop) {
-      background-color: #33322e;
+      background-color: #1e2b34;
     }
 
     @include mq($from: desktop) {
@@ -92,12 +86,7 @@ $mq-breakpoints: (
       line-height: 2rem;
       font-size: 2rem;
       margin-bottom: 10px;
-
-      @include mq($from: desktop) {
-        width: 400px;
-      }
-
-
+      width: 200px;
     }
 
     .strapline div span {
@@ -112,8 +101,12 @@ $mq-breakpoints: (
 
       @include mq($from: mobileLandscape) {
         color: white;
-         background-color: #5772b5;
       }
+
+      @include mq($from: desktop) {
+        background-color: #445040;
+      }
+
 
     }
 
@@ -141,6 +134,7 @@ $mq-breakpoints: (
 
       @include mq($from: desktop) {
         max-width: 250px;
+        color: #445040;
       }
 
     }

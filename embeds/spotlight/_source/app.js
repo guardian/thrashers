@@ -2,13 +2,18 @@
 
   var app = {
 
-    x: 0,
+    database: null,
 
-    y: 0,
-
-    database: [],
-
-    template: `<div style="background-color: {{colour}}; {{background}}" class="political_block" data-url="{{url}}"><div class="political_expander"><span style="color:white">{{{title}}}</span><p>{{description}}</p></div></div>`,
+    template: `<li class="special_card_holder spotlight-row__item spotlight-row__item--span-1">
+        <div class="facia-snap spotlight-item">
+          <div class="doc-card">
+            <div class="doc-card__poster" style="background-image: url({{image}});"><div style="{{position}}:10px;" class="text_box"><span style="background-color:{{background_colour}};color:{{text_colour}}">{{{project}}}</span></div></div>
+            <div class="doc-card__meta">
+              <p>{{{headline}}}</p><a class="doc-card__link" href="{{url}}"></a>
+            </div>
+          </div>
+        </div>
+      </li>`,
 
     mustache: function(l, a, m, c) {
 
@@ -54,7 +59,7 @@
     loader: function() {
 
         var xhr = new XMLHttpRequest();
-        var url = "https://interactive.guim.co.uk/docsdata/1LpJQBtRBYSfzmJwWQSdr5khWoZHQEjYA-blSEzP9E3M.json";
+        var url = "https://interactive.guim.co.uk/docsdata/1NU_hQ2yJ1C4U26hBlH8XJrN4ei9M8_z6FypKzwx4TII.json";
         xhr.open("GET", url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onreadystatechange = function () { 
@@ -62,89 +67,45 @@
 
                 var json = JSON.parse(xhr.responseText);
 
-                app.googledoc = json.sheets.data
-
-                app.initialize()
+                if (json.sheets.Sheet1.length > 3) {
+                  app.database = app.chunkArrayInGroups(json.sheets.Sheet1, 2)
+                  app.render()
+                } else {
+                  console.log("Nothing to report")
+                }
                
             }
         }
         xhr.send();
     },
 
-    initialize: function() {
+    render: function() {
 
+      var target = document.getElementById("app"); 
 
-      var tiled = (document.body.clientWidth > 739) ? true : false ;
+    for (var i = 0; i < app.database.length; i++) {
 
-      for (var i = 0; i < app.googledoc.length; i++) {
-
-        app.googledoc[i].columns = +app.googledoc[i].columns;
-
-        app.googledoc[i].background = (app.googledoc[i].image!="" && tiled) ? `background-image:url(${app.googledoc[i].image});background-position:bottom right;background-size:${app.googledoc[i].position};` : "" ;
-
+      var div = document.createElement('div');
+          div.className = "elastic_band";
+      var elastic_band = app.database[i]
+      var html = ''
+      for (var ii = 0; ii < elastic_band.length; ii++) {
+        html += app.mustache(app.template, elastic_band[ii])
       }
-
-      app.y = app.googledoc.length
-
-      app.render()
-
-    },
-
-    render: function(orientation) {
-
-      var ul = document.getElementById("app");
-
-      var li = document.createElement("li");
-
-      li.setAttribute("class", "political__" + app.googledoc[app.x].class + "__block__" + app.googledoc[app.x].columns)
-        
-      var html = app.mustache(app.template, app.googledoc[app.x])
-      
-      li.innerHTML = html
-        
-      ul.appendChild(li)
-
-      app.nextify()
-
-    },
-
-    nextify: function() {
-
-      app.x = app.x + 1
-
-      if (app.x < app.y) {
-
-        app.render()
-
-      } else {
-
-        var blocks = document.getElementsByClassName("political_block");
-
-        var control = function() {
-
-          var url = this.getAttribute('data-url');
-
-          window.location.href = url ;
-
-        };
-
-        for (var i = 0; i < blocks.length; i++) {
-
-            blocks[i].addEventListener('click', control, false);
-
-        }
-
-        var fin = document.querySelector('.political_transparency__wrapper');
-
-        fin.style.display = 'block'
-
-      }
+      div.innerHTML = html
+      target.appendChild(div)
 
     }
-    
+
+    var fin = document.querySelector('.spotlight__wrapper');
+
+    fin.style.display = 'block'
+
+    }
+
   }
 
-  var politico = (function() {
+  var spotlight = (function() {
 
     app.loader()
 
@@ -152,16 +113,16 @@
 
   // CommonJS module
   if ( typeof module !== 'undefined' && module.exports ) {
-    module.exports = politico;
+    module.exports = spotlight;
   }
 
   // AMD module
   else if ( typeof define !== 'undefined' && define.amd ) {
-    define( function () { return politico; });
+    define( function () { return spotlight; });
   }
 
   // browser global
   else {
-    global.politico = politico;
+    global.spotlight = spotlight;
   }
 }((typeof window !== 'undefined') ? window : this ));
