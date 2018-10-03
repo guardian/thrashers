@@ -13,166 +13,199 @@ $mq-breakpoints: (
 
 #secure-drop.fc-container--thrasher,
 #securedrop.fc-container--thrasher {
-  & {
-    background-color: #3F464A;
-  }
+    background-color: #FFF280;
+    // background: #ececec;
+    // background-color: rgba(232, 237, 239, 0.5);
     .fc-item {
-        background-color: #3F464A;
-    }
-    @include mq(tablet) {
-      margin-bottom: 78px;
-      overflow: visible;
-      .fc-item,
-      .fc-container__inner {
-        overflow: visible;
-      }
+        // background: #FFFFFF;
+        background-color: #ffe500;
+        background-color: rgba(#ffe500, 0.5);
+        background-color: #FFE500;
     }
 }
-
-.caf-header {
-  padding-top: 6px;
-  margin: 0 -10px;
-  position: relative;
-  z-index: 0;
-  &:after {
-    content: '';
-    position: absolute;
-    z-index: 5;
-    background-color: #fff; 
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: 80px;
-  }
-  @include mq(tablet) {
-    min-height: 144px;
-    margin: 0;
-    &:after {
-      display: none;
-    }
-  }
-  @include mq(desktop) {
-    height: 170px;
-  }
-
-  &__logo,
-  &__title,
-  &__box {
+.secure-drop__wrapper {
+    border-top: 1px solid #E6CF00;
     position: relative;
-    z-index: 10;
-  }
-  &__logo {
-    float: right;
-    width: 79px;
-    margin-right: 10px;
-    @include mq(mobileLandscape) {
-      margin-right: 20px;
+    @include mc(desktop) {
+        width: 100%;
     }
-    @include mq(tablet) {
-      float: none;
-      width: 90px;
-      position: absolute;
-      top: 6px;
-      left: 19px;
-    }
-    @include mq(desktop) {
-      width: 98px;
-    }
-    @include mq(wide) {
-      width: 128px;
-    }
-  }
-  &__title {
-    width: 160px;
-    margin-left: 10px;
-    @include mq(mobileLandscape) {
-      margin-left: 20px;
-    }
-    @include mq(tablet) {
-      margin-left: 0;
-      width: 197px;
-      position: absolute;
-      top: 6px;
-      left: 128px;
-    }
-    @include mq(desktop) {
-      width: 254px;
-      left: 140px;
-    }
-    @include mq(leftCol) {
-      left: 130px;
-    }
-    @include mq(wide) {
-      left: 208px;
-    }
-  }
-  &__box {
-    margin: 24px 20px 0 10px;
-    @include mq(mobileLandscape) {
-      margin: 24px 30px 0 20px;
-    }
-    border: 3px solid #3F464A;
-    background-color: #FFE500;
-    font-size: 16px;
-    line-height: 20px;
-    padding: 3px 5px 12px;
-    font-weight: bold;
+    .securedrop {
+        max-width: 620px;
+        margin: 0 auto;
+        @include mc(mobileLandscape) {
+            padding: 0 10px;
+        }
+        @include mc(tablet) {
+            padding: 0 20px;
+            max-width: none;
+        }
+        @include mc(leftCol) {
+            margin-left: 160px;
+        }
+        @include mc(wide) {
+            margin-left: 240px;
+        }
+        &__title {
+            display: inline-block;
+            padding-top: 2px;
+            color: #121212;
+            float: none;
+            width: auto;
+            padding-bottom: 9px;
+            @include mc(leftCol) {
+                padding-bottom: 0;
+                position: absolute;
+                top: 2px;
+                left: 20px;
+            }
+            &:after {
+                display: none;
+            }
+            &, &:hover {
+                text-decoration-skip: ink;
+                -webkit-text-decoration-skip: ink;
+                -moz-text-decoration-skip: ink;
+            }
+        }
+        &__roundel {
+            float: right;
+            margin-top: 3px;
+            @include mc(tablet) {
+                svg {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+            @include mc(leftCol) {
+                margin-top: 1px;
+            }
+        }
+        &__main {
+            display: block;
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: 400;
+            font-family: 'Guardian Egyptian Web',"Guardian Text Egyptian Web",Georgia,serif;
+            padding-top: 1px;
+            padding-bottom: 18px;
+            margin-top: -5px;
+            color: #121212;
+            @include mc(tablet) {
+                font-weight: 200;
+                font-size: 28px;
+                line-height: 30px;
+            }
+            @include mc(wide) {
+                font-size: 32px;
+                line-height: 34px;
+            }
+            @include mc(leftCol) {
+                margin-top: 3px;
+            }
+            &, &:hover {
+                text-decoration: none;
+            }
+            @include mc(desktop) {
+                &:hover {
+                    span {
+                        border-bottom: 1px solid rgba(#121212, .5);
+                    }
+                }
+            }
+            .eyes {
+                display: inline-block;
+                font-size: 0;
+                vertical-align: middle;
+                position: absolute;
+                top: -29px;
+                left: 136px;
+                @include mc(tablet) {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                }
+                .target {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0x;
+                    height: 18px;
+                    z-index: 1;
+                    transform: translate3d(-50%,-50%,0);
+                    &:hover+.eye .inside {
+                        top: 50% !important;
+                        left: 75% !important;
+                    }
+                    &:hover+.eye+.eye .inside {
+                        top: 50% !important;
+                        left: 25% !important;
+                    }
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                }
+                .eye {
+                    display: inline-block;
+                    position: relative;
+                    top: 7px;
 
-    @include mq(tablet) {
-      margin: 0 20px 0 380px;
-      padding-bottom: 6px;
-      transform: translateY(54px);
-    }
-
-    @include mq(desktop) {
-      margin-top: 48px;
-      margin-left: 500px;
-    }
-    @include mq(leftCol) {
-      margin-left: 660px;
-      width: 444px;
-    }
-    @include mq(wide) {
-      margin-left: 740px;
-    }
-    &__more {
-      @include mq(tablet) {
-        display: none;
-      }
-      cursor: pointer;
-      font-family: 'Guardian Text Sans Web', sans-serif;
-      font-size: 14px;
-      font-weight: bold;
-      i {
-        width: 15px;
-        height: 15px;
-        border-radius: 100%;
-        display: inline-block;
-        background-color: currentColor;
-        vertical-align: middle;
-        margin-right: 3px;
-        position: relative;
-        bottom: 1px;
-        &:before,
-        &:after {
-          content: '';
-          position: absolute;
-          background-color: #ffe500;
-          display: block;
+                    &+.eye {
+                        margin-left: 4px;
+                    }
+                    .outside {
+                        display: block;
+                        svg path {
+                            stroke: rgba(#E6CF00, .5);
+                            stroke-width: 1px;
+                        }
+                    }
+                    .inside {
+                        transition: all 400ms ease-in;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate3d(-48%,-50%,0);
+                    }
+                    svg {
+                        display: block;
+                    }
+                }
+            }
+            .cta {
+                display: inline;
+            }
+            .btn {
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                top: -1px;
+                line-height: 30px;
+                width: 26px;
+                height: 26px;
+                @include mc(tablet) {
+                    width: 32px;
+                    height: 32px;
+                }
+                border-radius: 100%;
+                background-color: #ffffff;
+                svg {
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    path {
+                        fill: currentColor;
+                    }
+                }
+            }
+            &:hover {
+                .btn {
+                    background-color: #ffffff;
+                    border-color: transparent;
+                    // svg path {
+                    //     fill: #11212;
+                    // }
+                }
+            }
         }
-        &:before {
-          width: 9px;
-          height: 1px;
-          top: 7px;
-          left: 3px;
-        }
-        &:after {
-          width: 1px;
-          height: 9px;
-          top: 3px;
-          left: 7px;
-        }
-      }
     }
-  }
 }
