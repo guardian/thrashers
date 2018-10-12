@@ -1,0 +1,288 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#people {
+    background: #ffffff;
+}
+
+.GuardianWeekly__wrapper {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin: 0 -10px;
+
+    @include mq(tablet) {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.GuardianWeekly__wrapper {
+    .link-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3 !important;
+        overflow: hidden;
+        text-indent: 200%;
+        white-space: nowrap;
+        background: transparent;
+    }
+
+    .wrapper {
+        background-color: #122E6F;
+        color: #fff;
+        display: block;
+        height: 280px;
+        position: relative;
+        width: auto;
+        transition: background-color .3s ease-in-out;
+
+        @include mq(tablet) {
+            height: 160px;
+            margin: 40px 0 0;
+        }
+    }
+
+    &:hover .wrapper {
+        background-color: #0E2559;
+    }
+
+    .tagline {
+        position: absolute;
+        top: 12px;
+        text-align: right;
+
+        @include mq($until: mobileLandscape) {
+            left: 10px;
+            right: 10px;
+        }
+
+        @include mq($from: mobileLandscape, $until: leftCol) {
+            left: 20px;
+            right: 20px;
+        }
+
+        @include mq(leftCol) {
+            left: 72px;
+        }
+
+        @include mq(wide) {
+            left: 155px;
+        }
+
+        svg {
+            width: 250px;
+            height: auto;
+
+            @include mq(tablet) {
+                width: 349px;
+            }
+
+            @include mq(desktop) {
+                width: 370px;
+            }
+
+            @include mq(desktop) {
+                max-width: 560px;
+                width: 560px;
+            }
+        }
+    }
+
+    .tagline--desktop {
+        display: none;
+
+        @include mq(desktop) {
+            display: block;
+        }
+    }
+
+    .tagline--mobile {
+        display: block;
+
+        @include mq(desktop) {
+            display: none;
+        }
+    }
+
+    .roundel {
+        position: absolute;
+        right: 10px;
+        bottom: 12px;
+        height: 42px;
+        width: 42px;
+
+        @include mq(mobileLandscape) {
+            right: 20px;
+        }
+    }
+
+    .pack-shots {
+        position: absolute;
+        display: block;
+        left: 40px;
+        bottom: 0;
+
+        @include mq(tablet) {
+            left: auto;
+            right: 244px;
+        }
+
+        @include mq(desktop) {
+            right: 280px;
+        }
+
+        @include mq(leftCol) {
+            right: 330px;
+        }
+
+        @include mq(wide) {
+            right: 360px;
+        }
+    }
+
+    .pack-shot_img {
+        position: absolute;
+        height: auto;
+        width: 130px;
+        bottom: 0;
+        box-shadow: 1px 2px 9px -2px rgba(0,0,0,0.75);
+        animation-name: pack-shot_reveal;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        transform: translateY(100%);
+
+        @include mq(desktop) {
+            width: 150px;
+        }
+    }
+
+    .pack-shot_img--A {
+        z-index: 0;
+        margin-left: -40px;
+        animation-delay: .6s;
+
+        @include mq(leftCol) {
+            margin-left: -70px;
+        }
+
+        @include mq(wide) {
+            margin-left: -110px;
+        }
+    }
+
+    .pack-shot_img--B {
+        z-index: 0;
+        animation-delay: .8s;
+    }
+
+    .pack-shot_img--C {
+        z-index: 1;
+        animation-delay: 1s;
+        margin-left: 40px;
+
+        @include mq(leftCol) {
+            margin-left: 70px;
+        }
+
+        @include mq(wide) {
+            margin-left: 110px;
+        }
+    }
+
+    .cta {
+        color: #ffffff;
+        font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 16px;
+        border: none;
+        box-sizing: border-box;
+        font-weight: 600;
+        line-height: 40px;
+        position: absolute;
+        cursor: pointer;
+        outline: none;
+        border-radius: 21px;
+        -webkit-backface-visibility: hidden;
+
+        @include mq($until: tablet) {
+            background-color: #ffffff;
+            color: #121212;
+            bottom: 12px;
+            left: 10px;
+            padding-left: 18px;
+            padding-right: 4px;
+            z-index: 2;
+        }
+
+        @include mq(tablet) {
+            bottom: 12px;
+            left: 268px;
+        }
+
+        @include mq(desktop) {
+            bottom: 12px;
+            left: 478px;
+        }
+
+        @include mq(leftCol) {
+            left: 528px;
+        }
+
+        @include mq(wide) {
+            left: 610px;
+        }
+
+        .circle {
+            background: #ffffff;
+            height: 42px;
+            width: 42px;
+            border-radius: 50%;
+            display: block;
+            position: relative;
+            float: right;
+            margin-left: 8px;
+            transform: translateX(0);
+            transition: transform .3s ease-in-out;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .icon {
+            fill: #121212;
+            position: absolute;
+            right: 7px;
+            top: 9px;
+            height: auto;
+            width: 26px;
+        }
+    }
+
+    &:hover .cta,
+    &:focus .cta {
+        @include mq(desktop) {
+            color: #ffffff;
+
+            .circle {
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+@keyframes pack-shot_reveal {
+    from {transform: translateY(100%);}
+    to {transform: translateY(0);}
+}
