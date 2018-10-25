@@ -18,14 +18,12 @@ $mq-breakpoints: (
 #million-thrasher,
 #million-wrap {
   animation: background 1s ease-in-out 5s forwards;
-
 }
 
 #million-thrasher {
   background: #FFE500;
   // background: #42AAE1;
   z-index: 99999;
-
 }
 
 #million-wrap {
@@ -34,19 +32,17 @@ $mq-breakpoints: (
   min-height: 500px;
   background: #FFE500;
   // background: #42AAE1;
-
   h2 {
     font-size: 120px;
     font-family: "Guardian Titlepiece";
-    line-height: .9;
+    line-height: 0.9;
     margin: 0 auto;
     float: left;
-    // animation: typing 2s steps(30, end);
-
+    animation: typing 2s steps(30, end);
   }
 
-  .roundel,
-  .logo {
+  .logo,
+  .roundel {
     position: absolute;
     right: 0;
   }
@@ -57,21 +53,33 @@ $mq-breakpoints: (
   }
 
   .logo {
-    bottom: 30px;
+    bottom: 20px;
     width: 200px;
   }
 
-  .thanks,
-  .million,
+  .counts,
   .future,
-  .counts {
+  .million,
+  .sun,
+  .thanks {
     opacity: 0;
   }
 
+  .sun,
+  .dot-one,
   .type-one,
-  .type-two,
-  .type-three {
+  .type-three,
+  .type-two {
     position: absolute;
+  }
+
+  .dot-one {
+    width: 25px;
+    height: 25px;
+    left: 439px;
+    top: -40px;
+    animation: dotAnimates 10s ease-in-out forwards;
+    // top: 115px;
   }
 
   .type-one {
@@ -82,11 +90,33 @@ $mq-breakpoints: (
 
   .thanks {
     display: block;
+    opacity: 1;
     animation: show 0.1s ease-in-out forwards;
+    // &:after {
+    //   content: '';
+    //   width: 25px;
+    //   height: 25px;
+    //   display: inline-block;
+    //   position: relative;
+    //   top: 1px;
+    //   left: 5px;
+    //   border-radius: 100px;
+    //   background-color: #42AAE1;
+    // }
   }
 
   .million {
     animation: show 0.1s ease-in-out 2s forwards;
+  }
+
+  .sun {
+    width: 25px;
+    height: 25px;
+    // opacity: 1;
+    top: 50%;
+    right: 500px;
+    transform-origin: center;
+    animation: sunup 1s cubic-bezier(0.86, 0, 0.07, 1) 5s forwards;
   }
 
   .type-two {
@@ -96,16 +126,16 @@ $mq-breakpoints: (
   }
 
   .future {
+    // opacity: 1;
     animation: show 0.1s ease-in-out 6s forwards;
   }
 
   .type-three {
-    width: 80%;
+    width: 58%;
   }
 
   .counts {
     animation: show 0.1s ease-in-out 10s forwards;
-
   }
 
   .red {
@@ -120,31 +150,92 @@ $mq-breakpoints: (
     position: absolute;
     right: 0;
   }
-
-
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes show {
-    from {opacity: 0;}
-    to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes hide {
-    from {opacity: 1;}
-    to {opacity: 0;}
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dotAnimates {
+  0% {
+    top: -40px;
+  }
+
+  5% {
+    top: 115px;
+  }
+
+  20% {
+    top: 115px;
+  }
+
+  40% {
+    top: 115px;
+  }
+
+  60% {
+    top: 115px;
+  }
+
+  80% {
+    top: 115px;
+  }
+
+  100% {
+    top: 115px;
+  }
 }
 
 @keyframes background {
-     0%   {background: #FFE500;}
-     100%  {background: #42AAE1;}
-   }
+  0% {
+    background: #FFE500;
+  }
 
+  100% {
+    background: #42AAE1;
+  }
+}
 
+@keyframes sunup {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(14);
+  }
+}
 // @mixin overflow-visible($container-name) {
 //   ##{$container-name} {
 //     &.fc-container--thrasher,
@@ -158,12 +249,9 @@ $mq-breakpoints: (
 //   }
 // }
 // @include overflow-visible(nhs-header);
-
 @font-face {
-    font-family: "Guardian Titlepiece";
-    src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2") format("woff2"),
-    url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff") format("woff"),
-    url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
+  font-family: "Guardian Titlepiece";
+  src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
 }
