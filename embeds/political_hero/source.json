@@ -1,0 +1,20 @@
+{
+  "html": "<div class=\"political_hero__wrapper\"><style>.political_hero__wrapper,.political_hero__wrapper .political_hero{width:100%;display:inline-block}.political_hero__wrapper .political_background{width:100%;max-width:1300px;height:400px;background-repeat:no-repeat;background-color:#000;background-image:url(https://interactive.guim.co.uk/thrashers/political_hero/hashed/base.df40b937.jpg)}.political_hero__wrapper .political_foreground{box-sizing:border-box;padding:20px;width:100%;max-width:1300px}@media all and (max-width:61.24em){.political_hero__wrapper .political_background{background-position:center center}.political_hero__wrapper .political_foreground{background-color:#ffe500}}@media all and (min-width:61.25em){.political_hero__wrapper .political_background{background-position:center left}.political_hero__wrapper .political_foreground{position:absolute;top:0;left:0;height:280px}.political_hero__wrapper .political_foreground .political_manifesto{position:absolute;top:80px}.political_hero__wrapper .political_foreground .political_text{max-width:400px}}@media all and (min-width:61.25em) and (max-width:71.24em){.political_hero__wrapper .political_foreground .political_manifesto{left:40px}}@media all and (min-width:71.25em) and (max-width:81.24em){.political_hero__wrapper .political_foreground .political_manifesto{left:40px}}@media all and (min-width:81.25em){.political_hero__wrapper .political_foreground .political_manifesto{left:40px}}.political_hero__wrapper .political_foreground .political_strapline{font-weight:200;line-height:2rem;font-size:2rem;margin-bottom:20px}.political_hero__wrapper .political_foreground .political_strapline div span{color:#000}@media all and (min-width:30em){.political_hero__wrapper .political_foreground .political_strapline div span{padding:10px;background-color:#ffe500}}.political_hero__wrapper .political_foreground .political_text{-webkit-animation-name:fade;animation-name:fade;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-delay:1s;animation-delay:1s;-webkit-animation-timing-function:cubic-bezier(.71,.55,.62,1.57);animation-timing-function:cubic-bezier(.71,.55,.62,1.57);-webkit-animation-fill-mode:both;animation-fill-mode:both;font-family:\"Guardian Text Sans Web\",\"Helvetica Neue\",Helvetica,Arial,\"Lucida Grande\",sans-serif;font-weight:700;font-size:16px;margin-top:5px;color:#000;line-height:1.3rem;display:inline-block;background-color:#fff;padding:10px}@keyframes fade{from{opacity:0}to{opacity:.8}}@-webkit-keyframes fade{from{opacity:0}to{opacity:.8}}.has-active-pageskin .political_hero__wrapper .political_foreground{padding-left:20px}</style><div class=\"political_hero\">\n\n\t<div class=\"political_background\"></div>\n\n\t<div class=\"political_foreground\" data-thrasher-breadline>\n\n\t\t<div class=\"political_manifesto\">\n\n\t\t    <div class=\"political_strapline\">\n\n\t\t        <div><span>The Transparency Project</span></div>\n\n\t\t    </div>\n\n\t\t    <div class=\"political_text\">Transparency, openness and an engaged citizenry deter corruption and encourages integrity in government. Your role in this equation has never been more important, which is why this initiative brings together the most powerful government transparency tools into a central location, along with our own investigations into political accountability</div>\n\n\t    </div>\n\t    \n\t</div>\n\n</div></div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com",
+  "headline": "The Guardian",
+  "trailText": "Latest news, sport and comment from the Guardian",
+  "app": {
+    "layout": "default",
+    "title": "The Transparency Project",
+    "titleFont": "egypt-bold",
+    "titleSize": 30,
+    "titleColour": "#ffffff",
+    "image": "https://interactive.guim.co.uk/embed/2018/09/political-transparency/mobile.jpg",
+    "buttonTextColour": "#",
+    "buttonBackgroundColour": "#",
+    "hideKicker": true,
+    "hideGuardianRoundel": true
+  }
+}

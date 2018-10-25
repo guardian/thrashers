@@ -1,0 +1,373 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    400px,
+    mobileLandscape: 480px,
+    mobileLong:      580px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#documentaries {
+    background-color: #00a194;
+}
+
+.docs-documentaries-pyongyang__wrapper {
+    position: relative;
+    margin: 0 -10px;
+    background-color: #00a194;
+    color: #FFFFFF;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    font-weight: 500;
+    overflow: hidden;
+
+    @include mc(tablet) {
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .background {
+        position: relative;
+        z-index: 10;
+        height: 230px;
+
+        @include mc(mobile) {
+          height: 250px;
+        }
+
+        @include mc(mobileMedium) {
+          height: 250px;
+        }
+
+        @include mc(mobileLandscape) {
+          height: 240px;
+        }
+
+        @include mc(mobileLong) {
+          height: 160px;
+        }
+
+        @include mc(phablet) {
+          height: 160px;
+        }
+
+        @include mc(desktop) {
+          height: 160px;
+        }
+
+        .image {
+            height: 100%;
+            width: auto;
+            background-image: url('@@assetPath@@/image-mobile-small.jpg');
+            background-color: #00a194;
+            background-repeat: no-repeat;
+            background-position: 0px 0px;
+
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-delay: 0.5s;
+            -webkit-animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+            -webkit-animation-fill-mode: both;
+
+            animation-name: fade;
+            animation-duration: 0.5s;
+            animation-delay: 0.5s;
+            animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+            animation-fill-mode: both;
+
+
+                @include mc(mobile) {
+                  background-image: url('@@assetPath@@/image-mobile-small.jpg');
+                  background-color: #00a194;
+                  background-repeat: no-repeat;
+                  background-position: -5px 15px;
+                }
+                @include mc(mobileLandscape) {
+                  background-image: url('@@assetPath@@/image-mobile.jpg');
+                  background-color: #00a194;
+                  background-repeat: no-repeat;
+                  background-position: 0px 20px;
+                }
+
+                @include mc(mobileLong) {
+                  background-image: url('@@assetPath@@/image-mobile.jpg');
+                  background-color: #00a194;
+                  background-repeat: no-repeat;
+                  background-position: 0px 10px;
+                }
+
+                @include mc(phablet) {
+                  background-image: url('@@assetPath@@/image-mobile.jpg');
+                  z-index: 12;
+                  background-repeat: no-repeat;
+                  background-position: 0px 10px;
+                }
+
+                @include mc(tablet) {
+                  background-image: url('@@assetPath@@/image-tablet.jpg');
+                  z-index: 12;
+                  background-repeat: no-repeat;
+                  background-position: 0px 0px;
+                }
+                @include mc(desktop) {
+                  background-image: url('@@assetPath@@/image-desktop.jpg');
+                  z-index: 12;
+                  background-repeat: no-repeat;
+                  transform: translateX(2%);
+                  background-position: 0px 0px;
+                }
+                @include mc(leftCol) {
+                  background-image: url('@@assetPath@@/image-wide.jpg');
+                  z-index: 12;
+                  transform: translateX(-3.5%);
+                  background-repeat: no-repeat;
+                  background-position: 0px 0px;
+                }
+                @include mc(wide) {
+                    background-image: url('@@assetPath@@/image-wide.jpg');
+                    z-index: 12;
+                    transform: translateX(0%);
+                    background-repeat: no-repeat;
+                    background-position: 12px 0px;
+                }
+        }
+        .docs-logo {
+            position: absolute;
+            transform-origin: top right;
+            top: 8px;
+            right: 8px;
+            z-index: 15;
+
+            @include mc(mobile) {
+            transform: scale(.75);
+          }
+            @include mc(phablet) {
+             transform: scale(1);
+          }
+
+            svg {
+                width: 200px;
+                height: 37px;
+            }
+        }
+    }
+
+    .foreground {
+        top:10px;
+        position: relative;
+        z-index: 10;
+        padding: 7px 10px 18px;
+
+        @include mc(phablet) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        @include mc(tablet) {
+            padding: 7px 20px 18px;
+        }
+
+        @include mc(leftCol) {
+           padding-left: 10px;
+        }
+
+        @include mc(wide) {
+          padding-left: 10px;
+        }
+
+        .padding {
+          padding-top: 20px;
+        }
+        .strapline {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1s;
+          -webkit-animation-delay: 1s;
+          -webkit-animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+          -webkit-animation-fill-mode: both;
+
+          animation-name: fade;
+          animation-duration: 1s;
+          animation-delay: 1s;
+          animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+          animation-fill-mode: both;
+        }
+
+        .play {
+            color: #FFFFFF;
+        }
+        .strapline {
+            position:absolute;
+            color: #FFFFFF;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 18px;
+            left: 16px;
+            top: -100px;
+            max-width: 80%;
+
+            @include mc(mobile) {
+              position:absolute;
+              left: 16px;
+              top: -100px;
+              font-size: 16px;
+              line-height: 18px;
+              max-width: 80%;
+
+            }
+            @include mc(mobileLandscape) {
+              left: 16px;
+              top: -90px;
+              font-size: 18px;
+              line-height: 19px;
+              max-width: 80%;
+            }
+
+            @include mc(mobileLong) {
+              left: 290px;
+              top: -100px;
+              font-size: 16px;
+              line-height: 18px;
+              max-width: 40%;
+            }
+
+            @include mc(phablet) {
+              left: 340px;
+              top: 17px;
+              font-size: 17px;
+              line-height: 18px;
+              max-width: 38%;
+            }
+
+            @include mc(tablet) {
+              left: 380px;
+              top: 18px;
+              font-size: 18px;
+              line-height: 19px;
+              max-width: 35%;
+            }
+
+            @include mc(desktop) {
+              left: 520px;
+              top: 20px;
+              font-size: 19px;
+              line-height: 19px;
+              max-width: 33%;
+            }
+
+            @include mc(leftCol) {
+              left: 663px;
+              top: 18px;
+              font-size: 20px;
+              line-height: 20px;
+            }
+
+            @include mc(wide) {
+              left: 735px;
+              top: 28px;
+              font-size: 20px;
+              line-height: 20px;
+              max-width: 33%;
+            }
+
+            br {
+                display: none;
+                @include mc(mobile) {
+                    display: block;
+                }
+
+                @include mc(mobileLandscape) {
+                    display: block;
+                }
+
+                @include mc(mobileLong) {
+                    display: block;
+                }
+
+                @include mc(phablet) {
+                    display: block;
+                }
+                @include mc(tablet) {
+                    display: block;
+                }
+
+                @include mc(desktop) {
+                    display: block;
+                }
+
+                @include mc(wide) {
+                   display: block;
+                }
+            }
+        }
+        .play {
+            position: relative;
+
+            &:before {
+                content: '';
+                width: 42px;
+                height: 42px;
+                border-radius: 100%;
+                background-color: #FFFFFF;
+                display: inline-block;
+                margin-right: 3px;
+                vertical-align: middle;
+                position: relative;
+                bottom: 2px;
+            }
+            svg {
+                position: absolute;
+                width: 23px;
+                height: 19px;
+                top: 10px;
+                left: 12px;
+            }
+        }
+    }
+ .strapline2 {
+   font-weight: 600;
+   position: relative;
+   padding-top: 5px;
+ }
+
+    .full-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 15 !important;
+        color: transparent;
+        &:hover ~ .foreground div,
+        &:hover ~ .background {
+            opacity: 0.9;
+        }
+    }
+}
+
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

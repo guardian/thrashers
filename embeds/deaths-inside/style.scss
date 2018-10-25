@@ -1,0 +1,191 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+.deaths-inside__wrapper {
+	width: 100%;
+	box-sizing: border-box;
+	display: inline-block;
+	font-family: 'Guardian Egyptian Web';
+	position: relative;
+	overflow: hidden;
+
+	.deaths-inside--container {
+		width: 100%;
+		position: relative;
+		background-color: #162235;
+
+		@include mq($until: mobileLandscape) {
+			background-image: url("@@assetPath@@/mobile.jpg");
+			background-position: right;
+			height: 260px;
+		}
+
+
+		@include mq($from: mobileLandscape, $until: desktop) {
+			background-image: url("@@assetPath@@/desktop.jpg");
+			background-position: left;
+			padding-bottom: 26%;
+			height: 0px;
+		}
+
+		@include mq($from: desktop) {
+			height: 260px;
+		}
+
+	}
+
+	.deaths-inside--editorial-block {
+		position: absolute;
+		
+		@include mq($until: desktop) {
+			left: 20px;
+			top: 20px
+		}
+
+		@include mq($from: desktop) {
+			left: 40px;
+			top: 40px
+		}
+
+	}
+
+	.deaths-inside--editorial-block h2 {
+		font-weight: 900;
+
+
+		@include mq($until: tablet) {
+			font-size: 30px;
+			line-height: 30px;
+		}
+
+		@include mq($from: tablet) {
+			font-size: 50px;
+			line-height: 50px;
+		}
+
+		color: white;
+		margin: 0px;
+		padding: 0px;
+	    font-family: "Guardian Text Egyptian Web",Georgia,serif;
+	    font-weight: 700;
+
+	}
+
+	.deaths-inside--editorial-block strong {
+		font-weight: 900;
+
+		@include mq($until: tablet) {
+			font-size: 14px;
+			line-height: 14px;
+			padding-right: 20px;
+		}
+
+		@include mq($from: tablet) {
+			font-size: 16px;
+			line-height: 16px;
+		}
+		color: #e18f6a;
+	    font-family: "Guardian Text Egyptian Web",Georgia,serif;
+	    font-weight: 300;
+
+	}
+
+
+	a.deaths-inside--cta {
+
+		position: absolute;
+
+		@include mq($until: desktop) {
+			bottom: 20px;
+			left: 20px;
+		}
+
+		@include mq($from: desktop) {
+			bottom: 40px;
+			left: 40px;
+		}
+
+		background-color: #a31b1d;
+		border-radius: 9999px;
+		box-sizing: border-box;
+		color: white;
+		display: inline-block;
+		font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-size: 16px;
+		line-height: 36px;
+		padding: 0 40px 0 18px;
+		text-decoration: none;
+	}
+
+	a.deaths-inside--cta svg {
+		fill: currentColor;
+		height: 40px;
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		-webkit-transform: translate(0, -50%);
+		transform: translate(0, -50%);
+		width: 40px;
+		transition: -webkit-transform .3s;
+		transition: transform .3s
+	}
+
+	.deaths-inside--roundel {
+		position: absolute;
+
+		@include mq($until: tablet) {
+			right: 10px;
+			bottom: 10px
+		}
+
+		@include mq($from: tablet, $until: desktop) {
+			right: 20px;
+			top: 20px
+		}
+
+		@include mq($from: desktop) {
+			right: 40px;
+			top: 40px
+		}
+
+	}
+
+	#videoplayer {	
+
+		width: 100%;
+		height: 260px;
+
+		@include mq($until: tablet) {
+			display: none;
+		}
+
+
+		@include mq($from: tablet) {
+			position: absolute;
+			
+		}
+
+	}
+
+	#videoplayer video {
+	  min-width: 100%; 
+	  min-height: 100%; 
+	  width: auto;
+	  height: auto;
+	}
+
+}
+
+
