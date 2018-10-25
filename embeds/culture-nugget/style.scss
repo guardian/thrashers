@@ -117,10 +117,8 @@ section#culture-treat {
     }
 
     .culture-nugget__image {
-        overflow: hidden;
-        height: 69px;
-        width: 63px;
         float: left;
+<<<<<<< HEAD
 
         @include mq($from: desktop) {
             margin-bottom: -25px;
@@ -133,9 +131,13 @@ section#culture-treat {
             width: 117px;
             margin-bottom: -5px;
         }
+=======
+        margin-bottom: -5px;
+        width: 130px;
+>>>>>>> 2e705a7f4785b5eb2b2606c7f9539238e38b9956
 
         img {
-            width: 100%;
+            width: 130px;
             height: auto;
         }
     }
