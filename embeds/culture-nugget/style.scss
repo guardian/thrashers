@@ -151,7 +151,16 @@ section#culture-treat {
         @include mq($from: desktop) {
             display: block;
         }
-
+        @include mq(leftCol) {
+          right: -25px;
+          top: -34px;
+          transform: rotate(-27deg);
+        }
+        @include mq(wide) {
+          right: -10px;
+          top: 6px;
+          transform: rotate(0);
+        }
         @include mq($from: wide) {
             right: 30px;
             top: 30px;
