@@ -51,6 +51,15 @@ section#podcast {
         right: -2px;
       }
     }
+    &__podcast-artwork {
+      display: none;
+      @include mq(leftCol) {
+        display: block;
+        position: absolute;
+        bottom: 3px;
+        left: 0;
+      }
+    }
     &__lines {
       width: 100%;
       margin-top: 6px;
@@ -412,7 +421,7 @@ section#podcast {
               width: 1px;
               height: 100%;
               background-color: #121212;
-              opacity: 0.5;
+              opacity: 0.25;
             }
           }
           &:hover {
