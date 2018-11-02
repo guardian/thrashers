@@ -17,19 +17,23 @@ $mq-breakpoints: (
 
 #million-thrasher,
 #million-wrap {
-  // animation: background 1s ease-in-out 5s forwards;
+  .playing & {
+    animation: backgroundChange 1s ease-in-out 3s forwards;
+  }
 }
 
 #million-thrasher {
   // background: #FFE500;
   background: #42AAE1;
-  z-index: 99999;
 }
 
-#million-wrap-sell {
+.show {
+  display: block;
+}
+
+.hide {
   display: none;
 }
-
 
 #million-wrap-sell,
 #million-wrap-thanks {
@@ -37,6 +41,7 @@ $mq-breakpoints: (
   height: 500px;
   // background: #FFE500;
   background: #42AAE1;
+
   h2 {
     font-size: 120px;
     font-family: "Guardian Titlepiece";
@@ -45,7 +50,7 @@ $mq-breakpoints: (
 
   .roundel {
     position: absolute;
-    left: 0;
+    left: 20px;
     top: 6px;
     width: 50px;
   }
@@ -54,35 +59,76 @@ $mq-breakpoints: (
     margin-left: 260px;
   }
 
-  .type-two,
-  .type-three {
-    display: none;
+  .type-one,
+  .type-three,
+  .type-two {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    opacity: 0;
+    @include mc(mobileLandscape) {
+        left: 20px;
+    }
+
+    @include mc(leftCol) {
+        left: 180px;
+    }
+
+    @include mc(wide) {
+        left: 260px;
+    }
   }
 
   .type-one {
     max-width: 650px;
+    .playing & {
+        animation: headlineAnimate 3s ease-in-out forwards;
+    }
+
   }
 
   .type-two {
     max-width: 700px;
+    .playing & {
+      animation: headlineAnimate 3s ease-in-out 3s forwards;
+    }
+
   }
 
-  .pitch,
-  .cta {
+  .type-three {
+    max-width: 700px;
+    .playing & {
+      animation: headlineAnimateHold 3s ease-in-out 6s forwards;
+    }
+  }
+
+  .cta,
+  .pitch {
     position: absolute;
     bottom: 16px;
   }
 
   .pitch {
     width: 350px;
-    left: 260px;
+    left: 10px;
     font-size: 16px;
     line-height: 22px;
     font-family: $f-serif-headline;
+    @include mc(mobileLandscape) {
+        left: 20px;
+    }
+
+    @include mc(leftCol) {
+        left: 180px;
+    }
+
+    @include mc(wide) {
+        left: 260px;
+    }
   }
 
   .cta {
-    right: 0;
+    right: 20px;
     font-family: $f-sans-serif-text;
     font-size: 14px;
     font-weight: bold;
@@ -106,93 +152,51 @@ $mq-breakpoints: (
   .white {
     color: #FFFFFF;
   }
-
 }
-//
-// @keyframes typing {
-//   from {
-//     width: 0;
-//   }
-//
-//   to {
-//     width: 100%;
-//   }
-// }
-//
-// @keyframes show {
-//   from {
-//     opacity: 0;
-//   }
-//
-//   to {
-//     opacity: 1;
-//   }
-// }
-//
-// @keyframes hide {
-//   from {
-//     opacity: 1;
-//   }
-//
-//   to {
-//     opacity: 0;
-//   }
-// }
-//
-// @keyframes dotAnimates {
-//   0% {
-//     top: -40px;
-//   }
-//
-//   5% {
-//     top: 115px;
-//   }
-//
-//   20% {
-//     top: 115px;
-//   }
-//
-//   40% {
-//     top: 115px;
-//   }
-//
-//   60% {
-//     top: 115px;
-//   }
-//
-//   80% {
-//     top: 115px;
-//   }
-//
-//   100% {
-//     top: 115px;
-//   }
-// }
-//
-// @keyframes background {
-//   0% {
-//     background: #FFE500;
-//   }
-//
-//   100% {
-//     background: #42AAE1;
-//   }
-// }
-//
-// @keyframes sunup {
-//   0% {
-//     transform: scale(1);
-//     opacity: 0;
-//   }
-//   1% {
-//     opacity: 1;
-//   }
-//
-//   100% {
-//     opacity: 1;
-//     transform: scale(14);
-//   }
-// }
+
+@keyframes headlineAnimate {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes headlineAnimateHold {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundChange
+   {
+     0%   {background: #42AAE1;}
+     100%  {background: #FFE500;}
+     100%  {background: #42AAE1;}
+   }
+
 // @mixin overflow-visible($container-name) {
 //   ##{$container-name} {
 //     &.fc-container--thrasher,
