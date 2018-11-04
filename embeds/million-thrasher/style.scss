@@ -66,6 +66,7 @@ $mq-breakpoints: (
     top: 0;
     left: 10px;
     opacity: 0;
+    z-index: 9;
     @include mc(mobileLandscape) {
         left: 20px;
     }
@@ -114,6 +115,7 @@ $mq-breakpoints: (
     font-size: 16px;
     line-height: 22px;
     font-family: $f-serif-headline;
+    z-index: 8;
     @include mc(mobileLandscape) {
         left: 20px;
     }
@@ -151,6 +153,14 @@ $mq-breakpoints: (
 
   .white {
     color: #FFFFFF;
+  }
+
+  .dots {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 730px;
+    z-index: 5;
   }
 }
 
