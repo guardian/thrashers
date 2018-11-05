@@ -12,7 +12,10 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-section#podcast {
+section#podcast,
+section#today-in-focus,
+section#today-in-focus-weekend,
+section#podcast-weekend {
   background-color: #F0DBBC;
   .facia-snap {
     background-color: transparent;
@@ -20,6 +23,7 @@ section#podcast {
 }
 
 .today-in-focus-launch-weekend__wrapper {
+  background-color: #F0DBBC;
   position: relative;
   font-size: 24px;
   line-height: 28px;
@@ -358,11 +362,11 @@ section#podcast {
     &__contents {
       margin-top: 24px;
       @include mq(tablet) {
-        width: 340px;
+        width: 300px;
         margin-top: 18px;
       }
       @include mq(desktop) {
-        width: 400px;
+        width: 460px;
       }
       @include mq(leftCol) {
         margin-top: 6px;
