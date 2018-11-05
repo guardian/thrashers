@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 
     var videoMaxAssetSize = 1 * 1000 * 1000; //1MB
     var imageMaxAssetSize = 300 * 1000; //200kb
-    var maxGifSize = 1000 * 1000; //1MB, which should be enough for a tracking pixel
+    var maxGifSize = 5000 * 1000; //1MB, which should be enough for a tracking pixel
 
     grunt.initConfig({
         maxFilesize: {

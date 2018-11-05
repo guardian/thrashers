@@ -35,15 +35,22 @@ $mq-breakpoints: (
   display: none;
 }
 
+#million-wrap-thanks {
+  height: 500px;
+}
+
+#million-wrap-sell {
+  height: 450px;
+}
+
 #million-wrap-sell,
 #million-wrap-thanks {
   width: 100%;
-  height: 500px;
   // background: #FFE500;
   background: #42AAE1;
 
   h2 {
-    font-size: 120px;
+    font-size: 90px;
     font-family: "Guardian Titlepiece";
     line-height: 0.9;
   }
@@ -61,7 +68,8 @@ $mq-breakpoints: (
 
   .type-one,
   .type-three,
-  .type-two {
+  .type-two,
+  .type-four {
     position: absolute;
     top: 0;
     left: 10px;
@@ -81,9 +89,9 @@ $mq-breakpoints: (
   }
 
   .type-one {
-    max-width: 650px;
+    max-width: 600px;
     .playing & {
-        animation: headlineAnimate 3s ease-in-out forwards;
+        animation: headlineAnimate 4s ease-in-out forwards;
     }
 
   }
@@ -91,7 +99,7 @@ $mq-breakpoints: (
   .type-two {
     max-width: 700px;
     .playing & {
-      animation: headlineAnimate 3s ease-in-out 3s forwards;
+      animation: headlineAnimate 4s ease-in-out 4s forwards;
     }
 
   }
@@ -99,9 +107,17 @@ $mq-breakpoints: (
   .type-three {
     max-width: 700px;
     .playing & {
-      animation: headlineAnimateHold 3s ease-in-out 6s forwards;
+      animation: headlineAnimate 4s ease-in-out 8s forwards;
     }
   }
+
+  .type-four {
+    max-width: 700px;
+    .playing & {
+      animation: headlineAnimateHold 4s ease-in-out 12s forwards;
+    }
+  }
+
 
   .cta,
   .pitch {
@@ -110,7 +126,7 @@ $mq-breakpoints: (
   }
 
   .pitch {
-    width: 350px;
+    width: 530px;
     left: 10px;
     font-size: 16px;
     line-height: 22px;
@@ -130,7 +146,7 @@ $mq-breakpoints: (
   }
 
   .cta {
-    right: 20px;
+    right: 100px;
     font-family: $f-sans-serif-text;
     font-size: 14px;
     font-weight: bold;
@@ -139,6 +155,15 @@ $mq-breakpoints: (
       background: #fff;
       padding: 8px 18px;
       border-radius: 100px;
+      display: inline-block;
+
+      &:after {
+        content: url('@@assetPath@@/arrow.svg');
+        width: 16px;
+        position: relative;
+        top: 3px;
+        left: 6px;
+      }
     }
 
     .subscibe {
@@ -159,8 +184,11 @@ $mq-breakpoints: (
     position: absolute;
     right: 0;
     top: 0;
-    width: 730px;
+    width: 600px;
     z-index: 5;
+    .playing & {
+      animation: hideGif 1s ease-in-out 7s forwards;
+    }
   }
 }
 
@@ -197,6 +225,15 @@ $mq-breakpoints: (
   100% {
     top: 0;
     opacity: 1;
+  }
+}
+
+@keyframes hideGif {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
