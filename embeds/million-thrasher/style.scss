@@ -11,6 +11,18 @@ $mq-breakpoints: (
 );
 @import 'shared/_imports';
 
+#million-thrasher {
+  &.fc-container--thrasher,
+  .facia-snap,
+  .fc-container__inner,
+  .fc-slice {
+    background-color: #42AAE1;
+    overflow: hidden;
+    // overflow-y: visible !important;
+    // overflow-x: hidden !important;
+  }
+}
+
 .million-thrasher__wrapper {
   width: 100%;
 }
@@ -40,7 +52,11 @@ $mq-breakpoints: (
 }
 
 #million-wrap-sell {
-  height: 450px;
+  height: 500px;
+
+  @include mc(tablet) {
+    height: 450px;
+  }
 }
 
 #million-wrap-sell,
@@ -50,16 +66,43 @@ $mq-breakpoints: (
   background: #42AAE1;
 
   h2 {
-    font-size: 90px;
+    font-size: 50px;
     font-family: "Guardian Titlepiece";
     line-height: 0.9;
+
+    @include mc(mobileMedium) {
+      font-size: 60px;
+    }
+
+    @include mc(tablet) {
+      font-size: 70px;
+    }
+
+    @include mc(desktop) {
+      font-size: 90px;
+    }
   }
 
   .roundel {
     position: absolute;
-    left: 20px;
+    right: 10px;
     top: 6px;
     width: 50px;
+    transform: scale(0.7);
+    transform-origin: top right;
+
+    @include mc(mobileLandscape) {
+      right: 20px;
+      transform: scale(0.9);
+    }
+
+    @include mc(tablet) {
+      transform: scale(1);
+    }
+
+    @include mc(leftCol) {
+      left: 20px;
+    }
   }
 
   .copy {
@@ -75,6 +118,7 @@ $mq-breakpoints: (
     left: 10px;
     opacity: 0;
     z-index: 9;
+
     @include mc(mobileLandscape) {
         left: 20px;
     }
@@ -89,9 +133,14 @@ $mq-breakpoints: (
   }
 
   .type-one {
-    max-width: 600px;
+    max-width: 315px;
+    opacity: 1;
+
+    @include mc(tablet) {
+      max-width: 600px;
+    }
     .playing & {
-        animation: headlineAnimate 4s ease-in-out forwards;
+        // animation: headlineAnimate 4s ease-in-out forwards;
     }
 
   }
@@ -99,7 +148,7 @@ $mq-breakpoints: (
   .type-two {
     max-width: 700px;
     .playing & {
-      animation: headlineAnimate 4s ease-in-out 4s forwards;
+      // animation: headlineAnimate 4s ease-in-out 4s forwards;
     }
 
   }
@@ -107,14 +156,14 @@ $mq-breakpoints: (
   .type-three {
     max-width: 700px;
     .playing & {
-      animation: headlineAnimate 4s ease-in-out 8s forwards;
+      // animation: headlineAnimate 4s ease-in-out 8s forwards;
     }
   }
 
   .type-four {
     max-width: 700px;
     .playing & {
-      animation: headlineAnimateHold 4s ease-in-out 12s forwards;
+      // animation: headlineAnimateHold 4s ease-in-out 12s forwards;
     }
   }
 
@@ -122,18 +171,54 @@ $mq-breakpoints: (
   .cta,
   .pitch {
     position: absolute;
-    bottom: 16px;
   }
 
   .pitch {
-    width: 530px;
+    width: 90%;
     left: 10px;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 21px;
     font-family: $f-serif-headline;
     z-index: 8;
+    bottom: 60px;
+
+    a {
+      text-decoration: underline;
+
+      &:after {
+        content: url('@@assetPath@@/arrow.svg');
+        width: 16px;
+        position: relative;
+        top: 3px;
+        left: 6px;
+        padding: 3px 4px 1px;
+        border: solid 1px #121212;
+        border-radius: 100px;
+      }
+
+      &:hover {
+        transform: color .1s;
+        color: rgba(0, 0, 0, 0.7)!important;
+        &:after {
+          transition: margin-left .1s;
+          margin-left: 3px;
+        }
+      }
+    }
     @include mc(mobileLandscape) {
         left: 20px;
+        width: 415px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    @include mc(tablet) {
+        width: 415px;
+    }
+
+    @include mc(desktop) {
+      width: 530px;
+      bottom: 16px;
     }
 
     @include mc(leftCol) {
@@ -146,12 +231,26 @@ $mq-breakpoints: (
   }
 
   .cta {
-    right: 100px;
+    left: 10px;
     font-family: $f-sans-serif-text;
     font-size: 14px;
     font-weight: bold;
+    bottom: 16px;
 
-    span {
+    @include mc(mobileLandscape) {
+      left: 20px;
+    }
+
+    @include mc(desktop) {
+      left: auto;
+      right: 20px;
+    }
+
+    @include mc(wide) {
+      right: 100px;
+    }
+
+    a {
       background: #fff;
       padding: 8px 18px;
       border-radius: 100px;
@@ -164,11 +263,27 @@ $mq-breakpoints: (
         top: 3px;
         left: 6px;
       }
+
+      &:hover {
+        text-decoration: none;
+        transition: background-color .3s ease-in-out;
+        background-color: #E5E5E5;
+
+        &:after {
+          transition: left .1s;
+          left: 8px;
+        }
+      }
     }
 
     .subscibe {
       background: #FFE500;
       margin-right: 5px;
+
+      &:hover {
+        transition: background-color .3s ease-in-out;
+        background-color: #E5CD00;
+      }
     }
   }
 
@@ -244,19 +359,6 @@ $mq-breakpoints: (
      100%  {background: #42AAE1;}
    }
 
-// @mixin overflow-visible($container-name) {
-//   ##{$container-name} {
-//     &.fc-container--thrasher,
-//     .facia-snap,
-//     .fc-container__inner,
-//     .fc-slice {
-//       overflow: visible;
-//       // overflow-y: visible !important;
-//       // overflow-x: hidden !important;
-//     }
-//   }
-// }
-// @include overflow-visible(nhs-header);
 @font-face {
   font-family: "Guardian Titlepiece";
   src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf") format("truetype");
