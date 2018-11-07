@@ -27,23 +27,16 @@ $mq-breakpoints: (
   width: 100%;
 }
 
-#million-thrasher,
-#million-wrap {
-  .playing & {
-    // animation: backgroundChange 1s ease-in-out 3s forwards;
-  }
-}
-
 #million-thrasher {
   background: #42AAE1;
 }
 
-.show {
-  display: block;
-}
-
 .hide {
   display: none;
+}
+
+.show {
+  display: block;
 }
 
 #million-wrap-thanks,
@@ -114,7 +107,7 @@ $mq-breakpoints: (
   .type-two,
   .type-four {
     position: absolute;
-    top: 3px;
+    margin-top: 3px;
     left: 10px;
     opacity: 0;
     z-index: 9;
@@ -150,6 +143,8 @@ $mq-breakpoints: (
     .playing & {
         animation: headlineAnimate 4s ease-in-out forwards;
     }
+
+
 
   }
 
@@ -219,7 +214,7 @@ $mq-breakpoints: (
     max-width: 213px;
 
     @include mc(mobileMedium) {
-      max-width: 340px;
+      max-width: 248px;
     }
 
     @include mc(mobileLandscape) {
@@ -255,6 +250,29 @@ $mq-breakpoints: (
     }
   }
 
+  .background-mobile {
+    background: #42AAE1;
+    border-top: solid 1px #fff;
+    height: 240px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 6;
+
+    @include mc(mobileMedium) {
+      height: 220px;
+    }
+
+    @include mc(mobileLandscape) {
+      height: 203px;
+    }
+
+    @include mc(phablet) {
+      display: none;
+    }
+  }
+
 
   .cta,
   .pitch {
@@ -269,20 +287,21 @@ $mq-breakpoints: (
     font-family: $f-serif-headline;
     z-index: 8;
     bottom: 60px;
-    background: #42AAE1;
 
     a {
       text-decoration: underline;
 
       &:after {
-        content: url('@@assetPath@@/arrow.svg');
-        width: 16px;
-        position: relative;
-        top: 3px;
-        left: 6px;
-        padding: 3px 4px 1px;
-        border: solid 1px #121212;
-        border-radius: 100px;
+        @include mc(desktop) {
+          content: url('@@assetPath@@/arrow.svg');
+          width: 16px;
+          position: relative;
+          top: 3px;
+          left: 6px;
+          padding: 3px 4px 1px;
+          border: solid 1px #121212;
+          border-radius: 100px;
+        }
       }
 
       &:hover {
@@ -332,7 +351,7 @@ $mq-breakpoints: (
     font-size: 14px;
     font-weight: bold;
     bottom: 16px;
-    z-index: 6;
+    z-index: 8;
 
     @include mc(mobileLandscape) {
       left: 20px;
@@ -392,21 +411,69 @@ $mq-breakpoints: (
     color: #FFFFFF;
   }
 
+  .single-dot {
+    width: 17px;
+    height: 17px;
+    background-color: #FCE704;
+    border-radius: 100%;
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+    right: 15%;
+    bottom: 156px;
+    z-index: 5;
+
+    .playing & {
+      animation: opacityUpInverse 12s forwards;
+    }
+
+    @include mc(mobileMedium) {
+      width: 22px;
+      height: 22px;
+    }
+
+    @include mc(mobileLandscape) {
+      right: 30%;
+    }
+
+    @include mc(phablet) {
+      width: 26px;
+      height: 26px;
+      right: 127px;
+
+      .playing & {
+        animation: opacityUp 12s forwards;
+      }
+    }
+
+    @include mc(desktop) {
+      right: 200px;
+      width: 23px;
+      height: 23px;
+    }
+
+    @include mc(wide) {
+      width: 25px;
+      height: 25px;
+    }
+
+  }
+
   .dots {
     position: absolute;
-    // right: 0;
     width: 600px;
-    z-index: 5;
+    z-index: 4;
     left: 10px;
     transform: rotate(180deg);
     width: 400px;
     bottom: 210px;
+    opacity: 1;
     .playing & {
       animation: hideGif 1s ease-in-out 7s forwards;
     }
 
     @include mc(mobileMedium) {
-      bottom: 175px;
+      bottom: 160px;
       width: 500px;
     }
 
@@ -441,6 +508,83 @@ $mq-breakpoints: (
       width: 600px;
     }
   }
+}
+
+.dot-world {
+  width: 500px;
+  height: 500px;
+  background-color: #FFE500;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 4;
+  transform-origin: center;
+  opacity: 0;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  bottom: -10px;
+  left: 0;
+  .playing & {
+    animation: scaleWorldInverse 2s ease 12s forwards;
+  }
+
+  @include mc(mobileMedium) {
+    width: 375px;
+    height: 375px;
+    padding-top: 0;
+    left: 0;
+  }
+
+  @include mc(phablet) {
+    width: 450px;
+    height: 450px;
+    left: auto;
+    top: auto;
+    top: -225px;
+    right: -180px;
+    .playing & {
+      animation: scaleWorld 2s ease 12s forwards;
+    }
+  }
+
+  @include mc(desktop) {
+    top: -230px;
+    width: 460px;
+    height: 460px;
+    right: -50px;
+  }
+
+  @include mc(leftCol) {
+    top: -225px;
+    width: 450px;
+    height: 450px;
+  }
+
+  @include mc(wide) {
+    top: -250px;
+    width: 500px;
+    height: 500px;
+  }
+}
+
+.dot-moon {
+  width: 45px;
+  height: 45px;
+  background-color: #FFE500;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  right: 460px;
+  z-index: 7;
+  transform-origin: 303px 75px;
+  opacity: 0;
+
+  .playing & {
+    @include mc(wide) {
+      // animation: rotateMoon 5s 13s infinite;
+    }
+  }
+
 }
 
 @keyframes headlineAnimate {
@@ -479,6 +623,50 @@ $mq-breakpoints: (
   }
 }
 
+@keyframes opacityUp {
+  0% {
+    bottom: 400px;
+    opacity: 0;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  20%,
+  94% {
+    bottom: 156px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 156px;
+    opacity: 0;
+  }
+}
+
+@keyframes opacityUpInverse {
+  0% {
+    bottom: 0px;
+    opacity: 0;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  20%,
+  94% {
+    bottom: 350px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 350px;
+    opacity: 0;
+  }
+}
+
 @keyframes hideGif {
   0% {
     opacity: 1;
@@ -488,12 +676,49 @@ $mq-breakpoints: (
   }
 }
 
-@keyframes backgroundChange
-   {
-     0%   {background: #42AAE1;}
-     100%  {background: #FFE500;}
-     100%  {background: #42AAE1;}
-   }
+@keyframes scaleWorld {
+  0% {
+    opacity: 0;
+    top: -500px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    top: -180px;
+  }
+}
+
+@keyframes scaleWorldInverse {
+  0% {
+    opacity: 0;
+    bottom: -300px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: -10px;
+    }
+}
+
+// @keyframes rotateMoon {
+//   0% {
+//     opacity: 1;
+//     transform: rotate(10deg);
+//   }
+//
+//   100% {
+//     opacity: 1;
+//     transform: rotate(-180deg);
+//   }
+// }
 
 @font-face {
   font-family: "Guardian Titlepiece";

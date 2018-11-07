@@ -1,6 +1,6 @@
 {
   "empty.gif": "empty.5ef2ef64.gif",
-  "main.js": "main.f8272c56.js",
+  "main.js": "main.674a07d4.js",
   "particles.js": "particles.f10f1036.js",
   "particles.json": "particles.e4ecdec9.json",
   "The_Guardian_Logo.svg": "The_Guardian_Logo.8d0920c6.svg",
@@ -13,6 +13,7 @@
   "simple-circle-2.svg": "simple-circle-2.7bc76899.svg",
   "dots.png": "dots.fde753df.png",
   "dots.mp4": "dots.f6677f3a.mp4",
-  "dots.gif": "dots.b7c7ab4e.gif",
-  "arrow.svg": "arrow.bc5c8206.svg"
+  "dots.gif": "dots.6afeb029.gif",
+  "arrow.svg": "arrow.bc5c8206.svg",
+  "dots-small.gif": "dots-small.932b64e1.gif"
 }

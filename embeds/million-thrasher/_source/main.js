@@ -8,6 +8,8 @@ try {
   const thanks = document.getElementById("million-wrap-thanks");
   const sell = document.getElementById("million-wrap-sell");
   const ukOnly = document.getElementById("uk-only");
+  const dots = document.getElementById("dots-one");
+  const dotsTwo = document.getElementById("dots-two");
 
   // If a contributor, show appropriate thrahser
   if (isCont == true) {
@@ -38,6 +40,14 @@ try {
       const windowHeight = window.innerHeight;
             if ((thrasherY - windowHeight + peekSize) < 0) {
                 thrasher.classList.add('playing');
+
+                // wait 4 sec for 2nd frame to show dots
+                setTimeout(function(){
+                  dots.classList.add('show');
+                  dotsTwo.classList.add('show');
+                }, 4000);
+
+
             }
     });
   }
