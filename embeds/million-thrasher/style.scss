@@ -31,14 +31,6 @@ $mq-breakpoints: (
   background: #42AAE1;
 }
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
 #million-wrap-thanks,
 #million-wrap-sell {
   height: 550px;
@@ -141,7 +133,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-        animation: headlineAnimate 4s ease-in-out forwards;
+        animation: headlineAnimate 3s ease-in-out forwards;
     }
 
 
@@ -189,7 +181,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-      animation: headlineAnimate 4s ease-in-out 4s forwards;
+      animation: headlineAnimate 3s ease-in-out 3s forwards;
     }
 
   }
@@ -206,7 +198,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-      animation: headlineAnimate 4s ease-in-out 8s forwards;
+      animation: headlineAnimate 3s ease-in-out 6s forwards;
     }
   }
 
@@ -246,7 +238,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-      animation: headlineAnimateHold 4s ease-in-out 12s forwards;
+      animation: headlineAnimateHold 3s ease-in-out 9s forwards;
     }
   }
 
@@ -411,54 +403,6 @@ $mq-breakpoints: (
     color: #FFFFFF;
   }
 
-  .single-dot {
-    width: 17px;
-    height: 17px;
-    background-color: #FCE704;
-    border-radius: 100%;
-    display: inline-block;
-    opacity: 0;
-    position: absolute;
-    right: 15%;
-    bottom: 156px;
-    z-index: 5;
-
-    .playing & {
-      animation: opacityUpInverse 12s forwards;
-    }
-
-    @include mc(mobileMedium) {
-      width: 22px;
-      height: 22px;
-    }
-
-    @include mc(mobileLandscape) {
-      right: 30%;
-    }
-
-    @include mc(phablet) {
-      width: 26px;
-      height: 26px;
-      right: 127px;
-
-      .playing & {
-        animation: opacityUp 12s forwards;
-      }
-    }
-
-    @include mc(desktop) {
-      right: 200px;
-      width: 23px;
-      height: 23px;
-    }
-
-    @include mc(wide) {
-      width: 25px;
-      height: 25px;
-    }
-
-  }
-
   .dots {
     position: absolute;
     width: 600px;
@@ -469,7 +413,7 @@ $mq-breakpoints: (
     bottom: 210px;
     opacity: 1;
     .playing & {
-      animation: hideGif 1s ease-in-out 7s forwards;
+      animation: hideGif .5s ease-in-out 8.5s forwards;
     }
 
     @include mc(mobileMedium) {
@@ -525,7 +469,7 @@ $mq-breakpoints: (
   bottom: -10px;
   left: 0;
   .playing & {
-    animation: scaleWorldInverse 2s ease 12s forwards;
+    animation: scaleWorldInverse 1.5s ease 9s forwards;
   }
 
   @include mc(mobileMedium) {
@@ -543,7 +487,7 @@ $mq-breakpoints: (
     top: -225px;
     right: -180px;
     .playing & {
-      animation: scaleWorld 2s ease 12s forwards;
+      animation: scaleWorld 1.5s ease 9s forwards;
     }
   }
 
@@ -567,24 +511,12 @@ $mq-breakpoints: (
   }
 }
 
-.dot-moon {
-  width: 45px;
-  height: 45px;
-  background-color: #FFE500;
-  border-radius: 100%;
-  position: absolute;
-  top: 0;
-  right: 460px;
-  z-index: 7;
-  transform-origin: 303px 75px;
-  opacity: 0;
+.hide {
+  display: none!important;
+}
 
-  .playing & {
-    @include mc(wide) {
-      // animation: rotateMoon 5s 13s infinite;
-    }
-  }
-
+.show {
+  display: block!important;
 }
 
 @keyframes headlineAnimate {
@@ -623,49 +555,6 @@ $mq-breakpoints: (
   }
 }
 
-@keyframes opacityUp {
-  0% {
-    bottom: 400px;
-    opacity: 0;
-  }
-
-  3% {
-    opacity: 1;
-  }
-
-  20%,
-  94% {
-    bottom: 156px;
-    opacity: 1;
-  }
-
-  100% {
-    bottom: 156px;
-    opacity: 0;
-  }
-}
-
-@keyframes opacityUpInverse {
-  0% {
-    bottom: 0px;
-    opacity: 0;
-  }
-
-  3% {
-    opacity: 1;
-  }
-
-  20%,
-  94% {
-    bottom: 350px;
-    opacity: 1;
-  }
-
-  100% {
-    bottom: 350px;
-    opacity: 0;
-  }
-}
 
 @keyframes hideGif {
   0% {
@@ -707,18 +596,6 @@ $mq-breakpoints: (
     bottom: -10px;
     }
 }
-
-// @keyframes rotateMoon {
-//   0% {
-//     opacity: 1;
-//     transform: rotate(10deg);
-//   }
-//
-//   100% {
-//     opacity: 1;
-//     transform: rotate(-180deg);
-//   }
-// }
 
 @font-face {
   font-family: "Guardian Titlepiece";
