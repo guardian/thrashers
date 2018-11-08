@@ -9,6 +9,7 @@ $mq-breakpoints: (
   leftCol: 1140px,
   wide: 1300px
 );
+
 @import 'shared/_imports';
 
 #million-thrasher {
@@ -18,8 +19,10 @@ $mq-breakpoints: (
   .fc-slice {
     background-color: #42AAE1;
     overflow: hidden;
-    // overflow-y: visible !important;
-    // overflow-x: hidden !important;
+    
+    @include mc(tablet) {
+      background-color: #f4f4f4;
+    }
   }
 }
 
@@ -133,11 +136,11 @@ $mq-breakpoints: (
     }
 
     .playing & {
-        animation: headlineAnimate 3s ease-in-out forwards;
+      webkit-animation: headlineAnimate 3s ease-in-out forwards;
+      -moz-animation: headlineAnimate 3s ease-in-out forwards;
+      -o-animation: headlineAnimate 3s ease-in-out forwards;
+      animation: headlineAnimate 3s ease-in-out forwards;
     }
-
-
-
   }
 
   .type-one__thanks {
@@ -181,6 +184,9 @@ $mq-breakpoints: (
     }
 
     .playing & {
+      webkit-animation: headlineAnimate 3s ease-in-out 3s forwards;
+      -moz-animation: headlineAnimate 3s ease-in-out 3s forwards;
+      -o-animation: headlineAnimate 3s ease-in-out 3s forwards;
       animation: headlineAnimate 3s ease-in-out 3s forwards;
     }
 
@@ -198,6 +204,9 @@ $mq-breakpoints: (
     }
 
     .playing & {
+      webkit-animation: headlineAnimate 3s ease-in-out 6s forwards;
+      -moz-animation: headlineAnimate 3s ease-in-out 6s forwards;
+      -o-animation: headlineAnimate 3s ease-in-out 6s forwards;
       animation: headlineAnimate 3s ease-in-out 6s forwards;
     }
   }
@@ -238,6 +247,9 @@ $mq-breakpoints: (
     }
 
     .playing & {
+      webkit-animation: headlineAnimateHold 3s ease-in-out 9s forwards;
+      -moz-animation: headlineAnimateHold 3s ease-in-out 9s forwards;
+      -o-animation: headlineAnimateHold 3s ease-in-out 9s forwards;
       animation: headlineAnimateHold 3s ease-in-out 9s forwards;
     }
   }
@@ -413,6 +425,9 @@ $mq-breakpoints: (
     bottom: 210px;
     opacity: 1;
     .playing & {
+      webkit-animation: hideGif .5s ease-in-out 8.5s forwards;
+      -moz-animation: hideGif .5s ease-in-out 8.5s forwards;
+      -o-animation: hideGif .5s ease-in-out 8.5s forwards;
       animation: hideGif .5s ease-in-out 8.5s forwards;
     }
 
@@ -469,6 +484,9 @@ $mq-breakpoints: (
   bottom: -10px;
   left: 0;
   .playing & {
+    webkit-animation: scaleWorldInverse 1.5s ease 9s forwards;
+    -moz-animation: scaleWorldInverse 1.5s ease 9s forwards;
+    -o-animation: scaleWorldInverse 1.5s ease 9s forwards;
     animation: scaleWorldInverse 1.5s ease 9s forwards;
   }
 
@@ -487,6 +505,9 @@ $mq-breakpoints: (
     top: -225px;
     right: -180px;
     .playing & {
+      webkit-animation: scaleWorld 1.5s ease 9s forwards;
+      -moz-animation: scaleWorld 1.5s ease 9s forwards;
+      -o-animation: scaleWorld 1.5s ease 9s forwards;
       animation: scaleWorld 1.5s ease 9s forwards;
     }
   }
@@ -519,6 +540,62 @@ $mq-breakpoints: (
   display: block!important;
 }
 
+// •••••••••• HEADLINE ANIMATION ••••••••••
+
+@-webkit-keyframes headlineAnimate {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes headlineAnimate {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@-o-keyframes headlineAnimate {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
 @keyframes headlineAnimate {
   0% {
     top: 40px;
@@ -534,6 +611,60 @@ $mq-breakpoints: (
   100% {
     top: 0;
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes headlineAnimateHold {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes headlineAnimateHold {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@-o-keyframes headlineAnimateHold {
+  0% {
+    top: 40px;
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    top: 0;
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
   }
 }
 
@@ -555,6 +686,34 @@ $mq-breakpoints: (
   }
 }
 
+// •••••••••• HIDE GIF ANIMATION ••••••••••
+
+@-webkit-keyframes hideGif {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes hideGif {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes hideGif {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 @keyframes hideGif {
   0% {
@@ -562,6 +721,56 @@ $mq-breakpoints: (
   }
   100% {
     opacity: 0;
+  }
+}
+
+// •••••••••• WORLD ANIMATION ••••••••••
+
+@-webkit-keyframes scaleWorld {
+  0% {
+    opacity: 0;
+    top: -500px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    top: -180px;
+  }
+}
+
+@-moz-keyframes scaleWorld {
+  0% {
+    opacity: 0;
+    top: -500px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    top: -180px;
+  }
+}
+
+@-o-keyframes scaleWorld {
+  0% {
+    opacity: 0;
+    top: -500px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    top: -180px;
   }
 }
 
@@ -579,6 +788,54 @@ $mq-breakpoints: (
     opacity: 1;
     top: -180px;
   }
+}
+
+@-webkit-keyframes scaleWorldInverse {
+  0% {
+    opacity: 0;
+    bottom: -300px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: -10px;
+    }
+}
+
+@-moz-keyframes scaleWorldInverse {
+  0% {
+    opacity: 0;
+    bottom: -300px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: -10px;
+    }
+}
+
+@-o-keyframes scaleWorldInverse {
+  0% {
+    opacity: 0;
+    bottom: -300px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: -10px;
+    }
 }
 
 @keyframes scaleWorldInverse {
