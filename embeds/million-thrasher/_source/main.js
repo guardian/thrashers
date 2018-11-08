@@ -61,7 +61,7 @@
       }
 
       // If in AU hide the subscibe button and show the correct copy
-      if (isAU == false) {
+      if (isAU == true) {
         // subcribeButtonSell.classList.add("hide");
         // subcribeButtonThanks.classList.add("hide");
 
