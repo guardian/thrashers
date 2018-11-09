@@ -16,15 +16,22 @@
   var allThanks;
   var ausOnlySell;
   var ausOnlyThanks;
+  
 
 
   function loadThrasherElements() {
+
+      // find the wrapper
+      var thrasher = document.querySelector('.million-thrasher__wrapper');
+
       // Checks if a contriubtor or not
       isCont = document.cookie.split(';').map(a => a.trim()).map(a => a.split('=', 2)).filter(a => ['gu_paying_member', 'gu_digital_subscriber', 'gu_recurring_contributor', 'gu.contributions.contrib-timestamp'].includes(a[0])).filter(a => a[1] != 'false').length != 0
 
       // Checks if in UK
       isUK = ["GB"].includes(JSON.parse(localStorage.getItem('gu.geolocation')).value);
       isAU = ["AU"].includes(JSON.parse(localStorage.getItem('gu.geolocation')).value);
+      isAU = true;
+      
 
       thanks = document.getElementById("million-wrap-thanks");
       sell = document.getElementById("million-wrap-sell");
@@ -62,8 +69,11 @@
 
       // If in AU hide the subscibe button and show the correct copy
       if (isAU == true) {
-        // subcribeButtonSell.classList.add("hide");
-        // subcribeButtonThanks.classList.add("hide");
+        thrasher.classList.add('aus');
+        
+        // this is needed after all
+        subcribeButtonSell.classList.add("hide");
+        subcribeButtonThanks.classList.add("hide");
 
         // hide the rest of the world copy
         allSell.classList.add("hide");

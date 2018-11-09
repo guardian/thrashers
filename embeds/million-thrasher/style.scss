@@ -37,6 +37,9 @@ $mq-breakpoints: (
 #million-wrap-thanks,
 #million-wrap-sell {
   height: 550px;
+  .aus & {
+    height: 598px;
+  }
 
   @include mc(phablet) {
     height: 430px;
@@ -266,6 +269,9 @@ $mq-breakpoints: (
 
     @include mc(mobileMedium) {
       height: 220px;
+      .aus & {
+        height: 268px;
+      }
     }
 
     @include mc(mobileLandscape) {
@@ -299,12 +305,15 @@ $mq-breakpoints: (
         @include mc(desktop) {
           content: url('@@assetPath@@/arrow.svg');
           width: 16px;
-          position: relative;
-          top: 3px;
-          left: 6px;
+          height: 20px; // needs to be 20 for a perfect circle
+          position: absolute;
+          // top: 3px;
+          // left: 6px;
           padding: 3px 4px 1px;
           border: solid 1px #121212;
           border-radius: 100px;
+          margin-left: 5px;
+          transition: margin-left .1s;
         }
       }
 
@@ -312,8 +321,7 @@ $mq-breakpoints: (
         transform: color .1s;
         color: rgba(0, 0, 0, 0.7)!important;
         &:after {
-          transition: margin-left .1s;
-          margin-left: 3px;
+          margin-left: 8px;
         }
       }
     }
@@ -433,6 +441,9 @@ $mq-breakpoints: (
 
     @include mc(mobileMedium) {
       bottom: 160px;
+      .aus & {
+        bottom: 208px;
+      }
       width: 500px;
     }
 
