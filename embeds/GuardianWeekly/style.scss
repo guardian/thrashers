@@ -12,7 +12,8 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-#people {
+#people,
+#guardian-weekly-thrasher {
     background: #ffffff;
 }
 
@@ -43,8 +44,8 @@ $mq-breakpoints: (
     }
 
     .wrapper {
-        background-color: #122E6F;
-        color: #fff;
+        background-color: #ffe500;
+        color: #121212;
         display: block;
         height: 280px;
         position: relative;
@@ -58,7 +59,7 @@ $mq-breakpoints: (
     }
 
     &:hover .wrapper {
-        background-color: #0E2559;
+        background-color: #f0d800;
     }
 
     .tagline {
@@ -205,7 +206,7 @@ $mq-breakpoints: (
     }
 
     .cta {
-        color: #ffffff;
+        color: #121212;
         font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         font-size: 16px;
         border: none;
@@ -247,7 +248,7 @@ $mq-breakpoints: (
         }
 
         .circle {
-            background: #ffffff;
+            background: #fff;
             height: 42px;
             width: 42px;
             border-radius: 50%;
@@ -258,6 +259,15 @@ $mq-breakpoints: (
             transform: translateX(0);
             transition: transform .3s ease-in-out;
             -webkit-backface-visibility: hidden;
+            svg path {
+              fill: #121212;
+            }
+            @include mq(tablet) {
+              background: #121212;
+              svg path {
+                fill: #fff;
+              }
+            }
         }
 
         .icon {
@@ -273,8 +283,6 @@ $mq-breakpoints: (
     &:hover .cta,
     &:focus .cta {
         @include mq(desktop) {
-            color: #ffffff;
-
             .circle {
                 transform: translateX(4px);
             }
