@@ -7,16 +7,16 @@
   "trailText": "Latest news, sport and comment from the Guardian",
   "app": {
     "layout": "default",
-    "title": " ",
+    "title": " ",
     "titleFont": "egypt-regular",
     "titleSize": 1,
     "titleColour": "#FFFFFF",
     "image": "https://uploads.guim.co.uk/2018/11/09/millions-app-image.min.png",
-    "buttonText": "Contribute",
+    "buttonText": "Read our story",
     "buttonTextColour": "#121212",
     "buttonBackgroundColour": "#ffe500",
     "hideKicker": true,
     "hideGuardianRoundel": true,
-    "url": "https://support.theguardian.com/contribute"
+    "url": "https://www.theguardian.com/membership/2018/nov/12/katharine-viner-guardian-million-reader-funding?INTCMP=onemillion_thrasher_kath"
   }
 }
