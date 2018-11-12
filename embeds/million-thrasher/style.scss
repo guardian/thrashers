@@ -391,6 +391,9 @@ $mq-breakpoints: (
       padding: 8px 18px;
       border-radius: 100px;
       display: inline-block;
+      &.hide+a {
+        background: #FFE500;
+      }
 
       &:after {
         content: url('@@assetPath@@/arrow.svg');
