@@ -38,11 +38,14 @@ $mq-breakpoints: (
 #million-wrap-sell {
   height: 550px;
   .aus & {
-    height: 598px;
+    height: 590px;
   }
 
   @include mc(phablet) {
     height: 430px;
+    .aus & {
+      height: 478px;
+    }
   }
 }
 
@@ -260,17 +263,22 @@ $mq-breakpoints: (
   .background-mobile {
     background: #42AAE1;
     border-top: solid 1px #fff;
-    height: 240px;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     z-index: 6;
 
+    height: 240px;
+    .aus & {
+      height: 262px;
+    }
+
+
     @include mc(mobileMedium) {
       height: 220px;
       .aus & {
-        height: 268px;
+        height: 250px;
       }
     }
 
@@ -430,7 +438,6 @@ $mq-breakpoints: (
     left: 10px;
     transform: rotate(180deg);
     width: 400px;
-    bottom: 210px;
     opacity: 1;
     .playing & {
       webkit-animation: hideGif .5s ease-in-out 8.5s forwards;
@@ -439,10 +446,15 @@ $mq-breakpoints: (
       animation: hideGif .5s ease-in-out 8.5s forwards;
     }
 
+    bottom: 210px;
+    .aus & {
+      bottom: 248px;
+    }
+
     @include mc(mobileMedium) {
       bottom: 160px;
       .aus & {
-        bottom: 208px;
+        bottom: 196px;
       }
       width: 500px;
     }

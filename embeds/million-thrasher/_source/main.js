@@ -26,11 +26,13 @@
 
       // Checks if a contriubtor or not
       isCont = document.cookie.split(';').map(a => a.trim()).map(a => a.split('=', 2)).filter(a => ['gu_paying_member', 'gu_digital_subscriber', 'gu_recurring_contributor', 'gu.contributions.contrib-timestamp'].includes(a[0])).filter(a => a[1] != 'false').length != 0
+      // isCont = true;
 
       // Checks if in UK
       isUK = ["GB"].includes(JSON.parse(localStorage.getItem('gu.geolocation')).value);
       isAU = ["AU"].includes(JSON.parse(localStorage.getItem('gu.geolocation')).value);
-      isAU = true;
+      // isAU = true;
+      // isUK = false;
       
 
       thanks = document.getElementById("million-wrap-thanks");
@@ -65,6 +67,7 @@
       // just for debugging
       else if (isUK == true) {
         console.log('Is in the UK');
+        subcribeButtonThanks.classList.add("hide");
       }
 
       // If in AU hide the subscibe button and show the correct copy
@@ -72,7 +75,7 @@
         thrasher.classList.add('aus');
         
         // this is needed after all
-        subcribeButtonSell.classList.add("hide");
+        // subcribeButtonSell.classList.add("hide");
         subcribeButtonThanks.classList.add("hide");
 
         // hide the rest of the world copy
@@ -93,6 +96,13 @@
         // show the aus copy
         ausOnlySell.classList.add("hide");
         ausOnlyThanks.classList.add("hide");
+      }
+      
+      // for rest of world, show only one CTA
+      if (isAU != true && isUK != true) {
+        subcribeButtonSell.classList.add("hide");
+        subcribeButtonThanks.classList.add("hide");
+        
       }
   }
 
