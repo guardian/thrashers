@@ -15,6 +15,7 @@ $mq-breakpoints: (
 #people,
 #guardian-weekly-thrasher {
     background: #ffffff;
+    z-index: 0;
 }
 
 .GuardianWeekly__wrapper {
@@ -51,6 +52,7 @@ $mq-breakpoints: (
         position: relative;
         width: auto;
         transition: background-color .3s ease-in-out;
+        margin-top: 12px;
 
         @include mq(tablet) {
             height: 160px;
