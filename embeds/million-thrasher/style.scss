@@ -19,9 +19,9 @@ $mq-breakpoints: (
   .fc-slice {
     background-color: #42AAE1;
     overflow: hidden;
-    
+
     @include mc(tablet) {
-      background-color: #f4f4f4;
+      background-color: #ffffff;
     }
   }
 }
@@ -142,7 +142,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-      webkit-animation: headlineAnimate 3s ease-in-out forwards;
+      -webkit-animation: headlineAnimate 3s ease-in-out forwards;
       -moz-animation: headlineAnimate 3s ease-in-out forwards;
       -o-animation: headlineAnimate 3s ease-in-out forwards;
       animation: headlineAnimate 3s ease-in-out forwards;
@@ -190,7 +190,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-      webkit-animation: headlineAnimate 3s ease-in-out 3s forwards;
+      -webkit-animation: headlineAnimate 3s ease-in-out 3s forwards;
       -moz-animation: headlineAnimate 3s ease-in-out 3s forwards;
       -o-animation: headlineAnimate 3s ease-in-out 3s forwards;
       animation: headlineAnimate 3s ease-in-out 3s forwards;
@@ -210,7 +210,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-      webkit-animation: headlineAnimate 3s ease-in-out 6s forwards;
+      -webkit-animation: headlineAnimate 3s ease-in-out 6s forwards;
       -moz-animation: headlineAnimate 3s ease-in-out 6s forwards;
       -o-animation: headlineAnimate 3s ease-in-out 6s forwards;
       animation: headlineAnimate 3s ease-in-out 6s forwards;
@@ -253,7 +253,7 @@ $mq-breakpoints: (
     }
 
     .playing & {
-      webkit-animation: headlineAnimateHold 3s ease-in-out 9s forwards;
+      -webkit-animation: headlineAnimateHold 3s ease-in-out 9s forwards;
       -moz-animation: headlineAnimateHold 3s ease-in-out 9s forwards;
       -o-animation: headlineAnimateHold 3s ease-in-out 9s forwards;
       animation: headlineAnimateHold 3s ease-in-out 9s forwards;
@@ -395,9 +395,9 @@ $mq-breakpoints: (
         background: #FFE500;
       }
 
-      &:after {
-        content: url('@@assetPath@@/arrow.svg');
+      svg {
         width: 16px;
+        height: 17px;
         position: relative;
         top: 3px;
         left: 6px;
@@ -408,10 +408,6 @@ $mq-breakpoints: (
         transition: background-color .1s ease-in-out;
         background-color: #E5E5E5;
 
-        &:after {
-          transition: left .1s;
-          left: 8px;
-        }
       }
     }
 
@@ -443,7 +439,7 @@ $mq-breakpoints: (
     width: 400px;
     opacity: 1;
     .playing & {
-      webkit-animation: hideGif .5s ease-in-out 8.5s forwards;
+      -webkit-animation: hideGif .5s ease-in-out 8.5s forwards;
       -moz-animation: hideGif .5s ease-in-out 8.5s forwards;
       -o-animation: hideGif .5s ease-in-out 8.5s forwards;
       animation: hideGif .5s ease-in-out 8.5s forwards;
@@ -510,7 +506,7 @@ $mq-breakpoints: (
   bottom: -10px;
   left: 0;
   .playing & {
-    webkit-animation: scaleWorldInverse 1.5s ease 9s forwards;
+    -webkit-animation: scaleWorldInverse 1.5s ease 9s forwards;
     -moz-animation: scaleWorldInverse 1.5s ease 9s forwards;
     -o-animation: scaleWorldInverse 1.5s ease 9s forwards;
     animation: scaleWorldInverse 1.5s ease 9s forwards;
@@ -531,7 +527,7 @@ $mq-breakpoints: (
     top: -225px;
     right: -180px;
     .playing & {
-      webkit-animation: scaleWorld 1.5s ease 9s forwards;
+      -webkit-animation: scaleWorld 1.5s ease 9s forwards;
       -moz-animation: scaleWorld 1.5s ease 9s forwards;
       -o-animation: scaleWorld 1.5s ease 9s forwards;
       animation: scaleWorld 1.5s ease 9s forwards;
@@ -566,6 +562,17 @@ $mq-breakpoints: (
   display: block!important;
 }
 
+@supports (-ms-ime-align: auto) {
+  .type-one {
+    opacity: 1!important;
+  }
+
+  .dots {
+    display: block!important;
+    opacity: 1!important;
+  }
+}
+
 // •••••••••• HEADLINE ANIMATION ••••••••••
 
 @-webkit-keyframes headlineAnimate {
@@ -574,7 +581,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;
@@ -592,7 +603,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;
@@ -610,7 +625,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;
@@ -628,7 +647,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;
@@ -646,7 +669,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;
@@ -664,7 +691,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;
@@ -682,7 +713,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;
@@ -700,7 +735,11 @@ $mq-breakpoints: (
     opacity: 0;
   }
 
-  15%,
+  15% {
+    top: 0;
+    opacity: 1;
+  }
+
   85% {
     top: 0;
     opacity: 1;

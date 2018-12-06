@@ -16,7 +16,7 @@
   var allThanks;
   var ausOnlySell;
   var ausOnlyThanks;
-  
+
 
 
   function loadThrasherElements() {
@@ -33,7 +33,7 @@
       isAU = ["AU"].includes(JSON.parse(localStorage.getItem('gu.geolocation')).value);
       // isAU = true;
       // isUK = false;
-      
+
 
       thanks = document.getElementById("million-wrap-thanks");
       sell = document.getElementById("million-wrap-sell");
@@ -48,32 +48,32 @@
       ausOnlyThanks = document.getElementById("aus-only-thanks");
 
       // If a contributor, show appropriate thrahser
-      if (isCont == true) {
+      if (isCont === true) {
         thanks.classList.add("show");
-        console.log('Is a contributor');
+        // console.log('Is a contributor');
 
       } else {
         sell.classList.add("show");
-        console.log('Is not a contributor');
+        // console.log('Is not a contributor');
       }
 
       // If oustside UK hide the subscibe button
-      if (isUK == false) {
+      if (isUK === false) {
         subcribeButtonSell.classList.add("hide");
         subcribeButtonThanks.classList.add("hide");
-        console.log('Is outside the UK');
+        // console.log('Is outside the UK');
       }
 
       // just for debugging
-      else if (isUK == true) {
-        console.log('Is in the UK');
+      else if (isUK === true) {
+        // console.log('Is in the UK');
         subcribeButtonThanks.classList.add("hide");
       }
 
       // If in AU hide the subscibe button and show the correct copy
-      if (isAU == true) {
+      if (isAU === true) {
         thrasher.classList.add('aus');
-        
+
         // this is needed after all
         // subcribeButtonSell.classList.add("hide");
         subcribeButtonThanks.classList.add("hide");
@@ -86,7 +86,7 @@
         ausOnlySell.classList.add("show");
         ausOnlyThanks.classList.add("show");
 
-        console.log('Is in AUS');
+        // console.log('Is in AUS');
 
       } else {
         // hide the world copy
@@ -97,12 +97,12 @@
         ausOnlySell.classList.add("hide");
         ausOnlyThanks.classList.add("hide");
       }
-      
+
       // for rest of world, show only one CTA
       if (isAU != true && isUK != true) {
         subcribeButtonSell.classList.add("hide");
         subcribeButtonThanks.classList.add("hide");
-        
+
       }
   }
 
