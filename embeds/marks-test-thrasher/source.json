@@ -1,0 +1,20 @@
+{
+  "html": "<div class=\"marks-test-thrasher__wrapper\"><style></style><h1>If you can read this then something has gone wrong</h1></div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com/world/2018/nov/21/interpol-elects-south-korean-president-russia-kim-jong-yang",
+  "headline": "Interpol elects South Korean as its president, in blow to Russia",
+  "trailText": "Kim Jong-yang defeats Russian accused of overseeing police targeting of dissidents",
+  "app": {
+    "layout": "default",
+    "title": "Today in focus latest episode",
+    "titleFont": "egypt-regular",
+    "titleSize": 20,
+    "titleColour": "#121212",
+    "buttonTextColour": "#121212",
+    "buttonBackgroundColour": "#ffe500",
+    "hideKicker": true,
+    "hideGuardianRoundel": true,
+    "url": "https://www.theguardian.com/news/series/todayinfocus/latest"
+  }
+}
