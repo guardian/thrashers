@@ -33,19 +33,16 @@ function increaseCounter() {
 };
 
 function fetchDataAndAnimate() {
-    fetch('https://interactive.guim.co.uk/docsdata-test/1ySn7Ol2NQLvvSw_eAnVrPuuRnaGOxUmaUs6svtu_irU.json').then(function (resp) {
+    fetch('https://support.theguardian.com/ticker.json').then(function (resp) {
         return resp.json();
     }).then(function (data) {
-        var showCount = data.sheets.Sheet1[0].showCount === 'TRUE';
-        total = parseInt(data.sheets.Sheet1[0].total, 10);
-        goal = parseInt(data.sheets.Sheet1[0].goal, 10);
+        total = parseInt(data.total, 10);
+        goal = parseInt(data.goal, 10);
 
-        if (showCount) {
-            window.setTimeout(function () {
-                window.requestAnimationFrame(increaseCounter);
-                animateBar();
-            }, 500);
-        }
+        window.setTimeout(function () {
+            window.requestAnimationFrame(increaseCounter);
+            animateBar();
+        }, 500);
     });
 };
 
