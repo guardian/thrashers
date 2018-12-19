@@ -39,6 +39,8 @@ $c-black: #212121;
 
 .us-end-of-year-2018__content {
     max-width: 620px;
+    position: relative;
+    z-index: 30;
 }
 
 .us-end-of-year-2018__title {
@@ -155,22 +157,23 @@ $c-black: #212121;
 }
 
 .us-end-of-year-2018__image {
-    width: calc(100% - 180px);
-    margin-bottom: -10px;
+    width: calc(100% - 140px);
+    max-width: 300px;
     margin-left: auto;
     display: block;
     margin-top: -40px;
 
     @include mq(tablet) {
         width: 380px;
-        margin-top: -230px;
+        margin-top: -190px;
         margin-right: -20px;
+        max-width: none;
     }
 
     @include mq(desktop) {
         position: absolute;
         width: 450px;
-        right: 20px;
+        right: 40px;
         bottom: 0;
     }
 
@@ -180,7 +183,7 @@ $c-black: #212121;
 
     @include mq(wide) {
         width: 600px;
-        right: 60px;
+        right: 80px;
     }
 }
 
