@@ -126,6 +126,7 @@ $mq-breakpoints: (
   }
 
   .tag {
+    display: block;
     position: relative;
     top: 3px;
     left: 10px;
@@ -135,6 +136,9 @@ $mq-breakpoints: (
     font-size: 15px;
     line-height: 1;
     color: #6B5840;
+    &:hover {
+      text-decoration: none;
+    }
     @include mq(mobileLandscape) {
       left: 20px;
     }
