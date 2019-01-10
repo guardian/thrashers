@@ -65,15 +65,13 @@ $mq-breakpoints: (
   // position: relative;
   background-color: #FFEEDD;
   width: 100%;
-  position: relative;
   height: 300px;
+  text-align: center;
   @include mq(mobileMedium) {}
   @include mq(mobileLandscape) {}
   @include mq(tablet) {}
   @include mq(desktop) {}
-  @include mq(leftCol) {
-
-  }
+  @include mq(leftCol) {}
   @include mq(wide) {}
 
   .logo {
@@ -114,6 +112,7 @@ $mq-breakpoints: (
       box-shadow: 5px 0 0 #e15e2a,-5px 0 0 #e15e2a;
       padding-bottom: 3px;
     }
+
     .copy-2 {
       font-size: 16px;
       line-height: 20px;
@@ -125,18 +124,13 @@ $mq-breakpoints: (
 
   .image-wrapper {
     margin: 0 auto;
-    position: absolute;
-    left: -4px;
-    right: 0;
-    top: 10px;
+    text-align: center;
+    display: inline-block;
 
     .image {
       width: 235px;
       margin: 0 auto;
-      position: relative;
-      left: 0;
-      right: 0;
-      display: block;
+      display: inline-block;
     }
 
     .word {
@@ -144,19 +138,42 @@ $mq-breakpoints: (
       font-size: 60px;
       font-weight: 700;
       color: #9c2c6d;
-      position: absolute;
-      top: 70px;
+      display: inline-block;
+      vertical-align: top;
+      sline-height: 230px;
+      // position: absolute;
+      // top: 70px;
     }
-    .word-1, .word-2 {
+
+    .word-1,
+    .word-2 {
       animation: headlineAnimate 4s ease-in-out forwards;
     }
 
     .word-1 {
-      left: 295px;
+      // @include mq(mobileMedium) {}
+      // @include mq(mobileLandscape) {}
+      // @include mq(tablet) {}
+      // @include mq(desktop) {}
+      // @include mq(leftCol) {
+      //   left: 295px;
+      // }
+      // @include mq(wide) {
+      //   left: 380px;
+      // }
     }
 
     .word-2 {
-      left: 660px;
+      // @include mq(mobileMedium) {}
+      // @include mq(mobileLandscape) {}
+      // @include mq(tablet) {}
+      // @include mq(desktop) {}
+      // @include mq(leftCol) {
+      //   left: 660px;
+      // }
+      // @include mq(wide) {
+      //   left: 733px;
+      // }
     }
   }
 
@@ -182,7 +199,6 @@ $mq-breakpoints: (
     }
   }
 }
-
 @keyframes headlineAnimate {
   0% {
     top: 90px;
@@ -198,10 +214,7 @@ $mq-breakpoints: (
     top: 70px;
     opacity: 1;
   }
-
 }
-
-
 @font-face {
   font-family: "GuardianTitlepiece";
   src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf") format("truetype");
