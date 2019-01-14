@@ -51,14 +51,12 @@ $c-black: #212121;
     line-height: 28px;
 
     @include mq(tablet) {
-        font-size: 46px;
-        line-height: 48px;
+        font-size: 41px;
+        line-height: 46px;
         margin-bottom: 6px;
     }
 
     @include mq(desktop) {
-        font-size: 55px;
-        line-height: 56px;
         margin-top: 8px;
     }
 }
@@ -182,8 +180,8 @@ $c-black: #212121;
     }
 
     @include mq(wide) {
-        width: 600px;
-        right: 80px;
+        width: 530px;
+        right: 130px;
     }
 }
 
