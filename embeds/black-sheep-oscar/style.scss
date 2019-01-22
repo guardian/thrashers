@@ -1,0 +1,357 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileMedium: 360px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px
+);
+@import 'shared/_imports';
+#black-sheep {
+  padding-top: 0;
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #fff;
+  overflow: hidden;
+
+  .fc-trail__count.fc-trail__count--commentcount {
+    display: none;
+  }
+
+  .facia-snap {
+    padding: 0;
+    overflow: hidden;
+  }
+
+}
+
+.black-sheep-oscar__wrapper {
+  width: 100%;
+  border-top: solid 1px #dcdcdc;
+  @include mq($from:tablet) {
+    border-left: solid 1px #dcdcdc;
+    border-right: solid 1px #dcdcdc;
+  }
+  overflow: hidden!important;
+}
+
+.link:hover {
+  #social-share-inner {
+    opacity: 0.9;
+  }
+}
+
+.top-link {
+  display: block;
+}
+
+#social-share-inner {
+  background-color: #000;
+  width: 100%;
+  height: 340px;
+  text-align: center;
+  background-image: url('https://media.guim.co.uk/031079c32ab0548656496a7cb65037c19723ab28/248_0_3600_2160/2000.jpg');
+  background-size: 830px;
+  background-position-x: 25%;
+  background-position-y: -75px;
+  @include mq(desktop) {
+    background-size: cover;
+    background-position-x: auto;
+    background-position-y: -80px;
+  }
+  @include mq(leftCol) {
+    background-position-y: -110px;
+  }
+  @include mq(wide) {
+    background-position-y: -155px;
+  }
+
+  .logo {
+    position: absolute;
+    z-index: 50;
+    top: 6px;
+    right: 10px;
+    transform: scale(0.8);
+    transform-origin: top right;
+    @include mq(mobileLandscape) {
+      right: 20px;
+    }
+    @include mq($from:tablet) {
+      transform: scale(1);
+    }
+
+    svg {
+      margin-top: 1px;
+      margin-left: 2px;
+      width: 137px;
+      height: 60px;
+    }
+  }
+
+  .text-wrapper {
+    position: absolute;
+    left: 10px;
+    bottom: 90px;
+    font-family: $f-serif-headline;
+    font-weight: bold;
+    width: 210px;
+    text-align: left;
+    z-index: 9;
+    width: 345px;
+    bottom: 16px;
+
+    @include mq(desktop) {
+      left: 20px;
+    }
+
+    @include mq(leftCol) {
+      left: 190px;
+    }
+
+    @include mq(wide) {
+      left: 230px;
+    }
+
+    .copy-1 {
+      font-size: 15px;
+      line-height: 19px;
+      color: #fff;
+      background-color: #e15e2a;
+      box-shadow: 5px 0 0 #e15e2a,-5px 0 0 #e15e2a;
+      padding-bottom: 4px;
+      padding-top: 2px;
+      @include mq($from:tablet) {
+        font-size: 18px;
+        line-height: 22px;
+        padding-bottom: 3px;
+        padding-top: 0;
+      }
+    }
+
+    .copy-2 {
+      font-size: 15px;
+      line-height: 19px;
+      color: #fff;
+      width: 200px;
+      margin-top: 4px;
+      font-weight: lighter;
+      @include mq($from:tablet) {
+        width: 260px;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+    }
+  }
+
+  .image-wrapper {
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 340px;
+    top: 50px;
+    left: 10px;
+    @include mq(mobileLandscape) {
+      left: 20px;
+    }
+    @include mq(desktop) {
+      left: 0;
+      width: 930px;
+    }
+
+    @include mq(leftCol) {
+      width: 1080px;
+    }
+    @include mq(wide) {
+      width: 1200px;
+      height: 340px;
+    }
+
+    @include mq($from:tablet) {
+      // top: 10px;
+      // margin: 0;
+      // width: 600px;
+    }
+
+    // .image {
+    //   width: 255px;
+    //   display: inline-block;
+    //   position: relative;
+    //   right: -130px;
+    //
+    //   @include mq(mobileMedium) {
+    //
+    //   }
+    //
+    //   @include mq($from:tablet) {
+    //     margin: 0 auto;
+    //     right: auto;
+    //   }
+    // }
+
+    .word {
+      font-family: "GuardianTitlepiece";
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      z-index: 9;
+      @include mq(desktop) {
+        font-size: 35px;
+      }
+      @include mq(leftCol) {
+        font-size: 40px;
+      }
+      @include mq(wide) {
+        font-size: 45px;
+      }
+    }
+
+    .word-1,
+    .word-2,
+    .word-3,
+    .word-4 {
+      position: absolute;
+    }
+
+    .word-1 {
+      top: -50px;
+      left: 0;
+      @include mq(desktop) {
+        top: 40px;
+      }
+      @include mq(leftCol) {
+        top: 35px;
+      }
+      @include mq(wide) {
+        top: 25px;
+      }
+    }
+
+    .word-2 {
+      top: -20px;
+      left: 25px;
+      @include mq(desktop) {
+        left: 55px;
+        top: 75px;
+      }
+      @include mq(leftCol) {
+        left: 70px;
+      }
+      @include mq(wide) {
+        left: 60px;
+        top: 65px;
+      }
+    }
+
+    .word-3 {
+      top: 10px;
+      left: 0;
+      @include mq(desktop) {
+        top: 110px;
+      }
+      @include mq(leftCol) {
+        top: 115px;
+      }
+      @include mq(wide) {
+        top: 105px;
+      }
+    }
+
+    .word-4 {
+      bottom: 115px;
+      float: left;
+      width: 250px;
+      left: 0;
+      @include mq(desktop) {
+        left: auto;
+        width: 280px;
+        float: right;
+        bottom: auto;
+        right: 60px;
+        top: 80px;
+      }
+      @include mq(leftCol) {
+        width: 300px;
+        right: 100px;
+        top: 90px;
+      }
+      @include mq(wide) {
+        right: 130px;
+        top: 80px;
+      }
+    }
+
+
+  }
+
+  .desktop-only {
+    display: none;
+
+    @include mq($from:desktop) {
+      display: block;
+    }
+  }
+
+  .mobile-only {
+    display: block;
+
+    @include mq($from:tablet) {
+      display: none;
+    }
+  }
+
+  .cta {
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 36px;
+    line-height: 34px;
+    color: #000;
+    display: inline-block;
+    background: #FFE500;
+    border-radius: 21px;
+    padding: 0 19px;
+    transition: background-color 0.24s ease-in-out;
+
+    @include mq(mobileLandscape) {
+      left: 10px;
+    }
+
+    @include mq(desktop) {
+      left: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: #EBD10A;
+    }
+  }
+}
+
+@keyframes headlineAnimate {
+  0% {
+    top: 90px;
+    opacity: 0;
+  }
+
+  15% {
+    top: 70px;
+    opacity: 1;
+  }
+
+  100% {
+    top: 70px;
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: "GuardianTitlepiece";
+  src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
