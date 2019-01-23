@@ -213,19 +213,23 @@ module.exports = function(grunt) {
                             config: 'appConfig.image',
                             type: 'input',
                             default: defaultFromObject("image", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'
+                            message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)',
+                            when: fallbackImage
                         },
                         {
                             config: 'appConfig.url',
                             type: 'input',
                             default: defaultFromObject("url", null),
-                            message: 'OPTIONAL: '['red'].bold + 'URL override (leave blank to take user to default card)'
+                            message: 'OPTIONAL: '['red'].bold + 'URL override (leave blank to take user to default card)',
+                            when: fallbackImage
                         },
                         {
                             config: 'appConfig.title',
                             type: 'input',
                             default: defaultFromObject("title", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Thrasher title (leave blank to use the default card title)'
+                            message: 'OPTIONAL: '['red'].bold + 'Thrasher title (leave blank to use the default card title)',
+                            when: fallbackImage
+
                         },
                         {
                             config: 'appConfig.titleFont',
@@ -244,7 +248,8 @@ module.exports = function(grunt) {
                                 '---',
                                 { name:'Display Sans', value: 'display-sans' },
                                 '---'
-                            ]
+                            ],
+                            when: fallbackImage
                         },
                         {
                             config: 'appConfig.titleSize',
@@ -252,7 +257,8 @@ module.exports = function(grunt) {
                             default: defaultFromObject("titleSize", null),
                             message: 'OPTIONAL: '['red'].bold + 'Thrasher title size (in density independent pixels)',
                             validate: validateInputSize,
-                            filter: sizeAsInt
+                            filter: sizeAsInt,
+                            when: fallbackImage
                         },
                         {
                             config: 'appConfig.titleColour',
@@ -260,14 +266,15 @@ module.exports = function(grunt) {
                             default: defaultFromObject("titleColour", 'FFFFFF'),
                             message: 'OPTIONAL: '['red'].bold + 'Thrasher title text colour (default white)' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour
+                            filter: hexToColour,
+                            when: fallbackImage
                         },
                         {
                             config: 'appConfig.trail',
                             type: 'input',
                             default: defaultFromObject("trail", null),
                             message: 'OPTIONAL: '['red'].bold + 'Trail text (blank to hide)',
-                            when: defaultLayout
+                            when: defaultLayoutAndFallback
                         },
                         {
                             config: 'appConfig.trailFont',
@@ -364,14 +371,14 @@ module.exports = function(grunt) {
                             type: 'confirm',
                             default: defaultFromObject("hideGuardianRoundel", false),
                             message: 'Hide Guardian Roundel',
-                            when: defaultLayout
+                            when: defaultLayoutAndFallback
                         },
                         {
                             config: 'appConfig.buttonText',
                             type: 'input',
                             default: defaultFromObject("buttonText", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")',
-                            when: defaultLayout
+                            when: defaultLayoutAndFallback
                         },
                         {
                             config: 'appConfig.buttonBackgroundColour',
@@ -380,7 +387,7 @@ module.exports = function(grunt) {
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'BACKGROUND'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
                             filter: hexToColour,
-                            when: defaultLayout
+                            when: defaultLayoutAndFallback
                         },
                         {
                             config: 'appConfig.buttonTextColour',
@@ -389,10 +396,26 @@ module.exports = function(grunt) {
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'TEXT'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
                             filter: hexToColour,
-                            when: defaultLayout
+                            when: defaultLayoutAndFallback
                         }
                     ],
                     then: function() { grunt.task.run('confirmAppConfig'); }
+                }
+            },
+            appConfigHtml: {
+                options: {
+                    questions: [
+                        {
+                            config: 'appConfig.useHtml',
+                            type: 'list',
+                            default: defaultFromObject("useHtml", false),
+                            message: 'Use HTML, CSS and JavaScript on apps?'['red'].bold,
+                            choices: [
+                                { name:'Use fallback image on apps', value: false },
+                                { name:'Use HTML, CSS and JavaScript on apps', value: true }
+                            ]
+                        },
+                    ]
                 }
             },
             appConfigLayouts: {
@@ -402,11 +425,12 @@ module.exports = function(grunt) {
                             config: 'appConfig.layout',
                             type: 'list',
                             default: defaultFromObject("layout", 'default'),
-                            message: 'Which layout should this thrasher use? ' ['red'].bold + 'SEE GITHUB DOCS FOR EXAMPLES',
+                            message: 'Which layout should this thrasher use? ' ['red'].bold + 'SEE GITHUB DOCS FOR EXAMPLES' ['blue'].bold,
                             choices: [
                                 { name:'Layout 1: Default thrasher layout', value: 'default' },
                                 { name:'Layout 2: Headline, right aligned', value: 'headline-right-aligned' },
-                            ]
+                            ],
+                            when: fallbackImage
                         }
                     ],
                     then: function() { grunt.task.run(['prompt:appConfig']); }
@@ -456,7 +480,7 @@ module.exports = function(grunt) {
         // Overwrite header logger for nicer formatted output
         global['headerLogger'] = grunt.log.header;
         grunt.log.header = function() {};
-        grunt.log.writeln('SEE GITHUB DOCUMENTATION FOR ILLUSTRATED EXAMPLES'['blue'].bold);
+        grunt.task.run(['prompt:appConfigHtml']);
         grunt.task.run(['prompt:appConfigLayouts']);
     });
 
@@ -507,7 +531,16 @@ module.exports = function(grunt) {
         return grunt.config('appConfig.layout') == "default"
     }
 
+    function fallbackImage() {
+        return !grunt.config('appConfig.useHtml');
+    }
+
+    function defaultLayoutAndFallback() {
+        return defaultLayout() && fallbackImage();
+    }
+
     function getAppConfig() {
+        var useHtml = grunt.config('appConfig.useHtml');
         var layout = grunt.config('appConfig.layout');
         var title = grunt.config('appConfig.title');
         var titleFont = grunt.config('appConfig.titleFont');
@@ -530,6 +563,7 @@ module.exports = function(grunt) {
         var hideGuardianRoundel = grunt.config('appConfig.hideGuardianRoundel');
 
         var app = {};
+        if (useHtml) app.useHtml = useHtml;
         if (layout) app.layout = layout;
         if (title) app.title = title;
         if (titleFont) app.titleFont = titleFont;

@@ -1,7 +1,7 @@
 Thrashers
 =========
 
-Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend) project.
+Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend), [ios](https://github.com/guardian/ios-live) and [Android](https://github.com/guardian/android-news-app) projects.
 
 
 ## Installation
@@ -162,4 +162,13 @@ Although the same practice applies to javascript as it does for animations and t
 ### Previewing your thrasher locally
 
 Recent versions of Chrome block `https` local requests by default. To preview your thrasher in chrome, open `chrome://flags/` and enable the "Allow invalid certificates for resources loaded from localhost" flag.
+
+
+### Using HTML, CSS and JavaScript thrashers on iOS and Android fronts
+
+Setting the `useHtml` field to `true` will render a webview on Android & iOS fronts. Setting to `false` (the default option) will display the fallback image.
+
+This feature will allow us to show dynamic web content on mobile fronts. It's important to test on both iOS/Android platforms when setting `useHtml` to `true`, there's likely to be some browser differences and some links may be handled differently.
+
+For advice on how to test/develop for apps please contact the apps team.
 

@@ -4,5 +4,6 @@
   "refreshStatus": true,
   "url": "http://www.theguardian.com",
   "headline": "The Guardian",
-  "trailText": "Latest news, sport and comment from the Guardian"
+  "trailText": "Latest news, sport and comment from the Guardian",
+  "useHtml": false
 }
