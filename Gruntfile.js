@@ -233,11 +233,12 @@ module.exports = function(grunt) {
                             default: defaultFromObject("titleFont", 'egypt-regular'),
                             message: 'Thrasher title typeface',
                             choices: [
-                                { name:'DE1 Display Egyptian Thin', value: 'egypt-thin' },
-                                { name:'DE2 Display Egyptian Light', value: 'egypt-light' },
-                                { name:'DE3 Display Egyptian Regular', value: 'egypt-regular'},
-                                { name:'DE4 Display Egyptian Medium', value: 'egypt-medium' },
-                                { name:'DE6 Display Egyptian Bold', value: 'egypt-bold' },
+                                { name:'GH Guardian Headline Light', value: 'headline-light' },
+                                { name:'GH Guardian Headline Regular', value: 'headline-regular' },
+                                { name:'GH Guardian Headline Medium', value: 'headline-medium' },
+                                { name:'GH Guardian Headline Semibold', value: 'headline-semibold' },
+                                { name:'GH Guardian Headline Bold', value: 'headline-bold' },
+                                { name:'GH Guardian Headline Black', value: 'headline-black' }
                                 '---',
                                 { name:'Agate Regular', value: 'agate-regular' },
                                 { name:'Agate Bold', value: 'agate-bold' },
