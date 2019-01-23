@@ -10,6 +10,7 @@ $mq-breakpoints: (
   wide: 1300px
 );
 @import 'shared/_imports';
+
 #black-sheep {
   padding-top: 0;
   width: 100%;
@@ -25,7 +26,6 @@ $mq-breakpoints: (
     padding: 0;
     overflow: hidden;
   }
-
 }
 
 .black-sheep-oscar__wrapper {
@@ -46,6 +46,12 @@ $mq-breakpoints: (
 
 .top-link {
   display: block;
+  position: absolute!important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 8888!important;
+  right: 0;
 }
 
 #social-share-inner {
@@ -53,7 +59,7 @@ $mq-breakpoints: (
   width: 100%;
   height: 340px;
   text-align: center;
-  background-image: url('https://media.guim.co.uk/031079c32ab0548656496a7cb65037c19723ab28/248_0_3600_2160/2000.jpg');
+  background-image: url("https://media.guim.co.uk/031079c32ab0548656496a7cb65037c19723ab28/248_0_3600_2160/2000.jpg");
   background-size: 830px;
   background-position-x: 25%;
   background-position-y: -75px;
@@ -71,7 +77,6 @@ $mq-breakpoints: (
 
   .logo {
     position: absolute;
-    z-index: 50;
     top: 6px;
     right: 10px;
     transform: scale(0.8);
@@ -99,18 +104,14 @@ $mq-breakpoints: (
     font-weight: bold;
     width: 210px;
     text-align: left;
-    z-index: 9;
     width: 345px;
     bottom: 16px;
-
     @include mq(desktop) {
       left: 20px;
     }
-
     @include mq(leftCol) {
       left: 190px;
     }
-
     @include mq(wide) {
       left: 230px;
     }
@@ -138,12 +139,13 @@ $mq-breakpoints: (
       width: 200px;
       margin-top: 4px;
       font-weight: lighter;
+      position: relative;
+      top: -50px;
       @include mq($from:tablet) {
         width: 260px;
         font-size: 16px;
         line-height: 20px;
       }
-
     }
   }
 
@@ -162,7 +164,6 @@ $mq-breakpoints: (
       left: 0;
       width: 930px;
     }
-
     @include mq(leftCol) {
       width: 1080px;
     }
@@ -170,13 +171,11 @@ $mq-breakpoints: (
       width: 1200px;
       height: 340px;
     }
-
     @include mq($from:tablet) {
       // top: 10px;
       // margin: 0;
       // width: 600px;
     }
-
     // .image {
     //   width: 255px;
     //   display: inline-block;
@@ -192,13 +191,11 @@ $mq-breakpoints: (
     //     right: auto;
     //   }
     // }
-
     .word {
       font-family: "GuardianTitlepiece";
       font-size: 30px;
       font-weight: 700;
       color: #fff;
-      z-index: 9;
       @include mq(desktop) {
         font-size: 35px;
       }
@@ -284,13 +281,10 @@ $mq-breakpoints: (
         top: 80px;
       }
     }
-
-
   }
 
   .desktop-only {
     display: none;
-
     @include mq($from:desktop) {
       display: block;
     }
@@ -298,7 +292,6 @@ $mq-breakpoints: (
 
   .mobile-only {
     display: block;
-
     @include mq($from:tablet) {
       display: none;
     }
@@ -316,11 +309,10 @@ $mq-breakpoints: (
     border-radius: 21px;
     padding: 0 19px;
     transition: background-color 0.24s ease-in-out;
-
+    z-index: 9999!important;
     @include mq(mobileLandscape) {
       left: 10px;
     }
-
     @include mq(desktop) {
       left: 0;
     }
@@ -331,7 +323,6 @@ $mq-breakpoints: (
     }
   }
 }
-
 @keyframes headlineAnimate {
   0% {
     top: 90px;
@@ -348,7 +339,6 @@ $mq-breakpoints: (
     opacity: 1;
   }
 }
-
 @font-face {
   font-family: "GuardianTitlepiece";
   src: url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff2") format("woff2"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.woff") format("woff"), url("https://interactive.guim.co.uk/fonts/garnett/GTGuardianTitlepiece-Bold.ttf") format("truetype");
