@@ -213,23 +213,18 @@ module.exports = function(grunt) {
                             config: 'appConfig.image',
                             type: 'input',
                             default: defaultFromObject("image", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)',
-                            when: fallbackImage
-                        },
+                            message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'                        },
                         {
                             config: 'appConfig.url',
                             type: 'input',
                             default: defaultFromObject("url", null),
-                            message: 'OPTIONAL: '['red'].bold + 'URL override (leave blank to take user to default card)',
-                            when: fallbackImage
+                            message: 'OPTIONAL: '['red'].bold + 'URL override (leave blank to take user to default card)'
                         },
                         {
                             config: 'appConfig.title',
                             type: 'input',
                             default: defaultFromObject("title", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Thrasher title (leave blank to use the default card title)',
-                            when: fallbackImage
-
+                            message: 'OPTIONAL: '['red'].bold + 'Thrasher title (leave blank to use the default card title)'
                         },
                         {
                             config: 'appConfig.titleFont',
@@ -248,8 +243,7 @@ module.exports = function(grunt) {
                                 '---',
                                 { name:'Display Sans', value: 'display-sans' },
                                 '---'
-                            ],
-                            when: fallbackImage
+                            ]
                         },
                         {
                             config: 'appConfig.titleSize',
@@ -257,8 +251,7 @@ module.exports = function(grunt) {
                             default: defaultFromObject("titleSize", null),
                             message: 'OPTIONAL: '['red'].bold + 'Thrasher title size (in density independent pixels)',
                             validate: validateInputSize,
-                            filter: sizeAsInt,
-                            when: fallbackImage
+                            filter: sizeAsInt
                         },
                         {
                             config: 'appConfig.titleColour',
@@ -266,15 +259,13 @@ module.exports = function(grunt) {
                             default: defaultFromObject("titleColour", 'FFFFFF'),
                             message: 'OPTIONAL: '['red'].bold + 'Thrasher title text colour (default white)' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour,
-                            when: fallbackImage
+                            filter: hexToColour
                         },
                         {
                             config: 'appConfig.trail',
                             type: 'input',
                             default: defaultFromObject("trail", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Trail text (blank to hide)',
-                            when: defaultLayoutAndFallback
+                            message: 'OPTIONAL: '['red'].bold + 'Trail text (blank to hide)'
                         },
                         {
                             config: 'appConfig.trailFont',
@@ -370,15 +361,13 @@ module.exports = function(grunt) {
                             config: 'appConfig.hideGuardianRoundel',
                             type: 'confirm',
                             default: defaultFromObject("hideGuardianRoundel", false),
-                            message: 'Hide Guardian Roundel',
-                            when: defaultLayoutAndFallback
+                            message: 'Hide Guardian Roundel'
                         },
                         {
                             config: 'appConfig.buttonText',
                             type: 'input',
                             default: defaultFromObject("buttonText", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")',
-                            when: defaultLayoutAndFallback
+                            message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")'
                         },
                         {
                             config: 'appConfig.buttonBackgroundColour',
@@ -386,8 +375,7 @@ module.exports = function(grunt) {
                             default: defaultFromObject("buttonBackgroundColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'BACKGROUND'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour,
-                            when: defaultLayoutAndFallback
+                            filter: hexToColour
                         },
                         {
                             config: 'appConfig.buttonTextColour',
@@ -395,27 +383,26 @@ module.exports = function(grunt) {
                             default: defaultFromObject("buttonTextColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'TEXT'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour,
-                            when: defaultLayoutAndFallback
-                        }
-                    ],
-                    then: function() { grunt.task.run('confirmAppConfig'); }
-                }
-            },
-            appConfigHtml: {
-                options: {
-                    questions: [
+                            filter: hexToColour
+                        },
+                        {
+                            config: 'appConfig.imageGradient',
+                            type: 'confirm',
+                            default: defaultFromObject("imageGradient", false),
+                            message: 'Add client side gradient (improve text contrast)'
+                        },
                         {
                             config: 'appConfig.useHtml',
                             type: 'list',
-                            default: defaultFromObject("useHtml", false),
+                            default: false,
                             message: 'Use HTML, CSS and JavaScript on apps?'['red'].bold,
                             choices: [
                                 { name:'Use fallback image on apps', value: false },
                                 { name:'Use HTML, CSS and JavaScript on apps', value: true }
                             ]
-                        },
-                    ]
+                        }
+                    ],
+                    then: function() { grunt.task.run('confirmAppConfig'); }
                 }
             },
             appConfigLayouts: {
@@ -425,12 +412,10 @@ module.exports = function(grunt) {
                             config: 'appConfig.layout',
                             type: 'list',
                             default: defaultFromObject("layout", 'default'),
-                            message: 'Which layout should this thrasher use? ' ['red'].bold + 'SEE GITHUB DOCS FOR EXAMPLES' ['blue'].bold,
-                            choices: [
+                            message: 'Which layout should this thrasher use? ' ['red'].bold + 'SEE GITHUB DOCS FOR EXAMPLES',                            choices: [
                                 { name:'Layout 1: Default thrasher layout', value: 'default' },
                                 { name:'Layout 2: Headline, right aligned', value: 'headline-right-aligned' },
-                            ],
-                            when: fallbackImage
+                            ]
                         }
                     ],
                     then: function() { grunt.task.run(['prompt:appConfig']); }
@@ -480,7 +465,7 @@ module.exports = function(grunt) {
         // Overwrite header logger for nicer formatted output
         global['headerLogger'] = grunt.log.header;
         grunt.log.header = function() {};
-        grunt.task.run(['prompt:appConfigHtml']);
+        grunt.log.writeln('SEE GITHUB DOCUMENTATION FOR ILLUSTRATED EXAMPLES'['blue'].bold);
         grunt.task.run(['prompt:appConfigLayouts']);
     });
 
@@ -531,16 +516,7 @@ module.exports = function(grunt) {
         return grunt.config('appConfig.layout') == "default"
     }
 
-    function fallbackImage() {
-        return !grunt.config('appConfig.useHtml');
-    }
-
-    function defaultLayoutAndFallback() {
-        return defaultLayout() && fallbackImage();
-    }
-
     function getAppConfig() {
-        var useHtml = grunt.config('appConfig.useHtml');
         var layout = grunt.config('appConfig.layout');
         var title = grunt.config('appConfig.title');
         var titleFont = grunt.config('appConfig.titleFont');
@@ -561,9 +537,10 @@ module.exports = function(grunt) {
         var buttonBackgroundColour = grunt.config('appConfig.buttonBackgroundColour');
         var buttonTextColour = grunt.config('appConfig.buttonTextColour');
         var hideGuardianRoundel = grunt.config('appConfig.hideGuardianRoundel');
+        var imageGradient = grunt.config('appConfig.imageGradient');
+        var useHtml = grunt.config('appConfig.useHtml');
 
         var app = {};
-        if (useHtml) app.useHtml = useHtml;
         if (layout) app.layout = layout;
         if (title) app.title = title;
         if (titleFont) app.titleFont = titleFont;
@@ -586,6 +563,8 @@ module.exports = function(grunt) {
         }
         if(hideGuardianRoundel) app.hideGuardianRoundel = hideGuardianRoundel;
         if (url) app.url = url;
+        if (imageGradient) app.imageGradient = imageGradient;
+        app.useHtml = useHtml;
 
         return app;
     }
