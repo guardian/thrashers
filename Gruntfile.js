@@ -213,7 +213,8 @@ module.exports = function(grunt) {
                             config: 'appConfig.image',
                             type: 'input',
                             default: defaultFromObject("image", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'                        },
+                            message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'
+                        },
                         {
                             config: 'appConfig.url',
                             type: 'input',
@@ -265,7 +266,8 @@ module.exports = function(grunt) {
                             config: 'appConfig.trail',
                             type: 'input',
                             default: defaultFromObject("trail", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Trail text (blank to hide)'
+                            message: 'OPTIONAL: '['red'].bold + 'Trail text (blank to hide)',
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.trailFont',
@@ -361,13 +363,15 @@ module.exports = function(grunt) {
                             config: 'appConfig.hideGuardianRoundel',
                             type: 'confirm',
                             default: defaultFromObject("hideGuardianRoundel", false),
-                            message: 'Hide Guardian Roundel'
+                            message: 'Hide Guardian Roundel',
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.buttonText',
                             type: 'input',
                             default: defaultFromObject("buttonText", null),
-                            message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")'
+                            message: 'OPTIONAL: '['red'].bold + 'Button text (default "View Now")',
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.buttonBackgroundColour',
@@ -375,7 +379,8 @@ module.exports = function(grunt) {
                             default: defaultFromObject("buttonBackgroundColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'BACKGROUND'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour
+                            filter: hexToColour,
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.buttonTextColour',
@@ -383,7 +388,8 @@ module.exports = function(grunt) {
                             default: defaultFromObject("buttonTextColour", null),
                             message: 'OPTIONAL: '['red'].bold + 'Button '+'TEXT'['blue'].bold+' colour' + ' RGB'['red'].bold,
                             validate: validateInputColour,
-                            filter: hexToColour
+                            filter: hexToColour,
+                            when: defaultLayout
                         },
                         {
                             config: 'appConfig.imageGradient',
@@ -412,7 +418,8 @@ module.exports = function(grunt) {
                             config: 'appConfig.layout',
                             type: 'list',
                             default: defaultFromObject("layout", 'default'),
-                            message: 'Which layout should this thrasher use? ' ['red'].bold + 'SEE GITHUB DOCS FOR EXAMPLES',                            choices: [
+                            message: 'Which layout should this thrasher use? ' ['red'].bold + 'SEE GITHUB DOCS FOR EXAMPLES',
+                            choices: [
                                 { name:'Layout 1: Default thrasher layout', value: 'default' },
                                 { name:'Layout 2: Headline, right aligned', value: 'headline-right-aligned' },
                             ]

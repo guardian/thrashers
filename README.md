@@ -94,7 +94,7 @@ It should show as `snap json.html`
 
 You can then drag that link into the thrasher container on the front you want the thrasher to appear on.
 
-#### Display on Apps
+### Display on Apps
 
 You'll be prompted to provide an app-specific config when running `grunt remote` with the `--folderName=` parameter. If you wish to update the app config without running grunt remote, you can run `grunt appConfig --folderName=<FOLDER>`
 
@@ -107,6 +107,14 @@ For example, football weekly, which displays like this on desktop:
 will display like this on apps:
 
 ![Drag gif](doc_images/football-weekly-apps.jpg)
+
+### Using HTML, CSS and JavaScript thrashers on iOS and Android fronts
+
+Setting the `useHtml` field to `true` will render a webview on Android & iOS fronts. Setting to `false` (the default option) will display the fallback image.
+
+This feature will allow us to show dynamic web content on mobile fronts. It's important to test on both iOS/Android platforms when setting `useHtml` to `true`, there's likely to be some browser differences and some links may be handled differently.
+
+For advice on how to test/develop for apps please contact the apps team.
 
 ## Developing
 
@@ -162,13 +170,4 @@ Although the same practice applies to javascript as it does for animations and t
 ### Previewing your thrasher locally
 
 Recent versions of Chrome block `https` local requests by default. To preview your thrasher in chrome, open `chrome://flags/` and enable the "Allow invalid certificates for resources loaded from localhost" flag.
-
-
-### Using HTML, CSS and JavaScript thrashers on iOS and Android fronts
-
-Setting the `useHtml` field to `true` will render a webview on Android & iOS fronts. Setting to `false` (the default option) will display the fallback image.
-
-This feature will allow us to show dynamic web content on mobile fronts. It's important to test on both iOS/Android platforms when setting `useHtml` to `true`, there's likely to be some browser differences and some links may be handled differently.
-
-For advice on how to test/develop for apps please contact the apps team.
 
