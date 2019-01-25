@@ -390,6 +390,12 @@ module.exports = function(grunt) {
                             validate: validateInputColour,
                             filter: hexToColour,
                             when: defaultLayout
+                        },
+                        {
+                          config: 'appConfig.imageGradient',
+                          type: 'confirm',
+                          default: defaultFromObject("imageGradient", false),
+                          message: 'Add client side gradient (improve text contrast)'
                         }
                     ],
                     then: function() { grunt.task.run('confirmAppConfig'); }
@@ -528,6 +534,7 @@ module.exports = function(grunt) {
         var buttonBackgroundColour = grunt.config('appConfig.buttonBackgroundColour');
         var buttonTextColour = grunt.config('appConfig.buttonTextColour');
         var hideGuardianRoundel = grunt.config('appConfig.hideGuardianRoundel');
+        var imageGradient = grunt.config('appConfig.imageGradient');
 
         var app = {};
         if (layout) app.layout = layout;
@@ -552,6 +559,7 @@ module.exports = function(grunt) {
         }
         if(hideGuardianRoundel) app.hideGuardianRoundel = hideGuardianRoundel;
         if (url) app.url = url;
+        if (imageGradient) app.imageGradient = imageGradient;
 
         return app;
     }
