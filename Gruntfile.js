@@ -392,10 +392,20 @@ module.exports = function(grunt) {
                             when: defaultLayout
                         },
                         {
-                          config: 'appConfig.imageGradient',
-                          type: 'confirm',
-                          default: defaultFromObject("imageGradient", false),
-                          message: 'Add client side gradient (improve text contrast)'
+                            config: 'appConfig.imageGradient',
+                            type: 'confirm',
+                            default: defaultFromObject("imageGradient", false),
+                            message: 'Add client side gradient (improve text contrast)'
+                        },
+                        {
+                            config: 'appConfig.html',
+                            type: 'list',
+                            default: false,
+                            message: 'Use HTML, CSS and JavaScript on apps?'['red'].bold,
+                            choices: [
+                                { name:'Use fallback image on apps', value: "" },
+                                { name:'Use HTML, CSS and JavaScript on apps', value: defaultFromObject("html", "") }
+                            ]
                         }
                     ],
                     then: function() { grunt.task.run('confirmAppConfig'); }
@@ -502,8 +512,12 @@ module.exports = function(grunt) {
             return defaultVal;
         }
 
-        var object = grunt.file.readJSON(path).app;
-        if(object && object[key]) {
+        var object = grunt.file.readJSON(path);
+        var app = object.app;
+
+        if (app && app[key]) {
+            return app[key];
+        } else if (key === 'html') {
             return object[key];
         }
         return defaultVal;
@@ -535,6 +549,7 @@ module.exports = function(grunt) {
         var buttonTextColour = grunt.config('appConfig.buttonTextColour');
         var hideGuardianRoundel = grunt.config('appConfig.hideGuardianRoundel');
         var imageGradient = grunt.config('appConfig.imageGradient');
+        var html = grunt.config('appConfig.html');
 
         var app = {};
         if (layout) app.layout = layout;
@@ -560,6 +575,7 @@ module.exports = function(grunt) {
         if(hideGuardianRoundel) app.hideGuardianRoundel = hideGuardianRoundel;
         if (url) app.url = url;
         if (imageGradient) app.imageGradient = imageGradient;
+        app.html = html;
 
         return app;
     }
