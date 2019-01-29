@@ -110,9 +110,7 @@ will display like this on apps:
 
 ### Using HTML, CSS and JavaScript thrashers on iOS and Android fronts
 
-Setting the `useHtml` field to `true` will render a webview on Android & iOS fronts. Setting to `false` (the default option) will display the fallback image.
-
-This feature will allow us to show dynamic web content on mobile fronts. It's important to test on both iOS/Android platforms when setting `useHtml` to `true`, there's likely to be some browser differences and some links may be handled differently.
+It's important to test on both iOS/Android platforms when using html rather than the fallback image. There's likely to be some browser differences and links may be handled differently.
 
 For advice on how to test/develop for apps please contact the apps team.
 
