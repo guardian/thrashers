@@ -216,6 +216,12 @@ module.exports = function(grunt) {
                             message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'
                         },
                         {
+                            config: 'appConfig.tabletImage',
+                            type: 'input',
+                            default: defaultFromObject("tabletImage", null),
+                            message: 'OPTIONAL: '['red'].bold + 'Image URL for tablets only (leave blank to fallback on image or card image)'
+                        },
+                        {
                             config: 'appConfig.url',
                             type: 'input',
                             default: defaultFromObject("url", null),
@@ -534,6 +540,7 @@ module.exports = function(grunt) {
         var titleSize = grunt.config('appConfig.titleSize');
         var titleColour= grunt.config('appConfig.titleColour');
         var image = grunt.config('appConfig.image');
+        var tabletImage = grunt.config('appConfig.tabletImage');
         var trail = grunt.config('appConfig.trail');
         var trailFont = grunt.config('appConfig.trailFont');
         var trailSize = grunt.config('appConfig.trailSize');
@@ -558,6 +565,7 @@ module.exports = function(grunt) {
         if (titleSize) app.titleSize = titleSize;
         if (titleColour) app.titleColour = titleColour;
         if (image) app.image = image;
+        if (tabletImage) app.tabletImage = tabletImage;
         if (trail) app.trail = trail;
         if (trailFont) app.trailFont = trailFont;
         if (trailSize) app.trailSize = trailSize;
