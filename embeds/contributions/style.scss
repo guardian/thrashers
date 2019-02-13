@@ -12,8 +12,8 @@ $mq-breakpoints: (
     wide:            1300px
 );
 
-$orange: #f07e1d;
-$blue:   #21305b;
+$orange: #ff7f0f;
+$blue:   #041f4a;
 
 @font-face {
     font-family: "GuardianTitlepiece";
@@ -23,12 +23,14 @@ $blue:   #21305b;
 }
 
 #contributions-moment {
-    background: #f7eee7;
-    color: #21305b;
+    background: #fbf6ef;
+    color: #041f4a;
     line-height: 1;
-    // min-height: 260px;
     display: flex;
-    // height: 400px;
+
+    .contributions__wrapper {
+        width: 100%;
+    }
     
     .facia-snap {
         background-color: transparent;
@@ -37,8 +39,8 @@ $blue:   #21305b;
     .contribution-moment {
         display: flex;
         justify-content: space-between;
-        padding: 20px;
-         min-height: 260px;
+        padding: 30px 20px;
+        min-height: 260px;
     }
 
     .contribution-moment__col {
@@ -54,37 +56,48 @@ $blue:   #21305b;
         display: flex;
         align-items: center;
         justify-content: center;
-        // left: -30px;
     }
 
     .contribution-moment__circle {
         position: absolute;
+        height: 100%;
+        width: 260px;
         border-radius: 50%;
-        width: 70%;
-        padding-bottom: 70%;
-        height: 0;
-        mix-blend-mode: multiply;
-        transition: transform 400s ease-out;
-        
-        &:nth-child(1) {
-            background: $orange;
-            z-index: 1;
-            left: 0;
-            // transform: translateX(-25%);
+        display: flex;
+        opacity: 0.8;
+        transition: transform 0.6s 0.6s linear;
+        transform: translateX(0);
+        will-change: transform;
+    }
+    
+    @supports (mix-blend-mode: multiply) {
+        .contribution-moment__circle {
+            mix-blend-mode: multiply;
+            opacity: 1;
         }
-        
-        &:nth-child(2) {
-            background: $blue;
-            z-index: 2;
-            // transform: translateX(25%);
-            right: 0;
-        }
+    }
+
+    .contribution-moment__circle--orange {
+        background: $orange;
+    }
+    
+    .contribution-moment__circle--blue {
+        background: $blue;
     }
     
     .contribution-moment__heading {
-        @include fs-headline(9);
+        font-size: 48px;
         line-height: 0.9;
         font-family: "GuardianTitlepiece", Georgia,serif;
+    }
+    
+    .contribution-moment__heading-mob {
+        font-family: "GuardianTitlepiece", Georgia,serif;
+        line-height: 0.9;
+        color: #fff;
+        opacity: 0;
+        transition: transform 0.6s 0.6s ease-out,
+                    opacity 0.6s 0.6s;
     }
 
     .contribution-moment__col {
@@ -92,11 +105,7 @@ $blue:   #21305b;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: flex-start;
-
-        // .contribution-moment__heading {
-        //     position: absolute;
-        // }
+        justify-content: center;
     }
 
     .contribution-moment__col:nth-child(1) {
@@ -106,27 +115,32 @@ $blue:   #21305b;
             font-weight: 700;
             line-height: 1;
             margin: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
-        
+
         .contribution-moment__heading {
             color: $orange;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: transform 0.6s ease-out,
+                        opacity 0.6s;
         }
     }
     
     .contribution-moment__col:nth-child(3) {
         align-items: center;
         justify-content: center;
-        padding-left: 20px;
 
         p {
             font-size: 14px;
             position: absolute;
             bottom: 0;
             right: 0;
-            line-height: 1;
+            line-height: 1.3;
             margin: 0;
-            width: 60%;
-            // display: none;
+            width: 300px;
         }
         
         .contribution-moment__col-inner {
@@ -134,7 +148,11 @@ $blue:   #21305b;
         }
         
         .contribution-moment__heading {
-            // margin-top: 0;
+            max-width: 400px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: transform 0.6s 1.2s ease-out,
+                        opacity 0.6s 1.2s;
         }
     }
 
@@ -156,14 +174,348 @@ $blue:   #21305b;
         transition: .2s;
         background-color: #ffe500;
         color: #121212;
-        
-        &:hover, &:focus    {
-          outline: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 220px;
+        white-space: nowrap;
+
+        .icon {
+            margin: -0.75rem -0.625rem -0.75rem 0.625rem;
+            height: auto;
+            width: 21px;
+            transform: translateX(0);
+            transition: transform .3s ease-in-out;
         }
 
+        &:hover, &:focus    {
+            outline: 0;
+        }
+  
         &:hover {
             background-color: #ffbb50;
+
+            .icon {
+                transform: translateX(3px);
+            }
         }
     }
+
+    .roundel {
+        position: absolute;
+        top: 20px;
+        right: 20px;   
+        width: 42px;
+        height: 42px;
+    }
+
+    // if it is animated 
+    
+    @include mq($to: tablet) {
+
+        .contribution-moment {
+            flex-direction: column;
+            min-height: 500px;
+            text-align: center;
+            align-items: center;
+            padding-bottom: 70px;
+        }
+
+        .contribution-moment__col,
+        .contribution-moment__circles {
+            width: 100%;
+        }
+
+        .contribution-moment__col {
+            position: static;
+        }
+
+        .contribution-moment__col:nth-child(1),
+        .contribution-moment__col:nth-child(3) {
+            p {
+                font-size: 1rem;
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+                bottom: auto;
+                max-width: 80%;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .contribution-moment__heading {
+                display: none;
+            }
+        }
+
+        .contribution-moment__circles {
+            width: 240px;
+            height: 240px;
+
+            .contribution-moment__heading-mob {
+                display: block;
+                padding: 0 20px;
+            }
+        }
+
+        .contribution-moment__circle {
+            display: flex;
+            justify-content: center;
+            width: 240px;
+        }
+
+        .contribution-moment__circle--orange {
+            align-items: flex-start;
+            
+            & .contribution-moment__heading-mob {
+                padding-top: 50px;
+            }
+        }
+        
+        .contribution-moment__circle--blue {
+            align-items: flex-end;
+
+            & .contribution-moment__heading-mob {
+                padding-bottom: 50px;
+            }
+        }
+
+        .roundel {
+            top: 20px;
+            bottom: auto;
+        }
+
+        .component-button {
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .contribution-moment__col:nth-child(3) {
+            padding-bottom: 15px;
+        }
+
+        .is-animated {
+
+            .contribution-moment__circle {
+                transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+
+            .contribution-moment__circle--orange {
+                transform: translateX(0) translateY(-25%);
+            }
+            
+            .contribution-moment__circle--blue {
+                transform: translateX(0) translateY(25%);
+            }
+    
+            .contribution-moment__circle--orange .contribution-moment__heading-mob {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            
+            .contribution-moment__circle--blue .contribution-moment__heading-mob {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    @include mq($to: mobileLandscape) {
+        .contribution-moment__col:nth-child(1),
+        .contribution-moment__col:nth-child(3) {
+            p {
+                max-width: none;
+            }
+        }
+
+        .roundel {
+            top: auto;
+            bottom: 20px;
+        }
+
+        .component-button {
+            bottom: 20px;
+            left: 20px;
+            right: auto;
+            margin: 0 auto;
+        }
+
+    }
+
+    @include mq($from: tablet) {
+        .contribution-moment__col:nth-child(1) {
+            p {
+              font-size: 1rem;
+            }
+        }
+        
+        .contribution-moment__circles {
+            .contribution-moment__heading-mob {
+                display: none;
+            }
+        }
+
+        .is-animated {
+            .contribution-moment__circle {
+                transition: transform 0.6s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+            .contribution-moment__circle--orange {
+                transform: translateX(-25%);
+            }
+            
+            .contribution-moment__circle--blue {
+                transform: translateX(25%);
+            }
+    
+            .contribution-moment__col:nth-child(1) .contribution-moment__heading {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            
+            .contribution-moment__col:nth-child(3) .contribution-moment__heading {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    }
+    
+    @include mq($from: tablet, $until: desktop) {
+        
+        .contribution-moment {
+            min-height: 220px;
+        }
+        
+        .contribution-moment__circles {
+            align-items: center;
+            height: 140px;
+        }
+       
+        .contribution-moment__circle {
+            width: 140px;
+            top: 40px;
+        }
+        
+        .contribution-moment__col:nth-child(3) {
+            p {
+               width: 100%;
+            }
+        }
+
+        .contribution-moment__heading {
+            font-size: 1.8rem;
+        }
+    }
+
+    @include mq($from: tablet) {
+        .contribution-moment__circles {
+            left: -10px;
+        }
+    }
+
+    @include mq($from: desktop) {
+        .contribution-moment__circles {
+            left: -20px;
+        }
+    }
+    
+    @include mq($from: leftCol) {
+        .contribution-moment__circles {
+            left: -10px;
+        }
+    }
+    
+    @include mq($from: desktop, $until: leftCol) {
+        
+        .contribution-moment__col {
+            width: 35%;
+        }
+    
+        .contribution-moment__circles {
+            width: 30%;
+        }
+
+        .contribution-moment__circles {
+            height: 200px;
+            top: 30px;
+        }
+
+        .contribution-moment__circle {
+            width: 200px;
+        }
+
+        .contribution-moment__heading {
+            font-size: 2.4rem;
+            max-width: 300px;
+        }
+
+        .contribution-moment__col:nth-child(1) {
+            p {
+                font-size: 1rem;
+                max-width: 300px;
+            }
+        }
+        
+        .contribution-moment__col:nth-child(3) {
+            p {
+                width: 220px;
+            }
+
+            .contribution-moment__heading {
+                max-width: 340px;
+            }
+        }
+    }
+
+    @include mq($from: leftCol, $until: wide) {
+        .contribution-moment__heading {
+           font-size: 2.8rem;
+        }
+
+        .contribution-moment__circles {
+            height: 230px;
+            top: 15px;
+        }
+
+        .contribution-moment__circle {
+            width: 230px;
+        }
+
+        .contribution-moment__col:nth-child(3) {
+            p {
+                width: 220px;
+            }
+        }
+    }
+
+    @include mq($from: wide) {
+        
+        .contribution-moment {
+            min-height: 260px;
+        }
+        
+        .contribution-moment__circles {
+            align-items: center;
+            height: 260px;
+        }
+       
+        .contribution-moment__circle {
+            width: 260px;
+        }
+
+        .contribution-moment__heading {
+            font-size: 52px;
+        }
+
+        .contribution-moment__col:nth-child(3) {
+            p {
+               width: 300px;
+            }
+        }
+    }
+
+    
 
 }

@@ -1,82 +1,47 @@
 (function() {
 
-	var guToday;
+	var target = '.contribution-moment';
+	// var trigger = document.querySelector('.contribution-moment__heading');
 
-	function elementInViewport(el) {
-	  var top = el.offsetTop;
-	  var left = el.offsetLeft;
-	  var width = el.offsetWidth;
-	  var height = el.offsetHeight;
+	// trigger.addEventListener('click', toggleClass);
 
-	  while(el.offsetParent) {
-	    el = el.offsetParent;
-	    top += el.offsetTop;
-	    left += el.offsetLeft;
-	  }
+	// function toggleClass(){
+	// 	console.log('clicked');
+		
+	// 	if (target.classList.contains('is-animated')) {
+	// 		target.classList.remove('is-animated');
+	// 	} else {
+	// 		target.classList.add('is-animated');
+	// 	}
+	// }
 
-	  return (
-	    top >= window.pageYOffset &&
-	    left >= window.pageXOffset &&
-	    (top + height) <= (window.pageYOffset + window.innerHeight) &&
-	    (left + width) <= (window.pageXOffset + window.innerWidth)
-	  );
+	function checkExists(startThrasherFunction) {
+		console.log('running');
+			var checkInterval = setInterval(function() {
+					if (document.querySelector(target)) {
+							startThrasherFunction();
+							clearInterval(checkInterval);
+					}
+			}, 100);
 	}
 
-	function animate(guToday){
-		document.addEventListener('scroll', function(){
-			if(elementInViewport(guToday)) {
-				console.log('in view');
-				guToday.classList.add('animated');
-			}else {
-				console.log('out view');
-				guToday.classList.remove('animated');
-			}
+	function playThrasher() {
+
+		var thrasher = document.querySelector(target);
+
+		window.addEventListener('scroll', function() {
+			var thrasherY = thrasher.getBoundingClientRect().y;
+			var peekSize = 150;
+
+			var windowHeight = window.innerHeight;
+
+				if ((thrasherY - windowHeight + peekSize) < 0) {
+						thrasher.classList.add('is-animated');
+				}
 		});
 	}
 
-	function updateCountdownTime() {
-
-	    // utc time now
-	    var now = new Date;
-	    var utcTime = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() ,
-	      (now.getUTCHours()), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
-
-	    // polls closing time, timezone independent
-	    var pollsClose = new Date(Date.UTC(2018,4,2,1,0));
-
-
-	    if (utcTime > pollsClose.getTime()) {
-	        document.querySelector('.update-time').innerHTML = "0";
-	    } else {
-	        // get total seconds between the times
-	        var delta = Math.abs(pollsClose - utcTime) / 1000;
-
-	        // calculate (and subtract) whole days
-	        var days = Math.floor(delta / 86400);
-	        delta -= days * 86400;
-
-			document.querySelector('.update-time').innerHTML = days + " ";
-	    }
-	}
-
-
-	function thrasherMain() {
-		guToday = document.querySelector('.ZCK-GT--wrapper');
-
-		animate(guToday);
-		updateCountdownTime()
-	}
-
-
-	function checkExists(startThrasherFunction) {
-		var checkInterval = setInterval(function() {
-			if (document.querySelector('.ZCK-GT--wrapper')) {
-				startThrasherFunction();
-				clearInterval(checkInterval);
-			}
-		}, 100);
-	}
-
-	checkExists(thrasherMain);
+	checkExists(playThrasher);
+	toggleClass();
 
 })();
