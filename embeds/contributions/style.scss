@@ -71,10 +71,9 @@ $blue:   #0084c6;
         opacity: 0.8;
         transition: transform 0.6s 0.6s linear;
         transform: translateX(0);
-        will-change: transform;
     }
     
-    @supports (mix-blend-mode: multiply) {
+    @supports (mix-blend-mode: hue) {
         .contribution-moment__circle {
             mix-blend-mode: hue;
             opacity: 1;
@@ -265,7 +264,7 @@ $blue:   #0084c6;
             height: 240px;
 
             .contribution-moment__heading-mob {
-                display: block;
+                // display: block;
                 padding: 0 20px;
             }
         }
@@ -354,6 +353,13 @@ $blue:   #0084c6;
             margin: 0 auto;
         }
 
+    }
+
+    @include mq($to: mobileMedium) {
+        .contribution-moment {
+            min-height: 540px;
+            padding: 30px 10px;
+        }
     }
 
     @include mq($from: tablet) {

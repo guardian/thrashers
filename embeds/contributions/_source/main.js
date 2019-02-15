@@ -22,13 +22,13 @@
 			for(var i = 0; i < sell.length; i++){
 				sell[i].classList.add('hide');
 			}
-			console.log('Is a contributor');
+			// console.log('Is a contributor');
 
 		} else {
 			for(var i = 0; i < thanks.length; i++){
 				thanks[i].classList.add('hide');
 			}
-			console.log('Is not a contributor');
+			// console.log('Is not a contributor');
 		}
 	}
 
