@@ -51,9 +51,9 @@ $blue:   #0084c6;
         width: 33%;
     }
 
-    // .contribution-moment__circles {
-    //     width: 30%;
-    // }
+    .contribution-moment__circles {
+        width: 34%;
+    }
 
     .contribution-moment__circles {
         position: relative;
@@ -69,10 +69,8 @@ $blue:   #0084c6;
         border-radius: 50%;
         display: flex;
         opacity: 0.8;
-        transition: all 0.6s 0.6s linear;
-        // transform: translateX(0);
-        // left: auto;
-        // right: auto;
+        transition: transform 0.6s 0.6s linear;
+        transform: translateX(0);
     }
     
     @supports (mix-blend-mode: hue) {
@@ -279,7 +277,6 @@ $blue:   #0084c6;
 
         .contribution-moment__circle--orange {
             align-items: flex-start;
-            top: 0;
             
             & .contribution-moment__heading-mob {
                 padding-top: 50px;
@@ -288,7 +285,6 @@ $blue:   #0084c6;
         
         .contribution-moment__circle--blue {
             align-items: flex-end;
-            bottom: 0;
 
             & .contribution-moment__heading-mob {
                 padding-bottom: 50px;
@@ -314,17 +310,15 @@ $blue:   #0084c6;
         .is-animated {
 
             .contribution-moment__circle {
-                transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
             }
 
             .contribution-moment__circle--orange {
-                // transform: translateX(0) translateY(-25%);
-                top: -25%;
+                transform: translateX(0) translateY(-25%);
             }
             
             .contribution-moment__circle--blue {
-                // transform: translateX(0) translateY(25%);
-                bottom: -25%;
+                transform: translateX(0) translateY(25%);
             }
     
             .contribution-moment__circle--orange .contribution-moment__heading-mob {
@@ -381,24 +375,16 @@ $blue:   #0084c6;
             }
         }
 
-        .contribution-moment__circle--orange {
-            left: 0;
-        }
-        
-        .contribution-moment__circle--blue {
-            right: 0;
-        }
-
         .is-animated {
             .contribution-moment__circle {
-                transition: all 0.6s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: transform 0.6s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
             }
             .contribution-moment__circle--orange {
-                left: -25%;
+                transform: translateX(-25%);
             }
             
             .contribution-moment__circle--blue {
-                right: -25%;
+                transform: translateX(25%);
             }
     
             .contribution-moment__col:nth-child(1) .contribution-moment__heading {
@@ -421,7 +407,6 @@ $blue:   #0084c6;
         
         .contribution-moment__circles {
             align-items: center;
-            width: 140px;
             height: 140px;
         }
        
@@ -476,7 +461,6 @@ $blue:   #0084c6;
 
         .contribution-moment__circles {
             height: 200px;
-            width: 200px;
             top: 30px;
         }
 
@@ -514,7 +498,6 @@ $blue:   #0084c6;
 
         .contribution-moment__circles {
             height: 230px;
-            width: 230px;
             top: 15px;
         }
 
@@ -538,7 +521,6 @@ $blue:   #0084c6;
         .contribution-moment__circles {
             align-items: center;
             height: 260px;
-            width: 260px;
         }
        
         .contribution-moment__circle {

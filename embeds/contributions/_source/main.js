@@ -32,23 +32,47 @@
 		}
 	}
 
+	// function playThrasher() {
+
+	// 	var thrasher = document.querySelector(target);
+
+	// 	window.addEventListener('scroll', function() {
+	// 		var thrasherY = thrasher.getBoundingClientRect().y;
+	// 		var peekSize = 150;
+
+	// 		var windowHeight = window.innerHeight;
+
+	// 			if ((thrasherY - windowHeight + peekSize) < 0) {
+	// 					thrasher.classList.add('is-animated');
+	// 			}
+	// 	});
+	// }
+	
 	function playThrasher() {
 
-		var thrasher = document.querySelector(target);
+    var target = '.contribution-moment';
+    var thrasher = document.querySelector(target);
+    var thrasherY = thrasher.getBoundingClientRect().y;
+    var peekSize = 150;
+    var windowHeight = window.innerHeight;
 
-		window.addEventListener('scroll', function() {
-			var thrasherY = thrasher.getBoundingClientRect().y;
-			var peekSize = 150;
+    if ((thrasherY - windowHeight + peekSize) < 0) {
+        thrasher.classList.add('is-animated');
+    }
 
-			var windowHeight = window.innerHeight;
+    window.addEventListener('scroll', function() {
+        var thrasherY = thrasher.getBoundingClientRect().y;
+        var peekSize = 150;
+        var windowHeight = window.innerHeight;
 
-				if ((thrasherY - windowHeight + peekSize) < 0) {
-						thrasher.classList.add('is-animated');
-				}
-		});
-	}
+        if ((thrasherY - windowHeight + peekSize) < 0) {
+            thrasher.classList.add('is-animated');
+        }
+    });
+  }
 
-	checkExists(playThrasher);
+	playThrasher();
+	// checkExists(playThrasher);
 	toggleThrasherElements();
 	// toggleClass();
 
