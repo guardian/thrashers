@@ -266,7 +266,6 @@ $blue:   #0084c6;
             height: 240px;
 
             .contribution-moment__heading-mob {
-                // display: block;
                 padding: 0 20px;
             }
         }
@@ -318,12 +317,10 @@ $blue:   #0084c6;
             }
 
             .contribution-moment__circle--orange {
-                // transform: translateX(0) translateY(-25%);
                 top: -25%;
             }
             
             .contribution-moment__circle--blue {
-                // transform: translateX(0) translateY(25%);
                 bottom: -25%;
             }
     
