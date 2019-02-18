@@ -123,6 +123,7 @@ $blue:   #0084c6;
             position: absolute;
             top: 0;
             left: 0;
+            max-width: 380px;
         }
 
         p.last {
@@ -204,6 +205,14 @@ $blue:   #0084c6;
             .icon {
                 transform: translateX(3px);
             }
+        }
+
+        &.thanks {
+            width: 160px;
+        }
+
+        &.hide {
+            display: none;
         }
     }
 
@@ -507,6 +516,7 @@ $blue:   #0084c6;
     @include mq($from: leftCol, $until: wide) {
         .contribution-moment__heading {
            font-size: 2.6rem;
+           padding-right: 30px;
         }
 
         .contribution-moment__circles {
@@ -543,7 +553,7 @@ $blue:   #0084c6;
         }
 
         .contribution-moment__heading {
-            font-size: 52px;
+            font-size: 3rem;
         }
 
         .contribution-moment__col:nth-child(3) {
