@@ -482,7 +482,7 @@ $blue:   #0084c6;
         }
 
         .contribution-moment__heading {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             max-width: 300px;
         }
 
@@ -506,7 +506,7 @@ $blue:   #0084c6;
 
     @include mq($from: leftCol, $until: wide) {
         .contribution-moment__heading {
-           font-size: 2.8rem;
+           font-size: 2.6rem;
         }
 
         .contribution-moment__circles {
