@@ -1,6 +1,10 @@
 #!/bin/bash
 
+set -e
+
 CERT_CIRECTORY="certs"
+
+echo "Creating certificate with mkcert - hold on 🚀"
 
 brew install mkcert nss
 
