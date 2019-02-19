@@ -1,0 +1,6 @@
+name: thrashers
+mappings:
+  - prefix: thrashers
+    port: 8000
+    path:
+
