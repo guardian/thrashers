@@ -1,6 +1,11 @@
 (function() {
 
-	var target = '.contribution-moment'
+	// alert('running');
+	// var targetClass = document.getElementsByClassName('contribution-moment');
+	// console.log('test');
+	// targetClass.classList.remove('is-animated');
+	
+	var target = '.contribution-moment';
 
 	function checkExists(startThrasherFunction) {
 		var checkInterval = setInterval(function() {
@@ -74,7 +79,6 @@
 	function playThrasher() {
 
 		// console.log('fired');
-
 		var target = '.contribution-moment';
 		var thrasher = document.querySelector(target);
 		var thrasherY = thrasher.getBoundingClientRect().y;

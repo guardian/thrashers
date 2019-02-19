@@ -27,6 +27,7 @@ $blue:   #0084c6;
     color: #041f4a;
     line-height: 1;
     display: flex;
+    overflow: hidden;
 
     .hide {
         display: none;
@@ -154,7 +155,7 @@ $blue:   #0084c6;
         }
         
         .contribution-moment__heading {
-            max-width: 400px;
+            // max-width: 400px;
             opacity: 0;
             color: #0084c6;
             transform: translateX(-30px);
@@ -387,12 +388,20 @@ $blue:   #0084c6;
             }
         }
 
+        .contribution-moment__circle {
+            top: 0;
+        }
+
         .contribution-moment__circle--orange {
             left: 0;
         }
         
         .contribution-moment__circle--blue {
             right: 0;
+        }
+
+        .contribution-moment__heading {
+            width: 100%;
         }
 
         .is-animated {
@@ -417,7 +426,16 @@ $blue:   #0084c6;
                 opacity: 1;
             }
         }
+
     }
+
+    // If ie11 and bigger than tablet force a hack to enable heading to wrap
+    
+    // @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width:46.25em) {
+    //     .contribution-moment__heading {
+    //         display: inline-table;
+    //     }
+    // }
     
     @include mq($from: tablet, $until: desktop) {
         
@@ -449,6 +467,12 @@ $blue:   #0084c6;
         .component-button {
             right: auto;
             left: 0;
+        }
+
+        @media all and (-ms-high-contrast:none) {
+            .contribution-moment__col {
+                width: 200px !important;
+            }
         }
     }
 
