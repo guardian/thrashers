@@ -17,30 +17,13 @@
 
 		// Checks if in UK
 		isUK = ["GB"].includes(JSON.parse(localStorage.getItem('gu.geolocation')).value);
-		isAU = ["AU"].includes(JSON.parse(localStorage.getItem('gu.geolocation')).value);
 
+		// all Supporter copy
 		var thanks = document.getElementsByClassName('thanks');
-    	var sell = document.getElementsByClassName('sell');
-    	var row = document.getElementsByClassName('row');
-
-		// Is a contributer	
-		// if (isCont === true)  {
-		// 	for(var i = 0; i < sell.length; i++){
-		// 		sell[i].classList.add('hide');
-		// 	}
-
-		// 	for(var i = 0; i < row.length; i++){
-		// 		row[i].classList.add('hide');
-		// 	}
-		// 	// console.log('Is a contributor');
-
-		// // Is NOT a contributer	
-		// } else {
-		// 	for(var i = 0; i < thanks.length; i++){
-		// 		thanks[i].classList.add('hide');
-		// 	}
-		// 	// console.log('Is not a contributor');
-		// }
+		// all non supporter coppy
+		var sell = document.getElementsByClassName('sell');
+		// Rest Of World copy
+		var row = document.getElementsByClassName('row');
 
 		// If oustside UK ...
 		if (isUK === false) {
@@ -62,7 +45,7 @@
 		// Is NOT a contributer	
 		} if (isCont === false) {
 			// console.log('Is not a contributer');
-			for(var i = 0; i < thanks.length; i++){
+			for(var i = 0; i < thanks.length; i++) {
 				thanks[i].classList.add('hide');
 			}
 
@@ -87,25 +70,10 @@
 			}
 		}
 	}
-	// function playThrasher() {
-
-	// 	var thrasher = document.querySelector(target);
-
-	// 	window.addEventListener('scroll', function() {
-	// 		var thrasherY = thrasher.getBoundingClientRect().y;
-	// 		var peekSize = 150;
-
-	// 		var windowHeight = window.innerHeight;
-
-	// 			if ((thrasherY - windowHeight + peekSize) < 0) {
-	// 					thrasher.classList.add('is-animated');
-	// 			}
-	// 	});
-	// }
 	
 	function playThrasher() {
 
-		console.log('fired');
+		// console.log('fired');
 
 		var target = '.contribution-moment';
 		var thrasher = document.querySelector(target);
@@ -113,10 +81,12 @@
 		var peekSize = 250;
 		var windowHeight = window.innerHeight;
 
+		// play thtrasher if in view on load
 		if ((thrasherY - windowHeight + peekSize) < 0) {
 			thrasher.classList.add('is-animated');
 		}
 
+		// play thtrasher aftre scroll eventt if not initially in view
 		window.addEventListener('scroll', function() {
 			var thrasherY = thrasher.getBoundingClientRect().y;
 			var peekSize = 250;
@@ -128,9 +98,7 @@
 		});
   	}
 
-	// playThrasher();
 	checkExists(playThrasher);
 	toggleThrasherElements();
-	// toggleClass();
 
 })();
