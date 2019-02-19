@@ -125,6 +125,9 @@ module.exports = function(grunt) {
             server: {
                 options: {
                     protocol: 'https',
+                    key: grunt.file.read('./certs/localhost-key.pem'),
+                    cert: grunt.file.read('./certs/localhost.pem'),
+                    ca: grunt.file.read('./certs/rootCA.pem'),
                     middleware: function (connect, options, middlewares) {
                         middlewares.unshift(function (req, res, next) {
                             res.setHeader('Access-Control-Allow-Origin', '*');
