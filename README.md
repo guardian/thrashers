@@ -10,6 +10,7 @@ You will need
 
  * [Node.js](http://nodejs.org/)
  * [Bower](http://bower.io/)
+ * [Homebrew](https://brew.sh/)
 
 Then install the project dependencies with
 ```
@@ -21,7 +22,7 @@ and
 bower install
 ```
 
-and
+and finally this script (which may take some time to run depending on how long it takes Homebrew to update)
 ```
 ./setup-certs.sh
 ```
