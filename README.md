@@ -27,6 +27,8 @@ and finally this script (which may take some time to run depending on how long i
 ./setup-certs.sh
 ```
 
+N.b. if Firefox is open when installing the certificates you'll need to restart it
+
 ## Usage
 
 ### Creating your Thrasher
