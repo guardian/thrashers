@@ -28,6 +28,7 @@ $blue:   #0084c6;
     line-height: 1;
     display: flex;
     overflow: hidden;
+    border-top: solid 1px #dcdcdc;
 
     .hide {
         display: none;
@@ -44,7 +45,7 @@ $blue:   #0084c6;
     .contribution-moment {
         display: flex;
         justify-content: space-between;
-        padding: 30px 20px;
+        padding: 20px;
         min-height: 260px;
     }
 

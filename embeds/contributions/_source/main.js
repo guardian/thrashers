@@ -10,8 +10,8 @@
 	function checkExists(startThrasherFunction) {
 		var checkInterval = setInterval(function() {
 				if (document.querySelector(target)) {
-						startThrasherFunction();
-						clearInterval(checkInterval);
+					startThrasherFunction();
+					clearInterval(checkInterval);
 				}
 		}, 100);
 	}
@@ -66,12 +66,12 @@
 				sell[i].classList.add('hide');
 			}
 			
-			for(var i = 0; i < thanks.length; i++) {
-				thanks[i].classList.remove('hide');
-			}
-
 			for(var i = 0; i < row.length; i++) {
 				row[i].classList.add('hide');
+			}
+			
+			for(var i = 0; i < thanks.length; i++) {
+				thanks[i].classList.remove('hide');
 			}
 		}
 	}
