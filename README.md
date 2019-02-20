@@ -10,6 +10,7 @@ You will need
 
  * [Node.js](http://nodejs.org/)
  * [Bower](http://bower.io/)
+ * [Homebrew](https://brew.sh/)
 
 Then install the project dependencies with
 ```
@@ -20,6 +21,13 @@ and
 ```
 bower install
 ```
+
+and finally this script (which may take some time to run depending on how long it takes Homebrew to update)
+```
+./setup-certs.sh
+```
+
+N.b. if Firefox is open when installing the certificates you'll need to restart it
 
 ## Usage
 
@@ -163,9 +171,3 @@ Due to the way we inject the thrashers into `frontend` we can't add `<script>` t
 ```
 
 Although the same practice applies to javascript as it does for animations and transitions. There has to be a good reason for it to exist and they have to be incredibly light. It's also best not to require heavy libraries like `jQuery` to achieve the same results that could be done with vanilla javascript and/or micro-libraries.
-
-
-### Previewing your thrasher locally
-
-Recent versions of Chrome block `https` local requests by default. To preview your thrasher in chrome, open `chrome://flags/` and enable the "Allow invalid certificates for resources loaded from localhost" flag.
-
