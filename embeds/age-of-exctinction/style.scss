@@ -1,0 +1,82 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+.age-of-extinction-wrapper {
+    background-image: url('https://uploads.guim.co.uk/2018/10/25/main.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    width: 100%;
+
+    @include mq($from: tablet) {
+        width: 740px;
+    }
+
+    @include mq($from: desktop) {
+        width: 980px;
+    }
+
+    @include mq($from: leftCol) {
+        width: 1140px;
+    }
+
+    @include mq($from: wide) {
+        width: 1300px;
+    }
+}
+
+.aoe-info-wrapper {
+    background-color: #f8f5ea;
+    padding-bottom: 12px;
+    width: 60%;
+    padding-top: 6px;
+    padding-left: 6px;
+
+    @include mq($from: tablet) {
+        width: 300px;
+    }
+
+    @include mq($from: leftCol) {
+        margin-left: 160px;
+    }
+
+    @include mq($from: wide) {
+        margin-left: 240px;
+    }
+
+    h2 {
+        font-family: "Guardian Egyptian Web",Georgia,serif;
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 400;
+        border-top: 1px solid #121212;
+
+        @include mq($from: desktop) {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+}
+
+.bagde {
+    margin-bottom: 12px;
+    width: 100%;
+
+    svg {
+        width: 90%;
+        height: auto;
+        display: block;
+    }
+}
