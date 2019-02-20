@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 
     var videoMaxAssetSize = 1 * 1000 * 1000; //1MB
     var imageMaxAssetSize = 300 * 1000; //200kb
-    var maxGifSize = 1000 * 1000; //1MB, which should be enough for a tracking pixel
+    var maxGifSize = 5000 * 1000; //1MB, which should be enough for a tracking pixel
 
     grunt.initConfig({
         maxFilesize: {
@@ -216,6 +216,12 @@ module.exports = function(grunt) {
                             message: 'OPTIONAL: '['red'].bold + 'Image URL (leave blank to use the default card image)'
                         },
                         {
+                            config: 'appConfig.tabletImage',
+                            type: 'input',
+                            default: defaultFromObject("tabletImage", null),
+                            message: 'OPTIONAL: '['red'].bold + 'Image URL for tablets only (leave blank to fallback on image or card image)'
+                        },
+                        {
                             config: 'appConfig.url',
                             type: 'input',
                             default: defaultFromObject("url", null),
@@ -390,6 +396,22 @@ module.exports = function(grunt) {
                             validate: validateInputColour,
                             filter: hexToColour,
                             when: defaultLayout
+                        },
+                        {
+                            config: 'appConfig.imageGradient',
+                            type: 'confirm',
+                            default: defaultFromObject("imageGradient", false),
+                            message: 'Add client side gradient (improve text contrast)'
+                        },
+                        {
+                            config: 'appConfig.html',
+                            type: 'list',
+                            default: false,
+                            message: 'Use HTML, CSS and JavaScript on apps?'['red'].bold,
+                            choices: [
+                                { name:'Use fallback image on apps', value: "" },
+                                { name:'Use HTML, CSS and JavaScript on apps', value: defaultFromObject("html", "") }
+                            ]
                         }
                     ],
                     then: function() { grunt.task.run('confirmAppConfig'); }
@@ -496,8 +518,12 @@ module.exports = function(grunt) {
             return defaultVal;
         }
 
-        var object = grunt.file.readJSON(path).app;
-        if(object && object[key]) {
+        var object = grunt.file.readJSON(path);
+        var app = object.app;
+
+        if (app && app[key]) {
+            return app[key];
+        } else if (key === 'html') {
             return object[key];
         }
         return defaultVal;
@@ -514,6 +540,7 @@ module.exports = function(grunt) {
         var titleSize = grunt.config('appConfig.titleSize');
         var titleColour= grunt.config('appConfig.titleColour');
         var image = grunt.config('appConfig.image');
+        var tabletImage = grunt.config('appConfig.tabletImage');
         var trail = grunt.config('appConfig.trail');
         var trailFont = grunt.config('appConfig.trailFont');
         var trailSize = grunt.config('appConfig.trailSize');
@@ -528,6 +555,8 @@ module.exports = function(grunt) {
         var buttonBackgroundColour = grunt.config('appConfig.buttonBackgroundColour');
         var buttonTextColour = grunt.config('appConfig.buttonTextColour');
         var hideGuardianRoundel = grunt.config('appConfig.hideGuardianRoundel');
+        var imageGradient = grunt.config('appConfig.imageGradient');
+        var html = grunt.config('appConfig.html');
 
         var app = {};
         if (layout) app.layout = layout;
@@ -536,6 +565,7 @@ module.exports = function(grunt) {
         if (titleSize) app.titleSize = titleSize;
         if (titleColour) app.titleColour = titleColour;
         if (image) app.image = image;
+        if (tabletImage) app.tabletImage = tabletImage;
         if (trail) app.trail = trail;
         if (trailFont) app.trailFont = trailFont;
         if (trailSize) app.trailSize = trailSize;
@@ -552,6 +582,8 @@ module.exports = function(grunt) {
         }
         if(hideGuardianRoundel) app.hideGuardianRoundel = hideGuardianRoundel;
         if (url) app.url = url;
+        if (imageGradient) app.imageGradient = imageGradient;
+        app.html = html;
 
         return app;
     }

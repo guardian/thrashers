@@ -1,0 +1,405 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileMedium: 360px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px
+);
+@import 'shared/_imports';
+@mixin overflow-visible($container-name) {
+  ##{$container-name} {
+    &.fc-container--thrasher,
+    .facia-snap,
+    .fc-container__inner,
+    .fc-slice {
+      // overflow-y: visible !important;
+      overflow-x: hidden !important;
+    }
+  }
+}
+@include overflow-visible(btb-videos);
+
+#charity-18 {
+  padding-top: 0;
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #fff;
+
+
+  .tone-media--item {
+    // background-color: #FBF6EF;
+  }
+
+  .fc-trail__count.fc-trail__count--commentcount {
+    display: none;
+  }
+
+  .facia-snap {
+    padding: 0;
+  }
+
+  .fc-container--thrasher {
+    // background-color: #FBF6EF;
+  }
+}
+
+.charity-appeal-18__wrapper {
+  width: 100%;
+  border-top: solid 1px #dcdcdc;
+  @include mq($from:tablet) {
+    border-left: solid 1px #dcdcdc;
+    border-right: solid 1px #dcdcdc;
+  }
+  overflow: hidden;
+}
+
+.link:hover {
+  #btb-videos-inner {
+    opacity: 0.9;
+  }
+
+}
+
+#btb-videos-inner {
+  // position: relative;
+  height: 320px;
+  background-color: #FBF6EF;
+  width: 100%;
+  position: relative;
+  overflow: hidden!important;
+
+  @include mq(mobileMedium) {
+    height: 300px;
+
+  }
+  @include mq(mobileLandscape) {
+
+  }
+  @include mq(tablet) {
+  }
+  @include mq(desktop) {
+
+  }
+  @include mq(leftCol) {
+    height: 220px;
+
+  }
+  @include mq(wide) {
+  }
+
+  .logo {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    top: 6px;
+    right: 0px;
+    // width: 154px;
+    // height: 87px;
+    @include mq(mobileLandscape) {
+      right: 20px;
+      display: block;
+    }
+    // @include mq($until: leftCol) {
+    //   transform: scale(0.8);
+    //   transform-origin: top left;
+    // }
+    @include mq(leftCol) {
+      // left: 20px
+    }
+    @include mq($until: wide) {
+      transform: scale(0.8);
+      transform-origin: top left;
+    }
+    // @include mq(wide) {
+    //   transform: scale(1);
+    // }
+    svg {
+      margin-top: 1px;
+      margin-left: 2px;
+      width: 137px;
+      height: 60px;
+    }
+  }
+
+  .tag {
+    display: block;
+    position: relative;
+    top: 3px;
+    left: 10px;
+    width: auto;
+    font-family: "Guardian Egyptian Web",Georgia,serif;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 1;
+    color: #6B5840;
+    &:hover {
+      text-decoration: none;
+    }
+    @include mq(mobileLandscape) {
+      left: 20px;
+    }
+    @include mq(tablet) {
+      font-size: 20px;
+    }
+    @include mq(leftCol) {
+      top: 6px;
+      width: 140px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+    @include mq(wide) {
+      width: 220px;
+      font-size: 24px;
+    }
+  }
+
+  .copy,
+  .copy-right {
+    z-index: 9999;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    padding-top: 6px;
+    height: 100%;
+    width: 85%;
+    @include mq(mobileLandscape) {
+      left: 20px;
+      top: 20px;
+      width: 67%;
+      // width: 348px;
+    }
+    @include mq(desktop) {
+      width: 468px;
+    }
+
+    @include mq(leftCol) {
+      top: 0;
+      left: 170px;
+      width: 478px;
+
+    }
+    @include mq(wide) {
+      left: 250px;
+    }
+  }
+
+  .copy-right {
+    left: 10px;
+    top: 130px;
+    @include mq(mobileMedium) {
+      top: 100px;
+    }
+    @include mq(mobileLandscape) {
+      left: 20px;
+    }
+
+    @include mq(tablet) {
+      top: 130px;
+      left: 10px;
+      width: 348px;
+    }
+    @include mq(tablet) {
+      left: 20px;
+    }
+    @include mq(desktop) {
+      width: 468px;
+    }
+
+    @include mq(leftCol) {
+      top: 0;
+      left: 650px;
+      width: 470px;
+
+    }
+    @include mq(wide) {
+      left: 730px;
+    }
+
+  }
+
+  .cta,
+  .header,
+  .subhead,
+  .main-copy {
+    padding-left: 0;
+    padding-bottom: 8px;
+    margin-bottom: 0;
+    @include mq(leftCol) {
+      padding-left: 10px;
+    }
+  }
+
+  // .header {
+  //   font-size: 28px;
+  //   line-height: 28px;
+  //   font-weight: bolder;
+  //   color: #fff;
+  //   font-family: "Guardian Egyptian Web",Georgia,serif;
+  //   @include mq(tablet) {
+  //     font-size: 32px;
+  //     line-height: 32px;
+  //   }
+  // }
+
+  .subhead {
+    font-size: 30px;
+    line-height: 32px;
+    color: #000;
+    // width: 50%;
+    font-family: "Guardian Egyptian Headline Light",Georgia,serif;
+    font-weight: lighter;
+    margin-top: -3px;
+    width: 100%;
+    // margin-top: -6px;
+   @include mq($from:leftCol) {
+    font-family: "Guardian Egyptian Headline Light",Georgia,serif;
+      &:before {
+        content: '';
+        position: absolute;
+        height: 30px;
+        width: 1px;
+        background-color: rgba(0,0,0,0.2);
+        left: -1px;
+        top: 0;
+      }
+  }
+
+    @include mq(tablet) {
+      width: 460px;
+      font-size: 40px;
+      line-height: 40px;
+
+    }
+
+    @include mq(leftCol) {
+      width: 430px;
+      font-size: 50px;
+      line-height: 50px;
+    }
+
+    // @include mq(wide) {
+    //   width: 460px;
+    //   font-size: 55px;
+    //   line-height: 55px;
+    // }
+  }
+
+  .main-copy {
+    font-family: "Guardian Text Egyptian Web",Georgia,serif;
+    font-size: 15px;
+    line-height: 19px;
+    color: #000;
+    padding-bottom: 12px;
+    @include mq(tablet) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    @include mq(leftCol) {
+      padding-bottom: 16px;
+    }
+    &:before {
+      @include mq($from:leftCol) {
+        content: '';
+        position: absolute;
+        height: 30px;
+        width: 1px;
+        background-color: rgba(0,0,0,0.2);
+        left: -1px;
+        top: 0;
+      }
+    }
+  }
+
+  .cta {
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 36px;
+    line-height: 34px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    // padding-right: 25px;
+    background: #6B5840;
+    border-radius: 21px;
+    padding: 0 19px;
+    transition: background-color .24s ease-in-out;
+
+    @include mq($from:leftCol) {
+      left: 10px;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: #514638;
+
+    }
+
+    // margin-top: -6px;
+
+  //   &:after {
+  //     content: '';
+  //     background-image: url('https://uploads.guim.co.uk/2018/09/07/Right4x.png');
+  //     background-repeat: no-repeat;
+  //     background-size: contain;
+  //     width: 15px;
+  //     height: 17px;
+  //     position: absolute;
+  //     right: 5px;
+  //     top:6px;
+  //
+  // }
+  }
+
+  .image {
+    position: absolute;
+    right: -40px;
+    bottom: -37px;
+    width: 150px;
+    @include mq(mobileMedium) {
+      right: -20px;
+      bottom: -40px;
+      width: 190px;
+    }
+    @include mq(mobileLandscape) {
+      right: -40px;
+      bottom: 0;
+      width: 210px;
+    }
+    @include mq(tablet) {
+      right: 0;
+      bottom: -50px;
+      width: 280px;
+    }
+    @include mq(desktop) {
+      bottom: -40px;
+      right: 0;
+      width: 300px;
+    }
+    @include mq(leftCol) {
+      right: 20px;
+      bottom: -68px;
+      width: 240px;
+    }
+  }
+
+  .version {
+    display: none;
+
+    &.default {
+      display: block;
+    }
+  }
+}
+@font-face {
+  font-family: "Guardian Egyptian Headline Light";
+  // src: url('https://s3.amazonaws.com/gdn-cdn/fonts/garnett/Guardian Egyp Web-Bold.eot');
+  src: url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Light.woff") format('woff'), url("https://s3.amazonaws.com/gdn-cdn/fonts/garnett/GHGuardianHeadline-Light.ttf") format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+}

@@ -1,7 +1,7 @@
 Thrashers
 =========
 
-Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend) project.
+Collection of special Thrasher containers/snaps for the [frontend](https://github.com/guardian/frontend), [ios](https://github.com/guardian/ios-live) and [Android](https://github.com/guardian/android-news-app) projects.
 
 
 ## Installation
@@ -94,7 +94,7 @@ It should show as `snap json.html`
 
 You can then drag that link into the thrasher container on the front you want the thrasher to appear on.
 
-#### Display on Apps
+### Display on Apps
 
 You'll be prompted to provide an app-specific config when running `grunt remote` with the `--folderName=` parameter. If you wish to update the app config without running grunt remote, you can run `grunt appConfig --folderName=<FOLDER>`
 
@@ -107,6 +107,12 @@ For example, football weekly, which displays like this on desktop:
 will display like this on apps:
 
 ![Drag gif](doc_images/football-weekly-apps.jpg)
+
+### Using HTML, CSS and JavaScript thrashers on iOS and Android fronts
+
+It's important to test on both iOS/Android platforms when using html rather than the fallback image. There's likely to be some browser differences and links may be handled differently.
+
+For advice on how to test/develop for apps please contact the apps team.
 
 ## Developing
 
