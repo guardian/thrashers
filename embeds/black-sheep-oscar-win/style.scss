@@ -1,0 +1,290 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$gold: #E4C36D;
+
+@import 'shared/_imports';
+
+#contributions-moment {
+    padding-top: 0;
+    width: 100%;
+    margin-bottom: 0;
+    background-color: #fff;
+    overflow: hidden;
+  
+    .fc-trail__count.fc-trail__count--commentcount {
+        display: none;
+    }
+  
+    .facia-snap {
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
+.black-sheep-oscar-win__wrapper {
+    background: #ffffff;
+    height: 340px;
+    overflow: hidden;
+    margin: 0 -10px;
+
+    @include mq(tablet) {
+        width: 100%;
+        margin: 0;
+    }
+
+    .top-link {
+        display: block;
+        position: absolute !important;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 8888 !important;
+        right: 0;
+      }
+
+    .wrapper {
+        height: 340px;
+        border: 1px solid #dcdcdc;
+        border-top: 0;
+        border-bottom: 0;
+        overflow: hidden;
+    }
+
+    .background {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: left;
+        transition: all 1s ease;
+        z-index: 0;
+
+        @include mq(tablet) {
+            background-position: center;
+        }
+    }
+
+    .wrapper:hover {
+        @include mq(desktop) {
+            .background {
+                transform: scale(1.02);
+            }
+
+            .mock-cta svg {
+                transform: translateX(3px);
+            }
+        }
+    }
+
+    .text {
+        position: absolute;
+        left: 10px;
+        top: 9px;
+        z-index: 1;
+
+        @include mq(mobileLandscape) {
+            left: 20px;
+        }
+
+        @include mq(desktop) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @include mq(leftCol) {
+            left: 80px;
+        }
+
+        @include mq(wide) {
+            left: 120px;
+        }
+
+        p {
+            color: $gold;
+            font-family: $f-serif-headline;
+            font-size: 18px;
+            line-height: 24px;
+            max-width: 290px;
+            margin: -3px 0 0 11px;
+            display: none;
+
+            @include mq(desktop) {
+                display: block;
+            }
+        }
+
+        img.textimg {
+            width: 300px;
+            height: 110px;
+
+            @include mq(mobileMedium) {
+                height: 114px;
+                width: 312px;
+            }
+
+            @include mq(tablet) {
+                // height: 135px;
+                // width: 370px;
+            }
+
+            @include mq(desktop) {
+                height: 144px;
+                width: 394px;
+            }
+        }
+    }
+
+    .logo {
+        z-index: 1;
+
+        @include mq(desktop) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 55%;
+            right: 0;
+            text-align: center;
+        }
+
+        .logo-parts {
+            @include mq($until: desktop) {
+                position: absolute;
+                right: 46px;
+                top: 150px;
+
+                @include mq(tablet) {
+                    right: 106px;
+                    top: 120px;
+                }
+            }
+
+            img {
+                @include mq($until: desktop) {
+                    display: block;
+                    height: 36px;
+                    width: 107px;
+
+                    @include mq(tablet) {
+                        height: 46px;
+                        width: 131px;
+                    }
+                }
+
+                height: 46px;
+                width: 131px;
+            }
+
+            img:nth-child(1) {
+                @include mq(desktop) {
+                    margin-right: 10px;
+                }
+            }
+    
+            img:nth-child(2) {
+                @include mq($until: desktop) {
+                    margin-top: 7px;
+                }
+            }
+        }      
+
+        .mock-cta {
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            background: $gold;
+            border-radius: 21px;
+            color: #121212;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 42px;
+            padding: 0 16px;
+            margin-top: 6px;
+
+            @include mq($until: desktop) {
+                position: absolute;
+                bottom: 12px;
+                left: 10px;
+                z-index: 1;
+            }
+
+            svg  {
+                margin: 0 -3px 0 10px;
+                transform: translateX(0);
+                transition: transform 1s ease; 
+            }
+        }
+
+        .statuette {
+            position: absolute;
+            top: 140px;
+            right: 20px;
+            width: 33px;
+            height: 94px;
+
+            @include mq(tablet) {
+                top: 106px;
+                right: 64px;
+                width: 40px;
+                height: 116px;
+            }
+
+            @include mq(desktop) {
+                top: -14px;
+                left: 50%;
+                transform: translateX(140px);
+            }
+        }
+    }
+
+    img.cutout {
+        position: absolute;
+        bottom: 0;
+        height: 230px;
+        width: 266px;
+        z-index: 1;
+        margin-left: -60px;
+
+        @include mq(mobileMedium) {
+            margin-left: -20px;
+        }
+
+        @include mq(tablet) {
+            left:50%;
+            transform: translateX(-50%);
+            height: 266px;
+            width: 308px;
+        }
+
+        @include mq(desktop) {
+            height: 320px;
+            width: 370px;
+        }
+    }
+
+    .roundel {
+        display: none;
+        position: absolute;
+        height: 42px;
+        right: 10px;
+        bottom: 12px;
+        z-index: 1;
+
+        @include mq(mobileMedium) {
+            display: block;
+        }
+
+        @include mq(mobileLandscape) {
+            right: 20px;
+        }
+    }
+}
