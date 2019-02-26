@@ -45,10 +45,10 @@ $mq-breakpoints: (
     }
 
     .wrapper {
-        background-color: #ffe500;
-        color: #121212;
+        background-color: #242D32;
+        color: #ffffff;
         display: block;
-        height: 280px;
+        height: 300px;
         position: relative;
         width: auto;
         transition: background-color .3s ease-in-out;
@@ -61,7 +61,7 @@ $mq-breakpoints: (
     }
 
     &:hover .wrapper {
-        background-color: #f0d800;
+        background-color: #1C2326;
     }
 
     .tagline {
@@ -80,11 +80,11 @@ $mq-breakpoints: (
         }
 
         @include mq(leftCol) {
-            left: 72px;
+            left: 20px;
         }
 
         @include mq(wide) {
-            left: 155px;
+            left: 172px;
         }
 
         svg {
@@ -92,11 +92,7 @@ $mq-breakpoints: (
             height: auto;
 
             @include mq(tablet) {
-                width: 349px;
-            }
-
-            @include mq(desktop) {
-                width: 370px;
+                width: 360px;
             }
 
             @include mq(desktop) {
@@ -109,7 +105,7 @@ $mq-breakpoints: (
     .tagline--desktop {
         display: none;
 
-        @include mq(desktop) {
+        @include mq(tablet) {
             display: block;
         }
     }
@@ -117,7 +113,7 @@ $mq-breakpoints: (
     .tagline--mobile {
         display: block;
 
-        @include mq(desktop) {
+        @include mq(tablet) {
             display: none;
         }
     }
@@ -137,16 +133,16 @@ $mq-breakpoints: (
     .pack-shots {
         position: absolute;
         display: block;
-        left: 40px;
+        left: 65px;
         bottom: 0;
 
         @include mq(tablet) {
             left: auto;
-            right: 244px;
+            right: 275px;
         }
 
         @include mq(desktop) {
-            right: 280px;
+            right: 290px;
         }
 
         @include mq(leftCol) {
@@ -176,7 +172,7 @@ $mq-breakpoints: (
 
     .pack-shot_img--A {
         z-index: 0;
-        margin-left: -40px;
+        margin-left: -65px;
         animation-delay: .6s;
 
         @include mq(leftCol) {
@@ -196,7 +192,7 @@ $mq-breakpoints: (
     .pack-shot_img--C {
         z-index: 1;
         animation-delay: 1s;
-        margin-left: 40px;
+        margin-left: 65px;
 
         @include mq(leftCol) {
             margin-left: 70px;
@@ -208,7 +204,7 @@ $mq-breakpoints: (
     }
 
     .cta {
-        color: #121212;
+        color: #ffffff;
         font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         font-size: 16px;
         border: none;
@@ -229,16 +225,20 @@ $mq-breakpoints: (
             padding-left: 18px;
             padding-right: 4px;
             z-index: 2;
+
+            @include mq(mobileLandscape) {
+                left: 20px;
+            }
         }
 
         @include mq(tablet) {
             bottom: 12px;
-            left: 268px;
+            left: 224px;
         }
 
         @include mq(desktop) {
             bottom: 12px;
-            left: 478px;
+            left: 449px;
         }
 
         @include mq(leftCol) {
@@ -250,7 +250,7 @@ $mq-breakpoints: (
         }
 
         .circle {
-            background: #fff;
+            background: #ffffff;
             height: 42px;
             width: 42px;
             border-radius: 50%;
@@ -265,15 +265,15 @@ $mq-breakpoints: (
               fill: #121212;
             }
             @include mq(tablet) {
-              background: #121212;
+              background: #ffffff;
               svg path {
-                fill: #fff;
+                fill: #333333;
               }
             }
         }
 
         .icon {
-            fill: #121212;
+            fill: #333333;
             position: absolute;
             right: 7px;
             top: 9px;
