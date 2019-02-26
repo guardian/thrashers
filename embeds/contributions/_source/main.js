@@ -21,11 +21,13 @@
 			if(hideOrShow === 'hide') {
 				for(var i = 0; i < copy.length; i++) {
 					copy[i].classList.add('hide');
+					console.log('hiding', name);
 				}
 			}
 			if (hideOrShow === 'show') {
 				for(var i = 0; i < copy.length; i++) {
 				copy[i].classList.remove('hide');
+				console.log('showing', name);
 			}
 		}
 	}
@@ -65,42 +67,43 @@
 		var sell = document.getElementsByClassName('sell');
 		// Rest Of World copy
 		var row = document.getElementsByClassName('row');
-		// US copy
-		var us = document.getElementsByClassName('us');
+		// Us Button
+		var sellUs = document.getElementsByClassName('sellUs');
+		
 
 		toggleCopyState(row, 'show', 'row');
 		toggleCopyState(thanks, 'show', 'thanks');
-		toggleCopyState(us, 'show', 'sell-us');
 
-		// If oustside UK ... but not US
-		if ((isUK === false) && (isUS === false)) {
-			console.log('Is outside the UK but not US');
+
+		// If oustside UK ...
+		if (isUK === false && isUS === false) {
+			console.log('Is outside the UK');
 			toggleCopyState(sell, 'hide', 'sell');
 			if (isCont === true) {
 				toggleCopyState(row, 'hide', 'row');
 			} else {
-				toggleCopyState(thanks, 'hide', 'thanks');
-			}
-		// Is If oustside UK ... but in the US
-		} if ((isUK === false) && (isUS === true)) {
-			console.log('Is inside the US');
-			toggleCopyState(sell, 'hide', 'sell');
-			if (isCont === true) {
-				toggleCopyState(row, 'hide', 'row');
-				toggleCopyState(row, 'hide', 'sell-row');
-			} else {
+				toggleCopyState(row, 'show', 'row');
 				toggleCopyState(thanks, 'hide', 'thanks');
 			}
 		// Is inside UK ...
-		} if (isUK === true) {
-			// console.log('Is in the UK');
+		}else if(isUS === true) {
+			console.log('Is in the US');
+			toggleCopyState(sell, 'hide', 'sell');
+			if (isCont === true) {
+				toggleCopyState(row, 'hide', 'row');
+			} else {
+				toggleCopyState(sellUs, 'show', 'sellUs'); //show button
+				toggleCopyState(thanks, 'hide', 'thanks');
+			}
+		}else{
+			console.log('Is in the UK');
 			toggleCopyState(row, 'hide', 'row');
 			if (isCont === true) {
 				toggleCopyState(sell, 'hide', 'sell');
 			} else {
 				toggleCopyState(thanks, 'hide', 'thanks');
 			}
-		}
+		} 
 	}
 
 	function playThrasher() {
