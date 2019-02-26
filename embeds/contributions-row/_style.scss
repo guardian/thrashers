@@ -27,8 +27,6 @@ $blue:   #0084c6;
     color: #041f4a;
     line-height: 1;
     display: flex;
-    overflow: hidden;
-    border-top: solid 1px #dcdcdc;
 
     .hide {
         display: none;
@@ -37,7 +35,7 @@ $blue:   #0084c6;
     .contributions__wrapper {
         width: 100%;
     }
-
+    
     .facia-snap {
         background-color: transparent;
     }
@@ -45,7 +43,7 @@ $blue:   #0084c6;
     .contribution-moment {
         display: flex;
         justify-content: space-between;
-        padding: 20px;
+        padding: 30px 20px;
         min-height: 260px;
     }
 
@@ -53,9 +51,9 @@ $blue:   #0084c6;
         width: 33%;
     }
 
-    // .contribution-moment__circles {
-    //     width: 30%;
-    // }
+    .contribution-moment__circles {
+        width: 34%;
+    }
 
     .contribution-moment__circles {
         position: relative;
@@ -71,13 +69,11 @@ $blue:   #0084c6;
         border-radius: 50%;
         display: flex;
         opacity: 0.8;
-        transition: all 0.6s 0.6s linear;
-        // transform: translateX(0);
-        // left: auto;
-        // right: auto;
+        transition: transform 0.6s 0.6s linear;
+        transform: translateX(0);
     }
-
-    @supports (mix-blend-mode: multiply) {
+    
+    @supports (mix-blend-mode: hue) {
         .contribution-moment__circle {
             mix-blend-mode: hue;
             opacity: 1;
@@ -87,17 +83,17 @@ $blue:   #0084c6;
     .contribution-moment__circle--orange {
         background: $orange;
     }
-
+    
     .contribution-moment__circle--blue {
         background: $blue;
     }
-
+    
     .contribution-moment__heading {
         font-size: 48px;
         line-height: 0.9;
         font-family: "GuardianTitlepiece", Georgia,serif;
     }
-
+    
     .contribution-moment__heading-mob {
         font-family: "GuardianTitlepiece", Georgia,serif;
         line-height: 0.9;
@@ -125,7 +121,6 @@ $blue:   #0084c6;
             position: absolute;
             top: 0;
             left: 0;
-            max-width: 380px;
         }
 
         p.last {
@@ -146,17 +141,17 @@ $blue:   #0084c6;
                         opacity 0.6s;
         }
     }
-
+    
     .contribution-moment__col:nth-child(3) {
         align-items: center;
         justify-content: center;
-
+        
         .contribution-moment__col-inner {
             margin-top: auto;
         }
-
+        
         .contribution-moment__heading {
-            // max-width: 400px;
+            max-width: 400px;
             opacity: 0;
             color: #0084c6;
             transform: translateX(-30px);
@@ -200,7 +195,7 @@ $blue:   #0084c6;
         &:hover, &:focus    {
             outline: 0;
         }
-
+  
         &:hover {
             background-color: #ffbb50;
 
@@ -208,26 +203,18 @@ $blue:   #0084c6;
                 transform: translateX(3px);
             }
         }
-
-        &.thanks {
-            width: 160px;
-        }
-
-        &.hide {
-            display: none;
-        }
     }
 
     .roundel {
         position: absolute;
         top: 20px;
-        right: 20px;
+        right: 20px;   
         width: 42px;
         height: 42px;
     }
 
-    // if it is animated
-
+    // if it is animated 
+    
     @include mq($to: tablet) {
 
         .contribution-moment {
@@ -277,6 +264,7 @@ $blue:   #0084c6;
             height: 240px;
 
             .contribution-moment__heading-mob {
+                // display: block;
                 padding: 0 20px;
             }
         }
@@ -289,16 +277,14 @@ $blue:   #0084c6;
 
         .contribution-moment__circle--orange {
             align-items: flex-start;
-            top: 0;
-
+            
             & .contribution-moment__heading-mob {
                 padding-top: 50px;
             }
         }
-
+        
         .contribution-moment__circle--blue {
             align-items: flex-end;
-            bottom: 0;
 
             & .contribution-moment__heading-mob {
                 padding-bottom: 50px;
@@ -324,22 +310,22 @@ $blue:   #0084c6;
         .is-animated {
 
             .contribution-moment__circle {
-                transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
             }
 
             .contribution-moment__circle--orange {
-                top: -25%;
+                transform: translateX(0) translateY(-25%);
             }
-
+            
             .contribution-moment__circle--blue {
-                bottom: -25%;
+                transform: translateX(0) translateY(25%);
             }
-
+    
             .contribution-moment__circle--orange .contribution-moment__heading-mob {
                 transform: translateX(0) translateY(0);
                 opacity: 1;
             }
-
+            
             .contribution-moment__circle--blue .contribution-moment__heading-mob {
                 transform: translateX(0) translateY(0);
                 opacity: 1;
@@ -382,79 +368,53 @@ $blue:   #0084c6;
               font-size: 1rem;
             }
         }
-
+        
         .contribution-moment__circles {
             .contribution-moment__heading-mob {
                 display: none;
             }
         }
 
-        .contribution-moment__circle {
-            top: 0;
-        }
-
-        .contribution-moment__circle--orange {
-            left: 0;
-        }
-
-        .contribution-moment__circle--blue {
-            right: 0;
-        }
-
-        .contribution-moment__heading {
-            width: 100%;
-        }
-
         .is-animated {
             .contribution-moment__circle {
-                transition: all 0.6s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: transform 0.6s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
             }
             .contribution-moment__circle--orange {
-                left: -25%;
+                transform: translateX(-25%);
             }
-
+            
             .contribution-moment__circle--blue {
-                right: -25%;
+                transform: translateX(25%);
             }
-
+    
             .contribution-moment__col:nth-child(1) .contribution-moment__heading {
                 transform: translateX(0);
                 opacity: 1;
             }
-
+            
             .contribution-moment__col:nth-child(3) .contribution-moment__heading {
                 transform: translateX(0);
                 opacity: 1;
             }
         }
-
     }
-
-    // If ie11 and bigger than tablet force a hack to enable heading to wrap
-
-    // @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width:46.25em) {
-    //     .contribution-moment__heading {
-    //         display: inline-table;
-    //     }
-    // }
-
+    
     @include mq($from: tablet, $until: desktop) {
-
+        
         .contribution-moment {
             min-height: 220px;
         }
-
+        
         .contribution-moment__circles {
             align-items: center;
-            width: 140px;
             height: 140px;
         }
-
+       
         .contribution-moment__circle {
             width: 140px;
             top: 40px;
         }
-
+        
         .contribution-moment__col:nth-child(3) {
             p {
                width: 100%;
@@ -469,12 +429,6 @@ $blue:   #0084c6;
             right: auto;
             left: 0;
         }
-
-        @media all and (-ms-high-contrast:none) {
-            .contribution-moment__col {
-                width: 200px !important;
-            }
-        }
     }
 
     @include mq($from: tablet) {
@@ -488,26 +442,25 @@ $blue:   #0084c6;
             left: -20px;
         }
     }
-
+    
     @include mq($from: leftCol) {
         .contribution-moment__circles {
             left: -10px;
         }
     }
-
+    
     @include mq($from: desktop, $until: leftCol) {
-
+        
         .contribution-moment__col {
             width: 35%;
         }
-
+    
         .contribution-moment__circles {
             width: 30%;
         }
 
         .contribution-moment__circles {
             height: 200px;
-            width: 200px;
             top: 30px;
         }
 
@@ -516,7 +469,7 @@ $blue:   #0084c6;
         }
 
         .contribution-moment__heading {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             max-width: 300px;
         }
 
@@ -526,7 +479,7 @@ $blue:   #0084c6;
                 max-width: 300px;
             }
         }
-
+        
         .contribution-moment__col:nth-child(3) {
             p {
                 width: 220px;
@@ -540,13 +493,11 @@ $blue:   #0084c6;
 
     @include mq($from: leftCol, $until: wide) {
         .contribution-moment__heading {
-           font-size: 2.6rem;
-           padding-right: 30px;
+           font-size: 2.8rem;
         }
 
         .contribution-moment__circles {
             height: 230px;
-            width: 230px;
             top: 15px;
         }
 
@@ -562,23 +513,22 @@ $blue:   #0084c6;
     }
 
     @include mq($from: wide) {
-
+        
         .contribution-moment {
             min-height: 260px;
         }
-
+        
         .contribution-moment__circles {
             align-items: center;
             height: 260px;
-            width: 260px;
         }
-
+       
         .contribution-moment__circle {
             width: 260px;
         }
 
         .contribution-moment__heading {
-            font-size: 3rem;
+            font-size: 52px;
         }
 
         .contribution-moment__col:nth-child(3) {
@@ -588,6 +538,6 @@ $blue:   #0084c6;
         }
     }
 
-
+    
 
 }
