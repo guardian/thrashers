@@ -1,0 +1,24 @@
+{
+  "html": "<div class=\"sl-app-thankyou__wrapper\"><style></style><h1>If you can read this then something has gone wrong</h1></div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com/membership/2019/feb/20/katharine-viner-qanda-journalists-readers-guardian-future",
+  "headline": "The Guardian",
+  "trailText": " ",
+  "app": {
+    "layout": "default",
+    "title": " ",
+    "titleFont": "egypt-regular",
+    "titleColour": "#FFFFFF",
+    "image": "https://uploads.guim.co.uk/2019/02/19/supporter-phone@3x-1.png",
+    "tabletImage": "https://uploads.guim.co.uk/2019/02/19/supporter-tablet@3x-1.png",
+    "trail": " ",
+    "buttonText": "Read more",
+    "buttonTextColour": "#121212",
+    "buttonBackgroundColour": "#FFE500",
+    "hideKicker": false,
+    "hideGuardianRoundel": true,
+    "url": "https://www.theguardian.com/membership/2019/feb/20/katharine-viner-qanda-journalists-readers-guardian-future",
+    "html": ""
+  }
+}
