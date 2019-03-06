@@ -16,7 +16,7 @@
     "buttonText": "Read more",
     "buttonTextColour": "#121212",
     "buttonBackgroundColour": "#FFE500",
-    "hideKicker": false,
+    "hideKicker": true,
     "hideGuardianRoundel": true,
     "url": "https://www.theguardian.com/membership/2019/feb/20/katharine-viner-qanda-journalists-readers-guardian-future",
     "html": ""
