@@ -1,0 +1,407 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+.the-frontline__wrapper {
+
+	width: 100%;
+	display: inline-block; 
+
+    .the-frontline_container {
+    	width: 100%;
+    	max-width: 1300px;
+    	height: 300px;
+    	position: relative;
+    	background-repeat:   no-repeat;
+    	background-size: cover;
+
+	    @include mq($until: mobile) {
+			background-position: right;
+			background-image: url('@@assetPath@@/background-480.jpg');
+			height: 400px;
+	    }
+
+	    @include mq($from: mobile, $until: tablet) {
+			background-position: right;
+			background-image: url('@@assetPath@@/background-740.jpg');
+			height: 300px;
+	    }
+
+	    @include mq($from: tablet, $until: desktop) {
+	    	background-position: right;
+	      	background-image: url('@@assetPath@@/background-980.jpg');
+	      	height: 300px;
+	    }
+
+	    @include mq($from: desktop) {
+	    	background-position: left;
+	      	background-image: url('@@assetPath@@/background.jpg');
+	      	height: 300px;
+	    }
+
+    }
+
+    .title_block {
+
+        position: absolute;
+        
+	    @include mq($until: mobile) {
+	      left: 80px;
+	      top: 20px;
+	      padding-right: 20px;
+	    }
+
+	    @include mq($from: mobile, $until: tablet) {
+	      left: 80px;
+	      top: 20px;
+	      padding-right: 20px;
+	    }
+
+	    @include mq($from: tablet, $until: desktop) {
+	      left: 100px;
+	      top: 20px;
+	    }
+
+		@include mq($from: desktop) {
+	      left: 60px;
+	      top: 40px;
+		}
+
+    }
+
+    .headline {
+		
+		line-height: 0.9;
+		font-family: GuardianTitlepiece, Georgia, serif;
+		color: #ffe500;		
+		margin-bottom: 10px;
+		margin-bottom: 20px;
+
+	    @include mq($until: mobile) {
+			max-width: 600px;
+			font-size: 30px;
+	    }
+
+	    @include mq($from: mobile, $until: tablet) {
+			max-width: 600px;
+			font-size: 36px;
+	    }
+
+	    @include mq($from: tablet, $until: desktop) {
+			max-width: 600px;
+			font-size: 40px;
+	    }
+
+		@include mq($from: desktop) {
+			max-width: 600px;
+			font-size: 42px;
+		}
+
+    }
+
+    .kicker {
+
+		font-family: "Guardian Text Egyptian Web",Georgia,serif;
+		font-weight: 700;
+		color: black;
+		font-size: 18px;
+		line-height: 22px;
+		padding: 10px;
+
+	    @include mq($until: mobile) {
+			max-width: 550px;
+	    }
+
+	    @include mq($from: mobile, $until: tablet) {
+			max-width: 550px;
+	    }
+
+	    @include mq($from: tablet, $until: desktop) {
+			max-width: 550px;
+	    }
+
+		@include mq($from: desktop) {
+			max-width: 600px;
+		}
+
+    }
+
+    .kicker span {
+    	background-color: #ffe500;
+    	display: inline; /* keep the background color wrapped tight */
+    	box-shadow: 0.5em 0 0 #ffe500,-0.5em 0 0 #ffe500;
+    	margin: 0px auto 0px auto; /* keep the table centered #ffe500 */ 
+		opacity: 1;
+		padding: 2px;
+    }
+
+    .subhead {
+		font-family: "Guardian Text Egyptian Web",Georgia,serif;
+		font-weight: 700;
+		color: #041f4a;
+		font-size: 18px;
+		line-height: 22px;
+		margin-left: 10px;
+
+	    @include mq($until: mobile) {
+			display: none;
+	    }
+
+	    @include mq($from: mobile, $until: tablet) {
+			display: none;
+	    }
+
+	    @include mq($from: tablet, $until: desktop) {
+			max-width: 600px;
+	    }
+
+		@include mq($from: desktop) {
+			max-width: 600px;
+		}
+
+    }
+
+    .subhead span {
+    	background-color: #ffe500;
+    	display: inline; /* keep the background color wrapped tight */
+    	box-shadow: 0.5em 0 0 #ffe500,-0.5em 0 0 #ffe500;
+    	margin: 0px auto 0px auto; /* keep the table centered #ffe500 */ 
+		opacity: 1;
+    }
+
+	.branding {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+
+	    @include mq($until: mobile) {
+			top: 20px;
+			left: 20px;
+	    }
+
+	    @include mq($from: mobile, $until: tablet) {
+			top: 20px;
+			left: 20px;
+	    }	
+
+	    @include mq($from: tablet, $until: desktop) {
+			top: 20px;
+			left: 20px;
+	    }
+
+		@include mq($from: desktop) {
+			top: 30px;
+			right: 30px;
+		}
+
+
+	}
+
+	.branding svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.frontline-contribution-block {
+		position: absolute;
+		bottom: 20px;
+		right: 30px;
+
+		@include mq($until: tablet) {
+			height: 100px;
+			width: calc(100% - 60px);
+		}
+
+		@include mq($from: tablet) {
+			width: calc(100% - 60px);
+			height: 40px;
+		}
+
+
+	}
+
+	.component-button {
+		font-size: 1rem;
+		line-height: 1.375rem;
+		font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		display: -webkit-inline-box;
+		display: -webkit-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+		text-decoration: none;
+		font-weight: 700;
+		height: 2.625rem;
+		padding: .375rem 1.25rem;
+		border: none;
+		border-radius: 0px 37.5rem 37.5rem 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		-webkit-transition: .2s;
+		transition: .2s;
+		background-color: #ffe500;
+		color: #121212;
+		border-radius: 37.5rem 37.5rem 37.5rem 37.5rem;
+		width: 210px;
+		height: 40px;
+		white-space: nowrap;
+		bottom: 20px;
+		right: 20px;
+		float: right;
+
+
+	}
+
+	.component-button .icon {
+		margin: -.75rem -.625rem -.75rem .625rem;
+		height: auto;
+		width: 21px;
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		-webkit-transition: -webkit-transform .3s ease-in-out;
+		transition: transform .3s ease-in-out;
+	}
+	.component-button:focus, .component-button:hover {
+		outline: 0;
+	}
+	.component-button:hover {
+		background-color: #ffbb50;
+	}
+	.component-button:hover .icon {
+		-webkit-transform: translateX(3px);
+		transform: translateX(3px);
+	}
+
+	.the-frontline__goal {	
+		background-color: black;
+		color: white;
+		width: 100%;
+		padding: 2px;
+		padding-left: 5px;
+		display: inline-block;
+		height: 40px;
+
+		@include mq($until: tablet) {
+			margin-bottom: 4px;
+			
+		}
+
+		@include mq($from: tablet) {
+			float: left;
+			max-width: 300px;
+			width: 100%;
+			margin-bottom: 4px;
+			margin-left: 25px;
+		}
+
+
+	}
+
+	.pledged_box {
+		width: 100px;
+		height: 40px;
+		float: right;
+	}
+
+	.progress_box {
+		width: calc(100% - 120px);
+		height: 40px;
+		float: left;
+	}
+
+	.the-frontline__count {
+		font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 800;
+		font-size: 18px;
+		line-height: 1.1;
+		color: white;
+		display: block;
+	}
+
+	.the-frontline__count-label {
+		font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-size: 14px;
+		line-height: 1;
+		display: block;
+	}
+
+	.the-frontline__progress {
+		width: 100%;
+		height: 10px;
+		overflow: hidden;
+		background-color: lightgrey;
+		position: relative;
+		margin-top: 6px;
+	}
+
+	.the-frontline__filled-progress {
+		background-color: #ffe500;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+		transition: -webkit-transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
+		transition: transform 3s cubic-bezier(0.25, 0.55, 0.2, 0.85);
+	}
+
+	.the-frontline__filled-middle {
+		background-color: #ffe500;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 2px;
+		right: 0;
+		bottom: 0;
+	}
+
+	.the-frontline__progress-labels {
+		position: relative;
+		width: 100%;
+		height: 16px;
+	}
+
+	.the-frontline__label {
+		font-family: 'Guardian Text Sans Web';
+		font-size: 14px;
+		color: white;
+		position: absolute;
+		top: 0px;
+	}
+
+	.the-frontline__label--goal {
+		right: 0;
+	}
+
+	.the-frontline__filled-middle {
+		background-color: black;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 2px;
+		right: 0;
+		bottom: 0;
+	}
+
+	.the-frontline__label--middle {
+		width: 100%;
+		text-align: center;
+	}
+
+}

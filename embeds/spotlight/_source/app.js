@@ -2,19 +2,6 @@
 
   var app = {
 
-    database: null,
-
-    template: `<li class="special_card_holder spotlight-row__item spotlight-row__item--span-1">
-        <div class="facia-snap spotlight-item">
-          <div class="doc-card">
-            <div class="doc-card__poster" style="background-image: url({{image}});"><div style="{{position}}:10px;" class="text_box"><span style="background-color:{{background_colour}};color:{{text_colour}}">{{{project}}}</span></div></div>
-            <div class="doc-card__meta">
-              <p>{{{headline}}}</p><a class="doc-card__link" href="{{url}}"></a>
-            </div>
-          </div>
-        </div>
-      </li>`,
-
     mustache: function(l, a, m, c) {
 
         function h(a, b) {
@@ -46,16 +33,6 @@
         return e
     },
 
-    chunkArrayInGroups: function(arr, size) {
-        var result =  arr.reduce((all,one,i) => {
-               const ch = Math.floor(i/size); 
-               all[ch] = [].concat((all[ch]||[]),one); 
-               return all
-            }, [])
-
-        return result
-    },
-
     loader: function() {
 
         var xhr = new XMLHttpRequest();
@@ -81,26 +58,60 @@
 
     render: function() {
 
-      var target = document.getElementById("app"); 
-
-    for (var i = 0; i < app.database.length; i++) {
-
-      var div = document.createElement('div');
-          div.className = "elastic_band";
-      var elastic_band = app.database[i]
       var html = ''
-      for (var ii = 0; ii < elastic_band.length; ii++) {
-        html += app.mustache(app.template, elastic_band[ii])
+
+      for (var i = 0; i < app.googledoc.length; i++) {
+
+        let url = (app.googledoc[i].url!="") ? true : false ;
+
+        let listicle = app.listicle(url);
+
+        let ltx = {
+
+          electorate: app.googledoc[i].electorate,
+
+          url: app.googledoc[i].url,
+
+          image: app.googledoc[i].image
+
+        }
+
+        html += app.mustache(listicle, ltx)
+
       }
-      div.innerHTML = html
-      target.appendChild(div)
+
+      document.getElementById("app_electorate").innerHTML = html
+
 
     }
 
-    var fin = document.querySelector('.spotlight__wrapper');
+    listicle: function(url) {   
 
-    fin.style.display = 'block'
+      var murl = `<li class="special_card_holder spotlight-row__item spotlight-row__item--span-1">
+            <div class="facia-snap spotlight-item">
+              <a class="doc-card-link" target="_blank" href="{{url}}">
+                <div class="doc-card">
+                  <div class="doc-card__poster dropped" style="background-image: url(http://interactive.guim.co.uk/2019/02/election-selection/{{image}});"></div>
+                  <div class="doc-card__meta">
+                    {{{electorate}}}
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>`;
 
+      var nurl = `<li class="special_card_holder spotlight-row__item spotlight-row__item--span-1">
+            <div class="facia-snap spotlight-item">
+              <div class="doc-card">
+                <div class="doc-card__poster grayed" style="background-image: url(http://interactive.guim.co.uk/2019/02/election-selection/inner_city.jpg);"></div>
+                <div class="doc-card__meta faded">
+                  {{{electorate}}}
+                </div>
+              </div>
+            </div>
+          </li>`;
+
+        return (url) ? murl : nurl ;
     }
 
   }
