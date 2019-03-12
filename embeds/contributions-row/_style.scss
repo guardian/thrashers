@@ -27,7 +27,6 @@ $blue:   #0084c6;
     color: #041f4a;
     line-height: 1;
     display: flex;
-    overflow: hidden;
 
     .hide {
         display: none;
@@ -44,7 +43,7 @@ $blue:   #0084c6;
     .contribution-moment {
         display: flex;
         justify-content: space-between;
-        padding: 20px;
+        padding: 30px 20px;
         min-height: 260px;
     }
 
@@ -52,9 +51,9 @@ $blue:   #0084c6;
         width: 33%;
     }
 
-    // .contribution-moment__circles {
-    //     width: 30%;
-    // }
+    .contribution-moment__circles {
+        width: 34%;
+    }
 
     .contribution-moment__circles {
         position: relative;
@@ -70,10 +69,8 @@ $blue:   #0084c6;
         border-radius: 50%;
         display: flex;
         opacity: 0.8;
-        transition: all 0.6s 0.6s linear;
-        // transform: translateX(0);
-        // left: auto;
-        // right: auto;
+        transition: transform 0.6s 0.6s linear;
+        transform: translateX(0);
     }
     
     @supports (mix-blend-mode: hue) {
@@ -124,7 +121,6 @@ $blue:   #0084c6;
             position: absolute;
             top: 0;
             left: 0;
-            max-width: 380px;
         }
 
         p.last {
@@ -155,7 +151,7 @@ $blue:   #0084c6;
         }
         
         .contribution-moment__heading {
-            // max-width: 400px;
+            max-width: 400px;
             opacity: 0;
             color: #0084c6;
             transform: translateX(-30px);
@@ -206,19 +202,6 @@ $blue:   #0084c6;
             .icon {
                 transform: translateX(3px);
             }
-        }
-
-        &.thanks {
-            width: 160px;
-        }
-
-        &.row,
-        &.sell {
-            width: 140px;
-        }
-
-        &.hide {
-            display: none;
         }
     }
 
@@ -281,6 +264,7 @@ $blue:   #0084c6;
             height: 240px;
 
             .contribution-moment__heading-mob {
+                // display: block;
                 padding: 0 20px;
             }
         }
@@ -293,7 +277,6 @@ $blue:   #0084c6;
 
         .contribution-moment__circle--orange {
             align-items: flex-start;
-            top: 0;
             
             & .contribution-moment__heading-mob {
                 padding-top: 50px;
@@ -302,7 +285,6 @@ $blue:   #0084c6;
         
         .contribution-moment__circle--blue {
             align-items: flex-end;
-            bottom: 0;
 
             & .contribution-moment__heading-mob {
                 padding-bottom: 50px;
@@ -328,15 +310,15 @@ $blue:   #0084c6;
         .is-animated {
 
             .contribution-moment__circle {
-                transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
             }
 
             .contribution-moment__circle--orange {
-                top: -25%;
+                transform: translateX(0) translateY(-25%);
             }
             
             .contribution-moment__circle--blue {
-                bottom: -25%;
+                transform: translateX(0) translateY(25%);
             }
     
             .contribution-moment__circle--orange .contribution-moment__heading-mob {
@@ -393,32 +375,16 @@ $blue:   #0084c6;
             }
         }
 
-        .contribution-moment__circle {
-            top: 0;
-        }
-
-        .contribution-moment__circle--orange {
-            left: 0;
-        }
-        
-        .contribution-moment__circle--blue {
-            right: 0;
-        }
-
-        .contribution-moment__heading {
-            width: 100%;
-        }
-
         .is-animated {
             .contribution-moment__circle {
-                transition: all 0.6s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: transform 0.6s 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
             }
             .contribution-moment__circle--orange {
-                left: -25%;
+                transform: translateX(-25%);
             }
             
             .contribution-moment__circle--blue {
-                right: -25%;
+                transform: translateX(25%);
             }
     
             .contribution-moment__col:nth-child(1) .contribution-moment__heading {
@@ -431,16 +397,7 @@ $blue:   #0084c6;
                 opacity: 1;
             }
         }
-
     }
-
-    // If ie11 and bigger than tablet force a hack to enable heading to wrap
-    
-    // @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width:46.25em) {
-    //     .contribution-moment__heading {
-    //         display: inline-table;
-    //     }
-    // }
     
     @include mq($from: tablet, $until: desktop) {
         
@@ -450,7 +407,6 @@ $blue:   #0084c6;
         
         .contribution-moment__circles {
             align-items: center;
-            width: 140px;
             height: 140px;
         }
        
@@ -472,12 +428,6 @@ $blue:   #0084c6;
         .component-button {
             right: auto;
             left: 0;
-        }
-
-        @media all and (-ms-high-contrast:none) {
-            .contribution-moment__col {
-                width: 200px !important;
-            }
         }
     }
 
@@ -511,7 +461,6 @@ $blue:   #0084c6;
 
         .contribution-moment__circles {
             height: 200px;
-            width: 200px;
             top: 30px;
         }
 
@@ -520,7 +469,7 @@ $blue:   #0084c6;
         }
 
         .contribution-moment__heading {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             max-width: 300px;
         }
 
@@ -544,13 +493,11 @@ $blue:   #0084c6;
 
     @include mq($from: leftCol, $until: wide) {
         .contribution-moment__heading {
-           font-size: 2.6rem;
-           padding-right: 30px;
+           font-size: 2.8rem;
         }
 
         .contribution-moment__circles {
             height: 230px;
-            width: 230px;
             top: 15px;
         }
 
@@ -574,7 +521,6 @@ $blue:   #0084c6;
         .contribution-moment__circles {
             align-items: center;
             height: 260px;
-            width: 260px;
         }
        
         .contribution-moment__circle {
@@ -582,7 +528,7 @@ $blue:   #0084c6;
         }
 
         .contribution-moment__heading {
-            font-size: 3rem;
+            font-size: 52px;
         }
 
         .contribution-moment__col:nth-child(3) {

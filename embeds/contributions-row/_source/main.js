@@ -21,13 +21,11 @@
 			if(hideOrShow === 'hide') {
 				for(var i = 0; i < copy.length; i++) {
 					copy[i].classList.add('hide');
-					console.log('hiding', name);
 				}
 			}
 			if (hideOrShow === 'show') {
 				for(var i = 0; i < copy.length; i++) {
 				copy[i].classList.remove('hide');
-				console.log('showing', name);
 			}
 		}
 	}
@@ -47,19 +45,15 @@
 
 		if (localStorage && localStorage.getItem('gu.geolocation')) {
 			isUK = ["GB"].includes(JSON.parse(localStorage.getItem('gu.geolocation') ).value);
-			isUS = ["US"].includes(JSON.parse(localStorage.getItem('gu.geolocation') ).value);
 		} else {
 			isUK = true;
 		}
 
 		// Checks if in UK
 		// isUK = ["GB"].includes(JSON.parse(localStorage.getItem('gu.geolocation') ).value);
+
 		// console.log("isUK: " + isUK)
 		// console.log("isCont: " + isCont)
-		
-		// Checks if in US
-		isUS = ["US"].includes(JSON.parse(localStorage.getItem('gu.geolocation') ).value);
-		console.log("isUS: " + isUS)
 
 		// all Supporter copy
 		var thanks = document.getElementsByClassName('thanks');
@@ -67,43 +61,29 @@
 		var sell = document.getElementsByClassName('sell');
 		// Rest Of World copy
 		var row = document.getElementsByClassName('row');
-		// Us Button
-		var sellUs = document.getElementsByClassName('sellUs');
-		
 
 		toggleCopyState(row, 'show', 'row');
 		toggleCopyState(thanks, 'show', 'thanks');
 
-
 		// If oustside UK ...
-		if (isUK === false && isUS === false) {
-			console.log('Is outside the UK');
+		if (isUK === false) {
+			// console.log('Is outside the UK');
 			toggleCopyState(sell, 'hide', 'sell');
 			if (isCont === true) {
 				toggleCopyState(row, 'hide', 'row');
 			} else {
-				toggleCopyState(row, 'show', 'row');
 				toggleCopyState(thanks, 'hide', 'thanks');
 			}
 		// Is inside UK ...
-		}else if(isUS === true) {
-			console.log('Is in the US');
-			toggleCopyState(sell, 'hide', 'sell');
-			if (isCont === true) {
+		} if (isUK === true) {
+			// console.log('Is in the UK');
 				toggleCopyState(row, 'hide', 'row');
-			} else {
-				toggleCopyState(sellUs, 'show', 'sellUs'); //show button
-				toggleCopyState(thanks, 'hide', 'thanks');
+				if (isCont === true) {
+					toggleCopyState(sell, 'hide', 'sell');
+				} else {
+					toggleCopyState(thanks, 'hide', 'thanks');
+				}
 			}
-		}else{
-			console.log('Is in the UK');
-			toggleCopyState(row, 'hide', 'row');
-			if (isCont === true) {
-				toggleCopyState(sell, 'hide', 'sell');
-			} else {
-				toggleCopyState(thanks, 'hide', 'thanks');
-			}
-		} 
 	}
 
 	function playThrasher() {
