@@ -13,8 +13,6 @@
           total = parseInt(data.total, 10);
           goal = parseInt(data.goal, 10);
 
-          populateText();
-
           setTimeout(function() {
               animateCount();
               animateBar();
@@ -40,10 +38,6 @@
       xhr.send();
   }
 
-  function populateText() {
-      document.getElementsByClassName('the-frontline__label--goal')[0].innerHTML = toK(goal) + ' goal';
-  }
-
   function toK(val) {
       return val / 1000 + 'K';
   }
@@ -56,16 +50,16 @@
 
   function increaseCounter() {
       count += Math.floor(total / 100);
-      document.getElementsByClassName('the-frontline__count')[0].innerHTML = "$" + count.toLocaleString();
+      document.getElementsByClassName('contributions-landing-ticker__count')[0].innerHTML = "$" + count.toLocaleString();
 
       if (count >= total) {
           clearInterval(interval);
-          document.getElementsByClassName('the-frontline__count')[0].innerHTML = "$" + total.toLocaleString();
+          document.getElementsByClassName('contributions-landing-ticker__count')[0].innerHTML = "$" + total.toLocaleString();
       }
   }
 
   function animateBar() {
-      document.getElementsByClassName('the-frontline__filled-progress')[0].style.transform = 'translateX(' + percentageTotalAsNegative() + '%)';
+      document.getElementsByClassName('contributions-landing-ticker__filled-progress')[0].style.transform = 'translateX(' + percentageTotalAsNegative() + '%)';
   }
 
   function percentageTotalAsNegative() {
@@ -79,8 +73,6 @@
   }
 
   getData();
-
-
 
   }());
 
