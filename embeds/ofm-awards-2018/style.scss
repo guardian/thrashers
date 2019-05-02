@@ -15,10 +15,10 @@ $mq-breakpoints: (
 #ofm-awards-2017.fc-container--thrasher,
 #ofm-awards-2018.fc-container--thrasher,
 #observer-food-monthly-awards-2018.fc-container--thrasher {
-  background-color: #475a7a;
+  background-color: #ffcc4f;
   padding-top: 0;
   .fc-item {
-      background-color: #475a7a;
+      background-color: #ffcc4f;
       @include mq($until:tablet) {
         padding-right: 0;
       }
@@ -43,7 +43,7 @@ $mq-breakpoints: (
     height: 180px;
   }
   .title {
-    color: #fff;
+    color: #121212;
     font-size: 32px;
     font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
     font-weight: 600;
@@ -51,6 +51,12 @@ $mq-breakpoints: (
     white-space: nowrap;
     position: relative;
     z-index: 5;
+    transform: translateY(-114px);
+
+    @include mq($from: tablet) {
+      transform: translateY(0);
+    }
+
     @include mq(desktop) {
       font-size: 42px;
       line-height: 0.95em;
@@ -66,25 +72,33 @@ $mq-breakpoints: (
       display: block;
     }
     &__line-1 {
-      padding-left: 1.15em;
+      padding-left: 0;
+
+      @include mq($from: leftCol) {
+        padding-left: 1.15em;
+      }
     }
     &__line-2 {
-      
+
     }
     &__line-3 {
-      padding-left: 2.6em;      
+      padding-left: 0;
+
+      @include mq($from: leftCol) {
+        padding-left: 2.6em;
+      }
     }
   }
   .plate {
     position: absolute;
-    left: 152px;
+    left: 160px;
     top: 0;
     width: 100%;
-    transform: translateY(-42%);
+    transform: translateY(-33%);
     margin: 0 auto;
     width: 340px;
     @include mq(tablet) {
-      transform: translateY(42%);
+      transform: translateY(0%);
       top: auto;
       left: auto;
       bottom: 0;
@@ -92,8 +106,8 @@ $mq-breakpoints: (
       width: 340px;
     }
     @include mq(desktop) {
-      transform: translateY(45%);
-      width: 460px;
+      transform: translateY(0%);
+      width: 363px;
     }
     @include mq(wide) {
       right: 140px;
