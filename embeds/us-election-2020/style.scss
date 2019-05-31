@@ -139,7 +139,7 @@ $mq-breakpoints: (
 
     .fc-container__header__title,
     .fc-container__header__title h2 {
-        @include mq($until: tablet) {
+        @include mq($until: desktop) {
             padding-bottom: 0;
         }
     }
@@ -150,7 +150,7 @@ $mq-breakpoints: (
         display: inline;
         font-family: 'Guardian Egyptian Web';
         font-weight: 400;
-        font-size: 18px;
+        font-size: 16px;
         padding-right: 26px;
         margin-right: 6px;
         background-image: url('@@assetPath@@/forward.svg');

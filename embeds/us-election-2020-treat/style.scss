@@ -1,0 +1,152 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+$red: #e31e26;
+$blue: #2d4fa2;
+$black: #222;
+
+#us-elections-2020-treat {
+    display: none;
+}
+
+// Supertreat
+.fc-container__inner--no-treats {
+    .fc-container__header__title {
+        height: 52px;
+    }
+
+    .treats__container {
+        display: none;
+    }
+}
+
+.us-elections-treat {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    width: calc(50% - 20px);
+
+    @include mq(tablet) {
+        width: 160px;
+    }
+
+    @include mq(desktop) {
+        width: 220px;
+    }
+
+    @include mq(leftCol) {
+        top: auto;
+        right: auto;
+        width: 140px;
+        bottom: 1.5rem;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
+
+    &.is-post-election {
+        display: none;
+    }
+}
+
+.us-elections-treat__title {
+    font-family: "Guardian Egyptian Web", Georgia, serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: $red;
+    line-height: 1.2;
+    margin: 0;
+
+    @include mq(leftCol) {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .is-tomorrow & {
+        @include mq(leftCol) {
+            margin-bottom: 12px;
+        }
+    }
+
+    .is-today & {
+        @include mq(leftCol, wide) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.us-elections-treat__title-tag {
+    color: $black;
+    display: none;
+
+    .is-front & {
+        display: block;
+    }
+}
+
+.us-elections-treat__title-countdown {
+    .is-tomorrow &,
+    .is-today & {
+        display: none;
+    }
+}
+
+.us-elections-treat__title-polls {
+    display: none;
+
+    .is-tomorrow &,
+    .is-today & {
+        display: block;
+    }
+}
+
+.us-elections-treat__count {
+    font-family: 'Guardian Figures';
+    font-size: 36px;
+    color: $blue;
+    line-height: 1.2;
+
+    @include mq(leftCol) {
+        font-size: 72px;
+        line-height: .5;
+    }
+
+    .is-tomorrow & {
+        @include mq(leftCol) {
+            font-size: 30px;
+        }
+
+        @include mq(wide) {
+            font-size: 42px;
+        }
+    }
+
+    .is-today & {
+        @include mq(leftCol) {
+            font-size: 50px;
+        }
+
+        @include mq(wide) {
+            font-size: 60px;
+        }
+    }
+
+    .is-front & {
+        @include mq($until: leftCol) {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}
