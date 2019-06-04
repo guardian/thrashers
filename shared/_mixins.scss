@@ -51,8 +51,9 @@
     }
 }
 
-// Standardised button mixin
-// Large button
+// Large button mixin
+// Usage to use default black/yellow: @include component-button();
+// Usage to override default black/yellow: @include component-button(#000, #fff, red);
 @mixin component-button($bg-colour: #ffe500, $colour: #121212, $hover-colour: #ffbb50) {
     display: inline-flex;
     justify-content: space-between;
