@@ -16,7 +16,6 @@
     background: #ffe51e;
     color: #121212;
     line-height: 1;
-    // display: flex;
     overflow: hidden;
     
     .facia-snap {
@@ -32,7 +31,6 @@
         @include mq(phablet) {
             display: flex;
             padding: 0.375rem 1.250rem 1rem;
-            // height: 13.750rem;
         }
         
         @include mq(desktop) {
@@ -137,9 +135,6 @@
     }
 
     .uni-guide__component-button {
-        // position: absolute;
-        // left: 0;
-        // top: 0;
         z-index: 5; 
         @include component-button(#121212, #fff, #029D2D);
     }
@@ -157,10 +152,10 @@
         bottom: 0;
         right: 0;
 
-        /* start of header animation  */
     }
 }
 
+/* start of header animation  */
 .cloudbase {
     position: relative;
     overflow: hidden;
@@ -306,8 +301,8 @@
 
 @media (min-width: 61.25em) {
     .c-header-sleeve {
-        padding: 0rem 1.25rem 1.25rem;
-        background-image: url(@@assetPath@@/uni-guide-header-background-sleeve.png);
+        // padding: 0rem 1.25rem 1.25rem;
+        background-image: url(@@assetPath@@/uni-guide-header-background-sleeve-2.png);
         background-position: top right;
         background-repeat: no-repeat;
         background-size: auto 288px;
