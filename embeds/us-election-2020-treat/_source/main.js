@@ -40,7 +40,7 @@ function setDate() {
 }
 
 function moveTreatToTarget() {
-    var target = getTarget(['headlines', 'top-stories']);
+    var target = getTarget(['in-focus', 'headlines', 'top-stories']);
         target.classList.add('fc-container__inner--no-treats');
         target.innerHTML += document.getElementsByClassName('us-elections-treat')[0].outerHTML;
 }
