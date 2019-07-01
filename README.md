@@ -9,7 +9,6 @@ Collection of special Thrasher containers/snaps for the [frontend](https://githu
 You will need
 
  * [Node.js](http://nodejs.org/)
- * [Bower](http://bower.io/)
  * [Homebrew](https://brew.sh/)
 
 Then install the project dependencies with
@@ -17,12 +16,7 @@ Then install the project dependencies with
 npm install
 ```
 
-and
-```
-bower install
-```
-
-and finally this script (which may take some time to run depending on how long it takes Homebrew to update)
+and this script (which may take some time to run depending on how long it takes Homebrew to update)
 ```
 ./setup-certs.sh
 ```
