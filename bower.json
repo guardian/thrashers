@@ -1,9 +1,0 @@
-{
-  "name": "thrashers",
-  "dependencies": {
-    "sass-mq": "~2.2.0",
-    "pasteup-palette": "~3.3.3",
-    "guss-colours": "~3.0.0",
-    "guss-typography": "~3.1.1"
-  }
-}
