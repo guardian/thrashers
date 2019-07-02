@@ -173,13 +173,13 @@ section#the-spin {
     &__wickets {
       top: 25px;
     }
-
     
   }
 
   @include mq(leftCol) {
     margin-left: 160px;
   }
+
   @include mq(wide) {
     margin-left: 240px;
   }
