@@ -15,7 +15,8 @@ $mq-breakpoints: (
 #weekly-anniversary {
     background-color: #001522;
 	color: #fff;
-	min-height: 200px;
+	overflow: hidden;
+	z-index: 5;
 
 	& * {
 		box-sizing: border-box;
@@ -24,11 +25,11 @@ $mq-breakpoints: (
 	&.fc-container--thrasher,
 	.weekly-100__wrapper {
 		background-color: #001522;
+		overflow: hidden;
 	} 
 	
 	.weekly-100__wrapper {
 		width: 100%;
-		height: 200px;
 	}
 
     .fc-container__inner,
@@ -49,19 +50,32 @@ $mq-breakpoints: (
 		background-color: #001522;
 	}
 
-    // @include mq(tablet) {
-    //     padding-left: 0.625rem;
-    //     padding-right: 0.625rem;
-    // }
+    @include mq(phablet) {
+		min-height: 180px;
+		
+		.weekly-100__wrapper {
+			width: 100%;
+			min-height: 180px;
+		}
+    }
 }
 
 .weekly-100 {
-    background-color: #121212;
+    background-color: #001522;
 	color: #fff;
-	padding: 0.375rem 0 1.125rem;
+	padding: 0.375rem 0.625rem 0;
 	width: 100%;
 
-    @include mq(leftCol) {
+	@include mq(phablet) {
+		min-height: 180px;
+		padding: 0.375rem 0 1.125rem 1.25rem;
+	}
+	
+	@include mq(tablet) {
+		padding-left: 0;
+	}
+	
+	@include mq(leftCol) {
         margin-left: 160px;
     }
 
@@ -71,10 +85,16 @@ $mq-breakpoints: (
 }
 
 .weekly-100__content-inner {
-	max-width: 460px;
+	position: relative;
+	max-width: 400px;
+	z-index: 5;
 
 	p {
 		margin-bottom: 1rem;
+	}
+
+	@include mq(desktop) {
+		max-width: 460px;
 	}
 }
 
@@ -83,9 +103,13 @@ $mq-breakpoints: (
 	font-size: 1.5em;
     font-weight: 600;
     font-family: "Guardian Egyptian Web",Georgia,serif;
-	margin-bottom: 1rem;
+	margin-bottom: 0.75rem;
 	
-	@include mq(leftCol) {
+	// @include mq($until: tablet) {
+	// 	padding-right: 70px;
+	// }
+
+	@include mq(desktop) {
 		font-size: 2.125em;
     }
 }
@@ -104,17 +128,47 @@ $mq-breakpoints: (
 
 .weekly-100__roundel {
 	position: absolute;
-	top: 8px;
-    bottom: auto;
-    right: 20px;
+    bottom: 0.75rem;
+	right: 20px;
+	
+	@include mq(phablet) {
+		top: 8px;
+		bottom: auto;
+	}
+
 }
 
 .weekly-100__img {
-	position: absolute;
-	right: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background: url('@@assetPath@@/weekly-100-desktop.png') no-repeat right;
+	position: relative;
+	height: 50vw;
+	background: url('@@assetPath@@/weekly-100-mobile.png') no-repeat center bottom;
 	background-size: contain;
+	min-height: 200px;
+
+	@include mq(phablet) {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background: url('@@assetPath@@/weekly-100-desktop.png') no-repeat left;
+		background-size: contain;
+	}
+	
+	@include mq($from: phablet, $to: tablet) {
+		right: -350px;
+	}
+	
+	@include mq($from: tablet, $to: desktop) {
+		right: -350px;
+	}
+
+	@include mq(desktop) {
+		background: url('@@assetPath@@/weekly-100-desktop.png') no-repeat right;
+		background-size: contain;
+	}
+
+	@include mq($from: desktop, $until: wide) {	
+		right: -50px;
+	}
 }
