@@ -86,13 +86,16 @@ $mq-breakpoints: (
 
 .weekly-100__content-inner {
 	position: relative;
-	// max-width: 400px;
 	z-index: 5;
 
 	p {
 		margin-bottom: 1rem;
 	}
 
+	@include mq(phablet) {
+		max-width: 400px;
+	}
+	
 	@include mq(desktop) {
 		max-width: 460px;
 	}
