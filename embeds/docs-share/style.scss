@@ -51,6 +51,9 @@ $mq-breakpoints: (
               margin-left: -18%;
               object-position: 50% 100%;
             }
+            @include mq(wide) {
+              margin-left: auto;
+            }
           }
         }
 
@@ -419,7 +422,7 @@ $mq-breakpoints: (
           content: '';
           border-left: 1px solid #D6D6D6;
           border-bottom: 1px solid #D6D6D6;
-          width: 94px;
+          width: 90px;
           height: 100%;
           position: absolute;
           top: 0;
