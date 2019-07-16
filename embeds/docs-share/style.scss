@@ -1,0 +1,486 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+.fc-container--thrasher#documentary {
+  background-color: #fff;
+}
+
+.doc__images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  overflow: hidden;
+
+  &__image {
+    border-radius: 6px;
+    background-color: #e1dbdc;
+    position: absolute;
+    overflow: hidden;
+
+    &__inner {
+      transform: translate(0, 0);
+      position: relative;
+      height: 100%;
+      width: 100%;
+      img {
+        width: 100%;
+        @supports (object-fit: cover) {
+          height: 100%;
+        }
+        object-fit: cover;
+
+        .i1 & {
+          object-position: 0% 50%;
+          .g2 & {
+            @include mq(tablet) {
+              width: 330px;
+              margin-left: -18%;
+              object-position: 50% 100%;
+            }
+          }
+        }
+
+        .i2 & {
+          object-position: 35% 30%;
+          @include mq(tablet) {
+            width: 140%;
+            margin-left: -18%;
+          }
+          .g2 & {
+            object-position: 88% 50%;
+            @include mq(tablet) {
+              object-position: 50% 50%;
+              width: 100%;
+              margin-left: auto;
+            }
+          }
+        }
+
+        .i3 & {
+          object-position: 50% 68%;
+          width: 200%;
+          margin-left: -15%;
+          @include mq(tablet) {
+            width: 125%;
+            margin-left: -12.5%;
+          }
+          .g2 & {
+            object-position: 90% 50%;
+            height: 120%;
+            @include mq(tablet) {
+              height: 180%;
+              margin-top: -28%;
+              object-position: 74% 50%;
+            }
+          }
+        }
+        .i4 & {
+          object-position: 50% 64%;
+        }
+      }
+    }
+
+
+    transition: transform 0.7s cubic-bezier(.75,-0.1,.25,1.1);
+    // Square positioning
+    &.i1 {
+      bottom: -6px;
+      left: -6px;
+      right: calc(35% + 14px);
+      top: 200px;
+      @include mq($until:tablet) {
+        .g2 & {
+          top: 232px;
+        }
+      }
+      @include mq(tablet) {
+        top: -6px;
+        left: auto;
+        right: -6px;
+        bottom: 57px;
+        width: 186px;
+        .g2 & {
+          bottom: 136px;
+        }
+      }
+      @include mq(desktop) {
+        width: 244px;
+      }
+      @include mq(wide) {
+        width: 326px;
+      }
+    }
+    &.i2 {
+      width: 35%;
+      top: -6px;
+      bottom: 127px;
+      right: -6px;
+      @include mq($until:tablet) {
+        .g2 & {
+          bottom: 246px;
+        }
+      }
+      @include mq(tablet) {
+        top: 174px;
+        left: auto;
+        right: 20px;
+        bottom: -6px;
+        width: 160px;
+        .g2 & {
+          top: 96px;
+        }
+      }
+      @include mq(desktop) {
+        width: 220px;
+        top: 164px;
+      }
+      @include mq(leftCol) {
+        width: 220px;
+        top: 174px;
+      }
+      @include mq(wide) {
+        right: 100px;
+      }
+    }
+    &.i3 {
+      width: 35%;
+      top: 286px;
+      bottom: -6px;
+      right: -6px;
+      @include mq($until:tablet) {
+        .g2 & {
+          top: 164px;
+        }
+      }
+      @include mq(tablet) {
+        top: -6px;
+        left: auto;
+        right: 200px;
+        bottom: 136px;
+        width: 160px;
+        .g2 & {
+          bottom: 90px;
+        }
+      }
+      @include mq(desktop) {
+        bottom: 126px;
+        width: 220px;
+        right: 260px;
+      }
+      @include mq(leftCol) {
+        bottom: 136px;
+      }
+      @include mq(wide) {
+        right: 340px;
+      }
+    }
+    &.i4 {
+      display: none;
+      @include mq(tablet) {
+        display: block;
+        top: 96px;
+        left: auto;
+        right: 200px;
+        bottom: -6px;
+        width: 340px;
+        .g2 & {
+          top: 142px;
+        }
+      }
+      @include mq(desktop) {
+        width: 460px;
+        right: 260px;
+      }
+      @include mq(wide) {
+        right: 340px;
+      }
+    }
+  }
+
+  &__group {
+    &.g1 {
+      .doc__images__image {
+        &.i1,
+        &.i2,
+        &.i3,
+        &.i4 {
+          transform: translate(0, 0);
+        }
+        &.i1 {
+          transition-delay: 0.5s;
+        }
+        &.i2 {
+          transition-delay: 0.65s;
+        }
+        &.i3 {
+          transition-delay: 0.80s;
+        }
+        &.i4 {
+          transition-delay: 0.95s;
+        }
+      }
+    }
+    &.g2 {
+      .doc__images__image {
+        &.i1 {
+          transform: translate(-100%, 0);
+          transition-delay: 0.2s;
+        }
+        &.i2,
+        &.i3,
+        &.i4 {
+          transform: translate(100%, 0);
+        }
+        &.i2 {
+          transition-delay: 0.35s;
+        }
+        &.i3 {
+          transition-delay: 0.50s;
+        }
+        &.i4 {
+          transition-delay: 0.66s;
+        }
+        @include mq(tablet) {
+          &.i1,
+          &.i3 {
+            transform: translate(0, -100%);
+          }
+          &.i2,
+          &.i4 {
+            transform: translate(0, 100%);
+          }
+        }
+      }
+    }
+
+    .off-view & {
+      &.g1 {
+        .doc__images__image {
+          &.i1 {
+            transform: translate(-100%, 0);
+            transition-delay: 0.2s;
+          }
+          &.i2,
+          &.i3,
+          &.i4 {
+            transform: translate(100%, 0);
+          }
+          &.i2 {
+            transition-delay: 0.35s;
+          }
+          &.i3 {
+            transition-delay: 0.50s;
+          }
+          &.i4 {
+            transition-delay: 0.66s;
+          }
+          @include mq(tablet) {
+            &.i1,
+            &.i3 {
+              transform: translate(0, -100%);
+            }
+            &.i2,
+            &.i4 {
+              transform: translate(0, 100%);
+            }
+          }
+        }
+      }
+      &.g2 {
+        .doc__images__image {
+          &.i1,
+          &.i2,
+          &.i3,
+          &.i4 {
+            transform: translate(0, 0);
+          }
+          &.i1 {
+            transition-delay: 0.5s;
+          }
+          &.i2 {
+            transition-delay: 0.65s;
+          }
+          &.i3 {
+            transition-delay: 0.80s;
+          }
+          &.i4 {
+            transition-delay: 0.95s;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+
+
+.docs-share__wrapper {
+  width: auto;
+  position: relative;
+  z-index: 10;
+  margin: 0 -10px;
+  background-color: #F5EBEE;
+  transition: all 240ms ease-in-out;
+  border-top: 1px solid #D6D6D6;
+  height: 390px;
+  overflow: hidden;
+  @include mq(tablet) {
+    width: 100%;
+    margin: 0;
+    height: 212px;
+    border-left: 1px solid #D6D6D6;
+    border-right: 1px solid #D6D6D6;
+  }
+  @include mq(desktop) {
+    height: auto;
+  }
+
+  &:hover {
+    background-color: #F0E4E7;
+  }
+
+  .doc {
+    overflow: hidden;
+    padding: 0 10px;
+    @include mq(mobileLandscape) {
+      padding: 0 20px;
+    }
+
+    &__main-link.z-index-20 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      z-index: 20;
+      &:hover {
+        & ~ .doc__copy {
+          opacity: 0.95;
+          .doc__copy__play__button {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+    &__container-title {
+      display: none;
+      @include mq(wide) {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 6px;
+        font-family: "Guardian Egyptian Web",Georgia,serif;
+        font-size: 24px;
+        line-height: 26px;
+        font-weight: 700;
+        z-index: 30;
+      }
+    }
+
+    &__copy {
+      pointer-events: none;
+      position: relative;
+      z-index: 10;
+      font-family: "Guardian Egyptian Web",Georgia,serif;
+      font-size: 24px;
+      line-height: 26px;
+      padding-top: 6px;
+      max-width: 200px;
+      padding-bottom: 9px;
+      margin-bottom: 18px;
+      @include mq(tablet) {
+        max-width: none;
+      }
+      @include mq(desktop) {
+        margin-bottom: 86px;
+      }
+      @include mq(leftCol) {
+        margin-left: 149px;
+        padding-left: 12px;
+        position: relative;
+        &:after {
+          content: '';
+          border-left: 1px solid #D6D6D6;
+          border-bottom: 1px solid #D6D6D6;
+          width: 94px;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      @include mq(wide) {
+        margin-left: 230px;
+      }
+      &__title {
+        font-weight: 700;
+      }
+      &__logline {
+        font-weight: 200;
+      }
+      &__play {
+        margin-top: 9px;
+        margin-left: -2px;
+        @include mq(leftCol) {
+          margin-top: 18px;
+        }
+        &__button {
+          width: 40px;
+          height: 40px;
+          background-color: #121212;
+          border-radius: 100%;
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          transition: all 240ms ease-in-out;
+          svg {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            path {
+              fill: #ffe500;
+            }
+          }
+        }
+        &__time {
+          display: inline-block;
+          font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+          font-size: 14px;
+          vertical-align: middle;
+          margin-bottom: -1px;
+          margin-left: 2px;
+        }
+      }
+    }
+
+    &__roundel {
+      position: absolute;
+      top: 9px;
+      right: 10px;
+      z-index: 10;
+      @include mq(mobileLandscape) {
+        right: 20px;
+      }
+      svg {
+        display: block;
+      }
+    }
+  }
+}
