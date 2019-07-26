@@ -10,3 +10,5 @@ hashed/
 .idea/
 /package-lock.json
 certs
+prototyper/
+shared/

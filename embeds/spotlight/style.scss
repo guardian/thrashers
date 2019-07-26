@@ -566,32 +566,38 @@ $mq-breakpoints: (
 	.text_box {
 		position: absolute;
 		display: inline-block;
-		
-		left: 10px;
 		font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
 		font-weight: 600;
 
-	  @include mq($until: mobile) {
-	  	font-size: 20px;
-	  	line-height: 24px;
-	  }
+		@include mq($until: mobile) {
+			font-size: 14px;
+			line-height: 20px;
+		}
 
-	  @include mq($from: mobile, $until: tablet) {
-	  	font-size: 20px;
-	  	line-height: 24px;
-	  	max-width: 90%;
-	  }
+		@include mq($from: mobile, $until: mobileLandscape) {
+			font-size: 18px;
+			line-height: 22px;
+			max-width: 90%;
+		}
 
-	  @include mq($from: tablet, $until: desktop) {
-	  	font-size: 22px;
-	  	line-height: 26px;
-	  	max-width: 90%;
-	  }
+		@include mq($from: mobileLandscape, $until: tablet) {
+			font-size: 20px;
+			line-height: 24px;
+			max-width: 90%;
+			left: 10px;
+		}
 
-	  @include mq($from: desktop) {
-	  	font-size: 25px;
-	  	line-height: 29px;
-	  }
+		@include mq($from: tablet, $until: desktop) {
+			font-size: 22px;
+			line-height: 26px;
+			max-width: 90%;
+			left: 10px;
+		}
+
+		@include mq($from: desktop) {
+			font-size: 25px;
+			line-height: 29px;
+		}
 
 	}
 
