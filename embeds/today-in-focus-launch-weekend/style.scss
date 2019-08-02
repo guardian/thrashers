@@ -68,6 +68,8 @@ section#podcast-weekend {
       width: 100%;
       margin-top: 6px;
       font-size: 0;
+      // Optimisation: contain repaint to the .tif__lines container
+      contain: layout;
       @include mc(tablet) {
         position: absolute;
         top: 54px;
@@ -98,6 +100,7 @@ section#podcast-weekend {
         bottom: 0;
         overflow: hidden;
       }
+
       .line {
         position: relative;
         height: 100%;
@@ -109,254 +112,336 @@ section#podcast-weekend {
         transform: translateY(-50%) scaleY(1.01);
         background-color: #FF6A56;
         margin-bottom: 100%;
-        animation-duration: 1.8s;
-        animation-iteration-count: infinite;
         .disable-flashing-elements & {
           animation: none !important;
         }
       }
 
-      @for $i from 1 through 51 {
-        .line-#{$i} {
-          animation-delay: 15ms * $i;
-        }
-      }
+      // set the lines 
 
       .line-1 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 19%;
       }
       .line-2 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 29%;
       }
       .line-3 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 60%;
       }
       .line-4 {
-        animation-name: bounceHigh;
         height: 52%;
       }
       .line-5 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 44%;
       }
       .line-6 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 29%;
       }
       .line-7 {
-        animation-name: bounceHigh;
         height: 27%;
       }
       .line-8 {
-        animation-name: bounceHigh;
         height: 33%;
       }
       .line-9 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 48%;
       }
       .line-10 {
-        animation-name: bounceHigh;
         height: 63%;
       }
       .line-11 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 58%;
       }
       .line-12 {
-        animation-name: bounceHigh;
         height: 89%;
       }
       .line-13 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 93%;
       }
       .line-14 {
-        animation-name: bounceHigh;
         height: 100%;
       }
       .line-15 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 87%;
       }
       .line-16 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 93%;
       }
       .line-17 {
-        animation-name: bounceHigh;
         height: 69%;
       }
       .line-18 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 58%;
       }
       .line-19 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 68%;
       }
       .line-20 {
-        animation-name: bounceHigh;
         height: 51%;
       }
       .line-21 {
-        animation-name: bounceHigh;
         height: 85%;
       }
       .line-22 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 79%;
       }
       .line-23 {
-        animation-name: bounceHigh;
         height: 68%;
       }
       .line-24 {
-        animation-name: bounceHigh;
         height: 58%;
       }
       .line-25 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 50%;
       }
       .line-26 {
-        animation-name: bounceHigh;
         height: 74%;
       }
       .line-27 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 68%;
       }
       .line-28 {
-        animation-name: bounceHigh;
         height: 58%;
       }
       .line-29 {
-        animation-name: bounceHigh;
         height: 61%;
       }
       .line-30 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 35%;
       }
       .line-31 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 25%;
       }
       .line-32 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 18%;
       }
       .line-33 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 35%;
       }
       .line-34 {
-        animation-name: bounceHigh;
         height: 29%;
       }
       .line-35 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 13%;
       }
       .line-36 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 17%;
       }
       .line-37 {
-        animation-name: bounceHigh;
         height: 23%;
       }
       .line-38 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 13%;
       }
       .line-39 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 9%;
       }
       .line-40 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 16%;
       }
       .line-41 {
-        animation-name: bounceHigh;
         height: 40%;
       }
       .line-42 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 57%;
       }
       .line-43 {
-        animation-name: bounceHigh;
         height: 98%;
       }
       .line-44 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 89%;
       }
       .line-45 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 85%;
       }
       .line-46 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 43%;
       }
       .line-47 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 51%;
       }
       .line-48 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 28%;
       }
       .line-49 {
-        animation-name: bounceHigh;
         height: 39%;
       }
       .line-50 {
-        // animation-name: bounceMid;
-        animation-name: bounceHigh;
         height: 23%;
       }
       .line-51 {
-        animation-name: bounceLow;
-        // animation-name: bounceHigh;
         height: 19%;
+      }
+                  
+      // if animting
+      &.tif__lines--active {
+        
+        @for $i from 1 through 51 {
+          .line-#{$i} {
+            animation-delay: 15ms * $i;
+          }
+        }
+
+        .line {
+          will-change: transform;
+          animation-duration: 1.8s;
+          animation-iteration-count: 1;
+        }
+
+        .line-1 {
+          animation-name: bounceHigh;
+        }
+        .line-2 {
+          animation-name: bounceLow;
+        }
+        .line-3 {
+          animation-name: bounceHigh;
+        }
+        .line-4 {
+          animation-name: bounceHigh;
+        }
+        .line-5 {
+          animation-name: bounceLow;
+        }
+        .line-6 {
+          animation-name: bounceHigh;
+        }
+        .line-7 {
+          animation-name: bounceHigh;
+        }
+        .line-8 {
+          animation-name: bounceHigh;
+        }
+        .line-9 {
+          animation-name: bounceLow;
+        }
+        .line-10 {
+          animation-name: bounceHigh;
+        }
+        .line-11 {
+          animation-name: bounceHigh;
+        }
+        .line-12 {
+          animation-name: bounceHigh;
+        }
+        .line-13 {
+          animation-name: bounceHigh;
+        }
+        .line-14 {
+          animation-name: bounceHigh;
+        }
+        .line-15 {
+          animation-name: bounceHigh;
+        }
+        .line-16 {
+          animation-name: bounceHigh;
+        }
+        .line-17 {
+          animation-name: bounceHigh;
+        }
+        .line-18 {
+          animation-name: bounceHigh;
+        }
+        .line-19 {
+          animation-name: bounceLow;
+        }
+        .line-20 {
+          animation-name: bounceHigh;
+        }
+        .line-21 {
+          animation-name: bounceHigh;
+        }
+        .line-22 {
+          animation-name: bounceHigh;
+        }
+        .line-23 {
+          animation-name: bounceHigh;
+        }
+        .line-24 {
+          animation-name: bounceHigh;
+        }
+        .line-25 {
+          animation-name: bounceLow;
+        }
+        .line-26 {
+          animation-name: bounceHigh;
+          height: 74%;
+        }
+        .line-27 {
+          animation-name: bounceLow;
+        }
+        .line-28 {
+          animation-name: bounceHigh;
+        }
+        .line-29 {
+          animation-name: bounceHigh;
+        }
+        .line-30 {
+          animation-name: bounceHigh;
+        }
+        .line-31 {
+          animation-name: bounceLow;
+        }
+        .line-32 {
+          animation-name: bounceHigh;
+        }
+        .line-33 {
+          animation-name: bounceLow;
+        }
+        .line-34 {
+          animation-name: bounceHigh;
+        }
+        .line-35 {
+          animation-name: bounceHigh;
+        }
+        .line-36 {
+          animation-name: bounceHigh;
+        }
+        .line-37 {
+          animation-name: bounceHigh;
+        }
+        .line-38 {
+          animation-name: bounceHigh;
+        }
+        .line-39 {
+          animation-name: bounceHigh;
+        }
+        .line-40 {
+          animation-name: bounceLow;
+        }
+        .line-41 {
+          animation-name: bounceHigh;
+        }
+        .line-42 {
+          animation-name: bounceHigh;
+        }
+        .line-43 {
+          animation-name: bounceHigh;
+        }
+        .line-44 {
+          animation-name: bounceHigh;
+        }
+        .line-45 {
+          animation-name: bounceLow;
+        }
+        .line-46 {
+          animation-name: bounceLow;
+        }
+        .line-47 {
+          animation-name: bounceHigh;
+        }
+        .line-48 {
+          animation-name: bounceLow;
+        }
+        .line-49 {
+          animation-name: bounceHigh;
+        }
+        .line-50 {
+          animation-name: bounceHigh;
+        }
+        .line-51 {
+          animation-name: bounceLow;
+        }
       }
     }
     &__contents {
