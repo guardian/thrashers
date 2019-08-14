@@ -31,9 +31,11 @@ $mq-breakpoints: (
   z-index: 10;
   margin: 0 -10px;
   background-color: #257A9F;
+  overflow: hidden;
   @include mq(tablet) {
     width: 100%;
     margin: 0;
+    overflow: visible;
   }
   &:hover {
     background-color: #196D91;
