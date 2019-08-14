@@ -56,12 +56,21 @@ $mq-breakpoints: (
       display: block;
       position: absolute;
       left: 17px;
-      top: 10px;
+      top: 6px;
       img {
         display: block;
-        width: 81px;
-        height: 82px;
+        width: 72px;
+        height: auto;
       }
+    }
+
+    &__text {
+      font-family: "Guardian Egyptian Web",Georgia,serif;
+      color: #fff;
+      font-size: 24px;
+      line-height: 26px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
   }
   a.main-link {
