@@ -177,6 +177,8 @@ $mq-breakpoints: (
     background-color: #FF1655;
   }
   .image {
+    z-index: auto;
+    position: static;
     img {
       position: absolute;
       &.mobile {
