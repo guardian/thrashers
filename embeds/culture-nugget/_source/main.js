@@ -1,4 +1,3 @@
-console.log('hellloo:');
 
 function findTargetContainer(container) {
     var prev = container.previousElementSibling;
@@ -47,9 +46,6 @@ function thrasherMain() {
 
     // section where the treat should go
     var targetContainer = findTargetContainer(thrasherContainer);
-
-    console.log('target:', targetContainer);
-
 
     // get thrasher innerHTML
     var thrasherWrap = document.createElement('div');
