@@ -1,0 +1,114 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#climate-pledge-us.fc-container--thrasher, 
+#climate-pledge-us.fc-container--thrasher .fc-item, 
+#climate-pledge-row.fc-container--thrasher, 
+#climate-pledge-row.fc-container--thrasher .fc-item { 
+  overflow: hidden;
+  background: #ffe500;
+}
+
+.pledge {
+  padding-bottom: 24px;
+  min-height: 250px;
+}
+
+.desktop-svg {
+  display: none;
+  margin-bottom: 10px;
+  margin-top: 6px;
+  width: 100%;
+  height: auto;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  @include mq($from: desktop) {
+    display: block;
+    width: 980px;
+  }
+  @include mq($from: leftCol) {
+    width: 1130px;
+  }
+  @include mq($from: wide) {
+    width: 1300px;
+  }
+}
+
+.pen {
+  width: 112px;
+  height: auto;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  mix-blend-mode: multiply;
+
+  @include mq($from: desktop) {
+    right: auto;
+    left: 40%;
+    top: -20px;
+  }
+}
+
+.mobile-svg {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 6px;
+
+  @include mq($from: desktop) {
+    display: none;
+  }
+}
+
+.pledge__roundel {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+
+  @include mq($from: desktop) {
+    top: auto;
+    bottom: 10px;
+  }
+}
+
+.pledge-text p {
+  line-height: 1.2;
+  max-width: 80%;
+  margin-bottom: 20px;
+
+  @include mq($from: desktop) {
+    max-width: 375px;
+    margin-top: 60px;
+  }
+}
+
+.pledge__component-button + .pledge__component-button {
+  margin: 12px 0 0 0;
+  
+  @include mq($from: phablet) {
+    margin: 0 0 0 20px;
+  }
+
+}
+
+.pledge__component-button--pledge {
+  @include component-button(#121212, #ffffff, #767676);
+}
+
+.pledge__component-button--support {
+  @include component-button(#fff, #121212, #E9D100);
+}

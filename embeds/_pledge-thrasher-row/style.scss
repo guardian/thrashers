@@ -12,7 +12,13 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-@include base('uni-guide', #ffe500);
+#climate-pledge-us.fc-container--thrasher, 
+#climate-pledge-us.fc-container--thrasher .fc-item, 
+#climate-pledge-row.fc-container--thrasher, 
+#climate-pledge-row.fc-container--thrasher .fc-item { 
+  overflow: hidden;
+  background: #ffe500;
+}
 
 .pledge {
   padding-bottom: 24px;
@@ -81,34 +87,28 @@ $mq-breakpoints: (
 
 .pledge-text p {
   line-height: 1.2;
-  max-width: 200px;
+  max-width: 80%;
+  margin-bottom: 20px;
 
   @include mq($from: desktop) {
-    max-width: 350px;
-    margin-bottom: 20px;
+    max-width: 375px;
     margin-top: 60px;
   }
 }
 
-.pledge__component-button {
-  background-color: #121212;
-  padding-top: 4px;
-  padding-bottom: 10px;
-  border-radius: 25px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-bottom: 10px;
-  display: inline-block;
-  font-family: $f-sans-serif-text;
-
-  span {
-    color: #fff;
+.pledge__component-button + .pledge__component-button {
+  margin: 12px 0 0 0;
+  
+  @include mq($from: phablet) {
+    margin: 0 0 0 20px;
   }
 
-  .icon {
-    transform: translate(3px, 5px);
-    path {
-      fill: #fff;
-    }
-  }
+}
+
+.pledge__component-button--pledge {
+  @include component-button(#121212, #ffffff, #767676);
+}
+
+.pledge__component-button--support {
+  @include component-button(#fff, #121212, #E9D100);
 }
