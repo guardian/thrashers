@@ -1,0 +1,73 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@include base('contributions', #052962);
+
+#contributions {
+  padding-bottom: 24px;
+
+  h1 {
+    font-size: 36px;
+    margin-left: 10px;
+    line-height: 36px;
+    display: inline-block;
+    font-family: $f-serif-headline;
+    margin-bottom: 12px;
+    color: #fff;
+
+    @include mq($from: leftCol) {
+      margin-left: 176px;
+    }
+
+    @include mq($from: wide) {
+      margin-left: 260px;
+    }
+  }
+}
+
+.contributions__roundel {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+}
+
+
+.contributions__component-button {
+  background-color: #ffe500;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 24px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+
+
+  svg {
+    transform: translateY(2px);
+
+    path {
+      fill: #121212;
+    }
+  }
+
+  span {
+    color: #121212;
+    font-family: $f-sans-serif-text;
+    transform: translateY(-3px);
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
