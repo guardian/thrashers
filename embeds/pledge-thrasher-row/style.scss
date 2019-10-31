@@ -17,7 +17,7 @@ $mq-breakpoints: (
 #climate-pledge-row.fc-container--thrasher, 
 #climate-pledge-row.fc-container--thrasher .fc-item { 
   overflow: hidden;
-  background: #ffe500;
+  background: #1570A6;
 }
 
 .pledge {
@@ -94,10 +94,15 @@ $mq-breakpoints: (
   line-height: 1.2;
   max-width: 70%;
   margin-bottom: 20px;
+  color: #fff;
 
-  @include mq($from: desktop) {
+  @include mq($from: tablet) {
     max-width: 375px;
-    margin-top: 60px;
+    margin-top: 30px;
+  }
+  
+  @include mq($from: leftCol) {
+    max-width: 400px;
   }
 }
 
@@ -115,5 +120,5 @@ $mq-breakpoints: (
 }
 
 .pledge__component-button--support {
-  @include component-button(#121212, #ffffff, #767676);
+  @include component-button(#ffe500, #121212, #ffe500);
 }
