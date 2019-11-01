@@ -120,17 +120,17 @@ For advice on how to test/develop for apps please contact the apps team.
 
 ### Template
 
-When you start a new Thrasher, the file `index.html` contains a suggested baseline for markup structure as well as markup for a button and roundel. A [BEM](https://css-tricks.com/bem-101/) style naming convention is recomended. 
+When you start a new Thrasher, the file `index.html` contains a suggested baseline for markup structure as well as markup for a button and roundel. A [BEM](https://css-tricks.com/bem-101/) style naming convention is recommended. 
 
 ### Buttons
 
-We have a sass mixin to ensurebuttons are styled consistenlty. You can see find the mixin here:
+We have a sass mixin to ensure buttons are styled consistenlty. You can see find the mixin here:
 
 `shared/_mixins.scss` 
 
 Use it in your project like this:
 
-```
+```scss
 .mythrasher__component-button   {
     @include component-button(#000, #fff, red);
 }
