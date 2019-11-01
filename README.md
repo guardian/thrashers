@@ -118,6 +118,27 @@ For advice on how to test/develop for apps please contact the apps team.
 
 ## Developing
 
+### Template
+
+When you start a new Thrasher, the file `index.html` contains a suggested baseline for markup structure as well as markup for a button and roundel. A [BEM](https://css-tricks.com/bem-101/) style naming convention is recomended. 
+
+### Buttons
+
+We have a sass mixin to ensurebuttons are styled consistenlty. You can see find the mixin here:
+
+`shared/_mixins.scss` 
+
+Use it in your project like this:
+
+```
+.mythrasher__component-button   {
+    @include component-button(#000, #fff, red);
+}
+```
+
+The colours defined in that example are for (in order) the button background colour, button text colour, button background colour on hover.
+
+
 ### Breakpoints
 
 The way thrashers are injected into the page means you'll be inheriting all of [`frontend's`](http://github.com/guardian/frontend) styles. As a result it's best to stick to the same breakpoints. The templates come, by default, with [`sass-mq`](http://github.com/sass-mq/sass-mq) and a copy of `frontend's` breakpoints. Which should be used like this.
