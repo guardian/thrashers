@@ -165,6 +165,12 @@ section#election-header {
         &__coloured-stripes {
             margin-left: 530px;
         }
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:0;
+                right:240px;
+            }
+        }
     }
 
     @media only screen and (max-width: 1139px) {
@@ -173,6 +179,12 @@ section#election-header {
         }
         &__coloured-stripes {
             margin-left: 463px;
+        }
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:0;
+                right:240px;
+            }
         }
     }
 
@@ -186,6 +198,13 @@ section#election-header {
         &__people {
             margin-right: -886px;
             margin-top:-97px;
+        }
+
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:0;
+                right:200px;
+            }
         }
 
         &__coloured-stripes {
@@ -216,6 +235,17 @@ section#election-header {
         &__coloured-stripes {
             margin-top:-192px;
             margin-left: 191px;
+        }
+
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:0;
+                right:62px;
+            }
+            &__coloured-stripes {
+                margin-left:0;
+                right:-135px;
+            }
         }
 
         h1 {
@@ -251,6 +281,12 @@ section#election-header {
             display:none;
         }
 
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:45px;
+            }
+        }
+
     }
     @media only screen and (max-width: 660px) {
         &__coloured-stripes {
@@ -273,6 +309,11 @@ section#election-header {
         &__people {
             margin-right: 162px;
         }
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:112px;
+            }
+        }
     }
 
     @media only screen and (max-width: 570px) {
@@ -282,6 +323,11 @@ section#election-header {
         &__people {
             margin-right: 202px;
         }
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:152px;
+            }
+        }
     }
 
     @media only screen and (max-width: 530px) {
@@ -290,6 +336,11 @@ section#election-header {
         }
         &__people {
             margin-right:236px;
+        }
+        @-moz-document url-prefix() {
+            &__people {
+                margin-right:176px;
+            }
         }
     }
 
@@ -319,6 +370,11 @@ section#election-header {
         }
         &__coloured-stripes {
             right: 148px;
+        }
+        @-moz-document url-prefix() {
+            &__coloured-stripes {
+                right:205px;
+            }
         }
     }
 
