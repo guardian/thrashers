@@ -1,0 +1,192 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#the-empty-doorway-header {
+  background-color: #fff;
+  @include mq(tablet) {
+    .fc-container__inner {
+      margin-top: -6px;
+    }
+  }
+}
+
+.the-empty-doorway-header__wrapper {
+  width: calc(100% + 20px);
+  background-color: #fff;
+  margin: 0 -10px;
+  overflow: hidden;
+  @include mq(tablet) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.ed-header {
+  position: relative;
+  padding: 0 10px;
+  height: 370px;
+  @include mq(mobileLandscape) {
+    padding: 0 20px;
+  }
+  @include mq(tablet) {
+    height: 262px;
+    &:before,
+    &:after {
+      content: '';
+      background-color: #dcdcdc;
+      width: 1px;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: 12;
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 20;
+    @include mq(mobileLandscape) {
+      left: 20px;
+    }
+    @include mq(leftCol) {
+      left: 171px;
+    }
+    @include mq(wide) {
+      left: 251px;
+    }
+    &__label {
+      width: 76px;
+      height: 48px;
+      background-color: #C70000;
+      svg {
+        margin-top: 9px;
+        margin-left: 10px;
+      }
+      @include mq(desktop) {
+        width: 100px;
+        height: 56px;
+        svg {
+          margin-left: 9px;
+          width: 49px;
+          height: 37px;
+        }
+      }
+    }
+    &__text {
+      position: relative;
+      right: 1px;
+      width: 200px;
+      height: 110px;
+      font-size: 36px;
+      line-height: 32px;
+      background-color: #FFF4F2;
+      border: 1px solid #121212;
+      color: #C70000;
+      padding: 6px 9px;
+      font-family: "Guardian Titlepiece","Guardian Headline Full","Guardian Headline","Guardian Egyptian Web",Georgia,serif;
+      @include mq(desktop) {
+        font-size: 48px;
+        line-height: 44px;
+        width: 278px;
+        height: 148px;
+      }
+    }
+  }
+
+  &__desc {
+    position: absolute;
+    z-index: 20;
+    bottom: 1px;
+    padding: 6px 9px 19px;
+    left: 10px;
+    right: 10px;
+    background-color: #FFF4F2;
+    @include mq(mobileLandscape) {
+      left: 20px;
+      right: 20px;
+    }
+    &:before {
+      content: '';
+      z-index: 19;
+      position: absolute;
+      display: block;
+      border: 1px solid #121212;
+      border-top: 0;
+      bottom: -1px;
+      left: -1px;
+      right: -1px;
+      height: 19px;
+      @include mq(tablet) {
+        height: 21px;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+      @include mq(desktop) {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+    @include mq(tablet) {
+      width: 322px;
+      left: auto;
+    }
+    @include mq(desktop) {
+      width: 522px;
+    }
+  }
+
+  &__background {
+    height: 351px;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    bottom: 19px;
+    transform: translateX(-50%);
+    overflow: hidden;
+    img {
+      width: 1300px;
+    }
+    @include mq(tablet) {
+      height: 240px;
+    }
+  }
+
+  &__roundel {
+    display: block;
+    position: absolute;
+    z-index: 20;
+    top: 6px;
+    right: 9px;
+    @include mq(mobileLandscape) {
+      right: 16px;
+    }
+    @include mq(desktop) {
+      top: 11px;
+    }
+  }
+}
+
