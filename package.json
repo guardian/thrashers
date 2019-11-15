@@ -16,6 +16,7 @@
     "jit-grunt": "^0.9.0"
   },
   "dependencies": {
+    "grunt-new": "0.0.0",
     "grunt-sass": "^2.1.0",
     "node-sass": "^4.9.0",
     "sass-mq": "^5.0.1"
