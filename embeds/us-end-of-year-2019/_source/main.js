@@ -36,6 +36,7 @@ function fetchDataAndAnimate() {
     fetch('https://support.theguardian.com/ticker.json').then(function (resp) {
         return resp.json();
     }).then(function (data) {
+        console.log('yoyoyo');
         total = parseInt(data.total, 10);
         goal = parseInt(data.goal, 10);
 
