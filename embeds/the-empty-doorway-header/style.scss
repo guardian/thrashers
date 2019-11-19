@@ -12,6 +12,11 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+.fc-container--commercial,
+.top-banner-ad-container {
+  display: none !important;
+}
+
 section#the-empty-doorway-header {
   background-color: #fff;
   @include mq(tablet) {
