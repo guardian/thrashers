@@ -11,7 +11,7 @@ function percentageTotalAsNegative() {
 };
 
 function animateBar() {
-    var progressBarElement = document.querySelector('.us-end-of-year-2018__progress-complete');
+    var progressBarElement = document.querySelector('.us-end-of-year-2019__progress-complete');
 
     if (progressBarElement && progressBarElement instanceof HTMLElement) {
         progressBarElement.style.transform = 'translateX(' + percentageTotalAsNegative() + '%)';
@@ -20,7 +20,7 @@ function animateBar() {
 
 function increaseCounter() {
     count += Math.floor(total / 100);
-    var counterElement = document.querySelector('.us-end-of-year-2018__count');
+    var counterElement = document.querySelector('.us-end-of-year-2019__count');
 
     if (counterElement && counterElement instanceof HTMLElement) {
         counterElement.innerHTML = '$' + count.toLocaleString();
