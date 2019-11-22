@@ -1,0 +1,122 @@
+.fc-item.will-process {
+  opacity: 0;
+  &.done-process {
+    opacity: 1;
+  }
+}
+
+// Rules for both real and fake cards
+section:not(.fc-container--thrasher) .fc-item,
+.fc-item.has-poster {
+
+  // Remove top line
+  .fc-item__container:before {
+    display: none;
+  }
+
+  // Remove white background
+  &, .u-faux-block-link--hover {
+    background-color: transparent;
+  }
+  .js-headline-text {
+    color: #f6f6f6;
+  }
+
+  // Layout
+  .fc-item__content {
+    padding: 3px 0 0;
+    .fc-item__header {
+      padding-bottom: 0;
+    }
+  }
+  @include mq($until: tablet) {
+    .fc-item__media-wrapper {
+      position: static;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  // Typography
+  .fc-item__link {
+    font-size: 16px;
+    line-height: 20px;
+    @include mq(tablet) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    .fc-item__headline {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}
+
+
+// Fake cards only
+section:not(.fc-container--thrasher) .fc-item:not(.has-poster) {
+  // Change image ratio
+  .u-responsive-ratio {
+    padding-bottom: 133.3%;
+    overflow: hidden;
+    background-color: transparent;
+    picture,
+    img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      height: 100%;
+      transform: translateX(-50%);
+    }
+  }
+
+  // Fake doc title
+  .fc-item__title {
+    overflow: visible;
+  }
+  .fc-item__link {
+    .fc-item__kicker {
+      font-weight: 800;
+      font-size: inherit;
+      line-height: inherit;
+      color: #f6f6f6;
+      &:after {
+        display: none;
+      }
+    }
+    .fc-item__headline {
+      display: block;
+    }
+  }
+}
+
+
+// Poster cards only
+.fc-item.has-poster {
+
+  // Hide kicker
+  .fc-item__link {
+    .fc-item__kicker {
+      display: none;
+    }
+  }
+
+
+  // Image swap
+  .fc-item__image-container {
+    display: none;
+  }
+  .doc-poster {
+    width: 100%;
+    display: block;
+  }
+
+  &:hover {
+    .doc-poster {
+      opacity: 0.85;
+    }
+  }
+}
