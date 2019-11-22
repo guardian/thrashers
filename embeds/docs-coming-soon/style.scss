@@ -39,9 +39,12 @@ section#coming-soon {
         margin: 0 -10px;
         position: relative;
         padding-bottom: 32px;
-        width: 100%;
-        // border-left: 1px solid #ffe500;
-        // border-right: 1px solid #ffe500;
+        background-color: #121212;
+        border-left: 1px solid #333;
+        border-right: 1px solid #333;
+        @include mq(phablet) {
+            width: 100%;
+        }
         @include mq(tablet) {
             margin: 0;
         }
