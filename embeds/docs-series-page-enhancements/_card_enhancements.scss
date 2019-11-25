@@ -1,6 +1,20 @@
-.fc-item.will-process {
+section:not(.fc-container--thrasher) .fc-item,
+#latest-release .fc-item {
   opacity: 0;
+  animation: showLater 12000ms forwards;
   &.done-process {
+    opacity: 1;
+    animation: none;
+  }
+}
+@keyframes showLater {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
