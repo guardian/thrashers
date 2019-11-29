@@ -11,6 +11,7 @@ $mq-breakpoints: (
 );
 
 @import 'shared/_imports';
+@import 'sea-group';
 
 .fc-container--thrasher#documentary {
   background-color: #fff;
@@ -21,7 +22,7 @@ $mq-breakpoints: (
   position: relative;
   z-index: 10;
   margin: 0 -10px;
-  background-color: #25110F;
+  background-color: #002754;
   @include mq(tablet) {
     width: 100%;
     margin: 0;
@@ -75,6 +76,7 @@ $mq-breakpoints: (
     z-index: 10;
     padding: 6px 38px 0 0;
     margin-bottom: 18px;
+    text-shadow: #00254B 0 0 10px;
     @include mq(leftCol) {
       margin-left: 150px;
       border-left: 1px solid #697792;
@@ -121,7 +123,7 @@ $mq-breakpoints: (
       &__time {
         display: inline-block;
         vertical-align: middle;
-        text-shadow: #DBCFC8 0 0 12px;
+        text-shadow: #00254B 0 0 10px;
         margin-bottom: -1px;
         margin-left: 1px;
         @include mq(desktop) {
@@ -140,24 +142,6 @@ $mq-breakpoints: (
     bottom: 0;
     z-index: -1;
     overflow: hidden;
-    transition: opacity 240ms;
-    &__img {
-      width: 1560px;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 40%;
-      transform: translate(-40%, -50%);
-      @include mq(desktop) {
-        transform: translate(-24%, -60%);
-      }
-      @include mq(leftCol) {
-        transform: translate(-16%, -60%);
-      }
-      @include mq(wide) {
-        transform: translate(-14%, -60%);
-      }
-    }
   }
 
   .roundel {

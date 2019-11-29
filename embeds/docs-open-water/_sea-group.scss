@@ -1,0 +1,29 @@
+.docs-open-water__wrapper .image {
+  .sea-group {
+    width: 1300px;
+    position: absolute;
+    top: -81px;
+    left: 0;
+    transform: rotate(0);
+
+    transition: all 2s ease-in-out, top 1s ease-in-out;
+    &__overview {
+      width: 100%;
+    }
+    &__detail {
+      width: 11.51%;
+      height: 11.58%;
+      position: absolute;
+      top: 36.30%;
+      left: 78.2%;
+      transform: rotate(-80deg);
+    }
+
+    :hover & {
+      width: 6441px;
+      transform: rotate(-20deg);
+      left: -4272px;
+      top: -130px;
+    }
+  }
+}
