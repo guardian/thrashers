@@ -13,9 +13,9 @@
 		var sea = thrasher.querySelector('.sea-group')
 		var r = onScreenRatio(thrasher);
 
-		if (r > 0.8 || r < 0) {
+		if (r > 0.65) {
 			sea.dataset.step = '1';
-		} else if (r > 0.7) {
+		} else if (r > 0.45) {
 			sea.dataset.step = '2';
 		} else {
 			sea.dataset.step = '3';
