@@ -13,8 +13,9 @@ $mq-breakpoints: (
 @import 'shared/_imports';
 @import 'sea-group';
 
+.fc-container--thrasher#documentaries,
 .fc-container--thrasher#documentary {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .docs-open-water__wrapper {
