@@ -1,0 +1,54 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@include base('election-countdown', #121212);
+
+
+.red-background {
+  background-color: tomato;
+  width: 1140px;
+  padding-top: 6px;
+  padding-left: 6px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  background-image: url();
+
+  @include mq($from: desktop) {
+    background-image: url();
+
+  }
+  @include mq($from: leftCol) {
+    background-image: url();
+
+  }
+  @include mq($from: wide) {
+    background-image: url();
+
+  }
+}
+
+.red-background__roundel {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+.red-background__component-button {
+  @include component-button(#000, #fff, red);
+}

@@ -1,0 +1,146 @@
+// HIDE ITSELF
+.fc-container--thrasher#enhancement {
+  display: none;
+}
+
+//
+// LAYOUT
+//
+
+.fc-container__header .fc-container__header__title {
+  &:after {
+    background-color: #333;
+  }
+}
+
+.fc-container__header__title>h2 {
+  color: #ffffff;
+  &:after {
+    display: none;
+  }
+}
+.fc-container__header .fc-container__header__description {
+  float: none;
+  text-align: left;
+}
+.fc-container__header .fc-container__toggle:hover {
+  color: #fff;
+}
+
+// remove 10px padding from top thrasher
+.fc-container--first {
+  padding-top: 0;
+}
+
+// Hide comment count when snaps have it
+.fc-trail__count--commentcount {
+  display: none;
+}
+
+.has-flex-wrap section:not(.fc-container--thrasher) .fc-container__body .linkslist .fc-slice__item,
+section:not(.fc-container--thrasher) .fc-slice-wrapper .fc-slice__item {
+  width: calc(50% - 2px);
+  display: inline-block;
+  vertical-align: top;
+
+  .facia-snap {
+      background-color: transparent;
+  }
+  @include mq(tablet) {
+      flex-basis: 25%;
+  }
+}
+
+.linkslist .fc-slice__item:nth-child(3n+1):before {
+  border-left: 0.0625rem solid #333;
+}
+.linkslist .fc-slice__item {
+  margin-top: 12px;
+}
+.linkslist .fc-slice__item:nth-child(4n+1):before {
+  border-left: 0;
+}
+
+.linkslist .fc-slice__item:nth-child(3n+1):nth-last-child(-n+3), .linkslist .fc-slice__item:nth-child(3n+2):nth-last-child(-n+2), .linkslist .fc-slice__item:nth-child(3n+3):last-child {
+  padding-top: 0;
+}
+
+//
+// COLOURS
+//
+
+// black page background
+body,
+.facia-page {
+  background-color: #121212;
+}
+
+
+// container rulers
+.fc-container .fc-container__inner,
+.fc-slice__item+.fc-slice__item:before {
+  border-color: #333;
+}
+
+// container meta text
+.fc-container__header__title,
+.fc-container__header__description {
+  color: #767676;
+}
+
+// remove containers
+.fc-trending-topics,
+.fc-container--commercial {
+  display: none;
+}
+
+// mobile container toggle
+.fc-container__toggle {
+  .fc-container__toggle__text:hover,
+  .fc-container__toggle__text:focus {
+      color: #EAEAEA;
+  }
+  .inline-icon path {
+      fill: #767676;
+  }
+}
+
+// Show more button
+.button--primary,
+.button--medium.collection__show-more {
+  &, &:focus {
+    background-color: transparent;
+    border-color: #767676;
+  }
+  color: #DCDCDC;
+  padding: 0 12px 0 30px;
+  line-height: 32px;
+  height: 34px;
+  svg {
+      transform-origin: 0 50%;
+      transform: scale(0.9);
+      path {
+          fill: currentColor;
+      }
+  }
+  .js-button-text {
+      padding-left: 4px;
+      padding-right: 2px;
+      padding-bottom: 2px;
+      display: inline-block;
+  }
+  &:hover,
+  &:active {
+      background-color: #121212;
+      color: #fff;
+      border-color: #999;
+  }
+}
+
+// Remove thrashers’ background colour
+.fc-container--thrasher {
+  &,
+  .facia-snap {
+      background-color: transparent;
+  }
+}

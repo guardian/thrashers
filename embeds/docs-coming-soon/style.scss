@@ -11,6 +11,9 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
+section#coming-soon {
+    margin-bottom: 0;
+}
 
 .docs-coming-soon {
     font-family: "Guardian Egyptian Web", "Guardian Text Egyptian Web", Georgia, serif;
@@ -28,13 +31,20 @@ $mq-breakpoints: (
             right: 0;
             width: 100%;
             height: 1px;
-            background-color: #fb0;
+            // background-color: #ffe500;
+            background-color: #333;
         }
     }
     &__wrapper {
         margin: 0 -10px;
         position: relative;
-        width: 100%;
+        padding-bottom: 32px;
+        background-color: #121212;
+        border-left: 1px solid #333;
+        border-right: 1px solid #333;
+        @include mq(phablet) {
+            width: 100%;
+        }
         @include mq(tablet) {
             margin: 0;
         }
@@ -70,11 +80,14 @@ $mq-breakpoints: (
         .description {
             color: #EAEAEA;
             @include mq(phablet) {
-                color: #fb0;
+                color: #ffe500;
             }
         }
         .title {
             float: none;
+            &:after {
+                background-color: #333;
+            }
         }
         .description {
             display: none;
@@ -167,7 +180,7 @@ $mq-breakpoints: (
             font-size: 14px;
             color: #F6F6F6;
             font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-            font-weight: 600;
+            // font-weight: 600;
             &:before {
                 content: '';
                 position: absolute;
@@ -195,7 +208,7 @@ $mq-breakpoints: (
         padding: 12px 10px;
         border-top: 1px solid #333;
         color: #EAEAEA;
-        font-family: "Guardian Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+        font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
         @include mq(mobileLandscape) {
             padding-left: 20px;
             padding-right: 20px;
@@ -220,13 +233,6 @@ $mq-breakpoints: (
             display: none;
             @include mq(desktop) {
                 display: block;
-                width: 132px;
-                height: 74px;
-                margin-top: -6px;
-                svg {
-                    width: 100%;
-                    height: 100%;
-                }
             }
         }
         .intro,
@@ -239,8 +245,8 @@ $mq-breakpoints: (
             }
         }
         .intro {
-            font-size: 18px;
-            line-height: 20px;
+            font-size: 15px;
+            line-height: 18px;
             @include mq(desktop) {
                 bottom: 60px;
             }
