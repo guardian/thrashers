@@ -18,7 +18,7 @@ $c-blue: #1E5490;
 
 @import 'shared/_imports';
 
-@include base(us-end-of-year-giving-tuesday, $c-red);
+@include base(us-new-year-fundraiser, $c-red);
 
 @font-face {
     font-family: 'Guardian Figures';
@@ -30,7 +30,7 @@ $c-blue: #1E5490;
     font-stretch: normal;
 }
 
-.us-end-of-year-giving-tuesday__wrapper {
+.us-new-year-fundraiser__wrapper {
     @include mq(tablet) {
         padding: 0 20px;
         border-left: 1px solid $c-white;
@@ -38,7 +38,7 @@ $c-blue: #1E5490;
     }
 }
 
-.us-end-of-year-2019__content {
+.us-new-year-fundraiser__content {
     max-width: 620px;
     //position: relative;
     z-index: 30;
@@ -49,7 +49,7 @@ $c-blue: #1E5490;
         }
 }
 
-.us-end-of-year-2019__title {
+.us-new-year-fundraiser__title {
     font-family: 'Guardian Figures';
     font-weight: normal;
     padding-top: 4px;
@@ -68,8 +68,8 @@ $c-blue: #1E5490;
     }
 }
 
-.us-end-of-year-2019__title-kicker {
-    color: $c-blue;
+.us-new-year-fundraiser__title-kicker {
+    color: $c-black;
     display: block;
     margin-bottom: 4px;
 
@@ -78,11 +78,11 @@ $c-blue: #1E5490;
     }
 }
 
-.us-end-of-year-2019__title-main {
-    color: $c-black;
+.us-new-year-fundraiser__title-main {
+    color: $c-blue;
 }
 
-.us-end-of-year-2019__standfirst {
+.us-new-year-fundraiser__standfirst {
     font-size: 16px;
     line-height: 22px;
 
@@ -98,7 +98,7 @@ $c-blue: #1E5490;
     }
 }
 
-.us-end-of-year-2019__money-zone {
+.us-new-year-fundraiser__money-zone {
     margin-top: 24px;
 
     @include mq(tablet) {
@@ -110,7 +110,7 @@ $c-blue: #1E5490;
     }
 }
 
-.us-end-of-year-2019__count {
+.us-new-year-fundraiser__count {
     font-family: 'Guardian Figures';
     font-size: 26px;
     line-height: .9;
@@ -118,33 +118,33 @@ $c-blue: #1E5490;
     color: $c-blue;
 }
 
-.us-end-of-year-2019__total {
+.us-new-year-fundraiser__total {
     font-size: 16px;
     color: $c-blue;
 }
 
-.us-end-of-year-2019__progress-bar {
+.us-new-year-fundraiser__progress-bar {
     position: relative;
     margin: 6px 0;
     height: 8px;
     width: 100%;
     border-radius: 4px;
     overflow: hidden;
-    background-color: darken(#D7D7D7, 10%);
+    background-color: darken(#dcdcdc, 10%);
 }
 
-.us-end-of-year-2019__progress-complete {
+.us-new-year-fundraiser__progress-complete {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #496F99;
+    background-color: #506991;
     transform: translateX(-100%);
     transition: transform 0.8s linear;
 }
 
-.us-end-of-year-2019__button {
+.us-new-year-fundraiser__button {
     display: inline-block;
     padding: 5px 8px 6px 8px;
     border-radius: 32px;
@@ -169,25 +169,25 @@ $c-blue: #1E5490;
     }
 }
 
-.us-end-of-year-2019__image {
+.us-new-year-fundraiser__image {
     max-width: 100%;
     margin-left: auto;
     display: block;
     margin-top: -40px;
 
     @include mq(tablet) {
-        width: 320px;
+        width: 380px;
         margin-top: -190px;
-        margin-right: -20px;
+        margin-right: -80px;
         max-width: none;
     }
 
     @include mq(desktop) {
         position: absolute;
-        width: 340px;
+        width: 350px;
         right: 40px;
         bottom: 0;
-        margin-right: -40px;
+        margin-right: -20px;
     }
 
     @include mq(leftCol) {
@@ -195,12 +195,12 @@ $c-blue: #1E5490;
     }
 
     @include mq(wide) {
-        width: 440px;
-        right: 100px;
+        width: 540px;
+        right: 80px;
     }
 }
 
-.us-end-of-year-2019__roundel {
+.us-new-year-fundraiser__roundel {
     display: none;
 
     @include mq(tablet) {
