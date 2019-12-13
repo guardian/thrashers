@@ -14,7 +14,7 @@ $c-red: #FEF9F5;
 $c-yellow: #ffe601;
 $c-white: #fff;
 $c-black: #212121;
-$c-blue: #1E5490;
+$c-blue: #ab0613;
 
 @import 'shared/_imports';
 
@@ -30,7 +30,7 @@ $c-blue: #1E5490;
     font-stretch: normal;
 }
 
-.us-end-of-year-giving-tuesday__wrapper {
+.us-end-of-year-2019-dec-29__wrapper {
     @include mq(tablet) {
         padding: 0 20px;
         border-left: 1px solid $c-white;
