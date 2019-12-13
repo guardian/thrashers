@@ -144,6 +144,38 @@ $c-blue: #1E5490;
     transition: transform 0.8s linear;
 }
 
+/* animation styles */
+@keyframes imageFade {
+	0% { opacity: 0; }
+    40% { opacity: 0; }
+	45% { opacity: 1; }
+    50% { opacity: 1; }
+    55% { opacity: 1; }
+    60% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.fadeInClass {
+	animation-name: imageFade;
+	animation-duration: 24s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+
+.second {
+    animation-delay: 0s;
+    opacity: 0;
+}
+.third {
+    animation-delay: 8s;
+    opacity: 0;
+}
+.fourth {
+    animation-delay: 16s;
+    opacity: 0;
+}
+
 .us-impeachment-day__button {
     display: inline-block;
     padding: 5px 8px 6px 8px;
@@ -169,17 +201,20 @@ $c-blue: #1E5490;
     }
 }
 
-.us-impeachment-day__image {
+.us-impeachment-day__image-container {
     max-width: 100%;
     margin-left: auto;
     display: block;
-    margin-top: -20px;
+    position: relative;
+    margin-top: 200px;
+    min-height: 100%;
 
     @include mq(tablet) {
         width: 280px;
         margin-top: -190px;
         margin-right: 0px;
         max-width: none;
+        min-height: 200px;
     }
 
     @include mq(desktop) {
@@ -198,6 +233,12 @@ $c-blue: #1E5490;
         width: 520px;
         right: 100px;
     }
+}
+
+.us-impeachment-day__image {
+    position: absolute;
+    max-width: 100%;
+    bottom: 0px;
 }
 
 .us-impeachment-day__roundel {
