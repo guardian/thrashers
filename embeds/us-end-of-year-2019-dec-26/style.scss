@@ -115,7 +115,7 @@ $c-blue: #ab0613;
 
 .us-end-of-year-2019-dec-26__visuals {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 
     @include mq(tablet) {
         flex-direction: column;
@@ -123,7 +123,7 @@ $c-blue: #ab0613;
 }
 
 .us-end-of-year-2019-dec-26__money-zone {
-    margin-top: 24px;
+    margin-top: 10px;
 
     @include mq(tablet) {
         margin-right: 180px;
@@ -221,7 +221,7 @@ $c-blue: #ab0613;
 
     @include mq(wide) {
         width: 520px;
-        right: 0px;
+        right: 80px;
     }
 }
 
