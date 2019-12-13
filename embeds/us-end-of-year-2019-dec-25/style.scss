@@ -18,7 +18,7 @@ $c-blue: #ab0613;
 
 @import 'shared/_imports';
 
-@include base(us-end-of-year-2019-dec-26, $c-red);
+@include base(us-end-of-year-2019-dec-25, $c-red);
 
 @font-face {
     font-family: 'Guardian Figures';
@@ -30,7 +30,7 @@ $c-blue: #ab0613;
     font-stretch: normal;
 }
 
-.us-end-of-year-2019-dec-26__wrapper {
+.us-end-of-year-2019-dec-25__wrapper {
     @include mq(tablet) {
         padding: 0 20px;
         border-left: 1px solid $c-white;
@@ -38,7 +38,7 @@ $c-blue: #ab0613;
     }
 }
 
-.us-end-of-year-2019-dec-26__content {
+.us-end-of-year-2019-dec-25__content {
     max-width: 620px;
     //position: relative;
     z-index: 30;
@@ -50,7 +50,7 @@ $c-blue: #ab0613;
         }
 }
 
-.us-end-of-year-2019-dec-26__title {
+.us-end-of-year-2019-dec-25__title {
     font-family: 'Guardian Figures';
     font-weight: normal;
     padding-top: 4px;
@@ -69,7 +69,7 @@ $c-blue: #ab0613;
     }
 }
 
-.us-end-of-year-2019-dec-26__title-kicker {
+.us-end-of-year-2019-dec-25__title-kicker {
     color: $c-blue;
     display: block;
     margin-bottom: 4px;
@@ -87,11 +87,11 @@ $c-blue: #ab0613;
     }
 }
 
-.us-end-of-year-2019-dec-26__title-main {
+.us-end-of-year-2019-dec-25__title-main {
     color: $c-black;
 }
 
-.us-end-of-year-2019-dec-26__standfirst {
+.us-end-of-year-2019-dec-25__standfirst {
     font-size: 16px;
     line-height: 22px;
 
@@ -113,7 +113,7 @@ $c-blue: #ab0613;
     }
 }
 
-.us-end-of-year-2019-dec-26__visuals {
+.us-end-of-year-2019-dec-25__visuals {
     display: flex;
     flex-direction: column-reverse;
 
@@ -122,12 +122,11 @@ $c-blue: #ab0613;
     }
 }
 
-.us-end-of-year-2019-dec-26__money-zone {
-    margin-top: 24px;
+.us-end-of-year-2019-dec-25__money-zone {
+    margin-top: 10px;
 
     @include mq(tablet) {
         margin-right: 180px;
-        margin-top: 10px;
     }
 
     @include mq(desktop) {
@@ -135,7 +134,7 @@ $c-blue: #ab0613;
     }
 }
 
-.us-end-of-year-2019-dec-26__count {
+.us-end-of-year-2019-dec-25__count {
     font-family: 'Guardian Figures';
     font-size: 26px;
     line-height: .9;
@@ -143,12 +142,12 @@ $c-blue: #ab0613;
     color: $c-blue;
 }
 
-.us-end-of-year-2019-dec-26__total {
+.us-end-of-year-2019-dec-25__total {
     font-size: 16px;
     color: $c-blue;
 }
 
-.us-end-of-year-2019-dec-26__progress-bar {
+.us-end-of-year-2019-dec-25__progress-bar {
     position: relative;
     margin: 6px 0;
     height: 8px;
@@ -158,7 +157,7 @@ $c-blue: #ab0613;
     background-color: darken(#D7D7D7, 10%);
 }
 
-.us-end-of-year-2019-dec-26__progress-complete {
+.us-end-of-year-2019-dec-25__progress-complete {
     position: absolute;
     top: 0;
     left: 0;
@@ -169,7 +168,7 @@ $c-blue: #ab0613;
     transition: transform 0.8s linear;
 }
 
-.us-end-of-year-2019-dec-26__button {
+.us-end-of-year-2019-dec-25__button {
     display: inline-block;
     padding: 5px 8px 6px 8px;
     border-radius: 32px;
@@ -194,16 +193,16 @@ $c-blue: #ab0613;
     }
 }
 
-.us-end-of-year-2019-dec-26__image {
+.us-end-of-year-2019-dec-25__image {
     max-width: 100%;
     margin-left: auto;
     display: block;
     margin-top: 0px;
 
     @include mq(tablet) {
-        width: 280px;
+        width: 380px;
         margin-top: -190px;
-        margin-right: 0px;
+        margin-right: -60px;
         max-width: none;
     }
 
@@ -211,7 +210,7 @@ $c-blue: #ab0613;
         position: absolute;
         width: 370px;
         right: 40px;
-        bottom: 0;
+        bottom: 10px;
         margin-right: -40px;
     }
 
@@ -220,12 +219,12 @@ $c-blue: #ab0613;
     }
 
     @include mq(wide) {
-        width: 520px;
-        right: 0px;
+        width: 400px;
+        right: 80px;
     }
 }
 
-.us-end-of-year-2019-dec-26__roundel {
+.us-end-of-year-2019-dec-25__roundel {
     display: none;
 
     @include mq(tablet) {
