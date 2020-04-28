@@ -103,6 +103,29 @@ section#coronavirus-news,
         color: #ff4e36;
       }
     }
+
+    &.fc-item--type-comment .fc-item__container>.fc-item__meta {
+      $line-colour: #808A9B; // #fff at 50% on blue, #506991 is too soft
+      background-image: repeating-linear-gradient(to bottom, $line-colour, $line-colour 0.0625rem, transparent 0.0625rem, transparent 0.25rem);
+    }
+
+    // Comment count in opinion cards
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-item__timestamp,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount {
+      background-color: #041f4a;
+      color: #DCDCDC;
+    }
+    &.fc-item--type-live.fc-item--pillar-news .fc-item__meta {
+      color: #DCDCDC;
+    }
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount .inline-icon {
+      fill: #DCDCDC;
+    }
+
+    // Hover state
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout):hover .fc-trail__count--commentcount {
+      background-color: #061532;
+    }
   }
 
   .u-faux-block-link--hover {
