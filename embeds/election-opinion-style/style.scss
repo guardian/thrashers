@@ -110,14 +110,19 @@ section#coronavirus-news,
     }
 
     // Comment count in opinion cards
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount,
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment .fc-trail__count--commentcount,
     &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-item__timestamp,
     &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount {
       background-color: #041f4a;
       color: #DCDCDC;
     }
+    &.fc-item--type-comment.fc-item--pillar-news .fc-item__meta,
     &.fc-item--type-live.fc-item--pillar-news .fc-item__meta {
       color: #DCDCDC;
     }
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount .inline-icon,
+    &.fc-item--type-comment .fc-item__container>.fc-item__meta .fc-trail__count .inline-icon,
     &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount .inline-icon {
       fill: #DCDCDC;
     }
