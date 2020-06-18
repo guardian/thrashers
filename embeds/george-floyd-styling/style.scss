@@ -1,0 +1,304 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+  mobile: 320px,
+  mobileMedium: 360px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px,
+);
+
+@import "shared/_imports";
+
+// George Floyd container styles
+
+section#george-floyd-thrasher {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+}
+
+section#george-floyd-killing,
+section#george-floyd-opinion,
+section#police-response,
+section#black-lives-matter-protests {
+  background-color: #939a9d;
+  // margin-top: -25px;
+  // padding-top: 16px;
+
+  @include mq($from: leftCol) {
+    // margin-top: -12px;
+    padding-top: 12px;
+  }
+
+  & + .fc-container__mpu--mobile {
+    background-color: #e0e4e8;
+    margin-top: -12px;
+    padding-bottom: 20px;
+  }
+
+  .treats__treat {
+    background-color: #e0e4e8;
+    border-color: #121212;
+  }
+
+  .fc-container__inner {
+    border-top: 1px solid #afafaf;
+  }
+
+  .fc-container__header__title:after {
+    background-color: #929698;
+  }
+
+  .fc-container__header__title {
+    h2 {
+      color: #000;
+    }
+  }
+
+  .fc-item {
+    background-color: #535658;
+
+    .fc-item__headline {
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .fc-item__kicker {
+      color: #fec8d3;
+      // color: #FF9081;
+    }
+
+    .fc-trail__count--commentcount {
+      background-color: #535658;
+    }
+
+    // .fc-item__title:nth-child(1) {
+    //     margin-left: 8px;
+    // }
+
+    @media (min-width: 46.25em) and (min-width: 61.25em) {
+      .fc-item--full-media-100-tablet .fc-item__header {
+        margin-left: 8px;
+      }
+    }
+
+    .live-pulse-icon:before {
+      background-color: #fec8d3;
+    }
+
+    .fc-item__content:before {
+      background-color: #fec8d3;
+    }
+
+    .fc-sublink__title {
+      color: #fff;
+
+      .fc-sublink__kicker {
+        color: #fec8d3;
+        // color: #FF9081;
+      }
+    }
+
+    &.fc-item--type-comment .fc-item__container > .fc-item__meta {
+      $line-colour: #808a9b; // #fff at 50% on blue, #506991 is too soft
+      background-image: repeating-linear-gradient(
+        to bottom,
+        $line-colour,
+        $line-colour 0.0625rem,
+        transparent 0.0625rem,
+        transparent 0.25rem
+      );
+    }
+
+    // Comment count in opinion cards
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount,
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment
+      .fc-trail__count--commentcount,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-item__timestamp,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount {
+      background-color: #535658;
+      color: #dcdcdc;
+    }
+
+    &.fc-item--type-comment.fc-item--pillar-news .fc-item__meta,
+    &.fc-item--type-live.fc-item--pillar-news .fc-item__meta {
+      color: #dcdcdc;
+    }
+
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount
+      .inline-icon,
+    &.fc-item--type-comment
+      .fc-item__container
+      > .fc-item__meta
+      .fc-trail__count
+      .inline-icon,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount
+      .inline-icon {
+      fill: #dcdcdc;
+    }
+
+    // Hover state
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout):hover
+      .fc-trail__count--commentcount {
+      background-color: #535658;
+    }
+
+    .fc-item__liveblog-block__text {
+      color: white;
+    }
+  }
+
+  .u-faux-block-link--hover {
+    background-color: darken(#535658, 5%);
+  }
+
+  .fc-item__link:visited,
+  .fc-sublink__link:visited {
+    color: #f6f6f6;
+  }
+
+  .u-faux-block-link--hover {
+    background-color: darken(#535658, 5%);
+  }
+
+  .fc-item__title--quoted .inline-quote {
+    fill: #f6f6f6;
+  }
+
+  .fc-item__title {
+    color: white;
+  }
+
+  .fc-item__byline {
+    color: #f9b376;
+  }
+
+  .fc-item__standfirst {
+    color: white;
+  }
+
+  .fc-item--pillar-opinion {
+    .fc-item__kicker {
+      color: #f9b376;
+    }
+
+    .fc-item__byline {
+      color: #f9b376;
+    }
+
+    .inline-icon {
+      fill: #f9b376;
+    }
+
+    .fc-item__container:before {
+      background-color: #f9b376;
+    }
+  }
+
+  .fc-item--pillar-arts {
+    .fc-item__kicker {
+      color: #eacca0;
+    }
+
+    .fc-item__container:before {
+      background-color: #eacca0;
+    }
+
+    .fc-sublink {
+      .fc-item__kicker {
+        color: #eacca0;
+      }
+    }
+  }
+
+  .fc-item--pillar-news {
+    .inline-icon {
+      fill: #fec8d3;
+    }
+    .fc-item__container:before {
+      background-color: #fec8d3;
+    }
+  }
+
+  .fc-item--pillar-sport {
+    .fc-item__kicker {
+      color: #90dcff;
+    }
+
+    .fc-item__container:before {
+      background-color: #90dcff;
+    }
+
+    .fc-item__byline {
+      color: #90dcff;
+    }
+
+    .inline-icon {
+      fill: #90dcff;
+    }
+  }
+
+  .fc-container--story-package {
+    @media (min-width: 71.25em) {
+      .fc-container__body:before {
+        background-color: #ebebeb;
+      }
+    }
+  }
+
+  .fc-sublink {
+    background-color: #535658;
+    padding-left: 4px;
+    // @include mq($from: tablet) {
+    //   padding-left: 0;
+    // }
+
+    &__link {
+      color: #f6f6f6;
+    }
+  }
+
+  // @media (min-width: 46.25em) {
+
+  //     .fc-container--story-package .fc-item--dynamic-layout.fc-item--full-media-100-tablet .fc-sublink,
+  //     .fc-container--story-package .fc-item--dynamic-layout.fc-item--full-media-100-tablet .fc-sublink {
+  //         // background-color: rgba(4, 31, 74, 0.8);
+  //         background-color: #535658;
+  //     }
+  // }
+
+  .fc-item__liveblog-block__text:after {
+    color: white !important;
+    background-color: #535658 !important;
+    box-shadow: -0.3125rem 0 0.3125rem -0.125rem #535658 !important;
+  }
+
+  .fc-item__liveblog-block__time:before {
+    border: 0.0625rem solid #fec8d3;
+  }
+
+  .fc-item__liveblog-block__time {
+    color: white;
+  }
+
+  // .fc-item .fc-sublink__title .fc-sublink__kicker,
+  // section#george-floyd-opinion .fc-item .fc-sublink__title .fc-sublink__kicker {
+  //     color: #eacca0;
+  // }
+
+  .fc-item__content--above {
+    padding-left: 8px;
+  }
+
+  .fc-today__sub {
+    color: #c70000;
+  }
+}
