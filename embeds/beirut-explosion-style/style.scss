@@ -12,7 +12,10 @@ $mq-breakpoints: (
 
 @import 'shared/_imports';
 
-// $bg: #e0e4e8;
+$container-bg: #939A9D;
+$card-bg: #535658;
+$kicker: #FEC8D3;
+
 
 section#beirut-explosion-style-helper {
   height: 0;
@@ -23,14 +26,14 @@ section#beirut-explosion-style-helper {
 
 section#coronavirus {
   &+.fc-container__mpu--mobile {
-    background-color: #e0e4e8;
+    background-color: $container-bg;
     margin-top: -12px;
     padding-bottom: 20px;
   }
 }
 
 section#beirut-explosion {
-  background-color: #e0e4e8;
+  background-color: $container-bg;
   // margin-top: -25px;
   // padding-top: 16px;
 
@@ -39,19 +42,51 @@ section#beirut-explosion {
   //   padding-top: 0;
   // }
 
+  &.fc-container--story-package .fc-item--pillar-news .fc-item__container:before {
+    background-color: $kicker;
+  }
+
+  &.fc-container--story-package .fc-item--dynamic-layout .fc-item__content:before {
+    background-color: #172026;
+  }
+
+  .fc-item--three-quarters-tall-tablet .fc-item__header {
+    padding-left: 5px;
+  }
+
+  .fc-today .fc-today__sub {
+    color: #121212;
+  }
+
+  &.fc-container--story-package .fc-item--pillar-news .live-pulse-icon:before {
+    background-color: $kicker;
+  }
+
+  .fc-item--pillar-news .fc-item__media-meta .inline-icon {
+    background-color: $kicker;
+    path {
+      fill: #121212;
+    }
+  }
+  .fc-item--pillar-news .fc-item__media-meta {
+    color: #dcdcdc;
+  }
+  .fc-item--pillar-news .vjs-big-play-button .vjs-control-text {
+    background-color: $kicker;
+    path {
+      fill: #121212;
+    }
+  }
+
   &+.fc-container__mpu--mobile {
-    background-color: #e0e4e8;
+    background-color: $container-bg;
     margin-top: -12px;
     padding-bottom: 20px;
   }
 
   .treats__treat {
-    background-color: #e0e4e8;
+    background-color: $container-bg;
     border-color: #121212;
-  }
-
-  .fc-container__inner {
-    border-top: 1px solid #afafaf;
   }
 
   .fc-container__header__title:after {
@@ -61,14 +96,14 @@ section#beirut-explosion {
   .fc-container__header__title {
 
     h2 {
-      color: #041f4a;
+      color: #121212;
     }
 
   }
 
   .fc-item {
 
-    background-color: #041f4a;
+    background-color: $card-bg;
 
     .fc-item__headline {
       color: #fff;
@@ -76,14 +111,21 @@ section#beirut-explosion {
     }
 
     .fc-item__kicker {
-      color: #ff4e36;
+      color: $kicker;
+    }
+    .fc-sublink {
+      background-color: $card-bg;
+    }
+
+    .u-faux-block-link--hover .fc-sublink {
+      background-color: darken($card-bg, 5%);
     }
 
     .fc-sublink__title {
       color: #fff;
 
       .fc-sublink__kicker {
-        color: #ff4e36;
+        color: $kicker;
       }
     }
 
@@ -97,7 +139,7 @@ section#beirut-explosion {
     &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment .fc-trail__count--commentcount,
     &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-item__timestamp,
     &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount {
-      background-color: #041f4a;
+      background-color: $card-bg;
       color: #DCDCDC;
     }
 
@@ -119,7 +161,7 @@ section#beirut-explosion {
   }
 
   .u-faux-block-link--hover {
-    background-color: darken(#041f4a, 5%);
+    background-color: darken($card-bg, 5%);
   }
 
   .fc-item__link:visited,
@@ -128,7 +170,7 @@ section#beirut-explosion {
   }
 
   .u-faux-block-link--hover {
-    background-color: darken(#041f4a, 5%);
+    background-color: darken($card-bg, 5%);
   }
 
   .fc-item__title--quoted .inline-quote {
