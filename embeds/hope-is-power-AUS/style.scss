@@ -1,0 +1,148 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#hope-is-power.fc-container--thrasher {
+    background-color: #ffffff;
+
+    .facia-snap {
+        padding: 0;
+    }
+}
+
+.hope-is-power-AUS__wrapper {
+    background-color: #ffe500;
+    height: 320px;
+    width: 100%;
+    transition: background-color .3s ease-in-out;
+
+    &:hover, &:focus {
+        background-color: #E6CE00;
+    }
+}
+
+.hope-is-power__inner-wrapper {
+    box-sizing: border-box;
+    padding: 12px 10px;
+    width: 100%;
+    height: 320px;
+    display: flex;
+
+    @include mq(mobileLandscape) {
+        padding: 12px 20px;
+    }
+
+    @include mq(tablet) {
+        border: 1px solid #dcdcdc;
+        border-bottom: 0;
+        border-top: 0;
+    }
+}
+
+.hip-text {
+    display: flex;
+    flex-flow: column;
+
+    @include mq(desktop) {
+        flex-flow: row;
+    }
+}
+
+.change-is-possible {
+    width: 222px;
+    height: 95px;
+
+    @include mq(tablet) {
+        width: 350px;
+        height: 150px;
+    }
+
+    @include mq(desktop) {
+        width: 421px;
+        height: 180px;
+    }
+}
+
+.hope-is-power {
+    margin: -10px 0 0 6px;
+    width: 160px;
+    height: 95px;
+
+    @include mq(tablet) {
+        margin: -18px 0 0 9px;
+        width: 251px;
+        height: 150px;
+    }
+
+    @include mq(desktop) {
+        width: 303px;
+        height: 180px;
+        margin: 108px 0 0 14px;
+    }
+}
+
+.hip-link {
+    position: absolute !important;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.butterfly {
+    width: 80px;
+    height: 66px;
+
+    @include mq($until: mobileMedium) {
+        position: absolute;
+        bottom: 80px;
+        left: 174px;
+    }
+
+    @include mq(mobileMedium) {
+        margin: 100px 0 0 -50px;
+    }
+    
+    @include mq(tablet) {
+        margin: 111px 0 0 10px;
+        width: 135px;
+        height: 111px;
+    }
+
+    @include mq(desktop) {
+        margin: 31px 0 0 -110px;
+    }
+
+    @include mq(leftCol) {
+        margin: 111px 0 0 10px;
+    }
+}
+
+.support-the-guardian {
+    width: 107px;
+    height: 46px;
+    position: absolute;
+    bottom: 12px;
+    right: 10px;
+
+    @include mq(mobileLandscape) {
+        right: 20px;
+    }
+
+    @include mq(tablet) {
+        width: 170px;
+        height: 73px;
+    }
+}

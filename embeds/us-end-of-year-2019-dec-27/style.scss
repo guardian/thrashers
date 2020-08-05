@@ -1,0 +1,242 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    360px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+$c-red: #FEF9F5;
+$c-yellow: #ffe601;
+$c-white: #fff;
+$c-black: #212121;
+$c-blue: #ab0613;
+
+@import 'shared/_imports';
+
+@include base(us-end-of-year-2019-dec-27, $c-red);
+
+@font-face {
+    font-family: 'Guardian Figures';
+    src: url('https://interactive.guim.co.uk/fonts/guss-webfonts/GHFGuardianDisplayFigures/GHFGuardianDisplayFigures-Bold.woff2') format('woff2'),
+         url('https://interactive.guim.co.uk/fonts/guss-webfonts/GHFGuardianDisplayFigures/GHFGuardianDisplayFigures-Bold.woff') format('woff'),
+         url('https://interactive.guim.co.uk/fonts/guss-webfonts/GHFGuardianDisplayFigures/GHFGuardianDisplayFigures-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+.us-end-of-year-2019-dec-27__wrapper {
+    @include mq(tablet) {
+        padding: 0 20px;
+        border-left: 1px solid $c-white;
+        border-right: 1px solid $c-white;
+    }
+}
+
+.us-end-of-year-2019-dec-27__content {
+    max-width: 620px;
+    //position: relative;
+    z-index: 30;
+    padding: 4px 8px 0px 8px;
+    margin-top: 10px;
+    @include mq(tablet) {
+            padding: 0px;
+            max-width: 800px;
+        }
+}
+
+.us-end-of-year-2019-dec-27__title {
+    font-family: 'Guardian Figures';
+    font-weight: normal;
+    padding-top: 4px;
+    font-size: 26px;
+    line-height: 28px;
+    margin-bottom: 10px;
+
+    @include mq(tablet) {
+        font-size: 38px;
+        line-height: 42px;
+        margin-bottom: 6px;
+    }
+
+    @include mq(desktop) {
+        margin-top: 8px;
+    }
+}
+
+.us-end-of-year-2019-dec-27__title-kicker {
+    color: $c-blue;
+    display: block;
+    margin-bottom: 4px;
+
+    span {
+        font-size: 48px;
+    }
+
+    @include mq(desktop) {
+        margin-bottom: 0px;
+
+        span {
+            font-size: 64px;
+        }
+    }
+}
+
+.us-end-of-year-2019-dec-27__title-main {
+    color: $c-black;
+}
+
+.us-end-of-year-2019-dec-27__standfirst {
+    font-size: 16px;
+    line-height: 22px;
+
+    @include mq(tablet) {
+        margin-right: 280px;
+    }
+
+    @include mq(desktop) {
+        margin-right: 200px;
+    }
+    @include mq(leftCol) {
+        margin-right: 120px;
+    }
+
+    span {
+        //background-color: #506991;
+        //color: #fff;
+        border-bottom: 1px solid #333;
+    }
+}
+
+.us-end-of-year-2019-dec-27__visuals {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include mq(tablet) {
+        flex-direction: column;
+    }
+}
+
+.us-end-of-year-2019-dec-27__money-zone {
+    margin-top: 24px;
+
+    @include mq(tablet) {
+        margin-right: 180px;
+        margin-top: 10px;
+    }
+
+    @include mq(desktop) {
+        margin-right: 120px;
+    }
+}
+
+.us-end-of-year-2019-dec-27__count {
+    font-family: 'Guardian Figures';
+    font-size: 26px;
+    line-height: .9;
+    font-weight: normal;
+    color: $c-blue;
+}
+
+.us-end-of-year-2019-dec-27__total {
+    font-size: 16px;
+    color: $c-blue;
+}
+
+.us-end-of-year-2019-dec-27__progress-bar {
+    position: relative;
+    margin: 6px 0;
+    height: 8px;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: darken(#D7D7D7, 10%);
+}
+
+.us-end-of-year-2019-dec-27__progress-complete {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $c-blue;
+    transform: translateX(-100%);
+    transition: transform 0.8s linear;
+}
+
+.us-end-of-year-2019-dec-27__button {
+    display: inline-block;
+    padding: 5px 8px 6px 8px;
+    border-radius: 32px;
+    margin: 10px 0 8px;
+    color: $c-white !important;
+    font-family: 'Guardian Text Sans Web';
+    font-size: 14px;
+    font-weight: 600;
+    background-color: $c-black;
+    background-repeat: no-repeat;
+    background-position: right 3px center;
+    transition: color 0.3s ease-out, background 0.3s ease-out;
+
+    @include mq(desktop) {
+        margin-bottom: 12px;
+    }
+
+    &:hover {
+        text-decoration: none;
+        background-position: right center;
+        background-color: darken($c-yellow, 6%);
+    }
+}
+
+.us-end-of-year-2019-dec-27__image {
+    max-width: 100%;
+    margin-left: auto;
+    display: block;
+    margin-top: 0px;
+
+    @include mq(tablet) {
+        width: 280px;
+        margin-top: -160px;
+        margin-right: 0px;
+        max-width: none;
+    }
+
+    @include mq(desktop) {
+        position: absolute;
+        width: 370px;
+        right: 40px;
+        bottom: 0;
+        margin-right: -20px;
+    }
+
+    @include mq(leftCol) {
+        width: 380px;
+    }
+
+    @include mq(wide) {
+        width: 520px;
+        right: 100px;
+    }
+}
+
+.us-end-of-year-2019-dec-27__roundel {
+    display: none;
+
+    @include mq(tablet) {
+        display: block;
+        width: 40px;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+
+    @include mq(desktop) {
+        width: 48px;
+    }
+}
