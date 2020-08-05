@@ -11,3 +11,139 @@ $mq-breakpoints: (
 );
 
 @import 'shared/_imports';
+
+// $bg: #e0e4e8;
+
+section#beirut-explosion-style-helper {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+}
+
+
+section#coronavirus {
+  &+.fc-container__mpu--mobile {
+    background-color: #e0e4e8;
+    margin-top: -12px;
+    padding-bottom: 20px;
+  }
+}
+
+section#beirut-explosion {
+  background-color: #e0e4e8;
+  // margin-top: -25px;
+  // padding-top: 16px;
+
+  // @include mq($from: leftCol) {
+  //   margin-top: -12px;
+  //   padding-top: 0;
+  // }
+
+  &+.fc-container__mpu--mobile {
+    background-color: #e0e4e8;
+    margin-top: -12px;
+    padding-bottom: 20px;
+  }
+
+  .treats__treat {
+    background-color: #e0e4e8;
+    border-color: #121212;
+  }
+
+  .fc-container__inner {
+    border-top: 1px solid #afafaf;
+  }
+
+  .fc-container__header__title:after {
+    background-color: #929698;
+  }
+
+  .fc-container__header__title {
+
+    h2 {
+      color: #041f4a;
+    }
+
+  }
+
+  .fc-item {
+
+    background-color: #041f4a;
+
+    .fc-item__headline {
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .fc-item__kicker {
+      color: #ff4e36;
+    }
+
+    .fc-sublink__title {
+      color: #fff;
+
+      .fc-sublink__kicker {
+        color: #ff4e36;
+      }
+    }
+
+    &.fc-item--type-comment .fc-item__container>.fc-item__meta {
+      $line-colour: #808A9B; // #fff at 50% on blue, #506991 is too soft
+      background-image: repeating-linear-gradient(to bottom, $line-colour, $line-colour 0.0625rem, transparent 0.0625rem, transparent 0.25rem);
+    }
+
+    // Comment count in opinion cards
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount,
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment .fc-trail__count--commentcount,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-item__timestamp,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount {
+      background-color: #041f4a;
+      color: #DCDCDC;
+    }
+
+    &.fc-item--type-comment.fc-item--pillar-news .fc-item__meta,
+    &.fc-item--type-live.fc-item--pillar-news .fc-item__meta {
+      color: #DCDCDC;
+    }
+
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount .inline-icon,
+    &.fc-item--type-comment .fc-item__container>.fc-item__meta .fc-trail__count .inline-icon,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount .inline-icon {
+      fill: #DCDCDC;
+    }
+
+    // Hover state
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout):hover .fc-trail__count--commentcount {
+      background-color: #061532;
+    }
+  }
+
+  .u-faux-block-link--hover {
+    background-color: darken(#041f4a, 5%);
+  }
+
+  .fc-item__link:visited,
+  .fc-sublink__link:visited {
+    color: #f6f6f6;
+  }
+
+  .u-faux-block-link--hover {
+    background-color: darken(#041f4a, 5%);
+  }
+
+  .fc-item__title--quoted .inline-quote {
+    fill: #f6f6f6;
+  }
+
+  .fc-item__title {
+    color: white;
+  }
+
+  .fc-item__byline {
+    color: #ff9b0b;
+  }
+
+  .fc-item__standfirst {
+    color: white;
+  }
+}
