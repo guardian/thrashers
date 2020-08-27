@@ -1,13 +1,15 @@
 // Default breakpoints from Frontend
-$mq-breakpoints: (mobile: 320px,
+$mq-breakpoints: (
+  mobile: 320px,
   mobileLandscape: 480px,
   phablet: 660px,
   tablet: 740px,
   desktop: 980px,
   leftCol: 1140px,
-  wide: 1300px);
+  wide: 1300px,
+);
 
-@import 'shared/_imports';
+@import "shared/_imports";
 
 section#cv-explained-thrasher {
   height: 0;
@@ -18,7 +20,7 @@ section#cv-explained-thrasher {
 //mpu styling
 
 section#coronavirus {
-  &+.fc-container__mpu--mobile {
+  & + .fc-container__mpu--mobile {
     background-color: #e0e4e8;
     margin-top: -12px;
     padding-bottom: 20px;
@@ -33,6 +35,9 @@ section#guardian-community,
 section#coronavirus-us,
 section#coronavirus-australia,
 section#coronavirus-news,
+section#inside-the-melbourne-towers-lockdown,
+section#melbourne-towers-lockdown,
+section#melbourne-lockdown,
 [id="100-days-that-changed-the-world"] {
   background-color: #e0e4e8;
   margin-top: -25px;
@@ -43,7 +48,7 @@ section#coronavirus-news,
     padding-top: 0;
   }
 
-  &+.fc-container__mpu--mobile {
+  & + .fc-container__mpu--mobile {
     background-color: #e0e4e8;
     margin-top: -12px;
     padding-bottom: 20px;
@@ -63,7 +68,6 @@ section#coronavirus-news,
   }
 
   .fc-container__header__title {
-
     h2 {
       color: #041f4a;
     }
@@ -85,7 +89,6 @@ section#coronavirus-news,
   }
 
   .fc-item {
-
     background-color: #041f4a;
 
     .fc-item__headline {
@@ -105,34 +108,64 @@ section#coronavirus-news,
       }
     }
 
-    &.fc-item--type-comment .fc-item__container>.fc-item__meta {
-      $line-colour: #808A9B; // #fff at 50% on blue, #506991 is too soft
-      background-image: repeating-linear-gradient(to bottom, $line-colour, $line-colour 0.0625rem, transparent 0.0625rem, transparent 0.25rem);
+    &.fc-item--type-comment .fc-item__container > .fc-item__meta {
+      $line-colour: #808a9b; // #fff at 50% on blue, #506991 is too soft
+      background-image: repeating-linear-gradient(
+        to bottom,
+        $line-colour,
+        $line-colour 0.0625rem,
+        transparent 0.0625rem,
+        transparent 0.25rem
+      );
     }
 
     // Comment count in opinion cards
-    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount,
-    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment .fc-trail__count--commentcount,
-    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-item__timestamp,
-    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount {
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount,
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment
+      .fc-trail__count--commentcount,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-item__timestamp,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount {
       background-color: #041f4a;
-      color: #DCDCDC;
+      color: #dcdcdc;
     }
 
     &.fc-item--type-comment.fc-item--pillar-news .fc-item__meta,
     &.fc-item--type-live.fc-item--pillar-news .fc-item__meta {
-      color: #DCDCDC;
+      color: #dcdcdc;
     }
 
-    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount .inline-icon,
-    &.fc-item--type-comment .fc-item__container>.fc-item__meta .fc-trail__count .inline-icon,
-    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout) .fc-trail__count--commentcount .inline-icon {
-      fill: #DCDCDC;
+    &.fc-item--type-comment.fc-item--pillar-news.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount
+      .inline-icon,
+    &.fc-item--type-comment
+      .fc-item__container
+      > .fc-item__meta
+      .fc-trail__count
+      .inline-icon,
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout)
+      .fc-trail__count--commentcount
+      .inline-icon {
+      fill: #dcdcdc;
     }
 
     // Hover state
-    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout):hover .fc-trail__count--commentcount {
+    &.fc-item--pillar-opinion.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout):hover
+      .fc-trail__count--commentcount {
       background-color: #061532;
+    }
+  }
+  //change bg color of liveblog fc item
+  .u-faux-block-link {
+    .fc-item {
+      .fc-item__content--above {
+        background-color: #e0e4e8;
+        .fc-item__headline {
+          color: #041f4a;
+        }
+      }
     }
   }
 

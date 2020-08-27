@@ -23,10 +23,24 @@ section#george-floyd-thrasher {
 section#george-floyd-killing,
 section#george-floyd-opinion,
 section#police-response,
-section#black-lives-matter-protests {
+section#black-lives-matter-protests,
+section#us-protests,
+[id="young,-british-and-black"] {
   background-color: #939a9d;
   // margin-top: -25px;
   // padding-top: 16px;
+
+  .fc-container--story-package .fc-item--dynamic-layout:hover {
+    background-color: darken(#535658, 5%) !important;
+
+    .fc-item__standfirst {
+      color: white !important;
+    }
+  }
+
+  .fc-container__title__text {
+    color: #fec8d3;
+  }
 
   @include mq($from: leftCol) {
     // margin-top: -12px;
@@ -223,6 +237,7 @@ section#black-lives-matter-protests {
     .inline-icon {
       fill: #fec8d3;
     }
+
     .fc-item__container:before {
       background-color: #fec8d3;
     }
@@ -266,6 +281,10 @@ section#black-lives-matter-protests {
     }
   }
 
+  .fc-container__title__text {
+    color: #fec8d3;
+  }
+
   // @media (min-width: 46.25em) {
 
   //     .fc-container--story-package .fc-item--dynamic-layout.fc-item--full-media-100-tablet .fc-sublink,
@@ -300,5 +319,52 @@ section#black-lives-matter-protests {
 
   .fc-today__sub {
     color: #c70000;
+  }
+
+  .fc-item__standfirst {
+    color: white;
+  }
+}
+
+[id="young,-british-and-black"] {
+  background-color: #535658 !important;
+
+  .fc-item:hover {
+    .fc-item--dynamic-layout {
+      background-color: darken(#535658, 5%) !important;
+    }
+  }
+
+  .fc-item__standfirst {
+    color: white !important;
+  }
+
+  .fc-container__title__text {
+    color: #fec8d3 !important;
+  }
+
+  .u-faux-block-link--hover {
+    background-color: darken(#535658, 5%) !important;
+  }
+
+  .fc-container--story-package {
+    background-color: #535658 !important;
+  }
+
+  .fc-item:not(.fc-item--dynamic-layout) {
+    background-color: #535658 !important;
+  }
+
+  .fc-item__kicker {
+    color: #fec8d3 !important;
+  }
+
+  .fc-today__sub {
+    color: #fec8d3 !important;
+  }
+
+  .fc-today__dayofweek,
+  .js-dayofweek {
+    color: white !important;
   }
 }
