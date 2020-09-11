@@ -1,14 +1,12 @@
 // Default breakpoints from Frontend
-$mq-breakpoints: (
-    mobile:          320px,
-    mobileMedium:    360px,
-    mobileLandscape: 480px,
-    phablet:         660px,
-    tablet:          740px,
-    desktop:         980px,
-    leftCol:         1140px,
-    wide:            1300px
-);
+$mq-breakpoints: (mobile: 320px,
+  mobileMedium: 360px,
+  mobileLandscape: 480px,
+  phablet: 660px,
+  tablet: 740px,
+  desktop: 980px,
+  leftCol: 1140px,
+  wide: 1300px);
 
 @import 'shared/_imports';
 
@@ -23,6 +21,12 @@ section#beirut-explosion-style-helper {
   margin: 0;
 }
 
+section#us-wildfire-style-helper {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+}
+
 
 section#coronavirus {
   &+.fc-container__mpu--mobile {
@@ -32,7 +36,8 @@ section#coronavirus {
   }
 }
 
-section#beirut-explosion {
+section#beirut-explosion,
+section#us-wildfires {
   background-color: $container-bg;
   // margin-top: -25px;
   // padding-top: 16px;
@@ -54,8 +59,7 @@ section#beirut-explosion {
   }
 
   &.fc-container--story-package .fc-item--live-updates.fc-item--full-media-100-tablet:hover .fc-item__liveblog-block__text,
-  &.fc-container--story-package .fc-item--live-updates.fc-item--full-media-100-tablet .fc-item__liveblog-block__text
-  &.fc-container--story-package .fc-item--live-updates.fc-item--three-quarters-tall-tablet:hover .fc-item__liveblog-block__text,
+  &.fc-container--story-package .fc-item--live-updates.fc-item--full-media-100-tablet .fc-item__liveblog-block__text &.fc-container--story-package .fc-item--live-updates.fc-item--three-quarters-tall-tablet:hover .fc-item__liveblog-block__text,
   &.fc-container--story-package .fc-item--live-updates.fc-item--three-quarters-tall-tablet .fc-item__liveblog-block__text {
     border-color: $card-bg;
     color: #dcdcdc;
@@ -107,15 +111,19 @@ section#beirut-explosion {
 
   .fc-item--pillar-news .fc-item__media-meta .inline-icon {
     background-color: $kicker;
+
     path {
       fill: #121212;
     }
   }
+
   .fc-item--pillar-news .fc-item__media-meta {
     color: #dcdcdc;
   }
+
   .fc-item--pillar-news .vjs-big-play-button .vjs-control-text {
     background-color: $kicker;
+
     path {
       fill: #121212;
     }
@@ -156,6 +164,7 @@ section#beirut-explosion {
     .fc-item__kicker {
       color: $kicker;
     }
+
     .fc-sublink {
       background-color: $card-bg;
     }
