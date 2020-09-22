@@ -14,6 +14,11 @@ $container-bg: #939A9D;
 $card-bg: #535658;
 $kicker: #FEC8D3;
 
+section#grey-style-helper {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+}
 
 section#beirut-explosion-style-helper {
   height: 0;
@@ -36,6 +41,7 @@ section#coronavirus {
   }
 }
 
+// [id="ruth-bader-ginsburg-1933-2020"]
 section#beirut-explosion,
 section#us-wildfires {
   background-color: $container-bg;
