@@ -1,5 +1,3 @@
-console.log('hellloo:');
-
 function findTargetContainer(container) {
     var prev = container.previousElementSibling;
     var classes = prev.classList;
