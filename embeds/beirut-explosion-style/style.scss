@@ -14,24 +14,13 @@ $container-bg: #939A9D;
 $card-bg: #535658;
 $kicker: #FEC8D3;
 
-section#grey-style-helper {
+section#grey-style-helper,
+section#beirut-explosion-style-helper,
+section#budget-2020-style-helper {
   height: 0;
   overflow: hidden;
   margin: 0;
 }
-
-section#beirut-explosion-style-helper {
-  height: 0;
-  overflow: hidden;
-  margin: 0;
-}
-
-section#us-wildfire-style-helper {
-  height: 0;
-  overflow: hidden;
-  margin: 0;
-}
-
 
 section#coronavirus {
   &+.fc-container__mpu--mobile {
@@ -43,7 +32,8 @@ section#coronavirus {
 
 // [id="ruth-bader-ginsburg-1933-2020"]
 section#beirut-explosion,
-section#us-wildfires {
+section#us-wildfires,
+section#budget-2020 {
   background-color: $container-bg;
   // margin-top: -25px;
   // padding-top: 16px;
