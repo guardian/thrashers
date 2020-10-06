@@ -43,6 +43,15 @@ section#budget-2020 {
   //   padding-top: 0;
   // }
 
+  .fc-item--is-commentable:not(.fc-item--type-comment) .u-faux-block-link--hover .fc-item__meta .fc-trail__count--commentcount,
+  .fc-item.fc-item--type-comment:not(.fc-item--pillar-special-report):not(.fc-item--dynamic-layout):hover .u-faux-block-link--hover .fc-trail__count--commentcount {
+    background-color: darken($card-bg, 5%);
+  }
+
+  .fc-container--story-package .fc-item--dynamic-layout:hover .fc-trail__count--commentcount,
+  .fc-item--is-commentable:not(.fc-item--type-comment) .fc-item__meta .fc-trail__count--commentcount {
+    background-color: $card-bg;
+  }
 
   &.fc-container--story-package .fc-item--live-updates.fc-item--full-media-100-tablet .fc-item__liveblog-block__time:before,
   &.fc-container--story-package .fc-item--live-updates.fc-item--three-quarters-tall-tablet .fc-item__liveblog-block__time:before {
@@ -213,7 +222,8 @@ section#budget-2020 {
   }
 
   .fc-item__link:visited,
-  .fc-sublink__link:visited {
+  .fc-sublink__link:visited,
+  .fc-sublink__link {
     color: #f6f6f6;
   }
 
