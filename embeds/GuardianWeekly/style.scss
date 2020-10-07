@@ -37,7 +37,7 @@ $mq-breakpoints: (
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 3 !important;
+        z-index: 30 !important;
         overflow: hidden;
         text-indent: 200%;
         white-space: nowrap;
@@ -45,7 +45,7 @@ $mq-breakpoints: (
     }
 
     .wrapper {
-        background-color: #242D32;
+        background-color: #66c2e9;
         color: #ffffff;
         display: block;
         height: 300px;
@@ -56,35 +56,41 @@ $mq-breakpoints: (
 
         @include mq(tablet) {
             height: 160px;
-            margin: 40px 0 0;
+            margin: 24px 0 0;
+        }
+        @include mq(desktop) {
+            height: 180px;
         }
     }
 
     &:hover .wrapper {
-        background-color: #1C2326;
+        background-color: #4fb7e3;
     }
 
     .tagline {
         position: absolute;
         top: 12px;
-        text-align: right;
+        left: 10px;
+        right: 10px;
 
-        @include mq($until: mobileLandscape) {
-            left: 10px;
-            right: 10px;
-        }
-
-        @include mq($from: mobileLandscape, $until: leftCol) {
+        @include mq(mobileLandscape) {
             left: 20px;
             right: 20px;
         }
 
+        @include mq(tablet) {
+            right: auto;
+        }
+        @include mq(desktop) {
+            top: 6px;
+        }
+
         @include mq(leftCol) {
-            left: 20px;
+            left: 180px;
         }
 
         @include mq(wide) {
-            left: 172px;
+            left: 260px;
         }
 
         svg {
@@ -100,23 +106,29 @@ $mq-breakpoints: (
                 width: 560px;
             }
         }
-    }
 
-    .tagline--desktop {
-        display: none;
-
-        @include mq(tablet) {
+        &__a,
+        &__b {
             display: block;
+            font-size: 32px;
+            font-family: GuardianTitlepiece,"Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
+            font-family: "Guardian Titlepiece","GuardianTitlepiece","Guardian Headline Full","Guardian Headline","Guardian Egyptian Web",Georgia,serif;
+            line-height: 115%;
+            @include mq(mobileMedium) {
+                font-size: 34px;
+            }
+            @include mq(desktop) {
+                font-size: 48px;
+            }
+        }
+        &__a {
+            color: #121212;
+        }
+        &__b {
+            color: #fff;
         }
     }
 
-    .tagline--mobile {
-        display: block;
-
-        @include mq(tablet) {
-            display: none;
-        }
-    }
 
     .roundel {
         position: absolute;
@@ -133,8 +145,9 @@ $mq-breakpoints: (
     .pack-shots {
         position: absolute;
         display: block;
-        left: 65px;
+        left: 70px;
         bottom: 0;
+        z-index: 10;
 
         @include mq(tablet) {
             left: auto;
@@ -174,6 +187,13 @@ $mq-breakpoints: (
         z-index: 0;
         margin-left: -65px;
         animation-delay: .6s;
+        bottom: -12px;
+        z-index: 8;
+
+        @include mq(tablet) {
+            bottom: -18px;
+        }
+
 
         @include mq(leftCol) {
             margin-left: -70px;
@@ -187,12 +207,19 @@ $mq-breakpoints: (
     .pack-shot_img--B {
         z-index: 0;
         animation-delay: .8s;
+        z-index: 9;
     }
 
     .pack-shot_img--C {
         z-index: 1;
         animation-delay: 1s;
         margin-left: 65px;
+        bottom: -12px;
+        z-index: 7;
+
+        @include mq(tablet) {
+            bottom: -18px;
+        }
 
         @include mq(leftCol) {
             margin-left: 70px;
@@ -204,7 +231,7 @@ $mq-breakpoints: (
     }
 
     .cta {
-        color: #ffffff;
+        color: #121212;
         font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         font-size: 16px;
         border: none;
@@ -217,40 +244,27 @@ $mq-breakpoints: (
         border-radius: 21px;
         -webkit-backface-visibility: hidden;
 
-        @include mq($until: tablet) {
-            background-color: #ffffff;
-            color: #121212;
-            bottom: 12px;
-            left: 10px;
-            padding-left: 18px;
-            padding-right: 4px;
-            z-index: 2;
+        background-color: #ffe500;
+        color: #121212;
+        bottom: 12px;
+        left: 10px;
+        padding-left: 18px;
+        padding-right: 4px;
+        z-index: 20;
 
-            @include mq(mobileLandscape) {
-                left: 20px;
-            }
-        }
-
-        @include mq(tablet) {
-            bottom: 12px;
-            left: 224px;
-        }
-
-        @include mq(desktop) {
-            bottom: 12px;
-            left: 449px;
+        @include mq(mobileLandscape) {
+            left: 18px;
         }
 
         @include mq(leftCol) {
-            left: 528px;
+            left: 178px;
         }
-
         @include mq(wide) {
-            left: 610px;
+            left: 258px;
         }
 
         .circle {
-            background: #ffffff;
+            background: #ffe500;
             height: 42px;
             width: 42px;
             border-radius: 50%;
@@ -265,7 +279,7 @@ $mq-breakpoints: (
               fill: #121212;
             }
             @include mq(tablet) {
-              background: #ffffff;
+              background: #ffe500;
               svg path {
                 fill: #333333;
               }
