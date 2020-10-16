@@ -18,7 +18,8 @@ $mq-breakpoints: (
     z-index: 0;
 }
 
-.GuardianWeekly2020__wrapper {
+.GuardianWeekly2020__wrapper,
+.GuardianWeekly__wrapper {
     box-sizing: border-box;
     background-color: #ffffff;
     overflow: hidden;
@@ -109,6 +110,7 @@ $mq-breakpoints: (
 
         &__a,
         &__b {
+            color: #121212;
             display: block;
             font-size: 32px;
             font-family: GuardianTitlepiece,"Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
@@ -120,12 +122,6 @@ $mq-breakpoints: (
             @include mq(desktop) {
                 font-size: 48px;
             }
-        }
-        &__a {
-            color: #121212;
-        }
-        &__b {
-            color: #fff;
         }
     }
 
