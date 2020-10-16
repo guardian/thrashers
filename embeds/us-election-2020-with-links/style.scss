@@ -25,7 +25,8 @@ $mq-breakpoints: (
 @include base(us-election-2020, #fff);
 @include base(us-elections-2020, #fff);
 
-#us-elections-2020 {
+#us-elections-2020,
+#us-election-2020 {
     background-color: #fff;
     margin-bottom: 0;
     padding-top: 0;
@@ -46,9 +47,9 @@ $mq-breakpoints: (
 }
 
 .us-elections-2020__wrapper,
-.us-election-2020__wrapper {
+.us-election-2020-with-links__wrapper {
     padding: 10px 0;
-    background-image: url('@@assetPath@@/trump-white-house--mobile.jpg');
+    background-image: url('@@assetPath@@/trump-white-house--mobile-v2.jpg');
     background-size: contain;
     background-position: center right;
     background-repeat: no-repeat;
@@ -59,7 +60,8 @@ $mq-breakpoints: (
     }
 
     @include mq(tablet) {
-        background-image: url('@@assetPath@@/trump-white-house.jpg');
+        width: 100%;
+        background-image: url('@@assetPath@@/trump-white-house-v2.jpg');
         padding: 20px 0;
         background-position: center right -30px;
     }
