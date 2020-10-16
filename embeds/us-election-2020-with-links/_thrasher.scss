@@ -1,0 +1,166 @@
+
+
+#us-elections-2020,
+#us-election-2020 {
+    background-color: #fff;
+    margin-bottom: 0;
+    padding-top: 0;
+
+    .fc-container__inner {
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        @include mq(mobileLandscape) {
+            padding: 0 20px;
+        }
+    }
+
+    .fc-item {
+        background-color: #fff;
+        padding: 0;
+    }
+}
+
+.us-elections-2020__wrapper,
+.us-election-2020-with-links__wrapper {
+    padding: 10px 0;
+    background-image: url('@@assetPath@@/trump-white-house--mobile-v2.jpg');
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+
+    @include mq(mobileLandscape) {
+        padding: 10px 0;
+        background-position: center right 20px;
+    }
+
+    @include mq(tablet) {
+        width: 100%;
+        background-image: url('@@assetPath@@/trump-white-house-v2.jpg');
+        padding: 20px 0;
+        background-position: center right -30px;
+    }
+
+    @include mq(desktop) {
+        background-position: center right 20px;
+    }
+}
+
+.us-elections-2020__logo-lock {
+    display: inline-block;
+    height: 42px;
+
+    @include mq(mobileLandscape) {
+        height: 60px;
+    }
+
+    @include mq(tablet) {
+        height: 83px;
+    }
+
+    @include mq(desktop) {
+        height: 120px;
+    }
+
+    @include mq(leftCol) {
+        margin-left: 10px;
+    }
+
+    @include mq(wide) {
+        margin-left: 91px;
+    }
+}
+
+.us-elections-2020__logo {
+    height: 100%;
+    margin-right: 10px;
+    float: left;
+
+    @include mq(desktop) {
+        margin-right: 20px;
+    }
+}
+
+.us-elections-2020__title {
+    font-family: 'Guardian Figures';
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal;
+    font-size: 15px;
+    margin-top: -1px;
+    display: inline-block;
+    line-height: 1.1;
+
+    @include mq(mobileLandscape) {
+        font-size: 20px;
+    }
+
+    @include mq(tablet) {
+        font-size: 31px;
+        line-height: 1;
+        margin-top: -3px;
+    }
+
+    @include mq(desktop) {
+        font-size: 46px;
+        line-height: 1;
+        margin-top: -6px;
+    }
+}
+
+#get-started {
+    padding-bottom: 0;
+
+    .fc-slice--nav-list {
+        columns: unset;
+    }
+
+    .fc-container__header__title,
+    .fc-container__header__title h2 {
+        @include mq($until: desktop) {
+            padding-bottom: 0;
+        }
+    }
+
+    .fc-item {
+        padding: 0;
+        margin: 0;
+        display: inline;
+        font-family: 'Guardian Egyptian Web';
+        font-weight: 400;
+        font-size: 16px;
+        padding-right: 26px;
+        margin-right: 6px;
+        background-image: url('@@assetPath@@/forward.svg');
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: center right 3px;
+        border-top: 0;
+        transition: background 0.2s linear;
+
+        @include mq(desktop) {
+            font-size: 24px;
+        }
+
+        &:hover {
+            background-position: center right;
+        }
+
+        a {
+            border-bottom: 1px solid #e31e26;
+
+            &:hover {
+                color: #e31e26;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .fc-slice-wrapper {
+        margin: 0;
+        padding: 0;
+    }
+
+    .fc-slice__item--nav-list {
+        width: auto;
+    }
+}

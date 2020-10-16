@@ -1,0 +1,169 @@
+.us-election-2020-with-links__wrapper,
+.us-election-2020-with-links__wrapper.has-links {
+  background-position: top right;
+  @include mq($until:tablet) {
+    padding-bottom: 56px;
+  }
+  background-size: auto 68px;
+  @include mq(mobileLandscape) {
+    background-size: auto 86px;
+  }
+  @include mq(tablet) {
+    background-size: auto 124px;
+    background-position: 92px 8px;
+  }
+  @include mq(desktop) {
+    background-position: 144px 10px;
+    background-size: auto 161px;
+  }
+  @include mq(leftCol) {
+    background-position: 230px 10px;
+  }
+  @include mq(wide) {
+    background-position: 310px 10px;
+  }
+
+  .links {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: -5px;
+    height: 32px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding-top: 4px;
+    border-top: 1px solid #dedede;
+    @include mq(tablet) {
+      left: auto;
+      top: 0;
+      right: -10px;
+      height: 122px;
+      width: 180px;
+      right: -20px;
+      border-left: 1px solid #edeade;
+      padding-left: 10px;
+      border-top: 0;
+      margin-bottom: 0;
+      padding-top: 36px;
+      &:before {
+        position: absolute;
+        top: 6px;
+        left: 7px;
+        font-family: "Guardian Egyptian Web",Georgia,serif;
+        font-weight: 700;
+        content: 'Get started';
+        background-color: #c70000;
+        padding: 0 4px 1px;
+        color: #fff;
+        font-size: 17px;
+        @include mq(desktop) {
+          padding: 0 5px 2px;
+        }
+      }
+    }
+    @include mq(desktop) {
+      width: 240px;
+      height: 130px;
+      padding-top: 51px;
+      &:before {
+        top: 16px;
+      }
+    }
+    @include mq(wide) {
+      width: 320px;
+    }
+    &__link {
+      font-size: 14px;
+      position: relative;
+      font-family: "Guardian Egyptian Web",Georgia,serif;
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 12px;
+      margin-right: 4px;
+
+      @include mq(375px) {
+        margin-right: 0;
+      }
+      @include mq(tablet) {
+        margin-bottom: 6px;
+        line-height: 15px;
+        &:after {
+          display: none;
+        }
+      }
+      @include mq(desktop) {
+        font-size: 17px;
+        margin-bottom: 10px;
+        width: 200px;
+        line-height: 18px;
+      }
+      &:hover,
+      &:active {
+        text-decoration: none;
+        color: #c70000;
+        &:after {
+          background-color: #c70000;
+          background-image: url(https://uploads.guim.co.uk/2020/10/16/image-w.svg);
+        }
+      }
+      &:after {
+        content: '';
+        display: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 100%;
+        border: 1px solid #edeade;
+        vertical-align: middle;
+        background-color: #edeade;
+        margin-top: -1px;
+        margin-left: 4px;
+        margin-right: 8px;
+        background-image: url(https://uploads.guim.co.uk/2020/10/16/image.svg);
+        background-repeat: no-repeat;
+        background-position: 3px 3px;
+        background-size: 12px auto;
+        @include mq(375px) {
+          display: inline-block;
+        }
+        @include mq($from:tablet, $until:desktop) {
+          display: none;
+        }
+        @include mq(desktop) {
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          transform: translateY(-1px);
+          background-position: 5px 5px;
+          background-size: 14px auto;
+        }
+      }
+      &:not(:first-child) {
+        margin-left: 4px;
+        @include mq(375px) {
+          margin-left: 6px;
+        }
+      @include mq(tablet) {
+          margin-left: 0;
+        }
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -5px;
+          left: -6px;
+          width: 1px;
+          height: 24px;
+          background-color: #dcdcdc;
+          @include mq(375px) {
+            left: -8px;
+          }
+          @include mq(tablet) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
