@@ -1,9 +1,7 @@
-console.log('hellloo:');
-
 function findTargetContainer(container) {
     var prev = container.previousElementSibling;
     var classes = prev.classList;
-    if (classes.contains('fc-container--thrasher') || classes.contains('fc-container--video') || classes.contains('fc-container__mpu--mobile') || prev.getAttribute('id')=='manchester-attack' || prev.offsetHeight < 260) {
+    if (classes.contains('fc-container--thrasher') || classes.contains('fc-container--video') || classes.contains('fc-container__mpu--mobile') || prev.getAttribute('id') == 'manchester-attack' || prev.offsetHeight < 260) {
         var target = findTargetContainer(prev);
     } else {
         var target = prev;
@@ -15,7 +13,7 @@ function closest(el, selector) {
     var matchesFn;
 
     // find vendor prefix
-    ['matches','webkitMatchesSelector','mozMatchesSelector','msMatchesSelector','oMatchesSelector'].some(function(fn) {
+    ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function (fn) {
         if (typeof document.body[fn] == 'function') {
             matchesFn = fn;
             return true;
@@ -48,7 +46,7 @@ function thrasherMain() {
     // section where the treat should go
     var targetContainer = findTargetContainer(thrasherContainer);
 
-    console.log('target:', targetContainer);
+    // console.log('target:', targetContainer);
 
 
     // get thrasher innerHTML
@@ -82,12 +80,12 @@ function thrasherMain() {
 }
 
 function checkExists(startThrasherFunction) {
-  var checkInterval = setInterval(function() {
-    if (document.querySelector('.cultural-nugget')) {
-      startThrasherFunction();
-      clearInterval(checkInterval);
-    }
-  }, 2000);
+    var checkInterval = setInterval(function () {
+        if (document.querySelector('.cultural-nugget')) {
+            startThrasherFunction();
+            clearInterval(checkInterval);
+        }
+    }, 2000);
 }
 
 checkExists(thrasherMain);
