@@ -36,17 +36,15 @@ function closest(el, selector) {
 }
 
 
-function thrasherMain() {
+setTimeout(function () {
     // find this thrasher
-    var thrasher = document.querySelector('.cultural-nugget');
+    var thrasher = document.querySelector('.letters-nugget');
 
     // the thrasher's section tag
     var thrasherContainer = closest(thrasher, 'section');
 
     // section where the treat should go
     var targetContainer = findTargetContainer(thrasherContainer);
-
-    // console.log('target:', targetContainer);
 
 
     // get thrasher innerHTML
@@ -77,15 +75,10 @@ function thrasherMain() {
     } else {
         containerTreats.appendChild(newTreat);
     }
-}
 
-function checkExists(startThrasherFunction) {
-    var checkInterval = setInterval(function () {
-        if (document.querySelector('.cultural-nugget')) {
-            startThrasherFunction();
-            clearInterval(checkInterval);
-        }
-    }, 2000);
-}
 
-checkExists(thrasherMain);
+    window.guardian.ophan.record({
+        component: 'thrasher : manifestos compared',
+        value: 1
+    });
+}, 20);
