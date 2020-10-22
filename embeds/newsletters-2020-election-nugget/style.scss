@@ -144,9 +144,9 @@ section#newsletter-treat .tone-news--item.fc-item {
 
 @media all and (min-width:61.25em) {
     .newsletter-nugget .culture-nugget__image {
-        margin-bottom: -25px;
-        height: 120px;
-        width: 117px
+        margin-bottom: -20px;
+        height: auto;
+        width: 130px;
     }
 }
 
@@ -157,8 +157,9 @@ section#newsletter-treat .tone-news--item.fc-item {
     }
 
     .newsletter-nugget .culture-nugget__image {
-        width: 140px;
-        margin-bottom: -5px
+        width: 130px;
+        margin-bottom: -5px;
+        margin-bottom: -20px;
     }
 }
 
