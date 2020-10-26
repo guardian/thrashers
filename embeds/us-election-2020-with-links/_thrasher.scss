@@ -2,22 +2,27 @@
 
 #us-elections-2020,
 #us-election-2020 {
-    background-color: #fff;
-    margin-bottom: 0;
-    padding-top: 0;
-
-    .fc-container__inner {
-        padding: 0 10px;
-        box-sizing: border-box;
-
-        @include mq(mobileLandscape) {
-            padding: 0 20px;
-        }
-    }
-
-    .fc-item {
+    &.fc-container--thrasher {
         background-color: #fff;
-        padding: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+
+        .fc-container__inner {
+            padding: 0 10px;
+            box-sizing: border-box;
+
+            @include mq(mobileLandscape) {
+                padding: 0 20px;
+            }
+        }
+
+        .fc-item {
+            background-color: #fff;
+            padding: 0;
+        }
+        .facia-snap {
+            overflow: hidden;
+        }
     }
 }
 
