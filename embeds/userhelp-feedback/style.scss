@@ -1,0 +1,142 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+
+.userhelp-feedback__wrapper .userhelpfeedback__title:after{
+    display:none
+}
+
+
+#userhelp-feedback.fc-container--thrasher {
+    background: #FFF280;
+    .fc-item {
+        background: #FFE500;
+    }
+}
+.userhelp-feedback__wrapper {
+    position: relative;
+    @include mq(desktop) {
+        width: 100%;
+    }
+    .userhelpfeedback {
+        color: #000000;
+        max-width: 620px;
+        margin: 0 auto;
+        @include mq(mobileLandscape) {
+            padding: 0 10px;
+        }
+        @include mq(tablet) {
+            padding: 0 20px;
+            max-width: none;
+        }
+        @include mq(leftCol) {
+            margin-left: 160px;
+        }
+        @include mq(wide) {
+            margin-left: 240px;
+        }
+        &__title {
+            display: inline-block;
+            padding-top: 2px;
+            color: #000000;
+            float: none;
+            width: auto;
+            @include mq(leftCol) {
+                position: absolute;
+                top: 0;
+                left: 20px;
+            }
+            &:hover{
+                text-decoration-skip:ink;
+                -webkit-text-decoration-skip:ink;
+                -moz-text-decoration-skip:ink
+            }
+        }
+        &__roundel {
+            float: right;
+            margin-top: 5px;
+            svg {
+                @include mq(mobileLandscape) {
+                    transform-origin: top right;
+                    transform: scale(1.2);
+                }
+            }
+            @include mq(leftCol) {
+                margin-top: 1px;
+            }
+        }
+        &__main {
+            display: block;
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 600;
+            padding-top: 1px;
+            padding-bottom: 18px;
+            margin-top: -3px;
+            @include mq(tablet) {
+                font-size: 26px;
+                line-height: 28px;
+            }
+            @include mq(leftCol) {
+                margin-top: 3px;
+            }
+            &,&:hover{
+                text-decoration: none;
+            }
+            div {
+                padding-bottom: 3px;
+
+                &:hover{
+                    border-bottom:1px solid rgba(18,18,18,.5)
+                }
+            }
+            .cta {
+                display: inline;
+            }
+            .btn {
+
+
+                vertical-align: middle;
+                position: relative;
+                top: -1px;
+                line-height: 30px;
+                width: 26px;
+                height: 26px;
+                display: inline-block;
+                border-radius: 100%;
+                background-color: #fff;
+
+
+                border: 1px solid #fff;
+
+                svg {
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    path {
+                        fill: #000000;
+                    }
+                }
+            }
+            &:hover {
+                .btn {
+                    background-color: #000000;
+                    border-color: transparent;
+                    svg path {
+                        fill: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+}
