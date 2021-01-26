@@ -186,3 +186,23 @@ Due to the way we inject the thrashers into `frontend` we can't add `<script>` t
 ```
 
 Although the same practice applies to javascript as it does for animations and transitions. There has to be a good reason for it to exist and they have to be incredibly light. It's also best not to require heavy libraries like `jQuery` to achieve the same results that could be done with vanilla javascript and/or micro-libraries.
+
+
+### Testing Updates
+
+When testing an update to a thrasher it can worthwhile to create a separate version to test changes before they are deployed to Live. 
+
+For example, to test changes to an existing thrasher and then deploy them to Live:
+1. run `grunt new --folderName={existing-folder-name}-test`
+2. Copy `index.html`, `style.scss` and other important files from the existing folder to the test one
+3. Deploy test thrasher by using `grunt remote --folderName={existing-folder-name}-test`
+4. Load thrasher into a `CODE` front container
+5. Verify changes are correct
+6. Copy changes from test to existing
+7. Deploy as usual using `grunt remote --folderName={existing-folder-name}`
+
+#### Oddities 
+
+Some things worth checking if you are experiencing issues whilst testing:
+1. Does the JS reference a specific container name?
+2. Does the container config use a different layout to the standard `fixed/thrasher`?
