@@ -1,7 +1,7 @@
 function findTargetContainer(container) {
     var prev = container.previousElementSibling;
     var classes = prev.classList;
-    if (classes.contains('fc-container--thrasher') || classes.contains('fc-container--video') || classes.contains('fc-container__mpu--mobile') || prev.getAttribute('id') == 'manchester-attack' || prev.offsetHeight < 260) {
+    if (classes.contains('fc-container--thrasher') || classes.contains('fc-container--video') || classes.contains('fc-container__mpu--mobile')) {
         var target = findTargetContainer(prev);
     } else {
         var target = prev;
@@ -46,13 +46,14 @@ function thrasherMain() {
     // section where the treat should go
     var targetContainer = findTargetContainer(thrasherContainer);
 
-    // console.log('target:', targetContainer);
-
-
     // get thrasher innerHTML
     var thrasherWrap = document.createElement('div');
     thrasherWrap.appendChild(thrasher.cloneNode(true));
     var thrasherHTML = thrasherWrap.innerHTML;
+
+    if (targetContainer.offsetHeight < 260) {
+        return null
+    }
 
     // clone thrasher into newTreat
     var newTreat = document.createElement('li');
