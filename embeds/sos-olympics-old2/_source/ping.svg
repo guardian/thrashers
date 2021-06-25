@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
-    <title>Oval 67 Copy</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#F5AA3A" offset="0%"></stop>
-            <stop stop-color="#E6711B" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <circle id="Oval-67-Copy" fill="url(#linearGradient-1)" cx="18" cy="18" r="18"></circle>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" version="1.1" viewBox="0 0 36 36"><title>Oval 67 Copy</title><desc>Created with Sketch.</desc><defs><linearGradient id="linearGradient-1" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#F5AA3A"/><stop offset="100%" stop-color="#E6711B"/></linearGradient></defs><g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><circle id="Oval-67-Copy" cx="18" cy="18" r="18" fill="url(#linearGradient-1)"/></g></svg>
