@@ -1,6 +1,1 @@
-<svg width="18px" height="18px" viewBox="0 3 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="Group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(0.000000, 3.000000)">
-        <ellipse id="Oval-1" fill="#F6B60B" cx="8.79081081" cy="8.66666667" rx="8.79081081" ry="8.66666667"></ellipse>
-        <polygon id="Shape" fill="#240D12" points="8.94510158 4.33333333 13.39131 8.72726408 13.39131 9.14773592 8.94510158 13.5416667 8.52926914 13.1317066 11.7279803 9.35797184 3.57126689 9.35797184 3.57126689 8.51702816 11.7279803 8.51702816 8.52926914 4.74329338"></polygon>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" version="1.1" viewBox="0 3 18 18"><g id="Group" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" transform="translate(0.000000, 3.000000)"><ellipse id="Oval-1" cx="8.791" cy="8.667" fill="#F6B60B" rx="8.791" ry="8.667"/><polygon id="Shape" fill="#240D12" points="8.945 4.333 13.391 8.727 13.391 9.148 8.945 13.542 8.529 13.132 11.728 9.358 3.571 9.358 3.571 8.517 11.728 8.517 8.529 4.743"/></g></svg>
