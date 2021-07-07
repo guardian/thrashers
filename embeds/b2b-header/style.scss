@@ -1,0 +1,148 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+#b2b-header {
+  margin-top: -6px;
+}
+.b2b-header {
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  background-color: #000000;
+
+  @include mq($from: desktop){
+    width: 980px;
+  }
+  @include mq($from: leftCol){
+    width: 1140px;
+  }
+  @include mq($from: wide){
+    width: 1300px;
+  }
+
+  &__image {
+    height: 148px;
+    overflow: hidden;
+    position: relative;
+    top:0px;
+    left: 0px;
+
+
+    @include mq($from: mobile) {
+      height: 120px;
+    }
+
+    @include mq($from: phablet) {
+      height: 120px;
+    }
+
+    @include mq($from: tablet) {
+      height: 148px;
+    }
+    @include mq($from: desktop) {
+      height: 148px;
+    }
+    @include mq($from: leftCol) {
+      height: 148px;
+    }
+
+    img {
+
+      @include mq($from: mobile) {
+      transform: translateX(-28%);
+      }
+
+      @include mq($from: desktop) {
+      transform: translateX(0%);
+      }
+
+    }
+  }
+
+  &__title {
+    position: absolute;
+    transform-origin: bottom right;
+    right: 10px;
+    bottom:10px;
+    // width: 50%;
+
+    svg {
+      width: 100%;
+      height: auto;
+
+      @include mq($from: mobile) {
+        transform-origin: bottom left;
+        right: 10px;
+        bottom:160px;
+        width: 100%;
+      }
+
+      @include mq($from: phablet) {
+        transform-origin: bottom right;
+        right: 10px;
+        bottom:10px;
+        width: 100%;
+      }
+
+      @include mq($from: desktop) {
+        transform-origin: bottom right;
+        right: 10px;
+        bottom:10px;
+        //width: 80%;
+      }
+
+      @include mq($from: wide) {
+        width: 100%;
+      }
+
+      path {
+        stroke: white;
+        stroke-width: 2px;
+        fill: white;
+
+        @include mq($from: desktop) {
+          stroke: none;
+        }
+      }
+    }
+  }
+
+  &__description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    h1 {
+      font-weight: 900;
+      color:#ffffff;
+      font-size: 18px;
+      // width: 230px;
+      // margin-left: -13px;
+
+      line-height: 18px;
+      font-family: $f-serif-headline;
+
+      @include mq($from: mobile) {
+        font-size: 20px;
+      }
+
+      @include mq($from: desktop) {
+        font-size: 20px;
+        width: auto;
+        margin-bottom: 16px;
+        margin-left: auto;
+      }
+    }
+  }
+
+
+}

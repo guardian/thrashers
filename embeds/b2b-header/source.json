@@ -1,0 +1,20 @@
+{
+  "html": "<div class=\"b2b-header__wrapper\"><style>.b2b-header,.b2b-header__image{overflow:hidden;position:relative}#b2b-header{margin-top:-6px}.b2b-header{height:auto;background-color:#000}@media all and (min-width:61.25em){.b2b-header{width:980px}}@media all and (min-width:71.25em){.b2b-header{width:1140px}}@media all and (min-width:81.25em){.b2b-header{width:1300px}.b2b-header__title svg{width:100%}}.b2b-header__image{height:148px;top:0;left:0}@media all and (min-width:20em){.b2b-header__image{height:120px}.b2b-header__image img{-webkit-transform:translateX(-28%);transform:translateX(-28%)}}@media all and (min-width:41.25em){.b2b-header__image{height:120px}}@media all and (min-width:46.25em){.b2b-header__image{height:148px}}@media all and (min-width:71.25em){.b2b-header__image{height:148px}}@media all and (min-width:61.25em){.b2b-header__image{height:148px}.b2b-header__image img{-webkit-transform:translateX(0);transform:translateX(0)}}.b2b-header__title{position:absolute;-webkit-transform-origin:bottom right;transform-origin:bottom right;right:10px;bottom:10px}.b2b-header__title svg{width:100%;height:auto}@media all and (min-width:20em){.b2b-header__title svg{-webkit-transform-origin:bottom left;transform-origin:bottom left;right:10px;bottom:160px;width:100%}}@media all and (min-width:41.25em){.b2b-header__title svg{-webkit-transform-origin:bottom right;transform-origin:bottom right;right:10px;bottom:10px;width:100%}}.b2b-header__title svg path{stroke:#fff;stroke-width:2px;fill:#fff}.b2b-header__description{position:absolute;bottom:10px;left:10px}.b2b-header__description h1{font-weight:900;color:#fff;font-size:18px;line-height:18px;font-family:\"Guardian Egyptian Web\",Georgia,serif}@media all and (min-width:20em){.b2b-header__description h1{font-size:20px}}@media all and (min-width:61.25em){.b2b-header__title svg{-webkit-transform-origin:bottom right;transform-origin:bottom right;right:10px;bottom:10px}.b2b-header__title svg path{stroke:none}.b2b-header__description h1{font-size:20px;width:auto;margin-bottom:16px;margin-left:auto}}</style><div class=\"b2b-header\">\n\n\n  <div class=\"b2b-header__image\">\n    <img src=\"https://localhost:8000/embeds/b2b-header/hashed/b2b-top-image.e7bbc531.jpg\" />\n  </div>\n\n    <div class=\"b2b-header__description\">\n      <h1>for people in business</h1>\n    </div>\n\n    <div class=\"b2b-header__title\">\n      <svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n      \t viewBox=\"0 0 537 49.7\" style=\"enable-background:new 0 0 537 49.7;\" xml:space=\"preserve\">\n      <style type=\"text/css\">\n      \t.st0{fill:#FFFFFF;}\n      \t.st1{font-family:'DE1DisplayEgyptianThin';}\n      \t.st2{font-size:64px;}\n      </style>\n      <text id=\"business_to_business\" transform=\"matrix(1 0 0 1 2.8438 49.7422)\" class=\"st0 st1 st2\">business to business</text>\n      </svg>\n\n    </div>\n\n\n</div>\n</div>",
+  "previous": "",
+  "refreshStatus": true,
+  "url": "https://www.theguardian.com",
+  "headline": "The Guardian",
+  "trailText": "Latest news, sport and comment from the Guardian",
+  "app": {
+    "title": "recipes",
+    "titleFont": "egypt-thin",
+    "titleSize": 36,
+    "titleColour": "#FFFFFF",
+    "image": "https://interactive.guim.co.uk/thrashers/recipes-header/hashed/recipe-top-image.977e92c1.jpg",
+    "trailFont": "egypt-thin",
+    "trailColour": "#FFFFFF",
+    "buttonTextColour": "#",
+    "buttonBackgroundColour": "#",
+    "hideKicker": true
+  }
+}

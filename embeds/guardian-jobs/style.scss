@@ -172,7 +172,7 @@ $gs-baseline: 12px;
 
       @include mq($from: mobileMedium) {
         background-size: 550px;
-        background-position: -109px 0px;
+        background-position: -109px -20px;
       }
 
       @include mq($from: mobileLandscape) {
@@ -185,13 +185,13 @@ $gs-baseline: 12px;
       }
 
       @include mq($from: tablet) {
-        background-image: url('@@assetPath@@/jobs-image-1b.jpg');
+        background-image: url('@@assetPath@@/jobs-image-1b-compressed.jpg');
         background-size: 940px;
         background-position: -138px 0px;
       }
 
       @include mq($from: desktop) {
-        background-image: url('@@assetPath@@/jobs-image-1b.jpg');
+        background-image: url('@@assetPath@@/jobs-image-1b-compressed.jpg');
         background-size: 940px;
         background-position: 0px 0px;
       }
