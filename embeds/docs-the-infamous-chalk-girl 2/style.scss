@@ -1,0 +1,380 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileMedium:    400px,
+    mobileLandscape: 480px,
+    mobileLong:      580px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+section#documentaries {
+    //background-color: #101820;
+    background-color: #22223f;
+}
+
+.docs-the-infamous-chalk-girl__wrapper {
+    position: relative;
+    margin: 0 -10px;
+    background-color: #333132;
+    color: #F6F6F6;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,sans-serif;
+    //font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 29px;
+    line-height: 30px;
+    font-weight: 500;
+    overflow: hidden;
+
+    @include mq(leftCol) {
+      font-size: 29px;
+      line-height: 30px;
+    }
+
+    @include mq(desktop) {
+        font-size: 29px;
+        line-height: 30px;
+    }
+
+    @include mq(tablet) {
+        width: 100%;
+        margin: 0;
+    }
+
+    @include mq(mobile) {
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .background {
+        position: relative;
+        z-index: 10;
+        height: 216px;
+        @include mq(phablet) {
+          height: 280px;
+        }
+        @include mq(desktop) {
+          height: 320px;
+        }
+        .image {
+            height: 100%;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 100px;
+                z-index: 11;
+
+                @include mq(phablet) {
+                    height: 100%;
+                    width: 480px;
+                }
+                @include mq(desktop) {
+                    width: 620px;
+                }
+                @include mq(leftCol) {
+                    opacity: 0.6;
+                    width: 680px;
+                }
+                @include mq(wide) {
+                    width: 820px;
+                }
+            }
+            img,
+            video {
+                height: 100%;
+                width: auto;
+                position: absolute;
+                top: 0;
+                left: 150;
+                bottom: 0;
+                transform: translateX(0);
+
+
+                //Mobile S-32px
+                @include mq(mobile) {
+                transform: translateX(-35%);
+                }
+
+                //Mobile L-425px
+                @include mq(mobileMedium) {
+                transform: translateX(-28%);
+                }
+
+                @include mq(mobileLandscape) {
+                transform: translateX(-20%);
+                }
+
+                //656px
+                @include mq(mobileLong) {
+                transform: translateX(-18%);
+                }
+
+                //Tablet - 768px
+                @include mq(phablet) {
+                transform: translateX(-20%);
+                }
+                //Laptop 1024px
+                @include mq(desktop) {
+                transform: translateX(-9%);
+                }
+
+                @include mq(leftCol) {
+               //  transform: translateX(-11%);
+                }
+
+                @include mq(wide) {
+                    transform: translateX(0%);
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            img {
+                z-index: 11;
+            }
+            video {
+                z-index: 12;
+            }
+        }
+        .docs-logo {
+            position: absolute;
+            top: 5px;
+            left: 9px;
+            z-index: 15;
+            svg {
+                width: 140px;
+                height: 79px;
+            }
+            @include mq(tablet) {
+                left: 19px;
+            }
+            @include mq(mobile) {
+                transform-origin: top left;
+                transform: scale(.75);
+            }
+        }
+
+        .flower-logo {
+            position: absolute;
+            top: 0px;
+            right: 9px;
+            z-index: 200;
+
+            //Mobile S-32px
+            @include mq(mobile) {
+            transform-origin: top right;
+            transform: scale(.5);
+            //top: 138px;
+            }
+
+            @include mq(tablet) {
+             right: 19px;
+            }
+
+            //Tablet - 768px
+            @include mq(phablet) {
+              right: 9px;
+              //bottom: 0px;
+            }
+
+
+            @include mq(wide) {
+              //bottom: 9px;
+              right: 9px;
+            }
+        }
+    }
+    .foreground {
+        position: relative;
+        z-index: 10;
+        padding: 7px 10px 18px;
+        //text-shadow: 0 0 30px rgba(0,0,0,0.3);
+        text-shadow: 2px 2px #333333;
+        //transform-style: preserve-3d;
+        //perspective: 1000;
+        @include mq(phablet) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        @include mq(tablet) {
+            padding: 7px 20px 18px;
+        }
+        @include mq(leftCol) {
+            padding-left: 180px;
+        }
+        @include mq(wide) {
+            padding-left: 260px;
+        }
+        .title {
+            margin-top: 10px;
+
+            -webkit-animation-name: fadeInAndMove;
+            -webkit-animation-duration: .3s;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-name: fadeInAndMove;
+            animation-duration: .3s;
+            animation-timing-function: ease-in-out;
+
+            @include mq(mobile) {
+              transform-origin: top left;
+              transform: scale(0.6);
+            }
+            @include mq(mobileMedium) {
+              left: 0;
+              transform: scale(0.7);
+            }
+            @include mq(mobileLandscape) {
+              left: 0;
+              transform: scale(0.7);
+            }
+            @include mq(mobileLong) {
+              left: 0;
+              transform: scale(0.7);
+            }
+            @include mq(phablet) {
+              left: 0;
+              transform: scale(0.9);
+            }
+        }
+
+        .strapline {
+          color: #FFFFFF;
+          //text-shadow: 0 10px rgba(0,0,0,.2);
+          //animation: slide-left 1s;
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1s;
+          -webkit-animation-delay: 0.5s;
+          -webkit-animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+          -webkit-animation-fill-mode: both;
+
+          animation-name: fade;
+          animation-duration: 1s;
+          animation-delay: 0.5s;
+          animation-timing-function: cubic-bezier(.71,.55,.62,1.57);
+          animation-fill-mode: both;
+        }
+
+
+        .play {
+            color: #FFFFFF;
+        }
+        .strapline {
+            max-width: 80%;
+
+            @include mq(mobile) {
+                margin-top: -25px;
+                margin-top: -15px;
+                //margin-bottom: -2px;
+            }
+            @include mq(phablet) {
+                margin-top: 5px;
+                margin-bottom: -2px;
+            }
+            @include mq(desktop) {
+                margin-top: 5px;
+                margin-bottom: -5px;
+            }
+            br {
+                display: none;
+
+                @include mq(tablet) {
+                    display: block;
+                }
+                // @include mq(mobileLandscape) {
+                //     display: block;
+                // }
+            }
+        }
+        .play {
+            font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+            font-size: 16px;
+            margin-top: 16px;
+            margin-left: -2px;
+            position: relative;
+            &:before {
+                content: '';
+                width: 42px;
+                height: 42px;
+                border-radius: 100%;
+                background-color: #FB0;
+                display: inline-block;
+                margin-right: 3px;
+                vertical-align: middle;
+                position: relative;
+                bottom: 2px;
+            }
+            svg {
+                position: absolute;
+                width: 23px;
+                height: 19px;
+                top: 10px;
+                left: 12px;
+            }
+        }
+    }
+
+    .full-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 15 !important;
+        color: transparent;
+        &:hover ~ .foreground div,
+        &:hover ~ .background {
+            opacity: 0.9;
+        }
+    }
+}
+@keyframes fadeInAndMove {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+        //transform: scale(1.56, 1.56);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+        //transform: scale(1, 1);
+    }
+}
+
+@-webkit-keyframes fadeInAndMove {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+        //transform: scale(1.56, 1.56);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+        //transform: scale(1, 1);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
