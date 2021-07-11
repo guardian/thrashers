@@ -603,65 +603,65 @@ section#podcast-weekend {
 
 @keyframes bounceLow {
   0% {
-    transform: translateY(-50%) scaleY(1.01);
+    transform: translateY(-50%) scaleY(1.01) rotate(0.1deg);
   }
   14% {
-    transform: translateY(-50%) scaleY(1.01);
+    transform: translateY(-50%) scaleY(1.01) rotate(0.1deg);
   }
   21% {
-    transform: translateY(-50%) scaleY(1.05);
+    transform: translateY(-50%) scaleY(1.05) rotate(0.1deg);
   }
   33% {
-    transform: translateY(-50%) scaleY(0.7);
+    transform: translateY(-50%) scaleY(0.7) rotate(0.1deg);
   }
   41% {
-    transform: translateY(-50%) scaleY(0.95);
+    transform: translateY(-50%) scaleY(0.95) rotate(0.1deg);
   }
   56% {
-    transform: translateY(-50%) scaleY(0.9);
+    transform: translateY(-50%) scaleY(0.9) rotate(0.1deg);
   }
   71% {
-    transform: translateY(-50%) scaleY(1.01);
+    transform: translateY(-50%) scaleY(1.01) rotate(0.1deg);
   }
   86% {
-    transform: translateY(-50%) scaleY(0.85);
+    transform: translateY(-50%) scaleY(0.85) rotate(0.1deg);
   }
   91% {
-    transform: translateY(-50%) scaleY(0.85);
+    transform: translateY(-50%) scaleY(0.85) rotate(0.1deg);
   }
   100% {
-    transform: translateY(-50%) scaleY(1.01);
+    transform: translateY(-50%) scaleY(1.01) rotate(0.1deg);
   }
 }
 @keyframes bounceHigh {
   0% {
-    transform: translateY(-50%) scaleY(1.01);
+    transform: translateY(-50%) scaleY(1.01) rotate(0.1deg);
   }
   14% {
-    transform: translateY(-50%) scaleY(1.01);
+    transform: translateY(-50%) scaleY(1.01) rotate(0.1deg);
   }
   21% {
-    transform: translateY(-50%) scaleY(1.1);
+    transform: translateY(-50%) scaleY(1.1) rotate(0.1deg);
   }
   33% {
-    transform: translateY(-50%) scaleY(0.7);
+    transform: translateY(-50%) scaleY(0.7) rotate(0.1deg);
   }
   41% {
-    transform: translateY(-50%) scaleY(1.05);
+    transform: translateY(-50%) scaleY(1.05) rotate(0.1deg);
   }
   56% {
-    transform: translateY(-50%) scaleY(0.9);
+    transform: translateY(-50%) scaleY(0.9) rotate(0.1deg);
   }
   71% {
-    transform: translateY(-50%) scaleY(1.05);
+    transform: translateY(-50%) scaleY(1.05) rotate(0.1deg);
   }
   86% {
-    transform: translateY(-50%) scaleY(0.85);
+    transform: translateY(-50%) scaleY(0.85) rotate(0.1deg);
   }
   91% {
-    transform: translateY(-50%) scaleY(0.85);
+    transform: translateY(-50%) scaleY(0.85) rotate(0.1deg);
   }
   100% {
-    transform: translateY(-50%) scaleY(1.01);
+    transform: translateY(-50%) scaleY(1.01) rotate(0.1deg);
   }
 }
