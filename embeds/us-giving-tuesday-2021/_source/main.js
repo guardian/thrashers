@@ -11,7 +11,7 @@ function percentageTotalAsNegative() {
 };
 
 function animateBar() {
-    var progressBarElement = document.querySelector('.us-eoy-2021__progress-complete');
+    var progressBarElement = document.querySelector('.us-giving-tuesday-2021-container .us-end-of-year-2019__progress-complete');
 
     if (progressBarElement && progressBarElement instanceof HTMLElement) {
         progressBarElement.style.transform = 'translateX(' + percentageTotalAsNegative() + '%)';
@@ -20,7 +20,7 @@ function animateBar() {
 
 function increaseCounter() {
     count += Math.floor(total / 100);
-    var counterElement = document.querySelector('.us-eoy-2021__count');
+    var counterElement = document.querySelector('.us-giving-tuesday-2021-container .us-end-of-year-2019__count span');
 
     if (counterElement && counterElement instanceof HTMLElement) {
         counterElement.innerHTML = '$' + count.toLocaleString();
@@ -36,7 +36,6 @@ function fetchDataAndAnimate() {
     fetch('https://support.theguardian.com/ticker.json').then(function (resp) {
         return resp.json();
     }).then(function (data) {
-        console.log('yoyoyo');
         total = parseInt(data.total, 10);
         goal = parseInt(data.goal, 10);
 
