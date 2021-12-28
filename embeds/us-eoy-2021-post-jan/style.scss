@@ -334,6 +334,7 @@ $c-highlight: #C70000;
         top: 0px;
         height: 61px;
         right: 0px;
+        z-index: 100;
         @include mq(phablet) {
             height: 61px;
         }

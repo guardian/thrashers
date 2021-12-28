@@ -1,10 +1,11 @@
 var count = 0;
 var goal;
 var total;
+var barTotal;
 var completedGoal = false;
 
 function percentageTotalAsNegative() {
-    var percentage = total / goal * 100 - 100;
+    var percentage = barTotal / goal * 100 - 100;
     if (percentage > 0) {
         percentage = 0;
     }
@@ -38,10 +39,11 @@ function fetchDataAndAnimate() {
         return resp.json();
     }).then(function (data) {
         total = parseInt(data.total, 10);
+        barTotal = total;
         goal = parseInt(data.goal, 10);
         if (total >= 1250000) {
             if (total > 1300000) {
-                total = 1300000;
+                barTotal = 1300000;
             }
             goal = 1388889;
             document.getElementById('us-end-of-year-2019__our_goal').innerHTML = "<span class='us-end-of-year-2019__red'>But it's not too late to give!</span>";
