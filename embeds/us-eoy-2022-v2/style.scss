@@ -1,0 +1,412 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (mobile: 320px,
+    mobileMedium: 360px,
+    mobileLandscape: 480px,
+    phablet: 660px,
+    tablet: 740px,
+    desktop: 980px,
+    leftCol: 1140px,
+    wide: 1300px);
+
+$c-bg: #e2e1e0;
+$c-yellow: #ffe601;
+$c-white: #fff;
+$c-black: #212121;
+$c-blue: #1E5490;
+$c-button: #212121;
+$c-highlight: #ba4d0f;
+$c-gray: #bfbfbc;
+
+@import 'shared/_imports';
+
+@include base(us-eoy-2022-v2, $c-bg);
+
+@font-face {
+    font-family: 'Guardian Figures';
+    src: url('https://interactive.guim.co.uk/fonts/guss-webfonts/GHFGuardianDisplayFigures/GHFGuardianDisplayFigures-Bold.woff2') format('woff2'),
+    url('https://interactive.guim.co.uk/fonts/guss-webfonts/GHFGuardianDisplayFigures/GHFGuardianDisplayFigures-Bold.woff') format('woff'),
+    url('https://interactive.guim.co.uk/fonts/guss-webfonts/GHFGuardianDisplayFigures/GHFGuardianDisplayFigures-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+#end-of-year-fundraiser-2021, #end-of-year-fundraiser {
+    background-color: $c-bg;
+}
+
+.us-eoy__wrapper {
+    padding: 0px 0 20px;
+}
+.us-eoy-2022-v2__wrapper {
+    border-left: 1.2px solid $c-gray;
+    border-right: 1.2px solid $c-gray;
+}
+
+.us-eoy-container {
+
+    .us-end-of-year__content {
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0px 12px 0px 12px;
+
+        @include mq(tablet) {
+            padding: 0px 20px 0px 12px;
+            max-width: 450px;
+        }
+
+        @include mq(desktop) {
+            padding: 0px 20px 0px 12px;
+            max-width: 600px;
+        }
+
+        @include mq(leftCol) {
+            padding: 0px 20px 0px 12px;
+            max-width: 730px;
+        }
+
+        @include mq(wide) {
+            padding: 0px 20px 0px 12px;
+            max-width: 830px;
+        }
+    }
+
+    .us_end-of-year-image-container {
+        overflow: hidden;
+        position: absolute;
+        height: 100%;
+        right: 0px;
+        bottom: 0;
+        max-width: 100%;
+        z-index: 1;
+        display: none;
+        background-position: 90% 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+         @include mq(tablet) {
+            display: block;
+            width: calc(100% - 450px);
+        }
+
+        @include mq(desktop) {
+            width: calc(100% - 600px);
+        }
+
+        @include mq(leftCol) {
+            width: calc(100% - 720px);
+        }
+
+        @include mq(wide) {
+            width: calc(100% - 830px);
+        }
+    }
+    .us-end-of-year__image {
+        
+        width: 100%;
+        @include mq(tablet) {
+
+        }
+
+        @include mq(desktop) {
+
+        }
+
+        @include mq(leftCol) {
+
+        }
+
+        @include mq(wide) {
+
+        }
+    }
+
+    .us-end-of-year__mobile_image {
+        position: relative;
+        width: calc(100% + 26px);
+        margin-left: -13px;
+        margin-top: -4px;
+
+        @include mq(tablet) {
+            display: none;
+        }
+    }
+
+
+
+    .us-end-of-year__title {
+        font-family: GH Guardian Headline, Guardian Egyptian Web, Georgia, serif;
+        font-weight: bold;
+        padding: 4px 0 0px 0;
+        font-size: 25px;
+        display: block;
+        line-height: 1.2em;
+        /*margin-bottom: 10px;*/
+        color: $c-highlight;
+        position: relative;
+        z-index: 4;
+        /*overflow: hidden;*/
+        // height: 150px;
+        /*border-bottom: 1px solid #888;*/
+
+        @include mq(mobileMedium) {
+            font-size: 27px;
+            // height: 170px;
+            line-height: 1.1em;
+        }
+
+        @include mq(mobileLandscape) {
+            font-size: 34px;
+            // height: 250px;
+        }
+
+        @include mq(tablet) {
+            font-size: 40px;
+            line-height: 43px;
+            // height: auto;
+            width: 100%;
+            border-bottom: none;
+            overflow: visible;
+        }
+
+        @include mq(desktop) {
+            font-size: 43px;
+            line-height: 46px;
+            margin-bottom: 6px;
+        }
+
+        @include mq(leftCol) {
+            font-size: 38px;
+            margin-bottom: 6px;
+        }
+
+        @include mq(wide) {
+            font-size: 43px;
+            margin-top: 8px;
+        }
+    }
+
+    .us-end-of-year__title-kicker {
+        width: 100%;
+    }
+
+    .us-end-of-year__title-stand {
+        color: black;
+        font-weight: 500;
+        margin-bottom: 4px;
+        margin-top: 8px;
+        display: block;
+        font-size: 17px;
+        line-height: 22px;
+        width: 55%;
+
+        @include mq(mobileMedium) {
+            width: 200px;
+            font-size: 18px;
+            line-height: 23px;
+        }
+
+        @include mq(mobileLandscape) {
+            width: 45%;
+        }
+
+        @include mq(tablet) {
+            width: 100%;
+            font-size: 20px;
+            line-height: 26px;
+        }
+
+        @include mq(desktop) {
+            font-size: 22px;
+            line-height: 27px;
+        }
+
+        @include mq(leftCol) {
+            font-size: 22px;
+            line-height: 27px;
+        }
+
+        @include mq(wide) {
+            font-size: 25px;
+            line-height: 30px;
+            margin-bottom: 0px;
+        }
+    }
+
+    .us-end-of-year__title-main {
+        color: $c-black;
+    }
+
+    .us-end-of-year__maintext {
+        font-family: GuardianTextEgyptian, Guardian Text Egyptian Web, Georgia, serif;
+        font-size: 17px;
+        line-height: 23px;
+
+        // @include mq(tablet) {
+            //     margin-right: 280px;
+            // }
+
+
+            @include mq(desktop) {
+                font-size: 16px;
+                line-height: 22px;
+                margin-right: 5%;
+            }
+
+            @include mq(leftCol) {
+                font-size: 17px;
+                line-height: 23px;
+            }
+        }
+
+        .us-end-of-year__money-zone {
+            margin: 50px 0 20px 0;
+            position: relative;
+            font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+            font-weight: 400;
+
+            span {
+                font-weight: bold;
+            }
+            .us-end-of-year__red {
+                color: #C70000;
+            }
+
+            font-size: 13px;
+            line-height: 16px;
+            color: black;
+
+            @include mq(phablet) {
+                 margin: 68px 0 20px 0;
+                font-weight: bold !important;
+            }
+
+            @include mq(desktop) {
+                font-size: 17px;
+                line-height: 22px;
+                margin-right: 50px;
+            }
+        }
+
+        .us-end-of-year__count {
+            position: absolute;
+            left: 0px;
+            bottom: 25px;
+        }
+
+        .us-end-of-year__total {
+            position: absolute;
+            right: 0px;
+            bottom: 25px;
+            text-align: right;
+            z-index: 10;
+        }
+        .us-end-of-year__goal_reached {
+            right: 10%;
+            padding-right: 7px;
+        }
+        .us-end-of-year__goal_reached::after {
+            content: "";
+            border-right: 2px solid #000;
+            position: absolute;
+            top: 0px;
+            height: 57px;
+            right: 0px;
+            @include mq(desktop) {
+                height: 69px;
+            }
+        }
+
+        .us-end-of-year__progress-bar {
+            position: relative;
+            margin: 6px 0 10px;
+            height: 20px;
+            width: 100%;
+            border-radius: 3px;
+            overflow: hidden;
+            background-color: $c-white;
+        }
+
+        .us-end-of-year__progress-complete {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: $c-highlight;
+            transform: translateX(-100%);
+            transition: transform 0.8s linear;
+        }
+
+        .us-end-of-year__button {
+            display: inline-block;
+            padding: 7px 21px;
+            border-radius: 32px;
+            margin: 10px 5px 8px 0px;
+            color: $c-white !important;
+            font-family: 'Guardian Text Sans Web';
+            font-size: 17px;
+            font-weight: 600;
+            border: 1px solid $c-button;
+            background-color: $c-button;
+            background-repeat: no-repeat;
+            background-position: right 3px center;
+            transition: color 0.3s ease-out, background 0.3s ease-out;
+
+            .arrow-icon {
+                fill: white;
+                height: 32px;
+                width: 32px;
+                float: right;
+                margin-top: -3px;
+                display: block;
+            }
+
+            @include mq(desktop) {
+                margin-bottom: 12px;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &.editor_note {
+                color: $c-button !important;
+                background: rgba(0, 0, 0, 0) !important;
+                display: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            @include mq(tablet) {
+                &.editor_note {
+                    // display: inline-block;
+                    display: none;
+                }
+
+                .arrow-icon {
+                    display: none;
+                }
+            }
+        }
+
+
+
+        .us-end-of-year__roundel {
+            display: none;
+            z-index: 10;
+
+            @include mq(tablet) {
+                display: block;
+                width: 40px;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+            }
+
+            @include mq(desktop) {
+                width: 48px;
+            }
+        }
+    }

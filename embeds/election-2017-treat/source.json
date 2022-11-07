@@ -1,8 +1,0 @@
-{
-  "html": "<div class=\"election-2017-treat__wrapper\"><style>.election-treat__bar{width:24.5%}.election-treat__bar.tories{background-color:#00f}.election-treat__bar.labour{background-color:red}.election-treat__bar.lib-dem{background-color:orange}.election-treat__bar.snp{background-color:grey}</style><div class=\"election-treat__headline\">\n  Something about someone winning\n</div>\n<div class=\"election-treat__standfirst\">\n  Someone wins by xxx seats\n</div>\n<div class=\"election-treat__container\">\n    <div class=\"election-treat__bar tories\"></div>\n    <div class=\"election-treat__bar labour\"></div>\n    <div class=\"election-treat__bar lib-dem\"></div>\n    <div class=\"election-treat__bar snp\"></div>\n</div>\n\n<img\n    style=\"height:0;width:0;visibility:hidden;position:absolute;z-index: 1;\"\n    height=\"0\"\n    width=\"0\"\n    src=\"https://localhost:8000/embeds/election-2017-treat/hashed/empty.ad4a416e.gif\"\n    onload=\"var script=document.createElement('script');script.src='https://localhost:8000/embeds/election-2017-treat/hashed/main.98de0493.js'; document.body.appendChild(script);\"\n/>\n</div>",
-  "previous": "",
-  "refreshStatus": true,
-  "url": "https://www.theguardian.com",
-  "headline": "The Guardian",
-  "trailText": "Latest news, sport and comment from the Guardian"
-}
