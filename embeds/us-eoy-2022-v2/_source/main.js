@@ -13,7 +13,7 @@ function percentageTotalAsNegative() {
 };
 
 function animateBar() {
-    var progressBarElement = document.querySelector('.us-eoy-container .us-end-of-year__progress-complete');
+    var progressBarElement = document.querySelector('.us-eoy-container-v2 .us-end-of-year__progress-complete');
 
     if (progressBarElement && progressBarElement instanceof HTMLElement) {
         progressBarElement.style.transform = 'translateX(' + percentageTotalAsNegative() + '%)';
@@ -22,7 +22,7 @@ function animateBar() {
 
 function increaseCounter() {
     count += Math.floor(total / 100);
-    var counterElement = document.querySelector('.us-eoy-container .us-end-of-year__count span');
+    var counterElement = document.querySelector('.us-eoy-container-v2 .us-end-of-year__count span');
 
     if (counterElement && counterElement instanceof HTMLElement) {
         counterElement.innerHTML = '$' + count.toLocaleString();

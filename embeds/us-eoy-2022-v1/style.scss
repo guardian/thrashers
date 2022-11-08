@@ -31,6 +31,7 @@ $c-gray: #bfbfbc;
     font-stretch: normal;
 }
 
+
 #end-of-year-fundraiser-2021, #end-of-year-fundraiser {
     background-color: $c-bg;
 }
@@ -42,7 +43,7 @@ $c-gray: #bfbfbc;
     border-left: 1.2px solid $c-gray;
     border-right: 1.2px solid $c-gray;
 }
-.us-eoy-container {
+.us-eoy-container-v1 {
     .us-end-of-year__content {
         max-width: 100%;
         //position: relative;

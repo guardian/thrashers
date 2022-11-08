@@ -43,7 +43,7 @@ $c-gray: #bfbfbc;
     border-right: 1.2px solid $c-gray;
 }
 
-.us-eoy-container {
+.us-eoy-container-v2 {
 
     .us-end-of-year__content {
         max-width: 100%;
@@ -83,7 +83,7 @@ $c-gray: #bfbfbc;
         background-position: 90% 100%;
         background-repeat: no-repeat;
         background-size: cover;
-         @include mq(tablet) {
+        @include mq(tablet) {
             display: block;
             width: calc(100% - 450px);
         }
@@ -101,7 +101,7 @@ $c-gray: #bfbfbc;
         }
     }
     .us-end-of-year__image {
-        
+
         width: 100%;
         @include mq(tablet) {
 
@@ -241,50 +241,45 @@ $c-gray: #bfbfbc;
         font-size: 17px;
         line-height: 23px;
 
-        // @include mq(tablet) {
-            //     margin-right: 280px;
-            // }
 
-
-            @include mq(desktop) {
-                font-size: 16px;
-                line-height: 22px;
-                margin-right: 5%;
-            }
-
-            @include mq(leftCol) {
-                font-size: 17px;
-                line-height: 23px;
-            }
+        @include mq(desktop) {
+            font-size: 16px;
+            line-height: 22px;
+            margin-right: 5%;
         }
 
-        .us-end-of-year__money-zone {
-            margin: 50px 0 20px 0;
-            position: relative;
-            font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-            font-weight: 400;
+        @include mq(leftCol) {
+            font-size: 17px;
+            line-height: 23px;
+        }
+    }
 
-            span {
-                font-weight: bold;
-            }
-            .us-end-of-year__red {
-                color: #C70000;
-            }
+    .us-end-of-year__money-zone {
+        margin: 50px 0 20px 0;
+        position: relative;
+        font-family: GuardianTextSans, Guardian Text Sans Web, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+        font-weight: 400;
 
-            font-size: 13px;
-            line-height: 16px;
-            color: black;
+        span {
+            font-weight: bold;
+        }
+        .us-end-of-year__red {
+            color: $c-highlight;
+        }
 
-            @include mq(phablet) {
-                 margin: 68px 0 20px 0;
-                font-weight: bold !important;
-            }
+        font-size: 13px;
+        line-height: 16px;
+        color: black;
 
-            @include mq(desktop) {
-                font-size: 17px;
-                line-height: 22px;
-                margin-right: 50px;
-            }
+        @include mq(phablet) {
+            margin: 68px 0 20px 0;
+            font-weight: bold !important;
+        }
+
+        @include mq(desktop) {
+            font-size: 17px;
+            line-height: 22px;
+            margin-right: 50px;
         }
 
         .us-end-of-year__count {
@@ -337,7 +332,9 @@ $c-gray: #bfbfbc;
             transition: transform 0.8s linear;
         }
 
-        .us-end-of-year__button {
+        
+    }
+    .us-end-of-year__button {
             display: inline-block;
             padding: 7px 21px;
             border-radius: 32px;
@@ -390,23 +387,20 @@ $c-gray: #bfbfbc;
                 }
             }
         }
+    .us-end-of-year__roundel {
+        display: none;
+        z-index: 10;
 
+        @include mq(tablet) {
+            display: block;
+            width: 40px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
 
-
-        .us-end-of-year__roundel {
-            display: none;
-            z-index: 10;
-
-            @include mq(tablet) {
-                display: block;
-                width: 40px;
-                position: absolute;
-                top: 10px;
-                right: 20px;
-            }
-
-            @include mq(desktop) {
-                width: 48px;
-            }
+        @include mq(desktop) {
+            width: 48px;
         }
     }
+}
