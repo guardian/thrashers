@@ -46,8 +46,8 @@ function fetchDataAndAnimate() {
                 barTotal = 1300000;
             }
             goal = 1388889;
-            document.getElementById('us-end-of-year__our_goal').innerHTML = "<span class='us-end-of-year__red'>But it's not too late to give!</span>";
-            document.querySelector('.us-end-of-year__total').classList.add("us-end-of-year__goal_reached");
+            document.querySelector('.us-eoy-container-v2 #us-end-of-year__our_goal').innerHTML = "<span class='us-end-of-year__red'>But it's not too late to give!</span>";
+            document.querySelector('.us-eoy-container-v2 .us-end-of-year__total').classList.add("us-end-of-year__goal_reached");
             completedGoal = true;
         }
 
