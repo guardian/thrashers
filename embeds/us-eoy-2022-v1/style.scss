@@ -36,6 +36,10 @@ body #end-of-year-fundraiser-v1, #end-of-year-fundraiser {
     background-color: $c-bg;
 }
 
+body #end-of-year-fundraiser-v1 .facia-snap, #end-of-year-fundraiser .facia-snap {
+    overflow: hidden;
+}
+
 .us-eoy__wrapper {
     padding: 0px 0 20px;
 }
