@@ -1,0 +1,215 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (mobile: 320px,
+    mobileLandscape: 480px,
+    phablet: 660px,
+    tablet: 740px,
+    desktop: 980px,
+    leftCol: 1140px,
+    wide: 1300px);
+
+@import 'shared/_imports';
+
+section#qatar-nugget, section#qatar-treat {
+
+    &,
+    .tone-news--item.fc-item {
+        background-color: #dcdcdc;
+        // margin-top: -12px;
+    }
+
+    // background-color: tomato;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.treats__container .treat-separator {
+    position: relative;
+    margin-top: 12px;
+    padding-top: 12px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 1px;
+        height: 1px;
+        background-color: #BDBDBD;
+        width: 60px;
+
+        @include mq(wide) {
+            width: 140px;
+        }
+    }
+}
+
+.qatar-nugget {
+    width: 100%;
+}
+
+.qatar-nugget {
+    overflow: hidden;
+    font-size: 0;
+    border-bottom: 2px solid #DFE1E4;
+    padding-top: 6px;
+    position: relative;
+
+    @include mq(mobileLandscape) {
+        margin: 0 10px;
+    }
+
+    @include mq(phablet) {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    @include mq(tablet) {
+        max-width: 700px;
+        margin-left: 20px;
+    }
+
+    @include mq(desktop) {
+        max-width: 940px;
+        padding-top: 14px;
+    }
+
+    @include mq(leftCol) {
+        max-width: none;
+        width: 140px;
+        border: 0;
+        padding-top: 3px;
+        overflow: inherit;
+        margin: 0;
+    }
+
+    @include mq(wide) {
+        width: 220px;
+    }
+
+    h1 {
+        color: #005689;
+        font-family: $f-serif-headline;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 26px;
+
+        @include mq($from: wide) {
+            font-size: 28px;
+            line-height: 28px;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            height: 8px;
+            background-color: #4bc6df;
+            width: 80px;
+            margin-bottom: 4px;
+        }
+    }
+
+    p {
+        margin-top: 6px;
+        margin-bottom: 12px;
+        font-size: 15px;
+        line-height: 18px;
+
+        @include mq($from: wide) {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+
+    a {
+        &:hover {
+            text-decoration: none !important;
+            border: none;
+        }
+    }
+
+    .culture-nugget__image {
+        float: left;
+        margin-bottom: -0px;
+        width: 130px;
+
+        img {
+            width: 130px;
+            height: auto;
+        }
+    }
+
+    .culture-nugget__buttons {
+        float: left;
+        width: 253px;
+        margin-top: -8px;
+        margin-left: 10px;
+
+        @include mq($from: desktop) {
+            margin-left: 0px;
+            width: 140px;
+        }
+
+        @include mq($from: wide) {
+            width: 168px;
+        }
+    }
+
+    .culture-nugget__arrow {
+        position: absolute;
+        right: -10px;
+        top: 6px;
+        display: none;
+
+        @include mq($from: desktop) {
+            display: block;
+        }
+
+        @include mq(leftCol) {
+            right: -25px;
+            top: -34px;
+            transform: rotate(-27deg);
+        }
+
+        @include mq(wide) {
+            right: -10px;
+            top: 6px;
+            transform: rotate(0);
+        }
+
+        @include mq($from: wide) {
+            right: 30px;
+            top: 30px;
+        }
+    }
+
+    .cultural-button {
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: 900;
+        font-family: $f-serif-headline;
+        margin-bottom: 8px;
+        display: block;
+
+        &.second {
+            span {
+                background-color: #a1845c;
+            }
+        }
+
+        svg {
+            height: 14px;
+            margin-bottom: -3px;
+            margin-left: 6px;
+        }
+
+        span {
+            background-color: #121212;
+            padding: 0 5px 4px 5px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            position: relative;
+            color: #ffffff;
+        }
+    }
+
+}
