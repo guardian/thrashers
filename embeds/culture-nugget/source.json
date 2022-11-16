@@ -4,5 +4,16 @@
   "refreshStatus": true,
   "url": "https://www.theguardian.com",
   "headline": "The Guardian",
-  "trailText": "Latest news, sport and comment from the Guardian"
+  "trailText": "Latest news, sport and comment from the Guardian",
+  "app": {
+    "layout": "default",
+    "titleFont": "egypt-regular",
+    "titleColour": "#FFFFFF",
+    "buttonTextColour": "#",
+    "buttonBackgroundColour": "#",
+    "hideKicker": true,
+    "hideGuardianRoundel": true,
+    "imageGradient": true,
+    "html": ""
+  }
 }
