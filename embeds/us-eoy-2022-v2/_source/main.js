@@ -35,7 +35,7 @@ function increaseCounter() {
 };
 
 function fetchDataAndAnimate() {
-    fetch('https://support.theguardian.com/ticker.json').then(function (resp) {
+    fetch('https://support.theguardian.com/ticker/US_2022.json').then(function (resp) {
         return resp.json();
     }).then(function (data) {
         total = parseInt(data.total, 10);
