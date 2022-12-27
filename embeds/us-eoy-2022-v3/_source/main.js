@@ -47,10 +47,10 @@ function fetchDataAndAnimate() {
 			barTotal = total;
 			goal = parseInt(1000000, 10);
 			if (total >= 1000000) {
-				if (total > 1100000) {
-					barTotal = 1200000;
+				if (total > 1000000) {
+					barTotal = 1120000;
 				}
-				goal = 1270000;
+				goal = 1200000;
 				document.querySelector('.us-eoy-container-v3 #us-end-of-year__our_goal').innerHTML = "<span class='us-end-of-year__red'>But it's not too late to give!</span>";
 				document.querySelector('.us-eoy-container-v3 .us-end-of-year__total').classList.add('us-end-of-year__goal_reached');
 				completedGoal = true;
