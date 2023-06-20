@@ -1,0 +1,318 @@
+// Default breakpoints from Frontend
+$mq-breakpoints: (
+    mobile:          320px,
+    mobileLandscape: 480px,
+    phablet:         660px,
+    tablet:          740px,
+    desktop:         980px,
+    leftCol:         1140px,
+    wide:            1300px
+);
+
+@import 'shared/_imports';
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@include base(the-purpose-of-the-guardian, #f6f6f6);
+
+#the-purpose-of-the-guardian.fc-container--thrasher:hover {
+    background-color: darken(#f6f6f6, 3%);
+
+    .fc-item {
+        background-color: darken(#f6f6f6, 3%);
+    }
+}
+
+.the-purpose-of-the-guardian__wrapper:hover {
+    background-color: darken(#f6f6f6, 3%);
+
+    .purpose__cutout {
+      opacity: 0.9;
+    }
+}
+
+$light-blue: #4bc6df;
+$blue: guss-colour(guardian-brand, $pasteup-palette);
+
+.the-purpose-of-the-guardian__wrapper {
+  height: 295px;
+
+  @include mq($from: mobileLandscape, $to: tablet) {
+    height: 260px;
+  }
+}
+
+.purpose {
+  &__container {
+
+    @include mq(mobileLandscape) {
+      padding-left: 10px;
+    }
+
+    @include mq(tablet) {
+      padding-left: 20px;
+    }
+
+    @include mq(wide) {
+      padding-left: 260px;
+    }
+  }
+
+  &__gu-roundel-placeholder {
+    width: 30px;
+    height: 20px;
+    float: right;
+  }
+
+  &__gu-roundel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    & > svg {
+      path {
+        fill: $blue;
+      }      
+
+      height: auto;
+
+      width: 25px;
+
+      @include mq(desktop) {
+        width: 36px; 
+      }
+    }
+
+    @include mq(mobileLandscape) {
+      right: 20px;
+    }
+
+    @include mq(tablet) {
+      & > svg {
+        width: 42px;
+      }
+    }
+  }
+
+  &__line {
+    border-top: 10px solid $light-blue;
+    position: absolute;
+    top: 0;
+
+    width: 80px;
+
+    @include mq(desktop) {
+      // border-top: 20px solid $light-blue;
+      width: 230px;
+    }
+  }
+
+  &__quote {
+    @include f-headline;
+
+    display: flex;
+    align-items: flex-start;
+
+    color: $blue;
+    font-weight: 100;
+
+    font-size: 24px;
+    line-height: 24px;
+
+    @include mq(368px) {
+      width: 90%;      
+    }
+
+    margin: 15px 0 0 0;
+
+    svg {
+      flex-shrink: 0;
+      height: auto;
+
+      width: 26px;
+      padding-top: 3px;
+      padding-right: 3px;
+
+      path {
+        fill: $light-blue;
+      }
+    }
+
+    @include mq(tablet) {
+      font-size: 30px;
+      line-height: 30px;
+      width: 380px;
+
+      svg {
+        width: 32px;
+        padding-top: 5px;
+      }
+    }
+
+    @include mq(desktop) {
+      margin-top: 25px;
+      width: 550px;
+      font-size: 32px;
+      line-height: 32px;
+      svg {
+        width: 40px;
+        padding-top: 3px;
+      }
+    }
+
+    @include mq(leftCol) {
+      font-size: 34px;
+      line-height: 34px;
+    }
+
+    @include mq(wide) {
+      width: 490px;
+    }
+  }
+
+
+  @mixin image-width($width, $offset: 10px) {
+    img {
+      width: $width;
+    }
+
+    .purpose__cta {
+      padding-left: $width + $offset;
+    }
+  }
+
+  &__cutout {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &__cutout-and-cta {
+    position: absolute;
+    justify-content: flex-end;
+
+    width: 245px;
+
+    bottom: 0;
+    left: 10px;
+
+    @include image-width(100px);
+
+    @include mq(mobileLandscape) {
+      left: 20px;
+    }
+
+    @include mq(tablet) {
+      // Box width: 160
+      // Gutter: 10
+      @include image-width(160px, 20px);
+      width: 340px; // 2 * 160 + 2 * 10
+      right: 20px;
+      left: auto;
+    }
+
+    @include mq(desktop) {
+      width: 400px;
+    }
+
+    @include mq(leftCol) {
+      // @include image-width(200px);
+      // width: 520px;
+
+      // Box width: 220
+      @include image-width(220px, 20px);
+      width: 460px; // 2 * 220 + 2 * 10
+    }
+
+    @include mq(wide) {
+      right: 100px;
+    }
+  }
+
+  &__cta {
+    
+    text-align: left;
+
+    @include f-header;
+    color: $blue;
+    font-size: 18px;
+    line-height: 20px;
+
+    font-weight: 500;
+
+    padding-bottom: 10px;
+
+    padding-top: 14px;
+
+    @include mq($until: tablet) {
+      width: 180px;      
+    }
+
+    @include mq(tablet) {
+      font-size: 20px;
+      line-height: 22px;
+    }
+  }
+
+  &__link {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    whitespace: nowrap !important;
+  }
+
+  &__link:hover {
+    text-decoration: none;
+  }
+
+  @mixin round($radius) {
+    border-radius: $radius;
+    height: $radius;
+    width: $radius;
+    line-height: $radius;
+
+    svg {
+      height: $radius;
+      width: $radius;
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: $blue;
+    @include round(20px);
+
+    path {
+      fill: #fff;
+    }
+
+    @include mq(tablet) {
+      display: block;
+      @include round(30px);
+    }
+  }
+
+  &__quote-name {
+    font-weight: bold;
+  }
+
+  &__quote-icon {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    fill: guss-colour(guardian-brand, $pasteup-palette);
+  }
+
+}
